@@ -2549,7 +2549,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   br label %1180
 
 1180:                                             ; preds = %1177, %._crit_edge1122
-  call void @free(ptr noundef %851) #12
+  call void @free(ptr noundef nonnull %851) #12
   br i1 %.not841.not.not, label %1181, label %1184
 
 1181:                                             ; preds = %1180
@@ -2558,7 +2558,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   br label %1184
 
 1184:                                             ; preds = %1181, %1180
-  call void @free(ptr noundef %870) #12
+  call void @free(ptr noundef nonnull %870) #12
   %1185 = call i32 @H5Sclose(i64 noundef %.2668) #12
   %1186 = call i32 @H5Sclose(i64 noundef %.2665) #12
   %1187 = load i32, ptr %513, align 8

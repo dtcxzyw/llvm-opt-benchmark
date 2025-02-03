@@ -398,7 +398,7 @@ multiple_accelerators_found_help_message.exit:    ; preds = %.lr.ph.i68, %151, %
   br i1 %.not.i74, label %opal_obj_run_destructors.exit, label %.lr.ph.i72, !llvm.loop !9
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i72, %.lr.ph108
-  call void @free(ptr noundef %164) #8
+  call void @free(ptr noundef nonnull %164) #8
   %178 = load volatile i64, ptr %159, align 8
   %179 = icmp eq i64 %178, 0
   br i1 %179, label %._crit_edge109, label %.lr.ph108, !llvm.loop !10
@@ -438,7 +438,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i72, %.lr.ph
   br i1 %.not.i82, label %opal_obj_run_destructors.exit83, label %.lr.ph.i80, !llvm.loop !9
 
 opal_obj_run_destructors.exit83:                  ; preds = %.lr.ph.i80, %.lr.ph112
-  call void @free(ptr noundef %184) #8
+  call void @free(ptr noundef nonnull %184) #8
   %198 = load volatile i64, ptr %116, align 8
   %199 = icmp eq i64 %198, 0
   br i1 %199, label %._crit_edge113, label %.lr.ph112, !llvm.loop !11

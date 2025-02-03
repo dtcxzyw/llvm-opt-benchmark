@@ -28541,7 +28541,7 @@ entry:
   br i1 %call.i, label %if.then.i, label %if.else7.i
 
 if.then.i:                                        ; preds = %entry
-  %call1.i = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt15model_based_opt3var7compareEEclIPS4_S8_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %__comp.i, ptr noundef %add.ptr, ptr noundef nonnull %add.ptr2)
+  %call1.i = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt15model_based_opt3var7compareEEclIPS4_S8_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %__comp.i, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr2)
   br i1 %call1.i, label %_ZSt22__move_median_to_firstIPN3opt15model_based_opt3varEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_S9_S9_T0_.exit, label %if.end16.sink.split.i
 
 if.else7.i:                                       ; preds = %entry
@@ -28550,7 +28550,7 @@ if.else7.i:                                       ; preds = %entry
 
 if.end16.sink.split.i:                            ; preds = %if.else7.i, %if.then.i
   %__b.sink19.i = phi ptr [ %add.ptr1, %if.then.i ], [ %add.ptr, %if.else7.i ]
-  %call11.i = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt15model_based_opt3var7compareEEclIPS4_S8_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %__comp.i, ptr noundef %__b.sink19.i, ptr noundef nonnull %add.ptr2)
+  %call11.i = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt15model_based_opt3var7compareEEclIPS4_S8_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %__comp.i, ptr noundef nonnull %__b.sink19.i, ptr noundef nonnull %add.ptr2)
   %__c.__b.i = select i1 %call11.i, ptr %add.ptr2, ptr %__b.sink19.i
   br label %_ZSt22__move_median_to_firstIPN3opt15model_based_opt3varEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_7compareEEEEvT_S9_S9_S9_T0_.exit
 
@@ -28568,7 +28568,7 @@ while.body.i:                                     ; preds = %if.end.i, %_ZSt22__
 
 while.cond1.i:                                    ; preds = %while.cond1.i, %while.body.i
   %__first.addr.1.i = phi ptr [ %__first.addr.0.i, %while.body.i ], [ %incdec.ptr.i, %while.cond1.i ]
-  %call.i10 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt15model_based_opt3var7compareEEclIPS4_S8_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %__comp.i9, ptr noundef %__first.addr.1.i, ptr noundef nonnull %__first)
+  %call.i10 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt15model_based_opt3var7compareEEclIPS4_S8_EEbT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %__comp.i9, ptr noundef nonnull %__first.addr.1.i, ptr noundef nonnull %__first)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.i, i64 40
   br i1 %call.i10, label %while.cond1.i, label %while.cond4.i, !llvm.loop !141
 

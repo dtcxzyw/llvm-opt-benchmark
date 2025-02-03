@@ -513,7 +513,7 @@ define linkonce_odr dso_local void @_ZN6cmList4JoinISt23_Rb_tree_const_iteratorI
           to label %.preheader.i.i.i.preheader unwind label %28
 
 .preheader.i.i.i.preheader:                       ; preds = %18
-  %20 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #12
+  %20 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %1) #12
   %.not13 = icmp eq ptr %20, %2
   br i1 %.not13, label %_ZSt4nextISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit._crit_edge, label %.lr.ph
 
@@ -528,7 +528,7 @@ define linkonce_odr dso_local void @_ZN6cmList4JoinISt23_Rb_tree_const_iteratorI
           to label %_ZSt4nextISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit unwind label %30
 
 _ZSt4nextISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit: ; preds = %22
-  %25 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.014) #12
+  %25 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.014) #12
   %.not = icmp eq ptr %25, %2
   br i1 %.not, label %_ZSt4nextISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit._crit_edge, label %.lr.ph, !llvm.loop !11
 

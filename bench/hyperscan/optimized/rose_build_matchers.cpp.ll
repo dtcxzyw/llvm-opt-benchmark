@@ -5695,7 +5695,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #25
   resume { ptr, i32 } %0
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %entry
@@ -14411,7 +14411,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
   %16 = tail call ptr @__cxa_begin_catch(ptr %15) #25
-  invoke void @_ZSt8_DestroyIPN3ue211hwlmLiteralEEvT_S3_(ptr noundef %1, ptr noundef %__cur.018.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3ue211hwlmLiteralEEvT_S3_(ptr noundef %1, ptr noundef nonnull %__cur.018.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -14673,7 +14673,7 @@ lpad.i.i.i.i252:                                  ; preds = %for.body.i.i.i.i249
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = tail call ptr @__cxa_begin_catch(ptr %48) #25
-  invoke void @_ZSt8_DestroyIPN3ue211hwlmLiteralEEvT_S3_(ptr noundef %__cur.0.lcssa.i.i.i.i.i243, ptr noundef %__cur.018.i.i.i.i250)
+  invoke void @_ZSt8_DestroyIPN3ue211hwlmLiteralEEvT_S3_(ptr noundef %__cur.0.lcssa.i.i.i.i.i243, ptr noundef nonnull %__cur.018.i.i.i.i250)
           to label %invoke.cont5.i.i.i.i256 unwind label %lpad4.i.i.i.i253
 
 invoke.cont5.i.i.i.i256:                          ; preds = %lpad.i.i.i.i252
@@ -15240,7 +15240,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
   %20 = tail call ptr @__cxa_begin_catch(ptr %19) #25
-  invoke void @_ZSt8_DestroyIPN3ue211AccelStringEEvT_S3_(ptr noundef %1, ptr noundef %__cur.018.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3ue211AccelStringEEvT_S3_(ptr noundef %1, ptr noundef nonnull %__cur.018.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -15517,7 +15517,7 @@ lpad.i.i.i.i258:                                  ; preds = %for.body.i.i.i.i255
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
   %59 = tail call ptr @__cxa_begin_catch(ptr %58) #25
-  invoke void @_ZSt8_DestroyIPN3ue211AccelStringEEvT_S3_(ptr noundef %__cur.0.lcssa.i.i.i.i.i249, ptr noundef %__cur.018.i.i.i.i256)
+  invoke void @_ZSt8_DestroyIPN3ue211AccelStringEEvT_S3_(ptr noundef %__cur.0.lcssa.i.i.i.i.i249, ptr noundef nonnull %__cur.018.i.i.i.i256)
           to label %invoke.cont5.i.i.i.i262 unwind label %lpad4.i.i.i.i259
 
 invoke.cont5.i.i.i.i262:                          ; preds = %lpad.i.i.i.i258
@@ -16190,7 +16190,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   resume { ptr, i32 } %0
 }
 
@@ -16375,7 +16375,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #25
-  invoke void @_ZSt8_DestroyIPN3ue211AccelStringEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef %__cur.018.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3ue211AccelStringEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef nonnull %__cur.018.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i

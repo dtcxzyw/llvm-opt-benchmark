@@ -2466,7 +2466,7 @@ if.then21:                                        ; preds = %sdsavail.exit107
 if.end23:                                         ; preds = %if.then21, %sdsavail.exit107
   %s.addr.3 = phi ptr [ %call.i108, %if.then21 ], [ %s.addr.1, %sdsavail.exit107 ]
   %add.ptr24 = getelementptr inbounds i8, ptr %s.addr.3, i64 %i.0235
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr24, ptr align 1 %23, i64 %cond, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr24, ptr nonnull align 1 %23, i64 %cond, i1 false)
   %arrayidx.i109 = getelementptr inbounds i8, ptr %s.addr.3, i64 -1
   %39 = load i8, ptr %arrayidx.i109, align 1
   %40 = and i8 %39, 7

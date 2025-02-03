@@ -4269,7 +4269,7 @@ sw.epilog:                                        ; preds = %if.end.sink.split.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.epilog
-  tail call fastcc void @esp_pdma_cb(ptr noundef %call.i)
+  tail call fastcc void @esp_pdma_cb(ptr noundef nonnull %call.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sw.epilog

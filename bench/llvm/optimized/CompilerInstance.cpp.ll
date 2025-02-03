@@ -3349,7 +3349,7 @@ _ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.i: ; 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %122 = call noalias noundef nonnull dereferenceable(1112) ptr @_Znwm(i64 noundef 1112) #23, !noalias !46
   store i64 %.sroa.032.0.i, ptr %9, align 8, !noalias !46
-  call void @_ZN5clang20LogDiagnosticPrinterC1ERN4llvm11raw_ostreamEPNS_17DiagnosticOptionsESt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(1112) %122, ptr noundef nonnull align 8 dereferenceable(48) %.0.i, ptr noundef %1, ptr noundef nonnull %9) #24, !noalias !46
+  call void @_ZN5clang20LogDiagnosticPrinterC1ERN4llvm11raw_ostreamEPNS_17DiagnosticOptionsESt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(1112) %122, ptr noundef nonnull align 8 dereferenceable(48) %.0.i, ptr noundef nonnull %1, ptr noundef nonnull %9) #24, !noalias !46
   %123 = load ptr, ptr %9, align 8, !noalias !46
   %.not.i.i11.i = icmp eq ptr %123, null
   br i1 %.not.i.i11.i, label %_ZSt11make_uniqueIN5clang20LogDiagnosticPrinterEJRN4llvm11raw_ostreamERPNS0_17DiagnosticOptionsESt10unique_ptrIS3_St14default_deleteIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, label %_ZNKSt14default_deleteIN4llvm11raw_ostreamEEclEPS1_.exit.i.i.i
@@ -3448,7 +3448,7 @@ _ZL18SetUpDiagnosticLogPN5clang17DiagnosticOptionsEPKNS_14CodeGenOptionsERNS_17D
   %160 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %157) #24
   %161 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %157) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @_ZN5clang16serialized_diags6createEN4llvm9StringRefEPNS_17DiagnosticOptionsEb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.567") align 8 %5, ptr %160, i64 %161, ptr noundef %1, i1 noundef zeroext false) #24
+  call void @_ZN5clang16serialized_diags6createEN4llvm9StringRefEPNS_17DiagnosticOptionsEb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.567") align 8 %5, ptr %160, i64 %161, ptr noundef nonnull %1, i1 noundef zeroext false) #24
   %162 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
   %163 = load ptr, ptr %162, align 8
   %.not.i22 = icmp eq ptr %163, null
@@ -26941,7 +26941,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %38, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE24_M_get_insert_unique_posERS7_.exit, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #28
+  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %43 = icmp slt i32 %42, 0
@@ -27007,7 +27007,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %67, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE24_M_get_insert_unique_posERS7_.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #28
+  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %70) #24
   %72 = icmp slt i32 %71, 0

@@ -9659,11 +9659,11 @@ if.then.i.i:                                      ; preds = %invoke.cont51
   %57 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %idx.ext.i, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %57, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPN10polynomial5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_T1_(ptr noundef %55, ptr noundef nonnull %add.ptr.i, i64 noundef %mul.i.i)
+  invoke void @_ZSt16__introsort_loopIPN10polynomial5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_T1_(ptr noundef nonnull %55, ptr noundef nonnull %add.ptr.i, i64 noundef %mul.i.i)
           to label %.noexc137 unwind label %lpad2
 
 .noexc137:                                        ; preds = %if.then.i.i
-  invoke void @_ZSt22__final_insertion_sortIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_(ptr noundef %55, ptr noundef nonnull %add.ptr.i)
+  invoke void @_ZSt22__final_insertion_sortIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_(ptr noundef nonnull %55, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont53 unwind label %lpad2
 
 invoke.cont53:                                    ; preds = %invoke.cont51, %.noexc137
@@ -9682,11 +9682,11 @@ if.then.i.i145:                                   ; preds = %invoke.cont57
   %60 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %idx.ext.i142, i1 true)
   %sub.i.i.i150 = shl nuw nsw i64 %60, 1
   %mul.i.i151 = xor i64 %sub.i.i.i150, 126
-  invoke void @_ZSt16__introsort_loopIPN10polynomial5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_T1_(ptr noundef %58, ptr noundef nonnull %add.ptr.i143, i64 noundef %mul.i.i151)
+  invoke void @_ZSt16__introsort_loopIPN10polynomial5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_T1_(ptr noundef nonnull %58, ptr noundef nonnull %add.ptr.i143, i64 noundef %mul.i.i151)
           to label %.noexc152 unwind label %lpad2
 
 .noexc152:                                        ; preds = %if.then.i.i145
-  invoke void @_ZSt22__final_insertion_sortIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_(ptr noundef %58, ptr noundef nonnull %add.ptr.i143)
+  invoke void @_ZSt22__final_insertion_sortIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_(ptr noundef nonnull %58, ptr noundef nonnull %add.ptr.i143)
           to label %.noexc152.invoke.cont60_crit_edge unwind label %lpad2
 
 .noexc152.invoke.cont60_crit_edge:                ; preds = %.noexc152
@@ -14378,7 +14378,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %107 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %ehcleanup
 
 invoke.cont53:                                    ; preds = %call.i.noexc
@@ -16124,7 +16124,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %ehcleanup
 
 invoke.cont10:                                    ; preds = %call.i.noexc
@@ -17047,7 +17047,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %ehcleanup
 
 invoke.cont9:                                     ; preds = %call.i.noexc
@@ -25708,7 +25708,7 @@ common.resume:                                    ; preds = %ehcleanup.i173, %cl
 lpad.i:                                           ; preds = %if.then.i
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %common.resume
 
 _ZN10polynomial7manager3imp10checkpointEv.exit:   ; preds = %for.body
@@ -37979,7 +37979,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %common.resume
 
 _ZN10polynomial7manager3imp10checkpointEv.exit:   ; preds = %for.body
@@ -41602,11 +41602,11 @@ if.then.i.i:                                      ; preds = %invoke.cont18
   %15 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %idx.ext.i44, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %15, 1
   %mul.i.i46 = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPN10polynomial5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_T0_T1_(ptr noundef %.pre, ptr noundef nonnull %add.ptr.i45, i64 noundef %mul.i.i46)
+  invoke void @_ZSt16__introsort_loopIPN10polynomial5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_T0_T1_(ptr noundef nonnull %.pre, ptr noundef nonnull %add.ptr.i45, i64 noundef %mul.i.i46)
           to label %.noexc47 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc47:                                         ; preds = %if.then.i.i
-  invoke void @_ZSt22__final_insertion_sortIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_T0_(ptr noundef %.pre, ptr noundef nonnull %add.ptr.i45)
+  invoke void @_ZSt22__final_insertion_sortIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_T0_(ptr noundef nonnull %.pre, ptr noundef nonnull %add.ptr.i45)
           to label %invoke.cont20 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont20:                                    ; preds = %entry, %invoke.cont18, %.noexc47
@@ -58026,7 +58026,7 @@ if.then.i.i:                                      ; preds = %invoke.cont9
   %10 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %idx.ext.i17, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %10, 1
   %mul.i.i19 = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPPN10polynomial8monomialElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7lex_lt2EEEEvT_S9_T0_T1_(ptr noundef %.pre, ptr noundef nonnull %add.ptr.i18, i64 noundef %mul.i.i19, i32 %x)
+  invoke void @_ZSt16__introsort_loopIPPN10polynomial8monomialElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7lex_lt2EEEEvT_S9_T0_T1_(ptr noundef nonnull %.pre, ptr noundef nonnull %add.ptr.i18, i64 noundef %mul.i.i19, i32 %x)
           to label %.noexc20 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc20:                                         ; preds = %if.then.i.i
@@ -58035,7 +58035,7 @@ if.then.i.i:                                      ; preds = %invoke.cont9
 
 if.then.i.i.i:                                    ; preds = %.noexc20
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.pre, i64 128
-  invoke void @_ZSt16__insertion_sortIPPN10polynomial8monomialEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7lex_lt2EEEEvT_S9_T0_(ptr noundef %.pre, ptr noundef nonnull %add.ptr.i.i.i, i32 %x)
+  invoke void @_ZSt16__insertion_sortIPPN10polynomial8monomialEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7lex_lt2EEEEvT_S9_T0_(ptr noundef nonnull %.pre, ptr noundef nonnull %add.ptr.i.i.i, i32 %x)
           to label %for.body.i.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %.noexc22
@@ -58049,7 +58049,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %.no
   br i1 %cmp.not.i.i.i.i, label %for.body16.preheader, label %for.body.i.i.i.i, !llvm.loop !266
 
 if.else.i.i.i:                                    ; preds = %.noexc20
-  invoke void @_ZSt16__insertion_sortIPPN10polynomial8monomialEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7lex_lt2EEEEvT_S9_T0_(ptr noundef %.pre, ptr noundef nonnull %add.ptr.i18, i32 %x)
+  invoke void @_ZSt16__insertion_sortIPPN10polynomial8monomialEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7lex_lt2EEEEvT_S9_T0_(ptr noundef nonnull %.pre, ptr noundef nonnull %add.ptr.i18, i32 %x)
           to label %for.body16.preheader unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.body16.preheader:                             ; preds = %.noexc22, %invoke.cont9, %if.else.i.i.i
@@ -58974,7 +58974,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %lpad.body
 
 invoke.cont22:                                    ; preds = %call.i.noexc
@@ -63206,7 +63206,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %lpad.body
 
 invoke.cont8:                                     ; preds = %call.i.noexc
@@ -64746,7 +64746,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %ehcleanup
 
 invoke.cont24:                                    ; preds = %call.i.noexc
@@ -66545,7 +66545,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %ehcleanup
 
 invoke.cont24:                                    ; preds = %call.i.noexc
@@ -68378,7 +68378,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %ehcleanup
 
 invoke.cont37:                                    ; preds = %call.i.noexc
@@ -70364,7 +70364,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %ehcleanup
 
 invoke.cont25:                                    ; preds = %call.i.noexc
@@ -77582,7 +77582,7 @@ invoke.cont.i70:                                  ; preds = %if.then.i69
 lpad.i:                                           ; preds = %if.then.i69
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %lpad38.body
 
 invoke.cont64:                                    ; preds = %call.i.noexc
@@ -82152,7 +82152,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %ehcleanup
 
 invoke.cont43:                                    ; preds = %call.i.noexc
@@ -84195,7 +84195,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %lpad.body
 
 invoke.cont24:                                    ; preds = %call.i.noexc
@@ -85545,7 +85545,7 @@ invoke.cont.i:                                    ; preds = %if.then.i88
 lpad.i:                                           ; preds = %if.then.i88
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %lpad.body
 
 invoke.cont24:                                    ; preds = %call.i.noexc
@@ -86640,7 +86640,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %lpad.body
 
 invoke.cont24:                                    ; preds = %call.i.noexc

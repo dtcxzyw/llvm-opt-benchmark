@@ -119,7 +119,7 @@ lpad18:                                           ; preds = %sw.epilog
 
 eh.resume:                                        ; preds = %lpad18, %lpad15, %lpad11, %lpad7, %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %5, %lpad18 ], [ %4, %lpad15 ], [ %3, %lpad11 ], [ %2, %lpad7 ], [ %1, %lpad3 ], [ %0, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception17) #8
+  tail call void @__cxa_free_exception(ptr nonnull %exception17) #8
   resume { ptr, i32 } %.pn
 }
 

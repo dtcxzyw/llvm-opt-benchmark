@@ -3126,12 +3126,12 @@ define hidden void @_ZN15MetaspaceShared41initialize_runtime_shared_and_meta_spa
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #15
   tail call void @_ZN11FileMapInfoC1EPKcb(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %1, i1 noundef zeroext true) #15
   %3 = tail call noundef zeroext i1 @_ZN11FileMapInfo10initializeEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #15
-  br i1 %3, label %_ZN15MetaspaceShared19open_static_archiveEv.exit, label %_ZN15MetaspaceShared19open_static_archiveEv.exit.thread
+  br i1 %3, label %_ZN15MetaspaceShared19open_static_archiveEv.exit, label %.thread
 
-_ZN15MetaspaceShared19open_static_archiveEv.exit.thread: ; preds = %0
+.thread:                                          ; preds = %0
   tail call void @_ZN11FileMapInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #15
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %2) #15
-  br label %.thread
+  br label %62
 
 _ZN15MetaspaceShared19open_static_archiveEv.exit: ; preds = %0
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
@@ -3154,8 +3154,8 @@ _ZN15MetaspaceShared19open_static_archiveEv.exit: ; preds = %0
 
 14:                                               ; preds = %10
   %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not64 = icmp eq ptr %15, null
-  br i1 %.not64, label %17, label %16
+  %.not63 = icmp eq ptr %15, null
+  br i1 %.not63, label %17, label %16
 
 16:                                               ; preds = %14
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.46)
@@ -3168,7 +3168,7 @@ _ZN15MetaspaceShared19open_static_archiveEv.exit: ; preds = %0
 19:                                               ; preds = %10, %17
   %.028 = phi i32 [ %18, %17 ], [ %12, %10 ]
   %20 = icmp eq i32 %.028, 0
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %62
 
 21:                                               ; preds = %19
   %.not33 = icmp eq ptr %11, null
@@ -3187,12 +3187,12 @@ _ZN15MetaspaceShared19open_static_archiveEv.exit: ; preds = %0
   br label %28
 
 28:                                               ; preds = %23, %.thread55
-  %.sink71 = phi ptr [ %2, %.thread55 ], [ %spec.select, %23 ]
+  %.sink70 = phi ptr [ %2, %.thread55 ], [ %spec.select, %23 ]
   %.pn = phi ptr [ %22, %.thread55 ], [ %27, %23 ]
   %29 = phi i1 [ false, %.thread55 ], [ %26, %23 ]
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 80
   %30 = load ptr, ptr %.in, align 8
-  %31 = tail call noundef ptr @_ZNK11FileMapInfo16last_core_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %.sink71) #15
+  %31 = tail call noundef ptr @_ZNK11FileMapInfo16last_core_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %.sink70) #15
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i64 @_ZNK13FileMapRegion12used_alignedEv(ptr noundef nonnull align 8 dereferenceable(88) %31) #15
@@ -3228,163 +3228,163 @@ _ZN15MetaspaceShared19open_static_archiveEv.exit: ; preds = %0
   %57 = getelementptr inbounds i8, ptr %56, i64 %54
   store ptr %57, ptr @_ZN11FileMapInfo18_shared_path_tableE, align 8
   store i8 0, ptr @AutoCreateSharedArchive, align 1
-  br label %.thread57
+  br label %.thread56
 
 58:                                               ; preds = %28
   %59 = getelementptr inbounds nuw i8, ptr %42, i64 704
   %60 = load i64, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %44, i64 %60
   store ptr %61, ptr @_ZN11FileMapInfo18_shared_path_tableE, align 8
-  br label %.thread57
+  br label %.thread56
 
-.thread:                                          ; preds = %_ZN15MetaspaceShared19open_static_archiveEv.exit.thread, %19
-  %.02954 = phi ptr [ %11, %19 ], [ null, %_ZN15MetaspaceShared19open_static_archiveEv.exit.thread ]
-  %.0.i4352 = phi ptr [ %2, %19 ], [ null, %_ZN15MetaspaceShared19open_static_archiveEv.exit.thread ]
+62:                                               ; preds = %.thread, %19
+  %.02954 = phi ptr [ null, %.thread ], [ %11, %19 ]
+  %.0.i4352 = phi ptr [ null, %.thread ], [ %2, %19 ]
   store ptr null, ptr @_ZN15MetaspaceShared28_shared_metaspace_static_topE, align 8
   store ptr null, ptr @_ZN12MetaspaceObj22_shared_metaspace_baseE, align 8
   store ptr null, ptr @_ZN12MetaspaceObj21_shared_metaspace_topE, align 8
-  %62 = load i8, ptr @_ZN9CDSConfig27_is_dumping_dynamic_archiveE, align 1
-  %63 = trunc i8 %62 to i1
-  br i1 %63, label %64, label %67
+  %63 = load i8, ptr @_ZN9CDSConfig27_is_dumping_dynamic_archiveE, align 1
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %68
 
-64:                                               ; preds = %.thread
-  %65 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not65 = icmp eq ptr %65, null
-  br i1 %.not65, label %67, label %66
+65:                                               ; preds = %62
+  %66 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not64 = icmp eq ptr %66, null
+  br i1 %.not64, label %68, label %67
 
-66:                                               ; preds = %64
+67:                                               ; preds = %65
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.47)
-  br label %67
+  br label %68
 
-67:                                               ; preds = %66, %64, %.thread
+68:                                               ; preds = %67, %65, %62
   store i8 0, ptr @UseSharedSpaces, align 1
   store i8 0, ptr @AutoCreateSharedArchive, align 1
   store i8 0, ptr @_ZN9CDSConfig27_is_dumping_dynamic_archiveE, align 1
-  %68 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not66 = icmp eq ptr %68, null
-  br i1 %.not66, label %70, label %69
+  %69 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not65 = icmp eq ptr %69, null
+  br i1 %.not65, label %71, label %70
 
-69:                                               ; preds = %67
+70:                                               ; preds = %68
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.48)
-  br label %70
+  br label %71
 
-70:                                               ; preds = %67, %69
-  %71 = load i8, ptr @PrintSharedArchiveAndExit, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %79
+71:                                               ; preds = %68, %70
+  %72 = load i8, ptr @PrintSharedArchiveAndExit, align 1
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %80
 
-73:                                               ; preds = %70
-  %74 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not2.i = icmp eq ptr %74, null
-  br i1 %.not2.i, label %76, label %75
+74:                                               ; preds = %71
+  %75 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not2.i = icmp eq ptr %75, null
+  br i1 %.not2.i, label %77, label %76
 
-75:                                               ; preds = %73
+76:                                               ; preds = %74
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.42)
-  br label %76
+  br label %77
 
-76:                                               ; preds = %75, %73
-  %77 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not3.i = icmp eq ptr %77, null
-  br i1 %.not3.i, label %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit, label %78
+77:                                               ; preds = %76, %74
+  %78 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not3.i = icmp eq ptr %78, null
+  br i1 %.not3.i, label %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit, label %79
 
-78:                                               ; preds = %76
+79:                                               ; preds = %77
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44)
   br label %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit
 
-_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit: ; preds = %76, %78
+_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit: ; preds = %77, %79
   tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.44, ptr noundef null) #15
-  br i1 %3, label %.thread57, label %93
+  br i1 %3, label %.thread56, label %94
 
-79:                                               ; preds = %70
-  %80 = load i8, ptr @RequireSharedSpaces, align 1
-  %81 = trunc i8 %80 to i1
-  br i1 %81, label %82, label %88
+80:                                               ; preds = %71
+  %81 = load i8, ptr @RequireSharedSpaces, align 1
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %89
 
-82:                                               ; preds = %79
-  %83 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not2.i35 = icmp eq ptr %83, null
-  br i1 %.not2.i35, label %85, label %84
+83:                                               ; preds = %80
+  %84 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not2.i35 = icmp eq ptr %84, null
+  br i1 %.not2.i35, label %86, label %85
 
-84:                                               ; preds = %82
+85:                                               ; preds = %83
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.42)
-  br label %85
+  br label %86
 
-85:                                               ; preds = %84, %82
-  %86 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not3.i36 = icmp eq ptr %86, null
-  br i1 %.not3.i36, label %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37, label %87
+86:                                               ; preds = %85, %83
+  %87 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not3.i36 = icmp eq ptr %87, null
+  br i1 %.not3.i36, label %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37, label %88
 
-87:                                               ; preds = %85
+88:                                               ; preds = %86
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.48)
   br label %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37
 
-_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37: ; preds = %85, %87
+_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37: ; preds = %86, %88
   tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.44, ptr noundef null) #15
-  br i1 %3, label %.thread57, label %93
+  br i1 %3, label %.thread56, label %94
 
-88:                                               ; preds = %79
-  br i1 %3, label %.thread57, label %93
+89:                                               ; preds = %80
+  br i1 %3, label %.thread56, label %94
 
-.thread57:                                        ; preds = %58, %50, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit, %88
-  %.0.i435163 = phi ptr [ %.0.i4352, %88 ], [ %.0.i4352, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %.0.i4352, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37 ], [ %2, %50 ], [ %2, %58 ]
-  %.0295361 = phi ptr [ %.02954, %88 ], [ %.02954, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %.02954, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37 ], [ %11, %50 ], [ %11, %58 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.0.i435163, i64 2
-  %90 = load i8, ptr %89, align 2
-  %91 = trunc i8 %90 to i1
-  br i1 %91, label %93, label %92
+.thread56:                                        ; preds = %58, %50, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit, %89
+  %.0.i435162 = phi ptr [ %.0.i4352, %89 ], [ %.0.i4352, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %.0.i4352, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37 ], [ %2, %50 ], [ %2, %58 ]
+  %.0295360 = phi ptr [ %.02954, %89 ], [ %.02954, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %.02954, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37 ], [ %11, %50 ], [ %11, %58 ]
+  %90 = getelementptr inbounds nuw i8, ptr %.0.i435162, i64 2
+  %91 = load i8, ptr %90, align 2
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %94, label %93
 
-92:                                               ; preds = %.thread57
-  tail call void @_ZN11FileMapInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.0.i435163) #15
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.0.i435163) #15
-  br label %93
+93:                                               ; preds = %.thread56
+  tail call void @_ZN11FileMapInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.0.i435162) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.0.i435162) #15
+  br label %94
 
-93:                                               ; preds = %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit, %92, %.thread57, %88
-  %.0295362 = phi ptr [ %.0295361, %.thread57 ], [ %.0295361, %92 ], [ %.02954, %88 ], [ %.02954, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %.02954, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37 ]
-  %.0 = phi i1 [ false, %.thread57 ], [ true, %92 ], [ false, %88 ], [ false, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ false, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37 ]
-  %.not34 = icmp eq ptr %.0295362, null
-  br i1 %.not34, label %99, label %94
+94:                                               ; preds = %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit, %93, %.thread56, %89
+  %.0295361 = phi ptr [ %.0295360, %.thread56 ], [ %.0295360, %93 ], [ %.02954, %89 ], [ %.02954, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %.02954, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37 ]
+  %.0 = phi i1 [ false, %.thread56 ], [ true, %93 ], [ false, %89 ], [ false, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ false, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit37 ]
+  %.not34 = icmp eq ptr %.0295361, null
+  br i1 %.not34, label %100, label %95
 
-94:                                               ; preds = %93
-  %95 = getelementptr inbounds nuw i8, ptr %.0295362, i64 2
-  %96 = load i8, ptr %95, align 2
-  %97 = trunc i8 %96 to i1
-  br i1 %97, label %99, label %98
+95:                                               ; preds = %94
+  %96 = getelementptr inbounds nuw i8, ptr %.0295361, i64 2
+  %97 = load i8, ptr %96, align 2
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %100, label %99
 
-98:                                               ; preds = %94
-  tail call void @_ZN11FileMapInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.0295362) #15
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.0295362) #15
-  br label %99
+99:                                               ; preds = %95
+  tail call void @_ZN11FileMapInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.0295361) #15
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.0295361) #15
+  br label %100
 
-99:                                               ; preds = %98, %94, %93
-  %.1 = phi i1 [ %.0, %94 ], [ true, %98 ], [ %.0, %93 ]
-  %100 = load i8, ptr @RequireSharedSpaces, align 1
-  %101 = trunc i8 %100 to i1
-  %brmerge.demorgan = and i1 %.1, %101
-  br i1 %brmerge.demorgan, label %102, label %108
+100:                                              ; preds = %99, %95, %94
+  %.1 = phi i1 [ %.0, %95 ], [ true, %99 ], [ %.0, %94 ]
+  %101 = load i8, ptr @RequireSharedSpaces, align 1
+  %102 = trunc i8 %101 to i1
+  %brmerge.demorgan = and i1 %.1, %102
+  br i1 %brmerge.demorgan, label %103, label %109
 
-102:                                              ; preds = %99
-  %103 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not2.i38 = icmp eq ptr %103, null
-  br i1 %.not2.i38, label %105, label %104
+103:                                              ; preds = %100
+  %104 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not2.i38 = icmp eq ptr %104, null
+  br i1 %.not2.i38, label %106, label %105
 
-104:                                              ; preds = %102
+105:                                              ; preds = %103
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.42)
-  br label %105
+  br label %106
 
-105:                                              ; preds = %104, %102
-  %106 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not3.i39 = icmp eq ptr %106, null
-  br i1 %.not3.i39, label %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit40, label %107
+106:                                              ; preds = %105, %103
+  %107 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not3.i39 = icmp eq ptr %107, null
+  br i1 %.not3.i39, label %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit40, label %108
 
-107:                                              ; preds = %105
+108:                                              ; preds = %106
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.48)
   br label %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit40
 
-_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit40: ; preds = %105, %107
+_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit40: ; preds = %106, %108
   tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.44, ptr noundef null) #15
-  br label %108
+  br label %109
 
-108:                                              ; preds = %99, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit40
+109:                                              ; preds = %100, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit40
   ret void
 }
 

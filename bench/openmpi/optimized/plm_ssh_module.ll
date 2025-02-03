@@ -3171,11 +3171,11 @@ setup_shell.exit.thread:                          ; preds = %.thread.i, %._crit_
 450:                                              ; preds = %442
   %451 = call i64 @sysconf(i32 noundef 0) #18
   %452 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.66, i32 noundef 1, i64 noundef %447, i64 noundef %451) #18
-  call void @free(ptr noundef %445) #18
+  call void @free(ptr noundef nonnull %445) #18
   br label %473
 
 453:                                              ; preds = %442
-  call void @free(ptr noundef %445) #18
+  call void @free(ptr noundef nonnull %445) #18
   br i1 %or.cond.i, label %454, label %456
 
 454:                                              ; preds = %453

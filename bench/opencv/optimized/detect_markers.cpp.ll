@@ -480,7 +480,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 176:                                              ; preds = %161
   %177 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %162) #15
+  call void @__cxa_free_exception(ptr nonnull %162) #15
   br label %179
 
 178:                                              ; preds = %160
@@ -627,7 +627,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 208:                                              ; preds = %193
   %209 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %194) #15
+  call void @__cxa_free_exception(ptr nonnull %194) #15
   br label %211
 
 210:                                              ; preds = %192
@@ -1264,7 +1264,7 @@ _ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit10.i.i: ; preds = %369
 382:                                              ; preds = %.critedge.i161
   %383 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %372) #15
+  call void @__cxa_free_exception(ptr nonnull %372) #15
   br label %.body163
 
 _ZN12_GLOBAL__N_131readCameraParamsFromCommandLineERN2cv17CommandLineParserERNS0_3MatES4_.exit: ; preds = %352, %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit10.i.i

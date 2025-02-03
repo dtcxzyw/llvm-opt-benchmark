@@ -3650,7 +3650,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 22:                                               ; preds = %._crit_edge
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #22
+  call void @__cxa_free_exception(ptr nonnull %20) #22
   br label %24
 
 24:                                               ; preds = %22, %18
@@ -9561,7 +9561,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_10ModuleItemENS0_8hash_opsIS3_EEE7
 56:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_10ModuleItemENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %57 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %54) #22
+  tail call void @__cxa_free_exception(ptr nonnull %54) #22
   resume { ptr, i32 } %57
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_10ModuleItemENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit: ; preds = %45

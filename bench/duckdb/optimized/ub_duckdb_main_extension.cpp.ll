@@ -3873,7 +3873,7 @@ call2.i.noexc:                                    ; preds = %call1.i.noexc
 lpad6:                                            ; preds = %catch
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #30
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont7
@@ -20079,7 +20079,7 @@ lpad:                                             ; preds = %invoke.cont21.invok
 lpad5:                                            ; preds = %if.then4
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #30
+  call void @__cxa_free_exception(ptr nonnull %exception) #30
   br label %ehcleanup25
 
 if.end:                                           ; preds = %invoke.cont2
@@ -20202,7 +20202,7 @@ ehcleanup:                                        ; preds = %if.then.i.i46, %_ZN
 lpad20:                                           ; preds = %if.then18
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception19) #30
+  call void @__cxa_free_exception(ptr nonnull %exception19) #30
   br label %ehcleanup25
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont16, %invoke.cont
@@ -27787,7 +27787,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #30
   br label %ehcleanup75
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i:          ; preds = %if.then
@@ -27933,7 +27933,7 @@ ehcleanup:                                        ; preds = %if.then.i.i114, %_Z
 lpad19:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #30
+  call void @__cxa_free_exception(ptr nonnull %exception) #30
   br label %ehcleanup23
 
 lpad22:                                           ; preds = %invoke.cont20
@@ -27992,7 +27992,7 @@ invoke.cont.i.i135:                               ; preds = %if.then.i.i132
 lpad.i.i134:                                      ; preds = %if.then.i.i132
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i133) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i133) #30
   br label %ehcleanup72
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i136:       ; preds = %if.end
@@ -28073,7 +28073,7 @@ invoke.cont.i.i164:                               ; preds = %if.then.i.i161
 lpad.i.i163:                                      ; preds = %if.then.i.i161
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i162) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i162) #30
   br label %ehcleanup71
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i165:       ; preds = %if.then35
@@ -28120,7 +28120,7 @@ invoke.cont.i.i180:                               ; preds = %if.then.i.i177
 lpad.i.i179:                                      ; preds = %if.then.i.i177
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i178) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i178) #30
   br label %ehcleanup70
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i181:       ; preds = %if.end43
@@ -31763,7 +31763,7 @@ lpad53:                                           ; preds = %_ZNSt8_Rb_treeINSt7
   br label %ehcleanup121
 
 if.end57:                                         ; preds = %_ZNSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_N14duckdb_httplib6detail2ciESaISt4pairIKS5_S5_EEE6insertERKSB_.exit, %invoke.cont42
-  %call.i169 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.0220) #35
+  %call.i169 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.0220) #35
   %cmp.i161.not = icmp eq ptr %call.i169, %add.ptr.i.i
   br i1 %cmp.i161.not, label %for.cond.cleanup, label %for.body
 
@@ -34676,7 +34676,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i146
 lpad.i.i:                                         ; preds = %if.then.i.i146
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #30
   br label %ehcleanup113
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i:          ; preds = %invoke.cont10
@@ -34753,7 +34753,7 @@ invoke.cont.i.i162:                               ; preds = %if.then.i.i159
 lpad.i.i161:                                      ; preds = %if.then.i.i159
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i160) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i160) #30
   br label %ehcleanup109
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i163:       ; preds = %invoke.cont16
@@ -34834,7 +34834,7 @@ invoke.cont.i.i191:                               ; preds = %if.then.i.i188
 lpad.i.i190:                                      ; preds = %if.then.i.i188
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i189) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i189) #30
   br label %ehcleanup107
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i192:       ; preds = %if.then23
@@ -34891,7 +34891,7 @@ invoke.cont.i.i207:                               ; preds = %if.then.i.i204
 lpad.i.i206:                                      ; preds = %if.then.i.i204
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i205) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i205) #30
   br label %ehcleanup105
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i208:       ; preds = %if.end30
@@ -34968,7 +34968,7 @@ invoke.cont.i.i234:                               ; preds = %if.then.i.i231
 lpad.i.i233:                                      ; preds = %if.then.i.i231
   %68 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i232) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i232) #30
   br label %ehcleanup101
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i235:       ; preds = %invoke.cont35
@@ -38588,7 +38588,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i139
 lpad.i.i:                                         ; preds = %if.then.i.i139
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #30
   br label %lpad23.body
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i:          ; preds = %if.end21
@@ -38763,7 +38763,7 @@ invoke.cont.i.i163:                               ; preds = %if.then.i.i160
 lpad.i.i162:                                      ; preds = %if.then.i.i160
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i161) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i161) #30
   br label %ehcleanup38
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i164:       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153
@@ -38919,7 +38919,7 @@ invoke.cont.i.i204:                               ; preds = %if.then.i.i201
 lpad.i.i203:                                      ; preds = %if.then.i.i201
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i202) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i202) #30
   br label %lpad40.body
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i205:       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194
@@ -39281,7 +39281,7 @@ invoke.cont.i.i306:                               ; preds = %if.then.i.i303
 lpad.i.i305:                                      ; preds = %if.then.i.i303
   %122 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i304) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i304) #30
   br label %lpad73.body
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i307:       ; preds = %if.end71
@@ -39447,7 +39447,7 @@ invoke.cont.i.i369:                               ; preds = %if.then.i.i366
 lpad.i.i368:                                      ; preds = %if.then.i.i366
   %146 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i367) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i367) #30
   br label %ehcleanup90
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i370:       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359
@@ -39599,7 +39599,7 @@ invoke.cont.i.i423:                               ; preds = %if.then.i.i420
 lpad.i.i422:                                      ; preds = %if.then.i.i420
   %167 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i421) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i421) #30
   br label %lpad92.body
 
 _ZN10duckdb_re25Match8GetGroupEm.exit.i424:       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit413
@@ -51385,7 +51385,7 @@ for.body.i.i:                                     ; preds = %_ZNSt7__cxx1112basi
           to label %call7.i.i.noexc unwind label %lpad14
 
 call7.i.i.noexc:                                  ; preds = %for.body.i.i
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.013.i.i) #35
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.013.i.i) #35
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %add.ptr.i.i
   br i1 %cmp.i.not.i.i, label %invoke.cont15, label %for.body.i.i, !llvm.loop !751
 
@@ -57987,7 +57987,7 @@ for.body.i.i:                                     ; preds = %_ZNSt7__cxx1112basi
           to label %call7.i.i.noexc unwind label %lpad36
 
 call7.i.i.noexc:                                  ; preds = %for.body.i.i
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.013.i.i) #35
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.013.i.i) #35
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %add.ptr.i.i
   br i1 %cmp.i.not.i.i, label %invoke.cont37, label %for.body.i.i, !llvm.loop !751
 

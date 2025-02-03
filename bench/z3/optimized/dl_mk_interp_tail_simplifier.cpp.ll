@@ -3084,7 +3084,7 @@ start.preheader:                                  ; preds = %invoke.cont3
 if.then:                                          ; preds = %invoke.cont3
   %1 = load ptr, ptr %res, align 8
   %cmp.not.i = icmp eq ptr %1, %r0
-  br i1 %cmp.not.i, label %cleanup197, label %if.then.i
+  br i1 %cmp.not.i, label %if.then.i.i313, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %tobool.not.i.i30 = icmp eq ptr %1, null
@@ -3101,7 +3101,7 @@ if.then.i3.i:                                     ; preds = %if.then.i, %if.then
   %m_manager.i4.i = getelementptr inbounds nuw i8, ptr %res, i64 8
   %3 = load ptr, ptr %m_manager.i4.i, align 8
   invoke void @_ZN7datalog12rule_manager7inc_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %3, ptr noundef nonnull %r0)
-          to label %cleanup197 unwind label %lpad
+          to label %if.then.i.i313 unwind label %lpad
 
 lpad:                                             ; preds = %if.then.i3.i41, %if.then.i.i36, %if.then.i3.i, %if.then.i.i31, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit
   %4 = landingpad { ptr, i32 }
@@ -3943,10 +3943,10 @@ if.end139.sink.split:                             ; preds = %if.then.i.i213, %if
   br label %if.end139
 
 if.end139:                                        ; preds = %if.end139.sink.split, %lor.lhs.false.i.i205, %lor.lhs.false.i.i183
-  %.sink533 = phi i32 [ %115, %lor.lhs.false.i.i183 ], [ %121, %lor.lhs.false.i.i205 ], [ %.pre1.i.i216, %if.end139.sink.split ]
+  %.sink536 = phi i32 [ %115, %lor.lhs.false.i.i183 ], [ %121, %lor.lhs.false.i.i205 ], [ %.pre1.i.i216, %if.end139.sink.split ]
   %.sink = phi ptr [ %114, %lor.lhs.false.i.i183 ], [ %120, %lor.lhs.false.i.i205 ], [ %.pre.i.i214, %if.end139.sink.split ]
   %call2.i197.sink = phi ptr [ %112, %lor.lhs.false.i.i183 ], [ %call2.i197, %lor.lhs.false.i.i205 ], [ %call2.i197.sink.ph, %if.end139.sink.split ]
-  %idx.ext.i.i209 = zext i32 %.sink533 to i64
+  %idx.ext.i.i209 = zext i32 %.sink536 to i64
   %add.ptr.i.i210 = getelementptr inbounds nuw ptr, ptr %.sink, i64 %idx.ext.i.i209
   store ptr %call2.i197.sink, ptr %add.ptr.i.i210, align 8
   %123 = load ptr, ptr %m_nodes.i, align 8
@@ -4248,26 +4248,28 @@ ehcleanup196:                                     ; preds = %lpad24.loopexit, %l
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %head) #19
   br label %ehcleanup198
 
-cleanup197:                                       ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit311, %if.then15, %if.then.i3.i, %if.then.i3.i41.cleanup197thread-pre-split_crit_edge, %if.then
-  %183 = phi ptr [ %r0, %if.then ], [ %.pr.i38, %if.then15 ], [ %.pr393.pre, %if.then.i3.i41.cleanup197thread-pre-split_crit_edge ], [ %r0, %if.then.i3.i ], [ %.pr.i38472, %_ZN7obj_refI3app11ast_managerED2Ev.exit311 ]
-  %retval.0 = phi i1 [ true, %if.then ], [ true, %if.then15 ], [ true, %if.then.i3.i41.cleanup197thread-pre-split_crit_edge ], [ true, %if.then.i3.i ], [ %retval.2, %_ZN7obj_refI3app11ast_managerED2Ev.exit311 ]
+cleanup197:                                       ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit311, %if.then15, %if.then.i3.i41.cleanup197thread-pre-split_crit_edge
+  %183 = phi ptr [ %.pr.i38, %if.then15 ], [ %.pr393.pre, %if.then.i3.i41.cleanup197thread-pre-split_crit_edge ], [ %.pr.i38472, %_ZN7obj_refI3app11ast_managerED2Ev.exit311 ]
+  %retval.0 = phi i1 [ true, %if.then15 ], [ true, %if.then.i3.i41.cleanup197thread-pre-split_crit_edge ], [ %retval.2, %_ZN7obj_refI3app11ast_managerED2Ev.exit311 ]
   %tobool.not.i.i312 = icmp eq ptr %183, null
   br i1 %tobool.not.i.i312, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit316, label %if.then.i.i313
 
-if.then.i.i313:                                   ; preds = %cleanup197
-  %184 = load ptr, ptr %m_manager.i, align 8
-  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %184, ptr noundef nonnull %183)
+if.then.i.i313:                                   ; preds = %if.then.i3.i, %if.then, %cleanup197
+  %retval.0493 = phi i1 [ %retval.0, %cleanup197 ], [ true, %if.then ], [ true, %if.then.i3.i ]
+  %184 = phi ptr [ %183, %cleanup197 ], [ %r0, %if.then ], [ %r0, %if.then.i3.i ]
+  %185 = load ptr, ptr %m_manager.i, align 8
+  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %185, ptr noundef nonnull %184)
           to label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit316 unwind label %terminate.lpad.i315
 
 terminate.lpad.i315:                              ; preds = %if.then.i.i313
-  %185 = landingpad { ptr, i32 }
+  %186 = landingpad { ptr, i32 }
           catch ptr null
-  %186 = extractvalue { ptr, i32 } %185, 0
-  call void @__clang_call_terminate(ptr %186) #18
+  %187 = extractvalue { ptr, i32 } %186, 0
+  call void @__clang_call_terminate(ptr %187) #18
   unreachable
 
 _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit316: ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEE7dec_refEv.exit.i39, %cleanup197, %if.then.i.i313
-  %retval.0396 = phi i1 [ %retval.0, %cleanup197 ], [ %retval.0, %if.then.i.i313 ], [ true, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEE7dec_refEv.exit.i39 ]
+  %retval.0396 = phi i1 [ %retval.0, %cleanup197 ], [ %retval.0493, %if.then.i.i313 ], [ true, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEE7dec_refEv.exit.i39 ]
   ret i1 %retval.0396
 
 ehcleanup198:                                     ; preds = %ehcleanup196, %lpad
@@ -4329,7 +4331,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK7datalog8rule_s
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit
-  %modified.013 = phi i1 [ false, %for.body.lr.ph ], [ %modified.1, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
+  %modified.013 = phi i1 [ false, %for.body.lr.ph ], [ %modified.121, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
   %__begin1.012 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
   %4 = load ptr, ptr %__begin1.012, align 8
   store ptr null, ptr %new_rule, align 8
@@ -4349,7 +4351,7 @@ invoke.cont7:                                     ; preds = %if.then
   %cmp10 = icmp ne ptr %4, %.pre
   %5 = or i1 %modified.013, %cmp10
   invoke void @_ZN7datalog8rule_set8add_ruleEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(248) %tgt, ptr noundef nonnull %.pre)
-          to label %if.end unwind label %lpad
+          to label %if.then.i.i unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont7, %if.then, %for.body
   %6 = landingpad { ptr, i32 }
@@ -4357,12 +4359,12 @@ lpad:                                             ; preds = %invoke.cont7, %if.t
   call void @_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_rule) #19
   resume { ptr, i32 } %6
 
-if.end:                                           ; preds = %invoke.cont, %invoke.cont7
-  %modified.1 = phi i1 [ %5, %invoke.cont7 ], [ true, %invoke.cont ]
+if.end:                                           ; preds = %invoke.cont
   %tobool.not.i.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.end
+if.then.i.i:                                      ; preds = %invoke.cont7, %if.end
+  %modified.120 = phi i1 [ true, %if.end ], [ %5, %invoke.cont7 ]
   %7 = load ptr, ptr %m_manager.i, align 8
   invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %7, ptr noundef nonnull %.pre)
           to label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit unwind label %terminate.lpad.i
@@ -4375,12 +4377,13 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   unreachable
 
 _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %if.end, %if.then.i.i
+  %modified.121 = phi i1 [ true, %if.end ], [ %modified.120, %if.then.i.i ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.012, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, %entry, %_ZNK7datalog8rule_set3endEv.exit
-  %modified.0.lcssa = phi i1 [ false, %_ZNK7datalog8rule_set3endEv.exit ], [ false, %entry ], [ %modified.1, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
+  %modified.0.lcssa = phi i1 [ false, %_ZNK7datalog8rule_set3endEv.exit ], [ false, %entry ], [ %modified.121, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
   ret i1 %modified.0.lcssa
 }
 

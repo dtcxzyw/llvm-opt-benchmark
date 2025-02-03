@@ -4732,22 +4732,20 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$L
 13:                                               ; preds = %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %17 = load i64, ptr %16, align 8, !range !1176, !invariant.load !5
-  %18 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %19 = load i64, ptr %18, align 8, !range !1177, !invariant.load !5
-  %20 = icmp ult i64 %19, -9223372036854775807
-  tail call void @llvm.assume(i1 %20)
-  %21 = icmp eq i64 %17, 0
-  br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1bead5e8dada5046E.exit4", label %22
+  %15 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %16 = load i64, ptr %15, align 8, !range !1176, !invariant.load !5
+  %17 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  %18 = load i64, ptr %17, align 8, !range !1177, !invariant.load !5
+  %19 = icmp ult i64 %18, -9223372036854775807
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp eq i64 %16, 0
+  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1bead5e8dada5046E.exit4", label %21
 
-22:                                               ; preds = %13
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #31
+21:                                               ; preds = %13
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %16, i64 noundef range(i64 1, -9223372036854775807) %18) #31
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1bead5e8dada5046E.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1bead5e8dada5046E.exit4": ; preds = %22, %13
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1bead5e8dada5046E.exit4": ; preds = %21, %13
   resume { ptr, i32 } %14
 }
 
@@ -12254,7 +12252,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc905492ab7ec65b5E.exit: ; preds = %.no
 
 69:                                               ; preds = %66
   %70 = extractvalue { ptr, ptr } %65, 1
-  %71 = invoke noundef ptr @_ZN9workspace9Workspace26enqueue_item_serialization17hcab9b549991fcaf3E(ptr noalias noundef nonnull align 8 dereferenceable(1576) %1, ptr noundef nonnull align 1 %67, ptr noalias noundef readonly align 8 dereferenceable(376) %70)
+  %71 = invoke noundef ptr @_ZN9workspace9Workspace26enqueue_item_serialization17hcab9b549991fcaf3E(ptr noalias noundef nonnull align 8 dereferenceable(1576) %1, ptr noundef nonnull align 1 %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(376) %70)
           to label %72 unwind label %37
 
 72:                                               ; preds = %69

@@ -21029,7 +21029,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13slpvectorizer7BoUpSLP9TreeEntryENS_11S
 
 533:                                              ; preds = %528
   %534 = getelementptr inbounds nuw i8, ptr %525, i64 1152
-  call fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN4llvm13slpvectorizer7BoUpSLP9TreeEntryENS1_11SmallVectorIS0_IjS5_ELj3EEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS3_18reorderBottomToTopEbE3$_3EEEvT_SG_T0_"(ptr noundef %525, ptr noundef nonnull %534)
+  call fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN4llvm13slpvectorizer7BoUpSLP9TreeEntryENS1_11SmallVectorIS0_IjS5_ELj3EEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS3_18reorderBottomToTopEbE3$_3EEEvT_SG_T0_"(ptr noundef nonnull %525, ptr noundef nonnull %534)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm13slpvectorizer7BoUpSLP9TreeEntryENS1_11SmallVectorIS0_IjS5_ELj3EEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS3_18reorderBottomToTopEbE3$_3EEEvT_T0_.exit", %533
@@ -21097,7 +21097,7 @@ _ZNSt4pairIPN4llvm13slpvectorizer7BoUpSLP9TreeEntryENS0_11SmallVectorIS_IjS4_ELj
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorISt4pairIPNS_13slpvectorizer7BoUpSLP9TreeEntryENS1_IS2_IjS6_ELj3EEEELj1EEEZNS4_18reorderBottomToTopEbE3$_3EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !305
 
 556:                                              ; preds = %528
-  call fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN4llvm13slpvectorizer7BoUpSLP9TreeEntryENS1_11SmallVectorIS0_IjS5_ELj3EEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS3_18reorderBottomToTopEbE3$_3EEEvT_SG_T0_"(ptr noundef %525, ptr noundef nonnull %527)
+  call fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN4llvm13slpvectorizer7BoUpSLP9TreeEntryENS1_11SmallVectorIS0_IjS5_ELj3EEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS3_18reorderBottomToTopEbE3$_3EEEvT_SG_T0_"(ptr noundef nonnull %525, ptr noundef nonnull %527)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorISt4pairIPNS_13slpvectorizer7BoUpSLP9TreeEntryENS1_IS2_IjS6_ELj3EEEELj1EEEZNS4_18reorderBottomToTopEbE3$_3EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorISt4pairIPNS_13slpvectorizer7BoUpSLP9TreeEntryENS1_IS2_IjS6_ELj3EEEELj1EEEZNS4_18reorderBottomToTopEbE3$_3EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm13slpvectorizer7BoUpSLP9TreeEntryENS1_11SmallVectorIS0_IjS5_ELj3EEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS3_18reorderBottomToTopEbE3$_3EEEvT_T0_.exit", %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13slpvectorizer7BoUpSLP9TreeEntryENS_11SmallVectorISt4pairIjS5_ELj3EEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E5beginEv.exit, %556
@@ -52565,7 +52565,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS0_13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EEEvT_SB_T0_"(ptr noundef %42, ptr noundef nonnull %50, ptr nonnull readonly %0)
+  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS0_13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EEEvT_SB_T0_"(ptr noundef nonnull %42, ptr noundef nonnull %50, ptr nonnull readonly %0)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2744
   br label %52
 
@@ -52611,7 +52611,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_11InstructionELj16EEEZNKS_13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EEvOT_T0_.exit", label %52, !llvm.loop !688
 
 71:                                               ; preds = %45
-  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS0_13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EEEvT_SB_T0_"(ptr noundef %42, ptr noundef nonnull %44, ptr nonnull readonly %0)
+  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS0_13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EEEvT_SB_T0_"(ptr noundef nonnull %42, ptr noundef nonnull %44, ptr nonnull readonly %0)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_11InstructionELj16EEEZNKS_13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorIPNS_11InstructionELj16EEEZNKS_13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %._crit_edge, %71
@@ -92767,7 +92767,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmp
 
 200:                                              ; preds = %195
   %201 = getelementptr inbounds nuw i8, ptr %192, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPPKN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13slpvectorizer7BoUpSLP22optimizeGatherSequenceEvE3$_1EEEvT_SE_T0_"(ptr noundef %192, ptr noundef nonnull %201)
+  call fastcc void @"_ZSt16__insertion_sortIPPKN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13slpvectorizer7BoUpSLP22optimizeGatherSequenceEvE3$_1EEEvT_SE_T0_"(ptr noundef nonnull %192, ptr noundef nonnull %201)
   br label %.lr.ph.i.i.i.i.i.i87
 
 .lr.ph.i.i.i.i.i.i87:                             ; preds = %"_ZSt25__unguarded_linear_insertIPPKN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13slpvectorizer7BoUpSLP22optimizeGatherSequenceEvE3$_1EEEvT_T0_.exit.i.i.i.i.i.i", %200
@@ -92800,7 +92800,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmp
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIPKNS_15DomTreeNodeBaseINS_10BasicBlockEEELj8EEEZNS_13slpvectorizer7BoUpSLP22optimizeGatherSequenceEvE3$_1EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i87, !llvm.loop !1145
 
 211:                                              ; preds = %195
-  call fastcc void @"_ZSt16__insertion_sortIPPKN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13slpvectorizer7BoUpSLP22optimizeGatherSequenceEvE3$_1EEEvT_SE_T0_"(ptr noundef %192, ptr noundef nonnull %194)
+  call fastcc void @"_ZSt16__insertion_sortIPPKN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13slpvectorizer7BoUpSLP22optimizeGatherSequenceEvE3$_1EEEvT_SE_T0_"(ptr noundef nonnull %192, ptr noundef nonnull %194)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorIPKNS_15DomTreeNodeBaseINS_10BasicBlockEEELj8EEEZNS_13slpvectorizer7BoUpSLP22optimizeGatherSequenceEvE3$_1EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorIPKNS_15DomTreeNodeBaseINS_10BasicBlockEEELj8EEEZNS_13slpvectorizer7BoUpSLP22optimizeGatherSequenceEvE3$_1EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIPPKN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13slpvectorizer7BoUpSLP22optimizeGatherSequenceEvE3$_1EEEvT_T0_.exit.i.i.i.i.i.i", %._crit_edge299, %211
@@ -133043,7 +133043,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN4
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorISt4pairIPNS_5ValueES4_ELj3EEELb0EE21takeAllocationForGrowEPS6_m.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorISt4pairIPNS_5ValueES4_ELj3EEELb0EE21takeAllocationForGrowEPS6_m.exit: ; preds = %1, %11
-  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %4, i64 noundef %8) #25
+  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %8) #25
   %12 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %13 = add i64 %12, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %13) #25
@@ -173600,7 +173600,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN4
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPNS_5ValueELj6EEELb0EE21takeAllocationForGrowEPS4_m.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPNS_5ValueELj6EEELb0EE21takeAllocationForGrowEPS4_m.exit: ; preds = %1, %11
-  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %4, i64 noundef %8) #25
+  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %8) #25
   %12 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %13 = add i64 %12, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %13) #25
@@ -189722,7 +189722,7 @@ _ZNSt4pairIN4llvm11SmallVectorIjLj4EEEjEC2IJOS2_EJOjEEESt21piecewise_construct_t
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %19 = load i32, ptr %13, align 4
   store i32 %19, ptr %18, align 8
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_11SmallVectorIjLj4EEEjELb0EE19moveElementsForGrowEPS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %7)
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_11SmallVectorIjLj4EEEjELb0EE19moveElementsForGrowEPS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %7)
   %20 = load i64, ptr %5, align 8
   %21 = load ptr, ptr %0, align 8
   %22 = icmp eq ptr %21, %6
@@ -193474,7 +193474,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPNS_5ValueELj8EEELb0EE21takeAllocationForGrowEPS4_m.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPNS_5ValueELj8EEELb0EE21takeAllocationForGrowEPS4_m.exit: ; preds = %1, %11
-  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %4, i64 noundef %8) #25
+  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %8) #25
   %12 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %13 = add i64 %12, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %13) #25
@@ -216682,7 +216682,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN4
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELj6EEELb0EE21takeAllocationForGrowEPS7_m.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELj6EEELb0EE21takeAllocationForGrowEPS7_m.exit: ; preds = %1, %11
-  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %4, i64 noundef %8) #25
+  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %8) #25
   %12 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %13 = add i64 %12, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %13) #25
@@ -216894,7 +216894,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN4
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELj6EEELb0EE21takeAllocationForGrowEPS7_m.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELj6EEELb0EE21takeAllocationForGrowEPS7_m.exit: ; preds = %3, %16
-  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %6, i64 noundef %13) #25
+  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6, i64 noundef %13) #25
   %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %18 = add i64 %17, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %18) #25

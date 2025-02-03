@@ -1048,8 +1048,8 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %.not.i22, label %opal_obj_run_destructors.exit23, label %.lr.ph.i20, !llvm.loop !7
 
 opal_obj_run_destructors.exit23:                  ; preds = %.lr.ph.i20, %53
-  tail call void @mca_rcache_base_module_fini(ptr noundef %0) #7
-  tail call void @free(ptr noundef %0) #7
+  tail call void @mca_rcache_base_module_fini(ptr noundef nonnull %0) #7
+  tail call void @free(ptr noundef nonnull %0) #7
   ret void
 }
 

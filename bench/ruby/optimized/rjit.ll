@@ -379,7 +379,7 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr noundef writeonly 
 
 .thread88:                                        ; preds = %97, %48, %119, %.thread82.thread
   %127 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %127, ptr noundef nonnull @.str.16, ptr noundef %0) #15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %127, ptr noundef nonnull @.str.16, ptr noundef nonnull %0) #15
   unreachable
 
 128:                                              ; preds = %20, %57, %89, %114, %125, %105, %74, %39, %2

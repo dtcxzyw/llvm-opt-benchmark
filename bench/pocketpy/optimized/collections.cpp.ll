@@ -1591,7 +1591,7 @@ define void @_ZN4pkpy7PyDeque9insertObjEbbiPNS_8PyObjectE(ptr noundef nonnull al
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #25
+  tail call void @__cxa_free_exception(ptr nonnull %10) #25
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %5
@@ -2506,7 +2506,7 @@ define noundef ptr @_ZN4pkpy7PyDeque6popObjEbbPNS_8PyObjectEPNS_2VME(ptr noundef
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #25
+  tail call void @__cxa_free_exception(ptr nonnull %10) #25
   br label %138
 
 14:                                               ; preds = %5
@@ -2533,7 +2533,7 @@ define noundef ptr @_ZN4pkpy7PyDeque6popObjEbbPNS_8PyObjectEPNS_2VME(ptr noundef
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %22) #25
+  tail call void @__cxa_free_exception(ptr nonnull %22) #25
   br label %138
 
 26:                                               ; preds = %17

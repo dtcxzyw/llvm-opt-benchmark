@@ -19560,7 +19560,7 @@ _ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_D
 
 223:                                              ; preds = %219
   %224 = getelementptr inbounds %class.Graph, ptr %158, i64 %2
-  invoke void @_ZSt8_DestroyIP5GraphS0_EvT_S2_RSaIT0_E(ptr noundef %158, ptr noundef nonnull %224, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  invoke void @_ZSt8_DestroyIP5GraphS0_EvT_S2_RSaIT0_E(ptr noundef nonnull %158, ptr noundef nonnull %224, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit113 unwind label %225
 
 225:                                              ; preds = %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit113, %223

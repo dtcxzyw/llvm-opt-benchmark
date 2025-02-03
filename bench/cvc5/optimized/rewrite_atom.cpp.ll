@@ -860,7 +860,7 @@ if.end34:                                         ; preds = %_ZN4cvc58internal8R
   br i1 %call2.i.i, label %if.then.i.i, label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
 if.then.i.i:                                      ; preds = %if.end34
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %sum.val.i) #14, !noalias !22
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %sum.val.i) #14, !noalias !22
   br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
 _ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i: ; preds = %if.then.i.i, %if.end34
@@ -946,7 +946,7 @@ terminate.lpad.i.i16.i:                           ; preds = %ehcleanup.i
 
 for.inc.i:                                        ; preds = %_ZN4cvc58internal8RationalD2Ev.exit13.i, %for.body.i170
   %minit.sroa.0.1.i = phi ptr [ %minit.sroa.0.066.i, %for.body.i170 ], [ %spec.select.i, %_ZN4cvc58internal8RationalD2Ev.exit13.i ]
-  %call.i.i173 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.065.i) #14, !noalias !22
+  %call.i.i173 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.065.i) #14, !noalias !22
   %cmp.i.not.i = icmp eq ptr %call.i.i173, %add.ptr.i.i.i
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i170, !llvm.loop !25
 
@@ -1320,7 +1320,7 @@ terminate.lpad.i.i.i299:                          ; preds = %invoke.cont79
   unreachable
 
 _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit301: ; preds = %invoke.cont79
-  %call.i302 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin4.sroa.0.0547) #14
+  %call.i302 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin4.sroa.0.0547) #14
   %cmp.i295.not = icmp eq ptr %call.i302, %add.ptr.i.i.i
   br i1 %cmp.i295.not, label %if.end82, label %for.body
 
@@ -1779,7 +1779,7 @@ terminate.lpad.i.i32:                             ; preds = %ehcleanup22
   unreachable
 
 if.end23:                                         ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit24, %invoke.cont4
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #14
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #14
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %sum, i64 8
   %cmp.i.not134 = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not134, label %for.end, label %for.body.lr.ph
@@ -2050,7 +2050,7 @@ terminate.lpad.i.i68:                             ; preds = %if.end77
   unreachable
 
 for.inc:                                          ; preds = %if.end77, %invoke.cont31
-  %call.i70 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0135) #14
+  %call.i70 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.0135) #14
   %cmp.i.not = icmp eq ptr %call.i70, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !31
 
@@ -2112,7 +2112,7 @@ call2.i.i.noexc:                                  ; preds = %if.then85
   br i1 %call2.i.i76, label %if.then.i.i, label %invoke.cont87
 
 if.then.i.i:                                      ; preds = %call2.i.i.noexc
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %sum.val) #14
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %sum.val) #14
   br label %invoke.cont87
 
 invoke.cont87:                                    ; preds = %if.then.i.i, %call2.i.i.noexc
@@ -2195,7 +2195,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont113
   unreachable
 
 _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit:  ; preds = %invoke.cont113
-  %call.i89 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin4.sroa.0.0137) #14
+  %call.i89 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin4.sroa.0.0137) #14
   %cmp.i87.not = icmp eq ptr %call.i89, %add.ptr.i.i
   br i1 %cmp.i87.not, label %for.end118, label %for.body107
 
@@ -2381,7 +2381,7 @@ cond.end:
   br i1 %call2.i.i, label %if.then.i.i, label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
 if.then.i.i:                                      ; preds = %cond.end
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %sum.val.i) #14, !noalias !32
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %sum.val.i) #14, !noalias !32
   br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
 _ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i: ; preds = %if.then.i.i, %cond.end
@@ -2830,7 +2830,7 @@ terminate.lpad.i.i.i75:                           ; preds = %invoke.cont29
   unreachable
 
 _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit:  ; preds = %invoke.cont29
-  %call.i76 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0255) #14
+  %call.i76 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.0255) #14
   %cmp.i.not = icmp eq ptr %call.i76, %add.ptr.i.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -3820,7 +3820,7 @@ if.end.i.i:                                       ; preds = %if.then4
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %if.then4, %if.end.i.i
-  tail call void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_19RealAlgebraicNumberEESt10_Select1stIS7_ENS1_6theory5arith8rewriter14TermComparatorESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %sum, ptr %4)
+  tail call void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_19RealAlgebraicNumberEESt10_Select1stIS7_ENS1_6theory5arith8rewriter14TermComparatorESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %sum, ptr nonnull %4)
   br label %nrvo.skipdtor
 
 lpad:                                             ; preds = %if.end.i.i, %if.then
@@ -4088,7 +4088,7 @@ if.end13.i:                                       ; preds = %cond.end
   br i1 %call2.i.i.i, label %if.then.i.i.i, label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end13.i
-  %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %sum.val.i) #14
+  %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %sum.val.i) #14
   br label %_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i
 
 _ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18getLTermERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE.exit.i: ; preds = %if.then.i.i.i, %if.end13.i
@@ -4207,7 +4207,7 @@ terminate.lpad.i.i.i33.i:                         ; preds = %invoke.cont43.i
   unreachable
 
 _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit34.i: ; preds = %invoke.cont43.i
-  %call.i.i47 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin4.sroa.0.044.i) #14
+  %call.i.i47 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin4.sroa.0.044.i) #14
   %cmp.i.not.i = icmp eq ptr %call.i.i47, %add.ptr.i.i.i
   br i1 %cmp.i.not.i, label %cleanup.i, label %for.body.i46
 

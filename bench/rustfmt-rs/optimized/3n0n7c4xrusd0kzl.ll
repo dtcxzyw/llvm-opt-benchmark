@@ -15188,7 +15188,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$rustc_ast..ast..Gen
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2948)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2951)
   %5 = load ptr, ptr %4, align 8, !alias.scope !2954, !noundef !4
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$rustc_ast..ast..Expr$GT$17h518750ee369e4f12E"(ptr noalias noundef align 8 dereferenceable(72) %5)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$rustc_ast..ast..Expr$GT$17h518750ee369e4f12E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5)
           to label %"_ZN4core3ptr46drop_in_place$LT$rustc_ast..ast..AnonConst$GT$17hffc8954233558511E.exit" unwind label %6, !noalias !2954
 
 6:                                                ; preds = %3

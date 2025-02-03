@@ -421,7 +421,7 @@ define noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx1112bas
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #17
+  tail call void @__cxa_free_exception(ptr nonnull %7) #17
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %1

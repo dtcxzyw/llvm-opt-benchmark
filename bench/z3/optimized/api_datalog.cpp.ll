@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.symbol = type { ptr }
 %"struct.std::atomic.265" = type { %"struct.std::__atomic_base.266" }
 %"struct.std::__atomic_base.266" = type { i8 }
-%class.params_ref = type { ptr }
 %class.parameter = type { %"class.std::variant" }
 %"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
 %"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
@@ -19,6 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.37" }
 %"union.std::__detail::__variant::_Variadic_union.37" = type { %"struct.std::__detail::__variant::_Uninitialized.38" }
 %"struct.std::__detail::__variant::_Uninitialized.38" = type { ptr }
+%class.params_ref = type { ptr }
 %class.cancel_eh = type { %class.event_handler.base, i8, ptr }
 %class.event_handler.base = type <{ ptr, i32 }>
 %"class.api::context::set_interruptable" = type { ptr }
@@ -282,7 +282,6 @@ $_ZTI9cancel_ehI8reslimitE = comdat any
 @_ZTV19Z3_param_descrs_ref = linkonce_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTI19Z3_param_descrs_ref, ptr @_ZN19Z3_param_descrs_refD2Ev, ptr @_ZN19Z3_param_descrs_refD0Ev] }, comdat, align 8
 @_ZTS19Z3_param_descrs_ref = linkonce_odr hidden constant [22 x i8] c"19Z3_param_descrs_ref\00", comdat, align 1
 @_ZTI19Z3_param_descrs_ref = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS19Z3_param_descrs_ref, ptr @_ZTIN3api6objectE }, comdat, align 8
-@_ZN10params_ref18g_empty_params_refE = external global %class.params_ref, align 8
 @.str.14 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.15 = private unnamed_addr constant [43 x i8] c"Overflow encountered when expanding vector\00", align 1
 @_ZTI17default_exception = external constant ptr
@@ -5170,15 +5169,13 @@ invoke.cont11:                                    ; preds = %invoke.cont7
 
 invoke.cont17:                                    ; preds = %invoke.cont11
   %3 = load ptr, ptr %m_datalog.i, align 8
-  %cmp.i = icmp eq ptr %p, null
-  %spec.select.i = select i1 %cmp.i, ptr @_ZN10params_ref18g_empty_params_refE, ptr %m_params
   %m_context.i12 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  invoke void @_ZN7datalog7context11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(3556) %m_context.i12, ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
+  invoke void @_ZN7datalog7context11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(3556) %m_context.i12, ptr noundef nonnull align 8 dereferenceable(8) %m_params)
           to label %invoke.cont23 unwind label %lpad8
 
 invoke.cont23:                                    ; preds = %invoke.cont17
   %m_params22 = getelementptr inbounds nuw i8, ptr %d, i64 32
-  invoke void @_ZN10params_ref4copyERKS_(ptr noundef nonnull align 8 dereferenceable(8) %m_params22, ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
+  invoke void @_ZN10params_ref4copyERKS_(ptr noundef nonnull align 8 dereferenceable(8) %m_params22, ptr noundef nonnull align 8 dereferenceable(8) %m_params)
           to label %invoke.cont25 unwind label %lpad8
 
 invoke.cont25:                                    ; preds = %invoke.cont23

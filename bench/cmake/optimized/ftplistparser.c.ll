@@ -1086,7 +1086,7 @@ switch.early.test:                                ; preds = %373
   %395 = load i64, ptr %28, align 8
   store i64 %395, ptr %32, align 8
   store i32 1, ptr %30, align 4
-  call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef %46)
+  call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %46)
   br label %.outer
 
 396:                                              ; preds = %.split674.us
@@ -1105,7 +1105,7 @@ switch.early.test:                                ; preds = %373
   %406 = load i64, ptr %28, align 8
   store i64 %406, ptr %32, align 8
   store i32 1, ptr %30, align 4
-  call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef %46)
+  call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %46)
   br label %.outer
 
 407:                                              ; preds = %396
@@ -1276,7 +1276,7 @@ switch.early.test:                                ; preds = %373
   store i8 0, ptr %461, align 1
   %462 = load i64, ptr %28, align 8
   store i64 %462, ptr %34, align 8
-  call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef %46)
+  call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %46)
   store i32 1, ptr %30, align 4
   br label %.outer
 
@@ -1295,7 +1295,7 @@ switch.early.test:                                ; preds = %373
   store i8 0, ptr %472, align 1
   %473 = load i64, ptr %28, align 8
   store i64 %473, ptr %34, align 8
-  call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef %46)
+  call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %46)
   store i32 1, ptr %30, align 4
   br label %.outer
 
@@ -1521,7 +1521,7 @@ switch.early.test:                                ; preds = %373
   %564 = getelementptr i8, ptr %51, i64 %50
   %565 = getelementptr i8, ptr %564, i64 -1
   store i8 0, ptr %565, align 1
-  call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef %46)
+  call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %46)
   store i32 0, ptr %30, align 4
   store i32 0, ptr %31, align 4
   br label %.outer
@@ -1534,7 +1534,7 @@ switch.early.test:                                ; preds = %373
 569:                                              ; preds = %566
   %570 = load i64, ptr %28, align 8
   store i64 %570, ptr %32, align 8
-  call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef %46)
+  call fastcc void @ftp_pl_insert_finfo(ptr noundef %3, ptr noundef nonnull %46)
   store i32 0, ptr %30, align 4
   store i32 0, ptr %31, align 4
   br label %.outer

@@ -205,7 +205,7 @@ define hidden noundef nonnull ptr @_ZN3vas2ot7Tracker14CreateInstanceENS1_14Init
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #14
+  tail call void @__cxa_free_exception(ptr nonnull %12) #14
   br label %17
 
 16:                                               ; preds = %7, %3

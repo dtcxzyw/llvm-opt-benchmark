@@ -650,7 +650,7 @@ define linkonce_odr hidden void @_ZNK4nori10Microfacet6sampleERNS_15BSDFQueryRec
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %5) #15
+  tail call void @__cxa_free_exception(ptr nonnull %5) #15
   resume { ptr, i32 } %8
 }
 
@@ -667,7 +667,7 @@ define linkonce_odr hidden void @_ZNK4nori10Microfacet4evalERKNS_15BSDFQueryReco
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #15
+  tail call void @__cxa_free_exception(ptr nonnull %4) #15
   resume { ptr, i32 } %7
 }
 
@@ -684,7 +684,7 @@ define linkonce_odr hidden noundef float @_ZNK4nori10Microfacet3pdfERKNS_15BSDFQ
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #15
+  tail call void @__cxa_free_exception(ptr nonnull %3) #15
   resume { ptr, i32 } %6
 }
 

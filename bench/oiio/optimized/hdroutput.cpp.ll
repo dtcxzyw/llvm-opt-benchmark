@@ -639,7 +639,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit3.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %0, %_ZNSt6vectorIhSaIhEED2Ev.exit3.i ]
-  tail call void @_ZN18OpenImageIO_v2_6_011ImageOutputdlEPv(ptr noundef %call) #22
+  tail call void @_ZN18OpenImageIO_v2_6_011ImageOutputdlEPv(ptr noundef nonnull %call) #22
   resume { ptr, i32 } %eh.lpad-body
 }
 

@@ -9818,7 +9818,7 @@ _ZNK4llvm3vfs21RedirectingFileSystem20pathComponentMatchesENS_9StringRefES2_.exi
   br i1 %36, label %37, label %64
 
 37:                                               ; preds = %34
-  call void @_ZN4llvm3vfs21RedirectingFileSystem12LookupResultC1EPNS1_5EntryENS_3sys4path14const_iteratorES7_(ptr noundef nonnull align 8 dereferenceable(320) %8, ptr noundef %4, ptr noundef nonnull byval(%"class.llvm::sys::path::const_iterator") align 8 %2, ptr noundef nonnull byval(%"class.llvm::sys::path::const_iterator") align 8 %3) #27
+  call void @_ZN4llvm3vfs21RedirectingFileSystem12LookupResultC1EPNS1_5EntryENS_3sys4path14const_iteratorES7_(ptr noundef nonnull align 8 dereferenceable(320) %8, ptr noundef nonnull %4, ptr noundef nonnull byval(%"class.llvm::sys::path::const_iterator") align 8 %2, ptr noundef nonnull byval(%"class.llvm::sys::path::const_iterator") align 8 %3) #27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %39 = load i8, ptr %38, align 8
   %40 = and i8 %39, -2

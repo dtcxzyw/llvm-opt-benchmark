@@ -14055,7 +14055,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4674: ; preds = %_ZN4pkpy12Name
 5256:                                             ; preds = %5054
   %5257 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %5056) #23
+  call void @__cxa_free_exception(ptr nonnull %5056) #23
   br label %5266
 
 5258:                                             ; preds = %5051

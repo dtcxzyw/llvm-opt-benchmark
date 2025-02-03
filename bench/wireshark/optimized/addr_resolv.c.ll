@@ -5683,7 +5683,7 @@ wka_name_lookup.exit193:                          ; preds = %._crit_edge28.i181
 
 397:                                              ; preds = %394, %391
   %398 = phi i32 [ %.pre274, %394 ], [ %392, %391 ]
-  call fastcc void @eth_resolved_name_fill(ptr noundef %0, ptr noundef %390, i32 noundef %398, ptr noundef nonnull %11)
+  call fastcc void @eth_resolved_name_fill(ptr noundef nonnull %0, ptr noundef %390, i32 noundef %398, ptr noundef nonnull %11)
   %399 = load i8, ptr %0, align 1
   %400 = or i8 %399, 18
   store i8 %400, ptr %0, align 1

@@ -115,7 +115,7 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
   %6 = getelementptr inbounds nuw [3 x %struct.RestorationInfo], ptr %4, i64 0, i64 %indvars.iv
   %7 = icmp ne i64 %indvars.iv, 0
   %8 = zext i1 %7 to i32
-  tail call void @av1_alloc_restoration_struct(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %8) #4
+  tail call void @av1_alloc_restoration_struct(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef %8) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %9, label %5, !llvm.loop !6

@@ -562,7 +562,7 @@ H5TBget_table_info.exit:                          ; preds = %.thread.thread.i
   br i1 %.not152, label %.thread203, label %.lr.ph117
 
 .thread203:                                       ; preds = %.preheader
-  tail call void @free(ptr noundef %19) #11
+  tail call void @free(ptr noundef nonnull %19) #11
   br label %.thread105
 
 30:                                               ; preds = %56

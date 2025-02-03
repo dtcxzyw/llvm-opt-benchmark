@@ -473,7 +473,7 @@ define hidden void @"_ZN4text9selection18Selection$LT$T$GT$3map17haca28f05b4564a
   %9 = tail call { ptr, ptr } @_ZN6editor21selections_collection20SelectionsCollection6buffer17h1cdaf7da7af217ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(320) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %3), !noalias !67
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = extractvalue { ptr, ptr } %9, 1
-  %12 = invoke noundef i64 @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17h0bb42c8f03145692E(ptr noalias noundef readonly align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %6)
+  %12 = invoke noundef i64 @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17h0bb42c8f03145692E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %6)
           to label %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4f7ebaa62ac8d875E.llvm.12112535252067127711.exit" unwind label %16
 
 common.resume:                                    ; preds = %26, %16
@@ -504,7 +504,7 @@ common.resume:                                    ; preds = %26, %16
   %22 = call { ptr, ptr } @_ZN6editor21selections_collection20SelectionsCollection6buffer17h1cdaf7da7af217ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(320) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %3), !noalias !78
   %23 = extractvalue { ptr, ptr } %22, 0
   %24 = extractvalue { ptr, ptr } %22, 1
-  %25 = invoke noundef i64 @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17h0bb42c8f03145692E(ptr noalias noundef readonly align 8 dereferenceable(48) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
+  %25 = invoke noundef i64 @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17h0bb42c8f03145692E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
           to label %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4f7ebaa62ac8d875E.llvm.12112535252067127711.exit2" unwind label %26
 
 26:                                               ; preds = %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4f7ebaa62ac8d875E.llvm.12112535252067127711.exit"
@@ -545,7 +545,7 @@ define hidden void @"_ZN4text9selection18Selection$LT$T$GT$3map17hf28be6f3288973
   %9 = tail call { ptr, ptr } @_ZN6editor21selections_collection20SelectionsCollection6buffer17h1cdaf7da7af217ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(320) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %3), !noalias !90
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = extractvalue { ptr, ptr } %9, 1
-  %12 = invoke { i32, i32 } @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17he9c60741c398f2d6E(ptr noalias noundef readonly align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %6)
+  %12 = invoke { i32, i32 } @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17he9c60741c398f2d6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %6)
           to label %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h99d257a4ea89c484E.llvm.12112535252067127711.exit" unwind label %16
 
 common.resume:                                    ; preds = %26, %16
@@ -576,7 +576,7 @@ common.resume:                                    ; preds = %26, %16
   %22 = call { ptr, ptr } @_ZN6editor21selections_collection20SelectionsCollection6buffer17h1cdaf7da7af217ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(320) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %3), !noalias !101
   %23 = extractvalue { ptr, ptr } %22, 0
   %24 = extractvalue { ptr, ptr } %22, 1
-  %25 = invoke { i32, i32 } @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17he9c60741c398f2d6E(ptr noalias noundef readonly align 8 dereferenceable(48) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
+  %25 = invoke { i32, i32 } @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17he9c60741c398f2d6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
           to label %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h99d257a4ea89c484E.llvm.12112535252067127711.exit2" unwind label %26
 
 26:                                               ; preds = %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h99d257a4ea89c484E.llvm.12112535252067127711.exit"
@@ -1307,7 +1307,7 @@ define hidden noundef i64 @"_ZN6editor21selections_collection20SelectionsCollect
   %6 = tail call { ptr, ptr } @_ZN6editor21selections_collection20SelectionsCollection6buffer17h1cdaf7da7af217ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(320) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = invoke noundef i64 @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17h0bb42c8f03145692E(ptr noalias noundef readonly align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
+  %9 = invoke noundef i64 @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17h0bb42c8f03145692E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
           to label %10 unwind label %14
 
 10:                                               ; preds = %2
@@ -1337,7 +1337,7 @@ define hidden { i32, i32 } @"_ZN6editor21selections_collection20SelectionsCollec
   %6 = tail call { ptr, ptr } @_ZN6editor21selections_collection20SelectionsCollection6buffer17h1cdaf7da7af217ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(320) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = invoke { i32, i32 } @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17he9c60741c398f2d6E(ptr noalias noundef readonly align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
+  %9 = invoke { i32, i32 } @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17he9c60741c398f2d6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
           to label %10 unwind label %14
 
 10:                                               ; preds = %2

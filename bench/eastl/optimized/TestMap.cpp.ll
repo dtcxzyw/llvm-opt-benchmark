@@ -6615,7 +6615,7 @@ for.body.i.i:                                     ; preds = %invoke.cont121, %ca
           to label %.noexc132 unwind label %lpad125
 
 .noexc132:                                        ; preds = %for.body.i.i
-  %call.i.i.i133 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef %agg.tmp.sroa.0.0.i)
+  %call.i.i.i133 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %agg.tmp.sroa.0.0.i)
           to label %call.i.i.i.noexc unwind label %lpad125
 
 call.i.i.i.noexc:                                 ; preds = %.noexc132
@@ -9473,7 +9473,7 @@ for.body.i.i:                                     ; preds = %invoke.cont138, %ca
           to label %.noexc unwind label %lpad142
 
 .noexc:                                           ; preds = %for.body.i.i
-  %call.i.i.i257 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef %agg.tmp.sroa.0.0.i)
+  %call.i.i.i257 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %agg.tmp.sroa.0.0.i)
           to label %call.i.i.i.noexc unwind label %lpad142
 
 call.i.i.i.noexc:                                 ; preds = %.noexc
@@ -9508,7 +9508,7 @@ for.body.i.i261:                                  ; preds = %invoke.cont147, %ca
           to label %call7.i.noexc.i unwind label %lpad.i
 
 call7.i.noexc.i:                                  ; preds = %for.body.i.i261
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #19
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #19
   %cmp.i.not.i.i262 = icmp eq ptr %call.i.i.i, %4
   br i1 %cmp.i.not.i.i262, label %invoke.cont157.loopexit, label %for.body.i.i261, !llvm.loop !382
 
@@ -12626,7 +12626,7 @@ for.body.i.i135:                                  ; preds = %invoke.cont129, %ca
           to label %call7.i.noexc.i unwind label %lpad.i
 
 call7.i.noexc.i:                                  ; preds = %for.body.i.i135
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #19
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #19
   %cmp.i.not.i.i136 = icmp eq ptr %call.i.i.i, %4
   br i1 %cmp.i.not.i.i136, label %invoke.cont140.loopexit, label %for.body.i.i135, !llvm.loop !423
 
@@ -15499,7 +15499,7 @@ for.body.i.i:                                     ; preds = %invoke.cont138, %ca
           to label %.noexc unwind label %lpad142
 
 .noexc:                                           ; preds = %for.body.i.i
-  %call.i.i.i257 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef %agg.tmp.sroa.0.0.i)
+  %call.i.i.i257 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %agg.tmp.sroa.0.0.i)
           to label %call.i.i.i.noexc unwind label %lpad142
 
 call.i.i.i.noexc:                                 ; preds = %.noexc
@@ -15534,7 +15534,7 @@ for.body.i.i261:                                  ; preds = %invoke.cont147, %ca
           to label %call7.i.noexc.i unwind label %lpad.i
 
 call7.i.noexc.i:                                  ; preds = %for.body.i.i261
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #19
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #19
   %cmp.i.not.i.i262 = icmp eq ptr %call.i.i.i, %4
   br i1 %cmp.i.not.i.i262, label %invoke.cont158.loopexit, label %for.body.i.i261, !llvm.loop !604
 
@@ -21126,7 +21126,7 @@ invoke.cont295:                                   ; preds = %if.end16.i, %land.r
   store i32 1, ptr %ref.tmp297, align 4
   %second.i849 = getelementptr inbounds nuw i8, ptr %ref.tmp297, i64 4
   store i32 1, ptr %second.i849, align 4
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS3_PKS3_RSD_EEOS3_(ptr nonnull sret(%"struct.eastl::rbtree_iterator") align 8 %it1, ptr noundef nonnull align 8 dereferenceable(41) %call194, ptr %storemerge.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp297)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS3_PKS3_RSD_EEOS3_(ptr nonnull sret(%"struct.eastl::rbtree_iterator") align 8 %it1, ptr noundef nonnull align 8 dereferenceable(41) %call194, ptr nonnull %storemerge.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp297)
           to label %invoke.cont301 unwind label %lpad215.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont301:                                   ; preds = %invoke.cont295
@@ -21428,7 +21428,7 @@ invoke.cont400:                                   ; preds = %if.end16.i965, %lan
   store i32 1, ptr %ref.tmp402, align 4
   %second.i967 = getelementptr inbounds nuw i8, ptr %ref.tmp402, i64 4
   store i32 1, ptr %second.i967, align 4
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS3_PKS3_RSD_EEOS3_(ptr nonnull sret(%"struct.eastl::rbtree_iterator") align 8 %ref.tmp396, ptr noundef nonnull align 8 dereferenceable(41) %call194, ptr %storemerge.i964, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp402)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS3_PKS3_RSD_EEOS3_(ptr nonnull sret(%"struct.eastl::rbtree_iterator") align 8 %ref.tmp396, ptr noundef nonnull align 8 dereferenceable(41) %call194, ptr nonnull %storemerge.i964, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp402)
           to label %invoke.cont407 unwind label %lpad215.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont407:                                   ; preds = %invoke.cont400
@@ -26067,7 +26067,7 @@ invoke.cont376:                                   ; preds = %land.rhs.i1475, %if
   store i64 %inc6.i8.i1505, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %mId.i9.i1506 = getelementptr inbounds nuw i8, ptr %ref.tmp369, i64 32
   store i64 %inc5.i7.i1504, ptr %mId.i9.i1506, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.18") align 8 %it1, ptr noundef nonnull align 8 dereferenceable(41) %call213, ptr %storemerge.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp369)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.18") align 8 %it1, ptr noundef nonnull align 8 dereferenceable(41) %call213, ptr nonnull %storemerge.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp369)
           to label %invoke.cont378 unwind label %lpad377
 
 invoke.cont378:                                   ; preds = %invoke.cont376
@@ -26657,7 +26657,7 @@ invoke.cont541:                                   ; preds = %land.rhs.i1916, %if
   store i64 %inc6.i8.i1951, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %mId.i9.i1952 = getelementptr inbounds nuw i8, ptr %ref.tmp534, i64 32
   store i64 %inc5.i7.i1950, ptr %mId.i9.i1952, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.18") align 8 %ref.tmp526, ptr noundef nonnull align 8 dereferenceable(41) %call213, ptr %storemerge.i1919, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp534)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.18") align 8 %ref.tmp526, ptr noundef nonnull align 8 dereferenceable(41) %call213, ptr nonnull %storemerge.i1919, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp534)
           to label %invoke.cont544 unwind label %lpad543
 
 invoke.cont544:                                   ; preds = %invoke.cont541
@@ -27265,7 +27265,7 @@ _ZN10TestObjectD2Ev.exit2457:                     ; preds = %land.rhs.i2444, %if
   store i64 %711, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i2456 = add nsw i64 %716, 2
   store i64 %inc3.i2456, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE5eraseENS_15rbtree_iteratorIS4_PKS4_RSC_EESF_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.18") align 8 %tmp708, ptr noundef nonnull align 8 dereferenceable(41) %call213, ptr %storemerge.i2411, ptr %storemerge.i2447)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE5eraseENS_15rbtree_iteratorIS4_PKS4_RSC_EESF_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.18") align 8 %tmp708, ptr noundef nonnull align 8 dereferenceable(41) %call213, ptr %storemerge.i2411, ptr nonnull %storemerge.i2447)
           to label %invoke.cont711 unwind label %lpad234.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont711:                                   ; preds = %_ZN10TestObjectD2Ev.exit2457
@@ -31228,7 +31228,7 @@ invoke.cont292:                                   ; preds = %if.end16.i, %land.r
   store i32 1, ptr %ref.tmp294, align 4
   %second.i873 = getelementptr inbounds nuw i8, ptr %ref.tmp294, i64 4
   store i32 1, ptr %second.i873, align 4
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS3_PKS3_RSD_EEOS3_(ptr nonnull sret(%"struct.eastl::rbtree_iterator") align 8 %it1, ptr noundef nonnull align 8 dereferenceable(41) %call190, ptr %storemerge.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp294)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS3_PKS3_RSD_EEOS3_(ptr nonnull sret(%"struct.eastl::rbtree_iterator") align 8 %it1, ptr noundef nonnull align 8 dereferenceable(41) %call190, ptr nonnull %storemerge.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp294)
           to label %invoke.cont299 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont299:                                   ; preds = %invoke.cont292
@@ -31465,7 +31465,7 @@ invoke.cont398:                                   ; preds = %if.end16.i969, %lan
   store i32 1, ptr %ref.tmp400, align 4
   %second.i971 = getelementptr inbounds nuw i8, ptr %ref.tmp400, i64 4
   store i32 1, ptr %second.i971, align 4
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS3_PKS3_RSD_EEOS3_(ptr nonnull sret(%"struct.eastl::rbtree_iterator") align 8 %ref.tmp394, ptr noundef nonnull align 8 dereferenceable(41) %call190, ptr %storemerge.i968, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp400)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS3_PKS3_RSD_EEOS3_(ptr nonnull sret(%"struct.eastl::rbtree_iterator") align 8 %ref.tmp394, ptr noundef nonnull align 8 dereferenceable(41) %call190, ptr nonnull %storemerge.i968, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp400)
           to label %invoke.cont405 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont405:                                   ; preds = %invoke.cont398
@@ -36131,7 +36131,7 @@ invoke.cont373:                                   ; preds = %land.rhs.i1473, %if
   store i64 %inc6.i8.i1503, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %mId.i9.i1504 = getelementptr inbounds nuw i8, ptr %ref.tmp366, i64 32
   store i64 %inc5.i7.i1502, ptr %mId.i9.i1504, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.18") align 8 %it1, ptr noundef nonnull align 8 dereferenceable(41) %call209, ptr %storemerge.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp366)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.18") align 8 %it1, ptr noundef nonnull align 8 dereferenceable(41) %call209, ptr nonnull %storemerge.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp366)
           to label %invoke.cont376 unwind label %lpad375
 
 invoke.cont376:                                   ; preds = %invoke.cont373
@@ -36721,7 +36721,7 @@ invoke.cont539:                                   ; preds = %land.rhs.i1914, %if
   store i64 %inc6.i8.i1949, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %mId.i9.i1950 = getelementptr inbounds nuw i8, ptr %ref.tmp532, i64 32
   store i64 %inc5.i7.i1948, ptr %mId.i9.i1950, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.18") align 8 %ref.tmp524, ptr noundef nonnull align 8 dereferenceable(41) %call209, ptr %storemerge.i1917, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp532)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.18") align 8 %ref.tmp524, ptr noundef nonnull align 8 dereferenceable(41) %call209, ptr nonnull %storemerge.i1917, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp532)
           to label %invoke.cont542 unwind label %lpad541
 
 invoke.cont542:                                   ; preds = %invoke.cont539
@@ -37329,7 +37329,7 @@ _ZN10TestObjectD2Ev.exit2455:                     ; preds = %land.rhs.i2442, %if
   store i64 %701, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i2454 = add nsw i64 %706, 2
   store i64 %inc3.i2454, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE5eraseENS_15rbtree_iteratorIS4_PKS4_RSC_EESF_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.18") align 8 %tmp706, ptr noundef nonnull align 8 dereferenceable(41) %call209, ptr %storemerge.i2409, ptr %storemerge.i2445)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE5eraseENS_15rbtree_iteratorIS4_PKS4_RSC_EESF_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.18") align 8 %tmp706, ptr noundef nonnull align 8 dereferenceable(41) %call209, ptr %storemerge.i2409, ptr nonnull %storemerge.i2445)
           to label %invoke.cont709 unwind label %lpad230.loopexit.split-lp
 
 invoke.cont709:                                   ; preds = %_ZN10TestObjectD2Ev.exit2455
@@ -39205,7 +39205,7 @@ for.body.i.i:                                     ; preds = %invoke.cont125, %ca
           to label %.noexc unwind label %lpad129
 
 .noexc:                                           ; preds = %for.body.i.i
-  %call.i.i.i146 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef %agg.tmp.sroa.0.0.i)
+  %call.i.i.i146 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %agg.tmp.sroa.0.0.i)
           to label %call.i.i.i.noexc unwind label %lpad129
 
 call.i.i.i.noexc:                                 ; preds = %.noexc
@@ -42054,7 +42054,7 @@ for.body.i.i152:                                  ; preds = %invoke.cont133, %ca
           to label %call7.i.noexc.i unwind label %lpad.i
 
 call7.i.noexc.i:                                  ; preds = %for.body.i.i152
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #19
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #19
   %cmp.i.not.i.i153 = icmp eq ptr %call.i.i.i, %7
   br i1 %cmp.i.not.i.i153, label %invoke.cont144.loopexit, label %for.body.i.i152, !llvm.loop !1234
 
@@ -47026,7 +47026,7 @@ invoke.cont312:                                   ; preds = %if.end16.i, %land.r
   store i32 1, ptr %ref.tmp314, align 64
   %second.i879 = getelementptr inbounds nuw i8, ptr %ref.tmp314, i64 64
   store i32 1, ptr %second.i879, align 64
-  invoke void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.176") align 8 %it1, ptr noundef nonnull align 8 dereferenceable(41) %call198, ptr %storemerge.i, ptr noundef nonnull align 64 dereferenceable(128) %ref.tmp314)
+  invoke void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.176") align 8 %it1, ptr noundef nonnull align 8 dereferenceable(41) %call198, ptr nonnull %storemerge.i, ptr noundef nonnull align 64 dereferenceable(128) %ref.tmp314)
           to label %invoke.cont321 unwind label %lpad219.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont321:                                   ; preds = %invoke.cont312
@@ -47263,7 +47263,7 @@ invoke.cont441:                                   ; preds = %if.end16.i980, %lan
   store i32 1, ptr %ref.tmp443, align 64
   %second.i982 = getelementptr inbounds nuw i8, ptr %ref.tmp443, i64 64
   store i32 1, ptr %second.i982, align 64
-  invoke void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.176") align 8 %ref.tmp436, ptr noundef nonnull align 8 dereferenceable(41) %call198, ptr %storemerge.i979, ptr noundef nonnull align 64 dereferenceable(128) %ref.tmp443)
+  invoke void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.176") align 8 %ref.tmp436, ptr noundef nonnull align 8 dereferenceable(41) %call198, ptr nonnull %storemerge.i979, ptr noundef nonnull align 64 dereferenceable(128) %ref.tmp443)
           to label %invoke.cont450 unwind label %lpad219.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont450:                                   ; preds = %invoke.cont441
@@ -50810,7 +50810,7 @@ invoke.cont305:                                   ; preds = %if.end16.i, %land.r
   store i32 1, ptr %ref.tmp307, align 64
   %second.i808 = getelementptr inbounds nuw i8, ptr %ref.tmp307, i64 64
   store i32 1, ptr %second.i808, align 64
-  invoke void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.176") align 8 %it1, ptr noundef nonnull align 8 dereferenceable(41) %call192, ptr %storemerge.i, ptr noundef nonnull align 64 dereferenceable(128) %ref.tmp307)
+  invoke void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.176") align 8 %it1, ptr noundef nonnull align 8 dereferenceable(41) %call192, ptr nonnull %storemerge.i, ptr noundef nonnull align 64 dereferenceable(128) %ref.tmp307)
           to label %invoke.cont313 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont313:                                   ; preds = %invoke.cont305
@@ -51111,7 +51111,7 @@ invoke.cont430:                                   ; preds = %if.end16.i926, %lan
   store i32 1, ptr %ref.tmp432, align 64
   %second.i928 = getelementptr inbounds nuw i8, ptr %ref.tmp432, i64 64
   store i32 1, ptr %second.i928, align 64
-  invoke void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.176") align 8 %ref.tmp425, ptr noundef nonnull align 8 dereferenceable(41) %call192, ptr %storemerge.i925, ptr noundef nonnull align 64 dereferenceable(128) %ref.tmp432)
+  invoke void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS4_PKS4_RSE_EEOS4_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.176") align 8 %ref.tmp425, ptr noundef nonnull align 8 dereferenceable(41) %call192, ptr nonnull %storemerge.i925, ptr noundef nonnull align 64 dereferenceable(128) %ref.tmp432)
           to label %invoke.cont439 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont439:                                   ; preds = %invoke.cont430
@@ -75331,7 +75331,7 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIiSt4
 
 _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE17_M_insert_unique_IRS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_.exit.i: ; preds = %if.end12.i.i, %call5.i.i.i.i.i.i.i.i.noexc
   %.pr = phi i64 [ %.pr14, %if.end12.i.i ], [ %inc.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc ]
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i) #19
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i) #19
   %cmp.i.not.i = icmp eq ptr %call.i.i, %__last.coerce
   br i1 %cmp.i.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !3088
 
@@ -82567,7 +82567,7 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeI7Ali
 
 _ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE17_M_insert_unique_IRS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EOT_RT0_.exit.i: ; preds = %if.end12.i.i, %call5.i.i.i.i.i.i.i.i.noexc
   %.pr = phi i64 [ %.pr14, %if.end12.i.i ], [ %inc.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc ]
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i) #19
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i) #19
   %cmp.i.not.i = icmp eq ptr %call.i.i, %__last.coerce
   br i1 %cmp.i.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !3184
 

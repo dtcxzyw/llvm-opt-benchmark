@@ -1269,7 +1269,7 @@ if.then.i.i71:                                    ; preds = %invoke.cont15
 for.inc:                                          ; preds = %if.then.i.i71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %regex) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags) #28
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.096) #29
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.096) #29
   %cmp.i62.not = icmp eq ptr %call.i, %0
   br i1 %cmp.i62.not, label %for.end, label %for.body
 
@@ -1681,7 +1681,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87.us: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84.us, %if.then.i.i83.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %regex) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags) #28
-  %call.i.us = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.0107.us) #29
+  %call.i.us = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.0107.us) #29
   %cmp.i65.not.us = icmp eq ptr %call.i.us, %0
   br i1 %cmp.i65.not.us, label %for.end, label %for.body.us
 
@@ -1837,7 +1837,7 @@ if.then.i.i83:                                    ; preds = %cleanup
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %if.then.i.i83, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %regex) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags) #28
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.0107) #29
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.0107) #29
   %cmp.i65.not = icmp eq ptr %call.i, %0
   br i1 %cmp.i65.not, label %for.end, label %for.body
 

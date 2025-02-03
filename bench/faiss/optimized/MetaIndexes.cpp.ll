@@ -307,7 +307,7 @@ define void @_ZNK5faiss17IndexSplitVectors6searchElPKflPfPlPKNS_16SearchParamete
 31:                                               ; preds = %24
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #18
+  call void @__cxa_free_exception(ptr nonnull %27) #18
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -350,7 +350,7 @@ define void @_ZNK5faiss17IndexSplitVectors6searchElPKflPfPlPKNS_16SearchParamete
 49:                                               ; preds = %42
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %45) #18
+  call void @__cxa_free_exception(ptr nonnull %45) #18
   br label %51
 
 51:                                               ; preds = %49, %47
@@ -398,7 +398,7 @@ define void @_ZNK5faiss17IndexSplitVectors6searchElPKflPfPlPKNS_16SearchParamete
 72:                                               ; preds = %65
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #18
+  call void @__cxa_free_exception(ptr nonnull %68) #18
   br label %74
 
 74:                                               ; preds = %72, %70
@@ -1285,7 +1285,7 @@ define void @_ZNK5faiss11IndexRandom6searchElPKflPfPlPKNS_16SearchParametersE(pt
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #18
+  call void @__cxa_free_exception(ptr nonnull %26) #18
   br label %55
 
 32:                                               ; preds = %7
@@ -1325,7 +1325,7 @@ define void @_ZNK5faiss11IndexRandom6searchElPKflPfPlPKNS_16SearchParametersE(pt
 48:                                               ; preds = %41
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %44) #18
+  call void @__cxa_free_exception(ptr nonnull %44) #18
   br label %55
 
 50:                                               ; preds = %32
@@ -1574,7 +1574,7 @@ define void @_ZN5faiss17IndexSplitVectors21sync_with_sub_indexesEv(ptr noundef n
 49:                                               ; preds = %42
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %45) #18
+  call void @__cxa_free_exception(ptr nonnull %45) #18
   br label %75
 
 51:                                               ; preds = %.lr.ph
@@ -1614,7 +1614,7 @@ define void @_ZN5faiss17IndexSplitVectors21sync_with_sub_indexesEv(ptr noundef n
 68:                                               ; preds = %61
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %64) #18
+  call void @__cxa_free_exception(ptr nonnull %64) #18
   br label %75
 
 70:                                               ; preds = %51

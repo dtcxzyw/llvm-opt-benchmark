@@ -528,7 +528,7 @@ if.then19:                                        ; preds = %sw.bb15
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %sw.bb15
-  %call22 = call ptr @X509_CRL_get_ext_d2i(ptr noundef %0, i32 noundef 770, ptr noundef nonnull %i, ptr noundef null) #9
+  %call22 = call ptr @X509_CRL_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 770, ptr noundef nonnull %i, ptr noundef null) #9
   %idp23 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %call22, ptr %idp23, align 8
   %cmp.not = icmp eq ptr %call22, null

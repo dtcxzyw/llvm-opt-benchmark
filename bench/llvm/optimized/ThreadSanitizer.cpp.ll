@@ -616,7 +616,7 @@ _ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit.i: ; preds = %
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i107.i: ; preds = %168
   %171 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %114, i64 80
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.0143.0168.i, i64 56
   %174 = load ptr, ptr %173, align 8
   %175 = icmp eq ptr %172, %174
   br i1 %175, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i108.i, label %_ZN4llvm3isaINS_12MemIntrinsicENS_11InstructionEEEbRKT0_.exit.thread.i
@@ -654,7 +654,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit111.
   %186 = load ptr, ptr %57, align 8
   %187 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #17
   %188 = getelementptr inbounds ptr, ptr %186, i64 %187
-  %189 = ptrtoint ptr %114 to i64
+  %189 = ptrtoint ptr %113 to i64
   store i64 %189, ptr %188, align 1
   %190 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #17
   %191 = add i64 %190, 1

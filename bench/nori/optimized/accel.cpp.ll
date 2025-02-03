@@ -100,7 +100,7 @@ define hidden void @_ZN4nori5Accel7addMeshEPNS_4MeshE(ptr noundef nonnull align 
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %5) #16
+  tail call void @__cxa_free_exception(ptr nonnull %5) #16
   resume { ptr, i32 } %8
 
 9:                                                ; preds = %2

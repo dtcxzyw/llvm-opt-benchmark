@@ -87,7 +87,7 @@ if.end16:                                         ; preds = %label_spin_done
   %10 = load i64, ptr %n_wait_times, align 8
   %inc19 = add i64 %10, 1
   store i64 %inc19, ptr %n_wait_times, align 8
-  call void @nstime_add(ptr noundef %mutex, ptr noundef nonnull %delta) #7
+  call void @nstime_add(ptr noundef nonnull %mutex, ptr noundef nonnull %delta) #7
   %max_wait_time = getelementptr inbounds nuw i8, ptr %mutex, i64 8
   %call20 = call i32 @nstime_compare(ptr noundef nonnull %max_wait_time, ptr noundef nonnull %delta) #7
   %cmp21 = icmp slt i32 %call20, 0
@@ -181,7 +181,7 @@ entry:
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @malloc_mutex_lock_slow(ptr noundef %mutex)
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mutex)
   %locked.i = getelementptr inbounds nuw i8, ptr %mutex, i64 64
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i

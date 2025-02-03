@@ -338,7 +338,7 @@ if.end148:                                        ; preds = %land.lhs.true130, %
 eh.resume:                                        ; preds = %lpad146, %lpad
   %exception145.sink = phi ptr [ %exception145, %lpad146 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %27, %lpad146 ], [ %3, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception145.sink) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception145.sink) #11
   resume { ptr, i32 } %.pn
 }
 

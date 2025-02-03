@@ -19552,7 +19552,7 @@ invoke.cont344:                                   ; preds = %for.body341
 invoke.cont349:                                   ; preds = %invoke.cont344
   %sub346 = sub i32 %conv333, %164
   store i32 %sub346, ptr %call350, align 4
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin8.sroa.0.03256) #29
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin8.sroa.0.03256) #29
   %cmp.i1349.not = icmp eq ptr %call.i, %16
   br i1 %cmp.i1349.not, label %if.end355, label %for.body341
 
@@ -36822,7 +36822,7 @@ lpad4:                                            ; preds = %if.else, %invoke.co
 lpad7:                                            ; preds = %if.then
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #24
+  call void @__cxa_free_exception(ptr nonnull %exception) #24
   br label %ehcleanup938
 
 if.else:                                          ; preds = %invoke.cont5
@@ -40374,7 +40374,7 @@ invoke.cont721:                                   ; preds = %if.then718
 lpad720:                                          ; preds = %if.then718
   %421 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception719) #24
+  call void @__cxa_free_exception(ptr nonnull %exception719) #24
   br label %ehcleanup920
 
 if.else723:                                       ; preds = %invoke.cont713
@@ -65438,7 +65438,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %6 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %if.then unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.end.thread unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
@@ -65543,7 +65543,7 @@ if.else.thread:                                   ; preds = %_ZNKSt6vectorIN4cvc
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #24
   br label %invoke.cont21
 
-if.then:                                          ; preds = %lpad2.i.i.i.i.i
+if.end.thread:                                    ; preds = %lpad2.i.i.i.i.i
   %18 = extractvalue { ptr, i32 } %6, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #24
   tail call void @_ZN4cvc58internal6theory7strings10NormalFormD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %add.ptr) #24
@@ -65568,7 +65568,7 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-invoke.cont21:                                    ; preds = %for.body.i.i.i46, %if.else.thread, %if.else, %if.then
+invoke.cont21:                                    ; preds = %for.body.i.i.i46, %if.end.thread, %if.else.thread, %if.else
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i) #27
   invoke void @__cxa_rethrow() #28
           to label %unreachable unwind label %lpad19
@@ -67077,7 +67077,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %6 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %if.then unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.end.thread unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
@@ -67182,7 +67182,7 @@ if.else.thread:                                   ; preds = %_ZNKSt6vectorIN4cvc
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #24
   br label %invoke.cont21
 
-if.then:                                          ; preds = %lpad2.i.i.i.i.i
+if.end.thread:                                    ; preds = %lpad2.i.i.i.i.i
   %18 = extractvalue { ptr, i32 } %6, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #24
   tail call void @_ZN4cvc58internal6theory7strings13CoreInferInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %add.ptr) #24
@@ -67207,7 +67207,7 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-invoke.cont21:                                    ; preds = %for.body.i.i.i46, %if.else.thread, %if.else, %if.then
+invoke.cont21:                                    ; preds = %for.body.i.i.i46, %if.end.thread, %if.else.thread, %if.else
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i) #27
   invoke void @__cxa_rethrow() #28
           to label %unreachable unwind label %lpad19

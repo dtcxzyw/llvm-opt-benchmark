@@ -5823,7 +5823,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -7235,7 +7235,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE7ret
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -8122,7 +8122,7 @@ _ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaI
 
 181:                                              ; preds = %177
   %182 = getelementptr inbounds %"struct.boost::io::detail::format_item", ptr %144, i64 %2
-  invoke void @_ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES7_EvT_S9_RSaIT0_E(ptr noundef %144, ptr noundef nonnull %182, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  invoke void @_ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES7_EvT_S9_RSaIT0_E(ptr noundef nonnull %144, ptr noundef nonnull %182, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE13_M_deallocateEPS7_m.exit111 unwind label %183
 
 183:                                              ; preds = %_ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE13_M_deallocateEPS7_m.exit111, %181
@@ -9269,7 +9269,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRK
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -10107,7 +10107,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE7rethrow
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -12246,7 +12246,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io12too_few_argsEEEvRKT
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -12384,7 +12384,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io12too_few_argsEE7rethrowE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -12651,7 +12651,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3nix12HookInstanceC1EvE3$_
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #24
+  tail call void @__cxa_free_exception(ptr nonnull %9) #24
   br label %65
 
 13:                                               ; preds = %1
@@ -12672,7 +12672,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3nix12HookInstanceC1EvE3$_
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #24
+  tail call void @__cxa_free_exception(ptr nonnull %17) #24
   br label %65
 
 21:                                               ; preds = %13
@@ -12693,7 +12693,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3nix12HookInstanceC1EvE3$_
 28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %26) #24
+  tail call void @__cxa_free_exception(ptr nonnull %26) #24
   br label %65
 
 30:                                               ; preds = %21
@@ -12715,7 +12715,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3nix12HookInstanceC1EvE3$_
 38:                                               ; preds = %35
   %39 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %36) #24
+  tail call void @__cxa_free_exception(ptr nonnull %36) #24
   br label %65
 
 40:                                               ; preds = %30
@@ -12737,7 +12737,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3nix12HookInstanceC1EvE3$_
 48:                                               ; preds = %45
   %49 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %46) #24
+  tail call void @__cxa_free_exception(ptr nonnull %46) #24
   br label %65
 
 50:                                               ; preds = %40
@@ -12770,7 +12770,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit.i.i.i:           ; preds = %59, %50
 63:                                               ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i.i.i
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %60) #24
+  call void @__cxa_free_exception(ptr nonnull %60) #24
   br label %65
 
 65:                                               ; preds = %63, %48, %38, %28, %19, %11

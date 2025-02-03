@@ -509,7 +509,7 @@ if.then:                                          ; preds = %for.body
   br label %for.end
 
 for.inc:                                          ; preds = %for.body
-  %call.i3 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.013) #17
+  %call.i3 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.013) #17
   %cmp.i.not = icmp eq ptr %call.i3, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !9
 

@@ -68,7 +68,7 @@ define void @_ZNK5ZXing10DataMatrix6Writer6encodeERKNSt7__cxx1112basic_stringIwS
 15:                                               ; preds = %12
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %13) #10
+  tail call void @__cxa_free_exception(ptr nonnull %13) #10
   br label %_ZN5ZXing9ByteArrayD2Ev.exit47
 
 17:                                               ; preds = %5
@@ -88,7 +88,7 @@ define void @_ZNK5ZXing10DataMatrix6Writer6encodeERKNSt7__cxx1112basic_stringIwS
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %20) #10
+  tail call void @__cxa_free_exception(ptr nonnull %20) #10
   br label %_ZN5ZXing9ByteArrayD2Ev.exit47
 
 24:                                               ; preds = %17
@@ -846,7 +846,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #10
+  tail call void @__cxa_free_exception(ptr nonnull %25) #10
   br label %32
 
 31:                                               ; preds = %19, %15

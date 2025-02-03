@@ -1345,35 +1345,25 @@ invoke.cont7:                                     ; preds = %invoke.cont
   %call_creds_.i = getelementptr inbounds nuw i8, ptr %request, i64 40
   %22 = load ptr, ptr %call_creds_.i, align 8
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.6, i32 noundef 128, i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %22, ptr noundef nonnull %request)
-          to label %if.end unwind label %lpad3.thread
+          to label %if.end unwind label %if.then.i10.loopexit.split-lp
 
 lpad:                                             ; preds = %.noexc, %7
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup37
 
-lpad3.thread:                                     ; preds = %invoke.cont28, %invoke.cont7
-  %lpad.thr_comm = landingpad { ptr, i32 }
+if.then.i10.loopexit:                             ; preds = %invoke.cont19
+  %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i10
 
-lpad3.loopexit:                                   ; preds = %invoke.cont19
-  %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad3
-
-lpad3.loopexit.split-lp:                          ; preds = %for.end
+if.then.i10.loopexit.split-lp:                    ; preds = %invoke.cont28, %for.end, %invoke.cont7
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %lpad3
+  br label %if.then.i10
 
-lpad3:                                            ; preds = %lpad3.loopexit.split-lp, %lpad3.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad3.loopexit ], [ %lpad.loopexit.split-lp, %lpad3.loopexit.split-lp ]
-  %cmp.not.i = icmp eq ptr %request, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrIN23grpc_plugin_credentials14PendingRequestEED2Ev.exit, label %if.then.i10
-
-if.then.i10:                                      ; preds = %lpad3.thread, %lpad3
-  %lpad.phi63 = phi { ptr, i32 } [ %lpad.thr_comm, %lpad3.thread ], [ %lpad.phi, %lpad3 ]
+if.then.i10:                                      ; preds = %if.then.i10.loopexit.split-lp, %if.then.i10.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %if.then.i10.loopexit ], [ %lpad.loopexit.split-lp, %if.then.i10.loopexit.split-lp ]
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %request, i64 8
   %24 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %24, 1
@@ -1386,14 +1376,13 @@ if.then.i.i12:                                    ; preds = %if.then.i10
   call void %25(ptr noundef nonnull align 8 dereferenceable(332) %request) #24
   br label %_ZN9grpc_core13RefCountedPtrIN23grpc_plugin_credentials14PendingRequestEED2Ev.exit
 
-_ZN9grpc_core13RefCountedPtrIN23grpc_plugin_credentials14PendingRequestEED2Ev.exit: ; preds = %lpad3, %if.then.i10, %if.then.i.i12
-  %lpad.phi64 = phi { ptr, i32 } [ %lpad.phi, %lpad3 ], [ %lpad.phi63, %if.then.i10 ], [ %lpad.phi63, %if.then.i.i12 ]
+_ZN9grpc_core13RefCountedPtrIN23grpc_plugin_credentials14PendingRequestEED2Ev.exit: ; preds = %if.then.i10, %if.then.i.i12
   call void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %exec_ctx) #24
   br label %ehcleanup37
 
 if.end:                                           ; preds = %invoke.cont7, %invoke.cont
-  %cmp65.not = icmp eq i64 %num_md, 0
-  br i1 %cmp65.not, label %for.end, label %for.body.lr.ph
+  %cmp61.not = icmp eq i64 %num_md, 0
+  br i1 %cmp61.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %value21 = getelementptr inbounds nuw i8, ptr %p, i64 32
@@ -1401,8 +1390,8 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.066 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds %struct.grpc_metadata, ptr %md, i64 %i.066
+  %i.062 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr inbounds %struct.grpc_metadata, ptr %md, i64 %i.062
   %26 = load ptr, ptr %arrayidx, align 8
   %cmp.i = icmp ugt ptr %26, inttoptr (i64 1 to ptr)
   br i1 %cmp.i, label %if.then.i14, label %invoke.cont13
@@ -1425,10 +1414,10 @@ if.then.i17:                                      ; preds = %invoke.cont13
 invoke.cont19:                                    ; preds = %if.then.i17, %invoke.cont13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value21, ptr noundef nonnull align 8 dereferenceable(32) %value, i64 32, i1 false)
   %call.i.i19 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN4absl12lts_2023080223inlined_vector_internal7StorageI13grpc_metadataLm2ESaIS3_EE11EmplaceBackIJRKS3_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(200) %metadata_, ptr noundef nonnull align 8 dereferenceable(96) %p)
-          to label %for.inc unwind label %lpad3.loopexit
+          to label %for.inc unwind label %if.then.i10.loopexit
 
 for.inc:                                          ; preds = %invoke.cont19
-  %inc = add nuw i64 %i.066, 1
+  %inc = add nuw i64 %i.062, 1
   %exitcond.not = icmp eq i64 %inc, %num_md
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
@@ -1437,7 +1426,7 @@ for.end:                                          ; preds = %for.inc, %if.end
   %cond = select i1 %cmp25, ptr @.str.10, ptr %error_details
   %error_details_ = getelementptr inbounds nuw i8, ptr %request, i64 296
   %call29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %error_details_, ptr noundef nonnull %cond)
-          to label %invoke.cont28 unwind label %lpad3.loopexit.split-lp
+          to label %invoke.cont28 unwind label %if.then.i10.loopexit.split-lp
 
 invoke.cont28:                                    ; preds = %for.end
   %status_ = getelementptr inbounds nuw i8, ptr %request, i64 328
@@ -1453,7 +1442,7 @@ invoke.cont28:                                    ; preds = %for.end
   %vtable.i.i = load ptr, ptr %retval.sroa.0.0.copyload.i.i.i.i, align 8
   %30 = load ptr, ptr %vtable.i.i, align 8
   invoke void %30(ptr noundef nonnull align 8 dereferenceable(8) %retval.sroa.0.0.copyload.i.i.i.i, i16 noundef zeroext %retval.sroa.2.0.copyload.i.i.i.i)
-          to label %if.then.i22 unwind label %lpad3.thread
+          to label %if.then.i22 unwind label %if.then.i10.loopexit.split-lp
 
 if.then.i22:                                      ; preds = %invoke.cont28
   %refs_.i.i23 = getelementptr inbounds nuw i8, ptr %request, i64 8
@@ -1601,7 +1590,7 @@ _ZN9grpc_core26ApplicationCallbackExecCtxD2Ev.exit: ; preds = %invoke.cont.i46, 
   ret void
 
 ehcleanup37:                                      ; preds = %lpad, %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i, %_ZN9grpc_core13RefCountedPtrIN23grpc_plugin_credentials14PendingRequestEED2Ev.exit
-  %.pn = phi { ptr, i32 } [ %lpad.phi64, %_ZN9grpc_core13RefCountedPtrIN23grpc_plugin_credentials14PendingRequestEED2Ev.exit ], [ %23, %lpad ], [ %16, %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %_ZN9grpc_core13RefCountedPtrIN23grpc_plugin_credentials14PendingRequestEED2Ev.exit ], [ %23, %lpad ], [ %16, %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i ]
   call void @_ZN9grpc_core26ApplicationCallbackExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %callback_exec_ctx) #24
   resume { ptr, i32 } %.pn
 }

@@ -1167,7 +1167,7 @@ define dso_local { i64, i32 } @AlterStatistics(ptr noundef readonly captures(non
   br label %67
 
 67:                                               ; preds = %66, %56
-  call void @heap_freetuple(ptr noundef %63) #10
+  call void @heap_freetuple(ptr noundef nonnull %63) #10
   call void @ReleaseSysCache(ptr noundef nonnull %46) #10
   call void @table_close(ptr noundef nonnull %44, i32 noundef 3) #10
   br label %68

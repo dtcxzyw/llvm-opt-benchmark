@@ -111,7 +111,7 @@ lpad:                                             ; preds = %invoke.cont5, %if.e
 lpad4:                                            ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #20
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #20
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
@@ -616,7 +616,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #20
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #20
   br label %common.resume
 
 if.end:                                           ; preds = %entry
@@ -723,7 +723,7 @@ common.resume:                                    ; preds = %lpad16, %lpad.i, %l
 lpad.i:                                           ; preds = %if.then.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #20
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hash2.i) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hash1.i) #20
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %hasher.i) #20

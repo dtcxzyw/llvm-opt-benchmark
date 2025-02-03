@@ -7118,7 +7118,7 @@ _ZSt10_ConstructI11colvarvalueJRKS0_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #21
-  invoke void @_ZSt8_DestroyIP11colvarvalueEvT_S2_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIP11colvarvalueEvT_S2_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22
@@ -7489,7 +7489,7 @@ _ZSt10_ConstructI11colvarvalueJRS0_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
   %91 = tail call ptr @__cxa_begin_catch(ptr %90) #21
-  invoke void @_ZSt8_DestroyIP11colvarvalueEvT_S2_(ptr noundef %83, ptr noundef %.016.i.i.i.i)
+  invoke void @_ZSt8_DestroyIP11colvarvalueEvT_S2_(ptr noundef %83, ptr noundef nonnull %.016.i.i.i.i)
           to label %92 unwind label %93
 
 92:                                               ; preds = %88
@@ -7574,7 +7574,7 @@ _ZSt10_ConstructI11colvarvalueJRKS0_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #21
-  invoke void @_ZSt8_DestroyIP11colvarvalueEvT_S2_(ptr noundef %13, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIP11colvarvalueEvT_S2_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
           to label %20 unwind label %21
 
 20:                                               ; preds = %16

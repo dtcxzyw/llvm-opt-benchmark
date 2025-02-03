@@ -5242,7 +5242,7 @@ NUM_cache_getnew.exit.i:                          ; preds = %NUM_prevent_counter
   %.020.i.i = phi ptr [ %.019.i.i, %.loopexit.i.i ], [ %66, %NUM_prevent_counter_overflow.exit.i18.thread.i ]
   %78 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 976
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %78, i8 0, i64 36, i1 false)
-  tail call fastcc void @parse_format(ptr noundef nonnull %.020.i.i, ptr noundef %5, ptr noundef nonnull @NUM_keywords, ptr noundef null, ptr noundef nonnull @NUM_index, i32 noundef 2, ptr noundef nonnull %78)
+  tail call fastcc void @parse_format(ptr noundef nonnull %.020.i.i, ptr noundef nonnull %5, ptr noundef nonnull @NUM_keywords, ptr noundef null, ptr noundef nonnull @NUM_index, i32 noundef 2, ptr noundef nonnull %78)
   %79 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 969
   store i8 1, ptr %79, align 1
   br label %NUM_cache_fetch.exit
@@ -8901,7 +8901,7 @@ DCH_prevent_counter_overflow.exit.i10.thread:     ; preds = %DCH_prevent_counter
 DCH_cache_getnew.exit:                            ; preds = %.loopexit.i, %DCH_prevent_counter_overflow.exit.i10.thread
   %.022.i = phi ptr [ %.021.i, %.loopexit.i ], [ %62, %DCH_prevent_counter_overflow.exit.i10.thread ]
   %75 = select i1 %1, i32 5, i32 1
-  tail call fastcc void @parse_format(ptr noundef nonnull %.022.i, ptr noundef %0, ptr noundef nonnull @DCH_keywords, ptr noundef nonnull @DCH_suff, ptr noundef nonnull @DCH_index, i32 noundef %75, ptr noundef null)
+  tail call fastcc void @parse_format(ptr noundef nonnull %.022.i, ptr noundef nonnull %0, ptr noundef nonnull @DCH_keywords, ptr noundef nonnull @DCH_suff, ptr noundef nonnull @DCH_index, i32 noundef %75, ptr noundef null)
   %76 = getelementptr inbounds nuw i8, ptr %.022.i, i64 2041
   store i8 1, ptr %76, align 1
   br label %77

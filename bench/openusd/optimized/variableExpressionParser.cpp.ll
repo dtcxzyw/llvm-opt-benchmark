@@ -2923,7 +2923,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #25
+  tail call void @__cxa_free_exception(ptr nonnull %3) #25
   resume { ptr, i32 } %6
 }
 
@@ -6751,7 +6751,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #25
+  tail call void @__cxa_free_exception(ptr nonnull %3) #25
   resume { ptr, i32 } %6
 }
 

@@ -4869,7 +4869,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %it.sroa.0.029.us = phi ptr [ %call.i20.us, %for.body.us ], [ %11, %for.body.lr.ph ]
   %second.us = getelementptr inbounds nuw i8, ptr %it.sroa.0.029.us, i64 40
   tail call void @_ZN4cvc58internal6theory11quantifiers11SubsumeTrie17getLeavesInternalERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEbRSt3mapIiS8_St4lessIiESaISt4pairIKiS8_EEEji(ptr noundef nonnull align 8 dereferenceable(56) %second.us, ptr noundef nonnull align 8 dereferenceable(24) %vals, i1 noundef zeroext %pol, ptr noundef nonnull align 8 dereferenceable(48) %v, i32 noundef %add, i32 noundef %status)
-  %call.i20.us = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.029.us) #30
+  %call.i20.us = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.029.us) #30
   %cmp.i.not.us = icmp eq ptr %call.i20.us, %add.ptr.i.i
   br i1 %cmp.i.not.us, label %if.end42, label %for.body.us, !llvm.loop !26
 

@@ -376,7 +376,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 86:                                               ; preds = %79
-  call void @free(ptr noundef %81) #9
+  call void @free(ptr noundef nonnull %81) #9
   br label %87
 
 87:                                               ; preds = %86, %78

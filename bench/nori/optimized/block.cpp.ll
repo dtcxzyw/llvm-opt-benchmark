@@ -512,7 +512,7 @@ define hidden void @_ZN4nori10ImageBlock10fromBitmapERKNS_6BitmapE(ptr noundef n
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %19) #19
+  tail call void @__cxa_free_exception(ptr nonnull %19) #19
   resume { ptr, i32 } %22
 
 .preheader:                                       ; preds = %.preheader19, %._crit_edge

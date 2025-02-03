@@ -2516,7 +2516,7 @@ define internal fastcc i32 @fetch_appinfo(ptr noundef %0, ptr noundef readonly c
   %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 40), align 8
   %103 = load ptr, ptr %102, align 8
   %.not6.i.i.i = icmp eq ptr %103, null
-  br i1 %.not6.i.i.i, label %pmix_obj_new_tma.exit.thread109.i, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %.loopexit109.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %96, %.lr.ph.i.i.i
   %104 = phi ptr [ %106, %.lr.ph.i.i.i ], [ %103, %96 ]
@@ -2525,9 +2525,9 @@ define internal fastcc i32 @fetch_appinfo(ptr noundef %0, ptr noundef readonly c
   %105 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not.i.i.i = icmp eq ptr %106, null
-  br i1 %.not.i.i.i, label %pmix_obj_new_tma.exit.thread109.i, label %.lr.ph.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i, label %.loopexit109.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.exit.thread109.i:                ; preds = %.lr.ph.i.i.i, %96
+.loopexit109.i:                                   ; preds = %.lr.ph.i.i.i, %96
   %107 = tail call noalias dereferenceable_or_null(13) ptr @strdup(ptr noundef nonnull @.str.20) #13
   %108 = getelementptr inbounds nuw i8, ptr %91, i64 144
   store ptr %107, ptr %108, align 8
@@ -2537,7 +2537,7 @@ pmix_obj_new_tma.exit.thread109.i:                ; preds = %.lr.ph.i.i.i, %96
   %111 = icmp eq ptr %109, null
   br i1 %111, label %112, label %135
 
-112:                                              ; preds = %pmix_obj_new_tma.exit.thread109.i
+112:                                              ; preds = %.loopexit109.i
   %113 = getelementptr inbounds nuw i8, ptr %91, i64 40
   %114 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %91) #13
   %115 = icmp eq i32 %114, 35
@@ -2589,7 +2589,7 @@ pmix_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %124
   tail call void @free(ptr noundef nonnull %91) #13
   br label %fetch_all_app_info.exit.thread
 
-135:                                              ; preds = %pmix_obj_new_tma.exit.thread109.i
+135:                                              ; preds = %.loopexit109.i
   %136 = getelementptr inbounds nuw i8, ptr %.082124.i, i64 152
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 264
@@ -3006,7 +3006,7 @@ define internal fastcc noundef ptr @pmix_bfrop_tma_kval_new(ptr noundef readonly
 
 7:                                                ; preds = %6, %1
   %.not22.i = icmp eq ptr %3, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit.thread, label %8
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %8
 
 8:                                                ; preds = %7
   %9 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %3, ptr noundef null) #13
@@ -3021,7 +3021,7 @@ define internal fastcc noundef ptr @pmix_bfrop_tma_kval_new(ptr noundef readonly
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i.i = icmp eq ptr %15, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread1, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
   %16 = phi ptr [ %18, %.lr.ph.i.i ], [ %15, %8 ]
@@ -3030,9 +3030,9 @@ define internal fastcc noundef ptr @pmix_bfrop_tma_kval_new(ptr noundef readonly
   %17 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread1, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.exit.thread1:                    ; preds = %.lr.ph.i.i, %8
+.loopexit:                                        ; preds = %.lr.ph.i.i, %8
   %19 = tail call noalias ptr @strdup(ptr noundef readonly %0) #13
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr %19, ptr %20, align 8
@@ -3040,9 +3040,9 @@ pmix_obj_new_tma.exit.thread1:                    ; preds = %.lr.ph.i.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
-  br i1 %23, label %24, label %pmix_obj_new_tma.exit.thread
+  br i1 %23, label %24, label %pmix_obj_new_tma.exit
 
-24:                                               ; preds = %pmix_obj_new_tma.exit.thread1
+24:                                               ; preds = %.loopexit
   %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #13
   %26 = icmp eq i32 %25, 35
   br i1 %26, label %27, label %29
@@ -3060,7 +3060,7 @@ pmix_obj_new_tma.exit.thread1:                    ; preds = %.lr.ph.i.i, %8
   store i32 %31, ptr %11, align 8
   %32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
   %33 = icmp eq i32 %31, 0
-  br i1 %33, label %34, label %pmix_obj_new_tma.exit.thread
+  br i1 %33, label %34, label %pmix_obj_new_tma.exit
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %10, align 8
@@ -3086,14 +3086,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %34
 
 43:                                               ; preds = %pmix_obj_run_destructors.exit
   tail call void %42(ptr noundef nonnull %12, ptr noundef nonnull %3) #13
-  br label %pmix_obj_new_tma.exit.thread
+  br label %pmix_obj_new_tma.exit
 
 44:                                               ; preds = %pmix_obj_run_destructors.exit
   tail call void @free(ptr noundef nonnull %3) #13
-  br label %pmix_obj_new_tma.exit.thread
+  br label %pmix_obj_new_tma.exit
 
-pmix_obj_new_tma.exit.thread:                     ; preds = %7, %29, %44, %43, %pmix_obj_new_tma.exit.thread1
-  %.0 = phi ptr [ %3, %pmix_obj_new_tma.exit.thread1 ], [ null, %43 ], [ null, %44 ], [ null, %29 ], [ null, %7 ]
+pmix_obj_new_tma.exit:                            ; preds = %7, %29, %44, %43, %.loopexit
+  %.0 = phi ptr [ %3, %.loopexit ], [ null, %43 ], [ null, %44 ], [ null, %29 ], [ null, %7 ]
   ret ptr %.0
 }
 

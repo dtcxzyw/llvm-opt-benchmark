@@ -94,7 +94,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %.lr.ph
   br i1 %10, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread13
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit
-  %11 = tail call { ptr, i64 } @_ZN4llvm3sys4path8filenameENS_9StringRefENS1_5StyleE(ptr %7, i64 %storemerge17, i32 noundef 0) #8
+  %11 = tail call { ptr, i64 } @_ZN4llvm3sys4path8filenameENS_9StringRefENS1_5StyleE(ptr nonnull %7, i64 %storemerge17, i32 noundef 0) #8
   br label %24
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread13:  ; preds = %.lr.ph, %_ZNK4llvm9StringRef9ends_withES0_.exit

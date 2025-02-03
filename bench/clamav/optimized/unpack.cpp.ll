@@ -9766,14 +9766,14 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %.thread, %26
 
 30:                                               ; preds = %.noexc
   invoke void @_ZN8ModelPPM7CleanUpEv(ptr noundef nonnull align 8 dereferenceable(19648) %2)
-          to label %37 unwind label %.loopexit.split-lp
+          to label %40 unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %27
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %31
 
-.loopexit.split-lp:                               ; preds = %35, %30
+.loopexit.split-lp:                               ; preds = %30
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -9782,37 +9782,44 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %.thread, %26
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   br i1 %25, label %_ZN5ArrayIhED2Ev.exit, label %32
 
-32:                                               ; preds = %31
+32:                                               ; preds = %.thread44, %31
+  %33 = phi { ptr, i32 } [ %39, %.thread44 ], [ %lpad.phi, %31 ]
   tail call void @free(ptr noundef nonnull %malloc.i) #22
   br label %_ZN5ArrayIhED2Ev.exit
 
 _ZN5ArrayIhED2Ev.exit:                            ; preds = %31, %32
-  resume { ptr, i32 } %lpad.phi
+  %34 = phi { ptr, i32 } [ %lpad.phi, %31 ], [ %33, %32 ]
+  resume { ptr, i32 } %34
 
 _ZN6Unpack17SafePPMDecodeCharEv.exit35:           ; preds = %.noexc
-  %33 = trunc i32 %28 to i8
-  %34 = getelementptr inbounds nuw i8, ptr %malloc.i, i64 %indvars.iv
-  store i8 %33, ptr %34, align 1
+  %35 = trunc i32 %28 to i8
+  %36 = getelementptr inbounds nuw i8, ptr %malloc.i, i64 %indvars.iv
+  store i8 %35, ptr %36, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %35, label %27, !llvm.loop !85
+  br i1 %exitcond.not, label %37, label %27, !llvm.loop !85
 
-35:                                               ; preds = %_ZN6Unpack17SafePPMDecodeCharEv.exit35
-  %36 = invoke noundef zeroext i1 @_ZN6Unpack9AddVMCodeEjPhj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %3, ptr noundef nonnull %malloc.i, i32 noundef %.02343)
-          to label %.thread46 unwind label %.loopexit.split-lp
+37:                                               ; preds = %_ZN6Unpack17SafePPMDecodeCharEv.exit35
+  %38 = invoke noundef zeroext i1 @_ZN6Unpack9AddVMCodeEjPhj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %3, ptr noundef nonnull %malloc.i, i32 noundef %.02343)
+          to label %.thread46 unwind label %.thread44
 
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 59496
-  store i32 0, ptr %38, align 8
+.thread44:                                        ; preds = %37
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  br label %32
+
+40:                                               ; preds = %30
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 59496
+  store i32 0, ptr %41, align 8
   br i1 %25, label %_ZN5ArrayIhED2Ev.exit38, label %.thread46
 
-.thread46:                                        ; preds = %35, %37
-  %.148 = phi i1 [ false, %37 ], [ %36, %35 ]
+.thread46:                                        ; preds = %37, %40
+  %.149 = phi i1 [ false, %40 ], [ %38, %37 ]
   tail call void @free(ptr noundef nonnull %malloc.i) #22
   br label %_ZN5ArrayIhED2Ev.exit38
 
-_ZN5ArrayIhED2Ev.exit38:                          ; preds = %.thread46, %37, %_ZN6Unpack17SafePPMDecodeCharEv.exit33.thread, %_ZN6Unpack17SafePPMDecodeCharEv.exit32.thread, %_ZN6Unpack17SafePPMDecodeCharEv.exit31.thread, %_ZN6Unpack17SafePPMDecodeCharEv.exit.thread, %20
-  %.0 = phi i1 [ false, %20 ], [ false, %_ZN6Unpack17SafePPMDecodeCharEv.exit.thread ], [ false, %_ZN6Unpack17SafePPMDecodeCharEv.exit31.thread ], [ false, %_ZN6Unpack17SafePPMDecodeCharEv.exit32.thread ], [ false, %_ZN6Unpack17SafePPMDecodeCharEv.exit33.thread ], [ false, %37 ], [ %.148, %.thread46 ]
+_ZN5ArrayIhED2Ev.exit38:                          ; preds = %.thread46, %40, %_ZN6Unpack17SafePPMDecodeCharEv.exit33.thread, %_ZN6Unpack17SafePPMDecodeCharEv.exit32.thread, %_ZN6Unpack17SafePPMDecodeCharEv.exit31.thread, %_ZN6Unpack17SafePPMDecodeCharEv.exit.thread, %20
+  %.0 = phi i1 [ false, %20 ], [ false, %_ZN6Unpack17SafePPMDecodeCharEv.exit.thread ], [ false, %_ZN6Unpack17SafePPMDecodeCharEv.exit31.thread ], [ false, %_ZN6Unpack17SafePPMDecodeCharEv.exit32.thread ], [ false, %_ZN6Unpack17SafePPMDecodeCharEv.exit33.thread ], [ false, %40 ], [ %.149, %.thread46 ]
   ret i1 %.0
 }
 
@@ -9924,7 +9931,7 @@ define noundef zeroext i1 @_ZN6Unpack10ReadVMCodeEv(ptr noundef nonnull align 8 
   br i1 %42, label %_ZN5ArrayIhED2Ev.exit24, label %.thread
 
 .thread:                                          ; preds = %1, %22, %33
-  %.pre36 = phi i32 [ %41, %33 ], [ %18, %1 ], [ %32, %22 ]
+  %.pre42 = phi i32 [ %41, %33 ], [ %18, %1 ], [ %32, %22 ]
   %.01629 = phi i32 [ %40, %33 ], [ %21, %1 ], [ %31, %22 ]
   %43 = tail call i32 @llvm.umax.i32(i32 %.01629, i32 32)
   %..i.i = zext nneg i32 %43 to i64
@@ -9938,22 +9945,22 @@ define noundef zeroext i1 @_ZN6Unpack10ReadVMCodeEv(ptr noundef nonnull align 8 
   br label %_ZN5ArrayIhEC2Em.exit
 
 _ZN5ArrayIhEC2Em.exit:                            ; preds = %.thread, %45
-  %.pre = phi i32 [ %.pre36, %.thread ], [ %.pre.pre, %45 ]
+  %.pre = phi i32 [ %.pre42, %.thread ], [ %.pre.pre, %45 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %48 = add nsw i32 %.01629, -1
   %49 = zext nneg i32 %48 to i64
   %wide.trip.count = zext nneg i32 %.01629 to i64
-  %.pre33 = load i32, ptr %46, align 8
+  %.pre39 = load i32, ptr %46, align 8
   br label %50
 
-50:                                               ; preds = %_ZN5ArrayIhEC2Em.exit, %85
-  %51 = phi i32 [ %.pre33, %_ZN5ArrayIhEC2Em.exit ], [ %87, %85 ]
-  %52 = phi i32 [ %.pre, %_ZN5ArrayIhEC2Em.exit ], [ %101, %85 ]
-  %indvars.iv = phi i64 [ 0, %_ZN5ArrayIhEC2Em.exit ], [ %indvars.iv.next, %85 ]
+50:                                               ; preds = %_ZN5ArrayIhEC2Em.exit, %88
+  %51 = phi i32 [ %.pre39, %_ZN5ArrayIhEC2Em.exit ], [ %90, %88 ]
+  %52 = phi i32 [ %.pre, %_ZN5ArrayIhEC2Em.exit ], [ %104, %88 ]
+  %indvars.iv = phi i64 [ 0, %_ZN5ArrayIhEC2Em.exit ], [ %indvars.iv.next, %88 ]
   %53 = add nsw i32 %51, -1
   %.not = icmp slt i32 %52, %53
-  br i1 %.not, label %85, label %54
+  br i1 %.not, label %88, label %54
 
 54:                                               ; preds = %50
   %55 = sub nsw i32 %51, %52
@@ -10014,70 +10021,70 @@ _ZN6Unpack12UnpReadBuf30Ev.exit:                  ; preds = %77, %54
   %.0.i = phi i1 [ %80, %77 ], [ true, %54 ]
   %82 = icmp samesign ult i64 %indvars.iv, %49
   %or.cond = and i1 %82, %.0.i
-  br i1 %or.cond, label %.loopexit30, label %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge
+  br i1 %or.cond, label %109, label %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge
 
 _ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge:       ; preds = %_ZN6Unpack12UnpReadBuf30Ev.exit
-  %.pre34 = load i32, ptr %2, align 8
-  br label %85
-
-.thread37:                                        ; preds = %103
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br label %84
+  %.pre40 = load i32, ptr %2, align 8
+  br label %88
 
 83:                                               ; preds = %66
-  %lpad.loopexit = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
-  br i1 %44, label %_ZN5ArrayIhED2Ev.exit, label %84
+  br i1 %44, label %_ZN5ArrayIhED2Ev.exit, label %85
 
-84:                                               ; preds = %.thread37, %83
-  %lpad.phi39 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.thread37 ], [ %lpad.loopexit, %83 ]
+85:                                               ; preds = %.thread30, %83
+  %86 = phi { ptr, i32 } [ %108, %.thread30 ], [ %84, %83 ]
   tail call void @free(ptr noundef nonnull %malloc.i) #22
   br label %_ZN5ArrayIhED2Ev.exit
 
-_ZN5ArrayIhED2Ev.exit:                            ; preds = %83, %84
-  %lpad.phi40 = phi { ptr, i32 } [ %lpad.loopexit, %83 ], [ %lpad.phi39, %84 ]
-  resume { ptr, i32 } %lpad.phi40
+_ZN5ArrayIhED2Ev.exit:                            ; preds = %83, %85
+  %87 = phi { ptr, i32 } [ %84, %83 ], [ %86, %85 ]
+  resume { ptr, i32 } %87
 
-85:                                               ; preds = %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge, %50
-  %86 = phi i32 [ %52, %50 ], [ %.pre34, %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge ]
-  %87 = phi i32 [ %51, %50 ], [ %81, %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge ]
-  %88 = load ptr, ptr %3, align 8
-  %89 = sext i32 %86 to i64
-  %90 = getelementptr inbounds i8, ptr %88, i64 %89
-  %91 = load i32, ptr %90, align 4
-  %92 = tail call noundef i32 @llvm.bswap.i32(i32 %91)
-  %93 = load i32, ptr %10, align 4
-  %94 = sub nsw i32 16, %93
-  %95 = lshr i32 %92, %94
-  %96 = lshr i32 %95, 8
-  %97 = trunc i32 %96 to i8
-  %98 = getelementptr inbounds nuw i8, ptr %malloc.i, i64 %indvars.iv
-  store i8 %97, ptr %98, align 1
-  %99 = add i32 %93, 8
-  %100 = lshr i32 %99, 3
-  %101 = add i32 %100, %86
-  store i32 %101, ptr %2, align 8
-  %102 = and i32 %93, 7
-  store i32 %102, ptr %10, align 4
+88:                                               ; preds = %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge, %50
+  %89 = phi i32 [ %52, %50 ], [ %.pre40, %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge ]
+  %90 = phi i32 [ %51, %50 ], [ %81, %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge ]
+  %91 = load ptr, ptr %3, align 8
+  %92 = sext i32 %89 to i64
+  %93 = getelementptr inbounds i8, ptr %91, i64 %92
+  %94 = load i32, ptr %93, align 4
+  %95 = tail call noundef i32 @llvm.bswap.i32(i32 %94)
+  %96 = load i32, ptr %10, align 4
+  %97 = sub nsw i32 16, %96
+  %98 = lshr i32 %95, %97
+  %99 = lshr i32 %98, 8
+  %100 = trunc i32 %99 to i8
+  %101 = getelementptr inbounds nuw i8, ptr %malloc.i, i64 %indvars.iv
+  store i8 %100, ptr %101, align 1
+  %102 = add i32 %96, 8
+  %103 = lshr i32 %102, 3
+  %104 = add i32 %103, %89
+  store i32 %104, ptr %2, align 8
+  %105 = and i32 %96, 7
+  store i32 %105, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %103, label %50, !llvm.loop !86
+  br i1 %exitcond.not, label %106, label %50, !llvm.loop !86
 
-103:                                              ; preds = %85
-  %104 = invoke noundef zeroext i1 @_ZN6Unpack9AddVMCodeEjPhj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %15, ptr noundef nonnull %malloc.i, i32 noundef %.01629)
-          to label %.loopexit30.thread unwind label %.thread37
+106:                                              ; preds = %88
+  %107 = invoke noundef zeroext i1 @_ZN6Unpack9AddVMCodeEjPhj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %15, ptr noundef nonnull %malloc.i, i32 noundef %.01629)
+          to label %.thread32 unwind label %.thread30
 
-.loopexit30:                                      ; preds = %_ZN6Unpack12UnpReadBuf30Ev.exit
-  br i1 %44, label %_ZN5ArrayIhED2Ev.exit24, label %.loopexit30.thread
+.thread30:                                        ; preds = %106
+  %108 = landingpad { ptr, i32 }
+          cleanup
+  br label %85
 
-.loopexit30.thread:                               ; preds = %103, %.loopexit30
-  %.142 = phi i1 [ false, %.loopexit30 ], [ %104, %103 ]
+109:                                              ; preds = %_ZN6Unpack12UnpReadBuf30Ev.exit
+  br i1 %44, label %_ZN5ArrayIhED2Ev.exit24, label %.thread32
+
+.thread32:                                        ; preds = %106, %109
+  %.135 = phi i1 [ false, %109 ], [ %107, %106 ]
   tail call void @free(ptr noundef nonnull %malloc.i) #22
   br label %_ZN5ArrayIhED2Ev.exit24
 
-_ZN5ArrayIhED2Ev.exit24:                          ; preds = %.loopexit30.thread, %.loopexit30, %33
-  %.0 = phi i1 [ false, %33 ], [ false, %.loopexit30 ], [ %.142, %.loopexit30.thread ]
+_ZN5ArrayIhED2Ev.exit24:                          ; preds = %.thread32, %109, %33
+  %.0 = phi i1 [ false, %33 ], [ false, %109 ], [ %.135, %.thread32 ]
   ret i1 %.0
 }
 

@@ -110,8 +110,6 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 
 $_ZNSt6vectorIN2cv8obsensor13UvcDeviceInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
 
-$_ZNSt16allocator_traitsISaIN2cv8obsensor13UvcDeviceInfoEEE7destroyIS2_EEvRS3_PT_ = comdat any
-
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv8obsensor17V4L2StreamChannelESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv8obsensor17V4L2StreamChannelESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
@@ -4279,7 +4277,7 @@ _ZNSt12_Vector_baseIN2cv8obsensor13UvcDeviceInfoESaIS2_EE11_M_allocateEm.exit: ;
 33:                                               ; preds = %31, %29
   %.pn.i.i.i = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(102) %23) #22
-  br label %.body
+  br label %61
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 96
@@ -4356,55 +4354,34 @@ _ZNSt12_Vector_baseIN2cv8obsensor13UvcDeviceInfoESaIS2_EE13_M_deallocateEPS2_m.e
 57:                                               ; preds = %_ZNSt12_Vector_baseIN2cv8obsensor13UvcDeviceInfoESaIS2_EE11_M_allocateEm.exit
   %58 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  br label %61
 
-.body:                                            ; preds = %33, %57
-  %eh.lpad-body = phi { ptr, i32 } [ %58, %57 ], [ %.pn.i.i.i, %33 ]
-  %59 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %60 = tail call ptr @__cxa_begin_catch(ptr %59) #22
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread, label %63
-
-.thread:                                          ; preds = %.body
-  tail call void @_ZNSt16allocator_traitsISaIN2cv8obsensor13UvcDeviceInfoEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %23) #22
-  br label %_ZNSt12_Vector_baseIN2cv8obsensor13UvcDeviceInfoESaIS2_EE13_M_deallocateEPS2_m.exit35
-
-61:                                               ; preds = %_ZNSt12_Vector_baseIN2cv8obsensor13UvcDeviceInfoESaIS2_EE13_M_deallocateEPS2_m.exit35
-  %62 = landingpad { ptr, i32 }
+59:                                               ; preds = %61
+  %60 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %64 unwind label %65
 
-63:                                               ; preds = %.body
+61:                                               ; preds = %57, %33
+  %eh.lpad-body = phi { ptr, i32 } [ %58, %57 ], [ %.pn.i.i.i, %33 ]
+  %62 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %63 = tail call ptr @__cxa_begin_catch(ptr %62) #22
   tail call void @_ZdlPv(ptr noundef nonnull %22) #25
-  br label %_ZNSt12_Vector_baseIN2cv8obsensor13UvcDeviceInfoESaIS2_EE13_M_deallocateEPS2_m.exit35
-
-_ZNSt12_Vector_baseIN2cv8obsensor13UvcDeviceInfoESaIS2_EE13_M_deallocateEPS2_m.exit35: ; preds = %63, %.thread
   invoke void @__cxa_rethrow() #28
-          to label %68 unwind label %61
+          to label %68 unwind label %59
 
-64:                                               ; preds = %61
-  resume { ptr, i32 } %62
+64:                                               ; preds = %59
+  resume { ptr, i32 } %60
 
-65:                                               ; preds = %61
+65:                                               ; preds = %59
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
   tail call void @__clang_call_terminate(ptr %67) #26
   unreachable
 
-68:                                               ; preds = %_ZNSt12_Vector_baseIN2cv8obsensor13UvcDeviceInfoESaIS2_EE13_M_deallocateEPS2_m.exit35
+68:                                               ; preds = %61
   unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv8obsensor13UvcDeviceInfoEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #9 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(102) %1) #22
-  ret void
 }
 
 ; Function Attrs: noreturn

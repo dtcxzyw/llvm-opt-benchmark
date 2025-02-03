@@ -1004,7 +1004,7 @@ if.end61:                                         ; preds = %if.end58
   %vtable = load ptr, ptr %25, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %26 = load ptr, ptr %vfn, align 8
-  %call65 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %cord, i32 noundef %size.addr.0)
+  %call65 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %cord, i32 noundef %size.addr.0)
   br i1 %call65, label %if.end67, label %return
 
 if.end67:                                         ; preds = %if.end61

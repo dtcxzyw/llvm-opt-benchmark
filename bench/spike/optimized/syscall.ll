@@ -425,7 +425,7 @@ _ZNSt8functionIFv9command_tEED2Ev.exit:           ; preds = %75, %77
 105:                                              ; preds = %88
   %106 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %89) #28
+  call void @__cxa_free_exception(ptr nonnull %89) #28
   br label %_ZNSt8functionIFv9command_tEED2Ev.exit44
 
 107:                                              ; preds = %_ZNSt8functionIFv9command_tEED2Ev.exit
@@ -5328,7 +5328,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   %26 = tail call ptr @__cxa_begin_catch(ptr %25) #28
-  invoke void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_(ptr noundef %13, ptr noundef %.013.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_(ptr noundef %13, ptr noundef nonnull %.013.i.i.i.i)
           to label %27 unwind label %28
 
 27:                                               ; preds = %23

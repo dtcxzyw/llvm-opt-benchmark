@@ -748,7 +748,7 @@ _ZN5ZXing13GenericGFPoly12Coefficients7reserveEm.exit.i53.i: ; preds = %_ZNSt6ve
 301:                                              ; preds = %298
   %302 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %299) #3
+  call void @__cxa_free_exception(ptr nonnull %299) #3
   br label %334
 
 303:                                              ; preds = %244
@@ -1278,7 +1278,7 @@ _ZN5ZXingL19FindErrorMagnitudesERKNS_9GenericGFERKNS_13GenericGFPolyERKSt6vector
 .body73.thread:                                   ; preds = %518
   %522 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %519) #3
+  call void @__cxa_free_exception(ptr nonnull %519) #3
   br label %542
 
 523:                                              ; preds = %514
@@ -1507,7 +1507,7 @@ define linkonce_odr noundef i32 @_ZNK5ZXing9GenericGF7inverseEi(ptr noundef nonn
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #3
+  tail call void @__cxa_free_exception(ptr nonnull %6) #3
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2

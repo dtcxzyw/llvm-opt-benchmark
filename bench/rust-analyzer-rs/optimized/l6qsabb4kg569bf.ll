@@ -442,7 +442,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgExpr$GT$17
 8:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %9 = load ptr, ptr %0, align 8, !alias.scope !149, !noundef !12
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgExpr$GT$17h42daefb73d95f1acE.llvm.1571579977540356806"(ptr noalias noundef align 8 dereferenceable(48) %9)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgExpr$GT$17h42daefb73d95f1acE.llvm.1571579977540356806"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9)
           to label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$cfg..cfg_expr..CfgExpr$GT$$GT$17h87828e6339a06dc9E.llvm.1571579977540356806.exit" unwind label %10, !noalias !149
 
 common.resume:                                    ; preds = %36, %19, %10
@@ -620,7 +620,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$cfg..cfg_expr..CfgExpr$GT$$GT$17h87828e6339a06dc9E.llvm.1571579977540356806"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !12
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgExpr$GT$17h42daefb73d95f1acE.llvm.1571579977540356806"(ptr noalias noundef align 8 dereferenceable(48) %2)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgExpr$GT$17h42daefb73d95f1acE.llvm.1571579977540356806"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1

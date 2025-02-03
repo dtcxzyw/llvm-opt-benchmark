@@ -526,12 +526,12 @@ define hidden void @unix_getUserInfo(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not16, label %.thread21, label %25
 
 .thread21:                                        ; preds = %14, %23, %21, %.critedge
-  call void @free(ptr noundef %7) #11
+  call void @free(ptr noundef nonnull %7) #11
   br label %32
 
 25:                                               ; preds = %23
   %26 = call ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef nonnull %22) #11
-  call void @free(ptr noundef %7) #11
+  call void @free(ptr noundef nonnull %7) #11
   %.not17 = icmp eq ptr %26, null
   br i1 %.not17, label %32, label %27
 

@@ -28,7 +28,7 @@ entry:
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call zeroext i1 @malloc_mutex_init(ptr noundef %central, ptr noundef nonnull @.str.1, i32 noundef 20, i32 noundef 0) #8
+  %call1 = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull %central, ptr noundef nonnull @.str.1, i32 noundef 20, i32 noundef 0) #8
   br i1 %call1, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -666,7 +666,7 @@ hpa_dalloc_locked.exit:                           ; preds = %if.end5.i.i, %if.en
   br i1 %cmp6.not, label %while.end, label %if.end.i19, !llvm.loop !5
 
 while.end:                                        ; preds = %hpa_dalloc_locked.exit, %malloc_mutex_lock.exit
-  call fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %tsdn, ptr noundef %self, i1 noundef zeroext false)
+  call fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %self, i1 noundef zeroext false)
   %psset.i24 = getelementptr inbounds nuw i8, ptr %self, i64 320
   %call.i = call ptr @psset_pick_hugify(ptr noundef nonnull %psset.i24) #8
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -1975,7 +1975,7 @@ edata_list_active_append.exit:                    ; preds = %if.end, %do.body2.i
 
 for.end:                                          ; preds = %edata_list_active_append.exit, %malloc_mutex_lock.exit, %if.then13.i, %if.then3.i, %if.then.i14
   %nsuccess.029 = phi i64 [ %nsuccess.038, %if.then13.i ], [ %nsuccess.038, %if.then3.i ], [ %nsuccess.038, %if.then.i14 ], [ 0, %malloc_mutex_lock.exit ], [ %nallocs, %edata_list_active_append.exit ]
-  call fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %tsdn, ptr noundef %shard, i1 noundef zeroext false)
+  call fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %shard, i1 noundef zeroext false)
   %psset.i17 = getelementptr inbounds nuw i8, ptr %shard, i64 320
   %call.i18 = call ptr @psset_pick_hugify(ptr noundef nonnull %psset.i17) #8
   %cmp.not.i = icmp eq ptr %call.i18, null

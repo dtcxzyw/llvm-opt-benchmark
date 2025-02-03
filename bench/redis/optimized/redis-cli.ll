@@ -25961,7 +25961,7 @@ if.end11:                                         ; preds = %for.body
   br i1 %cmp17, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %if.end11
-  %call20 = tail call ptr @hi_sdsnewlen(ptr noundef %buf, i64 noundef %startpos.1) #34
+  %call20 = tail call ptr @hi_sdsnewlen(ptr noundef nonnull %buf, i64 noundef %startpos.1) #34
   %9 = load ptr, ptr @helpEntries, align 8
   %full23 = getelementptr inbounds nuw %struct.helpEntry, ptr %9, i64 %indvars.iv, i32 3
   %10 = load ptr, ptr %full23, align 8
@@ -26839,7 +26839,7 @@ isPubsubPush.exit.i.us:                           ; preds = %lor.rhs.i.i.us
   br i1 %tobool20.not.i.not.i.us, label %if.then212.i.us, label %if.else232.i.us
 
 if.then212.i.us:                                  ; preds = %isPubsubPush.exit.i.us, %land.lhs.true.i.i.us
-  %call217.i.us = tail call i32 @strcasecmp(ptr noundef %91, ptr noundef %46) #33
+  %call217.i.us = tail call i32 @strcasecmp(ptr noundef nonnull %91, ptr noundef %46) #33
   %tobool218.not.i.us = icmp eq i32 %call217.i.us, 0
   br i1 %tobool218.not.i.us, label %if.then219.i.split.us, label %while.body198.backedge.i.us
 

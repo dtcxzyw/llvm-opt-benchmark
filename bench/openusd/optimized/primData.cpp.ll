@@ -2266,7 +2266,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIF
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #14
+  tail call void @__cxa_free_exception(ptr nonnull %2) #14
   resume { ptr, i32 } %6
 }
 

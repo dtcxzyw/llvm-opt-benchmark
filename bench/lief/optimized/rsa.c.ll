@@ -277,7 +277,7 @@ define hidden range(i32 -2147483648, 2147467136) i32 @mbedtls_rsa_complete(ptr n
   br label %54
 
 52:                                               ; preds = %48, %47
-  %53 = tail call fastcc i32 @rsa_check_context(ptr noundef %0, i32 noundef %27)
+  %53 = tail call fastcc i32 @rsa_check_context(ptr noundef nonnull %0, i32 noundef %27)
   br label %54
 
 54:                                               ; preds = %1, %52, %50, %45, %40, %32

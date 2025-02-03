@@ -337,7 +337,7 @@ invoke.cont:                                      ; preds = %if.end
 lpad:                                             ; preds = %if.end
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   br label %ehcleanup
 
 lpad1:                                            ; preds = %invoke.cont
@@ -507,7 +507,7 @@ invoke.cont:                                      ; preds = %if.end
 lpad:                                             ; preds = %if.end
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   br label %ehcleanup
 
 lpad1:                                            ; preds = %invoke.cont
@@ -663,7 +663,7 @@ invoke.cont:                                      ; preds = %if.end
 lpad:                                             ; preds = %if.end
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   br label %ehcleanup
 
 lpad1:                                            ; preds = %invoke.cont
@@ -819,7 +819,7 @@ invoke.cont:                                      ; preds = %if.end
 lpad:                                             ; preds = %if.end
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   br label %ehcleanup
 
 lpad1:                                            ; preds = %invoke.cont
@@ -955,7 +955,7 @@ invoke.cont:                                      ; preds = %if.end10
 lpad:                                             ; preds = %if.end10
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %4
 
 return:                                           ; preds = %entry, %if.then8

@@ -191,7 +191,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %81 = load i64, ptr %9, align 8
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %81, ptr %82, align 8
-  call void @free(ptr noundef %75) #11
+  call void @free(ptr noundef nonnull %75) #11
   br label %87
 
 83:                                               ; preds = %74
@@ -256,7 +256,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %108 = load i64, ptr %9, align 8
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %108, ptr %109, align 8
-  call void @free(ptr noundef %102) #11
+  call void @free(ptr noundef nonnull %102) #11
   br label %114
 
 110:                                              ; preds = %99
@@ -661,7 +661,7 @@ pmix_pointer_array_get_item.exit150:              ; preds = %101
   br i1 %.not134, label %119, label %116
 
 116:                                              ; preds = %112
-  call void @free(ptr noundef %114) #11
+  call void @free(ptr noundef nonnull %114) #11
   %117 = load ptr, ptr %103, align 8
   %118 = call noalias ptr @strdup(ptr noundef %117) #11
   store ptr %118, ptr %113, align 8

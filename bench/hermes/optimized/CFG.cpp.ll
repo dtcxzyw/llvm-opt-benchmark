@@ -6407,12 +6407,12 @@ if.then.i.i.i.i:                                  ; preds = %for.end55
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %add.ptr.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %46, i64 256
-  call void @_ZSt16__insertion_sortIPN4llvh3cfg6UpdateIPN6hermes10BasicBlockEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15LegalizeUpdatesIS5_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISE_EEbEUlRKS6_SK_E_EEEvSD_SD_T0_(ptr noundef %46, ptr noundef nonnull %add.ptr.i.i.i.i2.i, ptr nonnull %Operations)
+  call void @_ZSt16__insertion_sortIPN4llvh3cfg6UpdateIPN6hermes10BasicBlockEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15LegalizeUpdatesIS5_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISE_EEbEUlRKS6_SK_E_EEEvSD_SD_T0_(ptr noundef nonnull %46, ptr noundef nonnull %add.ptr.i.i.i.i2.i, ptr nonnull %Operations)
   call void @_ZSt26__unguarded_insertion_sortIPN4llvh3cfg6UpdateIPN6hermes10BasicBlockEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15LegalizeUpdatesIS5_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISE_EEbEUlRKS6_SK_E_EEEvSD_SD_T0_(ptr noundef nonnull %add.ptr.i.i.i.i2.i, ptr noundef nonnull %add.ptr.i.i.i.i.i, ptr nonnull %Operations)
   br label %_ZN4llvh4sortIRNS_15SmallVectorImplINS_3cfg6UpdateIPN6hermes10BasicBlockEEEEEZNS2_15LegalizeUpdatesIS6_EEvNS_8ArrayRefINS3_IT_EEEERNS1_ISD_EEbEUlRKS7_SI_E_EEvOSC_T0_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  call void @_ZSt16__insertion_sortIPN4llvh3cfg6UpdateIPN6hermes10BasicBlockEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15LegalizeUpdatesIS5_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISE_EEbEUlRKS6_SK_E_EEEvSD_SD_T0_(ptr noundef %46, ptr noundef nonnull %add.ptr.i.i.i.i.i, ptr nonnull %Operations)
+  call void @_ZSt16__insertion_sortIPN4llvh3cfg6UpdateIPN6hermes10BasicBlockEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15LegalizeUpdatesIS5_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISE_EEbEUlRKS6_SK_E_EEEvSD_SD_T0_(ptr noundef nonnull %46, ptr noundef nonnull %add.ptr.i.i.i.i.i, ptr nonnull %Operations)
   br label %_ZN4llvh4sortIRNS_15SmallVectorImplINS_3cfg6UpdateIPN6hermes10BasicBlockEEEEEZNS2_15LegalizeUpdatesIS6_EEvNS_8ArrayRefINS3_IT_EEEERNS1_ISD_EEbEUlRKS7_SI_E_EEvOSC_T0_.exit
 
 _ZN4llvh4sortIRNS_15SmallVectorImplINS_3cfg6UpdateIPN6hermes10BasicBlockEEEEEZNS2_15LegalizeUpdatesIS6_EEvNS_8ArrayRefINS3_IT_EEEERNS1_ISD_EEbEUlRKS7_SI_E_EEvOSC_T0_.exit: ; preds = %for.end55, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i

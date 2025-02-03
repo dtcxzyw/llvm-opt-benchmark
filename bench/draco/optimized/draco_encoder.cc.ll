@@ -1008,17 +1008,17 @@ _ZN5draco7OptionsD2Ev.exit:                       ; preds = %_ZN5draco8StatusOrI
 .loopexit:                                        ; preds = %365, %369, %371
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp
+  br label %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i217
 
 .loopexit.split-lp.loopexit:                      ; preds = %354, %352, %348
   %lpad.loopexit294 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp
+  br label %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i217
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %331, %335, %337
   %lpad.loopexit298 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp
+  br label %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i217
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %302, %326, %343, %360, %383, %387
   %.sroa.0226.4.ph.ph.ph = phi ptr [ null, %302 ], [ %.sroa.0226.2, %326 ], [ %.sroa.0226.2, %343 ], [ %.sroa.0226.2, %360 ], [ %.sroa.0226.2, %383 ], [ %.sroa.0226.2, %387 ]
@@ -1080,16 +1080,16 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
 
 328:                                              ; preds = %326
   %329 = icmp sgt i32 %327, 0
-  br i1 %329, label %330, label %.preheader358
+  br i1 %329, label %330, label %.preheader363
 
 330:                                              ; preds = %328
   store i8 1, ptr %36, align 4
-  br label %.preheader358
+  br label %.preheader363
 
-.preheader358:                                    ; preds = %330, %328
+.preheader363:                                    ; preds = %330, %328
   br label %331
 
-331:                                              ; preds = %.preheader358, %337
+331:                                              ; preds = %.preheader363, %337
   %332 = invoke noundef i32 @_ZNK5draco10PointCloud18NumNamedAttributesENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %.sroa.0226.2, i32 noundef 3)
           to label %333 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1119,16 +1119,16 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
 
 345:                                              ; preds = %343
   %346 = icmp sgt i32 %344, 0
-  br i1 %346, label %347, label %.preheader357
+  br i1 %346, label %347, label %.preheader362
 
 347:                                              ; preds = %345
   store i8 1, ptr %38, align 4
-  br label %.preheader357
+  br label %.preheader362
 
-.preheader357:                                    ; preds = %347, %345
+.preheader362:                                    ; preds = %347, %345
   br label %348
 
-348:                                              ; preds = %.preheader357, %354
+348:                                              ; preds = %.preheader362, %354
   %349 = invoke noundef i32 @_ZNK5draco10PointCloud18NumNamedAttributesENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %.sroa.0226.2, i32 noundef 1)
           to label %350 unwind label %.loopexit.split-lp.loopexit
 
@@ -1692,17 +1692,19 @@ _ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i: ; preds = %_ZNSt3map
   call void %563(ptr noundef nonnull align 8 dereferenceable(164) %.sroa.0226.1269) #17
   br label %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit
 
-.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt10unique_ptrIN5draco13ExpertEncoderESt14default_deleteIS1_EED2Ev.exit214
-  %.sroa.0226.3 = phi ptr [ %.sroa.0226.2, %_ZNSt10unique_ptrIN5draco13ExpertEncoderESt14default_deleteIS1_EED2Ev.exit214 ], [ %.sroa.0226.2, %.loopexit ], [ %.sroa.0226.2, %.loopexit.split-lp.loopexit ], [ %.sroa.0226.2, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0226.4.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.pn125 = phi { ptr, i32 } [ %.pn122.pn, %_ZNSt10unique_ptrIN5draco13ExpertEncoderESt14default_deleteIS1_EED2Ev.exit214 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit294, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit298, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %_ZNSt10unique_ptrIN5draco13ExpertEncoderESt14default_deleteIS1_EED2Ev.exit214
+  %.sroa.0226.3 = phi ptr [ %.sroa.0226.2, %_ZNSt10unique_ptrIN5draco13ExpertEncoderESt14default_deleteIS1_EED2Ev.exit214 ], [ %.sroa.0226.4.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn125 = phi { ptr, i32 } [ %.pn122.pn, %_ZNSt10unique_ptrIN5draco13ExpertEncoderESt14default_deleteIS1_EED2Ev.exit214 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.not.i216 = icmp eq ptr %.sroa.0226.3, null
   br i1 %.not.i216, label %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit218, label %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i217
 
-_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i217: ; preds = %.loopexit.split-lp
-  %564 = load ptr, ptr %.sroa.0226.3, align 8
+_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i217: ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %.loopexit, %.loopexit.split-lp
+  %.pn125361 = phi { ptr, i32 } [ %.pn125, %.loopexit.split-lp ], [ %lpad.loopexit298, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit294, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+  %.sroa.0226.3360 = phi ptr [ %.sroa.0226.3, %.loopexit.split-lp ], [ %.sroa.0226.2, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0226.2, %.loopexit.split-lp.loopexit ], [ %.sroa.0226.2, %.loopexit ]
+  %564 = load ptr, ptr %.sroa.0226.3360, align 8
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 8
   %566 = load ptr, ptr %565, align 8
-  call void %566(ptr noundef nonnull align 8 dereferenceable(164) %.sroa.0226.3) #17
+  call void %566(ptr noundef nonnull align 8 dereferenceable(164) %.sroa.0226.3360) #17
   br label %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit218
 
 _ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN5draco7EncoderD2Ev.exit.thread, %72, %._crit_edge.thread, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i, %_ZN5draco7EncoderD2Ev.exit, %238, %200, %177, %154, %131
@@ -1712,7 +1714,7 @@ _ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit: ; preds
   ret i32 %.087
 
 _ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit218: ; preds = %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i217, %.loopexit.split-lp, %.thread272, %.body177, %.body172, %.body167, %.body162, %.body, %73
-  %.pn142 = phi { ptr, i32 } [ %eh.lpad-body178, %.body177 ], [ %eh.lpad-body173, %.body172 ], [ %eh.lpad-body168, %.body167 ], [ %eh.lpad-body163, %.body162 ], [ %eh.lpad-body, %.body ], [ %74, %73 ], [ %.pn116, %.thread272 ], [ %.pn125, %.loopexit.split-lp ], [ %.pn125, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i217 ]
+  %.pn142 = phi { ptr, i32 } [ %eh.lpad-body178, %.body177 ], [ %eh.lpad-body173, %.body172 ], [ %eh.lpad-body168, %.body167 ], [ %eh.lpad-body163, %.body162 ], [ %eh.lpad-body, %.body ], [ %74, %73 ], [ %.pn116, %.thread272 ], [ %.pn125, %.loopexit.split-lp ], [ %.pn125361, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i217 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #17
   resume { ptr, i32 } %.pn142

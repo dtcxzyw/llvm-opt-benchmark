@@ -8521,13 +8521,13 @@ decode_ARType_spezial.exit162:                    ; preds = %161, %161, %181, %1
 208:                                              ; preds = %decode_ARType_spezial.exit162
   %.081.i = load ptr, ptr @pnio_ars, align 8
   %.not2.i = icmp eq ptr %.081.i, null
-  br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i
+  br i1 %.not2.i, label %.loopexit, label %.lr.ph.i
 
 209:                                              ; preds = %.lr.ph.i
   %210 = getelementptr inbounds nuw i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %210, align 8
   %.not.i163 = icmp eq ptr %.08.i, null
-  br i1 %.not.i163, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i163, label %.loopexit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %208, %209
   %.083.i = phi ptr [ %.08.i, %209 ], [ %.081.i, %208 ]
@@ -8536,7 +8536,7 @@ decode_ARType_spezial.exit162:                    ; preds = %161, %161, %181, %1
   %212 = icmp eq i32 %bcmp.i, 0
   br i1 %212, label %pnio_ar_find_by_aruuid.exit, label %209
 
-pnio_ar_find_by_aruuid.exit.thread:               ; preds = %209, %208
+.loopexit:                                        ; preds = %209, %208
   %213 = call ptr @wmem_file_scope() #11
   %214 = call noalias ptr @wmem_alloc0(ptr noundef %213, i64 noundef 40) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %214, ptr noundef nonnull readonly align 8 dereferenceable(16) %10, i64 16, i1 false)
@@ -8553,8 +8553,8 @@ pnio_ar_find_by_aruuid.exit.thread:               ; preds = %209, %208
   store i16 %.in, ptr %220, align 4
   br label %pnio_ar_find_by_aruuid.exit
 
-pnio_ar_find_by_aruuid.exit:                      ; preds = %.lr.ph.i, %decode_ARType_spezial.exit162, %pnio_ar_find_by_aruuid.exit.thread
-  %storemerge = phi ptr [ %214, %pnio_ar_find_by_aruuid.exit.thread ], [ null, %decode_ARType_spezial.exit162 ], [ %211, %.lr.ph.i ]
+pnio_ar_find_by_aruuid.exit:                      ; preds = %.lr.ph.i, %decode_ARType_spezial.exit162, %.loopexit
+  %storemerge = phi ptr [ %214, %.loopexit ], [ null, %decode_ARType_spezial.exit162 ], [ %211, %.lr.ph.i ]
   store ptr %storemerge, ptr %8, align 8
   br label %221
 

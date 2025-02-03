@@ -3844,7 +3844,7 @@ google_protobuf_Struct_fields_set.exit:           ; preds = %google_protobuf_Val
   %table.i.i = getelementptr inbounds nuw i8, ptr %map.1.i.i, i64 8
   %call2.i.i = tail call zeroext i1 @upb_strtable_remove2(ptr noundef nonnull %table.i.i, ptr noundef %call.i, i64 noundef %call1.i, ptr noundef null)
   %call6.i.i = tail call zeroext i1 @upb_strtable_insert(ptr noundef nonnull %table.i.i, ptr noundef %call.i, i64 noundef %call1.i, i64 %9, ptr noundef %5)
-  %call.i8 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.012) #22
+  %call.i8 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.012) #22
   %cmp.i.not = icmp eq ptr %call.i8, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 

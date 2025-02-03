@@ -3330,17 +3330,17 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i8
 define dso_local void @_ZN12LuaItemStack7packOutEP9lua_StatePv(ptr noundef %L, ptr noundef %ptr) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %L, null
-  br i1 %tobool.not, label %if.end, label %if.then
+  br i1 %tobool.not, label %if.end, label %if.end.thread
 
-if.then:                                          ; preds = %entry
+if.end.thread:                                    ; preds = %entry
   %call = tail call noundef i32 @_ZN12LuaItemStack6createEP9lua_StateRK9ItemStack(ptr noundef nonnull %L, ptr noundef nonnull align 8 dereferenceable(312) %ptr)
-  br label %if.end
+  br label %delete.notnull
 
-if.end:                                           ; preds = %if.then, %entry
+if.end:                                           ; preds = %entry
   %isnull = icmp eq ptr %ptr, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
-delete.notnull:                                   ; preds = %if.end
+delete.notnull:                                   ; preds = %if.end.thread, %if.end
   %metadata.i = getelementptr inbounds nuw i8, ptr %ptr, i64 40
   tail call void @_ZN17ItemStackMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %metadata.i, ptr noundef nonnull @_ZTT17ItemStackMetadata) #25
   %0 = load ptr, ptr %ptr, align 8, !tbaa !11

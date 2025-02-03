@@ -901,7 +901,7 @@ _ZNK5clang4Type13isIntegerTypeEv.exit.i:          ; preds = %_ZN4llvm18Intrusive
   %77 = icmp ne i16 %76, 0
   %78 = trunc i16 %75 to i1
   %79 = and i1 %77, %78
-  br i1 %79, label %.critedge5.i, label %80
+  br i1 %79, label %.critedge5.thread.i, label %80
 
 80:                                               ; preds = %63
   %81 = load i32, ptr %1, align 8
@@ -1005,20 +1005,20 @@ _ZNK5clang4Type13isIntegerTypeEv.exit53.i:        ; preds = %.critedge.i
   %143 = icmp ne i16 %142, 0
   %144 = trunc i16 %141 to i1
   %145 = and i1 %143, %144
-  br i1 %145, label %.critedge5.i, label %146
+  br i1 %145, label %.critedge5.thread.i, label %146
 
 146:                                              ; preds = %129
   call fastcc void @_ZNK12_GLOBAL__N_119PointerArithChecker24reportPointerArithMisuseEPKN5clang4ExprERNS1_4ento14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(81) %2, i1 noundef zeroext false)
-  br label %.critedge5.i
+  br label %.critedge5.thread.i
 
-.critedge5.i:                                     ; preds = %146, %129, %118, %_ZNK5clang4Type13isIntegerTypeEv.exit53.i, %112, %107, %99, %63
-  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_119PointerArithChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit, label %147
+.critedge5.i:                                     ; preds = %118, %_ZNK5clang4Type13isIntegerTypeEv.exit53.i, %112, %107, %99
+  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_119PointerArithChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit, label %.critedge5.thread.i
 
-147:                                              ; preds = %.critedge5.i
+.critedge5.thread.i:                              ; preds = %.critedge5.i, %146, %129, %63
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %17) #19
   br label %_ZNK12_GLOBAL__N_119PointerArithChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_119PointerArithChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit: ; preds = %3, %.critedge5.i, %147
+_ZNK12_GLOBAL__N_119PointerArithChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit: ; preds = %3, %.critedge5.i, %.critedge5.thread.i
   ret void
 }
 

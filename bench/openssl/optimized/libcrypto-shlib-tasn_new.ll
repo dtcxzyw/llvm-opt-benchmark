@@ -235,7 +235,7 @@ asn1err2:                                         ; preds = %for.body
   br label %return.sink.split
 
 auxerr2:                                          ; preds = %land.lhs.true115, %land.lhs.true69
-  tail call void @ossl_asn1_item_embed_free(ptr noundef %pval, ptr noundef nonnull %it, i32 noundef %embed) #3
+  tail call void @ossl_asn1_item_embed_free(ptr noundef nonnull %pval, ptr noundef nonnull %it, i32 noundef %embed) #3
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %auxerr2, %if.then47, %if.then76, %asn1err2, %if.then9, %if.then17, %if.then28, %if.else34, %sw.bb40, %if.then102, %if.end96.thread

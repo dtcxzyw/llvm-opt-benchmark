@@ -121,8 +121,8 @@ if.end7:                                          ; preds = %if.end3
   store i32 2, ptr %dmax, align 4
   %neg9 = getelementptr inbounds nuw i8, ptr %tmod, i64 16
   store i32 0, ptr %neg9, align 8
-  call void @BN_zero(ptr noundef %mont) #5
-  %call10 = call i32 @BN_set_bit(ptr noundef %mont, i32 noundef 64) #5
+  call void @BN_zero(ptr noundef nonnull %mont) #5
+  %call10 = call i32 @BN_set_bit(ptr noundef nonnull %mont, i32 noundef 64) #5
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %err, label %if.end13
 

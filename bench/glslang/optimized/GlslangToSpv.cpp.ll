@@ -2326,7 +2326,7 @@ _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iter
   br label %_ZN3spv7Builder18addSourceExtensionEPKc.exit
 
 _ZN3spv7Builder18addSourceExtensionEPKc.exit:     ; preds = %468, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %491 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0731.0868) #24
+  %491 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0731.0868) #24
   %.not801 = icmp eq ptr %491, %186
   br i1 %.not801, label %._crit_edge871, label %463, !llvm.loop !13
 

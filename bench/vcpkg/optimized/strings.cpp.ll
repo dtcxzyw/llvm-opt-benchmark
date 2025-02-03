@@ -5142,7 +5142,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit433: ; pr
   %350 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.0479.0.insert.insert = or disjoint i64 %.sroa.288.0.insert.shift, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0479.0.insert.insert, ptr %350, align 8
-  %351 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr %1, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 noundef %.sroa.0477.0, i64 noundef %.sroa.0477.0, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %351 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 noundef %.sroa.0477.0, i64 noundef %.sroa.0477.0, ptr noundef nonnull align 8 dereferenceable(32) %12)
   br label %_ZZN3fmt3v106detail9write_intIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEjEET0_SB_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEENKUlPcE_clESL_.exit
 
 352:                                              ; preds = %275, %275
@@ -5257,7 +5257,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit440: ; pr
   store i64 %.sroa.0487.sroa.0.0.insert.insert, ptr %409, align 8
   %.sroa.4488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 %354, ptr %.sroa.4488.0..sroa_idx, align 8
-  %410 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE0_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr %1, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 noundef %.sroa.0485.0, i64 noundef %.sroa.0485.0, ptr noundef nonnull align 8 dereferenceable(36) %10)
+  %410 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE0_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 noundef %.sroa.0485.0, i64 noundef %.sroa.0485.0, ptr noundef nonnull align 8 dereferenceable(36) %10)
   br label %_ZZN3fmt3v106detail9write_intIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEjEET0_SB_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEENKUlPcE_clESL_.exit
 
 411:                                              ; preds = %275, %275
@@ -5366,7 +5366,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit446: ; pr
   %465 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.0496.0.insert.insert = or disjoint i64 %.sroa.272.0.insert.shift, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0496.0.insert.insert, ptr %465, align 8
-  %466 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE1_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr %1, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 noundef %.sroa.0494.0, i64 noundef %.sroa.0494.0, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %466 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE1_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 noundef %.sroa.0494.0, i64 noundef %.sroa.0494.0, ptr noundef nonnull align 8 dereferenceable(32) %8)
   br label %_ZZN3fmt3v106detail9write_intIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEjEET0_SB_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEENKUlPcE_clESL_.exit
 
 467:                                              ; preds = %275
@@ -5410,7 +5410,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit446: ; pr
   br i1 %484, label %488, label %501
 
 488:                                              ; preds = %._crit_edge
-  %489 = call noundef ptr @_ZN3fmt3v106detail7reserveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNSA_10value_typeESt20back_insert_iteratorISA_Em(ptr %1, i64 noundef %487)
+  %489 = call noundef ptr @_ZN3fmt3v106detail7reserveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNSA_10value_typeESt20back_insert_iteratorISA_Em(ptr nonnull %1, i64 noundef %487)
   %490 = and i32 %.2, 16777215
   %.not386552 = icmp eq i32 %490, 0
   br i1 %.not386552, label %.loopexit526, label %.lr.ph555
@@ -5478,7 +5478,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit454: ; pr
   %517 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.0506.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0506.0.insert.insert, ptr %517, align 8
-  %518 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE2_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr %1, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 noundef %.sroa.0504.0, i64 noundef %.sroa.0504.0, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %518 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE2_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 noundef %.sroa.0504.0, i64 noundef %.sroa.0504.0, ptr noundef nonnull align 8 dereferenceable(32) %6)
   br label %_ZZN3fmt3v106detail9write_intIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEjEET0_SB_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEENKUlPcE_clESL_.exit
 
 519:                                              ; preds = %275
@@ -5486,7 +5486,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit454: ; pr
   store i8 0, ptr %4, align 1
   %520 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %19, ptr %520, align 1
-  %521 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE1ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_10write_charIcSC_EET0_SE_T_RKNS0_12format_specsISF_EEEUlPcE_EESE_SE_RKNSG_IT1_EEmmOT2_(ptr %1, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 noundef 1, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(2) %4)
+  %521 = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE1ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_10write_charIcSC_EET0_SE_T_RKNS0_12format_specsISF_EEEUlPcE_EESE_SE_RKNSG_IT1_EEmmOT2_(ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 noundef 1, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(2) %4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   br label %_ZZN3fmt3v106detail9write_intIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEjEET0_SB_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEENKUlPcE_clESL_.exit
 

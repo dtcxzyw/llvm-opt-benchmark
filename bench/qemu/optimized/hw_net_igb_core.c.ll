@@ -8352,7 +8352,7 @@ if.then39.i.i:                                    ; preds = %if.end34.i.i
   %43 = load ptr, ptr %tx_pkt.i.i, align 8
   %44 = and i32 %35, 65535
   %conv40.i.i = zext nneg i32 %44 to i64
-  %call41.i.i = call zeroext i1 @net_tx_pkt_add_raw_fragment_pci(ptr noundef %43, ptr noundef %d.0.i, i64 noundef %42, i64 noundef %conv40.i.i) #15
+  %call41.i.i = call zeroext i1 @net_tx_pkt_add_raw_fragment_pci(ptr noundef %43, ptr noundef nonnull %d.0.i, i64 noundef %42, i64 noundef %conv40.i.i) #15
   br i1 %call41.i.i, label %if.end45.i.i, label %if.then42.i.i
 
 if.then42.i.i:                                    ; preds = %if.then39.i.i
@@ -8635,7 +8635,7 @@ if.end90.i.i:                                     ; preds = %if.then.i60.i.i, %e
   store i8 1, ptr %first.i.i, align 8
   store i8 0, ptr %skip_cp.i.i, align 1
   %90 = load ptr, ptr %tx_pkt.i.i, align 8
-  call void @net_tx_pkt_reset(ptr noundef %90, ptr noundef nonnull @net_tx_pkt_unmap_frag_pci, ptr noundef %d.0.i) #15
+  call void @net_tx_pkt_reset(ptr noundef %90, ptr noundef nonnull @net_tx_pkt_unmap_frag_pci, ptr noundef nonnull %d.0.i) #15
   br label %igb_process_tx_desc.exit.i
 
 igb_process_tx_desc.exit.i:                       ; preds = %if.end90.i.i, %if.end45.i.i, %if.then10.i.i, %if.else.i.i

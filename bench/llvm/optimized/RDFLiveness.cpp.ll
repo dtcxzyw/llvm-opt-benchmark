@@ -1496,7 +1496,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
 
 .lr.ph24.i.i.i.i.i.i:                             ; preds = %446
   %451 = getelementptr inbounds nuw i8, ptr %443, i64 64
-  call fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm3rdf8Liveness18getAllReachingDefsENS5_11RegisterRefENS5_8NodeAddrIPNS5_7RefNodeEEEbbRKNS5_12RegisterAggrEE3$_2EEEvT_SH_T0_"(ptr noundef %443, ptr noundef nonnull %451, ptr nonnull %1, ptr nonnull %18)
+  call fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm3rdf8Liveness18getAllReachingDefsENS5_11RegisterRefENS5_8NodeAddrIPNS5_7RefNodeEEEbbRKNS5_12RegisterAggrEE3$_2EEEvT_SH_T0_"(ptr noundef nonnull %443, ptr noundef nonnull %451, ptr nonnull %1, ptr nonnull %18)
   br label %452
 
 452:                                              ; preds = %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm3rdf8Liveness18getAllReachingDefsENS5_11RegisterRefENS5_8NodeAddrIPNS5_7RefNodeEEEbbRKNS5_12RegisterAggrEE3$_2EEEvT_T0_.exit.i.i.i.i.i.i", %.lr.ph24.i.i.i.i.i.i
@@ -1910,7 +1910,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIjLj32EEEZNS_3rdf8Liveness18getAllReachingDefsENS4_11RegisterRefENS4_8NodeAddrIPNS4_7RefNodeEEEbbRKNS4_12RegisterAggrEE3$_2EEvOT_T0_.exit", label %452, !llvm.loop !27
 
 652:                                              ; preds = %446
-  call fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm3rdf8Liveness18getAllReachingDefsENS5_11RegisterRefENS5_8NodeAddrIPNS5_7RefNodeEEEbbRKNS5_12RegisterAggrEE3$_2EEEvT_SH_T0_"(ptr noundef %443, ptr noundef nonnull %445, ptr nonnull %1, ptr nonnull %18)
+  call fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm3rdf8Liveness18getAllReachingDefsENS5_11RegisterRefENS5_8NodeAddrIPNS5_7RefNodeEEEbbRKNS5_12RegisterAggrEE3$_2EEEvT_SH_T0_"(ptr noundef nonnull %443, ptr noundef nonnull %445, ptr nonnull %1, ptr nonnull %18)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorIjLj32EEEZNS_3rdf8Liveness18getAllReachingDefsENS4_11RegisterRefENS4_8NodeAddrIPNS4_7RefNodeEEEbbRKNS4_12RegisterAggrEE3$_2EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorIjLj32EEEZNS_3rdf8Liveness18getAllReachingDefsENS4_11RegisterRefENS4_8NodeAddrIPNS4_7RefNodeEEEbbRKNS4_12RegisterAggrEE3$_2EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm3rdf8Liveness18getAllReachingDefsENS5_11RegisterRefENS5_8NodeAddrIPNS5_7RefNodeEEEbbRKNS5_12RegisterAggrEE3$_2EEEvT_T0_.exit.i.i.i.i.i.i", %"_ZZN4llvm3rdf8Liveness18getAllReachingDefsENS0_11RegisterRefENS0_8NodeAddrIPNS0_7RefNodeEEEbbRKNS0_12RegisterAggrEENK3$_1clERNS_17MachineBasicBlockE.exit", %652
@@ -3854,7 +3854,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
 
 _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE17_M_insert_unique_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjESt23_Rb_tree_const_iteratorIjEOT_RT0_.exit.i: ; preds = %25, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
   %38 = phi i64 [ %10, %25 ], [ %37, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i ]
-  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.04.08.i) #23
+  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.08.i) #23
   %.not.i = icmp eq ptr %39, %2
   br i1 %.not.i, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE22_M_insert_range_uniqueISt23_Rb_tree_const_iteratorIjEEENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESA_SA_.exit, label %9, !llvm.loop !57
 

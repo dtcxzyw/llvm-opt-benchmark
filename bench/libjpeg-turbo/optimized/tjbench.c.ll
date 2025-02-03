@@ -3314,7 +3314,7 @@ switch.early.test:                                ; preds = %569
   br i1 %680, label %649, label %.outer.backedge
 
 681:                                              ; preds = %674
-  call void @free(ptr noundef %560) #21
+  call void @free(ptr noundef nonnull %560) #21
   %682 = icmp sgt i32 %647, 0
   br i1 %682, label %.lr.ph820.preheader, label %._crit_edge
 

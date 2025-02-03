@@ -1246,7 +1246,7 @@ pmix_bfrops_base_tma_argv_append_nosize.exit.i:   ; preds = %33, %31
   br label %pmix_bfrops_base_tma_setenv.exit
 
 58:                                               ; preds = %52
-  call void @free(ptr noundef %37) #38
+  call void @free(ptr noundef nonnull %37) #38
   %59 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %59) #38
   br label %pmix_bfrops_base_tma_setenv.exit

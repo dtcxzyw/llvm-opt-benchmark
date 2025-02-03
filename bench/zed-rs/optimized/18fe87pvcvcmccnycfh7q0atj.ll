@@ -8379,7 +8379,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i: ; preds = %54, %52
   %69 = getelementptr i8, ptr %68, i64 %.idx28.i
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load i64, ptr %70, align 8, !noalias !1396, !noundef !4
-  invoke void @"_ZN4slab13Slab$LT$T$GT$9insert_at17hb1011d207aa79a23E"(ptr noalias noundef align 8 dereferenceable(40) %69, i64 noundef %71, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) null, ptr undef)
+  invoke void @"_ZN4slab13Slab$LT$T$GT$9insert_at17hb1011d207aa79a23E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %69, i64 noundef %71, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) null, ptr undef)
           to label %72 unwind label %45, !noalias !1396
 
 72:                                               ; preds = %67

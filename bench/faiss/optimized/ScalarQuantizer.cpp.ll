@@ -3266,7 +3266,7 @@ define noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer21get_distance_computerEN
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #16
+  call void @__cxa_free_exception(ptr nonnull %17) #16
   br label %23
 
 common.resume:                                    ; preds = %181, %193, %195, %98, %110, %112, %23

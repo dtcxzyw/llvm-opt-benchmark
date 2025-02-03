@@ -14348,7 +14348,7 @@ common.resume:                                    ; preds = %lpad.body, %eh.resu
 eh.resume.i:                                      ; preds = %lpad5.i, %lpad.i
   %exception4.sink.i = phi ptr [ %exception4.i, %lpad5.i ], [ %exception.i, %lpad.i ]
   %.pn.i = phi { ptr, i32 } [ %20, %lpad5.i ], [ %16, %lpad.i ]
-  call void @__cxa_free_exception(ptr %exception4.sink.i) #29
+  call void @__cxa_free_exception(ptr nonnull %exception4.sink.i) #29
   br label %common.resume
 
 _ZN3sat9lookahead10checkpointEv.exit:             ; preds = %if.end.i38
@@ -15744,7 +15744,7 @@ if.end7:                                          ; preds = %if.end
 eh.resume:                                        ; preds = %lpad5, %lpad
   %exception4.sink = phi ptr [ %exception4, %lpad5 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %5, %lpad5 ], [ %1, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception4.sink) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception4.sink) #29
   resume { ptr, i32 } %.pn
 }
 

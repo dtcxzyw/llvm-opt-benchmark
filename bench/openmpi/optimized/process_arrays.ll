@@ -3613,7 +3613,7 @@ pmix_obj_run_destructors.exit154:                 ; preds = %.lr.ph.i151, %180
   %209 = load volatile i64, ptr %40, align 8
   %210 = add i64 %209, 1
   store volatile i64 %210, ptr %40, align 8
-  %211 = call zeroext i1 @PMIx_Check_key(ptr noundef %44, ptr noundef nonnull @.str.19) #12
+  %211 = call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %44, ptr noundef nonnull @.str.19) #12
   br i1 %211, label %212, label %222
 
 212:                                              ; preds = %204
@@ -3634,15 +3634,15 @@ pmix_obj_run_destructors.exit154:                 ; preds = %.lr.ph.i151, %180
   br label %242
 
 222:                                              ; preds = %204
-  %223 = call zeroext i1 @PMIx_Check_key(ptr noundef %44, ptr noundef nonnull @.str.20) #12
+  %223 = call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %44, ptr noundef nonnull @.str.20) #12
   br i1 %223, label %228, label %224
 
 224:                                              ; preds = %222
-  %225 = call zeroext i1 @PMIx_Check_key(ptr noundef %44, ptr noundef nonnull @.str.21) #12
+  %225 = call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %44, ptr noundef nonnull @.str.21) #12
   br i1 %225, label %228, label %226
 
 226:                                              ; preds = %224
-  %227 = call zeroext i1 @PMIx_Check_key(ptr noundef %44, ptr noundef nonnull @.str.22) #12
+  %227 = call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %44, ptr noundef nonnull @.str.22) #12
   br i1 %227, label %228, label %239
 
 228:                                              ; preds = %226, %224, %222
@@ -3667,7 +3667,7 @@ pmix_obj_run_destructors.exit154:                 ; preds = %.lr.ph.i151, %180
 239:                                              ; preds = %226
   %240 = load ptr, ptr %41, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 1608
-  call void @pmix_iof_check_flags(ptr noundef %44, ptr noundef nonnull %241) #12
+  call void @pmix_iof_check_flags(ptr noundef nonnull %44, ptr noundef nonnull %241) #12
   br label %242
 
 242:                                              ; preds = %51, %46, %70, %98, %239, %237, %233, %212, %215, %87

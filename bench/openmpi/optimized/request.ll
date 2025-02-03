@@ -328,7 +328,7 @@ define range(i32 -2, 1) i32 @ompi_request_persistent_noop_create(ptr noundef wri
 
 7:                                                ; preds = %6, %1
   %.not9.i = icmp eq ptr %3, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %8
+  br i1 %.not9.i, label %opal_obj_new.exit, label %8
 
 8:                                                ; preds = %7
   store ptr @ompi_request_t_class, ptr %3, align 8
@@ -337,7 +337,7 @@ define range(i32 -2, 1) i32 @ompi_request_persistent_noop_create(ptr noundef wri
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i.i = icmp eq ptr %11, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread10, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
   %12 = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %8 ]
@@ -346,9 +346,9 @@ define range(i32 -2, 1) i32 @ompi_request_persistent_noop_create(ptr noundef wri
   %13 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread10, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread10:                       ; preds = %.lr.ph.i.i, %8
+.loopexit:                                        ; preds = %.lr.ph.i.i, %8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 6, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -362,10 +362,10 @@ opal_obj_new.exit.thread10:                       ; preds = %.lr.ph.i.i, %8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store ptr @ompi_request_persistent_noop_free, ptr %20, align 8
   store ptr %3, ptr %0, align 8
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %7, %opal_obj_new.exit.thread10
-  %.0 = phi i32 [ 0, %opal_obj_new.exit.thread10 ], [ -2, %7 ]
+opal_obj_new.exit:                                ; preds = %7, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ -2, %7 ]
   ret i32 %.0
 }
 

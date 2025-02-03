@@ -3589,7 +3589,7 @@ _ZN7QStringD2Ev.exit76:                           ; preds = %_ZN7QStringD2Ev.exi
 176:                                              ; preds = %._crit_edge117
   %177 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %174) #29
+  call void @__cxa_free_exception(ptr nonnull %174) #29
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %137, %176, %173

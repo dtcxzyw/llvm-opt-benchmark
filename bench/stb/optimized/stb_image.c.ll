@@ -3391,7 +3391,7 @@ if.else98:                                        ; preds = %for.body
   br i1 %tobool100.not, label %if.then101, label %for.inc107
 
 if.then101:                                       ; preds = %if.else98, %if.else98.us
-  tail call void @free(ptr noundef %out.0) #37
+  tail call void @free(ptr noundef nonnull %out.0) #37
   %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.87, ptr %18, align 8
   br label %return
@@ -5206,14 +5206,14 @@ if.then122:                                       ; preds = %for.body108.us
   br label %main_decode_loop
 
 if.then138:                                       ; preds = %if.end133.us
-  call void @free(ptr noundef %call74) #37
+  call void @free(ptr noundef nonnull %call74) #37
   call void @free(ptr noundef %scanline.0233.us) #37
   %76 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.109, ptr %76, align 8
   br label %return
 
 if.then148:                                       ; preds = %if.then145.us
-  call void @free(ptr noundef %call74) #37
+  call void @free(ptr noundef nonnull %call74) #37
   %77 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %77, align 8
   br label %return
@@ -19549,7 +19549,7 @@ stbi__zreceive.exit:                              ; preds = %stbi__zget8.exit.i.
 
 if.end35:                                         ; preds = %stbi__zreceive.exit, %if.end27
   %len.0 = phi i32 [ %add, %stbi__zreceive.exit ], [ %6, %if.end27 ]
-  %call36 = tail call i32 @stbi__zhuffman_decode(ptr noundef %a, ptr noundef nonnull %z_distance)
+  %call36 = tail call i32 @stbi__zhuffman_decode(ptr noundef nonnull %a, ptr noundef nonnull %z_distance)
   %or.cond = icmp ugt i32 %call36, 29
   br i1 %or.cond, label %return.sink.split, label %if.end43
 

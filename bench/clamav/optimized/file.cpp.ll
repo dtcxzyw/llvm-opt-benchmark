@@ -1363,22 +1363,23 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #8
 define noundef i64 @_ZN4File4CopyERS_l(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull align 8 dereferenceable(8256) %1, i64 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %malloc.i = tail call dereferenceable_or_null(1048576) ptr @malloc(i64 1048576)
   %4 = icmp eq ptr %malloc.i, null
-  br i1 %4, label %5, label %_ZN5ArrayIhEC2Em.exit
+  br i1 %4, label %_ZN5ArrayIhEC2Em.exit, label %_ZN5ArrayIhEC2Em.exit.thread
 
-5:                                                ; preds = %3
+_ZN5ArrayIhEC2Em.exit:                            ; preds = %3
   tail call void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
-  br label %_ZN5ArrayIhEC2Em.exit
+  %5 = icmp sgt i64 %2, 0
+  br i1 %5, label %.lr.ph, label %_ZN5ArrayIhED2Ev.exit24
 
-_ZN5ArrayIhEC2Em.exit:                            ; preds = %3, %5
+_ZN5ArrayIhEC2Em.exit.thread:                     ; preds = %3
   %6 = icmp sgt i64 %2, 0
-  br i1 %6, label %.lr.ph, label %._crit_edge
+  br i1 %6, label %.lr.ph, label %.thread32
 
-.lr.ph:                                           ; preds = %_ZN5ArrayIhEC2Em.exit
+.lr.ph:                                           ; preds = %_ZN5ArrayIhEC2Em.exit.thread, %_ZN5ArrayIhEC2Em.exit
   %7 = icmp eq i64 %2, 9223372034707292159
   br i1 %7, label %.lr.ph.split.us.split, label %.lr.ph.split
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %18
-  %.02131.us = phi i64 [ %19, %18 ], [ 0, %.lr.ph ]
+  %.02139.us = phi i64 [ %19, %18 ], [ 0, %.lr.ph ]
   invoke void @_Z4Waitv()
           to label %8 unwind label %.split.us
 
@@ -1387,81 +1388,91 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %3, %5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %malloc.i, i64 noundef 1048576)
-          to label %13 unwind label %.split.us
+          to label %13 unwind label %.thread.split.us
 
 13:                                               ; preds = %8
   %14 = icmp eq i32 %12, 0
-  br i1 %14, label %._crit_edge, label %15
+  br i1 %14, label %.thread32, label %15
 
 15:                                               ; preds = %13
   %16 = sext i32 %12 to i64
   %17 = invoke noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8256) %1, ptr noundef nonnull %malloc.i, i64 noundef %16)
-          to label %18 unwind label %.split.us
+          to label %18 unwind label %.thread.split.us
 
 18:                                               ; preds = %15
-  %19 = add nsw i64 %.02131.us, %16
+  %19 = add nsw i64 %.02139.us, %16
   br label %.lr.ph.split.us.split
 
-.split.us:                                        ; preds = %8, %15, %.lr.ph.split.us.split
-  %20 = landingpad { ptr, i32 }
+.split.us:                                        ; preds = %.lr.ph.split.us.split
+  %lpad.thr_comm.split-lp.us = landingpad { ptr, i32 }
           cleanup
-  br label %30
+  br label %28
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %35
-  %.032 = phi i64 [ %spec.select, %35 ], [ %2, %.lr.ph ]
-  %.02131 = phi i64 [ %36, %35 ], [ 0, %.lr.ph ]
+.thread.split.us:                                 ; preds = %8, %15
+  %lpad.thr_comm.us = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %32
+  %.040 = phi i64 [ %spec.select, %32 ], [ %2, %.lr.ph ]
+  %.02139 = phi i64 [ %33, %32 ], [ 0, %.lr.ph ]
   invoke void @_Z4Waitv()
-          to label %21 unwind label %.split
+          to label %20 unwind label %.split
 
-21:                                               ; preds = %.lr.ph.split
-  %22 = tail call i64 @llvm.umin.i64(i64 %.032, i64 1048576)
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %25 = load ptr, ptr %24, align 8
-  %26 = invoke noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %malloc.i, i64 noundef %22)
-          to label %27 unwind label %.split
+20:                                               ; preds = %.lr.ph.split
+  %21 = tail call i64 @llvm.umin.i64(i64 %.040, i64 1048576)
+  %22 = load ptr, ptr %0, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %25 = invoke noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %malloc.i, i64 noundef %21)
+          to label %26 unwind label %.thread.split
 
-27:                                               ; preds = %21
-  %28 = icmp eq i32 %26, 0
-  br i1 %28, label %._crit_edge, label %32
+26:                                               ; preds = %20
+  %27 = icmp eq i32 %25, 0
+  br i1 %27, label %.thread32, label %29
 
-.split:                                           ; preds = %32, %21, %.lr.ph.split
-  %29 = landingpad { ptr, i32 }
+.thread.split:                                    ; preds = %29, %20
+  %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %30
+  br label %.thread
 
-30:                                               ; preds = %.split.us, %.split
-  %.us-phi = phi { ptr, i32 } [ %29, %.split ], [ %20, %.split.us ]
-  br i1 %4, label %_ZN5ArrayIhED2Ev.exit, label %31
+.split:                                           ; preds = %.lr.ph.split
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %28
 
-31:                                               ; preds = %30
+28:                                               ; preds = %.split.us, %.split
+  %.us-phi = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.split ], [ %lpad.thr_comm.split-lp.us, %.split.us ]
+  br i1 %4, label %_ZN5ArrayIhED2Ev.exit, label %.thread
+
+.thread:                                          ; preds = %.thread.split, %.thread.split.us, %28
+  %lpad.phi30 = phi { ptr, i32 } [ %.us-phi, %28 ], [ %lpad.thr_comm, %.thread.split ], [ %lpad.thr_comm.us, %.thread.split.us ]
   tail call void @free(ptr noundef nonnull %malloc.i) #19
   br label %_ZN5ArrayIhED2Ev.exit
 
-_ZN5ArrayIhED2Ev.exit:                            ; preds = %30, %31
-  resume { ptr, i32 } %.us-phi
+_ZN5ArrayIhED2Ev.exit:                            ; preds = %28, %.thread
+  %lpad.phi31 = phi { ptr, i32 } [ %.us-phi, %28 ], [ %lpad.phi30, %.thread ]
+  resume { ptr, i32 } %lpad.phi31
 
-32:                                               ; preds = %27
-  %33 = sext i32 %26 to i64
-  %34 = invoke noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8256) %1, ptr noundef nonnull %malloc.i, i64 noundef %33)
-          to label %35 unwind label %.split
+29:                                               ; preds = %26
+  %30 = sext i32 %25 to i64
+  %31 = invoke noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8256) %1, ptr noundef nonnull %malloc.i, i64 noundef %30)
+          to label %32 unwind label %.thread.split
 
-35:                                               ; preds = %32
-  %36 = add nsw i64 %.02131, %33
-  %spec.select = sub nsw i64 %.032, %33
-  %37 = icmp sgt i64 %spec.select, 0
-  br i1 %37, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
+32:                                               ; preds = %29
+  %33 = add nsw i64 %.02139, %30
+  %spec.select = sub nsw i64 %.040, %30
+  %34 = icmp sgt i64 %spec.select, 0
+  br i1 %34, label %.lr.ph.split, label %.thread32, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %35, %27, %13, %_ZN5ArrayIhEC2Em.exit
-  %.021.lcssa = phi i64 [ 0, %_ZN5ArrayIhEC2Em.exit ], [ %.02131.us, %13 ], [ %.02131, %27 ], [ %36, %35 ]
-  br i1 %4, label %_ZN5ArrayIhED2Ev.exit24, label %38
-
-38:                                               ; preds = %._crit_edge
+.thread32:                                        ; preds = %32, %26, %13, %_ZN5ArrayIhEC2Em.exit.thread
+  %.02137 = phi i64 [ 0, %_ZN5ArrayIhEC2Em.exit.thread ], [ %.02139.us, %13 ], [ %33, %32 ], [ %.02139, %26 ]
   tail call void @free(ptr noundef nonnull %malloc.i) #19
   br label %_ZN5ArrayIhED2Ev.exit24
 
-_ZN5ArrayIhED2Ev.exit24:                          ; preds = %._crit_edge, %38
-  ret i64 %.021.lcssa
+_ZN5ArrayIhED2Ev.exit24:                          ; preds = %_ZN5ArrayIhEC2Em.exit, %.thread32
+  %.02138 = phi i64 [ %.02137, %.thread32 ], [ 0, %_ZN5ArrayIhEC2Em.exit ]
+  ret i64 %.02138
 }
 
 declare void @_Z4Waitv() local_unnamed_addr #6

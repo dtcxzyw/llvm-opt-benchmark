@@ -297,7 +297,7 @@ do.body:                                          ; preds = %if.end, %lor.lhs.fa
   br label %return
 
 do_account:                                       ; preds = %lor.lhs.false, %entry
-  %call12 = tail call fastcc i32 @cryptodev_backend_account(ptr noundef %backend, ptr noundef %op_info)
+  %call12 = tail call fastcc i32 @cryptodev_backend_account(ptr noundef nonnull %backend, ptr noundef %op_info)
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %return, label %if.end15
 
@@ -305,7 +305,7 @@ if.end15:                                         ; preds = %do_account
   %ts16 = getelementptr inbounds nuw i8, ptr %backend, i64 632
   %conv = zext nneg i32 %call12 to i64
   tail call void @throttle_account(ptr noundef nonnull %ts16, i32 noundef 1, i64 noundef %conv) #7
-  %call.i.i = tail call ptr @object_get_class(ptr noundef %backend) #7
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %backend) #7
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_GET_CLASS) #7
   %do_op.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 128
   %2 = load ptr, ptr %do_op.i, align 8
@@ -313,7 +313,7 @@ if.end15:                                         ; preds = %do_account
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end15
-  %call2.i = tail call i32 %2(ptr noundef %backend, ptr noundef %op_info) #7
+  %call2.i = tail call i32 %2(ptr noundef nonnull %backend, ptr noundef %op_info) #7
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.end15, %do_account, %do.body
@@ -949,7 +949,7 @@ if.end21:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %cryptodev_backend_operation.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end21
-  %call2.i = tail call i32 %6(ptr noundef %opaque, ptr noundef nonnull %op_info.025) #7
+  %call2.i = tail call i32 %6(ptr noundef nonnull %opaque, ptr noundef nonnull %op_info.025) #7
   br label %cryptodev_backend_operation.exit
 
 cryptodev_backend_operation.exit:                 ; preds = %if.end21, %if.then.i

@@ -629,24 +629,24 @@ define range(i32 0, 11) i32 @fc_prune_database_directory(ptr noundef readonly ca
 
 .preheader:                                       ; preds = %8
   %12 = tail call ptr @readdir(ptr noundef nonnull %11) #15
-  %.not2740 = icmp eq ptr %12, null
-  br i1 %.not2740, label %.loopexit, label %.lr.ph41
+  %.not2746 = icmp eq ptr %12, null
+  br i1 %.not2746, label %.thread38, label %.lr.ph47
 
-.lr.ph41:                                         ; preds = %.preheader
-  %.not42 = icmp eq i32 %1, 0
-  br i1 %.not42, label %.lr.ph41.split, label %.lr.ph41.split.us.preheader
+.lr.ph47:                                         ; preds = %.preheader
+  %.not48 = icmp eq i32 %1, 0
+  br i1 %.not48, label %.lr.ph47.split, label %.lr.ph47.split.us.preheader
 
-.lr.ph41.split.us.preheader:                      ; preds = %.lr.ph41
+.lr.ph47.split.us.preheader:                      ; preds = %.lr.ph47
   %wide.trip.count = zext i32 %1 to i64
-  br label %.lr.ph41.split.us
+  br label %.lr.ph47.split.us
 
-.lr.ph41.split.us:                                ; preds = %.lr.ph41.split.us.preheader, %30
-  %13 = phi ptr [ %31, %30 ], [ %12, %.lr.ph41.split.us.preheader ]
+.lr.ph47.split.us:                                ; preds = %.lr.ph47.split.us.preheader, %30
+  %13 = phi ptr [ %31, %30 ], [ %12, %.lr.ph47.split.us.preheader ]
   %14 = load i64, ptr %13, align 8
   %.not28.us = icmp eq i64 %14, 0
   br i1 %.not28.us, label %30, label %15
 
-15:                                               ; preds = %.lr.ph41.split.us
+15:                                               ; preds = %.lr.ph47.split.us
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 19
   %17 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.36) #17
   %.not29.us = icmp eq ptr %17, null
@@ -672,20 +672,20 @@ define range(i32 0, 11) i32 @fc_prune_database_directory(ptr noundef readonly ca
 
 25:                                               ; preds = %.lr.ph.us, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %25 ]
-  %.039.us = phi i32 [ 0, %.lr.ph.us ], [ %spec.select.us, %25 ]
+  %.045.us = phi i32 [ 0, %.lr.ph.us ], [ %spec.select.us, %25 ]
   %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @strncmp(ptr noundef %27, ptr noundef nonnull %16, i64 noundef %22) #17
   %29 = icmp eq i32 %28, 0
-  %spec.select.us = select i1 %29, i32 1, i32 %.039.us
+  %spec.select.us = select i1 %29, i32 1, i32 %.045.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %25
 
-30:                                               ; preds = %23, %._crit_edge.us, %18, %.lr.ph41.split.us
+30:                                               ; preds = %23, %._crit_edge.us, %18, %.lr.ph47.split.us
   %31 = tail call ptr @readdir(ptr noundef nonnull %11) #15
   %.not27.us = icmp eq ptr %31, null
-  br i1 %.not27.us, label %.loopexit, label %.lr.ph41.split.us
+  br i1 %.not27.us, label %.thread38, label %.lr.ph47.split.us
 
 ._crit_edge.us:                                   ; preds = %25
   %.not31.us = icmp eq i32 %spec.select.us, 0
@@ -696,13 +696,13 @@ define range(i32 0, 11) i32 @fc_prune_database_directory(ptr noundef readonly ca
   %34 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.35, ptr noundef %33) #15
   br label %.thread
 
-.lr.ph41.split:                                   ; preds = %.lr.ph41, %44
-  %35 = phi ptr [ %45, %44 ], [ %12, %.lr.ph41 ]
+.lr.ph47.split:                                   ; preds = %.lr.ph47, %44
+  %35 = phi ptr [ %45, %44 ], [ %12, %.lr.ph47 ]
   %36 = load i64, ptr %35, align 8
   %.not28 = icmp eq i64 %36, 0
   br i1 %.not28, label %44, label %37
 
-37:                                               ; preds = %.lr.ph41.split
+37:                                               ; preds = %.lr.ph47.split
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 19
   %39 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.36) #17
   %.not29 = icmp eq ptr %39, null
@@ -719,23 +719,23 @@ define range(i32 0, 11) i32 @fc_prune_database_directory(ptr noundef readonly ca
   %.not32 = icmp eq i32 %43, 0
   br i1 %.not32, label %44, label %.split.us
 
+44:                                               ; preds = %40, %42, %.lr.ph47.split
+  %45 = tail call ptr @readdir(ptr noundef nonnull %11) #15
+  %.not27 = icmp eq ptr %45, null
+  br i1 %.not27, label %.thread38, label %.lr.ph47.split
+
 .split.us:                                        ; preds = %23, %42
   %.us-phi = phi ptr [ %38, %42 ], [ %16, %23 ]
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.39, ptr noundef nonnull %.us-phi) #15
-  br label %.loopexit
+  br label %.thread38
 
-44:                                               ; preds = %40, %42, %.lr.ph41.split
-  %45 = tail call ptr @readdir(ptr noundef nonnull %11) #15
-  %.not27 = icmp eq ptr %45, null
-  br i1 %.not27, label %.loopexit, label %.lr.ph41.split
-
-.loopexit:                                        ; preds = %30, %44, %.preheader, %.split.us
-  %.020 = phi i32 [ 10, %.split.us ], [ 0, %.preheader ], [ 0, %44 ], [ 0, %30 ]
+.thread38:                                        ; preds = %30, %44, %.preheader, %.split.us
+  %.02043 = phi i32 [ 10, %.split.us ], [ 0, %.preheader ], [ 0, %44 ], [ 0, %30 ]
   %46 = tail call i32 @closedir(ptr noundef nonnull %11)
   br label %.thread
 
-.thread:                                          ; preds = %32, %6, %.loopexit
-  %.02037 = phi i32 [ %.020, %.loopexit ], [ 10, %32 ], [ 3, %6 ]
+.thread:                                          ; preds = %32, %6, %.thread38
+  %.02037 = phi i32 [ %.02043, %.thread38 ], [ 10, %32 ], [ 3, %6 ]
   ret i32 %.02037
 }
 

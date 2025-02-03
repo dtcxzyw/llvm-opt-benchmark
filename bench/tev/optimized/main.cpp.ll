@@ -9249,7 +9249,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #30
+  tail call void @__cxa_free_exception(ptr nonnull %2) #30
   resume { ptr, i32 } %5
 }
 
@@ -10078,7 +10078,7 @@ define linkonce_odr dso_local void @_ZN4args14ArgumentParser13LongSeparatorERKNS
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #30
+  call void @__cxa_free_exception(ptr nonnull %14) #30
   br label %34
 
 18:                                               ; preds = %15
@@ -18052,14 +18052,14 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_11__hash_nodeINS_12bas
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %_ZNSt3__122__hash_node_destructorINS_9allocatorINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEPvEEEEEclB8ne190000EPS9_.exit.i
+  br i1 %6, label %.thread.i.i, label %_ZNSt3__122__hash_node_destructorINS_9allocatorINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEPvEEEEEclB8ne190000EPS9_.exit.i
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #30
+.thread.i.i:                                      ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #30
   br label %_ZNSt3__122__hash_node_destructorINS_9allocatorINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEPvEEEEEclB8ne190000EPS9_.exit.i
 
-_ZNSt3__122__hash_node_destructorINS_9allocatorINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEPvEEEEEclB8ne190000EPS9_.exit.i: ; preds = %7, %3
+_ZNSt3__122__hash_node_destructorINS_9allocatorINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEPvEEEEEclB8ne190000EPS9_.exit.i: ; preds = %.thread.i.i, %3
   tail call void @_ZdlPv(ptr noundef nonnull %2) #31
   br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPvEENS_22__hash_node_destructorINS5_IS9_EEEEE5resetB8ne190000EPS9_.exit
 
@@ -24678,7 +24678,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_out_of_rangeB8ne190000EPKc(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #30
+  tail call void @__cxa_free_exception(ptr nonnull %2) #30
   resume { ptr, i32 } %5
 }
 
@@ -25858,7 +25858,7 @@ define linkonce_odr dso_local void @_ZN4tlog12timeToStringERKNSt3__112basic_stri
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #30
+  call void @__cxa_free_exception(ptr nonnull %16) #30
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %3
@@ -25924,7 +25924,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
 32:                                               ; preds = %29
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %30) #30
+  tail call void @__cxa_free_exception(ptr nonnull %30) #30
   br label %319
 
 34:                                               ; preds = %5
@@ -25943,7 +25943,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
 39:                                               ; preds = %36
   %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %37) #30
+  tail call void @__cxa_free_exception(ptr nonnull %37) #30
   br label %319
 
 41:                                               ; preds = %34
@@ -30536,7 +30536,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18throw_format_errorEPKc(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #30
+  tail call void @__cxa_free_exception(ptr nonnull %2) #30
   resume { ptr, i32 } %5
 }
 
@@ -46625,7 +46625,7 @@ _ZN3fmt2v96detail6bigintmLIiEERS2_T_.exit303:     ; preds = %_ZN3fmt2v96detail6b
 505:                                              ; preds = %502
   %506 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %503) #30
+  call void @__cxa_free_exception(ptr nonnull %503) #30
   br label %.body
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %497
@@ -61513,7 +61513,7 @@ _ZN3fmt2v96detail9normalizeILi0EyEENS1_8basic_fpIT0_EES5_.exit: ; preds = %.lr.p
 118:                                              ; preds = %115
   %119 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %116) #30
+  tail call void @__cxa_free_exception(ptr nonnull %116) #30
   resume { ptr, i32 } %119
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %110
@@ -64539,8 +64539,8 @@ _ZN4tlog6StreamlsIA45_cEERS0_RKT_.exit:           ; preds = %5
   call void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #30
   br label %13
 
-common.resume:                                    ; preds = %24, %26, %30, %11
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %25, %30 ], [ %25, %26 ], [ %25, %24 ]
+common.resume:                                    ; preds = %24, %29, %11
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %25, %29 ], [ %25, %24 ]
   resume { ptr, i32 } %common.resume.op
 
 11:                                               ; preds = %5
@@ -64573,20 +64573,16 @@ common.resume:                                    ; preds = %24, %26, %30, %11
 24:                                               ; preds = %13
   %25 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i3.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i3.i.i, label %common.resume, label %26
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %27 = atomicrmw add ptr %26, i64 -1 acq_rel, align 8
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %common.resume
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %28 = atomicrmw add ptr %27, i64 -1 acq_rel, align 8
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %common.resume
-
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %15, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %15) #30
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %15, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load ptr, ptr %31, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %15) #30
   br label %common.resume
 
 _ZN3tev4TaskINSt3__16vectorINS1_10shared_ptrINS_5ImageEEENS1_9allocatorIS5_EEEEE12await_resumeEv.exit: ; preds = %16, %20
@@ -67071,7 +67067,7 @@ _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsI
 82:                                               ; preds = %79
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %80) #30
+  call void @__cxa_free_exception(ptr nonnull %80) #30
   br label %86
 
 84:                                               ; preds = %81
@@ -67296,7 +67292,7 @@ _ZNSt3__16vectorIPN4args7CommandENS_9allocatorIS3_EEED2B8ne190000Ev.exit: ; pred
 167:                                              ; preds = %164
   %168 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %165) #30
+  call void @__cxa_free_exception(ptr nonnull %165) #30
   br label %171
 
 169:                                              ; preds = %166
@@ -68293,7 +68289,7 @@ _ZNSt3__16vectorIPN4args8FlagBaseENS_9allocatorIS3_EEED2B8ne190000Ev.exit: ; pre
   %263 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #30
-  call void @__cxa_free_exception(ptr %256) #30
+  call void @__cxa_free_exception(ptr nonnull %256) #30
   br label %_ZNSt3__16vectorIPN4args8FlagBaseENS_9allocatorIS3_EEED2B8ne190000Ev.exit100
 
 _ZNSt3__16vectorIPN4args8FlagBaseENS_9allocatorIS3_EEED2B8ne190000Ev.exit100: ; preds = %.loopexit148, %.loopexit.split-lp149.loopexit.split-lp, %.loopexit.split-lp149.loopexit, %260, %255, %253, %262, %91
@@ -68681,7 +68677,7 @@ _ZN4args10EitherFlagC2ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9alloca
 118:                                              ; preds = %105
   %119 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %106) #30
+  call void @__cxa_free_exception(ptr nonnull %106) #30
   br label %143
 
 120:                                              ; preds = %126, %107
@@ -68767,7 +68763,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 149:                                              ; preds = %146
   %150 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %147) #30
+  call void @__cxa_free_exception(ptr nonnull %147) #30
   br label %153
 
 151:                                              ; preds = %148
@@ -69054,7 +69050,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc.e
 117:                                              ; preds = %108
   %118 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %109) #30
+  call void @__cxa_free_exception(ptr nonnull %109) #30
   br label %143
 
 .loopexit56:                                      ; preds = %122
@@ -69193,7 +69189,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc.e
 157:                                              ; preds = %149
   %158 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %150) #30
+  call void @__cxa_free_exception(ptr nonnull %150) #30
   br label %161
 
 159:                                              ; preds = %151
@@ -69770,7 +69766,7 @@ _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsI
 82:                                               ; preds = %79
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %80) #30
+  call void @__cxa_free_exception(ptr nonnull %80) #30
   br label %86
 
 84:                                               ; preds = %81
@@ -69995,7 +69991,7 @@ _ZNSt3__16vectorIPN4args7CommandENS_9allocatorIS3_EEED2B8ne190000Ev.exit: ; pred
 167:                                              ; preds = %164
   %168 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %165) #30
+  call void @__cxa_free_exception(ptr nonnull %165) #30
   br label %171
 
 169:                                              ; preds = %166
@@ -71426,7 +71422,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4args14ArgumentParser8Compl
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #30
-  call void @__cxa_free_exception(ptr %18) #30
+  call void @__cxa_free_exception(ptr nonnull %18) #30
   br label %31
 
 31:                                               ; preds = %27, %29, %24
@@ -72385,7 +72381,7 @@ _ZNSt3__16vectorIPN4args8FlagBaseENS_9allocatorIS3_EEED2B8ne190000Ev.exit: ; pre
   %263 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #30
-  call void @__cxa_free_exception(ptr %256) #30
+  call void @__cxa_free_exception(ptr nonnull %256) #30
   br label %_ZNSt3__16vectorIPN4args8FlagBaseENS_9allocatorIS3_EEED2B8ne190000Ev.exit100
 
 _ZNSt3__16vectorIPN4args8FlagBaseENS_9allocatorIS3_EEED2B8ne190000Ev.exit100: ; preds = %.loopexit148, %.loopexit.split-lp149.loopexit.split-lp, %.loopexit.split-lp149.loopexit, %260, %255, %253, %262, %91
@@ -72618,7 +72614,7 @@ _ZN4args10EitherFlagC2ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9alloca
 118:                                              ; preds = %105
   %119 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %106) #30
+  call void @__cxa_free_exception(ptr nonnull %106) #30
   br label %143
 
 120:                                              ; preds = %126, %107
@@ -72704,7 +72700,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 149:                                              ; preds = %146
   %150 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %147) #30
+  call void @__cxa_free_exception(ptr nonnull %147) #30
   br label %153
 
 151:                                              ; preds = %148
@@ -72991,7 +72987,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc.e
 117:                                              ; preds = %108
   %118 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %109) #30
+  call void @__cxa_free_exception(ptr nonnull %109) #30
   br label %143
 
 .loopexit56:                                      ; preds = %122
@@ -73130,7 +73126,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc.e
 157:                                              ; preds = %149
   %158 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %150) #30
+  call void @__cxa_free_exception(ptr nonnull %150) #30
   br label %161
 
 159:                                              ; preds = %151
@@ -73826,7 +73822,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4args14ArgumentParser8Compl
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #30
-  call void @__cxa_free_exception(ptr %18) #30
+  call void @__cxa_free_exception(ptr nonnull %18) #30
   br label %31
 
 31:                                               ; preds = %27, %29, %24

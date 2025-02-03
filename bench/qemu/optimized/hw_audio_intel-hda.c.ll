@@ -689,7 +689,7 @@ if.then44:                                        ; preds = %land.lhs.true
   %18 = load i32, ptr %rirb_sts, align 16
   %or45 = or i32 %18, 4
   store i32 %or45, ptr %rirb_sts, align 16
-  call fastcc void @intel_hda_update_irq(ptr noundef %add.ptr)
+  call fastcc void @intel_hda_update_irq(ptr noundef nonnull %add.ptr)
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then44, %land.lhs.true, %if.end22
@@ -744,7 +744,7 @@ if.then76:                                        ; preds = %do.end72
   %31 = load i32, ptr %rirb_sts77, align 16
   %or78 = or i32 %31, 1
   store i32 %or78, ptr %rirb_sts77, align 16
-  call fastcc void @intel_hda_update_irq(ptr noundef %add.ptr)
+  call fastcc void @intel_hda_update_irq(ptr noundef nonnull %add.ptr)
   br label %if.end104
 
 if.else:                                          ; preds = %do.end57
@@ -783,7 +783,7 @@ if.then99:                                        ; preds = %do.end95
   %41 = load i32, ptr %rirb_sts100, align 16
   %or101 = or i32 %41, 1
   store i32 %or101, ptr %rirb_sts100, align 16
-  call fastcc void @intel_hda_update_irq(ptr noundef %add.ptr)
+  call fastcc void @intel_hda_update_irq(ptr noundef nonnull %add.ptr)
   br label %if.end104
 
 if.end104:                                        ; preds = %if.else, %if.then99, %do.end95, %do.end72, %if.then76, %if.then16, %do.body13, %do.end

@@ -4184,7 +4184,7 @@ _ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4
   %107 = icmp ne i32 %105, 0
   %or.cond.i42 = and i1 %106, %107
   %spec.select75 = select i1 %or.cond.i42, i32 %105, i32 %.07184
-  %108 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.061.082) #21
+  %108 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.061.082) #21
   %.not77 = icmp eq ptr %108, %72
   br i1 %.not77, label %._crit_edge, label %76
 
@@ -4426,7 +4426,7 @@ _ZNSt3mapIN4llvm10sampleprof10FunctionIdENS1_15FunctionSamplesESt4lessIS2_ESaISt
   %204 = icmp ne i32 %202, 0
   %or.cond.i50 = and i1 %203, %204
   %spec.select76 = select i1 %or.cond.i50, i32 %202, i32 %.287
-  %205 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.053.086) #21
+  %205 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.053.086) #21
   %.not79 = icmp eq ptr %205, %116
   br i1 %.not79, label %._crit_edge90, label %120
 

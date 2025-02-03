@@ -956,7 +956,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit: ; p
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %116
   %121 = getelementptr inbounds nuw i8, ptr %113, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_17GVNSink6sinkBBES2_E3$_0EEEvT_SB_T0_"(ptr noundef %113, ptr noundef nonnull %121, ptr nonnull readonly %0)
+  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_17GVNSink6sinkBBES2_E3$_0EEEvT_SB_T0_"(ptr noundef nonnull %113, ptr noundef nonnull %121, ptr nonnull readonly %0)
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 560
   br label %124
@@ -1065,7 +1065,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEE
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_10BasicBlockELj4EEEZN12_GLOBAL__N_17GVNSink6sinkBBES3_E3$_0EEvOT_T0_.exit", label %124, !llvm.loop !59
 
 175:                                              ; preds = %116
-  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_17GVNSink6sinkBBES2_E3$_0EEEvT_SB_T0_"(ptr noundef %113, ptr noundef nonnull %115, ptr nonnull readonly %0)
+  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_17GVNSink6sinkBBES2_E3$_0EEEvT_SB_T0_"(ptr noundef nonnull %113, ptr noundef nonnull %115, ptr nonnull readonly %0)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_10BasicBlockELj4EEEZN12_GLOBAL__N_17GVNSink6sinkBBES3_E3$_0EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorIPNS_10BasicBlockELj4EEEZN12_GLOBAL__N_17GVNSink6sinkBBES3_E3$_0EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_17GVNSink6sinkBBES2_E3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %112, %175
@@ -1770,7 +1770,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKN4llvm7PH
   %.pre-phi41.i.i.i.i.i.i.i = phi i64 [ %483, %486 ], [ 0, %488 ]
   %.val11.i.i.i.i.i.i.i = phi ptr [ %487, %486 ], [ null, %488 ]
   %489 = getelementptr inbounds nuw i8, ptr %460, i64 256
-  call fastcc void @_ZSt16__insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKNS1_7PHINodeERKNS1_8DenseMapIPKS2_jNS1_12DenseMapInfoISI_vEENS1_6detail12DenseMapPairISI_jEEEEEUlS6_S6_E_EEEvT_ST_T0_(ptr noundef %460, ptr noundef nonnull %489, ptr noundef %30)
+  call fastcc void @_ZSt16__insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKNS1_7PHINodeERKNS1_8DenseMapIPKS2_jNS1_12DenseMapInfoISI_vEENS1_6detail12DenseMapPairISI_jEEEEEUlS6_S6_E_EEEvT_ST_T0_(ptr noundef nonnull %460, ptr noundef nonnull %489, ptr noundef %30)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.val11.i.i.i.i.i.i.i, i64 noundef %.pre-phi41.i.i.i.i.i.i.i, i64 noundef 8) #19
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #19
   br i1 %.not.i.i.i.i45, label %.lr.ph.i.us.i.i.i.i.i.i.i, label %.lr.ph.i.preheader32.i.i.i.i.i.i.i
@@ -1977,7 +1977,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKN4llvm7PH
   %.sroa.0.0.i53960.i.i.i.i.i = phi ptr [ %484, %573 ], [ null, %575 ]
   %.pre-phi45.i.i.i.i.i.i.i = phi i64 [ %483, %573 ], [ 0, %575 ]
   %.val.i.i.i.i.i.i.i = phi ptr [ %574, %573 ], [ null, %575 ]
-  call fastcc void @_ZSt16__insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKNS1_7PHINodeERKNS1_8DenseMapIPKS2_jNS1_12DenseMapInfoISI_vEENS1_6detail12DenseMapPairISI_jEEEEEUlS6_S6_E_EEEvT_ST_T0_(ptr noundef %460, ptr noundef nonnull %462, ptr noundef %31)
+  call fastcc void @_ZSt16__insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKNS1_7PHINodeERKNS1_8DenseMapIPKS2_jNS1_12DenseMapInfoISI_vEENS1_6detail12DenseMapPairISI_jEEEEEUlS6_S6_E_EEEvT_ST_T0_(ptr noundef nonnull %460, ptr noundef nonnull %462, ptr noundef %31)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.val.i.i.i.i.i.i.i, i64 noundef %.pre-phi45.i.i.i.i.i.i.i, i64 noundef 8) #19
   br label %_ZSt22__final_insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKNS1_7PHINodeERKNS1_8DenseMapIPKS2_jNS1_12DenseMapInfoISI_vEENS1_6detail12DenseMapPairISI_jEEEEEUlS6_S6_E_EEEvT_ST_T0_.exit.i.i.i.i.i.i
 

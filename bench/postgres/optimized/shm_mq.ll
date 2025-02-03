@@ -728,12 +728,12 @@ shm_mq_get_sender.exit:                           ; preds = %shm_mq_counterparty
   br i1 %33, label %42, label %34
 
 34:                                               ; preds = %29
-  %35 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %8, i8 1, ptr elementtype(i8) %8) #11, !srcloc !6
+  %35 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #11, !srcloc !6
   %.not.i127 = icmp eq i8 %35, 0
   br i1 %.not.i127, label %shm_mq_get_sender.exit128, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call i32 @s_lock(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 262, ptr noundef nonnull @__func__.shm_mq_get_sender) #11
+  %37 = tail call i32 @s_lock(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 262, ptr noundef nonnull @__func__.shm_mq_get_sender) #11
   br label %shm_mq_get_sender.exit128
 
 shm_mq_get_sender.exit128:                        ; preds = %34, %36

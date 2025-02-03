@@ -1611,8 +1611,8 @@ define internal fastcc void @walkdir(ptr noundef %0, ptr noundef readonly captur
   %5 = alloca [2048 x i8], align 16
   %6 = tail call ptr @AllocateDir(ptr noundef %0)
   %7 = tail call ptr @ReadDirExtended(ptr noundef %6, ptr noundef %0, i32 noundef %3)
-  %.not26 = icmp eq ptr %7, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %.not27 = icmp eq ptr %7, null
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.backedge
   %8 = phi ptr [ %21, %.backedge ], [ %7, %4 ]
@@ -1627,33 +1627,33 @@ define internal fastcc void @walkdir(ptr noundef %0, ptr noundef readonly captur
 sub_0:                                            ; preds = %.lr.ph, %10
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 19
   %12 = load i8, ptr %11, align 1
-  %.not27 = icmp eq i8 %12, 46
-  br i1 %.not27, label %.tail, label %.tail21.thread
+  %.not28 = icmp eq i8 %12, 46
+  br i1 %.not28, label %.tail, label %.tail22.thread
 
 .tail:                                            ; preds = %sub_0
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %.backedge, label %sub_123
+  br i1 %15, label %.backedge, label %sub_124
 
-sub_123:                                          ; preds = %.tail
+sub_124:                                          ; preds = %.tail
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %17 = load i8, ptr %16, align 1
-  %.not29 = icmp eq i8 %17, 46
-  br i1 %.not29, label %.tail21, label %.tail21.thread
+  %.not30 = icmp eq i8 %17, 46
+  br i1 %.not30, label %.tail22, label %.tail22.thread
 
-.tail21:                                          ; preds = %sub_123
+.tail22:                                          ; preds = %sub_124
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 21
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %.backedge, label %.tail21.thread
+  br i1 %20, label %.backedge, label %.tail22.thread
 
-.backedge:                                        ; preds = %24, %25, %.tail21.thread, %.tail, %.tail21
+.backedge:                                        ; preds = %24, %25, %.tail22.thread, %.tail, %.tail22
   %21 = call ptr @ReadDirExtended(ptr noundef %6, ptr noundef %0, i32 noundef %3)
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-.tail21.thread:                                   ; preds = %sub_0, %sub_123, %.tail21
+.tail22.thread:                                   ; preds = %sub_0, %sub_124, %.tail22
   %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull %11) #25
   %23 = call i32 @get_dirent_type(ptr noundef nonnull %5, ptr noundef nonnull %8, i1 noundef zeroext %2, i32 noundef %3) #25
   switch i32 %23, label %.backedge [
@@ -1661,11 +1661,11 @@ sub_123:                                          ; preds = %.tail
     i32 3, label %25
   ]
 
-24:                                               ; preds = %.tail21.thread
+24:                                               ; preds = %.tail22.thread
   call void %1(ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef %3) #25, !callees !11
   br label %.backedge
 
-25:                                               ; preds = %.tail21.thread
+25:                                               ; preds = %.tail22.thread
   call fastcc void @walkdir(ptr noundef nonnull %5, ptr noundef %1, i1 noundef zeroext false, i32 noundef %3)
   br label %.backedge
 
@@ -1684,46 +1684,46 @@ sub_123:                                          ; preds = %.tail
   %32 = zext nneg i32 %29 to i64
   br label %33
 
-33:                                               ; preds = %43, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %32, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
+33:                                               ; preds = %41, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %32, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
   %34 = getelementptr %struct.AllocateDesc, ptr %31, i64 %indvars.iv.i
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 2
-  br i1 %36, label %37, label %43
+  br i1 %36, label %37, label %41
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %6
-  br i1 %40, label %41, label %43
+  br i1 %40, label %FreeDir.exit, label %41
 
-41:                                               ; preds = %37
-  %42 = call fastcc i32 @FreeDesc(ptr noundef nonnull %34)
-  br label %FreeDir.exit
-
-43:                                               ; preds = %37, %33
+41:                                               ; preds = %37, %33
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %44 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %44, label %33, label %._crit_edge.i, !llvm.loop !12
+  %42 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %42, label %33, label %._crit_edge.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %43, %27
-  %45 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
-  br i1 %45, label %46, label %48
+._crit_edge.i:                                    ; preds = %41, %27
+  %43 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
+  br i1 %43, label %44, label %FreeDir.exit.thread21
 
-46:                                               ; preds = %._crit_edge.i
-  %47 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32) #25
+44:                                               ; preds = %._crit_edge.i
+  %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32) #25
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2981, ptr noundef nonnull @__func__.FreeDir) #25
+  br label %FreeDir.exit.thread21
+
+FreeDir.exit.thread21:                            ; preds = %._crit_edge.i, %44
+  %46 = call i32 @closedir(ptr noundef nonnull %6)
   br label %48
 
-48:                                               ; preds = %46, %._crit_edge.i
-  %49 = call i32 @closedir(ptr noundef nonnull %6)
-  br label %FreeDir.exit
+FreeDir.exit:                                     ; preds = %37
+  %47 = call fastcc i32 @FreeDesc(ptr noundef nonnull %34)
+  br label %48
 
-FreeDir.exit:                                     ; preds = %48, %41
+48:                                               ; preds = %FreeDir.exit, %FreeDir.exit.thread21
   call void %1(ptr noundef %0, i1 noundef zeroext true, i32 noundef %3) #25, !callees !11
   br label %FreeDir.exit.thread
 
-FreeDir.exit.thread:                              ; preds = %._crit_edge, %FreeDir.exit
+FreeDir.exit.thread:                              ; preds = %._crit_edge, %48
   ret void
 }
 

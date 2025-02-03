@@ -7895,7 +7895,7 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %20
   %32 = xor i64 %notmask.i, -1
   %33 = and i64 %2, %32
   invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(569) %1, i64 noundef %33)
-          to label %.noexc7 unwind label %102
+          to label %.noexc7 unwind label %100
 
 .noexc7:                                          ; preds = %29
   %34 = shl nuw i64 %32, 1
@@ -7923,9 +7923,9 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %20
   %.0.i.i17 = inttoptr i64 %.0.i.i17.in to ptr
   br label %44
 
-44:                                               ; preds = %.lr.ph, %74
-  %.0.i13 = phi ptr [ null, %.lr.ph ], [ %.1.i, %74 ]
-  %.022.i12 = phi ptr [ %.0.i.i17, %.lr.ph ], [ %.123.i, %74 ]
+44:                                               ; preds = %.lr.ph, %72
+  %.0.i13 = phi ptr [ null, %.lr.ph ], [ %.1.i, %72 ]
+  %.022.i12 = phi ptr [ %.0.i.i17, %.lr.ph ], [ %.123.i, %72 ]
   %45 = getelementptr inbounds nuw i8, ptr %.022.i12, i64 16
   %.val.i = load ptr, ptr %45, align 8
   %46 = ptrtoint ptr %.val.i to i64
@@ -7934,169 +7934,165 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %20
   %49 = tail call noundef i64 @llvm.bswap.i64(i64 %48)
   %50 = and i64 %49, %35
   %51 = icmp eq i64 %50, %2
-  br i1 %51, label %52, label %72
+  br i1 %51, label %52, label %70
 
 52:                                               ; preds = %44
   %53 = load i8, ptr %40, align 8
   %54 = trunc i8 %53 to i1
-  br i1 %54, label %62, label %55
+  br i1 %54, label %60, label %55
 
 55:                                               ; preds = %52
   store i8 1, ptr %40, align 8
   %56 = load ptr, ptr %4, align 8
   %57 = invoke noundef zeroext i1 @_ZN3tbb6detail2d113spin_rw_mutex7upgradeEv(ptr noundef nonnull align 8 dereferenceable(8) %56)
-          to label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i unwind label %58
+          to label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i unwind label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorD2Ev.exit.i
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i: ; preds = %55
-  br i1 %57, label %62, label %.loopexit
+  br i1 %57, label %60, label %.loopexit
 
-58:                                               ; preds = %55
-  %59 = landingpad { ptr, i32 }
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorD2Ev.exit.i: ; preds = %55
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i = icmp eq ptr %56, null
-  br i1 %.not.i.i.i, label %.body, label %60
-
-60:                                               ; preds = %58
   store ptr null, ptr %4, align 8
-  %61 = atomicrmw and ptr %56, i64 -4 seq_cst, align 8
+  %59 = atomicrmw and ptr %56, i64 -4 seq_cst, align 8
   br label %.body
 
-62:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i, %52
-  %63 = load ptr, ptr %.022.i12, align 8
-  %64 = icmp eq ptr %.0.i13, null
-  br i1 %64, label %65, label %68
+60:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i, %52
+  %61 = load ptr, ptr %.022.i12, align 8
+  %62 = icmp eq ptr %.0.i13, null
+  br i1 %62, label %63, label %66
 
-65:                                               ; preds = %62
+63:                                               ; preds = %60
   %.val24.i = load ptr, ptr %36, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 8
-  %67 = ptrtoint ptr %63 to i64
-  store atomic i64 %67, ptr %66 monotonic, align 8
-  br label %69
+  %64 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 8
+  %65 = ptrtoint ptr %61 to i64
+  store atomic i64 %65, ptr %64 monotonic, align 8
+  br label %67
 
-68:                                               ; preds = %62
-  store ptr %63, ptr %.0.i13, align 8
-  br label %69
+66:                                               ; preds = %60
+  store ptr %61, ptr %.0.i13, align 8
+  br label %67
 
-69:                                               ; preds = %68, %65
-  %70 = load atomic i64, ptr %26 monotonic, align 8
-  %.0.i.i.i = inttoptr i64 %70 to ptr
+67:                                               ; preds = %66, %63
+  %68 = load atomic i64, ptr %26 monotonic, align 8
+  %.0.i.i.i = inttoptr i64 %68 to ptr
   store ptr %.0.i.i.i, ptr %.022.i12, align 8
-  %71 = ptrtoint ptr %.022.i12 to i64
-  store atomic i64 %71, ptr %26 monotonic, align 8
-  br label %74
+  %69 = ptrtoint ptr %.022.i12 to i64
+  store atomic i64 %69, ptr %26 monotonic, align 8
+  br label %72
 
-72:                                               ; preds = %44
-  %73 = load ptr, ptr %.022.i12, align 8
-  br label %74
+70:                                               ; preds = %44
+  %71 = load ptr, ptr %.022.i12, align 8
+  br label %72
 
-74:                                               ; preds = %72, %69
-  %.123.i = phi ptr [ %63, %69 ], [ %73, %72 ]
-  %.1.i = phi ptr [ %.0.i13, %69 ], [ %.022.i12, %72 ]
-  %75 = icmp ugt ptr %.123.i, inttoptr (i64 63 to ptr)
-  br i1 %75, label %44, label %._crit_edge, !llvm.loop !106
+72:                                               ; preds = %70, %67
+  %.123.i = phi ptr [ %61, %67 ], [ %71, %70 ]
+  %.1.i = phi ptr [ %.0.i13, %67 ], [ %.022.i12, %70 ]
+  %73 = icmp ugt ptr %.123.i, inttoptr (i64 63 to ptr)
+  br i1 %73, label %44, label %._crit_edge, !llvm.loop !106
 
-._crit_edge:                                      ; preds = %.loopexit, %74, %.noexc7
-  %76 = load ptr, ptr %4, align 8
-  %.not.i.i27.i = icmp eq ptr %76, null
-  br i1 %.not.i.i27.i, label %.noexc5, label %77
+._crit_edge:                                      ; preds = %.loopexit, %72, %.noexc7
+  %74 = load ptr, ptr %4, align 8
+  %.not.i.i27.i = icmp eq ptr %74, null
+  br i1 %.not.i.i27.i, label %.noexc5, label %75
 
-77:                                               ; preds = %._crit_edge
+75:                                               ; preds = %._crit_edge
   store ptr null, ptr %4, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %79 = load i8, ptr %78, align 8
-  %80 = trunc i8 %79 to i1
-  br i1 %80, label %81, label %83
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %77 = load i8, ptr %76, align 8
+  %78 = trunc i8 %77 to i1
+  br i1 %78, label %79, label %81
 
-81:                                               ; preds = %77
-  %82 = atomicrmw and ptr %76, i64 -4 seq_cst, align 8
+79:                                               ; preds = %75
+  %80 = atomicrmw and ptr %74, i64 -4 seq_cst, align 8
   br label %.noexc5
 
-83:                                               ; preds = %77
-  %84 = atomicrmw sub ptr %76, i64 4 seq_cst, align 8
+81:                                               ; preds = %75
+  %82 = atomicrmw sub ptr %74, i64 4 seq_cst, align 8
   br label %.noexc5
 
-.noexc5:                                          ; preds = %83, %81, %._crit_edge
+.noexc5:                                          ; preds = %81, %79, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessor7acquireEPSH_mb.exit
 
 .noexc.thread:                                    ; preds = %20, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i, %3
-  %85 = phi ptr [ %.pre20, %20 ], [ %.pre, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i ], [ %.pre20, %3 ]
+  %83 = phi ptr [ %.pre20, %20 ], [ %.pre, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i ], [ %.pre20, %3 ]
   store i8 0, ptr %5, align 8
-  store ptr %85, ptr %0, align 8
+  store ptr %83, ptr %0, align 8
   br label %.preheader9.i.outer
 
 .preheader9.i.outer:                              ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i, %.noexc.thread
-  %.sroa.0.0.i3.i.ph = phi i32 [ %99, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i ], [ 1, %.noexc.thread ]
-  %86 = icmp slt i32 %.sroa.0.0.i3.i.ph, 17
+  %.sroa.0.0.i3.i.ph = phi i32 [ %97, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i ], [ 1, %.noexc.thread ]
+  %84 = icmp slt i32 %.sroa.0.0.i3.i.ph, 17
   br label %.preheader9.i
 
-.preheader9.i:                                    ; preds = %.preheader9.i.outer, %100
-  %87 = load atomic i64, ptr %85 monotonic, align 8
-  %88 = and i64 %87, 3
-  %.not.i4.i = icmp eq i64 %88, 0
-  br i1 %.not.i4.i, label %89, label %94
+.preheader9.i:                                    ; preds = %.preheader9.i.outer, %98
+  %85 = load atomic i64, ptr %83 monotonic, align 8
+  %86 = and i64 %85, 3
+  %.not.i4.i = icmp eq i64 %86, 0
+  br i1 %.not.i4.i, label %87, label %92
 
-89:                                               ; preds = %.preheader9.i
-  %90 = atomicrmw add ptr %85, i64 4 seq_cst, align 8
-  %91 = and i64 %90, 1
-  %.not16.i.i = icmp eq i64 %91, 0
-  br i1 %.not16.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessor7acquireEPSH_mb.exit, label %92
+87:                                               ; preds = %.preheader9.i
+  %88 = atomicrmw add ptr %83, i64 4 seq_cst, align 8
+  %89 = and i64 %88, 1
+  %.not16.i.i = icmp eq i64 %89, 0
+  br i1 %.not16.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessor7acquireEPSH_mb.exit, label %90
 
-92:                                               ; preds = %89
-  %93 = atomicrmw sub ptr %85, i64 4 seq_cst, align 8
-  br label %94
+90:                                               ; preds = %87
+  %91 = atomicrmw sub ptr %83, i64 4 seq_cst, align 8
+  br label %92
 
-94:                                               ; preds = %92, %.preheader9.i
-  br i1 %86, label %95, label %100
+92:                                               ; preds = %90, %.preheader9.i
+  br i1 %84, label %93, label %98
 
-95:                                               ; preds = %94
-  %96 = icmp sgt i32 %.sroa.0.0.i3.i.ph, 0
-  br i1 %96, label %.lr.ph.i.i.i7.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i
+93:                                               ; preds = %92
+  %94 = icmp sgt i32 %.sroa.0.0.i3.i.ph, 0
+  br i1 %94, label %.lr.ph.i.i.i7.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i
 
-.lr.ph.i.i.i7.i:                                  ; preds = %95, %.lr.ph.i.i.i7.i
-  %.01.i.i.i8.i = phi i32 [ %97, %.lr.ph.i.i.i7.i ], [ %.sroa.0.0.i3.i.ph, %95 ]
-  %97 = add nsw i32 %.01.i.i.i8.i, -1
+.lr.ph.i.i.i7.i:                                  ; preds = %93, %.lr.ph.i.i.i7.i
+  %.01.i.i.i8.i = phi i32 [ %95, %.lr.ph.i.i.i7.i ], [ %.sroa.0.0.i3.i.ph, %93 ]
+  %95 = add nsw i32 %.01.i.i.i8.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %98 = icmp samesign ugt i32 %.01.i.i.i8.i, 1
-  br i1 %98, label %.lr.ph.i.i.i7.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i, !llvm.loop !26
+  %96 = icmp samesign ugt i32 %.01.i.i.i8.i, 1
+  br i1 %96, label %.lr.ph.i.i.i7.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i, !llvm.loop !26
 
-_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i:  ; preds = %.lr.ph.i.i.i7.i, %95
-  %99 = shl nsw i32 %.sroa.0.0.i3.i.ph, 1
+_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i:  ; preds = %.lr.ph.i.i.i7.i, %93
+  %97 = shl nsw i32 %.sroa.0.0.i3.i.ph, 1
   br label %.preheader9.i.outer, !llvm.loop !107
 
-100:                                              ; preds = %94
-  %101 = tail call noundef i32 @sched_yield() #15
+98:                                               ; preds = %92
+  %99 = tail call noundef i32 @sched_yield() #15
   br label %.preheader9.i, !llvm.loop !107
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessor7acquireEPSH_mb.exit: ; preds = %89, %.noexc5, %25
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessor7acquireEPSH_mb.exit: ; preds = %87, %.noexc5, %25
   ret void
 
-102:                                              ; preds = %29
-  %103 = landingpad { ptr, i32 }
+100:                                              ; preds = %29
+  %101 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %58, %60, %102
-  %eh.lpad-body = phi { ptr, i32 } [ %103, %102 ], [ %59, %60 ], [ %59, %58 ]
-  %104 = load ptr, ptr %0, align 8
-  %.not.i = icmp eq ptr %104, null
-  br i1 %.not.i, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, label %105
+.body:                                            ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorD2Ev.exit.i, %100
+  %eh.lpad-body = phi { ptr, i32 } [ %101, %100 ], [ %58, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_16HdDataSourceBaseEENS3_12_GLOBAL__N_119_PrimvarsDataSource17_TokenHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorD2Ev.exit.i ]
+  %102 = load ptr, ptr %0, align 8
+  %.not.i = icmp eq ptr %102, null
+  br i1 %.not.i, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, label %103
 
-105:                                              ; preds = %.body
+103:                                              ; preds = %.body
   store ptr null, ptr %0, align 8
-  %106 = load i8, ptr %5, align 8
-  %107 = trunc i8 %106 to i1
-  br i1 %107, label %108, label %110
+  %104 = load i8, ptr %5, align 8
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %106, label %108
 
-108:                                              ; preds = %105
-  %109 = atomicrmw and ptr %104, i64 -4 seq_cst, align 8
+106:                                              ; preds = %103
+  %107 = atomicrmw and ptr %102, i64 -4 seq_cst, align 8
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
 
-110:                                              ; preds = %105
-  %111 = atomicrmw sub ptr %104, i64 4 seq_cst, align 8
+108:                                              ; preds = %103
+  %109 = atomicrmw sub ptr %102, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
 
-_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %.body, %108, %110
+_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %.body, %106, %108
   resume { ptr, i32 } %eh.lpad-body
 }
 

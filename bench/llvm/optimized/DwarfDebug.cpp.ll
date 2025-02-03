@@ -7678,7 +7678,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_16DIGlobalVariableENS_11SmallVectorINS_1
 
 .lr.ph17.i.i.i.i.i.i.i:                           ; preds = %703
   %708 = getelementptr inbounds nuw i8, ptr %700, i64 256
-  call fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_SC_T0_"(ptr noundef %700, ptr noundef nonnull %708)
+  call fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_SC_T0_"(ptr noundef nonnull %700, ptr noundef nonnull %708)
   br label %709
 
 709:                                              ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit.i.i.i.i.i.i.i", %.lr.ph17.i.i.i.i.i.i.i
@@ -7785,7 +7785,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_16DIGlobalVariableENS_11SmallVectorINS_1
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_15SmallVectorImplINS_16DwarfCompileUnit10GlobalExprEEEZL15sortGlobalExprsS5_E3$_1EEvOT_T0_.exit.i", label %709, !llvm.loop !113
 
 739:                                              ; preds = %703
-  call fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_SC_T0_"(ptr noundef %700, ptr noundef nonnull %702)
+  call fastcc void @"_ZSt16__insertion_sortIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_SC_T0_"(ptr noundef nonnull %700, ptr noundef nonnull %702)
   br label %"_ZN4llvm4sortIRNS_15SmallVectorImplINS_16DwarfCompileUnit10GlobalExprEEEZL15sortGlobalExprsS5_E3$_1EEvOT_T0_.exit.i"
 
 "_ZN4llvm4sortIRNS_15SmallVectorImplINS_16DwarfCompileUnit10GlobalExprEEEZL15sortGlobalExprsS5_E3$_1EEvOT_T0_.exit.i": ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm16DwarfCompileUnit10GlobalExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_.exit.i.i.i.i.i.i.i", %739, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_16DIGlobalVariableENS_11SmallVectorINS_16DwarfCompileUnit10GlobalExprELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_.exit
@@ -41840,7 +41840,7 @@ define linkonce_odr hidden void @_ZN4llvm13DebugLocEntry16sortUniqueValuesEv(ptr
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 1280
-  tail call void @_ZSt16__insertion_sortIPN4llvm11DbgValueLocEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef %6, ptr noundef nonnull %15)
+  tail call void @_ZSt16__insertion_sortIPN4llvm11DbgValueLocEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef nonnull %6, ptr noundef nonnull %15)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %14
@@ -41851,7 +41851,7 @@ define linkonce_odr hidden void @_ZN4llvm13DebugLocEntry16sortUniqueValuesEv(ptr
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4sortIRNS_11SmallVectorINS_11DbgValueLocELj1EEEEEvOT_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !708
 
 17:                                               ; preds = %9
-  tail call void @_ZSt16__insertion_sortIPN4llvm11DbgValueLocEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef %6, ptr noundef nonnull %8)
+  tail call void @_ZSt16__insertion_sortIPN4llvm11DbgValueLocEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef nonnull %6, ptr noundef nonnull %8)
   br label %_ZN4llvm4sortIRNS_11SmallVectorINS_11DbgValueLocELj1EEEEEvOT_.exit
 
 _ZN4llvm4sortIRNS_11SmallVectorINS_11DbgValueLocELj1EEEEEvOT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %5, %17

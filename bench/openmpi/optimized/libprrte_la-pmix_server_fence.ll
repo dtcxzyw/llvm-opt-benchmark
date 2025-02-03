@@ -787,7 +787,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br label %117
 
 114:                                              ; preds = %111
-  %115 = call i32 @pmix_pointer_array_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_pmix_server_globals, i64 176), ptr noundef %2) #12
+  %115 = call i32 @pmix_pointer_array_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_pmix_server_globals, i64 176), ptr noundef nonnull %2) #12
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 428
   store i32 %115, ptr %116, align 4
   br label %293
@@ -807,7 +807,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %._crit_edge
-  %126 = call i32 @pmix_pointer_array_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_pmix_server_globals, i64 176), ptr noundef %2) #12
+  %126 = call i32 @pmix_pointer_array_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_pmix_server_globals, i64 176), ptr noundef nonnull %2) #12
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 428
   store i32 %126, ptr %127, align 4
   br label %293

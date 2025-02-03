@@ -7965,7 +7965,7 @@ while.body.i15:                                   ; preds = %if.else.i, %while.b
   br i1 %tobool14.not.i, label %if.then15.i, label %if.else.i
 
 if.then15.i:                                      ; preds = %while.body.i15
-  tail call void @free(ptr noundef %call.i8) #22
+  tail call void @free(ptr noundef nonnull %call.i8) #22
   %call16.i17 = tail call ptr @xstrdup(ptr noundef nonnull @.str.24) #22
   br label %return
 

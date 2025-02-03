@@ -444,12 +444,12 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
   br i1 %155, label %.thread.i.i, label %156
 
 .thread.i.i:                                      ; preds = %152
-  call void @free(ptr noundef %.073105.i.i) #14
+  call void @free(ptr noundef nonnull %.073105.i.i) #14
   br label %.sink.split.i.i
 
 156:                                              ; preds = %152
   %157 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %154, ptr noundef nonnull dereferenceable(1) %.073105.i.i) #14
-  call void @free(ptr noundef %.073105.i.i) #14
+  call void @free(ptr noundef nonnull %.073105.i.i) #14
   br label %158
 
 158:                                              ; preds = %156, %146
@@ -643,38 +643,38 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %12 = getelementptr inbounds nuw i8, ptr %.0337, i64 32
   store i32 0, ptr %12, align 8
   %13 = icmp slt i32 %1, 1
-  br i1 %13, label %14, label %.preheader422.preheader
+  br i1 %13, label %14, label %.preheader416.preheader
 
-.preheader422.preheader:                          ; preds = %11
+.preheader416.preheader:                          ; preds = %11
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.preheader422
+  br label %.preheader416
 
 14:                                               ; preds = %11
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef nonnull %.0337, i32 noundef 1, ptr noundef nonnull @.str)
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef nonnull %.0337, i32 noundef 1026)
-  br label %353
+  br label %355
 
-.preheader422:                                    ; preds = %.preheader422.preheader, %28
-  %indvars.iv = phi i64 [ 0, %.preheader422.preheader ], [ %indvars.iv.next, %28 ]
-  %.0345427 = phi i32 [ 0, %.preheader422.preheader ], [ %.1346, %28 ]
-  %.0347426 = phi i32 [ 0, %.preheader422.preheader ], [ %.1348, %28 ]
+.preheader416:                                    ; preds = %.preheader416.preheader, %28
+  %indvars.iv = phi i64 [ 0, %.preheader416.preheader ], [ %indvars.iv.next, %28 ]
+  %.0345421 = phi i32 [ 0, %.preheader416.preheader ], [ %.1346, %28 ]
+  %.0347420 = phi i32 [ 0, %.preheader416.preheader ], [ %.1348, %28 ]
   %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(15) @.str.1) #13
   %.not398 = icmp eq i32 %17, 0
   br i1 %.not398, label %20, label %18
 
-18:                                               ; preds = %.preheader422
+18:                                               ; preds = %.preheader416
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(14) @.str.2) #13
   %.not399 = icmp eq i32 %19, 0
   br i1 %.not399, label %20, label %22
 
-20:                                               ; preds = %18, %.preheader422
-  %21 = add nsw i32 %.0345427, 1
+20:                                               ; preds = %18, %.preheader416
+  %21 = add nsw i32 %.0345421, 1
   br label %22
 
 22:                                               ; preds = %20, %18
-  %.1346 = phi i32 [ %.0345427, %18 ], [ %21, %20 ]
+  %.1346 = phi i32 [ %.0345421, %18 ], [ %21, %20 ]
   %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.3, i64 noundef 6) #13
   %.not400 = icmp eq i32 %23, 0
   br i1 %.not400, label %26, label %24
@@ -685,14 +685,14 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %.not401, label %26, label %28
 
 26:                                               ; preds = %24, %22
-  %27 = add nsw i32 %.0347426, 1
+  %27 = add nsw i32 %.0347420, 1
   br label %28
 
 28:                                               ; preds = %24, %26
-  %.1348 = phi i32 [ %.0347426, %24 ], [ %27, %26 ]
+  %.1348 = phi i32 [ %.0347420, %24 ], [ %27, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %29, label %.preheader422, !llvm.loop !9
+  br i1 %exitcond.not, label %29, label %.preheader416, !llvm.loop !9
 
 29:                                               ; preds = %28
   %30 = icmp sgt i32 %.1346, 1
@@ -701,7 +701,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 31:                                               ; preds = %29
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %.0337, i32 noundef 1, ptr noundef nonnull @.str.5)
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %.0337, i32 noundef 1025)
-  br label %353
+  br label %355
 
 32:                                               ; preds = %29
   %33 = icmp eq i32 %.1346, 0
@@ -712,42 +712,42 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 35:                                               ; preds = %32
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %.0337, i32 noundef 1, ptr noundef nonnull @.str.6)
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %.0337, i32 noundef 1025)
-  br label %353
+  br label %355
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %2, align 8
   %38 = tail call noundef ptr @_Z10pj_mkparamPKc(ptr noundef %37)
   %.not = icmp eq ptr %38, null
-  br i1 %.not, label %39, label %.preheader421
+  br i1 %.not, label %39, label %.preheader415
 
-.preheader421:                                    ; preds = %36
-  %.not441 = icmp eq i32 %1, 1
-  br i1 %.not441, label %._crit_edge, label %.lr.ph
+.preheader415:                                    ; preds = %36
+  %.not435 = icmp eq i32 %1, 1
+  br i1 %.not435, label %._crit_edge, label %.lr.ph
 
 39:                                               ; preds = %36
   %40 = tail call noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef %.0337, ptr noundef null, i32 noundef 4096)
-  br label %353
+  br label %355
 
 41:                                               ; preds = %.lr.ph
-  %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
-  %exitcond452.not = icmp eq i64 %indvars.iv.next449, %wide.trip.count
-  br i1 %exitcond452.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442, 1
+  %exitcond446.not = icmp eq i64 %indvars.iv.next443, %wide.trip.count
+  br i1 %exitcond446.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-.lr.ph:                                           ; preds = %.preheader421, %41
-  %indvars.iv448 = phi i64 [ %indvars.iv.next449, %41 ], [ 1, %.preheader421 ]
-  %.0340430 = phi ptr [ %44, %41 ], [ %38, %.preheader421 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv448
+.lr.ph:                                           ; preds = %.preheader415, %41
+  %indvars.iv442 = phi i64 [ %indvars.iv.next443, %41 ], [ 1, %.preheader415 ]
+  %.0340424 = phi ptr [ %44, %41 ], [ %38, %.preheader415 ]
+  %42 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv442
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_Z10pj_mkparamPKc(ptr noundef %43)
-  store ptr %44, ptr %.0340430, align 8
+  store ptr %44, ptr %.0340424, align 8
   %.not397 = icmp eq ptr %44, null
   br i1 %.not397, label %45, label %41
 
 45:                                               ; preds = %.lr.ph
   %46 = tail call noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef %.0337, ptr noundef %38, i32 noundef 4096)
-  br label %353
+  br label %355
 
-._crit_edge:                                      ; preds = %41, %.preheader421
+._crit_edge:                                      ; preds = %41, %.preheader415
   %47 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %38, ptr noundef nonnull @.str.7)
   %48 = icmp ne ptr %47, null
   %or.cond3 = and i1 %33, %48
@@ -760,7 +760,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 51:                                               ; preds = %49
   %52 = tail call noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef %.0337, ptr noundef %38, i32 noundef 1025)
-  br label %353
+  br label %355
 
 53:                                               ; preds = %49, %._crit_edge
   %54 = load i32, ptr %12, align 8
@@ -769,7 +769,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 55:                                               ; preds = %53
   %56 = tail call noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef nonnull %.0337, ptr noundef %38, i32 noundef %54)
-  br label %353
+  br label %355
 
 57:                                               ; preds = %53
   %58 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %38, ptr noundef nonnull @.str.8)
@@ -779,7 +779,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 60:                                               ; preds = %57
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef nonnull %.0337, i32 noundef 1, ptr noundef nonnull @.str.9)
   %61 = tail call noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef nonnull %.0337, ptr noundef %38, i32 noundef 1026)
-  br label %353
+  br label %355
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 9
@@ -790,7 +790,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 66:                                               ; preds = %62
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef nonnull %.0337, i32 noundef 1, ptr noundef nonnull @.str.10)
   %67 = tail call noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef nonnull %.0337, ptr noundef %38, i32 noundef 1027)
-  br label %353
+  br label %355
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds nuw i8, ptr %58, i64 14
@@ -801,7 +801,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 72:                                               ; preds = %68
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef nonnull %.0337, i32 noundef 1, ptr noundef nonnull @.str.11)
   %73 = tail call noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef nonnull %.0337, ptr noundef %38, i32 noundef 1027)
-  br label %353
+  br label %355
 
 74:                                               ; preds = %68
   tail call fastcc void @_ZL36append_default_ellipsoid_to_paralistP8ARG_list(ptr noundef %38)
@@ -811,7 +811,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 77:                                               ; preds = %74
   %78 = tail call noundef ptr @_Z11free_paramsP6pj_ctxP8ARG_listi(ptr noundef nonnull %.0337, ptr noundef nonnull %38, i32 noundef 4096)
-  br label %353
+  br label %355
 
 79:                                               ; preds = %74
   store ptr %.0337, ptr %75, align 8
@@ -837,18 +837,18 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 88:                                               ; preds = %86
   %89 = tail call i32 @proj_errno(ptr noundef nonnull %75)
   %90 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef %89)
-  br label %353
+  br label %355
 
 91:                                               ; preds = %86, %79
   %92 = tail call noundef i32 @_Z12pj_ellipsoidP8PJconsts(ptr noundef nonnull %75)
   %.not372 = icmp eq i32 %92, 0
-  br i1 %.not372, label %._crit_edge462, label %93
+  br i1 %.not372, label %._crit_edge456, label %93
 
-._crit_edge462:                                   ; preds = %91
+._crit_edge456:                                   ; preds = %91
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %75, i64 168
   %.pre = load double, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert463 = getelementptr inbounds nuw i8, ptr %75, i64 216
-  %.pre464 = load double, ptr %.phi.trans.insert463, align 8
+  %.phi.trans.insert457 = getelementptr inbounds nuw i8, ptr %75, i64 216
+  %.pre458 = load double, ptr %.phi.trans.insert457, align 8
   br label %108
 
 93:                                               ; preds = %91
@@ -861,7 +861,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef nonnull %.0337, i32 noundef 1, ptr noundef nonnull @.str.13)
   %97 = tail call i32 @proj_errno(ptr noundef nonnull %75)
   %98 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef %97)
-  br label %353
+  br label %355
 
 99:                                               ; preds = %93
   %100 = getelementptr inbounds nuw i8, ptr %75, i64 168
@@ -881,9 +881,9 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   store double 0x3F7B6B90F1FE94F0, ptr %107, align 8
   br label %108
 
-108:                                              ; preds = %._crit_edge462, %105
-  %109 = phi double [ %.pre464, %._crit_edge462 ], [ 0x3F7B6B90F1FE94F0, %105 ]
-  %110 = phi double [ %.pre, %._crit_edge462 ], [ 0x415854A640000000, %105 ]
+108:                                              ; preds = %._crit_edge456, %105
+  %109 = phi double [ %.pre458, %._crit_edge456 ], [ 0x3F7B6B90F1FE94F0, %105 ]
+  %110 = phi double [ %.pre, %._crit_edge456 ], [ 0x415854A640000000, %105 ]
   %111 = getelementptr inbounds nuw i8, ptr %75, i64 168
   %112 = getelementptr inbounds nuw i8, ptr %75, i64 336
   store double %110, ptr %112, align 8
@@ -896,7 +896,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 116:                                              ; preds = %108
   %117 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
-  br label %353
+  br label %355
 
 118:                                              ; preds = %108
   %119 = getelementptr inbounds nuw i8, ptr %75, i64 528
@@ -994,7 +994,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 172:                                              ; preds = %167
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull @.str.20)
   %173 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
-  br label %353
+  br label %355
 
 174:                                              ; preds = %167, %165
   %175 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.21)
@@ -1011,7 +1011,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 179:                                              ; preds = %176
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull @.str.23)
   %180 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
-  br label %353
+  br label %355
 
 181:                                              ; preds = %176
   %182 = load i8, ptr %.sroa.031.0..sroa.031.0..cast, align 1
@@ -1039,7 +1039,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 195:                                              ; preds = %190, %185, %181
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull @.str.23)
   %196 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
-  br label %353
+  br label %355
 
 197:                                              ; preds = %190
   %198 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(1) %.sroa.031.0..sroa.031.0..cast) #14
@@ -1060,7 +1060,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 207:                                              ; preds = %199
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull @.str.26)
   %208 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
-  br label %353
+  br label %355
 
 209:                                              ; preds = %199
   %210 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.27)
@@ -1084,9 +1084,9 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %221 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.33)
   %222 = and i64 %221, 4294967295
   %.not382 = icmp eq i64 %222, 0
-  br i1 %.not382, label %.thread465, label %224
+  br i1 %.not382, label %.thread459, label %224
 
-.thread465:                                       ; preds = %220
+.thread459:                                       ; preds = %220
   %223 = getelementptr inbounds nuw i8, ptr %75, i64 488
   store double 1.000000e+00, ptr %223, align 8
   br label %231
@@ -1103,41 +1103,41 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 229:                                              ; preds = %224
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull @.str.35)
   %230 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
-  br label %353
+  br label %355
 
-231:                                              ; preds = %.thread465, %224
+231:                                              ; preds = %.thread459, %224
   %232 = tail call noundef ptr @_Z20pj_list_linear_unitsv()
   %233 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.36)
   %.sroa.019.0..sroa.019.0..cast = inttoptr i64 %233 to ptr
   %.not383 = icmp eq i64 %233, 0
-  br i1 %.not383, label %.thread, label %.preheader420
+  br i1 %.not383, label %.thread, label %.preheader414
 
-.preheader420:                                    ; preds = %231
+.preheader414:                                    ; preds = %231
   %234 = load ptr, ptr %232, align 8
-  %.not384431 = icmp eq ptr %234, null
-  br i1 %.not384431, label %.critedge402, label %.lr.ph433
+  %.not384425 = icmp eq ptr %234, null
+  br i1 %.not384425, label %.critedge402, label %.lr.ph427
 
-235:                                              ; preds = %.lr.ph433
-  %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
-  %236 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %232, i64 %indvars.iv.next454
+235:                                              ; preds = %.lr.ph427
+  %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
+  %236 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %232, i64 %indvars.iv.next448
   %237 = load ptr, ptr %236, align 8
   %.not384 = icmp eq ptr %237, null
-  br i1 %.not384, label %.critedge402, label %.lr.ph433, !llvm.loop !11
+  br i1 %.not384, label %.critedge402, label %.lr.ph427, !llvm.loop !11
 
-.lr.ph433:                                        ; preds = %.preheader420, %235
-  %indvars.iv453 = phi i64 [ %indvars.iv.next454, %235 ], [ 0, %.preheader420 ]
-  %238 = phi ptr [ %237, %235 ], [ %234, %.preheader420 ]
+.lr.ph427:                                        ; preds = %.preheader414, %235
+  %indvars.iv447 = phi i64 [ %indvars.iv.next448, %235 ], [ 0, %.preheader414 ]
+  %238 = phi ptr [ %237, %235 ], [ %234, %.preheader414 ]
   %239 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.019.0..sroa.019.0..cast, ptr noundef nonnull dereferenceable(1) %238) #13
   %.not385 = icmp eq i32 %239, 0
   br i1 %.not385, label %241, label %235
 
-.critedge402:                                     ; preds = %235, %.preheader420
+.critedge402:                                     ; preds = %235, %.preheader414
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef %75, ptr noundef nonnull @.str.37)
   %240 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %75, i32 noundef 1027)
-  br label %353
+  br label %355
 
-241:                                              ; preds = %.lr.ph433
-  %242 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %232, i64 %indvars.iv453, i32 1
+241:                                              ; preds = %.lr.ph427
+  %242 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %232, i64 %indvars.iv447, i32 1
   %243 = load ptr, ptr %242, align 8
   %.not386 = icmp eq ptr %243, null
   br i1 %.not386, label %.thread, label %.critedge5
@@ -1168,7 +1168,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 254:                                              ; preds = %250
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull @.str.39)
   %255 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
-  br label %353
+  br label %355
 
 256:                                              ; preds = %250
   %257 = load double, ptr %246, align 8
@@ -1184,7 +1184,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 262:                                              ; preds = %259
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull @.str.40)
   %263 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
-  br label %353
+  br label %355
 
 264:                                              ; preds = %259
   %265 = fdiv double 1.000000e+00, %260
@@ -1196,9 +1196,9 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %268
 
 268:                                              ; preds = %266, %264
-  %.sink472 = phi i64 [ 496, %266 ], [ 504, %264 ]
+  %.sink466 = phi i64 [ 496, %266 ], [ 504, %264 ]
   %.sink = phi double [ 1.000000e+00, %266 ], [ %265, %264 ]
-  %269 = getelementptr inbounds nuw i8, ptr %75, i64 %.sink472
+  %269 = getelementptr inbounds nuw i8, ptr %75, i64 %.sink466
   store double %.sink, ptr %269, align 8
   %270 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.41)
   %.sroa.015.0..sroa.015.0..cast = inttoptr i64 %270 to ptr
@@ -1207,18 +1207,18 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 .preheader:                                       ; preds = %268
   %271 = load ptr, ptr %232, align 8
-  %.not389434 = icmp eq ptr %271, null
-  br i1 %.not389434, label %.critedge403, label %.lr.ph436
+  %.not389428 = icmp eq ptr %271, null
+  br i1 %.not389428, label %.critedge403, label %.lr.ph430
 
-272:                                              ; preds = %.lr.ph436
-  %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
-  %273 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %232, i64 %indvars.iv.next457
+272:                                              ; preds = %.lr.ph430
+  %indvars.iv.next451 = add nuw nsw i64 %indvars.iv450, 1
+  %273 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %232, i64 %indvars.iv.next451
   %274 = load ptr, ptr %273, align 8
   %.not389 = icmp eq ptr %274, null
-  br i1 %.not389, label %.critedge403, label %.lr.ph436, !llvm.loop !12
+  br i1 %.not389, label %.critedge403, label %.lr.ph430, !llvm.loop !12
 
-.lr.ph436:                                        ; preds = %.preheader, %272
-  %indvars.iv456 = phi i64 [ %indvars.iv.next457, %272 ], [ 0, %.preheader ]
+.lr.ph430:                                        ; preds = %.preheader, %272
+  %indvars.iv450 = phi i64 [ %indvars.iv.next451, %272 ], [ 0, %.preheader ]
   %275 = phi ptr [ %274, %272 ], [ %271, %.preheader ]
   %276 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.015.0..sroa.015.0..cast, ptr noundef nonnull dereferenceable(1) %275) #13
   %.not390 = icmp eq i32 %276, 0
@@ -1227,10 +1227,10 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 .critedge403:                                     ; preds = %272, %.preheader
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef %75, ptr noundef nonnull @.str.42)
   %277 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %75, i32 noundef 1027)
-  br label %353
+  br label %355
 
-278:                                              ; preds = %.lr.ph436
-  %279 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %232, i64 %indvars.iv456, i32 1
+278:                                              ; preds = %.lr.ph430
+  %279 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %232, i64 %indvars.iv450, i32 1
   %280 = load ptr, ptr %279, align 8
   %.not391 = icmp eq ptr %280, null
   br i1 %.not391, label %.thread406, label %.critedge9
@@ -1261,7 +1261,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 291:                                              ; preds = %287
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull @.str.44)
   %292 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
-  br label %353
+  br label %355
 
 293:                                              ; preds = %287
   %294 = load double, ptr %283, align 8
@@ -1277,7 +1277,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 299:                                              ; preds = %296
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull @.str.45)
   %300 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
-  br label %353
+  br label %355
 
 301:                                              ; preds = %296
   %302 = fdiv double 1.000000e+00, %297
@@ -1293,40 +1293,40 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %309
 
 309:                                              ; preds = %303, %301
-  %.sink473 = phi double [ %308, %303 ], [ %302, %301 ]
+  %.sink467 = phi double [ %308, %303 ], [ %302, %301 ]
   %310 = getelementptr inbounds nuw i8, ptr %75, i64 520
-  store double %.sink473, ptr %310, align 8
+  store double %.sink467, ptr %310, align 8
   %311 = call ptr @proj_list_prime_meridians()
   %312 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.46)
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %312 to ptr
   %.not393 = icmp eq i64 %312, 0
-  br i1 %.not393, label %335, label %313
+  br i1 %.not393, label %337, label %313
 
 313:                                              ; preds = %309
   store ptr null, ptr %7, align 8
   %314 = load ptr, ptr %311, align 8
-  %.not394437 = icmp eq ptr %314, null
-  br i1 %.not394437, label %.thread409, label %.lr.ph440
+  %.not394431 = icmp eq ptr %314, null
+  br i1 %.not394431, label %.thread409, label %.lr.ph434
 
-315:                                              ; preds = %.lr.ph440
-  %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, 1
-  %316 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %311, i64 %indvars.iv.next460
+315:                                              ; preds = %.lr.ph434
+  %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
+  %316 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %311, i64 %indvars.iv.next454
   %317 = load ptr, ptr %316, align 8
   %.not394 = icmp eq ptr %317, null
-  br i1 %.not394, label %.thread409, label %.lr.ph440, !llvm.loop !13
+  br i1 %.not394, label %.thread409, label %.lr.ph434, !llvm.loop !13
 
-.lr.ph440:                                        ; preds = %313, %315
-  %indvars.iv459 = phi i64 [ %indvars.iv.next460, %315 ], [ 0, %313 ]
+.lr.ph434:                                        ; preds = %313, %315
+  %indvars.iv453 = phi i64 [ %indvars.iv.next454, %315 ], [ 0, %313 ]
   %318 = phi ptr [ %317, %315 ], [ %314, %313 ]
   %319 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(1) %318) #13
   %320 = icmp eq i32 %319, 0
   br i1 %320, label %321, label %315
 
-321:                                              ; preds = %.lr.ph440
-  %322 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %311, i64 %indvars.iv459, i32 1
+321:                                              ; preds = %.lr.ph434
+  %322 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %311, i64 %indvars.iv453, i32 1
   %323 = load ptr, ptr %322, align 8
   %324 = icmp eq ptr %323, null
-  br i1 %324, label %.thread409, label %.thread414
+  br i1 %324, label %.thread409, label %select.unfold
 
 .thread409:                                       ; preds = %315, %313, %321
   %325 = call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef nonnull %.0337, ptr noundef nonnull %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull %7)
@@ -1336,59 +1336,59 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 327:                                              ; preds = %.thread409
   %328 = load i8, ptr %.sroa.0.0..sroa.0.0..cast, align 1
   %329 = icmp eq i8 %328, 48
-  br i1 %329, label %330, label %.thread411
+  br i1 %329, label %330, label %334
 
 330:                                              ; preds = %327, %.thread409
   %331 = load ptr, ptr %7, align 8
   %332 = load i8, ptr %331, align 1
-  %.not419 = icmp eq i8 %332, 0
-  br i1 %.not419, label %.thread414, label %.thread411
+  %333 = icmp eq i8 %332, 0
+  br i1 %333, label %select.unfold, label %334
 
-.thread411:                                       ; preds = %330, %327
+334:                                              ; preds = %327, %330
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef %75, ptr noundef nonnull @.str.47)
-  %333 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %75, i32 noundef 1027)
-  br label %353
+  %335 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %75, i32 noundef 1027)
+  br label %355
 
-.thread414:                                       ; preds = %330, %321
-  %.1417 = phi ptr [ %323, %321 ], [ %.sroa.0.0..sroa.0.0..cast, %330 ]
-  %334 = call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef nonnull %.0337, ptr noundef nonnull %.1417, ptr noundef null)
-  br label %335
+select.unfold:                                    ; preds = %330, %321
+  %.1 = phi ptr [ %323, %321 ], [ %.sroa.0.0..sroa.0.0..cast, %330 ]
+  %336 = call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef nonnull %.0337, ptr noundef nonnull %.1, ptr noundef null)
+  br label %337
 
-335:                                              ; preds = %309, %.thread414
-  %.sink475 = phi double [ %334, %.thread414 ], [ 0.000000e+00, %309 ]
-  %336 = getelementptr inbounds nuw i8, ptr %75, i64 616
-  store double %.sink475, ptr %336, align 8
-  %337 = call noalias dereferenceable_or_null(408) ptr @calloc(i64 noundef 1, i64 noundef 408) #15
-  %338 = getelementptr inbounds nuw i8, ptr %75, i64 80
-  store ptr %337, ptr %338, align 8
-  %339 = icmp eq ptr %337, null
-  br i1 %339, label %340, label %342
+337:                                              ; preds = %309, %select.unfold
+  %.sink469 = phi double [ %336, %select.unfold ], [ 0.000000e+00, %309 ]
+  %338 = getelementptr inbounds nuw i8, ptr %75, i64 616
+  store double %.sink469, ptr %338, align 8
+  %339 = call noalias dereferenceable_or_null(408) ptr @calloc(i64 noundef 1, i64 noundef 408) #15
+  %340 = getelementptr inbounds nuw i8, ptr %75, i64 80
+  store ptr %339, ptr %340, align 8
+  %341 = icmp eq ptr %339, null
+  br i1 %341, label %342, label %344
 
-340:                                              ; preds = %335
-  %341 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 4096)
-  br label %353
+342:                                              ; preds = %337
+  %343 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 4096)
+  br label %355
 
-342:                                              ; preds = %335
-  %343 = load double, ptr %111, align 8
-  %344 = getelementptr inbounds nuw i8, ptr %75, i64 272
-  %345 = load double, ptr %344, align 8
-  call void @geod_init(ptr noundef nonnull %337, double noundef %343, double noundef %345)
-  %346 = call i32 @proj_errno_reset(ptr noundef nonnull %75)
-  %347 = call noundef ptr %70(ptr noundef nonnull %75)
-  %348 = call i32 @proj_errno(ptr noundef %347)
-  %.not396 = icmp eq i32 %348, 0
-  br i1 %.not396, label %351, label %349
+344:                                              ; preds = %337
+  %345 = load double, ptr %111, align 8
+  %346 = getelementptr inbounds nuw i8, ptr %75, i64 272
+  %347 = load double, ptr %346, align 8
+  call void @geod_init(ptr noundef nonnull %339, double noundef %345, double noundef %347)
+  %348 = call i32 @proj_errno_reset(ptr noundef nonnull %75)
+  %349 = call noundef ptr %70(ptr noundef nonnull %75)
+  %350 = call i32 @proj_errno(ptr noundef %349)
+  %.not396 = icmp eq i32 %350, 0
+  br i1 %.not396, label %353, label %351
 
-349:                                              ; preds = %342
-  %350 = call ptr @proj_destroy(ptr noundef %347)
-  br label %353
+351:                                              ; preds = %344
+  %352 = call ptr @proj_destroy(ptr noundef %349)
+  br label %355
 
-351:                                              ; preds = %342
-  %352 = call i32 @proj_errno_restore(ptr noundef %347, i32 noundef %346)
-  br label %353
+353:                                              ; preds = %344
+  %354 = call i32 @proj_errno_restore(ptr noundef %349, i32 noundef %348)
+  br label %355
 
-353:                                              ; preds = %351, %349, %340, %.thread411, %299, %291, %.critedge403, %262, %254, %.critedge402, %229, %207, %195, %179, %172, %116, %96, %88, %77, %72, %66, %60, %55, %51, %45, %39, %35, %31, %14
-  %.0336 = phi ptr [ null, %14 ], [ null, %31 ], [ null, %35 ], [ null, %45 ], [ null, %55 ], [ null, %60 ], [ null, %66 ], [ null, %72 ], [ null, %77 ], [ %90, %88 ], [ %98, %96 ], [ %117, %116 ], [ %180, %179 ], [ %196, %195 ], [ %208, %207 ], [ %230, %229 ], [ %255, %254 ], [ %263, %262 ], [ %292, %291 ], [ %300, %299 ], [ %341, %340 ], [ null, %349 ], [ %347, %351 ], [ %333, %.thread411 ], [ %277, %.critedge403 ], [ %240, %.critedge402 ], [ %173, %172 ], [ null, %51 ], [ null, %39 ]
+355:                                              ; preds = %353, %351, %342, %334, %299, %291, %.critedge403, %262, %254, %.critedge402, %229, %207, %195, %179, %172, %116, %96, %88, %77, %72, %66, %60, %55, %51, %45, %39, %35, %31, %14
+  %.0336 = phi ptr [ null, %14 ], [ null, %31 ], [ null, %35 ], [ null, %45 ], [ null, %55 ], [ null, %60 ], [ null, %66 ], [ null, %72 ], [ null, %77 ], [ %90, %88 ], [ %98, %96 ], [ %117, %116 ], [ %180, %179 ], [ %196, %195 ], [ %208, %207 ], [ %230, %229 ], [ %255, %254 ], [ %263, %262 ], [ %292, %291 ], [ %300, %299 ], [ %343, %342 ], [ null, %351 ], [ %349, %353 ], [ %335, %334 ], [ %277, %.critedge403 ], [ %240, %.critedge402 ], [ %173, %172 ], [ null, %51 ], [ null, %39 ]
   ret ptr %.0336
 }
 

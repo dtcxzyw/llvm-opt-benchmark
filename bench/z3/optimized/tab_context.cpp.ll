@@ -15979,22 +15979,22 @@ invoke.cont17:                                    ; preds = %invoke.cont15
           to label %if.then.i.i unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %while.body.i.i
-  %lpad.loopexit27 = landingpad { ptr, i32 }
+  %lpad.loopexit26 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %invoke.cont10, %invoke.cont12, %invoke.cont15, %invoke.cont17
-  %lpad.loopexit.split-lp28 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp27 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit27, %lpad.loopexit ], [ %lpad.loopexit.split-lp28, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit26, %lpad.loopexit ], [ %lpad.loopexit.split-lp27, %lpad.loopexit.split-lp ]
   call void @_ZN3refIN2tb6clauseEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rl) #23
   resume { ptr, i32 } %lpad.phi
 
-if.then.i.i:                                      ; preds = %invoke.cont17, %_ZNK8uint_set8containsEj.exit
-  %29 = phi ptr [ %15, %_ZNK8uint_set8containsEj.exit ], [ %27, %invoke.cont17 ]
+if.then.i.i:                                      ; preds = %_ZNK8uint_set8containsEj.exit, %invoke.cont17
+  %29 = phi ptr [ %27, %invoke.cont17 ], [ %15, %_ZNK8uint_set8containsEj.exit ]
   %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 76
   %30 = load i32, ptr %m_ref.i.i.i, align 4
   %dec.i.i.i = add i32 %30, -1

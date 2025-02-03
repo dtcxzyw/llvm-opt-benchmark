@@ -14110,7 +14110,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %7)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %7)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -14790,7 +14790,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %7)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %7)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -15374,7 +15374,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %8 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRPKcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRPKcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %args)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -15509,7 +15509,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %8 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %8)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %8)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -16132,7 +16132,7 @@ if.else52.cont:                                   ; preds = %if.else52.invoke
 
 done:                                             ; preds = %invoke.cont40, %invoke.cont49, %invoke.cont18
   %10 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_S3_RKiEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_S3_RKiEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5)
           to label %invoke.cont56 unwind label %lpad
 
 invoke.cont56:                                    ; preds = %done
@@ -16333,7 +16333,7 @@ if.else50.cont:                                   ; preds = %if.else50.invoke
 
 done:                                             ; preds = %invoke.cont38, %invoke.cont47, %invoke.cont16
   %10 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_RKiEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_RKiEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3)
           to label %invoke.cont54 unwind label %lpad
 
 invoke.cont54:                                    ; preds = %done
@@ -16498,7 +16498,7 @@ if.else48.cont:                                   ; preds = %if.else48.invoke
 
 done:                                             ; preds = %invoke.cont36, %invoke.cont45, %invoke.cont14
   %10 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJRKiEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJRKiEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1)
           to label %invoke.cont52 unwind label %lpad
 
 invoke.cont52:                                    ; preds = %done
@@ -16663,7 +16663,7 @@ if.else46.cont:                                   ; preds = %if.else46.invoke
 
 done:                                             ; preds = %invoke.cont34, %invoke.cont43, %invoke.cont12
   %10 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKiJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKiJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args)
           to label %invoke.cont50 unwind label %lpad
 
 invoke.cont50:                                    ; preds = %done
@@ -16823,7 +16823,7 @@ lpad43:                                           ; preds = %invoke.cont42
 
 done:                                             ; preds = %invoke.cont35, %invoke.cont44, %invoke.cont17
   %9 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %9)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %9)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -17162,7 +17162,7 @@ if.else50.cont:                                   ; preds = %if.else50.invoke
 
 done:                                             ; preds = %invoke.cont38, %invoke.cont47, %invoke.cont16
   %10 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_S3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_S3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3)
           to label %invoke.cont54 unwind label %lpad
 
 invoke.cont54:                                    ; preds = %done
@@ -17327,7 +17327,7 @@ if.else48.cont:                                   ; preds = %if.else48.invoke
 
 done:                                             ; preds = %invoke.cont36, %invoke.cont45, %invoke.cont14
   %10 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1)
           to label %invoke.cont52 unwind label %lpad
 
 invoke.cont52:                                    ; preds = %done
@@ -17492,7 +17492,7 @@ if.else46.cont:                                   ; preds = %if.else46.invoke
 
 done:                                             ; preds = %invoke.cont34, %invoke.cont43, %invoke.cont12
   %10 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %args)
           to label %invoke.cont50 unwind label %lpad
 
 invoke.cont50:                                    ; preds = %done
@@ -17657,7 +17657,7 @@ if.else46.cont:                                   ; preds = %if.else46.invoke
 
 done:                                             ; preds = %invoke.cont34, %invoke.cont43, %invoke.cont12
   %10 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %10)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %10)
           to label %invoke.cont50 unwind label %lpad
 
 invoke.cont50:                                    ; preds = %done
@@ -19661,7 +19661,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %7)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %7)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -19821,7 +19821,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %7)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %7)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -20007,7 +20007,7 @@ lpad42:                                           ; preds = %invoke.cont41
 
 done:                                             ; preds = %invoke.cont34, %invoke.cont43, %invoke.cont16
   %9 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %9)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %9)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -20170,7 +20170,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %8 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIjJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIjJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %args)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -20360,7 +20360,7 @@ lpad43:                                           ; preds = %invoke.cont42
 
 done:                                             ; preds = %invoke.cont35, %invoke.cont44, %invoke.cont17
   %9 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %9)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %9)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -20525,7 +20525,7 @@ if.else41.cont:                                   ; preds = %if.else41.invoke
 
 done:                                             ; preds = %invoke.cont29, %invoke.cont38
   %8 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKcJRKNS_12FloatTextureES6_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKcJRKNS_12FloatTextureES6_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3)
           to label %invoke.cont45 unwind label %lpad
 
 invoke.cont45:                                    ; preds = %done
@@ -20660,7 +20660,7 @@ if.else39.cont:                                   ; preds = %if.else39.invoke
 
 done:                                             ; preds = %invoke.cont27, %invoke.cont36
   %8 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12FloatTextureEJS4_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12FloatTextureEJS4_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
           to label %invoke.cont43 unwind label %lpad
 
 invoke.cont43:                                    ; preds = %done
@@ -21073,7 +21073,7 @@ if.else41.cont:                                   ; preds = %if.else41.invoke
 
 done:                                             ; preds = %invoke.cont29, %invoke.cont38
   %8 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKcJRKNS_15SpectrumTextureES6_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKcJRKNS_15SpectrumTextureES6_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3)
           to label %invoke.cont45 unwind label %lpad
 
 invoke.cont45:                                    ; preds = %done
@@ -21208,7 +21208,7 @@ if.else39.cont:                                   ; preds = %if.else39.invoke
 
 done:                                             ; preds = %invoke.cont27, %invoke.cont36
   %8 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SpectrumTextureEJS4_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SpectrumTextureEJS4_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
           to label %invoke.cont43 unwind label %lpad
 
 invoke.cont43:                                    ; preds = %done
@@ -22424,7 +22424,7 @@ if.else48.cont:                                   ; preds = %if.else48.invoke
 
 done:                                             ; preds = %invoke.cont36, %invoke.cont45, %invoke.cont14
   %10 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJRNS_6MIPMapEEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(52) %args1)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKbJRNS_6MIPMapEEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(52) %args1)
           to label %invoke.cont52 unwind label %lpad
 
 invoke.cont52:                                    ; preds = %done
@@ -22527,7 +22527,7 @@ done.sink.split:                                  ; preds = %invoke.cont49, %inv
 
 done:                                             ; preds = %done.sink.split, %if.then8
   %6 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRNS_6MIPMapEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(52) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRNS_6MIPMapEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(52) %args)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -23115,7 +23115,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %8 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_13ColorEncodingEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_13ColorEncodingEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %args)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -23578,7 +23578,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %7)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %7)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -24274,7 +24274,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %7)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %7)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -25165,7 +25165,7 @@ invoke.cont51:                                    ; preds = %if.else50
 
 done:                                             ; preds = %invoke.cont38, %invoke.cont47, %invoke.cont20
   %9 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_S3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_S3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done, %if.then
@@ -26439,7 +26439,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %7)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %7)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -26568,7 +26568,7 @@ done.sink.split:                                  ; preds = %invoke.cont52, %inv
 
 done:                                             ; preds = %done.sink.split, %if.then12
   %6 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKNS_13ColorEncodingERKfEEEvPS7_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKNS_13ColorEncodingERKfEEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done
@@ -27168,7 +27168,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %7)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %7)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -27341,7 +27341,7 @@ if.then18:                                        ; preds = %if.else12
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #27
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #27
   %_M_storage.i.i.i17 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %call.i.i18 = tail call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_fEES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(72) %_M_storage.i.i.i17, ptr noundef nonnull align 8 dereferenceable(72) %__k)
   br i1 %call.i.i18, label %if.then32, label %if.else42
@@ -27403,7 +27403,7 @@ if.then50:                                        ; preds = %if.else44
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #27
+  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #27
   %_M_storage.i.i.i59 = getelementptr inbounds nuw i8, ptr %call.i58, i64 32
   %call.i.i60 = tail call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_fEES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(72) %__k, ptr noundef nonnull align 8 dereferenceable(72) %_M_storage.i.i.i59)
   br i1 %call.i.i60, label %if.then64, label %if.else74
@@ -27836,7 +27836,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %7 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef %s, ptr noundef %7)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull %s, ptr noundef %7)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -28009,7 +28009,7 @@ if.then18:                                        ; preds = %if.else12
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #27
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #27
   %_M_storage.i.i.i17 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %call.i.i18 = tail call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_fEES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(72) %_M_storage.i.i.i17, ptr noundef nonnull align 8 dereferenceable(72) %__k)
   br i1 %call.i.i18, label %if.then32, label %if.else42
@@ -28071,7 +28071,7 @@ if.then50:                                        ; preds = %if.else44
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #27
+  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #27
   %_M_storage.i.i.i59 = getelementptr inbounds nuw i8, ptr %call.i58, i64 32
   %call.i.i60 = tail call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_fEES7_Lm0ELm3EE6__lessERKS7_SA_(ptr noundef nonnull align 8 dereferenceable(72) %__k, ptr noundef nonnull align 8 dereferenceable(72) %_M_storage.i.i.i59)
   br i1 %call.i.i60, label %if.then64, label %if.else74
@@ -28350,7 +28350,7 @@ if.else37.cont:                                   ; preds = %if.else37.invoke
 
 done:                                             ; preds = %invoke.cont25, %invoke.cont34
   %8 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKN4pstd6vectorINS_3RGBENS2_3pmr21polymorphic_allocatorIS4_EEEEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKN4pstd6vectorINS_3RGBENS2_3pmr21polymorphic_allocatorIS4_EEEEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %args)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %done
@@ -29143,7 +29143,7 @@ invoke.cont47:                                    ; preds = %if.else46
 
 done:                                             ; preds = %invoke.cont34, %invoke.cont43, %invoke.cont16
   %9 = load ptr, ptr %fmt.addr, align 8
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %args)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %done, %if.then

@@ -181,7 +181,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %sw.default.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #14
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #14
   br label %common.resume
 
 _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %entry, %entry, %entry
@@ -384,7 +384,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %sw.default.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #14
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #14
   br label %common.resume
 
 _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %entry, %entry, %entry
@@ -562,7 +562,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %sw.default.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #14
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #14
   br label %common.resume
 
 _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %entry, %entry, %entry
@@ -752,7 +752,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %sw.default.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #14
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #14
   br label %common.resume
 
 _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %entry, %entry, %entry

@@ -180,7 +180,7 @@ common.resume:                                    ; preds = %cleanup.action, %eh
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #17
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #17
   br label %common.resume
 
 _ZN6duckdbL18CheckEnumParameterERKNS_10ExpressionE.exit: ; preds = %entry
@@ -525,7 +525,7 @@ common.resume:                                    ; preds = %cleanup.action44, %
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #17
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #17
   br label %common.resume
 
 _ZN6duckdbL18CheckEnumParameterERKNS_10ExpressionE.exit: ; preds = %entry
@@ -830,7 +830,7 @@ common.resume:                                    ; preds = %cleanup.action170, 
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #17
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #17
   br label %common.resume
 
 _ZN6duckdbL18CheckEnumParameterERKNS_10ExpressionE.exit: ; preds = %entry
@@ -854,7 +854,7 @@ invoke.cont.i202:                                 ; preds = %if.then.i199
 lpad.i201:                                        ; preds = %if.then.i199
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i200) #17
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i200) #17
   br label %common.resume
 
 _ZN6duckdbL18CheckEnumParameterERKNS_10ExpressionE.exit203: ; preds = %_ZN6duckdbL18CheckEnumParameterERKNS_10ExpressionE.exit

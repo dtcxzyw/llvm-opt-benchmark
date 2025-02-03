@@ -29459,7 +29459,7 @@ thread-pre-split:                                 ; preds = %"_ZN4core3ptr92drop
 195:                                              ; preds = %159
   %196 = extractvalue { ptr, ptr } %160, 0
   %197 = extractvalue { ptr, ptr } %160, 1
-  invoke void @_ZN9workspace4pane4Pane8add_item17ha873e2aee10335dbE(ptr noalias noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 1 %196, ptr noalias noundef readonly align 8 dereferenceable(352) %197, i1 noundef zeroext true, i1 noundef zeroext %3, i64 noundef %.sroa.024.0, i64 %.sroa.325.0, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+  invoke void @_ZN9workspace4pane4Pane8add_item17ha873e2aee10335dbE(ptr noalias noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 1 %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %197, i1 noundef zeroext true, i1 noundef zeroext %3, i64 noundef %.sroa.024.0, i64 %.sroa.325.0, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %129 unwind label %188
 
 .thread83:                                        ; preds = %129, %205, %212

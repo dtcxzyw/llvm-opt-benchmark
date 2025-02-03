@@ -31838,7 +31838,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiSt5dequeIPNS_5SUnitESaIS4_EENS_12DenseMapIn
 296:                                              ; preds = %.lr.ph97, %_ZNSt5dequeIPN4llvm5SUnitESaIS2_EED2Ev.exit
   %297 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIiSt5dequeIPNS_5SUnitESaIS4_EENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS6_EEEEiS6_S8_SB_E16FindAndConstructERKi(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
-  call void @_ZNK4llvm10SMSchedule19reorderInstructionsEPKNS_17SwingSchedulerDAGERKSt5dequeIPNS_5SUnitESaIS6_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::deque") align 8 %6, ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %298)
+  call void @_ZNK4llvm10SMSchedule19reorderInstructionsEPKNS_17SwingSchedulerDAGERKSt5dequeIPNS_5SUnitESaIS6_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::deque") align 8 %6, ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(80) %298)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %298, i64 16, i1 false)
   %299 = getelementptr inbounds nuw i8, ptr %297, i64 24

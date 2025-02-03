@@ -225,7 +225,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   br label %56
 
 55:                                               ; preds = %.loopexit86
-  call void @free(ptr noundef %44) #24, !noalias !49
+  call void @free(ptr noundef nonnull %44) #24, !noalias !49
   br label %1137
 
 56:                                               ; preds = %.preheader88, %.loopexit86

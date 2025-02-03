@@ -48454,7 +48454,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #28
-  invoke void @_ZSt8_DestroyIPN6duckdb16IndexStorageInfoEEvT_S3_(ptr noundef %26, ptr noundef %__cur.016.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb16IndexStorageInfoEEvT_S3_(ptr noundef %26, ptr noundef nonnull %__cur.016.i.i.i.i)
           to label %invoke.cont3.i.i.i.i unwind label %lpad2.i.i.i.i
 
 invoke.cont3.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -48540,7 +48540,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #28
-  invoke void @_ZSt8_DestroyIPN6duckdb16IndexStorageInfoEEvT_S3_(ptr noundef %cond.i, ptr noundef %__cur.018.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb16IndexStorageInfoEEvT_S3_(ptr noundef %cond.i, ptr noundef nonnull %__cur.018.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -48875,7 +48875,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #28
-  invoke void @_ZSt8_DestroyIPN6duckdb22FixedSizeAllocatorInfoEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef %__cur.018.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb22FixedSizeAllocatorInfoEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef nonnull %__cur.018.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -49642,7 +49642,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   %26 = tail call ptr @__cxa_begin_catch(ptr %25) #28
-  invoke void @_ZSt8_DestroyIPN6duckdb22FixedSizeAllocatorInfoEEvT_S3_(ptr noundef %22, ptr noundef %__cur.016.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb22FixedSizeAllocatorInfoEEvT_S3_(ptr noundef %22, ptr noundef nonnull %__cur.016.i.i.i.i)
           to label %invoke.cont3.i.i.i.i unwind label %lpad2.i.i.i.i
 
 invoke.cont3.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -49728,7 +49728,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #28
-  invoke void @_ZSt8_DestroyIPN6duckdb22FixedSizeAllocatorInfoEEvT_S3_(ptr noundef %cond.i, ptr noundef %__cur.018.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb22FixedSizeAllocatorInfoEEvT_S3_(ptr noundef %cond.i, ptr noundef nonnull %__cur.018.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i

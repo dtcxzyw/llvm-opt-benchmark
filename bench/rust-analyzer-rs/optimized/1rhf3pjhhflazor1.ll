@@ -7749,7 +7749,7 @@ _ZN7hir_def9item_tree8ItemTree9raw_attrs17hb96632430531defeE.llvm.26810430416447
 _ZN7hir_def9item_tree8ItemTree5attrs17haa4e2e6c6799598fE.exit.i.i: ; preds = %"_ZN66_$LT$hir_expand..attrs..RawAttrs$u20$as$u20$core..clone..Clone$GT$5clone17he7d07c84bda3bca2E.llvm.2681043041644741927.exit.i.i.i"
   %85 = extractvalue { ptr, ptr } %79, 0
   %86 = extractvalue { ptr, ptr } %79, 1
-  %87 = invoke noundef ptr @_ZN10hir_expand5attrs8RawAttrs6filter17h595e0c531d8c4be8E(ptr noundef %73, ptr noundef nonnull align 1 %85, ptr noalias noundef readonly align 8 dereferenceable(24) %86, i32 noundef %62)
+  %87 = invoke noundef ptr @_ZN10hir_expand5attrs8RawAttrs6filter17h595e0c531d8c4be8E(ptr noundef %73, ptr noundef nonnull align 1 %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %86, i32 noundef %62)
           to label %.noexc7 unwind label %.loopexit
 
 .noexc7:                                          ; preds = %_ZN7hir_def9item_tree8ItemTree5attrs17haa4e2e6c6799598fE.exit.i.i
@@ -32929,7 +32929,7 @@ common.resume.i.i:                                ; preds = %535, %.body160.i.i,
 550:                                              ; preds = %540
   %551 = extractvalue { ptr, ptr } %545, 0
   %552 = extractvalue { ptr, ptr } %545, 1
-  invoke void @_ZN10hir_expand5attrs4Attr27parse_path_comma_token_tree17h2a176d850f73f2b1E(ptr noalias noundef nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %101, ptr noundef nonnull align 1 %551, ptr noalias noundef readonly align 8 dereferenceable(24) %552)
+  invoke void @_ZN10hir_expand5attrs4Attr27parse_path_comma_token_tree17h2a176d850f73f2b1E(ptr noalias noundef nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %101, ptr noundef nonnull align 1 %551, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %552)
           to label %553 unwind label %.loopexit.split-lp262.i.i
 
 553:                                              ; preds = %550

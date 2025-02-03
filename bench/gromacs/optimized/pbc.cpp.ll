@@ -764,7 +764,7 @@ define internal fastcc noundef range(i32 -2147483647, 2147483647) i32 @_ZL16corr
   %19 = load float, ptr %13, align 4
   %20 = fmul float %19, 0x3FE00418A0000000
   %21 = fcmp ogt float %18, %20
-  br i1 %21, label %22, label %.preheader
+  br i1 %21, label %22, label %.preheader.split69.us
 
 22:                                               ; preds = %.split.us
   %23 = load float, ptr %9, align 4
@@ -789,14 +789,10 @@ define internal fastcc noundef range(i32 -2147483647, 2147483647) i32 @_ZL16corr
   %35 = load float, ptr %13, align 4
   %36 = fmul float %35, 0x3FE00418A0000000
   %37 = fcmp ogt float %34, %36
-  br i1 %37, label %53, label %.preheader
+  br i1 %37, label %53, label %.preheader.split69
 
-.preheader:                                       ; preds = %.split, %.split.us
-  %.us-phi = phi i32 [ %.047.us, %.split.us ], [ %.047, %.split ]
-  br i1 %.not52, label %.preheader.split69.us, label %.preheader.split69
-
-.preheader.split69.us:                            ; preds = %.preheader, %42
-  %.1.us = phi i32 [ %52, %42 ], [ %.us-phi, %.preheader ]
+.preheader.split69.us:                            ; preds = %.split.us, %42
+  %.1.us = phi i32 [ %52, %42 ], [ %.047.us, %.split.us ]
   %38 = load float, ptr %11, align 4
   %39 = load float, ptr %13, align 4
   %40 = fmul float %39, 0xBFE00418A0000000
@@ -853,8 +849,8 @@ define internal fastcc noundef range(i32 -2147483647, 2147483647) i32 @_ZL16corr
           cleanup
   br label %88
 
-.preheader.split69:                               ; preds = %.preheader, %73
-  %.1 = phi i32 [ %84, %73 ], [ %.us-phi, %.preheader ]
+.preheader.split69:                               ; preds = %.split, %73
+  %.1 = phi i32 [ %84, %73 ], [ %.047, %.split ]
   %69 = load float, ptr %11, align 4
   %70 = load float, ptr %13, align 4
   %71 = fmul float %70, 0xBFE00418A0000000

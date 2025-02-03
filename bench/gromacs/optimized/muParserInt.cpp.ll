@@ -1298,7 +1298,7 @@ define noundef double @_ZN2mu9ParserInt3SumEPKdi(ptr noundef readonly captures(n
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  call void @__cxa_free_exception(ptr %6) #13
+  call void @__cxa_free_exception(ptr nonnull %6) #13
   br label %15
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1364,7 +1364,7 @@ define noundef double @_ZN2mu9ParserInt3MinEPKdi(ptr noundef readonly captures(n
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  call void @__cxa_free_exception(ptr %5) #13
+  call void @__cxa_free_exception(ptr nonnull %5) #13
   br label %17
 
 11:                                               ; preds = %2
@@ -1425,7 +1425,7 @@ define noundef double @_ZN2mu9ParserInt3MaxEPKdi(ptr noundef readonly captures(n
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  call void @__cxa_free_exception(ptr %5) #13
+  call void @__cxa_free_exception(ptr nonnull %5) #13
   br label %17
 
 11:                                               ; preds = %2
@@ -1773,7 +1773,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsBinValEPKcPiPd(ptr nounde
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
-  call void @__cxa_free_exception(ptr %21) #13
+  call void @__cxa_free_exception(ptr nonnull %21) #13
   br label %34
 
 27:                                               ; preds = %.critedge

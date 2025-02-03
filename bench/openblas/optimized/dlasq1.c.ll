@@ -166,7 +166,7 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %93 = sext i32 %81 to i64
   %94 = getelementptr inbounds double, ptr %12, i64 %93
   store double 0.000000e+00, ptr %94, align 8, !tbaa !7
-  call void @dlasq2_(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %4) #5
+  call void @dlasq2_(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %95 = load i32, ptr %4, align 4, !tbaa !3
   switch i32 %95, label %127 [
     i32 0, label %96

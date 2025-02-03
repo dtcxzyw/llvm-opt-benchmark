@@ -2393,7 +2393,7 @@ define void @_ZNK5osgeo4proj9operation14Transformation20getTOWGS84ParametersEv(p
 93:                                               ; preds = %._crit_edge.thread
   %94 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %91) #23
+  tail call void @__cxa_free_exception(ptr nonnull %91) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 95:                                               ; preds = %._crit_edge
@@ -2416,7 +2416,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %93, %50
 99:                                               ; preds = %96
   %100 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %97) #23
+  tail call void @__cxa_free_exception(ptr nonnull %97) #23
   br label %101
 
 101:                                              ; preds = %99, %_ZNSt6vectorIdSaIdEED2Ev.exit
@@ -2511,7 +2511,7 @@ define void @_ZN5osgeo4proj9operation14Transformation6createERKNS0_4util11Proper
 28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %26) #23
+  tail call void @__cxa_free_exception(ptr nonnull %26) #23
   br label %72
 
 30:                                               ; preds = %8
@@ -2722,7 +2722,7 @@ define void @_ZN5osgeo4proj9operation14Transformation6createERKNS0_4util11Proper
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #23
+  call void @__cxa_free_exception(ptr nonnull %27) #23
   br label %206
 
 31:                                               ; preds = %28
@@ -4000,7 +4000,7 @@ define internal fastcc void @_ZN5osgeo4proj9operationL21getTransformationTypeERK
 48:                                               ; preds = %45
   %49 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %46) #23
+  tail call void @__cxa_free_exception(ptr nonnull %46) #23
   resume { ptr, i32 } %49
 
 50:                                               ; preds = %43, %41
@@ -5877,7 +5877,7 @@ define void @_ZN5osgeo4proj9operation14Transformation13createTOWGS84ERKN7dropbox
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %19) #23
+  tail call void @__cxa_free_exception(ptr nonnull %19) #23
   br label %330
 
 23:                                               ; preds = %3, %3
@@ -5899,7 +5899,7 @@ define void @_ZN5osgeo4proj9operation14Transformation13createTOWGS84ERKN7dropbox
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #23
+  call void @__cxa_free_exception(ptr nonnull %27) #23
   br label %329
 
 31:                                               ; preds = %33, %28
@@ -15381,7 +15381,7 @@ define hidden void @_ZNK5osgeo4proj9operation14Transformation19_exportToPROJStri
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #23
+  tail call void @__cxa_free_exception(ptr nonnull %7) #23
   br label %28
 
 11:                                               ; preds = %2

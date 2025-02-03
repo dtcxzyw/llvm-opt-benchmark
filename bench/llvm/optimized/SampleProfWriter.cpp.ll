@@ -2628,7 +2628,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit113: ; preds = %_ZN4llvm11raw_o
   br i1 %.not164, label %341, label %.loopexit172
 
 341:                                              ; preds = %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit113
-  %342 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0128.0196) #26
+  %342 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0128.0196) #26
   %.not163 = icmp eq ptr %342, %314
   br i1 %.not163, label %._crit_edge199, label %315
 
@@ -3157,7 +3157,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit49: ; preds = %_ZN4llvm11raw_os
   br i1 %.not67, label %103, label %.loopexit
 
 103:                                              ; preds = %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit49
-  %104 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.050.073) #26
+  %104 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.050.073) #26
   %.not66 = icmp eq ptr %104, %76
   br i1 %.not66, label %._crit_edge76, label %77
 
@@ -8050,7 +8050,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit103:              ; preds = %360, %358, %338, %3
   br i1 %.not149, label %368, label %.loopexit
 
 368:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit103
-  %369 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0128.0160) #26
+  %369 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0128.0160) #26
   %.not148 = icmp eq ptr %369, %319
   br i1 %.not148, label %._crit_edge163, label %.lr.ph162
 

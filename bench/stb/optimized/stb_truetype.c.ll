@@ -12707,7 +12707,7 @@ stbtt__sort_edges.exit:                           ; preds = %for.inc.i.i, %for.e
   %call112114118 = phi ptr [ %call110, %for.end88.thread ], [ %call, %for.end88 ], [ %call, %for.inc.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %t.sroa.3.i.i)
   tail call void @stbtt__rasterize_sorted_edges(ptr noundef %result, ptr noundef nonnull %call112114118, i32 noundef %n.1.lcssa119, i32 poison, i32 noundef %off_x, i32 noundef %off_y, ptr poison)
-  tail call void @free(ptr noundef %call112114118) #33
+  tail call void @free(ptr noundef nonnull %call112114118) #33
   br label %return
 
 return:                                           ; preds = %for.end.thread, %for.end, %stbtt__sort_edges.exit

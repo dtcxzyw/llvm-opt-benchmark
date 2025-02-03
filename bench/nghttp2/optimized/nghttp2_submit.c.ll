@@ -94,7 +94,7 @@ if.end19.i:                                       ; preds = %if.end16.i, %if.end
   %stream_id.addr.0.i = phi i32 [ %4, %if.end16.i ], [ %stream_id, %if.end6.i ]
   %hcat.0.i = phi i32 [ 0, %if.end16.i ], [ 3, %if.end6.i ]
   call void @nghttp2_frame_headers_init(ptr noundef nonnull %call.i, i8 noundef zeroext %3, i32 noundef %stream_id.addr.0.i, i32 noundef %hcat.0.i, ptr noundef nonnull %copy_pri_spec, ptr noundef %0, i64 noundef %nvlen) #6
-  %call21.i = call i32 @nghttp2_session_add_item(ptr noundef %session, ptr noundef nonnull %call.i) #6
+  %call21.i = call i32 @nghttp2_session_add_item(ptr noundef nonnull %session, ptr noundef nonnull %call.i) #6
   %cmp22.not.i = icmp eq i32 %call21.i, 0
   br i1 %cmp22.not.i, label %return, label %if.then24.i
 
@@ -747,7 +747,7 @@ if.end43:                                         ; preds = %if.end39
   %payload = getelementptr inbounds nuw i8, ptr %call40, i64 16
   store ptr %ext_frame_payload, ptr %payload, align 8
   tail call void @nghttp2_frame_origin_init(ptr noundef nonnull %call40, ptr noundef %ov_copy.0, i64 noundef %nov) #6
-  %call45 = tail call i32 @nghttp2_session_add_item(ptr noundef %session, ptr noundef nonnull %call40) #6
+  %call45 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %session, ptr noundef nonnull %call40) #6
   %cmp46.not = icmp eq i32 %call45, 0
   br i1 %cmp46.not, label %return, label %if.then47
 
@@ -955,7 +955,7 @@ if.end7:                                          ; preds = %if.end
   %flags11 = getelementptr inbounds nuw i8, ptr %call, i64 112
   store i8 %0, ptr %flags11, align 8
   tail call void @nghttp2_frame_data_init(ptr noundef nonnull %call, i8 noundef zeroext 0, i32 noundef %stream_id) #6
-  %call12 = tail call i32 @nghttp2_session_add_item(ptr noundef %session, ptr noundef nonnull %call) #6
+  %call12 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %session, ptr noundef nonnull %call) #6
   %cmp13.not = icmp eq i32 %call12, 0
   br i1 %cmp13.not, label %return, label %if.then15
 

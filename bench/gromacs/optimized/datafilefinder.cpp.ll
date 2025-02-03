@@ -83,8 +83,6 @@ $_ZNSt8_Rb_treeINSt10filesystem7__cxx114pathES2_St9_IdentityIS2_ESt4lessIS2_ESaI
 
 $_ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
 
-$_ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE7destroyIS2_EEvRS3_PT_ = comdat any
-
 $_ZNSt8_Rb_treeINSt10filesystem7__cxx114pathES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E = comdat any
 
 $_ZNKSt10filesystem7__cxx114path6stringEv = comdat any
@@ -1035,7 +1033,7 @@ _ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE11_M_allocateEm.exit: ;
   %27 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #19
-  br label %.body
+  br label %56
 
 _ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %.noexc
   %.not11.i.i.i = icmp eq ptr %6, %1
@@ -1145,62 +1143,34 @@ _ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.e
 52:                                               ; preds = %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE11_M_allocateEm.exit
   %53 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  br label %56
 
-.body:                                            ; preds = %26, %52
-  %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %27, %26 ]
-  %54 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %55 = tail call ptr @__cxa_begin_catch(ptr %54) #19
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread, label %58
-
-.thread:                                          ; preds = %.body
-  tail call void @_ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %23) #19
-  br label %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit40
-
-56:                                               ; preds = %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit40
-  %57 = landingpad { ptr, i32 }
+54:                                               ; preds = %56
+  %55 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %59 unwind label %60
 
-58:                                               ; preds = %.body
+56:                                               ; preds = %52, %26
+  %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %27, %26 ]
+  %57 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %58 = tail call ptr @__cxa_begin_catch(ptr %57) #19
   tail call void @_ZdlPv(ptr noundef nonnull %22) #21
-  br label %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit40
-
-_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit40: ; preds = %58, %.thread
   invoke void @__cxa_rethrow() #24
-          to label %63 unwind label %56
+          to label %63 unwind label %54
 
-59:                                               ; preds = %56
-  resume { ptr, i32 } %57
+59:                                               ; preds = %54
+  resume { ptr, i32 } %55
 
-60:                                               ; preds = %56
+60:                                               ; preds = %54
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
   tail call void @__clang_call_terminate(ptr %62) #20
   unreachable
 
-63:                                               ; preds = %_ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit40
+63:                                               ; preds = %56
   unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i.i, label %_ZNSt15__new_allocatorINSt10filesystem7__cxx114pathEE7destroyIS2_EEvPT_.exit, label %5
-
-5:                                                ; preds = %2
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %4) #19
-  br label %_ZNSt15__new_allocatorINSt10filesystem7__cxx114pathEE7destroyIS2_EEvPT_.exit
-
-_ZNSt15__new_allocatorINSt10filesystem7__cxx114pathEE7destroyIS2_EEvPT_.exit: ; preds = %2, %5
-  store ptr null, ptr %3, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %1) #19
-  ret void
 }
 
 ; Function Attrs: noreturn
@@ -3286,7 +3256,7 @@ _ZNSt12_Vector_baseIN3gmx12DataFileInfoESaIS1_EE11_M_allocateEm.exit: ; preds = 
   %30 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(81) %25) #19
-  br label %.body
+  br label %67
 
 _ZNSt10filesystem7__cxx114pathC2ERKS1_.exit.i.i.i: ; preds = %.noexc
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -3313,7 +3283,7 @@ _ZNSt10filesystem7__cxx114pathC2ERKS1_.exit.i.i.i: ; preds = %.noexc
 .body.i.i.i:                                      ; preds = %36, %34
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   tail call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %25) #19
-  br label %.body
+  br label %67
 
 38:                                               ; preds = %.noexc.i.i.i
   %39 = and i8 %26, 1
@@ -3416,44 +3386,33 @@ _ZNSt12_Vector_baseIN3gmx12DataFileInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; pr
 63:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx12DataFileInfoESaIS1_EE11_M_allocateEm.exit
   %64 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  br label %67
 
-.body:                                            ; preds = %29, %.body.i.i.i, %63
-  %eh.lpad-body = phi { ptr, i32 } [ %64, %63 ], [ %30, %29 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
-  %65 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %66 = tail call ptr @__cxa_begin_catch(ptr %65) #19
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %.thread, label %69
-
-.thread:                                          ; preds = %.body
-  tail call void @_ZNSt16allocator_traitsISaIN3gmx12DataFileInfoEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %25) #19
-  br label %_ZNSt12_Vector_baseIN3gmx12DataFileInfoESaIS1_EE13_M_deallocateEPS1_m.exit43
-
-67:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx12DataFileInfoESaIS1_EE13_M_deallocateEPS1_m.exit43
-  %68 = landingpad { ptr, i32 }
+65:                                               ; preds = %67
+  %66 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %70 unwind label %71
 
-69:                                               ; preds = %.body
+67:                                               ; preds = %63, %.body.i.i.i, %29
+  %eh.lpad-body = phi { ptr, i32 } [ %64, %63 ], [ %30, %29 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
+  %68 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %69 = tail call ptr @__cxa_begin_catch(ptr %68) #19
   tail call void @_ZdlPv(ptr noundef nonnull %24) #21
-  br label %_ZNSt12_Vector_baseIN3gmx12DataFileInfoESaIS1_EE13_M_deallocateEPS1_m.exit43
-
-_ZNSt12_Vector_baseIN3gmx12DataFileInfoESaIS1_EE13_M_deallocateEPS1_m.exit43: ; preds = %69, %.thread
   invoke void @__cxa_rethrow() #24
-          to label %74 unwind label %67
+          to label %74 unwind label %65
 
-70:                                               ; preds = %67
-  resume { ptr, i32 } %68
+70:                                               ; preds = %65
+  resume { ptr, i32 } %66
 
-71:                                               ; preds = %67
+71:                                               ; preds = %65
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
   tail call void @__clang_call_terminate(ptr %73) #20
   unreachable
 
-74:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx12DataFileInfoESaIS1_EE13_M_deallocateEPS1_m.exit43
+74:                                               ; preds = %67
   unreachable
 }
 

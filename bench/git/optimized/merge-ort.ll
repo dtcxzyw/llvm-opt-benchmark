@@ -1758,7 +1758,7 @@ if.end37.i.i:                                     ; preds = %while.body.i.i
   br i1 %tobool31.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !22
 
 while.end.i.i:                                    ; preds = %if.end37.i.i, %while.body.i.i, %if.end28.i.i
-  call void @free(ptr noundef %call29.i.i) #18
+  call void @free(ptr noundef nonnull %call29.i.i) #18
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %while.end.i.i, %if.end22.i.i, %if.end19.i.i, %for.body8.i.i
@@ -2580,7 +2580,7 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %tobool.not.i.i103.i, label %check_dir_renamed.exit.thread.i.i, label %while.body.i.i.i
 
 check_dir_renamed.exit.thread.i.i:                ; preds = %while.cond.i.i.i
-  call void @free(ptr noundef %call.i.i102.i) #18
+  call void @free(ptr noundef nonnull %call.i.i102.i) #18
   br label %for.inc.i104.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
@@ -2590,7 +2590,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
   br i1 %tobool3.not.i.i.i, label %while.cond.i.i.i, label %if.end12.i.i, !llvm.loop !34
 
 if.end12.i.i:                                     ; preds = %while.body.i.i.i
-  call void @free(ptr noundef %call.i.i102.i) #18
+  call void @free(ptr noundef nonnull %call.i.i102.i) #18
   %140 = load ptr, ptr %two.i.i, align 8
   %path14.i.i = getelementptr inbounds nuw i8, ptr %140, i64 40
   %141 = load ptr, ptr %path14.i.i, align 8
@@ -6812,7 +6812,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
   br i1 %tobool.not.i.i, label %check_dir_renamed.exit.thread.i, label %while.body.i.i
 
 check_dir_renamed.exit.thread.i:                  ; preds = %while.cond.i.i
-  call void @free(ptr noundef %call.i.i) #18
+  call void @free(ptr noundef nonnull %call.i.i) #18
   br label %check_for_directory_rename.exit
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
@@ -6822,7 +6822,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   br i1 %tobool3.not.i.i, label %while.cond.i.i, label %if.end8.i, !llvm.loop !34
 
 if.end8.i:                                        ; preds = %while.body.i.i
-  call void @free(ptr noundef %call.i.i) #18
+  call void @free(ptr noundef nonnull %call.i.i) #18
   %value.i = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 24
   %10 = load ptr, ptr %value.i, align 8
   %call9.i = call ptr @strmap_get_entry(ptr noundef %rename_exclusions, ptr noundef %10) #18

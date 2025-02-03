@@ -4615,7 +4615,7 @@ isofile_free_hardlinks.exit:                      ; preds = %.lr.ph.i38, %isofil
   tail call void @archive_string_free(ptr noundef nonnull %80) #23
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 96
   tail call void @archive_string_free(ptr noundef nonnull %81) #23
-  tail call void @free(ptr noundef %3) #23
+  tail call void @free(ptr noundef nonnull %3) #23
   store ptr null, ptr %2, align 8
   ret i32 %.0.i
 }

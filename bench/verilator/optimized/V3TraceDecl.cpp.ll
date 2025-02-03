@@ -11581,7 +11581,7 @@ _ZNKSt6vectorIN16TraceDeclVisitor10TraceEntryESaIS1_EE12_M_check_lenEmPKc.exit: 
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   %22 = load ptr, ptr %2, align 8
   invoke void @_ZN16TraceDeclVisitor10TraceEntryC2EP7AstCell(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef %22)
-          to label %_ZNSt16allocator_traitsISaIN16TraceDeclVisitor10TraceEntryEEE9constructIS1_JRKP7AstCellEEEvRS2_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseIN16TraceDeclVisitor10TraceEntryESaIS1_EE13_M_deallocateEPS1_m.exit37
+          to label %_ZNSt16allocator_traitsISaIN16TraceDeclVisitor10TraceEntryEEE9constructIS1_JRKP7AstCellEEEvRS2_PT_DpOT0_.exit unwind label %41
 
 _ZNSt16allocator_traitsISaIN16TraceDeclVisitor10TraceEntryEEE9constructIS1_JRKP7AstCellEEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN16TraceDeclVisitor10TraceEntryESaIS1_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i = icmp eq ptr %6, %1
@@ -11644,32 +11644,32 @@ _ZNSt12_Vector_baseIN16TraceDeclVisitor10TraceEntryESaIS1_EE13_M_deallocateEPS1_
   store ptr %38, ptr %37, align 8
   ret void
 
-39:                                               ; preds = %_ZNSt12_Vector_baseIN16TraceDeclVisitor10TraceEntryESaIS1_EE13_M_deallocateEPS1_m.exit37
+39:                                               ; preds = %41
   %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %44 unwind label %45
+          to label %45 unwind label %46
 
-_ZNSt12_Vector_baseIN16TraceDeclVisitor10TraceEntryESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNKSt6vectorIN16TraceDeclVisitor10TraceEntryESaIS1_EE12_M_check_lenEmPKc.exit
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %_ZNKSt6vectorIN16TraceDeclVisitor10TraceEntryESaIS1_EE12_M_check_lenEmPKc.exit
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  %43 = tail call ptr @__cxa_begin_catch(ptr %42) #24
+  %43 = extractvalue { ptr, i32 } %42, 0
+  %44 = tail call ptr @__cxa_begin_catch(ptr %43) #24
   tail call void @_ZdlPv(ptr noundef nonnull %20) #28
   invoke void @__cxa_rethrow() #26
-          to label %48 unwind label %39
-
-44:                                               ; preds = %39
-  resume { ptr, i32 } %40
+          to label %49 unwind label %39
 
 45:                                               ; preds = %39
-  %46 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %40
+
+46:                                               ; preds = %39
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #29
+  %48 = extractvalue { ptr, i32 } %47, 0
+  tail call void @__clang_call_terminate(ptr %48) #29
   unreachable
 
-48:                                               ; preds = %_ZNSt12_Vector_baseIN16TraceDeclVisitor10TraceEntryESaIS1_EE13_M_deallocateEPS1_m.exit37
+49:                                               ; preds = %41
   unreachable
 }
 
@@ -15914,7 +15914,7 @@ _ZNKSt6vectorIN16TraceDeclVisitor10TraceEntryESaIS1_EE12_M_check_lenEmPKc.exit: 
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   %22 = load ptr, ptr %2, align 8
   invoke void @_ZN16TraceDeclVisitor10TraceEntryC2EP11AstVarScope(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef %22)
-          to label %_ZNSt16allocator_traitsISaIN16TraceDeclVisitor10TraceEntryEEE9constructIS1_JRP11AstVarScopeEEEvRS2_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseIN16TraceDeclVisitor10TraceEntryESaIS1_EE13_M_deallocateEPS1_m.exit37
+          to label %_ZNSt16allocator_traitsISaIN16TraceDeclVisitor10TraceEntryEEE9constructIS1_JRP11AstVarScopeEEEvRS2_PT_DpOT0_.exit unwind label %41
 
 _ZNSt16allocator_traitsISaIN16TraceDeclVisitor10TraceEntryEEE9constructIS1_JRP11AstVarScopeEEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN16TraceDeclVisitor10TraceEntryESaIS1_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i = icmp eq ptr %6, %1
@@ -15977,32 +15977,32 @@ _ZNSt12_Vector_baseIN16TraceDeclVisitor10TraceEntryESaIS1_EE13_M_deallocateEPS1_
   store ptr %38, ptr %37, align 8
   ret void
 
-39:                                               ; preds = %_ZNSt12_Vector_baseIN16TraceDeclVisitor10TraceEntryESaIS1_EE13_M_deallocateEPS1_m.exit37
+39:                                               ; preds = %41
   %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %44 unwind label %45
+          to label %45 unwind label %46
 
-_ZNSt12_Vector_baseIN16TraceDeclVisitor10TraceEntryESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNKSt6vectorIN16TraceDeclVisitor10TraceEntryESaIS1_EE12_M_check_lenEmPKc.exit
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %_ZNKSt6vectorIN16TraceDeclVisitor10TraceEntryESaIS1_EE12_M_check_lenEmPKc.exit
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  %43 = tail call ptr @__cxa_begin_catch(ptr %42) #24
+  %43 = extractvalue { ptr, i32 } %42, 0
+  %44 = tail call ptr @__cxa_begin_catch(ptr %43) #24
   tail call void @_ZdlPv(ptr noundef nonnull %20) #28
   invoke void @__cxa_rethrow() #26
-          to label %48 unwind label %39
-
-44:                                               ; preds = %39
-  resume { ptr, i32 } %40
+          to label %49 unwind label %39
 
 45:                                               ; preds = %39
-  %46 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %40
+
+46:                                               ; preds = %39
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #29
+  %48 = extractvalue { ptr, i32 } %47, 0
+  tail call void @__clang_call_terminate(ptr %48) #29
   unreachable
 
-48:                                               ; preds = %_ZNSt12_Vector_baseIN16TraceDeclVisitor10TraceEntryESaIS1_EE13_M_deallocateEPS1_m.exit37
+49:                                               ; preds = %41
   unreachable
 }
 

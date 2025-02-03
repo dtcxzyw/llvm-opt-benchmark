@@ -260,7 +260,7 @@ lpad:                                             ; preds = %invoke.cont16, %inv
 lpad15:                                           ; preds = %invoke.cont13
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #25
+  call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad15, %lpad
@@ -654,7 +654,7 @@ lpad:                                             ; preds = %invoke.cont16, %inv
 lpad15:                                           ; preds = %invoke.cont13
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #25
+  call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad15, %lpad
@@ -839,7 +839,7 @@ lpad:                                             ; preds = %invoke.cont16, %inv
 lpad15:                                           ; preds = %invoke.cont13
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #25
+  call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad15, %lpad
@@ -1024,7 +1024,7 @@ lpad:                                             ; preds = %invoke.cont16, %inv
 lpad15:                                           ; preds = %invoke.cont13
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #25
+  call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad15, %lpad
@@ -1166,7 +1166,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -1228,7 +1228,7 @@ invoke.cont24:                                    ; preds = %if.then21
 lpad23:                                           ; preds = %if.then21
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception22) #25
+  call void @__cxa_free_exception(ptr nonnull %exception22) #25
   br label %eh.resume
 
 if.end25:                                         ; preds = %for.body
@@ -1367,7 +1367,7 @@ lpad78:                                           ; preds = %invoke.cont83, %inv
 lpad82:                                           ; preds = %invoke.cont79
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception81) #25
+  call void @__cxa_free_exception(ptr nonnull %exception81) #25
   br label %ehcleanup85
 
 ehcleanup85:                                      ; preds = %lpad82, %lpad78
@@ -2386,7 +2386,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont11
 lpad10:                                           ; preds = %if.then
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #25
+  call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i, %invoke.cont4
@@ -3550,7 +3550,7 @@ lpad:                                             ; preds = %invoke.cont16, %inv
 lpad15:                                           ; preds = %invoke.cont13
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #25
+  call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad15, %lpad

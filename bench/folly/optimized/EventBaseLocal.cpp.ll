@@ -1322,12 +1322,12 @@ for.inc.i.i.i.i54:                                ; preds = %while.end.i.i.i.i52
 if.then6.i.i.i:                                   ; preds = %while.body.i.i.i.i48
   %arrayidx.i.i.i.i.i.i.i50.le = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i.i, i64 0, i64 %conv9.i.i.i.i49
   invoke void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmE(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr nonnull %arrayidx.i.i.i.i.i.i.i50.le, i64 %conv9.i.i.i.i49, i64 %shr5.i.i.i.i37, i64 %or.i.i.i.i36)
-          to label %if.else.i.i.i60 unwind label %lpad4
+          to label %if.then3.i.i.i unwind label %lpad4
 
-if.else.i.i.i60:                                  ; preds = %for.inc.i.i.i.i54, %while.end.i.i.i.i52, %if.then6.i.i.i
+if.else.i.i.i60:                                  ; preds = %for.inc.i.i.i.i54, %while.end.i.i.i.i52
   br i1 %tobool.not.i.i, label %_ZN5folly9LockedPtrINS_12SynchronizedINS_10F14FastSetIPNS_6detail18EventBaseLocalBaseENS_23HeterogeneousAccessHashIS5_vEENS_26HeterogeneousAccessEqualToIS5_vEESaIS5_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.then3.i.i.i
 
-if.then3.i.i.i:                                   ; preds = %if.else.i.i.i60, %invoke.cont
+if.then3.i.i.i:                                   ; preds = %if.then6.i.i.i, %if.else.i.i.i60, %invoke.cont
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i) #21
   %25 = atomicrmw and ptr %15, i32 -401 seq_cst, align 4
   %26 = and i32 %25, -401
@@ -1393,28 +1393,21 @@ invoke.cont10:                                    ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12) #21
   store ptr %evb, ptr %ref.tmp12, align 8, !tbaa !24
   %call.i.i75 = invoke noundef i64 @_ZNSt10_HashtableIPN5folly9EventBaseES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i74, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12)
-          to label %if.else.i.i.i79 unwind label %lpad13
+          to label %if.then3.i.i.i81 unwind label %lpad13
 
-if.else.i.i.i79:                                  ; preds = %invoke.cont10
+if.then3.i.i.i81:                                 ; preds = %invoke.cont10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12) #21
-  br i1 %tobool.not.i.i72, label %_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setIPNS_9EventBaseESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.then3.i.i.i81
-
-if.then3.i.i.i81:                                 ; preds = %if.else.i.i.i79
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i76) #21
   %34 = atomicrmw and ptr %33, i32 -401 seq_cst, align 4
   %35 = and i32 %34, -401
   store i32 %35, ptr %state.i.i.i.i76, align 4, !tbaa !10
   %and.i.i.i.i.i82 = and i32 %34, 15
   %cmp.not.i.i.i.i.i83 = icmp eq i32 %and.i.i.i.i.i82, 0
-  br i1 %cmp.not.i.i.i.i.i83, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i86, label %if.then.i.i.i.i.i84, !prof !14
+  br i1 %cmp.not.i.i.i.i.i83, label %_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setIPNS_9EventBaseESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.then.i.i.i.i.i84, !prof !14
 
 if.then.i.i.i.i.i84:                              ; preds = %if.then3.i.i.i81
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %33, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i76, i32 noundef 15)
-          to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i86 unwind label %terminate.lpad.i.i85
-
-_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i86: ; preds = %if.then.i.i.i.i.i84, %if.then3.i.i.i81
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i76) #21
-  br label %_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setIPNS_9EventBaseESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev.exit
+          to label %_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setIPNS_9EventBaseESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev.exit unwind label %terminate.lpad.i.i85
 
 terminate.lpad.i.i85:                             ; preds = %if.then.i.i.i.i.i84
   %36 = landingpad { ptr, i32 }
@@ -1423,7 +1416,8 @@ terminate.lpad.i.i85:                             ; preds = %if.then.i.i.i.i.i84
   call void @__clang_call_terminate(ptr %37) #22
   unreachable
 
-_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setIPNS_9EventBaseESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i86, %if.else.i.i.i79
+_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setIPNS_9EventBaseESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %if.then3.i.i.i81, %if.then.i.i.i.i.i84
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i76) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp8) #21
   ret void
 
@@ -2458,29 +2452,22 @@ invoke.cont18:                                    ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i) #21
   store ptr %add.ptr.i.i, ptr %__node_gen.i.i, align 8, !tbaa !24
   %call3.i.i.i89 = invoke { ptr, i8 } @_ZNSt10_HashtableIPN5folly9EventBaseES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIS2_S2_NS4_10_AllocNodeISaINS4_10_Hash_nodeIS2_Lb0EEEEEEEESt4pairINS4_14_Node_iteratorIS2_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
-          to label %if.else.i.i.i unwind label %lpad21
+          to label %if.then3.i.i.i unwind label %lpad21
 
-if.else.i.i.i:                                    ; preds = %invoke.cont18
+if.then3.i.i.i:                                   ; preds = %invoke.cont18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp20) #21
-  br i1 %tobool.not.i.i, label %_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setIPNS_9EventBaseESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.then3.i.i.i
-
-if.then3.i.i.i:                                   ; preds = %if.else.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i) #21
   %17 = atomicrmw and ptr %16, i32 -401 seq_cst, align 4
   %18 = and i32 %17, -401
   store i32 %18, ptr %state.i.i.i.i, align 4, !tbaa !10
   %and.i.i.i.i.i = and i32 %17, 15
   %cmp.not.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i, label %if.then.i.i.i.i.i, !prof !14
+  br i1 %cmp.not.i.i.i.i.i, label %_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setIPNS_9EventBaseESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.then.i.i.i.i.i, !prof !14
 
 if.then.i.i.i.i.i:                                ; preds = %if.then3.i.i.i
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i, i32 noundef 15)
-          to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i unwind label %terminate.lpad.i.i
-
-_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then3.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i) #21
-  br label %_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setIPNS_9EventBaseESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev.exit
+          to label %_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setIPNS_9EventBaseESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i.i
   %19 = landingpad { ptr, i32 }
@@ -2489,7 +2476,8 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i.i
   call void @__clang_call_terminate(ptr %20) #22
   unreachable
 
-_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setIPNS_9EventBaseESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i, %if.else.i.i.i
+_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setIPNS_9EventBaseESt4hashIS4_ESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSG_22SynchronizedMutexLevelE1ELNSG_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %if.then3.i.i.i, %if.then.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp14) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp27) #21
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
@@ -2544,29 +2532,22 @@ invoke.cont31:                                    ; preds = %if.else.i.i.i.i.i.i
   %or.i.i.i.i.i.i = or disjoint i64 %and.i.i.i.i.i.i106, 128
   %shr5.i.i.i.i.i.i = lshr i64 %mul3.i.i.i.i.i.i, 22
   invoke void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE19tryEmplaceValueImplIS6_JS6_EEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEEbESA_ImmERKT_DpOT0_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.161") align 8 %rv.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i105, i64 %shr5.i.i.i.i.i.i, i64 %or.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp33)
-          to label %if.else.i.i.i111 unwind label %lpad35
+          to label %if.then3.i.i.i113 unwind label %lpad35
 
-if.else.i.i.i111:                                 ; preds = %invoke.cont31
+if.then3.i.i.i113:                                ; preds = %invoke.cont31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i) #21, !noalias !112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp33) #21
-  br i1 %tobool.not.i.i103, label %_ZN5folly9LockedPtrINS_12SynchronizedINS_10F14FastSetIPNS_6detail18EventBaseLocalBaseENS_23HeterogeneousAccessHashIS5_vEENS_26HeterogeneousAccessEqualToIS5_vEESaIS5_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.then3.i.i.i113
-
-if.then3.i.i.i113:                                ; preds = %if.else.i.i.i111
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i108) #21
   %27 = atomicrmw and ptr %25, i32 -401 seq_cst, align 4
   %28 = and i32 %27, -401
   store i32 %28, ptr %state.i.i.i.i108, align 4, !tbaa !10
   %and.i.i.i.i.i114 = and i32 %27, 15
   %cmp.not.i.i.i.i.i115 = icmp eq i32 %and.i.i.i.i.i114, 0
-  br i1 %cmp.not.i.i.i.i.i115, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i118, label %if.then.i.i.i.i.i116, !prof !14
+  br i1 %cmp.not.i.i.i.i.i115, label %_ZN5folly9LockedPtrINS_12SynchronizedINS_10F14FastSetIPNS_6detail18EventBaseLocalBaseENS_23HeterogeneousAccessHashIS5_vEENS_26HeterogeneousAccessEqualToIS5_vEESaIS5_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.then.i.i.i.i.i116, !prof !14
 
 if.then.i.i.i.i.i116:                             ; preds = %if.then3.i.i.i113
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i108, i32 noundef 15)
-          to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i118 unwind label %terminate.lpad.i.i117
-
-_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i118: ; preds = %if.then.i.i.i.i.i116, %if.then3.i.i.i113
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i108) #21
-  br label %_ZN5folly9LockedPtrINS_12SynchronizedINS_10F14FastSetIPNS_6detail18EventBaseLocalBaseENS_23HeterogeneousAccessHashIS5_vEENS_26HeterogeneousAccessEqualToIS5_vEESaIS5_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit
+          to label %_ZN5folly9LockedPtrINS_12SynchronizedINS_10F14FastSetIPNS_6detail18EventBaseLocalBaseENS_23HeterogeneousAccessHashIS5_vEENS_26HeterogeneousAccessEqualToIS5_vEESaIS5_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit unwind label %terminate.lpad.i.i117
 
 terminate.lpad.i.i117:                            ; preds = %if.then.i.i.i.i.i116
   %29 = landingpad { ptr, i32 }
@@ -2575,7 +2556,8 @@ terminate.lpad.i.i117:                            ; preds = %if.then.i.i.i.i.i11
   call void @__clang_call_terminate(ptr %30) #22
   unreachable
 
-_ZN5folly9LockedPtrINS_12SynchronizedINS_10F14FastSetIPNS_6detail18EventBaseLocalBaseENS_23HeterogeneousAccessHashIS5_vEENS_26HeterogeneousAccessEqualToIS5_vEESaIS5_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i118, %if.else.i.i.i111
+_ZN5folly9LockedPtrINS_12SynchronizedINS_10F14FastSetIPNS_6detail18EventBaseLocalBaseENS_23HeterogeneousAccessHashIS5_vEENS_26HeterogeneousAccessEqualToIS5_vEESaIS5_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %if.then3.i.i.i113, %if.then.i.i.i.i.i116
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i108) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp27) #21
   br label %if.end
 

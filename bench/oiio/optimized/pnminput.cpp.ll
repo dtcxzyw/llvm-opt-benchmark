@@ -142,7 +142,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad ], [ %0, %lpad.i ]
-  tail call void @_ZN18OpenImageIO_v2_6_010ImageInputdlEPv(ptr noundef %call) #20
+  tail call void @_ZN18OpenImageIO_v2_6_010ImageInputdlEPv(ptr noundef nonnull %call) #20
   resume { ptr, i32 } %eh.lpad-body
 }
 

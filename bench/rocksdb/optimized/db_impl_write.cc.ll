@@ -21383,7 +21383,7 @@ invoke.cont341:                                   ; preds = %if.end330
   %id_.i.i = getelementptr inbounds nuw i8, ptr %new_mem.0, i64 3392
   store i64 %add.i292, ptr %id_.i.i, align 16
   store ptr %new_mem.0, ptr %mem_.i, align 8
-  invoke void @_ZN7rocksdb6DBImpl34InstallSuperVersionAndScheduleWorkEPNS_16ColumnFamilyDataEPNS_19SuperVersionContextERKNS_16MutableCFOptionsE(ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef nonnull %cfd, ptr noundef %context, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options)
+  invoke void @_ZN7rocksdb6DBImpl34InstallSuperVersionAndScheduleWorkEPNS_16ColumnFamilyDataEPNS_19SuperVersionContextERKNS_16MutableCFOptionsE(ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef nonnull %cfd, ptr noundef nonnull %context, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options)
           to label %invoke.cont343 unwind label %lpad31.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont343:                                   ; preds = %invoke.cont341

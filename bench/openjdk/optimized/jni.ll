@@ -19637,7 +19637,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %46, %56
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %61 = call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
+  %61 = call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
   br label %62
 
 62:                                               ; preds = %60, %_ZNK7oopDesc5klassEv.exit
@@ -19805,7 +19805,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %41, %51
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
+  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
   br label %57
 
 57:                                               ; preds = %55, %_ZNK7oopDesc5klassEv.exit
@@ -19963,7 +19963,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %41, %51
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
+  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
   br label %57
 
 57:                                               ; preds = %55, %_ZNK7oopDesc5klassEv.exit
@@ -20121,7 +20121,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %41, %51
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
+  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
   br label %57
 
 57:                                               ; preds = %55, %_ZNK7oopDesc5klassEv.exit
@@ -20279,7 +20279,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %41, %51
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
+  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
   br label %57
 
 57:                                               ; preds = %55, %_ZNK7oopDesc5klassEv.exit
@@ -20437,7 +20437,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %41, %51
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
+  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
   br label %57
 
 57:                                               ; preds = %55, %_ZNK7oopDesc5klassEv.exit
@@ -20595,7 +20595,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %41, %51
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
+  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
   br label %57
 
 57:                                               ; preds = %55, %_ZNK7oopDesc5klassEv.exit
@@ -20753,7 +20753,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %41, %51
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
+  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
   br label %57
 
 57:                                               ; preds = %55, %_ZNK7oopDesc5klassEv.exit
@@ -20911,7 +20911,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %41, %51
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
+  %56 = tail call noundef ptr @_ZN11JvmtiExport18jni_GetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDb(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false) #15
   br label %57
 
 57:                                               ; preds = %55, %_ZNK7oopDesc5klassEv.exit
@@ -21111,7 +21111,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %43, %53
 
 57:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   store ptr %3, ptr %5, align 8
-  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 76, ptr noundef nonnull %5) #15
+  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 76, ptr noundef nonnull %5) #15
   br label %59
 
 59:                                               ; preds = %57, %_ZNK7oopDesc5klassEv.exit
@@ -21300,7 +21300,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %43, %53
 
 57:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   store i8 %3, ptr %5, align 8
-  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 90, ptr noundef nonnull %5) #15
+  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 90, ptr noundef nonnull %5) #15
   br label %59
 
 59:                                               ; preds = %57, %_ZNK7oopDesc5klassEv.exit
@@ -21461,7 +21461,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %43, %53
 
 57:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   store i8 %3, ptr %5, align 8
-  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 66, ptr noundef nonnull %5) #15
+  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 66, ptr noundef nonnull %5) #15
   br label %59
 
 59:                                               ; preds = %57, %_ZNK7oopDesc5klassEv.exit
@@ -21621,7 +21621,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %43, %53
 
 57:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   store i16 %3, ptr %5, align 8
-  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 67, ptr noundef nonnull %5) #15
+  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 67, ptr noundef nonnull %5) #15
   br label %59
 
 59:                                               ; preds = %57, %_ZNK7oopDesc5klassEv.exit
@@ -21781,7 +21781,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %43, %53
 
 57:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   store i16 %3, ptr %5, align 8
-  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 83, ptr noundef nonnull %5) #15
+  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 83, ptr noundef nonnull %5) #15
   br label %59
 
 59:                                               ; preds = %57, %_ZNK7oopDesc5klassEv.exit
@@ -21941,7 +21941,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %43, %53
 
 57:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   store i32 %3, ptr %5, align 8
-  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 73, ptr noundef nonnull %5) #15
+  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 73, ptr noundef nonnull %5) #15
   br label %59
 
 59:                                               ; preds = %57, %_ZNK7oopDesc5klassEv.exit
@@ -22101,7 +22101,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %43, %53
 
 57:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   store i64 %3, ptr %5, align 8
-  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 74, ptr noundef nonnull %5) #15
+  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 74, ptr noundef nonnull %5) #15
   br label %59
 
 59:                                               ; preds = %57, %_ZNK7oopDesc5klassEv.exit
@@ -22261,7 +22261,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %43, %53
 
 57:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   store float %3, ptr %5, align 8
-  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 70, ptr noundef nonnull %5) #15
+  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 70, ptr noundef nonnull %5) #15
   br label %59
 
 59:                                               ; preds = %57, %_ZNK7oopDesc5klassEv.exit
@@ -22421,7 +22421,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %43, %53
 
 57:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   store double %3, ptr %5, align 8
-  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 68, ptr noundef nonnull %5) #15
+  %58 = call noundef ptr @_ZN11JvmtiExport18jni_SetField_probeEP10JavaThreadP8_jobjectP7oopDescP5KlassP9_jfieldIDbcP6jvalue(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i, ptr noundef %2, i1 noundef zeroext false, i8 noundef signext 68, ptr noundef nonnull %5) #15
   br label %59
 
 59:                                               ; preds = %57, %_ZNK7oopDesc5klassEv.exit

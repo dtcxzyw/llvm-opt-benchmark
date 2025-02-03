@@ -1736,7 +1736,7 @@ _ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit169: ; p
 lpad26:                                           ; preds = %if.then
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #22
+  call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %common.resume
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -16236,7 +16236,7 @@ invoke.cont65:                                    ; preds = %sw.default
 lpad64:                                           ; preds = %sw.default
   %105 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #22
+  call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %ehcleanup88
 
 sw.epilog:                                        ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb13LogicalTypeIdEED2Ev.exit, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEED2Ev.exit

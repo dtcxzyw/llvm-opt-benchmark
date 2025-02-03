@@ -824,7 +824,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
 .body:                                            ; preds = %27
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #24
+  tail call void @__cxa_free_exception(ptr nonnull %28) #24
   resume { ptr, i32 } %29
 
 30:                                               ; preds = %.loopexit

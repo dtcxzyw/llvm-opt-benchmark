@@ -9529,7 +9529,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h
 define hidden void @"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h84f00d8bdbd7fcc0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3815)
   %2 = load ptr, ptr %0, align 8, !alias.scope !3815, !noundef !4
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Inner$GT$17ha5086ca87d3b8fd9E.llvm.13640993958878838948"(ptr noalias noundef align 8 dereferenceable(112) %2)
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Inner$GT$17ha5086ca87d3b8fd9E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(112) %2)
           to label %"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$reqwest..error..Inner$GT$$GT$17h798412d44bd688d9E.llvm.13640993958878838948.exit" unwind label %3, !noalias !3815
 
 3:                                                ; preds = %1
@@ -12627,7 +12627,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$$u5b$aws_smithy_types..docum
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$reqwest..error..Inner$GT$$GT$17h798412d44bd688d9E.llvm.13640993958878838948"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Inner$GT$17ha5086ca87d3b8fd9E.llvm.13640993958878838948"(ptr noalias noundef align 8 dereferenceable(112) %2)
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Inner$GT$17ha5086ca87d3b8fd9E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(112) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1

@@ -66,7 +66,7 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumnC2ERKNS0_11BoundingBoxENS1_1
 16:                                               ; preds = %11
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #16
+  tail call void @__cxa_free_exception(ptr nonnull %12) #16
   br label %23
 
 18:                                               ; preds = %3

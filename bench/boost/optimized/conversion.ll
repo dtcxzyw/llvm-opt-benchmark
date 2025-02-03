@@ -746,7 +746,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu12raii_casemapIcEC2ERK
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %9) #21
+  call void @__cxa_free_exception(ptr nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
   resume { ptr, i32 } %12
 
@@ -894,7 +894,7 @@ common.resume:                                    ; preds = %_ZN5boost6locale8im
 28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #21
+  call void @__cxa_free_exception(ptr nonnull %26) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #21
   br label %common.resume
 
@@ -1584,7 +1584,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu12raii_casemapIcE10do
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #21
+  tail call void @__cxa_free_exception(ptr nonnull %12) #21
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit39
 
 16:                                               ; preds = %5
@@ -1606,7 +1606,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu12raii_casemapIcE10do
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %21) #21
+  tail call void @__cxa_free_exception(ptr nonnull %21) #21
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit39
 
 25:                                               ; preds = %16
@@ -1914,7 +1914,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu12raii_casemapIcE10do
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #21
+  tail call void @__cxa_free_exception(ptr nonnull %12) #21
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit39
 
 16:                                               ; preds = %5
@@ -1936,7 +1936,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu12raii_casemapIcE10do
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %21) #21
+  tail call void @__cxa_free_exception(ptr nonnull %21) #21
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit39
 
 25:                                               ; preds = %16
@@ -2254,7 +2254,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx11
 18:                                               ; preds = %13
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #21
+  call void @__cxa_free_exception(ptr nonnull %14) #21
   br label %28
 
 20:                                               ; preds = %10

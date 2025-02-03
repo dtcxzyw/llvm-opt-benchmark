@@ -9968,24 +9968,19 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end2.i:                                        ; preds = %if.end.i
   %8 = load i32, ptr %t, align 8
-  switch i32 %8, label %ast2obj_mod.exit.thread26 [
+  switch i32 %8, label %ast2obj_mod.exit [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb25.i
     i32 3, label %sw.bb41.i
     i32 4, label %sw.bb57.i
   ]
 
-ast2obj_mod.exit.thread26:                        ; preds = %if.end2.i
-  %dec.i28 = sub i32 3000, %6
-  store i32 %dec.i28, ptr %recursion_depth5, align 8
-  br label %return
-
 sw.bb.i:                                          ; preds = %if.end2.i
   %Module_type.i = getelementptr inbounds nuw i8, ptr %2, i64 307352
   %9 = load ptr, ptr %Module_type.i, align 8
   %call.i = tail call ptr @PyType_GenericNew(ptr noundef %9, ptr noundef null, ptr noundef null) #6
   %tobool3.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool3.not.i, label %failed.thread.i, label %if.end5.i
+  br i1 %tobool3.not.i, label %Py_XDECREF.exit.thread177.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %sw.bb.i
   %v.i = getelementptr inbounds nuw i8, ptr %t, i64 8
@@ -9997,7 +9992,7 @@ cond.end.i.i:                                     ; preds = %if.end5.i
   %11 = load i64, ptr %10, align 8
   %call.i.i = tail call ptr @PyList_New(i64 noundef %11) #6
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %failed.thread.i, label %for.cond.preheader.i.i
+  br i1 %tobool.not.i.i, label %Py_XDECREF.exit.thread183.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %cond.end.i.i
   %cmp113.i.i = icmp sgt i64 %11, 0
@@ -10021,13 +10016,13 @@ if.then4.i.i:                                     ; preds = %for.body.i.i
   %15 = load i64, ptr %call.i.i, align 8
   %16 = and i64 %15, 2147483648
   %cmp.i7.not.i.i = icmp eq i64 %16, 0
-  br i1 %cmp.i7.not.i.i, label %if.end.i.i.i, label %failed.thread.i
+  br i1 %cmp.i7.not.i.i, label %if.end.i.i.i, label %Py_XDECREF.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.then4.i.i
   %dec.i.i.i = add i64 %15, -1
   store i64 %dec.i.i.i, ptr %call.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %failed.thread.sink.split.i, label %failed.thread.i
+  br i1 %cmp.i.i.i, label %Py_XDECREF.exit.sink.split.i, label %Py_XDECREF.exit.i
 
 if.end5.i.i:                                      ; preds = %for.body.i.i
   %call.val.i.i = load ptr, ptr %12, align 8
@@ -10040,7 +10035,7 @@ if.end5.i.i:                                      ; preds = %for.body.i.i
 ast2obj_list.exit.i:                              ; preds = %if.end5.i
   %call16.i.i = tail call ptr @PyList_New(i64 noundef 0) #6
   %tobool7.not.i = icmp eq ptr %call16.i.i, null
-  br i1 %tobool7.not.i, label %failed.thread.i, label %if.end9.i
+  br i1 %tobool7.not.i, label %Py_XDECREF.exit.thread172.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end5.i.i, %ast2obj_list.exit.i, %for.cond.preheader.i.i
   %retval.0.i148.i = phi ptr [ %call16.i.i, %ast2obj_list.exit.i ], [ %call.i.i, %for.cond.preheader.i.i ], [ %call.i.i, %if.end5.i.i ]
@@ -10071,7 +10066,7 @@ Py_DECREF.exit129.i:                              ; preds = %if.then1.i127.i, %i
   %20 = load ptr, ptr %type_ignores.i, align 8
   %call16.i = tail call fastcc ptr @ast2obj_list(ptr noundef nonnull %ast.i, ptr noundef %20, ptr noundef nonnull @ast2obj_type_ignore)
   %tobool17.not.i = icmp eq ptr %call16.i, null
-  br i1 %tobool17.not.i, label %failed.thread.i, label %if.end19.i
+  br i1 %tobool17.not.i, label %Py_XDECREF.exit.thread172.i, label %if.end19.i
 
 if.end19.i:                                       ; preds = %Py_DECREF.exit129.i
   %type_ignores20.i = getelementptr inbounds nuw i8, ptr %2, i64 308496
@@ -10097,7 +10092,7 @@ sw.bb25.i:                                        ; preds = %if.end2.i
   %24 = load ptr, ptr %Interactive_type.i, align 8
   %call26.i = tail call ptr @PyType_GenericNew(ptr noundef %24, ptr noundef null, ptr noundef null) #6
   %tobool27.not.i = icmp eq ptr %call26.i, null
-  br i1 %tobool27.not.i, label %failed.thread.i, label %if.end29.i
+  br i1 %tobool27.not.i, label %Py_XDECREF.exit.thread177.i, label %if.end29.i
 
 if.end29.i:                                       ; preds = %sw.bb25.i
   %v30.i = getelementptr inbounds nuw i8, ptr %t, i64 8
@@ -10109,7 +10104,7 @@ cond.end.i73.i:                                   ; preds = %if.end29.i
   %26 = load i64, ptr %25, align 8
   %call.i74.i = tail call ptr @PyList_New(i64 noundef %26) #6
   %tobool.not.i75.i = icmp eq ptr %call.i74.i, null
-  br i1 %tobool.not.i75.i, label %failed.thread.i, label %for.cond.preheader.i76.i
+  br i1 %tobool.not.i75.i, label %Py_XDECREF.exit.thread183.i, label %for.cond.preheader.i76.i
 
 for.cond.preheader.i76.i:                         ; preds = %cond.end.i73.i
   %cmp113.i77.i = icmp sgt i64 %26, 0
@@ -10133,13 +10128,13 @@ if.then4.i91.i:                                   ; preds = %for.body.i81.i
   %30 = load i64, ptr %call.i74.i, align 8
   %31 = and i64 %30, 2147483648
   %cmp.i7.not.i92.i = icmp eq i64 %31, 0
-  br i1 %cmp.i7.not.i92.i, label %if.end.i.i93.i, label %failed.thread.i
+  br i1 %cmp.i7.not.i92.i, label %if.end.i.i93.i, label %Py_XDECREF.exit.i
 
 if.end.i.i93.i:                                   ; preds = %if.then4.i91.i
   %dec.i.i94.i = add i64 %30, -1
   store i64 %dec.i.i94.i, ptr %call.i74.i, align 8
   %cmp.i.i95.i = icmp eq i64 %dec.i.i94.i, 0
-  br i1 %cmp.i.i95.i, label %failed.thread.sink.split.i, label %failed.thread.i
+  br i1 %cmp.i.i95.i, label %Py_XDECREF.exit.sink.split.i, label %Py_XDECREF.exit.i
 
 if.end5.i86.i:                                    ; preds = %for.body.i81.i
   %call.val.i87.i = load ptr, ptr %27, align 8
@@ -10152,7 +10147,7 @@ if.end5.i86.i:                                    ; preds = %for.body.i81.i
 ast2obj_list.exit99.i:                            ; preds = %if.end29.i
   %call16.i98.i = tail call ptr @PyList_New(i64 noundef 0) #6
   %tobool33.not.i = icmp eq ptr %call16.i98.i, null
-  br i1 %tobool33.not.i, label %failed.thread.i, label %if.end35.i
+  br i1 %tobool33.not.i, label %Py_XDECREF.exit.thread172.i, label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.end5.i86.i, %ast2obj_list.exit99.i, %for.cond.preheader.i76.i
   %retval.0.i78155.i = phi ptr [ %call16.i98.i, %ast2obj_list.exit99.i ], [ %call.i74.i, %for.cond.preheader.i76.i ], [ %call.i74.i, %if.end5.i86.i ]
@@ -10179,14 +10174,14 @@ sw.bb41.i:                                        ; preds = %if.end2.i
   %35 = load ptr, ptr %Expression_type.i, align 8
   %call42.i = tail call ptr @PyType_GenericNew(ptr noundef %35, ptr noundef null, ptr noundef null) #6
   %tobool43.not.i = icmp eq ptr %call42.i, null
-  br i1 %tobool43.not.i, label %failed.thread.i, label %if.end45.i
+  br i1 %tobool43.not.i, label %Py_XDECREF.exit.thread177.i, label %if.end45.i
 
 if.end45.i:                                       ; preds = %sw.bb41.i
   %v46.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %36 = load ptr, ptr %v46.i, align 8
   %call48.i = tail call ptr @ast2obj_expr(ptr noundef nonnull %ast.i, ptr noundef %36)
   %tobool49.not.i = icmp eq ptr %call48.i, null
-  br i1 %tobool49.not.i, label %failed.thread.i, label %if.end51.i
+  br i1 %tobool49.not.i, label %Py_XDECREF.exit.thread172.i, label %if.end51.i
 
 if.end51.i:                                       ; preds = %if.end45.i
   %body52.i = getelementptr inbounds nuw i8, ptr %2, i64 307864
@@ -10212,7 +10207,7 @@ sw.bb57.i:                                        ; preds = %if.end2.i
   %40 = load ptr, ptr %FunctionType_type.i, align 8
   %call58.i = tail call ptr @PyType_GenericNew(ptr noundef %40, ptr noundef null, ptr noundef null) #6
   %tobool59.not.i = icmp eq ptr %call58.i, null
-  br i1 %tobool59.not.i, label %failed.thread.i, label %if.end61.i
+  br i1 %tobool59.not.i, label %Py_XDECREF.exit.thread177.i, label %if.end61.i
 
 if.end61.i:                                       ; preds = %sw.bb57.i
   %v62.i = getelementptr inbounds nuw i8, ptr %t, i64 8
@@ -10224,7 +10219,7 @@ cond.end.i101.i:                                  ; preds = %if.end61.i
   %42 = load i64, ptr %41, align 8
   %call.i102.i = tail call ptr @PyList_New(i64 noundef %42) #6
   %tobool.not.i103.i = icmp eq ptr %call.i102.i, null
-  br i1 %tobool.not.i103.i, label %failed.thread.i, label %for.cond.preheader.i104.i
+  br i1 %tobool.not.i103.i, label %Py_XDECREF.exit.thread183.i, label %for.cond.preheader.i104.i
 
 for.cond.preheader.i104.i:                        ; preds = %cond.end.i101.i
   %cmp113.i105.i = icmp sgt i64 %42, 0
@@ -10248,13 +10243,13 @@ if.then4.i119.i:                                  ; preds = %for.body.i109.i
   %46 = load i64, ptr %call.i102.i, align 8
   %47 = and i64 %46, 2147483648
   %cmp.i7.not.i120.i = icmp eq i64 %47, 0
-  br i1 %cmp.i7.not.i120.i, label %if.end.i.i121.i, label %failed.thread.i
+  br i1 %cmp.i7.not.i120.i, label %if.end.i.i121.i, label %Py_XDECREF.exit.i
 
 if.end.i.i121.i:                                  ; preds = %if.then4.i119.i
   %dec.i.i122.i = add i64 %46, -1
   store i64 %dec.i.i122.i, ptr %call.i102.i, align 8
   %cmp.i.i123.i = icmp eq i64 %dec.i.i122.i, 0
-  br i1 %cmp.i.i123.i, label %failed.thread.sink.split.i, label %failed.thread.i
+  br i1 %cmp.i.i123.i, label %Py_XDECREF.exit.sink.split.i, label %Py_XDECREF.exit.i
 
 if.end5.i114.i:                                   ; preds = %for.body.i109.i
   %call.val.i115.i = load ptr, ptr %43, align 8
@@ -10267,7 +10262,7 @@ if.end5.i114.i:                                   ; preds = %for.body.i109.i
 ast2obj_list.exit127.i:                           ; preds = %if.end61.i
   %call16.i126.i = tail call ptr @PyList_New(i64 noundef 0) #6
   %tobool64.not.i = icmp eq ptr %call16.i126.i, null
-  br i1 %tobool64.not.i, label %failed.thread.i, label %if.end66.i
+  br i1 %tobool64.not.i, label %Py_XDECREF.exit.thread172.i, label %if.end66.i
 
 if.end66.i:                                       ; preds = %if.end5.i114.i, %ast2obj_list.exit127.i, %for.cond.preheader.i104.i
   %retval.0.i106162.i = phi ptr [ %call16.i126.i, %ast2obj_list.exit127.i ], [ %call.i102.i, %for.cond.preheader.i104.i ], [ %call.i102.i, %if.end5.i114.i ]
@@ -10298,7 +10293,7 @@ Py_DECREF.exit93.i:                               ; preds = %if.then1.i91.i, %if
   %51 = load ptr, ptr %returns.i, align 8
   %call73.i = tail call ptr @ast2obj_expr(ptr noundef nonnull %ast.i, ptr noundef %51)
   %tobool74.not.i = icmp eq ptr %call73.i, null
-  br i1 %tobool74.not.i, label %failed.thread.i, label %if.end76.i
+  br i1 %tobool74.not.i, label %Py_XDECREF.exit.thread172.i, label %if.end76.i
 
 if.end76.i:                                       ; preds = %Py_DECREF.exit93.i
   %returns77.i = getelementptr inbounds nuw i8, ptr %2, i64 308384
@@ -10325,76 +10320,97 @@ sw.epilog.sink.split.i:                           ; preds = %if.end.i.i, %if.end
   tail call void @_Py_Dealloc(ptr noundef nonnull %call73.sink.i) #6
   br label %land.lhs.true
 
-failed.thread.sink.split.i:                       ; preds = %if.end.i.i121.i, %if.end.i.i93.i, %if.end.i.i.i
-  %call.i.sink.i = phi ptr [ %call.i.i, %if.end.i.i.i ], [ %call.i74.i, %if.end.i.i93.i ], [ %call.i102.i, %if.end.i.i121.i ]
-  %result.1.ph.ph.i = phi ptr [ %call.i, %if.end.i.i.i ], [ %call26.i, %if.end.i.i93.i ], [ %call58.i, %if.end.i.i121.i ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call.i.sink.i) #6
-  br label %failed.thread.i
-
-failed.thread.i:                                  ; preds = %failed.thread.sink.split.i, %Py_DECREF.exit93.i, %ast2obj_list.exit127.i, %if.end.i.i121.i, %if.then4.i119.i, %cond.end.i101.i, %sw.bb57.i, %if.end45.i, %sw.bb41.i, %ast2obj_list.exit99.i, %if.end.i.i93.i, %if.then4.i91.i, %cond.end.i73.i, %sw.bb25.i, %Py_DECREF.exit129.i, %ast2obj_list.exit.i, %if.end.i.i.i, %if.then4.i.i, %cond.end.i.i, %sw.bb.i
-  %result.1.ph.i = phi ptr [ null, %sw.bb.i ], [ %call.i, %ast2obj_list.exit.i ], [ %call.i, %Py_DECREF.exit129.i ], [ null, %sw.bb25.i ], [ %call26.i, %ast2obj_list.exit99.i ], [ null, %sw.bb41.i ], [ %call42.i, %if.end45.i ], [ null, %sw.bb57.i ], [ %call58.i, %ast2obj_list.exit127.i ], [ %call58.i, %Py_DECREF.exit93.i ], [ %call.i, %cond.end.i.i ], [ %call.i, %if.then4.i.i ], [ %call.i, %if.end.i.i.i ], [ %call26.i, %cond.end.i73.i ], [ %call26.i, %if.then4.i91.i ], [ %call26.i, %if.end.i.i93.i ], [ %call58.i, %cond.end.i101.i ], [ %call58.i, %if.then4.i119.i ], [ %call58.i, %if.end.i.i121.i ], [ %result.1.ph.ph.i, %failed.thread.sink.split.i ]
-  %55 = load i32, ptr %recursion_depth5, align 8
-  %dec84165.i = add i32 %55, -1
-  store i32 %dec84165.i, ptr %recursion_depth5, align 8
-  br label %Py_XDECREF.exit.i
-
 if.then.i.i:                                      ; preds = %if.end76.i, %if.end66.i, %if.end51.i, %if.end35.i, %if.end19.i, %if.end9.i
   %result.1.i = phi ptr [ %call58.i, %if.end66.i ], [ %call58.i, %if.end76.i ], [ %call42.i, %if.end51.i ], [ %call26.i, %if.end35.i ], [ %call.i, %if.end9.i ], [ %call.i, %if.end19.i ]
   %value.0.i = phi ptr [ %retval.0.i106162.i, %if.end66.i ], [ %call73.i, %if.end76.i ], [ %call48.i, %if.end51.i ], [ %retval.0.i78155.i, %if.end35.i ], [ %retval.0.i148.i, %if.end9.i ], [ %call16.i, %if.end19.i ]
-  %56 = load i32, ptr %recursion_depth5, align 8
-  %dec84.i = add i32 %56, -1
+  %55 = load i32, ptr %recursion_depth5, align 8
+  %dec84.i = add i32 %55, -1
   store i32 %dec84.i, ptr %recursion_depth5, align 8
-  %57 = load i64, ptr %value.0.i, align 8
-  %58 = and i64 %57, 2147483648
-  %cmp.i2.not.i.i = icmp eq i64 %58, 0
-  br i1 %cmp.i2.not.i.i, label %if.end.i.i129.i, label %Py_XDECREF.exit.i
+  %56 = load i64, ptr %value.0.i, align 8
+  %57 = and i64 %56, 2147483648
+  %cmp.i2.not.i.i = icmp eq i64 %57, 0
+  br i1 %cmp.i2.not.i.i, label %if.end.i.i129.i, label %if.then.i134.i
 
 if.end.i.i129.i:                                  ; preds = %if.then.i.i
-  %dec.i.i130.i = add i64 %57, -1
+  %dec.i.i130.i = add i64 %56, -1
   store i64 %dec.i.i130.i, ptr %value.0.i, align 8
   %cmp.i.i131.i = icmp eq i64 %dec.i.i130.i, 0
-  br i1 %cmp.i.i131.i, label %if.then1.i.i132.i, label %Py_XDECREF.exit.i
+  br i1 %cmp.i.i131.i, label %if.then1.i.i132.i, label %if.then.i134.i
 
 if.then1.i.i132.i:                                ; preds = %if.end.i.i129.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %value.0.i) #6
+  br label %if.then.i134.i
+
+Py_XDECREF.exit.thread172.i:                      ; preds = %Py_DECREF.exit93.i, %ast2obj_list.exit127.i, %if.end45.i, %ast2obj_list.exit99.i, %Py_DECREF.exit129.i, %ast2obj_list.exit.i
+  %result.1.ph.ph.i = phi ptr [ %call58.i, %Py_DECREF.exit93.i ], [ %call58.i, %ast2obj_list.exit127.i ], [ %call42.i, %if.end45.i ], [ %call26.i, %ast2obj_list.exit99.i ], [ %call.i, %Py_DECREF.exit129.i ], [ %call.i, %ast2obj_list.exit.i ]
+  %58 = load i32, ptr %recursion_depth5, align 8
+  %dec84165174.i = add i32 %58, -1
+  store i32 %dec84165174.i, ptr %recursion_depth5, align 8
+  br label %if.then.i134.i
+
+Py_XDECREF.exit.thread177.i:                      ; preds = %sw.bb57.i, %sw.bb41.i, %sw.bb25.i, %sw.bb.i
+  %59 = load i32, ptr %recursion_depth5, align 8
+  %dec84165179.i = add i32 %59, -1
+  store i32 %dec84165179.i, ptr %recursion_depth5, align 8
+  br label %return
+
+Py_XDECREF.exit.thread183.i:                      ; preds = %cond.end.i101.i, %cond.end.i73.i, %cond.end.i.i
+  %result.1.ph.ph182.i = phi ptr [ %call58.i, %cond.end.i101.i ], [ %call26.i, %cond.end.i73.i ], [ %call.i, %cond.end.i.i ]
+  %60 = load i32, ptr %recursion_depth5, align 8
+  %dec84165185.i = add i32 %60, -1
+  store i32 %dec84165185.i, ptr %recursion_depth5, align 8
+  br label %if.then.i134.i
+
+Py_XDECREF.exit.sink.split.i:                     ; preds = %if.end.i.i121.i, %if.end.i.i93.i, %if.end.i.i.i
+  %call.i102.sink.i = phi ptr [ %call.i.i, %if.end.i.i.i ], [ %call.i74.i, %if.end.i.i93.i ], [ %call.i102.i, %if.end.i.i121.i ]
+  %result.1.ph.ph187.i = phi ptr [ %call.i, %if.end.i.i.i ], [ %call26.i, %if.end.i.i93.i ], [ %call58.i, %if.end.i.i121.i ]
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call.i102.sink.i) #6
   br label %Py_XDECREF.exit.i
 
-Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i132.i, %if.end.i.i129.i, %if.then.i.i, %failed.thread.i
-  %result.1167.i = phi ptr [ %result.1.ph.i, %failed.thread.i ], [ %result.1.i, %if.then.i.i ], [ %result.1.i, %if.end.i.i129.i ], [ %result.1.i, %if.then1.i.i132.i ]
-  %cmp.not.i133.i = icmp eq ptr %result.1167.i, null
-  br i1 %cmp.not.i133.i, label %return, label %if.then.i134.i
+Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exit.sink.split.i, %if.end.i.i121.i, %if.then4.i119.i, %if.end.i.i93.i, %if.then4.i91.i, %if.end.i.i.i, %if.then4.i.i
+  %result.1.ph.i = phi ptr [ %call.i, %if.then4.i.i ], [ %call.i, %if.end.i.i.i ], [ %call26.i, %if.then4.i91.i ], [ %call26.i, %if.end.i.i93.i ], [ %call58.i, %if.then4.i119.i ], [ %call58.i, %if.end.i.i121.i ], [ %result.1.ph.ph187.i, %Py_XDECREF.exit.sink.split.i ]
+  %61 = load i32, ptr %recursion_depth5, align 8
+  %dec84165.i = add i32 %61, -1
+  store i32 %dec84165.i, ptr %recursion_depth5, align 8
+  br label %if.then.i134.i
 
-if.then.i134.i:                                   ; preds = %Py_XDECREF.exit.i
-  %59 = load i64, ptr %result.1167.i, align 8
-  %60 = and i64 %59, 2147483648
-  %cmp.i2.not.i135.i = icmp eq i64 %60, 0
+if.then.i134.i:                                   ; preds = %Py_XDECREF.exit.i, %Py_XDECREF.exit.thread183.i, %Py_XDECREF.exit.thread172.i, %if.then1.i.i132.i, %if.end.i.i129.i, %if.then.i.i
+  %result.1167170.i = phi ptr [ %result.1.ph.i, %Py_XDECREF.exit.i ], [ %result.1.ph.ph.i, %Py_XDECREF.exit.thread172.i ], [ %result.1.i, %if.then.i.i ], [ %result.1.i, %if.end.i.i129.i ], [ %result.1.i, %if.then1.i.i132.i ], [ %result.1.ph.ph182.i, %Py_XDECREF.exit.thread183.i ]
+  %62 = load i64, ptr %result.1167170.i, align 8
+  %63 = and i64 %62, 2147483648
+  %cmp.i2.not.i135.i = icmp eq i64 %63, 0
   br i1 %cmp.i2.not.i135.i, label %if.end.i.i137.i, label %return
 
 if.end.i.i137.i:                                  ; preds = %if.then.i134.i
-  %dec.i.i138.i = add i64 %59, -1
-  store i64 %dec.i.i138.i, ptr %result.1167.i, align 8
+  %dec.i.i138.i = add i64 %62, -1
+  store i64 %dec.i.i138.i, ptr %result.1167170.i, align 8
   %cmp.i.i139.i = icmp eq i64 %dec.i.i138.i, 0
   br i1 %cmp.i.i139.i, label %if.then1.i.i140.i, label %return
 
 if.then1.i.i140.i:                                ; preds = %if.end.i.i137.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %result.1167.i) #6
+  tail call void @_Py_Dealloc(ptr noundef nonnull %result.1167170.i) #6
   br label %return
 
-land.lhs.true:                                    ; preds = %sw.epilog.sink.split.i, %if.end.i.i, %if.end81.i, %if.end.i106.i, %if.end40.i, %if.end.i115.i, %if.end24.i, %if.end.i97.i, %if.end56.i
-  %retval.0.i20 = phi ptr [ %call42.i, %if.end56.i ], [ %call42.i, %if.end.i97.i ], [ %call58.i, %if.end81.i ], [ %call58.i, %if.end.i.i ], [ %call26.i, %if.end40.i ], [ %call26.i, %if.end.i106.i ], [ %call.i, %if.end24.i ], [ %call.i, %if.end.i115.i ], [ %result.0.ph.i, %sw.epilog.sink.split.i ]
-  %61 = load i32, ptr %recursion_depth5, align 8
-  %dec.i = add i32 %61, -1
+ast2obj_mod.exit:                                 ; preds = %if.end2.i
+  %dec.i = sub i32 3000, %6
   store i32 %dec.i, ptr %recursion_depth5, align 8
-  %cmp9.not = icmp eq i32 %dec.i, %mul4
+  br label %return
+
+land.lhs.true:                                    ; preds = %sw.epilog.sink.split.i, %if.end.i115.i, %if.end24.i, %if.end.i106.i, %if.end40.i, %if.end.i97.i, %if.end56.i, %if.end.i.i, %if.end81.i
+  %result.0.i.ph = phi ptr [ %result.0.ph.i, %sw.epilog.sink.split.i ], [ %call.i, %if.end.i115.i ], [ %call.i, %if.end24.i ], [ %call26.i, %if.end.i106.i ], [ %call26.i, %if.end40.i ], [ %call42.i, %if.end.i97.i ], [ %call42.i, %if.end56.i ], [ %call58.i, %if.end.i.i ], [ %call58.i, %if.end81.i ]
+  %64 = load i32, ptr %recursion_depth5, align 8
+  %dec.i24 = add i32 %64, -1
+  store i32 %dec.i24, ptr %recursion_depth5, align 8
+  %cmp9.not = icmp eq i32 %dec.i24, %mul4
   br i1 %cmp9.not, label %return, label %if.then10
 
 if.then10:                                        ; preds = %land.lhs.true
-  %62 = load ptr, ptr @PyExc_SystemError, align 8
-  %call12 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %62, ptr noundef nonnull @.str.74, i32 noundef %mul4, i32 noundef %dec.i) #6
+  %65 = load ptr, ptr @PyExc_SystemError, align 8
+  %call12 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %65, ptr noundef nonnull @.str.74, i32 noundef %mul4, i32 noundef %dec.i24) #6
   br label %return
 
-return:                                           ; preds = %if.end3, %if.then1.i.i140.i, %if.end.i.i137.i, %if.then.i134.i, %Py_XDECREF.exit.i, %if.then1.i, %ast2obj_mod.exit.thread26, %_PyOnceFlag_CallOnce.exit.i, %land.lhs.true, %if.end, %if.then10
-  %retval.0 = phi ptr [ null, %if.then10 ], [ null, %if.end ], [ %retval.0.i20, %land.lhs.true ], [ null, %_PyOnceFlag_CallOnce.exit.i ], [ null, %ast2obj_mod.exit.thread26 ], [ null, %if.then1.i ], [ null, %Py_XDECREF.exit.i ], [ null, %if.then.i134.i ], [ null, %if.end.i.i137.i ], [ null, %if.then1.i.i140.i ], [ @_Py_NoneStruct, %if.end3 ]
+return:                                           ; preds = %if.end3, %if.then1.i.i140.i, %if.end.i.i137.i, %if.then.i134.i, %Py_XDECREF.exit.thread177.i, %if.then1.i, %ast2obj_mod.exit, %_PyOnceFlag_CallOnce.exit.i, %land.lhs.true, %if.end, %if.then10
+  %retval.0 = phi ptr [ null, %if.then10 ], [ null, %if.end ], [ %result.0.i.ph, %land.lhs.true ], [ null, %ast2obj_mod.exit ], [ null, %_PyOnceFlag_CallOnce.exit.i ], [ null, %if.then1.i ], [ null, %Py_XDECREF.exit.thread177.i ], [ null, %if.then.i134.i ], [ null, %if.end.i.i137.i ], [ null, %if.then1.i.i140.i ], [ @_Py_NoneStruct, %if.end3 ]
   ret ptr %retval.0
 }
 

@@ -170,7 +170,7 @@ if.then.i.i:                                      ; preds = %if.end10
   br label %cleanup12
 
 if.else.i.i:                                      ; preds = %if.end10
-  call void @free(ptr noundef %call4) #20
+  call void @free(ptr noundef nonnull %call4) #20
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 23
   store i8 23, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
   store i8 0, ptr %agg.result, align 8, !tbaa !7

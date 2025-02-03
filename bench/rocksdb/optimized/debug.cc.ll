@@ -4212,7 +4212,7 @@ lpad.i.i.i:                                       ; preds = %.noexc
   %5 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(76) %add.ptr) #18
-  br label %lpad.body
+  br label %invoke.cont25
 
 invoke.cont:                                      ; preds = %.noexc
   %sequence.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 64
@@ -4282,37 +4282,24 @@ _ZNSt12_Vector_baseIN7rocksdb10KeyVersionESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN7rocksdb10KeyVersionESaIS1_EE11_M_allocateEm.exit
   %6 = landingpad { ptr, i32 }
           catch ptr null
-  br label %lpad.body
-
-lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad ], [ %5, %lpad.i.i.i ]
-  %7 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #18
-  %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i37
-
-if.end.thread:                                    ; preds = %lpad.body
-  %value.i.i.i32 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i32) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(76) %add.ptr) #18
   br label %invoke.cont25
 
 lpad23:                                           ; preds = %invoke.cont25
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i37:                                      ; preds = %lpad.body
+invoke.cont25:                                    ; preds = %lpad, %lpad.i.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad ], [ %5, %lpad.i.i.i ]
+  %8 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #18
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #17
-  br label %invoke.cont25
-
-invoke.cont25:                                    ; preds = %if.then.i37, %if.end.thread
   invoke void @__cxa_rethrow() #20
           to label %unreachable unwind label %lpad23
 
 eh.resume:                                        ; preds = %lpad23
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %7
 
 terminate.lpad:                                   ; preds = %lpad23
   %10 = landingpad { ptr, i32 }

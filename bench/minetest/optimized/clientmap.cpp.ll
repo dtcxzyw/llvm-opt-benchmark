@@ -6455,7 +6455,7 @@ if.then:                                          ; preds = %_ZNK9ClientMap16Map
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   %13 = load ptr, ptr %__args1, align 8, !tbaa !84
   store ptr %13, ptr %second.i.i.i.i.i.i.i, align 8, !tbaa !144
-  %call6.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_EN9ClientMap16MapBlockComparerESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i38, ptr noundef nonnull align 2 dereferenceable(6) %_M_storage.i.i.i.i.i8)
+  %call6.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_EN9ClientMap16MapBlockComparerESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i38, ptr noundef nonnull align 2 dereferenceable(6) %_M_storage.i.i.i.i.i8)
           to label %invoke.cont5.i unwind label %_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_EN9ClientMap16MapBlockComparerESaIS8_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont5.i:                                   ; preds = %if.then
@@ -6711,7 +6711,7 @@ if.then:                                          ; preds = %_ZNK9ClientMap16Map
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   %13 = load ptr, ptr %__args1, align 8, !tbaa !84
   store ptr %13, ptr %second.i.i.i.i.i.i.i, align 8, !tbaa !144
-  %call6.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_EN9ClientMap16MapBlockComparerESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i38, ptr noundef nonnull align 2 dereferenceable(6) %_M_storage.i.i.i.i.i8)
+  %call6.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_EN9ClientMap16MapBlockComparerESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i38, ptr noundef nonnull align 2 dereferenceable(6) %_M_storage.i.i.i.i.i8)
           to label %invoke.cont5.i unwind label %_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_EN9ClientMap16MapBlockComparerESaIS8_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont5.i:                                   ; preds = %if.then

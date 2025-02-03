@@ -1799,7 +1799,7 @@ _ZN5clang6format14TokenAnnotatorD2Ev.exit:        ; preds = %_ZN4llvm11SmallVect
   br label %_ZN4llvm11SmallVectorIPN5clang6format13AnnotatedLineELj16EED2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit40:                        ; preds = %.lr.ph68
-  %233 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.044.066) #18
+  %233 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.044.066) #18
   %.not49 = icmp eq ptr %233, %67
   br i1 %.not49, label %.critedge38, label %.lr.ph68
 

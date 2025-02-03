@@ -269,7 +269,7 @@ if.else.i.i:                                      ; preds = %_ZN5eastl10CharStrl
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %pName to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %pName, i64 %sub.ptr.sub.i.i
-  %call19.i.i6 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %result, ptr noundef %pName, ptr noundef nonnull %add.ptr.i)
+  %call19.i.i6 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %result, ptr noundef nonnull %pName, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i, %if.else.i.i
@@ -925,7 +925,7 @@ if.else.i.i:                                      ; preds = %if.end
   %sub.i.i32.i.i = sub nsw i64 23, %conv.i.i31.i.i
   %cond.i33.i.i = select i1 %tobool.i.i29.i.i, i64 %24, i64 %sub.i.i32.i.i
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %.pre126, i64 %cond.i33.i.i
-  %call19.i.i30 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %sTestTypeTemp, ptr noundef %add.ptr18.i.i, ptr noundef nonnull %add.ptr9.i)
+  %call19.i.i30 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %sTestTypeTemp, ptr noundef nonnull %add.ptr18.i.i, ptr noundef nonnull %add.ptr9.i)
           to label %if.else.i.i.invoke.cont15_crit_edge unwind label %lpad6
 
 if.else.i.i.invoke.cont15_crit_edge:              ; preds = %if.else.i.i
@@ -2087,7 +2087,7 @@ _ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EE
 
 _ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKS2_PNS_11rbtree_nodeIS2_EE.exit: ; preds = %if.then, %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit.i ]
-  call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef %call4, ptr noundef nonnull align 8 dereferenceable(41) %this, i32 noundef %side.0.i)
+  call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %call.i.i.i.i, ptr noundef %call4, ptr noundef nonnull align 8 dereferenceable(41) %this, i32 noundef %side.0.i)
   %mnSize.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %11 = load i64, ptr %mnSize.i, align 8
   %inc.i = add i64 %11, 1

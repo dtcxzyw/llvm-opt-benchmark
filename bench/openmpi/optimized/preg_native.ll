@@ -2580,7 +2580,7 @@ define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef nonnull 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %66, %68
-  call void @free(ptr noundef %55) #18
+  call void @free(ptr noundef nonnull %55) #18
   br label %72
 
 70:                                               ; preds = %66
@@ -2589,7 +2589,7 @@ define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef nonnull 
   br i1 %.not89, label %._crit_edge122, label %59, !llvm.loop !30
 
 ._crit_edge122:                                   ; preds = %70, %.preheader
-  call void @free(ptr noundef %55) #18
+  call void @free(ptr noundef nonnull %55) #18
   br label %72
 
 72:                                               ; preds = %._crit_edge122, %.loopexit, %57, %._crit_edge110, %._crit_edge

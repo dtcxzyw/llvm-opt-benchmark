@@ -21939,7 +21939,7 @@ define linkonce_odr noundef i32 @_ZN17CoredFileMeshDataI22PlyColorAndValueVertex
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %5 = load ptr, ptr %4, align 8
   %6 = call noundef zeroext i1 @_ZN21BufferedReadWriteFile4readEPvm(ptr noundef nonnull align 8 dereferenceable(1064) %5, ptr noundef nonnull %3, i64 noundef 4)
-  br i1 %6, label %7, label %54
+  br i1 %6, label %7, label %52
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %3, align 4
@@ -21975,7 +21975,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIiSaIiE
   %.0.i.i.i.i.i = phi ptr [ %15, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %13, %.noexc21 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %17 = load ptr, ptr %4, align 8
   %18 = invoke noundef zeroext i1 @_ZN21BufferedReadWriteFile4readEPvm(ptr noundef nonnull align 8 dereferenceable(1064) %17, ptr noundef nonnull %.sroa.0.0, i64 noundef %.pre-phi)
-          to label %19 unwind label %51
+          to label %19 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 19:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
   br i1 %18, label %20, label %_ZNSt6vectorIiSaIiEED2Ev.exit24
@@ -21996,7 +21996,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIiSaIiE
 31:                                               ; preds = %20
   %32 = sub nuw nsw i64 %22, %29
   invoke void @_ZNSt6vectorI16CoredVertexIndexSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %32)
-          to label %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit unwind label %51
+          to label %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 33:                                               ; preds = %20
   %34 = icmp ugt i64 %29, %22
@@ -22042,27 +22042,20 @@ _ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit: ; preds = %31, %33, %35, 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit24, label %.lr.ph, !llvm.loop !274
 
-51:                                               ; preds = %31, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %52 = landingpad { ptr, i32 }
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %31, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %53
-
-53:                                               ; preds = %51
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #44
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  resume { ptr, i32 } %51
 
 _ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %.lr.ph, %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit, %19
   %.019 = phi i32 [ 0, %19 ], [ 1, %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit ], [ 1, %.lr.ph ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #44
-  br label %54
+  br label %52
 
-54:                                               ; preds = %2, %_ZNSt6vectorIiSaIiEED2Ev.exit24
+52:                                               ; preds = %2, %_ZNSt6vectorIiSaIiEED2Ev.exit24
   %.1 = phi i32 [ %.019, %_ZNSt6vectorIiSaIiEED2Ev.exit24 ], [ 0, %2 ]
   ret i32 %.1
-
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %53, %51
-  resume { ptr, i32 } %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

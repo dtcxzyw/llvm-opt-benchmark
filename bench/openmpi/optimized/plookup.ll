@@ -485,7 +485,7 @@ pmix_strncpy.exit:                                ; preds = %177, %180
   br i1 %exitcond149.not, label %200, label %.preheader, !llvm.loop !14
 
 200:                                              ; preds = %.preheader
-  call void @PMIx_Pdata_free(ptr noundef %171, i64 noundef %95) #11
+  call void @PMIx_Pdata_free(ptr noundef nonnull %171, i64 noundef %95) #11
   br label %201
 
 201:                                              ; preds = %200, %187, %pmix_obj_run_destructors.exit

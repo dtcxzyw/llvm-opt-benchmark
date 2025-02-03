@@ -2325,7 +2325,7 @@ php_ifd_get16u.exit:                              ; preds = %45, %53
   br label %.lr.ph
 
 63:                                               ; preds = %php_ifd_get16u.exit
-  call void @_efree(ptr noundef %59) #13
+  call void @_efree(ptr noundef nonnull %59) #13
   br label %197
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %187
@@ -2539,7 +2539,7 @@ php_ifd_get16u.exit104:                           ; preds = %100, %92, %php_ifd_
 ._crit_edge:                                      ; preds = %187, %.preheader
   %.089.lcssa = phi i64 [ 0, %.preheader ], [ %.190, %187 ]
   %.088.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %187 ]
-  call void @_efree(ptr noundef %59) #13
+  call void @_efree(ptr noundef nonnull %59) #13
   %188 = icmp ne i64 %.089.lcssa, 0
   %189 = icmp ne i64 %.088.lcssa, 0
   %or.cond = select i1 %188, i1 %189, i1 false

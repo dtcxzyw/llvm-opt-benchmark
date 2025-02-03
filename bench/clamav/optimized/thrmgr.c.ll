@@ -526,7 +526,7 @@ remove_frompools.exit:                            ; preds = %.lr.ph, %31, %._cri
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %66 = load ptr, ptr %65, align 8
   tail call void @free(ptr noundef %66) #12
-  tail call void @free(ptr noundef %0) #12
+  tail call void @free(ptr noundef nonnull %0) #12
   br label %67
 
 67:                                               ; preds = %9, %1, %52, %29, %20

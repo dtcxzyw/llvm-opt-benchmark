@@ -3900,7 +3900,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %12
   %eh.lpad-body = phi { ptr, i32 } [ %31, %30 ], [ %lpad.phi, %25 ]
   %32 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %33 = tail call ptr @__cxa_begin_catch(ptr %32) #26
-  invoke void @_ZSt8_DestroyIP10IndexGroupEvT_S2_(ptr noundef %2, ptr noundef %.018)
+  invoke void @_ZSt8_DestroyIP10IndexGroupEvT_S2_(ptr noundef %2, ptr noundef nonnull %.018)
           to label %34 unwind label %35
 
 34:                                               ; preds = %.body

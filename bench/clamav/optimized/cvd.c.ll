@@ -795,7 +795,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_cvdverify(ptr noundef %0, ptr n
   call void @free(ptr noundef nonnull %28) #19
   %43 = load ptr, ptr %14, align 8
   call void @free(ptr noundef %43) #19
-  call void @free(ptr noundef %40) #19
+  call void @free(ptr noundef nonnull %40) #19
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %45 = load ptr, ptr %44, align 8
   call void @free(ptr noundef %45) #19

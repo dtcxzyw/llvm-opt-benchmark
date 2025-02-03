@@ -1621,7 +1621,7 @@ sacctmgr_find_cluster_from_list.exit.thread72:    ; preds = %31
 
 sacctmgr_find_cluster_from_list.exit.thread:      ; preds = %.lr.ph107, %sacctmgr_find_cluster_from_list.exit.thread72
   %37 = phi ptr [ %28, %.lr.ph107 ], [ %29, %sacctmgr_find_cluster_from_list.exit.thread72 ]
-  %38 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %37) #20
+  %38 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef nonnull %37) #20
   br label %.loopexit
 
 39:                                               ; preds = %33

@@ -325,7 +325,7 @@ if.end4:                                          ; preds = %commit_patch_id.exi
   store i32 %header_only_patch_id.val.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %patch, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %header_only_patch_id.i)
-  %call5 = call ptr @hashmap_get(ptr noundef %ids, ptr noundef nonnull %patch, ptr noundef null) #6
+  %call5 = call ptr @hashmap_get(ptr noundef nonnull %ids, ptr noundef nonnull %patch, ptr noundef null) #6
   br label %return
 
 return:                                           ; preds = %init_patch_id_entry.exit.thread, %patch_id_defined.exit, %if.end4
@@ -413,7 +413,7 @@ if.end5:                                          ; preds = %commit_patch_id.exi
   store i32 %header_only_patch_id.val.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %call1, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %header_only_patch_id.i)
-  call void @hashmap_add(ptr noundef %ids, ptr noundef nonnull %call1) #6
+  call void @hashmap_add(ptr noundef nonnull %ids, ptr noundef nonnull %call1) #6
   br label %return
 
 return:                                           ; preds = %patch_id_defined.exit, %if.end5, %if.then4

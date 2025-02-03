@@ -320,7 +320,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 e1000_mmio_setup.exit:                            ; preds = %for.body.i
   %io.i = getelementptr inbounds nuw i8, ptr %call.i26, i64 11104
-  tail call void @memory_region_init_io(ptr noundef nonnull %io.i, ptr noundef %call.i26, ptr noundef nonnull @e1000_io_ops, ptr noundef %call.i26, ptr noundef nonnull @.str.17, i64 noundef 64) #13
+  tail call void @memory_region_init_io(ptr noundef nonnull %io.i, ptr noundef nonnull %call.i26, ptr noundef nonnull @e1000_io_ops, ptr noundef nonnull %call.i26, ptr noundef nonnull @.str.17, i64 noundef 64) #13
   tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %mmio.i) #13
   tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull %io.i) #13
   %conf = getelementptr inbounds nuw i8, ptr %call.i26, i64 2616
@@ -331,25 +331,25 @@ e1000_mmio_setup.exit:                            ; preds = %for.body.i
   %device_id = getelementptr inbounds nuw i8, ptr %call1.i, i64 210
   %3 = load i16, ptr %device_id, align 2
   tail call void @e1000x_core_prepare_eeprom(ptr noundef nonnull %eeprom_data, ptr noundef nonnull @e1000_eeprom_template, i32 noundef 128, i16 noundef zeroext %3, ptr noundef nonnull %conf) #13
-  %call9 = tail call ptr @object_get_typename(ptr noundef %call.i26) #13
+  %call9 = tail call ptr @object_get_typename(ptr noundef nonnull %call.i26) #13
   %id = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %4 = load ptr, ptr %id, align 8
   %mem_reentrancy_guard = getelementptr inbounds nuw i8, ptr %call.i, i64 152
-  %call10 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_e1000_info, ptr noundef nonnull %conf, ptr noundef %call9, ptr noundef %4, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef %call.i26) #13
+  %call10 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_e1000_info, ptr noundef nonnull %conf, ptr noundef %call9, ptr noundef %4, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef nonnull %call.i26) #13
   %nic = getelementptr inbounds nuw i8, ptr %call.i26, i64 2608
   store ptr %call10, ptr %nic, align 16
   %call12 = tail call ptr @qemu_get_queue(ptr noundef %call10) #13
   tail call void @qemu_format_nic_info_str(ptr noundef %call12, ptr noundef nonnull %conf) #13
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #14
-  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef range(i32 1, 1000001) 1000000, i32 noundef 0, ptr noundef nonnull @e1000_autoneg_timer, ptr noundef %call.i26) #13
+  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef range(i32 1, 1000001) 1000000, i32 noundef 0, ptr noundef nonnull @e1000_autoneg_timer, ptr noundef nonnull %call.i26) #13
   %autoneg_timer = getelementptr inbounds nuw i8, ptr %call.i26, i64 208520
   store ptr %call.i.i.i, ptr %autoneg_timer, align 8
   %call.i.i.i28 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #14
-  tail call void @timer_init_full(ptr noundef %call.i.i.i28, ptr noundef null, i32 noundef 1, i32 noundef range(i32 1, 1000001) 1, i32 noundef 0, ptr noundef nonnull @e1000_mit_timer, ptr noundef %call.i26) #13
+  tail call void @timer_init_full(ptr noundef %call.i.i.i28, ptr noundef null, i32 noundef 1, i32 noundef range(i32 1, 1000001) 1, i32 noundef 0, ptr noundef nonnull @e1000_mit_timer, ptr noundef nonnull %call.i26) #13
   %mit_timer = getelementptr inbounds nuw i8, ptr %call.i26, i64 208528
   store ptr %call.i.i.i28, ptr %mit_timer, align 16
   %call.i.i.i29 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #14
-  tail call void @timer_init_full(ptr noundef %call.i.i.i29, ptr noundef null, i32 noundef 1, i32 noundef range(i32 1, 1000001) 1000000, i32 noundef 0, ptr noundef nonnull @e1000_flush_queue_timer, ptr noundef %call.i26) #13
+  tail call void @timer_init_full(ptr noundef %call.i.i.i29, ptr noundef null, i32 noundef 1, i32 noundef range(i32 1, 1000001) 1000000, i32 noundef 0, ptr noundef nonnull @e1000_flush_queue_timer, ptr noundef nonnull %call.i26) #13
   %flush_queue_timer = getelementptr inbounds nuw i8, ptr %call.i26, i64 208544
   store ptr %call.i.i.i29, ptr %flush_queue_timer, align 16
   ret void

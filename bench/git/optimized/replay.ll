@@ -875,7 +875,7 @@ if.end.i65:                                       ; preds = %mapped_commit.exit.
   %call1.i.i67 = call ptr @repo_logmsg_reencode(ptr noundef %82, ptr noundef nonnull %call118140, ptr noundef null, ptr noundef %call.i20.i66) #14
   store ptr null, ptr %orig_message.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %exclude_gpgsig.i.i, ptr noundef nonnull align 16 dereferenceable(16) @__const.create_commit.exclude_gpgsig, i64 16, i1 false)
-  %call2.i.i68 = call ptr @commit_list_insert(ptr noundef %retval.0.i.i62, ptr noundef nonnull %parents.i.i) #14
+  %call2.i.i68 = call ptr @commit_list_insert(ptr noundef nonnull %retval.0.i.i62, ptr noundef nonnull %parents.i.i) #14
   %call3.i.i = call ptr @read_commit_extra_headers(ptr noundef nonnull %call118140, ptr noundef nonnull %exclude_gpgsig.i.i) #14
   %call4.i.i69 = call i32 @find_commit_subject(ptr noundef %call1.i.i67, ptr noundef nonnull %orig_message.i.i) #14
   %83 = load ptr, ptr %orig_message.i.i, align 8

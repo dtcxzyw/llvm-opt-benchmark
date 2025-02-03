@@ -3463,7 +3463,7 @@ dl_symbol.exit532:                                ; preds = %dl_symbol.exit530
   br i1 %.not79, label %.thread, label %792
 
 792:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %777) #19
+  call void @free(ptr noundef nonnull %777) #19
   br label %.thread
 
 .thread:                                          ; preds = %772, %._crit_edge, %792, %775

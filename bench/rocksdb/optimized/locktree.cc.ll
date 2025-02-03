@@ -2536,7 +2536,7 @@ call3.i.i.noexc:                                  ; preds = %_ZN4toku3omtIPNS_18
           to label %.noexc66 unwind label %lpad.loopexit
 
 .noexc66:                                         ; preds = %call3.i.i.noexc
-  invoke void @_Z9toku_freePv(ptr noundef %69)
+  invoke void @_Z9toku_freePv(ptr noundef nonnull %69)
           to label %.noexc67 unwind label %lpad.loopexit
 
 .noexc67:                                         ; preds = %.noexc66

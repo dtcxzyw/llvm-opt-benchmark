@@ -2411,7 +2411,7 @@ invoke.cont11:                                    ; preds = %if.then
 lpad10:                                           ; preds = %if.then
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #30
+  call void @__cxa_free_exception(ptr nonnull %exception) #30
   resume { ptr, i32 } %6
 
 if.end:                                           ; preds = %while.exit
@@ -2637,7 +2637,7 @@ invoke.cont16:                                    ; preds = %if.then
 lpad15:                                           ; preds = %if.then
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #30
+  call void @__cxa_free_exception(ptr nonnull %exception) #30
   resume { ptr, i32 } %8
 
 if.end:                                           ; preds = %for.cond.cleanup

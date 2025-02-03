@@ -1086,7 +1086,7 @@ invoke.cont:                                      ; preds = %if.then8
 lpad:                                             ; preds = %if.then8
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %6
 
 if.end9:                                          ; preds = %_ZNR5folly8OptionalImEdeEv.exit, %if.end
@@ -1267,7 +1267,7 @@ invoke.cont.i.cont:                               ; preds = %invoke.cont.i.invok
 lpad.i:                                           ; preds = %sw.default.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #21
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #21
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io4zstd12_GLOBAL__N_115ZSTDStreamCodec16doCompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit52"
 
 invoke.cont:                                      ; preds = %if.end

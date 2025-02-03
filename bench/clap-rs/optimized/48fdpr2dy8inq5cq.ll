@@ -1538,7 +1538,7 @@ _ZN12clap_builder7builder7command7Command10color_help17h9f4c0391a4c568c8E.exit: 
   unreachable
 
 39:                                               ; preds = %.noexc4, %.noexc
-  %.0.i2 = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ], [ %33, %.noexc4 ]
+  %.0.i2 = phi ptr [ %33, %.noexc4 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !319
   store ptr %0, ptr %7, align 8, !alias.scope !316, !noalias !330
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1737,7 +1737,7 @@ _ZN12clap_builder7builder7command7Command10color_help17h9f4c0391a4c568c8E.exit: 
   unreachable
 
 39:                                               ; preds = %.noexc4, %.noexc
-  %.0.i2 = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ], [ %33, %.noexc4 ]
+  %.0.i2 = phi ptr [ %33, %.noexc4 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !382
   store ptr %0, ptr %7, align 8, !alias.scope !379, !noalias !393
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1909,7 +1909,7 @@ define void @_ZN12clap_builder7builder7command7Command11render_help17hf9adb1fe1b
           to label %30 unwind label %28
 
 24:                                               ; preds = %.noexc2, %.noexc
-  %.0.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ], [ %16, %.noexc2 ]
+  %.0.i = phi ptr [ %16, %.noexc2 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !437
   store ptr %1, ptr %4, align 8, !alias.scope !434, !noalias !448
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1995,7 +1995,7 @@ define void @_ZN12clap_builder7builder7command7Command16render_long_help17h9880c
           to label %30 unwind label %28
 
 24:                                               ; preds = %.noexc2, %.noexc
-  %.0.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ], [ %16, %.noexc2 ]
+  %.0.i = phi ptr [ %16, %.noexc2 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !455
   store ptr %1, ptr %4, align 8, !alias.scope !452, !noalias !466
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2197,7 +2197,7 @@ define void @_ZN12clap_builder7builder7command7Command12render_usage17h6beef0132
   unreachable
 
 _ZN12clap_builder7builder7command7Command13render_usage_17h1eb8a3b4b4bc68e3E.exit: ; preds = %2, %9
-  %.0.i.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %2 ], [ %16, %9 ]
+  %.0.i.i = phi ptr [ %16, %9 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !531
   store ptr %1, ptr %4, align 8, !alias.scope !528, !noalias !543
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2263,7 +2263,7 @@ define void @_ZN12clap_builder7builder7command7Command13render_usage_17h1eb8a3b4
   unreachable
 
 _ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit: ; preds = %2, %8
-  %.0.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %2 ], [ %15, %8 ]
+  %.0.i = phi ptr [ %15, %8 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !547
   store ptr %1, ptr %4, align 8, !alias.scope !544, !noalias !558
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3415,7 +3415,7 @@ define hidden { i64, i64 } @_ZN12clap_builder7builder7command7Command14get_term_
 
 _ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit.thread: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !776
-  br label %20
+  br label %21
 
 6:                                                ; preds = %1
   call void @llvm.experimental.noalias.scope.decl(metadata !779)
@@ -3432,23 +3432,23 @@ _ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit.thread: ;
   %16 = load ptr, ptr %15, align 8, !invariant.load !5, !alias.scope !782, !nonnull !5
   %17 = call noundef i128 %16(ptr noundef nonnull align 1 %13), !noalias !782
   %.not.i.i = icmp eq i128 %17, 150386940411188751217043345048958912678
-  br i1 %.not.i.i, label %_ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit, label %18
+  br i1 %.not.i.i, label %19, label %18
 
 18:                                               ; preds = %6
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a0f5fbf39a3a1cb96a1e7648a0e2d151.37.llvm.2531363454801242601, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a0f5fbf39a3a1cb96a1e7648a0e2d151.39.llvm.2531363454801242601) #27, !noalias !779
   unreachable
 
-_ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit: ; preds = %6
+19:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !776
-  %19 = load i64, ptr %13, align 8, !noundef !5
-  br label %20
+  %20 = load i64, ptr %13, align 8, !noundef !5
+  br label %21
 
-20:                                               ; preds = %_ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit.thread, %_ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit
-  %.sroa.3.0 = phi i64 [ %19, %_ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit ], [ undef, %_ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit.thread ]
-  %.sroa.0.0 = phi i64 [ 1, %_ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit ], [ 0, %_ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit.thread ]
-  %21 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %22 = insertvalue { i64, i64 } %21, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %22
+21:                                               ; preds = %_ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit.thread, %19
+  %.sroa.3.0 = phi i64 [ %20, %19 ], [ undef, %_ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit.thread ]
+  %.sroa.0.0 = phi i64 [ 1, %19 ], [ 0, %_ZN12clap_builder7builder3ext10Extensions3get17he9647885b5f885baE.exit.thread ]
+  %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %23 = insertvalue { i64, i64 } %22, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %23
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3463,7 +3463,7 @@ define hidden { i64, i64 } @_ZN12clap_builder7builder7command7Command18get_max_t
 
 _ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit.thread: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !785
-  br label %20
+  br label %21
 
 6:                                                ; preds = %1
   call void @llvm.experimental.noalias.scope.decl(metadata !788)
@@ -3480,23 +3480,23 @@ _ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit.thread: ;
   %16 = load ptr, ptr %15, align 8, !invariant.load !5, !alias.scope !791, !nonnull !5
   %17 = call noundef i128 %16(ptr noundef nonnull align 1 %13), !noalias !791
   %.not.i.i = icmp eq i128 %17, 89112216542684686001844060841048690714
-  br i1 %.not.i.i, label %_ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit, label %18
+  br i1 %.not.i.i, label %19, label %18
 
 18:                                               ; preds = %6
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a0f5fbf39a3a1cb96a1e7648a0e2d151.37.llvm.2531363454801242601, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a0f5fbf39a3a1cb96a1e7648a0e2d151.39.llvm.2531363454801242601) #27, !noalias !788
   unreachable
 
-_ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit: ; preds = %6
+19:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !785
-  %19 = load i64, ptr %13, align 8, !noundef !5
-  br label %20
+  %20 = load i64, ptr %13, align 8, !noundef !5
+  br label %21
 
-20:                                               ; preds = %_ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit.thread, %_ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit
-  %.sroa.3.0 = phi i64 [ %19, %_ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit ], [ undef, %_ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit.thread ]
-  %.sroa.0.0 = phi i64 [ 1, %_ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit ], [ 0, %_ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit.thread ]
-  %21 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %22 = insertvalue { i64, i64 } %21, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %22
+21:                                               ; preds = %_ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit.thread, %19
+  %.sroa.3.0 = phi i64 [ %20, %19 ], [ undef, %_ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit.thread ]
+  %.sroa.0.0 = phi i64 [ 1, %19 ], [ 0, %_ZN12clap_builder7builder3ext10Extensions3get17hee98cd72aa98a97aE.exit.thread ]
+  %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %23 = insertvalue { i64, i64 } %22, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -6499,7 +6499,7 @@ define hidden noundef align 8 dereferenceable_or_null(712) ptr @_ZN12clap_builde
   unreachable
 
 82:                                               ; preds = %.noexc96, %.noexc
-  %.0.i94 = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ], [ %76, %.noexc96 ]
+  %.0.i94 = phi ptr [ %76, %.noexc96 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !1427
   store ptr %0, ptr %45, align 8, !alias.scope !1424, !noalias !1438
   %83 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -7486,7 +7486,7 @@ define hidden void @_ZN12clap_builder7builder7command7Command25_build_bin_names_
   unreachable
 
 83:                                               ; preds = %.noexc96, %.noexc
-  %.0.i94 = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ], [ %77, %.noexc96 ]
+  %.0.i94 = phi ptr [ %77, %.noexc96 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !1688
   store ptr %0, ptr %41, align 8, !alias.scope !1685, !noalias !1699
   %84 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -10070,7 +10070,7 @@ define hidden void @_ZN12clap_builder7builder7command7Command14write_help_err17h
   unreachable
 
 _ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit: ; preds = %3, %13
-  %.0.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %3 ], [ %20, %13 ]
+  %.0.i = phi ptr [ %20, %13 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2373
   store ptr %1, ptr %6, align 8, !alias.scope !2370, !noalias !2384
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8

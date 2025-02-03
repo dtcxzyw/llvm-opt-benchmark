@@ -1530,7 +1530,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %33, %40, %46
   %82 = load i32, ptr %3, align 4
   %83 = add nsw i32 %82, 1
   store i32 %83, ptr %3, align 4
-  %84 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.014.027) #18
+  %84 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.014.027) #18
   %.not = icmp eq ptr %84, %75
   br i1 %.not, label %._crit_edge30.loopexit, label %.lr.ph29, !llvm.loop !28
 

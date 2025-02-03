@@ -754,7 +754,12 @@ _ZNSt6vectorIPN3gmx21AbstractOptionStorageESaIS2_EE7reserveEm.exit: ; preds = %_
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(32) %42)
-          to label %43 unwind label %124
+          to label %43 unwind label %.thread58
+
+.thread58:                                        ; preds = %_ZNSt6vectorIPN3gmx21AbstractOptionStorageESaIS2_EE7reserveEm.exit
+  %lpad.thr_comm.split-lp59 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNKSt14default_deleteIN3gmx21AbstractOptionStorageEEclEPS1_.exit.i33
 
 43:                                               ; preds = %_ZNSt6vectorIPN3gmx21AbstractOptionStorageESaIS2_EE7reserveEm.exit
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -991,13 +996,14 @@ _ZNSt6vectorIPN3gmx21AbstractOptionStorageESaIS2_EE9push_backEOS2_.exit: ; preds
   %123 = call noundef nonnull align 8 dereferenceable(16) ptr %122(ptr noundef nonnull align 8 dereferenceable(98) %71)
   ret ptr %123
 
-124:                                              ; preds = %26, %_ZNSt12_Vector_baseIPN3gmx21AbstractOptionStorageESaIS2_EE11_M_allocateEm.exit.i, %_ZNSt6vectorIPN3gmx21AbstractOptionStorageESaIS2_EE7reserveEm.exit
+124:                                              ; preds = %26, %_ZNSt12_Vector_baseIPN3gmx21AbstractOptionStorageESaIS2_EE11_M_allocateEm.exit.i
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %.not.i32 = icmp eq ptr %15, null
   br i1 %.not.i32, label %_ZNSt10unique_ptrIN3gmx21AbstractOptionStorageESt14default_deleteIS1_EED2Ev.exit34, label %_ZNKSt14default_deleteIN3gmx21AbstractOptionStorageEEclEPS1_.exit.i33
 
-_ZNKSt14default_deleteIN3gmx21AbstractOptionStorageEEclEPS1_.exit.i33: ; preds = %124
+_ZNKSt14default_deleteIN3gmx21AbstractOptionStorageEEclEPS1_.exit.i33: ; preds = %.thread58, %124
+  %lpad.thr_comm.split-lp61 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp59, %.thread58 ], [ %lpad.thr_comm.split-lp, %124 ]
   %125 = load ptr, ptr %15, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
@@ -1005,7 +1011,7 @@ _ZNKSt14default_deleteIN3gmx21AbstractOptionStorageEEclEPS1_.exit.i33: ; preds =
   br label %_ZNSt10unique_ptrIN3gmx21AbstractOptionStorageESt14default_deleteIS1_EED2Ev.exit34
 
 _ZNSt10unique_ptrIN3gmx21AbstractOptionStorageESt14default_deleteIS1_EED2Ev.exit34: ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN3gmx21AbstractOptionStorageESt14default_deleteIS8_EEED2Ev.exit27, %93, %94, %124, %_ZNKSt14default_deleteIN3gmx21AbstractOptionStorageEEclEPS1_.exit.i33
-  %.pn1852 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %124 ], [ %lpad.thr_comm.split-lp, %_ZNKSt14default_deleteIN3gmx21AbstractOptionStorageEEclEPS1_.exit.i33 ], [ %82, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN3gmx21AbstractOptionStorageESt14default_deleteIS8_EEED2Ev.exit27 ], [ %.pn, %93 ], [ %.pn.pn.pn44, %94 ]
+  %.pn1852 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %124 ], [ %lpad.thr_comm.split-lp61, %_ZNKSt14default_deleteIN3gmx21AbstractOptionStorageEEclEPS1_.exit.i33 ], [ %82, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN3gmx21AbstractOptionStorageESt14default_deleteIS8_EEED2Ev.exit27 ], [ %.pn, %93 ], [ %.pn.pn.pn44, %94 ]
   resume { ptr, i32 } %.pn1852
 
 128:                                              ; preds = %80
@@ -2747,7 +2753,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %50, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN3gmx21AbstractOptionStorageESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE24_M_get_insert_unique_posERS7_.exit, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #28
+  %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit11 unwind label %55
@@ -2853,7 +2859,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %91, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN3gmx21AbstractOptionStorageESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE24_M_get_insert_unique_posERS7_.exit, label %92
 
 92:                                               ; preds = %88
-  %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #28
+  %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %94)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit35 unwind label %96

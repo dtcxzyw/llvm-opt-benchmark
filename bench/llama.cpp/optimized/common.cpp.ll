@@ -6000,7 +6000,7 @@ invoke.cont1827:                                  ; preds = %if.then1824
 lpad1826:                                         ; preds = %if.then1824
   %256 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception1825) #34
+  call void @__cxa_free_exception(ptr nonnull %exception1825) #34
   br label %ehcleanup1868
 
 if.end1829:                                       ; preds = %lor.lhs.false1821, %if.end1812
@@ -16493,7 +16493,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #34
   resume { ptr, i32 } %0
 }
 
@@ -27438,7 +27438,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad ], [ %0, %lpad.i.i ]
   %2 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #34
-  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %__result, ptr noundef %__cur.012)
+  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %__result, ptr noundef nonnull %__cur.012)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %lpad.body

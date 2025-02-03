@@ -2984,11 +2984,11 @@ exp2.i.i.i.noexc:                                 ; preds = %114
   br i1 %212, label %215, label %214
 
 214:                                              ; preds = %202
-  invoke void @_ZN2cv8ximgproc10intrinsics11add_sqr_difEPfS2_S2_i(ptr noundef %201, ptr noundef %211, ptr noundef nonnull %213, i32 noundef %191)
+  invoke void @_ZN2cv8ximgproc10intrinsics11add_sqr_difEPfS2_S2_i(ptr noundef %201, ptr noundef nonnull %211, ptr noundef nonnull %213, i32 noundef %191)
           to label %.noexc49.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 215:                                              ; preds = %202
-  invoke void @_ZN2cv8ximgproc10intrinsics7sqr_difEPfS2_S2_i(ptr noundef %201, ptr noundef %211, ptr noundef nonnull %213, i32 noundef %191)
+  invoke void @_ZN2cv8ximgproc10intrinsics7sqr_difEPfS2_S2_i(ptr noundef %201, ptr noundef nonnull %211, ptr noundef nonnull %213, i32 noundef %191)
           to label %.noexc49.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc49.i:                                       ; preds = %215, %214

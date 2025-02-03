@@ -73,7 +73,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #12
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #12
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
@@ -185,7 +185,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 common.resume:                                    ; preds = %lpad, %lpad.i
   %exception.sink = phi ptr [ %exception, %lpad ], [ %exception.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %5, %lpad ], [ %1, %lpad.i ]
-  tail call void @__cxa_free_exception(ptr %exception.sink) #12
+  tail call void @__cxa_free_exception(ptr nonnull %exception.sink) #12
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i

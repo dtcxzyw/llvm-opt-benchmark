@@ -775,7 +775,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9ut_detail15throw_exceptionI
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #20
+  tail call void @__cxa_free_exception(ptr nonnull %2) #20
   resume { ptr, i32 } %5
 }
 
@@ -1010,7 +1010,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9ut_detail15throw_exceptionI
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #20
+  tail call void @__cxa_free_exception(ptr nonnull %2) #20
   resume { ptr, i32 } %5
 }
 

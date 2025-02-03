@@ -1520,7 +1520,7 @@ define noundef i32 @_ZN7glslang10TPpContext7CPPelseEiPNS_8TPpTokenE(ptr noundef 
   br i1 %37, label %38, label %66
 
 38:                                               ; preds = %36
-  %39 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %2)
+  %39 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %2)
   switch i32 %39, label %40 [
     i32 -1, label %_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit
     i32 10, label %_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit
@@ -1595,8 +1595,8 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds [65 x i8], ptr %8, i64 0, i64 %71
   store i8 1, ptr %72, align 1
-  %73 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %2)
-  %74 = tail call noundef i32 @_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 168, ptr noundef %2, i32 noundef %73)
+  %73 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %2)
+  %74 = tail call noundef i32 @_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 168, ptr noundef nonnull %2, i32 noundef %73)
   br label %.loopexit
 
 75:                                               ; preds = %68
@@ -1633,7 +1633,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
   br label %96
 
 96:                                               ; preds = %89, %86
-  %97 = tail call noundef i32 @_ZN7glslang10TPpContext5CPPifEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %2)
+  %97 = tail call noundef i32 @_ZN7glslang10TPpContext5CPPifEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %2)
   br label %.loopexit
 
 98:                                               ; preds = %66
@@ -1663,7 +1663,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
   br label %111
 
 111:                                              ; preds = %110, %105
-  %112 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %2)
+  %112 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %2)
   switch i32 %112, label %113 [
     i32 -1, label %.outer.backedge
     i32 10, label %.outer.backedge
@@ -2186,7 +2186,7 @@ define noundef i32 @_ZN7glslang10TPpContext11evalToTokenEibRiRbPNS_8TPpTokenE(pt
   br i1 %.not21.us, label %.critedge, label %10
 
 10:                                               ; preds = %.preheader.split.us
-  %11 = tail call noundef i32 @_ZN7glslang10TPpContext11MacroExpandEPNS_8TPpTokenEbb(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %5, i1 noundef zeroext true, i1 noundef zeroext false)
+  %11 = tail call noundef i32 @_ZN7glslang10TPpContext11MacroExpandEPNS_8TPpTokenEbb(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %5, i1 noundef zeroext true, i1 noundef zeroext false)
   %switch = icmp samesign ult i32 %11, 2
   br i1 %switch, label %12, label %17
 
@@ -2201,7 +2201,7 @@ define noundef i32 @_ZN7glslang10TPpContext11evalToTokenEibRiRbPNS_8TPpTokenE(pt
   br label %17
 
 17:                                               ; preds = %10, %12
-  %18 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %5)
+  %18 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %5)
   %19 = load i8, ptr %4, align 1
   %20 = trunc i8 %19 to i1
   %21 = icmp ne i32 %18, 162
@@ -2214,7 +2214,7 @@ define noundef i32 @_ZN7glslang10TPpContext11evalToTokenEibRiRbPNS_8TPpTokenE(pt
   br i1 %.not21, label %.critedge, label %23
 
 23:                                               ; preds = %.preheader.split
-  %24 = tail call noundef i32 @_ZN7glslang10TPpContext11MacroExpandEPNS_8TPpTokenEbb(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %5, i1 noundef zeroext true, i1 noundef zeroext false)
+  %24 = tail call noundef i32 @_ZN7glslang10TPpContext11MacroExpandEPNS_8TPpTokenEbb(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %5, i1 noundef zeroext true, i1 noundef zeroext false)
   switch i32 %24, label %default.unreachable [
     i32 0, label %25
     i32 1, label %25
@@ -2263,7 +2263,7 @@ default.unreachable:                              ; preds = %23
   unreachable
 
 46:                                               ; preds = %23, %30, %43, %40, %25
-  %47 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %5)
+  %47 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %5)
   %48 = load i8, ptr %4, align 1
   %49 = trunc i8 %48 to i1
   %50 = icmp ne i32 %47, 162
@@ -5269,7 +5269,7 @@ define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext11readCPPlineEPNS_8
   ]
 
 9:                                                ; preds = %5
-  %10 = tail call noundef i32 @_ZN7glslang10TPpContext9CPPdefineEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
+  %10 = tail call noundef i32 @_ZN7glslang10TPpContext9CPPdefineEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
   br label %.preheader
 
 11:                                               ; preds = %5
@@ -5312,9 +5312,9 @@ define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext11readCPPlineEPNS_8
   br label %36
 
 36:                                               ; preds = %30, %25
-  %37 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
-  %38 = tail call noundef i32 @_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 168, ptr noundef %1, i32 noundef %37)
-  %39 = tail call noundef i32 @_ZN7glslang10TPpContext7CPPelseEiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 0, ptr noundef %1)
+  %37 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
+  %38 = tail call noundef i32 @_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 168, ptr noundef nonnull %1, i32 noundef %37)
+  %39 = tail call noundef i32 @_ZN7glslang10TPpContext7CPPelseEiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 0, ptr noundef nonnull %1)
   br label %.preheader
 
 40:                                               ; preds = %5
@@ -5355,14 +5355,14 @@ define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext11readCPPlineEPNS_8
   br label %64
 
 64:                                               ; preds = %.preheader45, %64
-  %65 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
+  %65 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
   switch i32 %65, label %64 [
     i32 -1, label %66
     i32 10, label %66
   ], !llvm.loop !56
 
 66:                                               ; preds = %64, %64
-  %67 = tail call noundef i32 @_ZN7glslang10TPpContext7CPPelseEiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 0, ptr noundef %1)
+  %67 = tail call noundef i32 @_ZN7glslang10TPpContext7CPPelseEiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 0, ptr noundef nonnull %1)
   br label %.preheader
 
 68:                                               ; preds = %5
@@ -5396,24 +5396,24 @@ define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext11readCPPlineEPNS_8
   br label %88
 
 88:                                               ; preds = %78, %72
-  %89 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
-  %90 = tail call noundef i32 @_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 170, ptr noundef %1, i32 noundef %89)
+  %89 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
+  %90 = tail call noundef i32 @_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 170, ptr noundef nonnull %1, i32 noundef %89)
   br label %.preheader
 
 91:                                               ; preds = %5
-  %92 = tail call noundef i32 @_ZN7glslang10TPpContext5CPPifEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
+  %92 = tail call noundef i32 @_ZN7glslang10TPpContext5CPPifEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
   br label %.preheader
 
 93:                                               ; preds = %5
-  %94 = tail call noundef i32 @_ZN7glslang10TPpContext8CPPifdefEiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 1, ptr noundef %1)
+  %94 = tail call noundef i32 @_ZN7glslang10TPpContext8CPPifdefEiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 1, ptr noundef nonnull %1)
   br label %.preheader
 
 95:                                               ; preds = %5
-  %96 = tail call noundef i32 @_ZN7glslang10TPpContext8CPPifdefEiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 0, ptr noundef %1)
+  %96 = tail call noundef i32 @_ZN7glslang10TPpContext8CPPifdefEiPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 0, ptr noundef nonnull %1)
   br label %.preheader
 
 97:                                               ; preds = %5
-  %98 = tail call noundef i32 @_ZN7glslang10TPpContext7CPPlineEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
+  %98 = tail call noundef i32 @_ZN7glslang10TPpContext7CPPlineEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
   br label %.preheader
 
 99:                                               ; preds = %5
@@ -5438,27 +5438,27 @@ define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext11readCPPlineEPNS_8
   br label %110
 
 110:                                              ; preds = %105, %99
-  %111 = call noundef i32 @_ZN7glslang10TPpContext10CPPincludeEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
+  %111 = call noundef i32 @_ZN7glslang10TPpContext10CPPincludeEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
   br label %.preheader
 
 112:                                              ; preds = %5
-  %113 = tail call noundef i32 @_ZN7glslang10TPpContext9CPPpragmaEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
+  %113 = tail call noundef i32 @_ZN7glslang10TPpContext9CPPpragmaEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
   br label %.preheader
 
 114:                                              ; preds = %5
-  %115 = tail call noundef i32 @_ZN7glslang10TPpContext8CPPundefEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
+  %115 = tail call noundef i32 @_ZN7glslang10TPpContext8CPPundefEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
   br label %.preheader
 
 116:                                              ; preds = %5
-  %117 = tail call noundef i32 @_ZN7glslang10TPpContext8CPPerrorEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
+  %117 = tail call noundef i32 @_ZN7glslang10TPpContext8CPPerrorEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
   br label %.preheader
 
 118:                                              ; preds = %5
-  %119 = tail call noundef i32 @_ZN7glslang10TPpContext10CPPversionEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
+  %119 = tail call noundef i32 @_ZN7glslang10TPpContext10CPPversionEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
   br label %.preheader
 
 120:                                              ; preds = %5
-  %121 = tail call noundef i32 @_ZN7glslang10TPpContext12CPPextensionEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
+  %121 = tail call noundef i32 @_ZN7glslang10TPpContext12CPPextensionEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %1)
   br label %.preheader
 
 122:                                              ; preds = %5
@@ -5771,7 +5771,7 @@ define noundef i32 @_ZN7glslang10TPpContext11tMacroInput4scanEPNS_8TPpTokenE(ptr
   %81 = trunc i8 %80 to i1
   tail call void @_ZN7glslang10TPpContext20pushTokenStreamInputERNS0_11TokenStreamEbb(ptr noundef nonnull align 8 dereferenceable(969) %39, ptr noundef nonnull align 8 dereferenceable(40) %.020, i1 noundef zeroext %81, i1 noundef zeroext %65) #17
   %82 = load ptr, ptr %4, align 8
-  %83 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %82, ptr noundef %1)
+  %83 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %82, ptr noundef nonnull %1)
   br label %.critedge
 
 84:                                               ; preds = %28
@@ -10208,7 +10208,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %38, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE24_M_get_insert_unique_posERS7_.exit, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #19
+  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #19
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   %43 = icmp slt i32 %42, 0
@@ -10274,7 +10274,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %67, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE24_M_get_insert_unique_posERS7_.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #19
+  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #19
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %70) #17
   %72 = icmp slt i32 %71, 0

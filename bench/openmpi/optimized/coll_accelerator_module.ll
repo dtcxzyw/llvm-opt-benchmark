@@ -390,12 +390,12 @@ define noundef ptr @mca_coll_accelerator_comm_query(ptr noundef readnone capture
 4:                                                ; preds = %2
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %6 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %5) #8
-  br i1 %6, label %7, label %opal_obj_new.exit.thread
+  br i1 %6, label %7, label %opal_obj_new.exit
 
 7:                                                ; preds = %4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %8, ptr noundef nonnull @.str.2) #8
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
 9:                                                ; preds = %2
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_accelerator_module_t_class, i64 56), align 8
@@ -411,7 +411,7 @@ define noundef ptr @mca_coll_accelerator_comm_query(ptr noundef readnone capture
 
 15:                                               ; preds = %14, %9
   %.not9.i = icmp eq ptr %11, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %16
+  br i1 %.not9.i, label %opal_obj_new.exit, label %16
 
 16:                                               ; preds = %15
   store ptr @mca_coll_accelerator_module_t_class, ptr %11, align 8
@@ -420,7 +420,7 @@ define noundef ptr @mca_coll_accelerator_comm_query(ptr noundef readnone capture
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_accelerator_module_t_class, i64 40), align 8
   %19 = load ptr, ptr %18, align 8
   %.not6.i.i = icmp eq ptr %19, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread23, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
   %20 = phi ptr [ %22, %.lr.ph.i.i ], [ %19, %16 ]
@@ -429,9 +429,9 @@ define noundef ptr @mca_coll_accelerator_comm_query(ptr noundef readnone capture
   %21 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread23, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !6
 
-opal_obj_new.exit.thread23:                       ; preds = %.lr.ph.i.i, %16
+.loopexit:                                        ; preds = %.lr.ph.i.i, %16
   %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_accelerator_component, i64 280), align 8
   store i32 %23, ptr %1, align 4
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -456,10 +456,10 @@ opal_obj_new.exit.thread23:                       ; preds = %.lr.ph.i.i, %16
   store ptr @mca_coll_accelerator_scan, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %15, %7, %4, %opal_obj_new.exit.thread23
-  %.0 = phi ptr [ %11, %opal_obj_new.exit.thread23 ], [ null, %4 ], [ null, %7 ], [ null, %15 ]
+opal_obj_new.exit:                                ; preds = %15, %7, %4, %.loopexit
+  %.0 = phi ptr [ %11, %.loopexit ], [ null, %4 ], [ null, %7 ], [ null, %15 ]
   ret ptr %.0
 }
 

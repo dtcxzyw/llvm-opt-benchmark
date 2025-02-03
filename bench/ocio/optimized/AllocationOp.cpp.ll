@@ -287,7 +287,7 @@ invoke.cont:                                      ; preds = %sw.bb66
 lpad:                                             ; preds = %sw.bb66
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #8
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #8
   resume { ptr, i32 } %5
 
 sw.epilog67:                                      ; preds = %if.end55, %sw.bb56, %sw.bb61, %if.end, %entry

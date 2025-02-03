@@ -1654,7 +1654,7 @@ if.then:                                          ; preds = %refspec_match.exit.
   %peer_ref = getelementptr inbounds nuw i8, ptr %3, i64 168
   %10 = load ptr, ptr %peer_ref, align 8
   tail call void @free(ptr noundef %10) #21
-  tail call void @free(ptr noundef %3) #21
+  tail call void @free(ptr noundef nonnull %3) #21
   br label %if.end
 
 if.end:                                           ; preds = %for.inc.i, %for.body, %if.then
@@ -3649,7 +3649,7 @@ if.then59:                                        ; preds = %if.end56
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then59, %if.end56
-  call void @free(ptr noundef %call50) #21
+  call void @free(ptr noundef nonnull %call50) #21
   br label %for.inc64
 
 for.inc64:                                        ; preds = %if.end49, %if.end62, %for.body45
@@ -5835,7 +5835,7 @@ find_ref_by_name.exit33.thread:                   ; preds = %for.inc.i30, %if.th
   br label %if.end17
 
 land.lhs.true:                                    ; preds = %for.body.i25
-  tail call void @free(ptr noundef %call9) #21
+  tail call void @free(ptr noundef nonnull %call9) #21
   %old_oid = getelementptr inbounds nuw i8, ptr %list.addr.05.i26, i64 8
   %old_oid12 = getelementptr inbounds nuw i8, ptr %head, i64 8
   %algo.i = getelementptr inbounds nuw i8, ptr %list.addr.05.i26, i64 40

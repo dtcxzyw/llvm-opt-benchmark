@@ -23074,7 +23074,7 @@ define linkonce_odr dso_local void @_ZN20DataFlowGraphFixture3dfgERKNSt7__cxx111
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  call void @__cxa_free_exception(ptr %16) #17
+  call void @__cxa_free_exception(ptr nonnull %16) #17
   br label %73
 
 28:                                               ; preds = %2

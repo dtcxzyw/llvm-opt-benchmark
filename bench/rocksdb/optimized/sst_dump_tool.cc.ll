@@ -3115,7 +3115,7 @@ invoke.cont853:                                   ; preds = %invoke.cont849
   %call858 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %253, ptr noundef nonnull @.str.81, ptr noundef %call854, ptr noundef %call855)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prop_val) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prop_name) #21
-  %call.i495 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin5.sroa.0.01688) #22
+  %call.i495 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin5.sroa.0.01688) #22
   %cmp.i491.not = icmp eq ptr %call.i495, %add.ptr.i.i490
   br i1 %cmp.i491.not, label %if.end868, label %for.body847
 

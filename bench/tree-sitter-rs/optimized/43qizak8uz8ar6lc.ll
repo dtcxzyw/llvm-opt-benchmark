@@ -6528,7 +6528,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..p
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1635)
   %17 = load ptr, ptr %16, align 8, !alias.scope !1635, !noundef !14
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef align 8 dereferenceable(48) %17)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$17h9e378245529c10a0E.exit" unwind label %18, !noalias !1635
 
 common.resume.sink.split:                         ; preds = %18, %67, %72, %77, %118, %152, %159, %166, %173
@@ -6554,7 +6554,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1638)
   %22 = load ptr, ptr %21, align 8, !alias.scope !1638, !noundef !14
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef align 8 dereferenceable(48) %22)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(48) %22)
           to label %120 unwind label %.body, !noalias !1638
 
 .body:                                            ; preds = %20
@@ -6663,7 +6663,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1677)
   %66 = load ptr, ptr %65, align 8, !alias.scope !1677, !noundef !14
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef align 8 dereferenceable(48) %66)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(48) %66)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$17h9e378245529c10a0E.exit16" unwind label %67, !noalias !1677
 
 67:                                               ; preds = %64
@@ -6679,7 +6679,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1680)
   %71 = load ptr, ptr %70, align 8, !alias.scope !1680, !noundef !14
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef align 8 dereferenceable(48) %71)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(48) %71)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$17h9e378245529c10a0E.exit19" unwind label %72, !noalias !1680
 
 72:                                               ; preds = %69
@@ -6695,7 +6695,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1683)
   %76 = load ptr, ptr %75, align 8, !alias.scope !1683, !noundef !14
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef align 8 dereferenceable(48) %76)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(48) %76)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$17h9e378245529c10a0E.exit22" unwind label %77, !noalias !1683
 
 77:                                               ; preds = %74
@@ -6801,7 +6801,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1722)
   %117 = load ptr, ptr %116, align 8, !alias.scope !1722, !noundef !14
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef align 8 dereferenceable(48) %117)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(48) %117)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$17h9e378245529c10a0E.exit37" unwind label %118, !noalias !1722
 
 118:                                              ; preds = %115
@@ -6888,7 +6888,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1746)
   %151 = load ptr, ptr %150, align 8, !alias.scope !1746, !noundef !14
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef align 8 dereferenceable(48) %151)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(48) %151)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$17h9e378245529c10a0E.exit44" unwind label %152, !noalias !1746
 
 152:                                              ; preds = %149
@@ -6911,7 +6911,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1749)
   %158 = load ptr, ptr %157, align 8, !alias.scope !1749, !noundef !14
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef align 8 dereferenceable(48) %158)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(48) %158)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$17h9e378245529c10a0E.exit47" unwind label %159, !noalias !1749
 
 159:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$17hbae1b21a0e84e387E.exit"
@@ -6934,7 +6934,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1752)
   %165 = load ptr, ptr %164, align 8, !alias.scope !1752, !noundef !14
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef align 8 dereferenceable(48) %165)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(48) %165)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$17h9e378245529c10a0E.exit50" unwind label %166, !noalias !1752
 
 166:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$17hbae1b21a0e84e387E.exit29"
@@ -6957,7 +6957,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1755)
   %172 = load ptr, ptr %171, align 8, !alias.scope !1755, !noundef !14
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef align 8 dereferenceable(48) %172)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(48) %172)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$17h9e378245529c10a0E.exit53" unwind label %173, !noalias !1755
 
 173:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$17hbae1b21a0e84e387E.exit34"
@@ -7029,7 +7029,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tree_sitter_cli..ge
 ; Function Attrs: nonlazybind uwtable
 define internal void @"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassSet$GT$$GT$17hccf6eeff197291faE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !14
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex_syntax..ast..ClassSet$GT$17hc881011acd4cf69dE"(ptr noalias noundef align 8 dereferenceable(160) %2)
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex_syntax..ast..ClassSet$GT$17hc881011acd4cf69dE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
@@ -7134,7 +7134,7 @@ define internal void @"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$tr
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$17h9e378245529c10a0E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !14
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef align 8 dereferenceable(48) %2)
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$17h3bf65e424349c22aE.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1

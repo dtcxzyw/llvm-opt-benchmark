@@ -26,20 +26,20 @@ define internal void @save_value(ptr noundef readonly captures(none) %0, ptr nou
   %3 = load ptr, ptr @_param_list, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.01522 = load volatile ptr, ptr %4, align 8
-  %.not.not23 = icmp eq ptr %.01522, %5
-  br i1 %.not.not23, label %.critedge, label %.lr.ph
+  %.01521 = load volatile ptr, ptr %4, align 8
+  %.not.not22 = icmp eq ptr %.01521, %5
+  br i1 %.not.not22, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %14
-  %.01524 = phi ptr [ %.015, %14 ], [ %.01522, %2 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.01524, i64 40
+  %.01523 = phi ptr [ %.015, %14 ], [ %.01521, %2 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.01523, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %7) #7
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.01524, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %.01523, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not19 = icmp eq ptr %12, null
   br i1 %.not19, label %42, label %13
@@ -49,7 +49,7 @@ define internal void @save_value(ptr noundef readonly captures(none) %0, ptr nou
   br label %42
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.01524, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.01523, i64 16
   %.015 = load volatile ptr, ptr %15, align 8
   %.not.not = icmp eq ptr %.015, %5
   br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !4
@@ -68,7 +68,7 @@ define internal void @save_value(ptr noundef readonly captures(none) %0, ptr nou
 
 21:                                               ; preds = %20, %.critedge
   %.not9.i = icmp eq ptr %17, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %22
+  br i1 %.not9.i, label %opal_obj_new.exit, label %22
 
 22:                                               ; preds = %21
   store ptr @mca_base_var_file_value_t_class, ptr %17, align 8
@@ -77,7 +77,7 @@ define internal void @save_value(ptr noundef readonly captures(none) %0, ptr nou
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_base_var_file_value_t_class, i64 40), align 8
   %25 = load ptr, ptr %24, align 8
   %.not6.i.i = icmp eq ptr %25, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread20, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.i.i
   %26 = phi ptr [ %28, %.lr.ph.i.i ], [ %25, %22 ]
@@ -86,9 +86,9 @@ define internal void @save_value(ptr noundef readonly captures(none) %0, ptr nou
   %27 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread20, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !6
 
-opal_obj_new.exit.thread20:                       ; preds = %.lr.ph.i.i, %22
+.loopexit:                                        ; preds = %.lr.ph.i.i, %22
   %29 = tail call noalias ptr @strdup(ptr noundef %0) #6
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %29, ptr %30, align 8
@@ -110,8 +110,8 @@ opal_obj_new.exit.thread20:                       ; preds = %.lr.ph.i.i, %22
   store volatile i64 %41, ptr %39, align 8
   br label %42
 
-42:                                               ; preds = %13, %10, %opal_obj_new.exit.thread20
-  %.1 = phi ptr [ %17, %opal_obj_new.exit.thread20 ], [ %.01524, %10 ], [ %.01524, %13 ]
+42:                                               ; preds = %13, %10, %.loopexit
+  %.1 = phi ptr [ %17, %.loopexit ], [ %.01523, %10 ], [ %.01523, %13 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %45, label %43
 
@@ -129,9 +129,9 @@ opal_obj_new.exit.thread20:                       ; preds = %.lr.ph.i.i, %22
   %50 = load i32, ptr @opal_util_keyval_parse_lineno, align 4
   %51 = getelementptr inbounds nuw i8, ptr %.1, i64 64
   store i32 %50, ptr %51, align 8
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %21, %45
+opal_obj_new.exit:                                ; preds = %21, %45
   ret void
 }
 

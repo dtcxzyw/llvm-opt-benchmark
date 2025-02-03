@@ -9159,7 +9159,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %276, %_Z
 
 295:                                              ; preds = %290
   %296 = getelementptr inbounds nuw i8, ptr %287, i64 64
-  call fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_SP_T0_"(ptr noundef %287, ptr noundef nonnull %296, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.282") align 8 %11)
+  call fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_SP_T0_"(ptr noundef nonnull %287, ptr noundef nonnull %296, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.282") align 8 %11)
   %297 = load i8, ptr %14, align 1
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -9314,7 +9314,7 @@ _ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN
   br i1 %.not.i.i.i.i.i.i.i55, label %"_ZN4llvm4sortIRNS_11SmallVectorIjLj16EEEZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKNS_15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS_8ArrayRefINS4_7tooling5RangeEEENS_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEvOT_T0_.exit.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !75
 
 363:                                              ; preds = %290
-  call fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_SP_T0_"(ptr noundef %287, ptr noundef nonnull %289, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.282") align 8 %11)
+  call fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_SP_T0_"(ptr noundef nonnull %287, ptr noundef nonnull %289, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.282") align 8 %11)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorIjLj16EEEZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKNS_15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS_8ArrayRefINS4_7tooling5RangeEEENS_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEvOT_T0_.exit.i"
 
 "_ZN4llvm4sortIRNS_11SmallVectorIjLj16EEEZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKNS_15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS_8ArrayRefINS4_7tooling5RangeEEENS_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEvOT_T0_.exit.i": ; preds = %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i.i", %363, %._crit_edge.i
@@ -11326,7 +11326,7 @@ _ZN4llvm5ErrorD2Ev.exit83.i:                      ; preds = %316, %_ZN4llvm11raw
   br label %_ZN4llvm5ErrorD2Ev.exit84.i
 
 _ZN4llvm5ErrorD2Ev.exit84.i:                      ; preds = %321, %_ZN4llvm5ErrorD2Ev.exit83.i, %.lr.ph163.i
-  %325 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0116.0162.i) #30, !noalias !112
+  %325 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0116.0162.i) #30, !noalias !112
   %.not155.i = icmp eq ptr %325, %235
   br i1 %.not155.i, label %._crit_edge164.i, label %.lr.ph163.i
 
@@ -11509,7 +11509,7 @@ _ZN4llvm5ErrorD2Ev.exit101.i:                     ; preds = %397, %394, %371, %_
   br label %_ZNSt8optionalIN5clang7tooling11ReplacementEED2Ev.exit.i
 
 _ZNSt8optionalIN5clang7tooling11ReplacementEED2Ev.exit.i: ; preds = %403, %_ZN4llvm5ErrorD2Ev.exit101.i
-  %404 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0112.0171.i) #30, !noalias !112
+  %404 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0112.0171.i) #30, !noalias !112
   %.not152.i = icmp eq ptr %404, %67
   br i1 %.not152.i, label %._crit_edge174.i, label %347
 
@@ -22177,7 +22177,7 @@ _ZNSt4pairIN5clang7tooling12ReplacementsEjEC2IS2_iTnNSt9enable_ifIXaaclsr6_PCCFP
   br label %191
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %.lr.ph39
-  %174 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.029.037) #30
+  %174 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.029.037) #30
   %.not33 = icmp eq ptr %174, %132
   br i1 %.not33, label %._crit_edge40, label %.lr.ph39
 

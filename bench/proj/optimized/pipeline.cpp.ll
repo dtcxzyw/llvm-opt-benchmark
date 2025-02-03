@@ -165,7 +165,7 @@ _ZNSt5stackIdSt5dequeIdSaIdEEEC2IS2_vEEv.exit.i:  ; preds = %24
 .loopexit.i:                                      ; preds = %.preheader.i, %26
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 16
   tail call fastcc void @_ZNSt6vectorIN12_GLOBAL__N_14StepESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #17
-  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #18
+  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #18
   resume { ptr, i32 } %27
 
 31:                                               ; preds = %8

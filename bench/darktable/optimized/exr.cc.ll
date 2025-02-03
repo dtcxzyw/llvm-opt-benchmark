@@ -3155,7 +3155,7 @@ define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEE13copyVal
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #29
+  tail call void @__cxa_free_exception(ptr nonnull %6) #29
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2

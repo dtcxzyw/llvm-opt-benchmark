@@ -1001,7 +1001,7 @@ _ZNKSt6vectorIN5Nbnxm4GridESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %5
   %24 = load i32, ptr %2, align 4
   %25 = load i32, ptr %4, align 4
   invoke void @_ZN5Nbnxm4GridC1E12PairlistTypeRKbN3gmx13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(372) %23, i32 noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %25)
-          to label %_ZNSt16allocator_traitsISaIN5Nbnxm4GridEEE9constructIS1_JRK12PairlistTypeRbRN3gmx13PinningPolicyEEEEvRS2_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseIN5Nbnxm4GridESaIS1_EE13_M_deallocateEPS1_m.exit30
+          to label %_ZNSt16allocator_traitsISaIN5Nbnxm4GridEEE9constructIS1_JRK12PairlistTypeRbRN3gmx13PinningPolicyEEEEvRS2_PT_DpOT0_.exit unwind label %34
 
 _ZNSt16allocator_traitsISaIN5Nbnxm4GridEEE9constructIS1_JRK12PairlistTypeRbRN3gmx13PinningPolicyEEEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN5Nbnxm4GridESaIS1_EE12_M_check_lenEmPKc.exit
   %26 = tail call noundef ptr @_ZSt14__relocate_a_1IPN5Nbnxm4GridES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %22, ptr noundef nonnull align 1 dereferenceable(1) %0) #20
@@ -1022,32 +1022,32 @@ _ZNSt12_Vector_baseIN5Nbnxm4GridESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %
   store ptr %31, ptr %30, align 8
   ret void
 
-32:                                               ; preds = %_ZNSt12_Vector_baseIN5Nbnxm4GridESaIS1_EE13_M_deallocateEPS1_m.exit30
+32:                                               ; preds = %34
   %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %37 unwind label %38
+          to label %38 unwind label %39
 
-_ZNSt12_Vector_baseIN5Nbnxm4GridESaIS1_EE13_M_deallocateEPS1_m.exit30: ; preds = %_ZNKSt6vectorIN5Nbnxm4GridESaIS1_EE12_M_check_lenEmPKc.exit
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %_ZNKSt6vectorIN5Nbnxm4GridESaIS1_EE12_M_check_lenEmPKc.exit
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  %36 = tail call ptr @__cxa_begin_catch(ptr %35) #20
+  %36 = extractvalue { ptr, i32 } %35, 0
+  %37 = tail call ptr @__cxa_begin_catch(ptr %36) #20
   tail call void @_ZdlPv(ptr noundef nonnull %22) #23
   invoke void @__cxa_rethrow() #21
-          to label %41 unwind label %32
-
-37:                                               ; preds = %32
-  resume { ptr, i32 } %33
+          to label %42 unwind label %32
 
 38:                                               ; preds = %32
-  %39 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %33
+
+39:                                               ; preds = %32
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #24
+  %41 = extractvalue { ptr, i32 } %40, 0
+  tail call void @__clang_call_terminate(ptr %41) #24
   unreachable
 
-41:                                               ; preds = %_ZNSt12_Vector_baseIN5Nbnxm4GridESaIS1_EE13_M_deallocateEPS1_m.exit30
+42:                                               ; preds = %34
   unreachable
 }
 

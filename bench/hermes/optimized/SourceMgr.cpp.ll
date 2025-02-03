@@ -3026,7 +3026,7 @@ if.then.i.i.i.i20:                                ; preds = %_ZN4llvh11SmallVect
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i20
   %add.ptr.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %9, i64 768
-  call void @_ZSt16__insertion_sortIPN4llvh7SMFixItEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef %9, ptr noundef nonnull %add.ptr.i.i.i.i2.i)
+  call void @_ZSt16__insertion_sortIPN4llvh7SMFixItEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef nonnull %9, ptr noundef nonnull %add.ptr.i.i.i.i2.i)
   br label %for.body.i.i.i.i.i.i21
 
 for.body.i.i.i.i.i.i21:                           ; preds = %for.body.i.i.i.i.i.i21, %if.then.i.i.i.i.i
@@ -3037,7 +3037,7 @@ for.body.i.i.i.i.i.i21:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i23, label %_ZN4llvh4sortIRNS_11SmallVectorINS_7SMFixItELj4EEEEEvOT_.exit, label %for.body.i.i.i.i.i.i21, !llvm.loop !59
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i20
-  call void @_ZSt16__insertion_sortIPN4llvh7SMFixItEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef %9, ptr noundef nonnull %add.ptr.i.i.i.i.i18)
+  call void @_ZSt16__insertion_sortIPN4llvh7SMFixItEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef nonnull %9, ptr noundef nonnull %add.ptr.i.i.i.i.i18)
   br label %_ZN4llvh4sortIRNS_11SmallVectorINS_7SMFixItELj4EEEEEvOT_.exit
 
 _ZN4llvh4sortIRNS_11SmallVectorINS_7SMFixItELj4EEEEEvOT_.exit: ; preds = %for.body.i.i.i.i.i.i21, %_ZN4llvh11SmallVectorINS_7SMFixItELj4EEC2IPKS1_vEET_S6_.exit, %if.else.i.i.i.i.i

@@ -2820,7 +2820,7 @@ if.then88:                                        ; preds = %for.cond84
   %cmp89 = icmp eq i32 %call85, 0
   %cond91 = select i1 %cmp89, ptr @.str.37, ptr @.str.38
   %call92 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio_err, ptr noundef nonnull @.str.36, ptr noundef %prog, ptr noundef nonnull %cond91) #9
-  br label %end
+  br label %if.then138
 
 if.end93:                                         ; preds = %for.cond84
   %call94 = tail call i32 @BIO_gets(ptr noundef nonnull %call2, ptr noundef %call, i32 noundef 8192) #9
@@ -2849,14 +2849,14 @@ if.then104:                                       ; preds = %if.end98
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1443, ptr noundef nonnull @__func__.OSSL_HTTP_proxy_connect) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 126, ptr noundef null) #9
   %call105 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio_err, ptr noundef nonnull @.str.40, ptr noundef %prog) #9
-  br label %end
+  br label %if.then138
 
 if.then110:                                       ; preds = %cond.true102, %cond.true102.tail
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1450, ptr noundef nonnull @__func__.OSSL_HTTP_proxy_connect) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 106, ptr noundef null) #9
   %call111 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio_err, ptr noundef nonnull @.str.42, ptr noundef %prog, i32 noundef 3, ptr noundef nonnull %add.ptr) #9
-  br label %end
+  br label %if.then138
 
 if.end112:                                        ; preds = %cond.true102.tail
   %add.ptr113 = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -2910,26 +2910,25 @@ while.end:                                        ; preds = %while.body, %land.r
 do.body:                                          ; preds = %if.end112.tail, %do.body
   %call133 = tail call i32 @BIO_gets(ptr noundef nonnull %call2, ptr noundef nonnull %call, i32 noundef 8192) #9
   %cmp134 = icmp sgt i32 %call133, 2
-  br i1 %cmp134, label %do.body, label %end, !llvm.loop !16
+  br i1 %cmp134, label %do.body, label %if.then138, !llvm.loop !16
 
 end.critedge:                                     ; preds = %if.end61, %if.then14.i, %if.end48
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %call44, i64 noundef %len.0, ptr noundef nonnull @.str, i32 noundef 1405) #9
   br label %if.then138
 
-end:                                              ; preds = %do.body, %while.end, %if.then110, %if.then104, %if.then88, %if.then26, %if.then
-  %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then26 ], [ 0, %if.then88 ], [ 0, %while.end ], [ 0, %if.then110 ], [ 0, %if.then104 ], [ 1, %do.body ]
+end:                                              ; preds = %while.end, %if.then26, %if.then
   %cmp136.not = icmp eq ptr %call2, null
   br i1 %cmp136.not, label %if.end143, label %if.then138
 
-if.then138:                                       ; preds = %if.end42, %end.critedge, %end
-  %ret.074 = phi i32 [ %ret.0, %end ], [ 0, %end.critedge ], [ 0, %if.end42 ]
+if.then138:                                       ; preds = %do.body, %if.then88, %if.then104, %if.then110, %if.end42, %end.critedge, %end
+  %ret.074 = phi i32 [ 0, %end ], [ 0, %end.critedge ], [ 0, %if.end42 ], [ 0, %if.then104 ], [ 0, %if.then110 ], [ 0, %if.then88 ], [ 1, %do.body ]
   %call139 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call2, i32 noundef 11, i64 noundef 0, ptr noundef null) #9
   %call141 = tail call ptr @BIO_pop(ptr noundef nonnull %call2) #9
   %call142 = tail call i32 @BIO_free(ptr noundef nonnull %call2) #9
   br label %if.end143
 
 if.end143:                                        ; preds = %if.then138, %end
-  %ret.075 = phi i32 [ %ret.074, %if.then138 ], [ %ret.0, %end ]
+  %ret.075 = phi i32 [ %ret.074, %if.then138 ], [ 0, %end ]
   tail call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str, i32 noundef 1491) #9
   ret i32 %ret.075
 }

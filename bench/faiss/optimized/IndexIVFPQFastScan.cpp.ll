@@ -660,7 +660,7 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 126:                                              ; preds = %118
   %127 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %122) #20
+  call void @__cxa_free_exception(ptr nonnull %122) #20
   br label %128
 
 128:                                              ; preds = %126, %124
@@ -721,7 +721,7 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 152:                                              ; preds = %144
   %153 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %148) #20
+  call void @__cxa_free_exception(ptr nonnull %148) #20
   br label %154
 
 154:                                              ; preds = %152, %150
@@ -980,7 +980,7 @@ define void @_ZN5faiss18IndexIVFPQFastScanC2ERKNS_10IndexIVFPQEi(ptr noundef non
 41:                                               ; preds = %32
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %35) #20
+  call void @__cxa_free_exception(ptr nonnull %35) #20
   br label %43
 
 43:                                               ; preds = %41, %39

@@ -507,7 +507,7 @@ lpad4:                                            ; preds = %invoke.cont9, %invo
 lpad8:                                            ; preds = %invoke.cont5
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #15
+  call void @__cxa_free_exception(ptr nonnull %exception) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad8, %lpad4
@@ -567,7 +567,7 @@ if.end25:                                         ; preds = %if.end
 eh.resume.sink.split:                             ; preds = %lpad15, %lpad22
   %exception21.sink = phi ptr [ %exception21, %lpad22 ], [ %exception14, %lpad15 ]
   %lpad.val28.merged.ph = phi { ptr, i32 } [ %12, %lpad22 ], [ %10, %lpad15 ]
-  tail call void @__cxa_free_exception(ptr %exception21.sink) #15
+  tail call void @__cxa_free_exception(ptr nonnull %exception21.sink) #15
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %ehcleanup10, %lpad

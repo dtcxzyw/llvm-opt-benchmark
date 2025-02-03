@@ -62,7 +62,7 @@ define void @_ZN4pkpy3any14__bad_any_castESt10type_indexS1_(ptr readonly capture
 20:                                               ; preds = %2
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #12
+  call void @__cxa_free_exception(ptr nonnull %16) #12
   br label %24
 
 22:                                               ; preds = %19

@@ -25814,7 +25814,7 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit265: ; preds = %1640
 1772:                                             ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit"
   %1773 = extractvalue { ptr, ptr } %1769, 0
   %1774 = extractvalue { ptr, ptr } %1769, 1
-  invoke void @_ZN6remote8json_log9LogRecord3log17h8119ec17e735aa90E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %22, ptr noundef nonnull align 1 %1773, ptr noalias noundef readonly align 8 dereferenceable(48) %1774)
+  invoke void @_ZN6remote8json_log9LogRecord3log17h8119ec17e735aa90E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %22, ptr noundef nonnull align 1 %1773, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1774)
           to label %1775 unwind label %1770
 
 1775:                                             ; preds = %1772

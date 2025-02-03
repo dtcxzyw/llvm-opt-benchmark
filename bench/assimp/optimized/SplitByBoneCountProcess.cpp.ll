@@ -959,7 +959,7 @@ lpad20.loopexit.split-lp:                         ; preds = %invoke.cont30, %if.
 lpad29:                                           ; preds = %if.then28
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #18
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #18
   br label %ehcleanup696
 
 for.inc:                                          ; preds = %invoke.cont21.for.inc_crit_edge, %for.body7

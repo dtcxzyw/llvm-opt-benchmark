@@ -176,11 +176,11 @@ switch.lookup:                                    ; preds = %22, %20
 44:                                               ; preds = %41
   tail call void @col_append_str(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.37) #4
   %45 = load ptr, ptr %42, align 8
-  tail call void @col_append_str(ptr noundef %45, i32 noundef 25, ptr noundef %16) #4
+  tail call void @col_append_str(ptr noundef %45, i32 noundef 25, ptr noundef nonnull %16) #4
   br label %47
 
 46:                                               ; preds = %41
-  tail call void @col_add_str(ptr noundef %43, i32 noundef 25, ptr noundef %16) #4
+  tail call void @col_add_str(ptr noundef %43, i32 noundef 25, ptr noundef nonnull %16) #4
   br label %47
 
 47:                                               ; preds = %46, %44
@@ -188,7 +188,7 @@ switch.lookup:                                    ; preds = %22, %20
   br i1 %.not210, label %149, label %48
 
 48:                                               ; preds = %47
-  %49 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %.0192, i32 noundef %25, ptr noundef nonnull %.0188, ptr noundef %16, i32 noundef %25) #4
+  %49 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %.0192, i32 noundef %25, ptr noundef nonnull %.0188, ptr noundef nonnull %16, i32 noundef %25) #4
   %50 = tail call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %5) #4
   %51 = load ptr, ptr %.0190, align 8
   %52 = load i32, ptr %51, align 4
@@ -323,11 +323,11 @@ switch.lookup:                                    ; preds = %22, %20
 123:                                              ; preds = %120
   tail call void @col_append_str(ptr noundef %122, i32 noundef 25, ptr noundef nonnull @.str.37) #4
   %124 = load ptr, ptr %121, align 8
-  tail call void @col_append_str(ptr noundef %124, i32 noundef 25, ptr noundef %16) #4
+  tail call void @col_append_str(ptr noundef %124, i32 noundef 25, ptr noundef nonnull %16) #4
   br label %126
 
 125:                                              ; preds = %120
-  tail call void @col_add_str(ptr noundef %122, i32 noundef 25, ptr noundef %16) #4
+  tail call void @col_add_str(ptr noundef %122, i32 noundef 25, ptr noundef nonnull %16) #4
   br label %126
 
 126:                                              ; preds = %125, %123
@@ -336,7 +336,7 @@ switch.lookup:                                    ; preds = %22, %20
 
 127:                                              ; preds = %126
   %128 = zext i16 %.2 to i32
-  %129 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %.1193, i32 noundef %128, ptr noundef nonnull %.1189, ptr noundef %16, i32 noundef %128) #4
+  %129 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %.1193, i32 noundef %128, ptr noundef nonnull %.1189, ptr noundef nonnull %16, i32 noundef %128) #4
   %130 = tail call ptr @proto_item_add_subtree(ptr noundef %129, i32 noundef %5) #4
   %131 = load ptr, ptr %.1191, align 8
   %132 = load i32, ptr %131, align 4

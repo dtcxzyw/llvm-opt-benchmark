@@ -18890,7 +18890,7 @@ _ZNK10ciMetadata9is_loadedEv.exit274:             ; preds = %530, %533
   br label %590
 
 .critedge:                                        ; preds = %521, %525
-  %589 = call noundef ptr @_ZN8ciMethod23find_monomorphic_targetEP15ciInstanceKlassS1_S1_b(ptr noundef nonnull align 8 dereferenceable(160) %.1186374, ptr noundef %32, ptr noundef %33, ptr noundef %.1188, i1 noundef zeroext true) #19
+  %589 = call noundef ptr @_ZN8ciMethod23find_monomorphic_targetEP15ciInstanceKlassS1_S1_b(ptr noundef nonnull align 8 dereferenceable(160) %.1186374, ptr noundef %32, ptr noundef nonnull %33, ptr noundef %.1188, i1 noundef zeroext true) #19
   %.not450 = icmp eq ptr %589, null
   br i1 %.not450, label %.critedge.thread, label %590
 
@@ -18904,7 +18904,7 @@ _ZNK10ciMetadata9is_loadedEv.exit274:             ; preds = %530, %533
 592:                                              ; preds = %590
   %593 = load ptr, ptr %19, align 8
   %594 = call noundef ptr @_ZNK11Compilation19dependency_recorderEv(ptr noundef nonnull align 8 dereferenceable(704) %593) #19
-  call void @_ZN12Dependencies29assert_unique_concrete_methodEP7ciKlassP8ciMethodS1_S3_(ptr noundef nonnull align 8 dereferenceable(192) %594, ptr noundef %.0187431, ptr noundef nonnull %.0192430, ptr noundef %33, ptr noundef nonnull %.1186374) #19
+  call void @_ZN12Dependencies29assert_unique_concrete_methodEP7ciKlassP8ciMethodS1_S3_(ptr noundef nonnull align 8 dereferenceable(192) %594, ptr noundef %.0187431, ptr noundef nonnull %.0192430, ptr noundef nonnull %33, ptr noundef nonnull %.1186374) #19
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.thread362, %521, %544, %551, %_ZNK10ciMetadata9is_loadedEv.exit264, %_ZNK10ciMetadata9is_loadedEv.exit274, %540, %542, %441, %439, %_ZNK10ciMetadata9is_loadedEv.exit264.thread, %590, %592, %.critedge

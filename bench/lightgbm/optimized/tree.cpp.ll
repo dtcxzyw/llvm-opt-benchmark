@@ -16191,7 +16191,7 @@ define linkonce_odr void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #14
+  tail call void @__cxa_free_exception(ptr nonnull %2) #14
   resume { ptr, i32 } %5
 }
 
@@ -33013,7 +33013,7 @@ _ZN3fmt3v106detail6bigintmLIiEERS2_T_.exit314:    ; preds = %_ZN3fmt3v106detail6
 509:                                              ; preds = %506
   %510 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %507) #14
+  call void @__cxa_free_exception(ptr nonnull %507) #14
   br label %.body
 
 _ZN3fmt3v106detail16adjust_precisionERii.exit:    ; preds = %501
@@ -47276,7 +47276,7 @@ _ZN3fmt3v106detail9dragonbox16get_cached_powerEi.exit: ; preds = %69, %85
 146:                                              ; preds = %143
   %147 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %144) #14
+  tail call void @__cxa_free_exception(ptr nonnull %144) #14
   resume { ptr, i32 } %147
 
 _ZN3fmt3v106detail16adjust_precisionERii.exit:    ; preds = %138

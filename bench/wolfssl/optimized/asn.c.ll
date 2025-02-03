@@ -6284,7 +6284,7 @@ if.end99:                                         ; preds = %if.end85
 
 if.end107:                                        ; preds = %if.end85, %if.end99
   %salt.addr.0917 = phi ptr [ %saltTmp, %if.end99 ], [ %salt, %if.end85 ]
-  %call106 = call i32 @wc_CryptKey(ptr noundef nonnull %password, i32 noundef %passwordSz, ptr noundef %salt.addr.0917, i32 noundef %spec.select88, i32 noundef %itt, i32 noundef %pbeId.0741, ptr noundef nonnull %add.ptr74, i32 noundef %keySz.addr.1, i32 noundef 6, ptr noundef nonnull %cbcIv, i32 noundef 1, i32 noundef 0) #22
+  %call106 = call i32 @wc_CryptKey(ptr noundef nonnull %password, i32 noundef %passwordSz, ptr noundef nonnull %salt.addr.0917, i32 noundef %spec.select88, i32 noundef %itt, i32 noundef %pbeId.0741, ptr noundef nonnull %add.ptr74, i32 noundef %keySz.addr.1, i32 noundef 6, ptr noundef nonnull %cbcIv, i32 noundef 1, i32 noundef 0) #22
   %cmp108 = icmp eq i32 %call106, 0
   br i1 %cmp108, label %if.end.thread.i.i204, label %return
 
@@ -6603,7 +6603,7 @@ SetOctetString.exit468:                           ; preds = %if.end9.thread.i.i.
   %idx.ext168 = zext i32 %add167 to i64
   %add.ptr169 = getelementptr inbounds nuw i8, ptr %out, i64 %idx.ext168
   %conv170 = zext i32 %spec.select88 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr169, ptr align 1 %salt.addr.0917, i64 %conv170, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr169, ptr nonnull align 1 %salt.addr.0917, i64 %conv170, i1 false)
   %add171 = add i32 %add167, %spec.select88
   %22 = load i32, ptr %outSz, align 4
   %cmp.i469 = icmp eq i32 %itt, 0

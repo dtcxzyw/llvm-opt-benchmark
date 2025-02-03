@@ -618,7 +618,7 @@ _ZNKSt6vectorI16TextureImageInfoSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #27
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   invoke void @_ZN6QImageC1ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %_ZNSt16allocator_traitsISaI16TextureImageInfoEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseI16TextureImageInfoSaIS0_EE13_M_deallocateEPS0_m.exit35
+          to label %_ZNSt16allocator_traitsISaI16TextureImageInfoEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit unwind label %38
 
 _ZNSt16allocator_traitsISaI16TextureImageInfoEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorI16TextureImageInfoSaIS0_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i.i = icmp eq ptr %6, %1
@@ -683,32 +683,32 @@ _ZNSt12_Vector_baseI16TextureImageInfoSaIS0_EE13_M_deallocateEPS0_m.exit: ; pred
   store ptr %35, ptr %34, align 8
   ret void
 
-36:                                               ; preds = %_ZNSt12_Vector_baseI16TextureImageInfoSaIS0_EE13_M_deallocateEPS0_m.exit35
+36:                                               ; preds = %38
   %37 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %41 unwind label %42
+          to label %42 unwind label %43
 
-_ZNSt12_Vector_baseI16TextureImageInfoSaIS0_EE13_M_deallocateEPS0_m.exit35: ; preds = %_ZNKSt6vectorI16TextureImageInfoSaIS0_EE12_M_check_lenEmPKc.exit
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %_ZNKSt6vectorI16TextureImageInfoSaIS0_EE12_M_check_lenEmPKc.exit
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  %40 = tail call ptr @__cxa_begin_catch(ptr %39) #24
+  %40 = extractvalue { ptr, i32 } %39, 0
+  %41 = tail call ptr @__cxa_begin_catch(ptr %40) #24
   tail call void @_ZdlPv(ptr noundef nonnull %20) #23
   invoke void @__cxa_rethrow() #22
-          to label %45 unwind label %36
-
-41:                                               ; preds = %36
-  resume { ptr, i32 } %37
+          to label %46 unwind label %36
 
 42:                                               ; preds = %36
-  %43 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %37
+
+43:                                               ; preds = %36
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #25
+  %45 = extractvalue { ptr, i32 } %44, 0
+  tail call void @__clang_call_terminate(ptr %45) #25
   unreachable
 
-45:                                               ; preds = %_ZNSt12_Vector_baseI16TextureImageInfoSaIS0_EE13_M_deallocateEPS0_m.exit35
+46:                                               ; preds = %38
   unreachable
 }
 

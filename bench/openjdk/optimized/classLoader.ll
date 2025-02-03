@@ -1098,14 +1098,14 @@ define hidden noundef ptr @_ZN19ClassPathImageEntry22open_stream_for_loaderEP10J
 _ZL25get_jimage_version_stringv.exit:             ; preds = %4, %13
   %17 = call noundef i64 %6(ptr noundef %10, ptr noundef nonnull @.str.18, ptr noundef nonnull @_ZZL25get_jimage_version_stringvE14version_string, ptr noundef %2, ptr noundef nonnull %5) #21
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread
+  br i1 %18, label %19, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63
 
 19:                                               ; preds = %_ZL25get_jimage_version_stringv.exit
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
   %21 = trunc i64 %20 to i32
   %22 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %2, i32 noundef %21) #21
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63, label %23
+  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread, label %23
 
 23:                                               ; preds = %19
   %24 = load volatile i32, ptr %22, align 4
@@ -1127,7 +1127,7 @@ _ZL25get_jimage_version_stringv.exit:             ; preds = %4, %13
 33:                                               ; preds = %35, %28
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %35 ], [ %32, %28 ]
   %34 = icmp slt i64 %indvars.iv.i.i, 1
-  br i1 %34, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60.thread, label %35
+  br i1 %34, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68, label %35
 
 35:                                               ; preds = %33
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
@@ -1156,12 +1156,12 @@ _ZL25get_jimage_version_stringv.exit:             ; preds = %4, %13
 
 .critedge.i:                                      ; preds = %.preheader.i
   %48 = icmp eq i8 %46, 76
-  br i1 %48, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60.thread, label %49
+  br i1 %48, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68, label %49
 
 49:                                               ; preds = %.critedge.i, %39
   %.026.i = phi ptr [ %44, %.critedge.i ], [ %31, %39 ]
   %.not.i25 = icmp ult ptr %.026.i, %41
-  br i1 %.not.i25, label %_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60.thread
+  br i1 %.not.i25, label %_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68
 
 _ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit: ; preds = %49
   %50 = ptrtoint ptr %.026.i to i64
@@ -1171,7 +1171,11 @@ _ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit: ; preds = %49
   %54 = trunc i64 %indvars.iv.next.i.i to i32
   %55 = call noundef ptr @_ZN11SymbolTable10new_symbolEPK6Symbolii(ptr noundef nonnull %22, i32 noundef %53, i32 noundef %54) #21
   %.not.i26 = icmp eq ptr %55, null
-  br i1 %.not.i26, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60.thread, label %56
+  br i1 %.not.i26, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71, label %56
+
+_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71:  ; preds = %_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit
+  call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %22) #21
+  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread
 
 56:                                               ; preds = %_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit
   %57 = load volatile i32, ptr %55, align 4
@@ -1206,14 +1210,14 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit27:    ; preds = %60, %56
 
 _ZL25get_jimage_version_stringv.exit28:           ; preds = %63, %71
   %75 = call noundef i64 %64(ptr noundef %68, ptr noundef nonnull @.str.19, ptr noundef nonnull @_ZZL25get_jimage_version_stringvE14version_string, ptr noundef nonnull %2, ptr noundef nonnull %5) #21
-  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60
+  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33
 
 _ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit: ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit27
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %77 = load volatile ptr, ptr %76, align 8
   %78 = call noundef ptr @_ZN17PackageEntryTable11lookup_onlyEP6Symbol(ptr noundef nonnull align 8 dereferenceable(880) %77, ptr noundef nonnull %55) #21
   %.not22 = icmp eq ptr %78, null
-  br i1 %.not22, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60, label %79
+  br i1 %.not22, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33, label %79
 
 79:                                               ; preds = %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 800
@@ -1268,32 +1272,32 @@ _ZL25get_jimage_version_stringv.exit30:           ; preds = %95, %103
 111:                                              ; preds = %110, %108
   %112 = load ptr, ptr %84, align 8
   %.not8.i.i.i.i = icmp eq ptr %112, %85
-  br i1 %.not8.i.i.i.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60, label %113
+  br i1 %.not8.i.i.i.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33, label %113
 
 113:                                              ; preds = %111
   store ptr %83, ptr %82, align 8
   store ptr %85, ptr %84, align 8
   store ptr %87, ptr %86, align 8
-  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60
+  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60.thread: ; preds = %33, %_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit, %.critedge.i, %49
+_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68:  ; preds = %33, %49, %.critedge.i
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %22) #21
-  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63
+  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60:    ; preds = %113, %111, %_ZL25get_jimage_version_stringv.exit28, %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit
+_ZN16SymbolHandleBaseILb1EED2Ev.exit33:           ; preds = %113, %111, %_ZL25get_jimage_version_stringv.exit28, %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit
   %.1.ph = phi i64 [ %.2, %113 ], [ %.2, %111 ], [ %75, %_ZL25get_jimage_version_stringv.exit28 ], [ 0, %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit ]
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %55) #21
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %22) #21
   %.not24 = icmp eq i64 %.1.ph, 0
-  br i1 %.not24, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread
+  br i1 %.not24, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread:    ; preds = %_ZL25get_jimage_version_stringv.exit, %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60
-  %.01758 = phi i64 [ %.1.ph, %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60 ], [ %17, %_ZL25get_jimage_version_stringv.exit ]
+_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63:  ; preds = %_ZL25get_jimage_version_stringv.exit, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33
+  %.01766 = phi i64 [ %.1.ph, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33 ], [ %17, %_ZL25get_jimage_version_stringv.exit ]
   %114 = load i8, ptr @UsePerfData, align 1
   %115 = trunc i8 %114 to i1
   br i1 %115, label %116, label %123
 
-116:                                              ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread
+116:                                              ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63
   %117 = load ptr, ptr @_ZN11ClassLoader30_perf_sys_classfile_bytes_readE, align 8
   %118 = load i64, ptr %5, align 8
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 40
@@ -1303,7 +1307,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread:    ; preds = %_ZL25get_jimage_ver
   store i64 %122, ptr %120, align 8
   br label %123
 
-123:                                              ; preds = %116, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread
+123:                                              ; preds = %116, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63
   %124 = load i64, ptr %5, align 8
   %125 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %124, i32 noundef 0) #21
   %126 = load ptr, ptr @_ZL17JImageGetResource, align 8
@@ -1312,7 +1316,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread:    ; preds = %_ZL25get_jimage_ver
   %129 = load ptr, ptr %128, align 8
   %130 = call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   %131 = load i64, ptr %5, align 8
-  %132 = call noundef i64 %126(ptr noundef %130, i64 noundef %.01758, ptr noundef %125, i64 noundef %131) #21
+  %132 = call noundef i64 %126(ptr noundef %130, i64 noundef %.01766, ptr noundef %125, i64 noundef %131) #21
   %133 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #21
   %134 = load i64, ptr %5, align 8
   %135 = trunc i64 %134 to i32
@@ -1321,10 +1325,10 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread:    ; preds = %_ZL25get_jimage_ver
   %138 = load i8, ptr @_ZN15ClassFileStream6verifyE, align 1
   %139 = trunc i8 %138 to i1
   call void @_ZN15ClassFileStreamC1EPKhiPKcbb(ptr noundef nonnull align 8 dereferenceable(42) %133, ptr noundef %125, i32 noundef %135, ptr noundef %137, i1 noundef zeroext %139, i1 noundef zeroext true) #21
-  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63
+  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63:  ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60.thread, %19, %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60, %123
-  %.0 = phi ptr [ %133, %123 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60 ], [ null, %19 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60.thread ]
+_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread:    ; preds = %19, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33, %123
+  %.0 = phi ptr [ %133, %123 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71 ], [ null, %19 ]
   ret ptr %.0
 }
 

@@ -20,7 +20,7 @@ define noundef ptr @mca_coll_self_comm_query(ptr noundef readonly captures(none)
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %opal_obj_new.exit.thread
+  br i1 %.not, label %6, label %opal_obj_new.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 248
@@ -28,7 +28,7 @@ define noundef ptr @mca_coll_self_comm_query(ptr noundef readonly captures(none)
   %8 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %8, align 8
   %9 = icmp eq i32 %.val.val, 1
-  br i1 %9, label %10, label %opal_obj_new.exit.thread
+  br i1 %9, label %10, label %opal_obj_new.exit
 
 10:                                               ; preds = %6
   %11 = load i32, ptr @ompi_coll_self_priority, align 4
@@ -46,7 +46,7 @@ define noundef ptr @mca_coll_self_comm_query(ptr noundef readonly captures(none)
 
 17:                                               ; preds = %16, %10
   %.not9.i = icmp eq ptr %13, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %18
+  br i1 %.not9.i, label %opal_obj_new.exit, label %18
 
 18:                                               ; preds = %17
   store ptr @mca_coll_self_module_t_class, ptr %13, align 8
@@ -55,7 +55,7 @@ define noundef ptr @mca_coll_self_comm_query(ptr noundef readonly captures(none)
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_self_module_t_class, i64 40), align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i.i = icmp eq ptr %21, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread25, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
   %22 = phi ptr [ %24, %.lr.ph.i.i ], [ %21, %18 ]
@@ -64,9 +64,9 @@ define noundef ptr @mca_coll_self_comm_query(ptr noundef readonly captures(none)
   %23 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread25, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread25:                       ; preds = %.lr.ph.i.i, %18
+.loopexit:                                        ; preds = %.lr.ph.i.i, %18
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr @mca_coll_self_module_enable, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -103,10 +103,10 @@ opal_obj_new.exit.thread25:                       ; preds = %.lr.ph.i.i, %18
   store ptr @mca_coll_self_scatterv_intra, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 576
   store ptr @mca_coll_base_reduce_local, ptr %42, align 8
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %17, %2, %6, %opal_obj_new.exit.thread25
-  %.0 = phi ptr [ %13, %opal_obj_new.exit.thread25 ], [ null, %6 ], [ null, %2 ], [ null, %17 ]
+opal_obj_new.exit:                                ; preds = %17, %2, %6, %.loopexit
+  %.0 = phi ptr [ %13, %.loopexit ], [ null, %6 ], [ null, %2 ], [ null, %17 ]
   ret ptr %.0
 }
 

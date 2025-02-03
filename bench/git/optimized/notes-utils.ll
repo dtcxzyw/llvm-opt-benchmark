@@ -411,7 +411,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %call3 = tail call i32 @git_config_bool(ptr noundef %k, ptr noundef %v) #10
+  %call3 = tail call i32 @git_config_bool(ptr noundef nonnull %k, ptr noundef %v) #10
   %enabled = getelementptr inbounds nuw i8, ptr %cb, i64 16
   store i32 %call3, ptr %enabled, align 8
   br label %return

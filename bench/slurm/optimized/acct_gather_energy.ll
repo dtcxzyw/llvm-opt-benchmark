@@ -484,7 +484,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_unpack(ptr noundef cap
   br i1 %.not, label %15, label %29
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @unpack32(ptr noundef %.0, ptr noundef %1) #8
+  %16 = tail call i32 @unpack32(ptr noundef nonnull %.0, ptr noundef %1) #8
   %.not22 = icmp eq i32 %16, 0
   br i1 %.not22, label %17, label %29
 

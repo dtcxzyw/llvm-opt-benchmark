@@ -141,7 +141,7 @@ define void @_ZN5faiss9DirectMap8set_typeENS0_4TypeEPKNS_13InvertedListsEm(ptr n
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #18
+  call void @__cxa_free_exception(ptr nonnull %20) #18
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -452,7 +452,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
 164:                                              ; preds = %157
   %165 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %160) #18
+  call void @__cxa_free_exception(ptr nonnull %160) #18
   br label %166
 
 166:                                              ; preds = %164, %162
@@ -1119,7 +1119,7 @@ define noundef i64 @_ZNK5faiss9DirectMap3getEl(ptr noundef nonnull readonly alig
 34:                                               ; preds = %27
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %30) #18
+  call void @__cxa_free_exception(ptr nonnull %30) #18
   br label %36
 
 36:                                               ; preds = %34, %32
@@ -1164,7 +1164,7 @@ define noundef i64 @_ZNK5faiss9DirectMap3getEl(ptr noundef nonnull readonly alig
 54:                                               ; preds = %47
   %55 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %50) #18
+  call void @__cxa_free_exception(ptr nonnull %50) #18
   br label %56
 
 56:                                               ; preds = %54, %52
@@ -1260,7 +1260,7 @@ define noundef i64 @_ZNK5faiss9DirectMap3getEl(ptr noundef nonnull readonly alig
 99:                                               ; preds = %92
   %100 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %95) #18
+  call void @__cxa_free_exception(ptr nonnull %95) #18
   br label %101
 
 101:                                              ; preds = %99, %97
@@ -1774,7 +1774,7 @@ define void @_ZN5faiss12DirectMapAddC2ERNS_9DirectMapEmPKl(ptr noundef nonnull a
 28:                                               ; preds = %21
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %24) #18
+  call void @__cxa_free_exception(ptr nonnull %24) #18
   br label %30
 
 30:                                               ; preds = %28, %26
@@ -2183,7 +2183,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc58
 71:                                               ; preds = %64
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %67) #18
+  call void @__cxa_free_exception(ptr nonnull %67) #18
   br label %73
 
 73:                                               ; preds = %71, %69
@@ -2742,7 +2742,7 @@ define void @_ZN5faiss9DirectMap12update_codesEPNS_13InvertedListsEiPKlS4_PKh(pt
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #18
+  call void @__cxa_free_exception(ptr nonnull %20) #18
   br label %104
 
 26:                                               ; preds = %6
@@ -2805,7 +2805,7 @@ define void @_ZN5faiss9DirectMap12update_codesEPNS_13InvertedListsEiPKlS4_PKh(pt
 57:                                               ; preds = %50
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %53) #18
+  call void @__cxa_free_exception(ptr nonnull %53) #18
   br label %104
 
 59:                                               ; preds = %36

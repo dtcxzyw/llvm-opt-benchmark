@@ -270,19 +270,15 @@ if.then13:                                        ; preds = %if.end
   %cmp.i.not = icmp eq ptr %18, null
   br i1 %cmp.i.not, label %if.then21, label %if.end31
 
-lpad:                                             ; preds = %if.end31, %if.then21
+_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i16: ; preds = %if.then21, %if.end31
   %tentative_histogram.sroa.0.0.ph44 = phi ptr [ %22, %if.then21 ], [ %tentative_histogram.sroa.0.2, %if.end31 ]
   %lpad.thr_comm.split-lp46 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i15 = icmp eq ptr %tentative_histogram.sroa.0.0.ph44, null
-  br i1 %cmp.not.i15, label %eh.resume, label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i16
-
-_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i16: ; preds = %lpad
   %vtable.i.i17 = load ptr, ptr %tentative_histogram.sroa.0.0.ph44, align 8
   %vfn.i.i18 = getelementptr inbounds nuw i8, ptr %vtable.i.i17, i64 8
   %19 = load ptr, ptr %vfn.i.i18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(44) %tentative_histogram.sroa.0.0.ph44) #21
-  br label %eh.resume
+  resume { ptr, i32 } %lpad.thr_comm.split-lp46
 
 if.then21:                                        ; preds = %if.end, %if.then13
   %flags_22 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -297,18 +293,18 @@ if.then21:                                        ; preds = %if.end, %if.then13
   store ptr null, ptr %ref.tmp23, align 8
   %23 = load i32, ptr %flags_22, align 8
   invoke void @_ZN4base13HistogramBase8SetFlagsEi(ptr noundef nonnull align 8 dereferenceable(44) %22, i32 noundef %23)
-          to label %if.end31 unwind label %lpad
+          to label %if.end31 unwind label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i16
 
 if.end31:                                         ; preds = %if.then21, %if.then13
   %tentative_histogram.sroa.0.2 = phi ptr [ %18, %if.then13 ], [ %22, %if.then21 ]
   %vtable33 = load ptr, ptr %this, align 8
   %vfn34 = getelementptr inbounds nuw i8, ptr %vtable33, i64 16
   %24 = load ptr, ptr %vfn34, align 8
-  invoke void %24(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %tentative_histogram.sroa.0.2)
-          to label %invoke.cont35 unwind label %lpad
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %tentative_histogram.sroa.0.2)
+          to label %invoke.cont35 unwind label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i16
 
 invoke.cont35:                                    ; preds = %if.end31
-  %call39 = call noundef ptr @_ZN4base18StatisticsRecorder25RegisterOrDeleteDuplicateEPNS_13HistogramBaseE(ptr noundef %tentative_histogram.sroa.0.2)
+  %call39 = call noundef ptr @_ZN4base18StatisticsRecorder25RegisterOrDeleteDuplicateEPNS_13HistogramBaseE(ptr noundef nonnull %tentative_histogram.sroa.0.2)
   %25 = load i32, ptr %histogram_ref, align 4
   %tobool40.not = icmp eq i32 %25, 0
   br i1 %tobool40.not, label %if.end44, label %if.then41
@@ -350,9 +346,6 @@ if.end68:                                         ; preds = %land.lhs.true, %if.
 return:                                           ; preds = %land.lhs.true, %if.end68
   %retval.0 = phi ptr [ %histogram.0, %if.end68 ], [ null, %land.lhs.true ]
   ret ptr %retval.0
-
-eh.resume:                                        ; preds = %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i16, %lpad
-  resume { ptr, i32 } %lpad.thr_comm.split-lp46
 }
 
 declare noundef ptr @_ZN4base18StatisticsRecorder13FindHistogramENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr, i64) local_unnamed_addr #1

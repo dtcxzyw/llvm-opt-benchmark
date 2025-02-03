@@ -7607,7 +7607,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr noundef readonly captures(n
   br i1 %exitcond201.not, label %._crit_edge, label %.preheader
 
 ._crit_edge:                                      ; preds = %50, %34, %23, %.preheader179
-  tail call void @free(ptr noundef %18) #49
+  tail call void @free(ptr noundef nonnull %18) #49
   %54 = load i32, ptr @stbi_write_png_compression_level, align 4
   %55 = call ptr @stbi_zlib_compress(ptr noundef nonnull %15, i32 noundef %13, ptr noundef nonnull %7, i32 noundef %54)
   tail call void @free(ptr noundef nonnull %15) #49
@@ -13358,7 +13358,7 @@ GetPixelDataSize.exit:                            ; preds = %12, %18, %20
   %80 = zext i8 %79 to i32
   %81 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %76, ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %80) #49
   %82 = call zeroext i1 @SaveFileText(ptr noundef %1, ptr noundef nonnull %25) #49
-  call void @free(ptr noundef %25) #49
+  call void @free(ptr noundef nonnull %25) #49
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %._crit_edge82

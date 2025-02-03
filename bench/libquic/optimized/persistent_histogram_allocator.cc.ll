@@ -1489,7 +1489,7 @@ lpad65:                                           ; preds = %if.end59
 
 sw.bb:                                            ; preds = %invoke.cont66
   %logged_metadata73 = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base9Histogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(32) %name61, i32 noundef %histogram_data.sroa.3.0.copyload, i32 noundef %histogram_data.sroa.5.0.copyload, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata73)
+  invoke void @_ZN4base9Histogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(32) %name61, i32 noundef %histogram_data.sroa.3.0.copyload, i32 noundef %histogram_data.sroa.5.0.copyload, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef nonnull %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata73)
           to label %sw.epilog unwind label %lpad74.thread
 
 lpad74.thread:                                    ; preds = %if.else118, %sw.bb92, %sw.bb86, %sw.bb77, %sw.bb
@@ -1514,17 +1514,17 @@ _ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit123: ; 
 
 sw.bb77:                                          ; preds = %invoke.cont66
   %logged_metadata83 = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base15LinearHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %name61, i32 noundef %histogram_data.sroa.3.0.copyload, i32 noundef %histogram_data.sroa.5.0.copyload, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata83)
+  invoke void @_ZN4base15LinearHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %name61, i32 noundef %histogram_data.sroa.3.0.copyload, i32 noundef %histogram_data.sroa.5.0.copyload, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef nonnull %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata83)
           to label %sw.epilog unwind label %lpad74.thread
 
 sw.bb86:                                          ; preds = %invoke.cont66
   %logged_metadata89 = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base16BooleanHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_PNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef %add.ptr, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata89)
+  invoke void @_ZN4base16BooleanHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_PNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef nonnull %add.ptr, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata89)
           to label %sw.epilog unwind label %lpad74.thread
 
 sw.bb92:                                          ; preds = %invoke.cont66
   %logged_metadata96 = getelementptr inbounds nuw i8, ptr %histogram_data_ptr, i64 56
-  invoke void @_ZN4base15CustomHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata96)
+  invoke void @_ZN4base15CustomHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef nonnull %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata96)
           to label %sw.epilog unwind label %lpad74.thread
 
 sw.epilog:                                        ; preds = %sw.bb92, %sw.bb86, %sw.bb77, %sw.bb

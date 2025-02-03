@@ -1062,7 +1062,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #16
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
@@ -3260,7 +3260,7 @@ if.end10:                                         ; preds = %if.then.i.i, %if.th
 eh.resume:                                        ; preds = %lpad8, %lpad
   %exception7.sink = phi ptr [ %exception7, %lpad8 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %12, %lpad8 ], [ %2, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception7.sink) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception7.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -3295,7 +3295,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #16
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -5110,7 +5110,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #16
   br label %eh.resume
 
 if.end:                                           ; preds = %entry

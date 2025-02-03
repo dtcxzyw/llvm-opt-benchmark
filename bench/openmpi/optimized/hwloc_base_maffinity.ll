@@ -47,23 +47,23 @@ define range(i32 -2, 1) i32 @opal_hwloc_base_memory_set(ptr noundef readonly cap
 
 opal_hwloc_base_report_bind_failure.exit:         ; preds = %6, %9
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %4)
-  br label %.thread50
+  br label %.thread40
 
 17:                                               ; preds = %2
   %18 = tail call noalias ptr @hwloc_bitmap_alloc() #4
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.thread33, label %20
+  br i1 %19, label %.thread44, label %20
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @opal_hwloc_topology, align 8
   %22 = tail call i32 @hwloc_get_cpubind(ptr noundef %21, ptr noundef nonnull %18, i32 noundef 0) #4
   %.not55 = icmp eq i64 %1, 0
-  br i1 %.not55, label %._crit_edge, label %.lr.ph
+  br i1 %.not55, label %.thread50, label %.lr.ph
 
 23:                                               ; preds = %.lr.ph
   %24 = add nuw i64 %.054, 1
   %exitcond.not = icmp eq i64 %24, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.thread50, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %20, %23
   %.054 = phi i64 [ %24, %23 ], [ 0, %20 ]
@@ -74,44 +74,44 @@ opal_hwloc_base_report_bind_failure.exit:         ; preds = %6, %9
   %29 = load i64, ptr %28, align 8
   %30 = tail call i32 @hwloc_set_area_membind(ptr noundef %25, ptr noundef %27, i64 noundef %29, ptr noundef nonnull %18, i32 noundef 2, i32 noundef 4) #4
   %.not21 = icmp eq i32 %30, 0
-  br i1 %.not21, label %23, label %.thread46
+  br i1 %.not21, label %23, label %31
 
-.thread46:                                        ; preds = %.lr.ph
+.thread50:                                        ; preds = %23, %20
   tail call void @hwloc_bitmap_free(ptr noundef nonnull %18) #4
-  br label %.thread33
+  br label %.thread40
 
-._crit_edge:                                      ; preds = %23, %20
+31:                                               ; preds = %.lr.ph
   tail call void @hwloc_bitmap_free(ptr noundef nonnull %18) #4
-  br label %.thread50
+  br label %.thread44
 
-.thread33:                                        ; preds = %.thread46, %17
-  %.0183138 = phi i32 [ -2, %17 ], [ -1, %.thread46 ]
-  %.0173237 = phi ptr [ @.str.2, %17 ], [ @.str.3, %.thread46 ]
+.thread44:                                        ; preds = %17, %31
+  %.0183149 = phi i32 [ -1, %31 ], [ -2, %17 ]
+  %.0173248 = phi ptr [ @.str.3, %31 ], [ @.str.2, %17 ]
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %3)
   %.b.i24 = load i1, ptr @opal_hwloc_base_report_bind_failure.already_reported, align 4
-  %31 = load i32, ptr @opal_hwloc_base_mbfa, align 4
-  %32 = icmp eq i32 %31, 0
-  %or.cond.not.i25 = select i1 %.b.i24, i1 true, i1 %32
-  br i1 %or.cond.not.i25, label %opal_hwloc_base_report_bind_failure.exit26, label %33
+  %32 = load i32, ptr @opal_hwloc_base_mbfa, align 4
+  %33 = icmp eq i32 %32, 0
+  %or.cond.not.i25 = select i1 %.b.i24, i1 true, i1 %33
+  br i1 %or.cond.not.i25, label %opal_hwloc_base_report_bind_failure.exit26, label %34
 
-33:                                               ; preds = %.thread33
-  %34 = call i32 @gethostname(ptr noundef nonnull %3, i64 noundef 65) #4
-  %35 = load ptr, ptr @opal_show_help, align 8
-  %36 = call i32 @getpid() #4
-  %37 = load i32, ptr @opal_hwloc_base_mbfa, align 4
-  %38 = icmp eq i32 %37, 1
-  %39 = select i1 %38, ptr @.str.6, ptr @.str.7
-  %40 = call i32 (ptr, ptr, i32, ...) %35(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %3, i32 noundef %36, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull %.0173237, ptr noundef nonnull %39) #4
+34:                                               ; preds = %.thread44
+  %35 = call i32 @gethostname(ptr noundef nonnull %3, i64 noundef 65) #4
+  %36 = load ptr, ptr @opal_show_help, align 8
+  %37 = call i32 @getpid() #4
+  %38 = load i32, ptr @opal_hwloc_base_mbfa, align 4
+  %39 = icmp eq i32 %38, 1
+  %40 = select i1 %39, ptr @.str.6, ptr @.str.7
+  %41 = call i32 (ptr, ptr, i32, ...) %36(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %3, i32 noundef %37, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull %.0173248, ptr noundef nonnull %40) #4
   store i1 true, ptr @opal_hwloc_base_report_bind_failure.already_reported, align 4
   br label %opal_hwloc_base_report_bind_failure.exit26
 
-opal_hwloc_base_report_bind_failure.exit26:       ; preds = %.thread33, %33
-  %.0.i = phi i32 [ %.0183138, %33 ], [ 0, %.thread33 ]
+opal_hwloc_base_report_bind_failure.exit26:       ; preds = %.thread44, %34
+  %.0.i = phi i32 [ %.0183149, %34 ], [ 0, %.thread44 ]
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %3)
-  br label %.thread50
+  br label %.thread40
 
-.thread50:                                        ; preds = %._crit_edge, %opal_hwloc_base_report_bind_failure.exit26, %opal_hwloc_base_report_bind_failure.exit
-  %.019 = phi i32 [ 0, %opal_hwloc_base_report_bind_failure.exit ], [ %.0.i, %opal_hwloc_base_report_bind_failure.exit26 ], [ 0, %._crit_edge ]
+.thread40:                                        ; preds = %.thread50, %opal_hwloc_base_report_bind_failure.exit26, %opal_hwloc_base_report_bind_failure.exit
+  %.019 = phi i32 [ 0, %opal_hwloc_base_report_bind_failure.exit ], [ %.0.i, %opal_hwloc_base_report_bind_failure.exit26 ], [ 0, %.thread50 ]
   ret i32 %.019
 }
 
@@ -154,22 +154,22 @@ define range(i32 -2, 1) i32 @opal_hwloc_base_membind(ptr noundef readonly captur
 
 opal_hwloc_base_report_bind_failure.exit:         ; preds = %7, %10
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %5)
-  br label %.thread51
+  br label %.thread41
 
 18:                                               ; preds = %3
   %19 = tail call noalias ptr @hwloc_bitmap_alloc() #4
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread34, label %21
+  br i1 %20, label %.thread45, label %21
 
 21:                                               ; preds = %18
   %22 = tail call i32 @hwloc_bitmap_set(ptr noundef nonnull %19, i32 noundef %2) #4
   %.not56 = icmp eq i64 %1, 0
-  br i1 %.not56, label %._crit_edge, label %.lr.ph
+  br i1 %.not56, label %.thread51, label %.lr.ph
 
 23:                                               ; preds = %.lr.ph
   %24 = add nuw i64 %.01955, 1
   %exitcond.not = icmp eq i64 %24, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.thread51, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %21, %23
   %.01955 = phi i64 [ %24, %23 ], [ 0, %21 ]
@@ -180,44 +180,44 @@ opal_hwloc_base_report_bind_failure.exit:         ; preds = %7, %10
   %29 = load i64, ptr %28, align 8
   %30 = tail call i32 @hwloc_set_area_membind(ptr noundef %25, ptr noundef %27, i64 noundef %29, ptr noundef nonnull %19, i32 noundef 2, i32 noundef 4) #4
   %.not22 = icmp eq i32 %30, 0
-  br i1 %.not22, label %23, label %.thread47
+  br i1 %.not22, label %23, label %31
 
-.thread47:                                        ; preds = %.lr.ph
+.thread51:                                        ; preds = %23, %21
   tail call void @hwloc_bitmap_free(ptr noundef nonnull %19) #4
-  br label %.thread34
+  br label %.thread41
 
-._crit_edge:                                      ; preds = %23, %21
+31:                                               ; preds = %.lr.ph
   tail call void @hwloc_bitmap_free(ptr noundef nonnull %19) #4
-  br label %.thread51
+  br label %.thread45
 
-.thread34:                                        ; preds = %.thread47, %18
-  %.0183239 = phi i32 [ -2, %18 ], [ -1, %.thread47 ]
-  %.03338 = phi ptr [ @.str.2, %18 ], [ @.str.3, %.thread47 ]
+.thread45:                                        ; preds = %18, %31
+  %.0183250 = phi i32 [ -1, %31 ], [ -2, %18 ]
+  %.03349 = phi ptr [ @.str.3, %31 ], [ @.str.2, %18 ]
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %4)
   %.b.i25 = load i1, ptr @opal_hwloc_base_report_bind_failure.already_reported, align 4
-  %31 = load i32, ptr @opal_hwloc_base_mbfa, align 4
-  %32 = icmp eq i32 %31, 0
-  %or.cond.not.i26 = select i1 %.b.i25, i1 true, i1 %32
-  br i1 %or.cond.not.i26, label %opal_hwloc_base_report_bind_failure.exit27, label %33
+  %32 = load i32, ptr @opal_hwloc_base_mbfa, align 4
+  %33 = icmp eq i32 %32, 0
+  %or.cond.not.i26 = select i1 %.b.i25, i1 true, i1 %33
+  br i1 %or.cond.not.i26, label %opal_hwloc_base_report_bind_failure.exit27, label %34
 
-33:                                               ; preds = %.thread34
-  %34 = call i32 @gethostname(ptr noundef nonnull %4, i64 noundef 65) #4
-  %35 = load ptr, ptr @opal_show_help, align 8
-  %36 = call i32 @getpid() #4
-  %37 = load i32, ptr @opal_hwloc_base_mbfa, align 4
-  %38 = icmp eq i32 %37, 1
-  %39 = select i1 %38, ptr @.str.6, ptr @.str.7
-  %40 = call i32 (ptr, ptr, i32, ...) %35(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %4, i32 noundef %36, ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull %.03338, ptr noundef nonnull %39) #4
+34:                                               ; preds = %.thread45
+  %35 = call i32 @gethostname(ptr noundef nonnull %4, i64 noundef 65) #4
+  %36 = load ptr, ptr @opal_show_help, align 8
+  %37 = call i32 @getpid() #4
+  %38 = load i32, ptr @opal_hwloc_base_mbfa, align 4
+  %39 = icmp eq i32 %38, 1
+  %40 = select i1 %39, ptr @.str.6, ptr @.str.7
+  %41 = call i32 (ptr, ptr, i32, ...) %36(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %4, i32 noundef %37, ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull %.03349, ptr noundef nonnull %40) #4
   store i1 true, ptr @opal_hwloc_base_report_bind_failure.already_reported, align 4
   br label %opal_hwloc_base_report_bind_failure.exit27
 
-opal_hwloc_base_report_bind_failure.exit27:       ; preds = %.thread34, %33
-  %.0.i = phi i32 [ %.0183239, %33 ], [ 0, %.thread34 ]
+opal_hwloc_base_report_bind_failure.exit27:       ; preds = %.thread45, %34
+  %.0.i = phi i32 [ %.0183250, %34 ], [ 0, %.thread45 ]
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %4)
-  br label %.thread51
+  br label %.thread41
 
-.thread51:                                        ; preds = %._crit_edge, %opal_hwloc_base_report_bind_failure.exit27, %opal_hwloc_base_report_bind_failure.exit
-  %.020 = phi i32 [ 0, %opal_hwloc_base_report_bind_failure.exit ], [ %.0.i, %opal_hwloc_base_report_bind_failure.exit27 ], [ 0, %._crit_edge ]
+.thread41:                                        ; preds = %.thread51, %opal_hwloc_base_report_bind_failure.exit27, %opal_hwloc_base_report_bind_failure.exit
+  %.020 = phi i32 [ 0, %opal_hwloc_base_report_bind_failure.exit ], [ %.0.i, %opal_hwloc_base_report_bind_failure.exit27 ], [ 0, %.thread51 ]
   ret i32 %.020
 }
 

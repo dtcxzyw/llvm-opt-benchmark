@@ -109,7 +109,7 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #12
+  call void @__cxa_free_exception(ptr nonnull %25) #12
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -492,7 +492,7 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #12
+  call void @__cxa_free_exception(ptr nonnull %25) #12
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -837,7 +837,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #12
+  call void @__cxa_free_exception(ptr nonnull %26) #12
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -1173,7 +1173,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #12
+  call void @__cxa_free_exception(ptr nonnull %26) #12
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -1509,7 +1509,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #12
+  call void @__cxa_free_exception(ptr nonnull %26) #12
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -1845,7 +1845,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #12
+  call void @__cxa_free_exception(ptr nonnull %26) #12
   br label %32
 
 32:                                               ; preds = %30, %28

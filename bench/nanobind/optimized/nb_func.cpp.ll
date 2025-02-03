@@ -4020,7 +4020,7 @@ _ZN8nanobind6detail6Buffer3putEc.exit293:         ; preds = %625, %_ZN8nanobind6
           to label %662 unwind label %.loopexit338
 
 662:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %655) #24
+  call void @free(ptr noundef nonnull %655) #24
   br i1 %1, label %663, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288
 
 663:                                              ; preds = %662
@@ -6282,7 +6282,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3tsl17detail_robin_hash10robin
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #24
+  tail call void @__cxa_free_exception(ptr nonnull %17) #24
   resume { ptr, i32 } %20
 
 _ZNK3tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit: ; preds = %12
@@ -6630,7 +6630,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
 common.resume:                                    ; preds = %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #24
+  tail call void @__cxa_free_exception(ptr nonnull %10) #24
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %7

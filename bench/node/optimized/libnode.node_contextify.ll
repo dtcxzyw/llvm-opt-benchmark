@@ -637,7 +637,7 @@ _ZN4node17BaseObjectPtrImplINS_10contextify17ContextifyContextELb0EED2Ev.exit: ;
   %agg.tmp208.sroa.0.0.copyload = load ptr, ptr %wrapper, align 8
   %call221 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %sandbox_obj.coerce, ptr %agg.tmp201.sroa.0.0.copyload, ptr %22, ptr %agg.tmp208.sroa.0.0.copyload) #22
   %tobool.i283 = trunc i16 %call221 to i1
-  br i1 %tobool.i283, label %if.end224, label %cleanup252
+  br i1 %tobool.i283, label %if.end224, label %if.then.i19
 
 if.end224:                                        ; preds = %_ZN4node17BaseObjectPtrImplINS_10contextify17ContextifyContextELb0EED2Ev.exit
   %agg.tmp227.sroa.0.0.copyload = load ptr, ptr %v8_context, align 8
@@ -651,7 +651,7 @@ if.end224:                                        ; preds = %_ZN4node17BaseObjec
   %agg.tmp234.sroa.0.0.copyload = load ptr, ptr %host_defined_options_id235, align 8
   %call248 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %sandbox_obj.coerce, ptr %agg.tmp227.sroa.0.0.copyload, ptr %25, ptr %agg.tmp234.sroa.0.0.copyload) #22
   %tobool.i = trunc i16 %call248 to i1
-  br i1 %tobool.i, label %if.end251, label %cleanup252
+  br i1 %tobool.i, label %if.end251, label %if.then.i19
 
 if.end251:                                        ; preds = %if.end224
   store i64 %18, ptr %agg.result, align 8
@@ -662,12 +662,12 @@ cleanup252.critedge:                              ; preds = %if.end172, %if.end1
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %v8_context.coerce) #22
   br label %_ZN4node17BaseObjectPtrImplINS_10contextify17ContextifyContextELb0EED2Ev.exit20
 
-cleanup252:                                       ; preds = %if.end224, %_ZN4node17BaseObjectPtrImplINS_10contextify17ContextifyContextELb0EED2Ev.exit
+if.then.i19:                                      ; preds = %if.end224, %_ZN4node17BaseObjectPtrImplINS_10contextify17ContextifyContextELb0EED2Ev.exit
   store ptr null, ptr %agg.result, align 8
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #22
   br label %_ZN4node17BaseObjectPtrImplINS_10contextify17ContextifyContextELb0EED2Ev.exit20
 
-_ZN4node17BaseObjectPtrImplINS_10contextify17ContextifyContextELb0EED2Ev.exit20: ; preds = %if.end251, %cleanup252.critedge, %cleanup252
+_ZN4node17BaseObjectPtrImplINS_10contextify17ContextifyContextELb0EED2Ev.exit20: ; preds = %if.end251, %cleanup252.critedge, %if.then.i19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %origin.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(65) %info) #22
   %27 = load ptr, ptr %buf_.i, align 8

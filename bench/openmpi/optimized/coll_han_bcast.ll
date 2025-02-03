@@ -96,7 +96,7 @@ opal_thread_add_fetch_32.exit225:                 ; preds = %30, %35
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %44
-  tail call void @free(ptr noundef %21) #4
+  tail call void @free(ptr noundef nonnull %21) #4
   br label %52
 
 52:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit225, %9
@@ -167,7 +167,7 @@ opal_thread_add_fetch_32.exit229:                 ; preds = %72, %77
   br i1 %.not.i233, label %opal_obj_run_destructors.exit234, label %.lr.ph.i231, !llvm.loop !4
 
 opal_obj_run_destructors.exit234:                 ; preds = %.lr.ph.i231, %86
-  tail call void @free(ptr noundef %63) #4
+  tail call void @free(ptr noundef nonnull %63) #4
   br label %94
 
 94:                                               ; preds = %opal_obj_run_destructors.exit234, %opal_thread_add_fetch_32.exit229, %52
@@ -238,7 +238,7 @@ opal_thread_add_fetch_32.exit238:                 ; preds = %114, %119
   br i1 %.not.i242, label %opal_obj_run_destructors.exit243, label %.lr.ph.i240, !llvm.loop !4
 
 opal_obj_run_destructors.exit243:                 ; preds = %.lr.ph.i240, %128
-  tail call void @free(ptr noundef %105) #4
+  tail call void @free(ptr noundef nonnull %105) #4
   br label %136
 
 136:                                              ; preds = %opal_obj_run_destructors.exit243, %opal_thread_add_fetch_32.exit238, %94
@@ -309,7 +309,7 @@ opal_thread_add_fetch_32.exit247:                 ; preds = %156, %161
   br i1 %.not.i251, label %opal_obj_run_destructors.exit252, label %.lr.ph.i249, !llvm.loop !4
 
 opal_obj_run_destructors.exit252:                 ; preds = %.lr.ph.i249, %170
-  tail call void @free(ptr noundef %147) #4
+  tail call void @free(ptr noundef nonnull %147) #4
   br label %178
 
 178:                                              ; preds = %opal_obj_run_destructors.exit252, %opal_thread_add_fetch_32.exit247, %136
@@ -380,7 +380,7 @@ opal_thread_add_fetch_32.exit256:                 ; preds = %198, %203
   br i1 %.not.i260, label %opal_obj_run_destructors.exit261, label %.lr.ph.i258, !llvm.loop !4
 
 opal_obj_run_destructors.exit261:                 ; preds = %.lr.ph.i258, %212
-  tail call void @free(ptr noundef %189) #4
+  tail call void @free(ptr noundef nonnull %189) #4
   br label %220
 
 220:                                              ; preds = %opal_obj_run_destructors.exit261, %opal_thread_add_fetch_32.exit256, %178
@@ -451,7 +451,7 @@ opal_thread_add_fetch_32.exit265:                 ; preds = %240, %245
   br i1 %.not.i269, label %opal_obj_run_destructors.exit270, label %.lr.ph.i267, !llvm.loop !4
 
 opal_obj_run_destructors.exit270:                 ; preds = %.lr.ph.i267, %254
-  tail call void @free(ptr noundef %231) #4
+  tail call void @free(ptr noundef nonnull %231) #4
   br label %262
 
 262:                                              ; preds = %opal_obj_run_destructors.exit270, %opal_thread_add_fetch_32.exit265, %220
@@ -521,7 +521,7 @@ opal_thread_add_fetch_32.exit274:                 ; preds = %281, %286
   br i1 %.not.i278, label %opal_obj_run_destructors.exit279, label %.lr.ph.i276, !llvm.loop !4
 
 opal_obj_run_destructors.exit279:                 ; preds = %.lr.ph.i276, %295
-  tail call void @free(ptr noundef %272) #4
+  tail call void @free(ptr noundef nonnull %272) #4
   br label %303
 
 303:                                              ; preds = %opal_obj_run_destructors.exit279, %opal_thread_add_fetch_32.exit274, %262
@@ -592,7 +592,7 @@ opal_thread_add_fetch_32.exit283:                 ; preds = %323, %328
   br i1 %.not.i287, label %opal_obj_run_destructors.exit288, label %.lr.ph.i285, !llvm.loop !4
 
 opal_obj_run_destructors.exit288:                 ; preds = %.lr.ph.i285, %337
-  tail call void @free(ptr noundef %314) #4
+  tail call void @free(ptr noundef nonnull %314) #4
   br label %345
 
 345:                                              ; preds = %303, %opal_thread_add_fetch_32.exit283, %opal_obj_run_destructors.exit288
@@ -681,7 +681,7 @@ opal_thread_add_fetch_32.exit292:                 ; preds = %378, %383
   br i1 %.not.i296, label %opal_obj_run_destructors.exit297, label %.lr.ph.i294, !llvm.loop !4
 
 opal_obj_run_destructors.exit297:                 ; preds = %.lr.ph.i294, %392
-  tail call void @free(ptr noundef %369) #4
+  tail call void @free(ptr noundef nonnull %369) #4
   br label %400
 
 400:                                              ; preds = %357, %opal_thread_add_fetch_32.exit292, %opal_obj_run_destructors.exit297
@@ -1406,7 +1406,7 @@ opal_thread_add_fetch_32.exit181:                 ; preds = %29, %34
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %43
-  tail call void @free(ptr noundef %20) #4
+  tail call void @free(ptr noundef nonnull %20) #4
   br label %51
 
 51:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit181, %8
@@ -1477,7 +1477,7 @@ opal_thread_add_fetch_32.exit185:                 ; preds = %71, %76
   br i1 %.not.i189, label %opal_obj_run_destructors.exit190, label %.lr.ph.i187, !llvm.loop !4
 
 opal_obj_run_destructors.exit190:                 ; preds = %.lr.ph.i187, %85
-  tail call void @free(ptr noundef %62) #4
+  tail call void @free(ptr noundef nonnull %62) #4
   br label %93
 
 93:                                               ; preds = %opal_obj_run_destructors.exit190, %opal_thread_add_fetch_32.exit185, %51
@@ -1548,7 +1548,7 @@ opal_thread_add_fetch_32.exit194:                 ; preds = %113, %118
   br i1 %.not.i198, label %opal_obj_run_destructors.exit199, label %.lr.ph.i196, !llvm.loop !4
 
 opal_obj_run_destructors.exit199:                 ; preds = %.lr.ph.i196, %127
-  tail call void @free(ptr noundef %104) #4
+  tail call void @free(ptr noundef nonnull %104) #4
   br label %135
 
 135:                                              ; preds = %opal_obj_run_destructors.exit199, %opal_thread_add_fetch_32.exit194, %93
@@ -1619,7 +1619,7 @@ opal_thread_add_fetch_32.exit203:                 ; preds = %155, %160
   br i1 %.not.i207, label %opal_obj_run_destructors.exit208, label %.lr.ph.i205, !llvm.loop !4
 
 opal_obj_run_destructors.exit208:                 ; preds = %.lr.ph.i205, %169
-  tail call void @free(ptr noundef %146) #4
+  tail call void @free(ptr noundef nonnull %146) #4
   br label %177
 
 177:                                              ; preds = %opal_obj_run_destructors.exit208, %opal_thread_add_fetch_32.exit203, %135
@@ -1690,7 +1690,7 @@ opal_thread_add_fetch_32.exit212:                 ; preds = %197, %202
   br i1 %.not.i216, label %opal_obj_run_destructors.exit217, label %.lr.ph.i214, !llvm.loop !4
 
 opal_obj_run_destructors.exit217:                 ; preds = %.lr.ph.i214, %211
-  tail call void @free(ptr noundef %188) #4
+  tail call void @free(ptr noundef nonnull %188) #4
   br label %219
 
 219:                                              ; preds = %opal_obj_run_destructors.exit217, %opal_thread_add_fetch_32.exit212, %177
@@ -1761,7 +1761,7 @@ opal_thread_add_fetch_32.exit221:                 ; preds = %239, %244
   br i1 %.not.i225, label %opal_obj_run_destructors.exit226, label %.lr.ph.i223, !llvm.loop !4
 
 opal_obj_run_destructors.exit226:                 ; preds = %.lr.ph.i223, %253
-  tail call void @free(ptr noundef %230) #4
+  tail call void @free(ptr noundef nonnull %230) #4
   br label %261
 
 261:                                              ; preds = %opal_obj_run_destructors.exit226, %opal_thread_add_fetch_32.exit221, %219
@@ -1831,7 +1831,7 @@ opal_thread_add_fetch_32.exit230:                 ; preds = %280, %285
   br i1 %.not.i234, label %opal_obj_run_destructors.exit235, label %.lr.ph.i232, !llvm.loop !4
 
 opal_obj_run_destructors.exit235:                 ; preds = %.lr.ph.i232, %294
-  tail call void @free(ptr noundef %271) #4
+  tail call void @free(ptr noundef nonnull %271) #4
   br label %302
 
 302:                                              ; preds = %opal_obj_run_destructors.exit235, %opal_thread_add_fetch_32.exit230, %261
@@ -1902,7 +1902,7 @@ opal_thread_add_fetch_32.exit239:                 ; preds = %322, %327
   br i1 %.not.i243, label %opal_obj_run_destructors.exit244, label %.lr.ph.i241, !llvm.loop !4
 
 opal_obj_run_destructors.exit244:                 ; preds = %.lr.ph.i241, %336
-  tail call void @free(ptr noundef %313) #4
+  tail call void @free(ptr noundef nonnull %313) #4
   br label %344
 
 344:                                              ; preds = %302, %opal_thread_add_fetch_32.exit239, %opal_obj_run_destructors.exit244
@@ -1991,7 +1991,7 @@ opal_thread_add_fetch_32.exit248:                 ; preds = %377, %382
   br i1 %.not.i252, label %opal_obj_run_destructors.exit253, label %.lr.ph.i250, !llvm.loop !4
 
 opal_obj_run_destructors.exit253:                 ; preds = %.lr.ph.i250, %391
-  tail call void @free(ptr noundef %368) #4
+  tail call void @free(ptr noundef nonnull %368) #4
   br label %399
 
 399:                                              ; preds = %356, %opal_thread_add_fetch_32.exit248, %opal_obj_run_destructors.exit253

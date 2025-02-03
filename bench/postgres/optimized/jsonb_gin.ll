@@ -593,7 +593,7 @@ make_text_key.exit84:                             ; preds = %.thread85, %111, %1
   store i8 %.0.i83, ptr %121, align 4
   %122 = getelementptr i8, ptr %119, i64 5
   %123 = sext i32 %.014.i81 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %122, ptr align 1 %.013.i82, i64 %123, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %122, ptr nonnull align 1 %.013.i82, i64 %123, i1 false)
   %124 = ptrtoint ptr %119 to i64
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2)
   %125 = add i32 %.06686, 1

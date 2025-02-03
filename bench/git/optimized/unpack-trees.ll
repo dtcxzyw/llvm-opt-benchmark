@@ -5162,7 +5162,7 @@ land.lhs.true:                                    ; preds = %invalidate_ce_path.
 if.then9:                                         ; preds = %land.lhs.true
   %oid = getelementptr inbounds nuw i8, ptr %ce, i64 72
   %call10 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid) #17
-  %call11 = tail call fastcc i32 @check_submodule_move_head(ptr noundef %ce, ptr noundef null, ptr noundef %call10, ptr noundef nonnull %o)
+  %call11 = tail call fastcc i32 @check_submodule_move_head(ptr noundef nonnull %ce, ptr noundef null, ptr noundef %call10, ptr noundef nonnull %o)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end55, label %return
 
@@ -5286,7 +5286,7 @@ if.then38:                                        ; preds = %land.lhs.true33
   %call41 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid40) #17
   %oid42 = getelementptr inbounds nuw i8, ptr %ce, i64 72
   %call43 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid42) #17
-  %call44 = tail call fastcc i32 @check_submodule_move_head(ptr noundef %ce, ptr noundef %call41, ptr noundef %call43, ptr noundef %o)
+  %call44 = tail call fastcc i32 @check_submodule_move_head(ptr noundef nonnull %ce, ptr noundef %call41, ptr noundef %call43, ptr noundef nonnull %o)
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %if.end55, label %return
 
@@ -7756,14 +7756,14 @@ if.then31.i:                                      ; preds = %if.end28.i
   %24 = and i32 %21, 1107296256
   %or.cond.not.i.i = icmp eq i32 %24, 1107296256
   %or.cond.i = and i1 %or.cond.not.i.i, %tobool.not.i42.i
-  br i1 %or.cond.i, label %if.end35.i, label %verify_uptodate.exit.i
+  br i1 %or.cond.i, label %invalidate_ce_path.exit.i, label %verify_uptodate.exit.i
 
 verify_uptodate.exit.i:                           ; preds = %if.then31.i
   %call.i44.i = call fastcc i32 @verify_uptodate_1(ptr noundef nonnull %18, ptr noundef nonnull %o, i32 noundef 1)
   %tobool33.not.i = icmp eq i32 %call.i44.i, 0
-  br i1 %tobool33.not.i, label %if.end35.i, label %verify_clean_subdirectory.exit.thread
+  br i1 %tobool33.not.i, label %invalidate_ce_path.exit.i, label %verify_clean_subdirectory.exit.thread
 
-if.end35.i:                                       ; preds = %verify_uptodate.exit.i, %if.then31.i
+invalidate_ce_path.exit.i:                        ; preds = %verify_uptodate.exit.i, %if.then31.i
   %call.i46.i = call ptr @dup_cache_entry(ptr noundef nonnull %18, ptr noundef nonnull %result.i.i) #17
   %ce_flags.i.i.i = getelementptr inbounds nuw i8, ptr %call.i46.i, i64 56
   %25 = load i32, ptr %ce_flags.i.i.i, align 8
@@ -7785,7 +7785,7 @@ if.end35.i:                                       ; preds = %verify_uptodate.exi
   %cmp.i.i = icmp ult i32 %29, %31
   br i1 %cmp.i.i, label %land.lhs.true.i53.i, label %if.end36.i
 
-land.lhs.true.i53.i:                              ; preds = %if.end35.i
+land.lhs.true.i53.i:                              ; preds = %invalidate_ce_path.exit.i
   %32 = load ptr, ptr %30, align 8
   %idxprom.i54.i = sext i32 %29 to i64
   %arrayidx.i55.i = getelementptr inbounds ptr, ptr %32, i64 %idxprom.i54.i
@@ -7818,8 +7818,8 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %wh
   store i32 %bottom.0.lcssa.ph.i.i, ptr %cache_bottom.i.i, align 8
   br label %if.end36.i
 
-if.end36.i:                                       ; preds = %while.end.i.i, %land.lhs.true.i53.i, %if.end35.i, %if.end28.i
-  %38 = phi ptr [ %30, %while.end.i.i ], [ %30, %land.lhs.true.i53.i ], [ %30, %if.end35.i ], [ %16, %if.end28.i ]
+if.end36.i:                                       ; preds = %while.end.i.i, %land.lhs.true.i53.i, %invalidate_ce_path.exit.i, %if.end28.i
+  %38 = phi ptr [ %30, %while.end.i.i ], [ %30, %land.lhs.true.i53.i ], [ %30, %invalidate_ce_path.exit.i ], [ %16, %if.end28.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cache_nr.i = getelementptr inbounds nuw i8, ptr %38, i64 12
   %39 = load i32, ptr %cache_nr.i, align 4

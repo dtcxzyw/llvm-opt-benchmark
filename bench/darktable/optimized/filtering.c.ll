@@ -4295,7 +4295,7 @@ define internal void @_colors_operator_clicked(ptr readnone captures(none) %0, p
 
 35:                                               ; preds = %23, %12
   tail call void @g_free(ptr noundef %15) #21
-  %36 = tail call i32 @_colors_update(ptr noundef %3), !range !16
+  %36 = tail call i32 @_colors_update(ptr noundef nonnull %3), !range !16
   ret void
 }
 

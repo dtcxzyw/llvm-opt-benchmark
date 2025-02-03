@@ -533,7 +533,7 @@ define void @_ZN5ZXing18ReedSolomonEncoder6encodeERSt6vectorIiSaIiEEi(ptr nounde
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #14
+  tail call void @__cxa_free_exception(ptr nonnull %17) #14
   br label %.body
 
 21:                                               ; preds = %7

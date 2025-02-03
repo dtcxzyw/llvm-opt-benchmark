@@ -5871,13 +5871,10 @@ if.then3.i.i.i:                                   ; preds = %if.then.i.i.i391
 invoke.cont260:                                   ; preds = %if.then.i.i.i391, %if.end.i389, %if.then3.i.i.i
   store ptr %call259, ptr %r, align 8
   %208 = load ptr, ptr %m_ctx, align 8
-  invoke void @_ZN7datalog16accounted_object28set_accounting_parent_objectERNS_7contextEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(33) %call259, ptr noundef nonnull align 8 dereferenceable(3556) %208, ptr noundef %196)
-          to label %invoke.cont267 unwind label %lpad245
+  invoke void @_ZN7datalog16accounted_object28set_accounting_parent_objectERNS_7contextEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(33) %call259, ptr noundef nonnull align 8 dereferenceable(3556) %208, ptr noundef nonnull %196)
+          to label %if.then.i.i.i397 unwind label %lpad245
 
-invoke.cont267:                                   ; preds = %invoke.cont260
-  br i1 %tobool.not.i.i379, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, label %if.then.i.i.i397
-
-if.then.i.i.i397:                                 ; preds = %invoke.cont267
+if.then.i.i.i397:                                 ; preds = %invoke.cont260
   %m_ref_cnt.i.i.i399 = getelementptr inbounds nuw i8, ptr %196, i64 60
   %209 = load i32, ptr %m_ref_cnt.i.i.i399, align 4
   %dec.i.i.i400 = add i32 %209, -1
@@ -5897,7 +5894,7 @@ terminate.lpad.i403:                              ; preds = %if.then3.i.i.i402
   call void @__clang_call_terminate(ptr %212) #23
   unreachable
 
-_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %invoke.cont267, %if.then.i.i.i397, %if.then3.i.i.i402
+_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %if.then.i.i.i397, %if.then3.i.i.i402
   call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %vs) #22
   br i1 %tobool.not.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit412, label %if.then.i.i.i405
 

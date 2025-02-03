@@ -77,7 +77,7 @@ Extra_FileNameGeneric.exit:                       ; preds = %8, %11
 
 34:                                               ; preds = %16, %26, %31, %21, %Extra_FileNameGeneric.exit
   %.038 = phi ptr [ %33, %31 ], [ %28, %26 ], [ %23, %21 ], [ %18, %16 ], [ %13, %Extra_FileNameGeneric.exit ]
-  tail call void @free(ptr noundef %9) #21
+  tail call void @free(ptr noundef nonnull %9) #21
   %.not46 = icmp eq ptr %.038, null
   br i1 %.not46, label %37, label %35
 

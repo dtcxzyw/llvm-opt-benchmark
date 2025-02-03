@@ -1766,8 +1766,6 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers
 
 34:                                               ; preds = %24
   %35 = mul nsw i64 %.val1, 72
-  %36 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %36)
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, 0) %35, i64 noundef 8) #25
   resume { ptr, i32 } %27
 
@@ -1816,10 +1814,10 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmparser..readers
     i8 0, label %3
     i8 1, label %36
     i8 2, label %51
-    i8 3, label %81
+    i8 3, label %80
   ]
 
-"_ZN4core3ptr80drop_in_place$LT$wasmparser..readers..component..types..ComponentDefinedType$GT$17hf4809d1ab7ebc771E.exit": ; preds = %81, %51, %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmparser..readers..component..types..InstanceTypeDeclaration$u5d$$GT$$GT$17h8deb86a6435322ffE.exit", %"_ZN4core3ptr119drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmparser..readers..component..types..ComponentTypeDeclaration$u5d$$GT$$GT$17h181e905f1bdce20cE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11357125133562502446.exit.i.i.i.i", %46, %"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$$u5b$$LP$$RF$str$C$wasmparser..readers..component..types..ComponentValType$RP$$u5d$$GT$$GT$17hc8e433e0d0dc1057E.llvm.11357125133562502446.exit.i", %33, %30, %27, %24, %21, %18, %15, %12, %9, %6, %3, %1
+"_ZN4core3ptr80drop_in_place$LT$wasmparser..readers..component..types..ComponentDefinedType$GT$17hf4809d1ab7ebc771E.exit": ; preds = %80, %51, %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmparser..readers..component..types..InstanceTypeDeclaration$u5d$$GT$$GT$17h8deb86a6435322ffE.exit", %"_ZN4core3ptr119drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmparser..readers..component..types..ComponentTypeDeclaration$u5d$$GT$$GT$17h181e905f1bdce20cE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11357125133562502446.exit.i.i.i.i", %46, %"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$$u5b$$LP$$RF$str$C$wasmparser..readers..component..types..ComponentValType$RP$$u5d$$GT$$GT$17hc8e433e0d0dc1057E.llvm.11357125133562502446.exit.i", %33, %30, %27, %24, %21, %18, %15, %12, %9, %6, %3, %1
   ret void
 
 3:                                                ; preds = %1
@@ -1994,83 +1992,81 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmparser..readers
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24, !noalias !399
   unreachable
 
-common.resume:                                    ; preds = %99, %69
-  %.sink30 = phi i64 [ %55, %69 ], [ %85, %99 ]
-  %.sink29 = phi ptr [ %53, %69 ], [ %83, %99 ]
-  %common.resume.op = phi { ptr, i32 } [ %72, %69 ], [ %102, %99 ]
-  %78 = mul nsw i64 %.sink30, 48
-  %79 = icmp ne ptr %.sink29, null
-  tail call void @llvm.assume(i1 %79), !noalias !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sink29, i64 noundef range(i64 1, 0) %78, i64 noundef 8) #25, !noalias !4
+common.resume:                                    ; preds = %98, %69
+  %.sink28 = phi i64 [ %55, %69 ], [ %84, %98 ]
+  %.sink = phi ptr [ %53, %69 ], [ %82, %98 ]
+  %common.resume.op = phi { ptr, i32 } [ %72, %69 ], [ %101, %98 ]
+  %78 = mul nsw i64 %.sink28, 48
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef range(i64 1, 0) %78, i64 noundef 8) #25, !noalias !4
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr119drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmparser..readers..component..types..ComponentTypeDeclaration$u5d$$GT$$GT$17h181e905f1bdce20cE.exit": ; preds = %"_ZN4core3ptr84drop_in_place$LT$wasmparser..readers..component..types..ComponentTypeDeclaration$GT$17h8038ae051282faf4E.exit.i"
-  %80 = mul nsw i64 %55, 48
-  tail call void @__rust_dealloc(ptr noundef nonnull %53, i64 noundef range(i64 1, 0) %80, i64 noundef 8) #25, !noalias !399
+  %79 = mul nsw i64 %55, 48
+  tail call void @__rust_dealloc(ptr noundef nonnull %53, i64 noundef range(i64 1, 0) %79, i64 noundef 8) #25, !noalias !399
   br label %"_ZN4core3ptr80drop_in_place$LT$wasmparser..readers..component..types..ComponentDefinedType$GT$17hf4809d1ab7ebc771E.exit"
 
-81:                                               ; preds = %1
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
+80:                                               ; preds = %1
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
-  %83 = load ptr, ptr %82, align 8, !alias.scope !408, !noundef !4
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %85 = load i64, ptr %84, align 8, !alias.scope !408, !noundef !4
-  %86 = icmp eq i64 %85, 0
-  br i1 %86, label %"_ZN4core3ptr80drop_in_place$LT$wasmparser..readers..component..types..ComponentDefinedType$GT$17hf4809d1ab7ebc771E.exit", label %.lr.ph
+  %82 = load ptr, ptr %81, align 8, !alias.scope !408, !noundef !4
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %84 = load i64, ptr %83, align 8, !alias.scope !408, !noundef !4
+  %85 = icmp eq i64 %84, 0
+  br i1 %85, label %"_ZN4core3ptr80drop_in_place$LT$wasmparser..readers..component..types..ComponentDefinedType$GT$17hf4809d1ab7ebc771E.exit", label %.lr.ph
 
-.lr.ph:                                           ; preds = %81, %"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i"
-  %.0.i1118 = phi i64 [ %88, %"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i" ], [ 0, %81 ]
-  %87 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %83, i64 0, i64 %.0.i1118
-  %88 = add nuw i64 %.0.i1118, 1
-  %89 = load i32, ptr %87, align 8, !range !209, !alias.scope !411, !noalias !408, !noundef !4
-  %90 = add nsw i32 %89, -3
-  %91 = icmp ult i32 %90, 3
-  %92 = zext nneg i32 %89 to i64
-  %93 = add nsw i64 %92, -2
-  %94 = select i1 %91, i64 %93, i64 0
-  switch i64 %94, label %"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i" [
-    i64 0, label %95
-    i64 1, label %96
+.lr.ph:                                           ; preds = %80, %"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i"
+  %.0.i1118 = phi i64 [ %87, %"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i" ], [ 0, %80 ]
+  %86 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %82, i64 0, i64 %.0.i1118
+  %87 = add nuw i64 %.0.i1118, 1
+  %88 = load i32, ptr %86, align 8, !range !209, !alias.scope !411, !noalias !408, !noundef !4
+  %89 = add nsw i32 %88, -3
+  %90 = icmp ult i32 %89, 3
+  %91 = zext nneg i32 %88 to i64
+  %92 = add nsw i64 %91, -2
+  %93 = select i1 %90, i64 %92, i64 0
+  switch i64 %93, label %"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i" [
+    i64 0, label %94
+    i64 1, label %95
   ]
 
+94:                                               ; preds = %.lr.ph
+  invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers..component..types..CoreType$GT$17hb9636811f0d56071E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %86)
+          to label %"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i" unwind label %100, !noalias !408
+
 95:                                               ; preds = %.lr.ph
-  invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers..component..types..CoreType$GT$17hb9636811f0d56071E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %87)
-          to label %"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i" unwind label %101, !noalias !408
+  %96 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmparser..readers..component..types..ComponentType$GT$17h2653f051ab81de25E"(ptr noalias noundef align 8 dereferenceable(40) %96)
+          to label %"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i" unwind label %100, !noalias !408
 
-96:                                               ; preds = %.lr.ph
-  %97 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$wasmparser..readers..component..types..ComponentType$GT$17h2653f051ab81de25E"(ptr noalias noundef align 8 dereferenceable(40) %97)
-          to label %"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i" unwind label %101, !noalias !408
+"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i": ; preds = %95, %94, %.lr.ph
+  %97 = icmp eq i64 %87, %84
+  br i1 %97, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmparser..readers..component..types..InstanceTypeDeclaration$u5d$$GT$$GT$17h8deb86a6435322ffE.exit", label %.lr.ph
 
-"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i": ; preds = %96, %95, %.lr.ph
-  %98 = icmp eq i64 %88, %85
-  br i1 %98, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmparser..readers..component..types..InstanceTypeDeclaration$u5d$$GT$$GT$17h8deb86a6435322ffE.exit", label %.lr.ph
+98:                                               ; preds = %102, %100
+  %.1.i12 = phi i64 [ %87, %100 ], [ %104, %102 ]
+  %99 = icmp eq i64 %.1.i12, %84
+  br i1 %99, label %common.resume, label %102
 
-99:                                               ; preds = %103, %101
-  %.1.i12 = phi i64 [ %88, %101 ], [ %105, %103 ]
-  %100 = icmp eq i64 %.1.i12, %85
-  br i1 %100, label %common.resume, label %103
-
-101:                                              ; preds = %96, %95
-  %102 = landingpad { ptr, i32 }
+100:                                              ; preds = %95, %94
+  %101 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %98
 
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %83, i64 0, i64 %.1.i12
-  %105 = add i64 %.1.i12, 1
-  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E"(ptr noalias noundef align 8 dereferenceable(48) %104) #22
-          to label %99 unwind label %106, !noalias !408
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %82, i64 0, i64 %.1.i12
+  %104 = add i64 %.1.i12, 1
+  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E"(ptr noalias noundef align 8 dereferenceable(48) %103) #22
+          to label %98 unwind label %105, !noalias !408
 
-106:                                              ; preds = %103
-  %107 = landingpad { ptr, i32 }
+105:                                              ; preds = %102
+  %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24, !noalias !408
   unreachable
 
 "_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmparser..readers..component..types..InstanceTypeDeclaration$u5d$$GT$$GT$17h8deb86a6435322ffE.exit": ; preds = %"_ZN4core3ptr83drop_in_place$LT$wasmparser..readers..component..types..InstanceTypeDeclaration$GT$17h94668a102c7d66d0E.exit.i"
-  %108 = mul nsw i64 %85, 48
-  tail call void @__rust_dealloc(ptr noundef nonnull %83, i64 noundef range(i64 1, 0) %108, i64 noundef 8) #25, !noalias !408
+  %107 = mul nsw i64 %84, 48
+  tail call void @__rust_dealloc(ptr noundef nonnull %82, i64 noundef range(i64 1, 0) %107, i64 noundef 8) #25, !noalias !408
   br label %"_ZN4core3ptr80drop_in_place$LT$wasmparser..readers..component..types..ComponentDefinedType$GT$17hf4809d1ab7ebc771E.exit"
 }
 

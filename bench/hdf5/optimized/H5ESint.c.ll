@@ -146,7 +146,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5ES__close(ptr noundef %0) unnamed
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = tail call i32 @H5ES__list_iterate(ptr noundef nonnull %9, i32 noundef 2, ptr noundef nonnull @H5ES__close_failed_cb, ptr noundef %0) #5
+  %10 = tail call i32 @H5ES__list_iterate(ptr noundef nonnull %9, i32 noundef 2, ptr noundef nonnull @H5ES__close_failed_cb, ptr noundef nonnull %0) #5
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -157,7 +157,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5ES__close(ptr noundef %0) unnamed
   br label %18
 
 16:                                               ; preds = %8
-  %17 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5ES_t_reg_free_list, ptr noundef %0) #5
+  %17 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5ES_t_reg_free_list, ptr noundef nonnull %0) #5
   br label %18
 
 18:                                               ; preds = %16, %12, %4

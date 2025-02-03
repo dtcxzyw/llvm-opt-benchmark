@@ -495,7 +495,7 @@ _ZNSt10shared_ptrIN3nix20MountedInputAccessorEEC2ERKS2_.exit.i: ; preds = %49, %
 55:                                               ; preds = %52
   %56 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %53) #21
+  tail call void @__cxa_free_exception(ptr nonnull %53) #21
   br label %.body
 
 57:                                               ; preds = %54
@@ -667,7 +667,7 @@ _ZNSt10shared_ptrIN3nix13InputAccessorEEC2ERKS2_.exit.i: ; preds = %23, %20, %_Z
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %27) #21
+  tail call void @__cxa_free_exception(ptr nonnull %27) #21
   br label %.body
 
 31:                                               ; preds = %28

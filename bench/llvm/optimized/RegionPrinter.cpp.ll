@@ -3381,7 +3381,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit77:               ; preds = %273, %275
   %286 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %15, ptr %286, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef null, i64 noundef 0, i32 noundef 0) #21
-  %287 = call noundef zeroext i1 @_ZN4llvm11GraphWriterIPNS_10RegionInfoEE19getEdgeSourceLabelsERNS_11raw_ostreamEPNS_10RegionNodeE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %1)
+  %287 = call noundef zeroext i1 @_ZN4llvm11GraphWriterIPNS_10RegionInfoEE19getEdgeSourceLabelsERNS_11raw_ostreamEPNS_10RegionNodeE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %1)
   br i1 %287, label %288, label %_ZN4llvm11raw_ostreamlsEPKc.exit86
 
 288:                                              ; preds = %281
@@ -3530,7 +3530,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit122:              ; preds = %355, %353, %348, %3
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit128
 
 _ZN4llvm11raw_ostreamlsEPKc.exit128:              ; preds = %367, %369
-  call void @_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEC2ES3_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %1)
+  call void @_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEC2ES3_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull %1)
   %372 = call noundef ptr @_ZNK4llvm14RegionNodeBaseINS_12RegionTraitsINS_8FunctionEEEE8getEntryEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #21, !noalias !87
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 48
   %374 = load ptr, ptr %373, align 8, !noalias !87

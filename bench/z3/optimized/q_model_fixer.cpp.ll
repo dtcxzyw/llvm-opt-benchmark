@@ -2992,7 +2992,7 @@ invoke.cont32:                                    ; preds = %if.then30
   %m_manager.i56 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %31, ptr %m_manager.i56, align 8
   %tobool.not.i.i57 = icmp eq ptr %call33, null
-  br i1 %tobool.not.i.i57, label %cleanup, label %cleanup.sink.split
+  br i1 %tobool.not.i.i57, label %if.end.i.i224, label %if.end.i.i224.sink.split
 
 lpad.loopexit231:                                 ; preds = %if.then2.i.i.i.i.i
   %lpad.loopexit233 = landingpad { ptr, i32 }
@@ -3127,7 +3127,7 @@ invoke.cont52:                                    ; preds = %if.then50
   %m_manager.i83 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %48, ptr %m_manager.i83, align 8
   %tobool.not.i.i84 = icmp eq ptr %call53, null
-  br i1 %tobool.not.i.i84, label %cleanup, label %cleanup.sink.split
+  br i1 %tobool.not.i.i84, label %if.end.i.i224, label %if.end.i.i224.sink.split
 
 if.then.i.i96:                                    ; preds = %invoke.cont48
   %idx.ext = zext i32 %46 to i64
@@ -3695,30 +3695,26 @@ terminate.lpad.i221:                              ; preds = %if.then2.i.i.i220
   call void @__clang_call_terminate(ptr %122) #20
   unreachable
 
-cleanup.sink.split:                               ; preds = %invoke.cont52, %invoke.cont32
+if.end.i.i224.sink.split:                         ; preds = %invoke.cont52, %invoke.cont32
   %call53.sink = phi ptr [ %call33, %invoke.cont32 ], [ %call53, %invoke.cont52 ]
-  %.ph = phi ptr [ %12, %invoke.cont32 ], [ %44, %invoke.cont52 ]
+  %.ph.ph = phi ptr [ %12, %invoke.cont32 ], [ %44, %invoke.cont52 ]
   %m_ref_count.i.i.i.i86 = getelementptr inbounds nuw i8, ptr %call53.sink, i64 8
   %123 = load i32, ptr %m_ref_count.i.i.i.i86, align 4
   %inc.i.i.i.i87 = add i32 %123, 1
   store i32 %inc.i.i.i.i87, ptr %m_ref_count.i.i.i.i86, align 4
-  br label %cleanup
+  br label %if.end.i.i224
 
-cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont52, %invoke.cont32
-  %124 = phi ptr [ %44, %invoke.cont52 ], [ %12, %invoke.cont32 ], [ %.ph, %cleanup.sink.split ]
-  %cmp.i.i223 = icmp eq ptr %124, null
-  br i1 %cmp.i.i223, label %return, label %if.end.i.i224
-
-if.end.i.i224:                                    ; preds = %cleanup
-  call void @_ZN1q20projection_meta_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %124) #19
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %124)
+if.end.i.i224:                                    ; preds = %if.end.i.i224.sink.split, %invoke.cont52, %invoke.cont32
+  %.ph = phi ptr [ %12, %invoke.cont32 ], [ %44, %invoke.cont52 ], [ %.ph.ph, %if.end.i.i224.sink.split ]
+  call void @_ZN1q20projection_meta_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ph) #19
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.ph)
           to label %return unwind label %terminate.lpad.i225
 
 terminate.lpad.i225:                              ; preds = %if.end.i.i224
-  %125 = landingpad { ptr, i32 }
+  %124 = landingpad { ptr, i32 }
           catch ptr null
-  %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #20
+  %125 = extractvalue { ptr, i32 } %124, 0
+  call void @__clang_call_terminate(ptr %125) #20
   unreachable
 
 ehcleanup154:                                     ; preds = %lpad.loopexit231, %lpad.loopexit.split-lp232.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp232.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp232.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp232.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp232.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp232.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp232.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp232.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp232.loopexit, %lpad116, %lpad22
@@ -3726,7 +3722,7 @@ ehcleanup154:                                     ; preds = %lpad.loopexit231, %
   call void @_ZN10scoped_ptrIN1q20projection_meta_dataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %md) #19
   br label %common.resume
 
-return:                                           ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit212, %if.then.i.i.i214, %if.then2.i.i.i220, %if.end.i.i224, %cleanup, %_ZN11ast_manager7inc_refEP3ast.exit.i.i, %if.then
+return:                                           ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit212, %if.then.i.i.i214, %if.then2.i.i.i220, %if.end.i.i224, %_ZN11ast_manager7inc_refEP3ast.exit.i.i, %if.then
   ret void
 }
 

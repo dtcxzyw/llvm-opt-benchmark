@@ -535,16 +535,16 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %_ZN2
 
 _ZN13MonitorLocker4waitEl.exit:                   ; preds = %31
   %38 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %21, i64 noundef %36) #11
-  br i1 %38, label %.critedge, label %24, !llvm.loop !6
+  br i1 %38, label %.critedge.thread, label %24, !llvm.loop !6
 
-.critedge:                                        ; preds = %24, %_ZN13MonitorLocker4waitEl.exit, %31, %29
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %39
+.critedge:                                        ; preds = %24, %31, %29
+  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %.critedge.thread
 
-39:                                               ; preds = %.critedge
+.critedge.thread:                                 ; preds = %_ZN13MonitorLocker4waitEl.exit, %.critedge
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %21) #11
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %39, %.critedge, %2
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %.critedge.thread, %.critedge, %2
   ret void
 }
 
@@ -592,115 +592,120 @@ _ZN13MonitorLocker4waitEl.exit.i:                 ; preds = %.lr.ph.i
   %17 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %13, i64 noundef 0) #11
   %18 = load volatile i32, ptr %7, align 8
   %.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !8
+  br i1 %.not.i, label %.lr.ph.i, label %.critedge.thread.i, !llvm.loop !8
 
-.critedge.i:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit.i, %.lr.ph.i, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i
+.critedge.thread.i:                               ; preds = %_ZN13MonitorLocker4waitEl.exit.i
   %19 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(948) %0) #11
-  br i1 %.not.i.i.i, label %_ZN22G1ConcurrentMarkThread19wait_for_next_cycleEv.exit, label %20
-
-20:                                               ; preds = %.critedge.i
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #11
-  br label %_ZN22G1ConcurrentMarkThread19wait_for_next_cycleEv.exit
+  br i1 %19, label %60, label %22
 
-_ZN22G1ConcurrentMarkThread19wait_for_next_cycleEv.exit: ; preds = %.critedge.i, %20
-  br i1 %19, label %59, label %21
+.critedge.i:                                      ; preds = %.lr.ph.i, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i
+  %20 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(948) %0) #11
+  br i1 %.not.i.i.i, label %_ZN22G1ConcurrentMarkThread19wait_for_next_cycleEv.exit, label %21
 
-21:                                               ; preds = %_ZN22G1ConcurrentMarkThread19wait_for_next_cycleEv.exit
+21:                                               ; preds = %.critedge.i
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #11
+  br i1 %20, label %60, label %22
+
+_ZN22G1ConcurrentMarkThread19wait_for_next_cycleEv.exit: ; preds = %.critedge.i
+  br i1 %20, label %60, label %22
+
+22:                                               ; preds = %.critedge.thread.i, %21, %_ZN22G1ConcurrentMarkThread19wait_for_next_cycleEv.exit
   call void @_ZN8GCIdMarkC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #11
-  %22 = load volatile i32, ptr %7, align 8
-  %23 = icmp eq i32 %22, 1
-  %.str.5..str.6 = select i1 %23, ptr @.str.5, ptr @.str.6
+  %23 = load volatile i32, ptr %7, align 8
+  %24 = icmp eq i32 %23, 1
+  %.str.5..str.6 = select i1 %24, ptr @.str.5, ptr @.str.6
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm128EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull @.str.4, ptr noundef nonnull %.str.5..str.6)
-  %24 = load ptr, ptr %4, align 8
-  %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %25, null
-  %26 = call noundef i64 @_ZN2os15elapsed_counterEv() #11
-  br i1 %.not, label %_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKc.exit, label %27
+  %25 = load ptr, ptr %4, align 8
+  %26 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not = icmp eq ptr %26, null
+  %27 = call noundef i64 @_ZN2os15elapsed_counterEv() #11
+  br i1 %.not, label %_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKc.exit, label %28
 
-27:                                               ; preds = %21
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.28, ptr noundef %24)
+28:                                               ; preds = %22
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.28, ptr noundef %25)
   br label %_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKc.exit
 
-_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKc.exit: ; preds = %21, %27
-  %28 = load ptr, ptr %8, align 8
-  call void @_ZN16G1ConcurrentMark22concurrent_cycle_startEv(ptr noundef nonnull align 8 dereferenceable(1849) %28) #11
-  %29 = load volatile i32, ptr %7, align 8
-  %30 = icmp eq i32 %29, 1
-  br i1 %30, label %31, label %32
-
-31:                                               ; preds = %_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKc.exit
-  call void @_ZN22G1ConcurrentMarkThread24concurrent_mark_cycle_doEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
-  br label %33
+_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKc.exit: ; preds = %22, %28
+  %29 = load ptr, ptr %8, align 8
+  call void @_ZN16G1ConcurrentMark22concurrent_cycle_startEv(ptr noundef nonnull align 8 dereferenceable(1849) %29) #11
+  %30 = load volatile i32, ptr %7, align 8
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %32, label %33
 
 32:                                               ; preds = %_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKc.exit
+  call void @_ZN22G1ConcurrentMarkThread24concurrent_mark_cycle_doEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
+  br label %34
+
+33:                                               ; preds = %_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKc.exit
   call void @_ZN22G1ConcurrentMarkThread24concurrent_undo_cycle_doEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
-  br label %33
+  br label %34
 
-33:                                               ; preds = %32, %31
-  %34 = load volatile i32, ptr %7, align 8
-  %35 = icmp eq i32 %34, 1
-  br i1 %35, label %36, label %42
+34:                                               ; preds = %33, %32
+  %35 = load volatile i32, ptr %7, align 8
+  %36 = icmp eq i32 %35, 1
+  br i1 %36, label %37, label %43
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1494
-  %39 = load volatile i8, ptr %38, align 2
-  %40 = trunc i8 %39 to i1
-  %41 = xor i1 %40, true
-  br label %42
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1494
+  %40 = load volatile i8, ptr %39, align 2
+  %41 = trunc i8 %40 to i1
+  %42 = xor i1 %41, true
+  br label %43
 
-42:                                               ; preds = %36, %33
-  %43 = phi i1 [ false, %33 ], [ %41, %36 ]
+43:                                               ; preds = %37, %34
+  %44 = phi i1 [ false, %34 ], [ %42, %37 ]
   call void @_ZN23ConcurrentGCBreakpoints2atEPKc(ptr noundef nonnull @.str.21) #11
   call void @_ZN20SuspendibleThreadSet4joinEv() #11
-  %44 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  call void @_ZN15G1CollectedHeap38increment_old_marking_cycles_completedEbb(ptr noundef nonnull align 8 dereferenceable(1488) %44, i1 noundef zeroext true, i1 noundef zeroext %43) #11
-  %45 = load ptr, ptr %8, align 8
-  call void @_ZN16G1ConcurrentMark20concurrent_cycle_endEb(ptr noundef nonnull align 8 dereferenceable(1849) %45, i1 noundef zeroext %43) #11
+  %45 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  call void @_ZN15G1CollectedHeap38increment_old_marking_cycles_completedEbb(ptr noundef nonnull align 8 dereferenceable(1488) %45, i1 noundef zeroext true, i1 noundef zeroext %44) #11
+  %46 = load ptr, ptr %8, align 8
+  call void @_ZN16G1ConcurrentMark20concurrent_cycle_endEb(ptr noundef nonnull align 8 dereferenceable(1849) %46, i1 noundef zeroext %44) #11
   call void @_ZN23ConcurrentGCBreakpoints21notify_active_to_idleEv() #11
   call void @_ZN20SuspendibleThreadSet5leaveEv() #11
-  %46 = call noundef double @_ZN2os12elapsedVTimeEv() #11
-  %47 = load double, ptr %6, align 8
-  %48 = fsub double %46, %47
-  store double %48, ptr %9, align 8
+  %47 = call noundef double @_ZN2os12elapsedVTimeEv() #11
+  %48 = load double, ptr %6, align 8
+  %49 = fsub double %47, %48
+  store double %49, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %49 = load i8, ptr @UsePerfData, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
+  %50 = load i8, ptr @UsePerfData, align 1
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
 
-51:                                               ; preds = %42
-  %52 = call noundef zeroext i1 @_ZN2os28is_thread_cpu_time_supportedEv() #11
-  br i1 %52, label %53, label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
+52:                                               ; preds = %43
+  %53 = call noundef zeroext i1 @_ZN2os28is_thread_cpu_time_supportedEv() #11
+  br i1 %53, label %54, label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
 
-53:                                               ; preds = %51
+54:                                               ; preds = %52
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
   store i64 0, ptr %10, align 8
   store i32 2, ptr %11, align 8
   call void @_ZN25ThreadTotalCPUTimeClosure9do_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(948) %0) #11
-  %54 = load ptr, ptr %8, align 8
-  call void @_ZNK16G1ConcurrentMark10threads_doEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(1849) %54, ptr noundef nonnull %2) #11
+  %55 = load ptr, ptr %8, align 8
+  call void @_ZNK16G1ConcurrentMark10threads_doEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(1849) %55, ptr noundef nonnull %2) #11
   call void @_ZN25ThreadTotalCPUTimeClosureD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #11
   br label %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
 
-_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit: ; preds = %42, %51, %53
+_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit: ; preds = %43, %52, %54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  br i1 %.not, label %_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %55
+  br i1 %.not, label %_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %56
 
-55:                                               ; preds = %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
-  %56 = call noundef i64 @_ZN2os15elapsed_counterEv() #11
-  %57 = sub nsw i64 %56, %26
-  %58 = call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %57) #11
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.29, ptr noundef %24, double noundef %58)
+56:                                               ; preds = %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit
+  %57 = call noundef i64 @_ZN2os15elapsed_counterEv() #11
+  %58 = sub nsw i64 %57, %27
+  %59 = call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %58) #11
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.29, ptr noundef %25, double noundef %59)
   br label %_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
 
-_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit, %55
+_ZN19GCTraceConcTimeImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %_ZN22G1ConcurrentMarkThread23update_threads_cpu_timeEv.exit, %56
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #11
   br label %12, !llvm.loop !9
 
-59:                                               ; preds = %_ZN22G1ConcurrentMarkThread19wait_for_next_cycleEv.exit
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 96
-  call void @_ZN18G1CMRootMemRegions11cancel_scanEv(ptr noundef nonnull align 8 dereferenceable(34) %61) #11
+60:                                               ; preds = %.critedge.thread.i, %21, %_ZN22G1ConcurrentMarkThread19wait_for_next_cycleEv.exit
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 96
+  call void @_ZN18G1CMRootMemRegions11cancel_scanEv(ptr noundef nonnull align 8 dereferenceable(34) %62) #11
   ret void
 }
 
@@ -730,19 +735,25 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph
   %7 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef 0) #11
   %8 = load volatile i32, ptr %4, align 8
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %.lr.ph, label %.critedge, !llvm.loop !8
+  br i1 %.not, label %.lr.ph, label %.critedge.thread, !llvm.loop !8
 
-.critedge:                                        ; preds = %.lr.ph, %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+.critedge.thread:                                 ; preds = %_ZN13MonitorLocker4waitEl.exit
   %9 = tail call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #11
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %10
+  br label %11
 
-10:                                               ; preds = %.critedge
+.critedge:                                        ; preds = %.lr.ph, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  %10 = tail call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #11
+  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %11
+
+11:                                               ; preds = %.critedge.thread, %.critedge
+  %12 = phi i1 [ %9, %.critedge.thread ], [ %10, %.critedge ]
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #11
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %.critedge, %10
-  %11 = xor i1 %9, true
-  ret i1 %11
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %.critedge, %11
+  %13 = phi i1 [ %10, %.critedge ], [ %12, %11 ]
+  %14 = xor i1 %13, true
+  ret i1 %14
 }
 
 declare void @_ZN8GCIdMarkC1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1

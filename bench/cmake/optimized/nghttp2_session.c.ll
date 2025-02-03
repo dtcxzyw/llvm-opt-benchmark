@@ -1984,7 +1984,7 @@ nghttp2_session_is_my_stream_id.exit66.thread:    ; preds = %45, %25, %.thread, 
 50:                                               ; preds = %nghttp2_session_is_my_stream_id.exit66.thread
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %48) #20
   tail call void @nghttp2_frame_rst_stream_init(ptr noundef nonnull %48, i32 noundef %1, i32 noundef %2) #20
-  %51 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %48)
+  %51 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %48)
   %.not59 = icmp eq i32 %51, 0
   br i1 %.not59, label %53, label %52
 
@@ -6240,7 +6240,7 @@ inflight_settings_del.exit:                       ; preds = %53
   br i1 %125, label %126, label %session_handle_invalid_connection.exit
 
 126:                                              ; preds = %124
-  %127 = call fastcc i32 @session_handle_invalid_connection(ptr noundef %0, ptr noundef nonnull %1, i32 noundef -523, ptr noundef null)
+  %127 = call fastcc i32 @session_handle_invalid_connection(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef -523, ptr noundef null)
   br label %session_handle_invalid_connection.exit
 
 128:                                              ; preds = %119
@@ -6599,7 +6599,7 @@ inflight_settings_new.exit:                       ; preds = %43, %47
   %.0112 = phi ptr [ %41, %inflight_settings_new.exit ], [ null, %39 ]
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %32) #20
   tail call void @nghttp2_frame_settings_init(ptr noundef nonnull %32, i8 noundef zeroext %1, ptr noundef %.087, i64 noundef %3) #20
-  %52 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %32)
+  %52 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %32)
   %.not99 = icmp eq i32 %52, 0
   br i1 %.not99, label %57, label %53
 
@@ -7216,7 +7216,7 @@ define dso_local i32 @nghttp2_session_add_ping(ptr noundef %0, i8 noundef zeroex
 14:                                               ; preds = %11
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %12) #20
   tail call void @nghttp2_frame_ping_init(ptr noundef nonnull %12, i8 noundef zeroext %1, ptr noundef %2) #20
-  %15 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %12)
+  %15 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %12)
   %.not23 = icmp eq i32 %15, 0
   br i1 %.not23, label %17, label %16
 
@@ -8444,7 +8444,7 @@ define dso_local i32 @nghttp2_session_add_window_update(ptr noundef %0, i8 nound
 8:                                                ; preds = %4
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %6) #20
   tail call void @nghttp2_frame_window_update_init(ptr noundef nonnull %6, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) #20
-  %9 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %6)
+  %9 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %6)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
 
@@ -12302,7 +12302,7 @@ nghttp2_session_is_my_stream_id.exit.thread:      ; preds = %6, %nghttp2_session
   tail call void @nghttp2_frame_goaway_init(ptr noundef nonnull %21, i32 noundef %., i32 noundef %2, ptr noundef %.037, i64 noundef %4) #20
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 96
   store i8 %5, ptr %26, align 1
-  %27 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %21)
+  %27 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %21)
   %.not45 = icmp eq i32 %27, 0
   br i1 %.not45, label %29, label %28
 
@@ -14306,7 +14306,7 @@ define internal i32 @update_local_initial_window_size_func(ptr noundef %0, ptr n
 43:                                               ; preds = %35
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %41) #20
   tail call void @nghttp2_frame_window_update_init(ptr noundef nonnull %41, i8 noundef zeroext 0, i32 noundef %38, i32 noundef %39) #20
-  %44 = tail call i32 @nghttp2_session_add_item(ptr noundef %36, ptr noundef nonnull %41)
+  %44 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %36, ptr noundef nonnull %41)
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %nghttp2_session_add_window_update.exit, label %45
 
@@ -14581,7 +14581,7 @@ define internal fastcc i32 @session_update_consumed_size(ptr noundef %0, ptr nou
 35:                                               ; preds = %31
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %33) #20
   tail call void @nghttp2_frame_window_update_init(ptr noundef nonnull %33, i8 noundef zeroext 0, i32 noundef %4, i32 noundef %.) #20
-  %36 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %33)
+  %36 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %33)
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %nghttp2_session_add_window_update.exit, label %37
 

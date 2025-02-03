@@ -710,7 +710,7 @@ lpad.i:                                           ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %catch.dispatch
 
 invoke.cont25:                                    ; preds = %call.i8.noexc
@@ -769,7 +769,7 @@ lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %lpad.body
 
 invoke.cont1:                                     ; preds = %call.i.noexc
@@ -900,7 +900,7 @@ lpad.i:                                           ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %catch.dispatch
 
 invoke.cont25:                                    ; preds = %call.i8.noexc
@@ -1011,7 +1011,7 @@ lpad.i:                                           ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %catch.dispatch
 
 invoke.cont25:                                    ; preds = %call.i8.noexc
@@ -1064,7 +1064,7 @@ lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %lpad.body
 
 invoke.cont1:                                     ; preds = %call.i.noexc
@@ -1137,7 +1137,7 @@ lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %lpad.body
 
 invoke.cont1:                                     ; preds = %call.i.noexc
@@ -1325,7 +1325,7 @@ lpad.i16:                                         ; preds = %if.then.i15
   %9 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %catch.dispatch
 
 invoke.cont31:                                    ; preds = %call.i12.noexc
@@ -1389,7 +1389,7 @@ lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %lpad.body
 
 invoke.cont1:                                     ; preds = %call.i.noexc
@@ -1529,7 +1529,7 @@ lpad.i:                                           ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %catch.dispatch
 
 invoke.cont27:                                    ; preds = %call.i9.noexc
@@ -1588,7 +1588,7 @@ lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %lpad.body
 
 invoke.cont1:                                     ; preds = %call.i.noexc
@@ -1734,7 +1734,7 @@ lpad.i:                                           ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %catch.dispatch
 
 invoke.cont27:                                    ; preds = %call.i9.noexc
@@ -1793,7 +1793,7 @@ lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %lpad.body
 
 invoke.cont1:                                     ; preds = %call.i.noexc
@@ -1935,7 +1935,7 @@ lpad.i:                                           ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %catch.dispatch
 
 invoke.cont25:                                    ; preds = %call.i8.noexc
@@ -1990,7 +1990,7 @@ lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %lpad.body
 
 invoke.cont1:                                     ; preds = %call.i.noexc
@@ -2126,7 +2126,7 @@ lpad.i:                                           ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %catch.dispatch
 
 invoke.cont25:                                    ; preds = %call.i8.noexc
@@ -2181,7 +2181,7 @@ lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %lpad.body
 
 invoke.cont1:                                     ; preds = %call.i.noexc
@@ -2319,7 +2319,7 @@ lpad.i:                                           ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %catch.dispatch
 
 invoke.cont25:                                    ; preds = %call.i8.noexc
@@ -2376,7 +2376,7 @@ lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %lpad.body
 
 invoke.cont1:                                     ; preds = %call.i.noexc
@@ -2517,7 +2517,7 @@ lpad.i:                                           ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %catch.dispatch
 
 invoke.cont25:                                    ; preds = %call.i8.noexc
@@ -2574,7 +2574,7 @@ lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %lpad.body
 
 invoke.cont1:                                     ; preds = %call.i.noexc
@@ -2744,7 +2744,7 @@ lpad.i:                                           ; preds = %if.then.i
   %15 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %catch.dispatch
 
 invoke.cont25:                                    ; preds = %call.i8.noexc
@@ -2813,7 +2813,7 @@ lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %lpad.body
 
 invoke.cont1:                                     ; preds = %call.i.noexc
@@ -3037,7 +3037,7 @@ lpad.i:                                           ; preds = %if.then.i
   %22 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %catch.dispatch
 
 invoke.cont25:                                    ; preds = %call.i8.noexc
@@ -3120,7 +3120,7 @@ lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   br label %lpad.body
 
 invoke.cont1:                                     ; preds = %call.i.noexc

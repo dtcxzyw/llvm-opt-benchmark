@@ -4522,7 +4522,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
   br label %"_ZN99_$LT$regex_automata..util..pool..inner..PoolGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa5743a673b165f5E.llvm.8848114157358331746.exit.i"
 
 156:                                              ; preds = %146
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h779a3d023e70085aE"(ptr noalias noundef align 8 dereferenceable(1400) %147)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h779a3d023e70085aE"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %147)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h627460b086c7ed35E.llvm.8848114157358331746.exit.i.i" unwind label %157, !noalias !698
 
 157:                                              ; preds = %156
@@ -4584,7 +4584,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
 170:                                              ; preds = %"_ZN99_$LT$regex_automata..util..pool..inner..PoolGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa5743a673b165f5E.llvm.8848114157358331746.exit.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !718)
   %171 = load ptr, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !721, !noalias !621, !noundef !4
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h779a3d023e70085aE"(ptr noalias noundef align 8 dereferenceable(1400) %171)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h779a3d023e70085aE"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %171)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h627460b086c7ed35E.llvm.8848114157358331746.exit.i.i.i.i.i.i.i.i" unwind label %172, !noalias !722
 
 172:                                              ; preds = %170
@@ -4845,7 +4845,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
   br label %"_ZN99_$LT$regex_automata..util..pool..inner..PoolGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa5743a673b165f5E.llvm.8848114157358331746.exit184.i"
 
 266:                                              ; preds = %256
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h779a3d023e70085aE"(ptr noalias noundef align 8 dereferenceable(1400) %257)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h779a3d023e70085aE"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %257)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h627460b086c7ed35E.llvm.8848114157358331746.exit.i177.i" unwind label %267, !noalias !792
 
 267:                                              ; preds = %266
@@ -4907,7 +4907,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
 280:                                              ; preds = %"_ZN99_$LT$regex_automata..util..pool..inner..PoolGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa5743a673b165f5E.llvm.8848114157358331746.exit184.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !812)
   %281 = load ptr, ptr %.sroa.5.0..sroa_idx.i.i174.i, align 8, !alias.scope !815, !noalias !621, !noundef !4
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h779a3d023e70085aE"(ptr noalias noundef align 8 dereferenceable(1400) %281)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h779a3d023e70085aE"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %281)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h627460b086c7ed35E.llvm.8848114157358331746.exit.i.i.i.i.i.i.i133.i" unwind label %282, !noalias !816
 
 282:                                              ; preds = %280

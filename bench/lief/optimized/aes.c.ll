@@ -767,7 +767,7 @@ define hidden i32 @mbedtls_aes_xts_setkey_enc(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not10, label %11, label %mbedtls_aes_xts_decode_keys.exit
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 noundef %5)
+  %12 = tail call i32 @mbedtls_aes_setkey_enc(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %5)
   br label %mbedtls_aes_xts_decode_keys.exit
 
 mbedtls_aes_xts_decode_keys.exit:                 ; preds = %3, %4, %11
@@ -793,7 +793,7 @@ define hidden i32 @mbedtls_aes_xts_setkey_dec(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not10, label %11, label %mbedtls_aes_xts_decode_keys.exit
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @mbedtls_aes_setkey_dec(ptr noundef %0, ptr noundef %1, i32 noundef %5)
+  %12 = tail call i32 @mbedtls_aes_setkey_dec(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %5)
   br label %mbedtls_aes_xts_decode_keys.exit
 
 mbedtls_aes_xts_decode_keys.exit:                 ; preds = %3, %4, %11

@@ -1976,7 +1976,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZN7rocksdb16ColumnFamilyData38GetFileMetadataCacheReservationManagerEv.exit
 
 _ZN7rocksdb16ColumnFamilyData38GetFileMetadataCacheReservationManagerEv.exit: ; preds = %entry, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  invoke void @_ZN7rocksdb14VersionBuilderC1ERKNS_11FileOptionsEPKNS_18ImmutableCFOptionsEPNS_10TableCacheEPNS_18VersionStorageInfoEPNS_10VersionSetESt10shared_ptrINS_23CacheReservationManagerEE(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(146) %file_options_.i, ptr noundef nonnull %add.ptr, ptr noundef %2, ptr noundef nonnull %storage_info_.i, ptr noundef %1, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN7rocksdb14VersionBuilderC1ERKNS_11FileOptionsEPKNS_18ImmutableCFOptionsEPNS_10TableCacheEPNS_18VersionStorageInfoEPNS_10VersionSetESt10shared_ptrINS_23CacheReservationManagerEE(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(146) %file_options_.i, ptr noundef nonnull %add.ptr, ptr noundef %2, ptr noundef nonnull %storage_info_.i, ptr noundef nonnull %1, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %_ZN7rocksdb16ColumnFamilyData38GetFileMetadataCacheReservationManagerEv.exit
@@ -14290,7 +14290,7 @@ while.body53:                                     ; preds = %while.cond51.prehea
   br i1 %call57, label %if.end59, label %while.end61
 
 if.end59:                                         ; preds = %while.body53
-  %call.i14 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %mutable_it.sroa.0.244) #25
+  %call.i14 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mutable_it.sroa.0.244) #25
   %cmp.i12.not = icmp eq ptr %call.i14, %add.ptr.i.i.i
   br i1 %cmp.i12.not, label %while.end61, label %while.body53, !llvm.loop !174
 

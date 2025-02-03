@@ -1027,7 +1027,7 @@ filter_flatedecode.exit.i:                        ; preds = %.thread14.i.i, %.th
   %393 = load i32, ptr %37, align 8
   %394 = zext i32 %393 to i64
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.42, i64 noundef %368, i64 noundef %394) #10
-  call void @free(ptr noundef %364) #10
+  call void @free(ptr noundef nonnull %364) #10
   br label %filter_ascii85decode.exitthread-pre-split.i
 
 395:                                              ; preds = %77

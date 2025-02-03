@@ -1031,7 +1031,7 @@ _ZlsRSo23cmScriptGeneratorIndent.exit137:         ; preds = %.noexc136, %145
           to label %153 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 153:                                              ; preds = %151
-  %154 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0148.0199) #16
+  %154 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0148.0199) #16
   %.not170 = icmp eq ptr %154, %93
   br i1 %.not170, label %._crit_edge, label %.lr.ph
 

@@ -3958,7 +3958,7 @@ _ZNK2cv4UMatclERKNS_5Rect_IiEE.exit:              ; preds = %69
 112:                                              ; preds = %109
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %110) #18
+  call void @__cxa_free_exception(ptr nonnull %110) #18
   br label %116
 
 114:                                              ; preds = %108
@@ -4411,7 +4411,7 @@ _ZNK2cv4UMatclERKNS_5Rect_IiEE.exit:              ; preds = %69
 112:                                              ; preds = %109
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %110) #18
+  call void @__cxa_free_exception(ptr nonnull %110) #18
   br label %116
 
 114:                                              ; preds = %108
@@ -4869,7 +4869,7 @@ define linkonce_odr hidden void @_ZN2cv8io_utils11DepthSourceC2ENSt7__cxx1112bas
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #18, !noalias !40
+  call void @__cxa_free_exception(ptr nonnull %23) #18, !noalias !40
   br label %89
 
 31:                                               ; preds = %21
@@ -5795,7 +5795,7 @@ define linkonce_odr hidden void @_ZN2cv8io_utils9RGBSourceC2ENSt7__cxx1112basic_
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #18, !noalias !45
+  call void @__cxa_free_exception(ptr nonnull %23) #18, !noalias !45
   br label %89
 
 31:                                               ; preds = %21
@@ -6218,7 +6218,7 @@ define linkonce_odr hidden void @_ZN2cv8io_utils11DepthWriterC2ENSt7__cxx1112bas
 20:                                               ; preds = %15
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #18
+  call void @__cxa_free_exception(ptr nonnull %16) #18
   br label %32
 
 22:                                               ; preds = %14
@@ -6356,7 +6356,7 @@ define linkonce_odr hidden void @_ZN2cv8io_utils9RGBWriterC2ENSt7__cxx1112basic_
 20:                                               ; preds = %15
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #18
+  call void @__cxa_free_exception(ptr nonnull %16) #18
   br label %32
 
 22:                                               ; preds = %14

@@ -4711,7 +4711,7 @@ _valid_features_act.exit.thread563:               ; preds = %139, %140, %_valid_
 
 .critedge:                                        ; preds = %241, %248, %244
   %250 = load ptr, ptr @acct_db_conn, align 8
-  %251 = call i32 @clusteracct_storage_g_node_update(ptr noundef %250, ptr noundef %91) #16
+  %251 = call i32 @clusteracct_storage_g_node_update(ptr noundef %250, ptr noundef nonnull %91) #16
   br label %.thread570
 
 .thread570:                                       ; preds = %.thread568, %.critedge
@@ -7441,17 +7441,17 @@ waiting_for_node_boot.exit:                       ; preds = %65, %48
   %149 = tail call ptr @xstrdup(ptr noundef nonnull %144) #16
   store ptr %149, ptr %8, align 8
   %150 = call ptr @strtok_r(ptr noundef %149, ptr noundef nonnull @.str.55, ptr noundef nonnull %6) #16
-  %.not2637.i = icmp eq ptr %150, null
-  br i1 %.not2637.i, label %_valid_reported_active_features.exit.thread.sink.split, label %.lr.ph.i
+  %.not2638.i = icmp eq ptr %150, null
+  br i1 %.not2638.i, label %_valid_reported_active_features.exit.thread.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %148, %156
-  %.01939.i = phi ptr [ %.120.i, %156 ], [ null, %148 ]
-  %.02138.i = phi ptr [ %157, %156 ], [ %150, %148 ]
-  %151 = call zeroext i1 @node_features_g_changeable_feature(ptr noundef nonnull %.02138.i) #16
+  %.01940.i = phi ptr [ %.120.i, %156 ], [ null, %148 ]
+  %.02139.i = phi ptr [ %157, %156 ], [ %150, %148 ]
+  %151 = call zeroext i1 @node_features_g_changeable_feature(ptr noundef nonnull %.02139.i) #16
   br i1 %151, label %152, label %156
 
 152:                                              ; preds = %.lr.ph.i
-  %.not31.i = icmp eq ptr %.01939.i, null
+  %.not31.i = icmp eq ptr %.01940.i, null
   br i1 %.not31.i, label %153, label %155
 
 153:                                              ; preds = %152
@@ -7459,12 +7459,12 @@ waiting_for_node_boot.exit:                       ; preds = %65, %48
   br label %155
 
 155:                                              ; preds = %153, %152
-  %.2.i = phi ptr [ %.01939.i, %152 ], [ %154, %153 ]
-  call void @list_append(ptr noundef %.2.i, ptr noundef nonnull %.02138.i) #16
+  %.2.i = phi ptr [ %.01940.i, %152 ], [ %154, %153 ]
+  call void @list_append(ptr noundef %.2.i, ptr noundef nonnull %.02139.i) #16
   br label %156
 
 156:                                              ; preds = %155, %.lr.ph.i
-  %.120.i = phi ptr [ %.2.i, %155 ], [ %.01939.i, %.lr.ph.i ]
+  %.120.i = phi ptr [ %.2.i, %155 ], [ %.01940.i, %.lr.ph.i ]
   %157 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.55, ptr noundef nonnull %6) #16
   %.not26.i = icmp eq ptr %157, null
   br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
@@ -7482,25 +7482,29 @@ waiting_for_node_boot.exit:                       ; preds = %65, %48
   %161 = call ptr @xstrdup(ptr noundef nonnull %147) #16
   store ptr %161, ptr %7, align 8
   %162 = call ptr @strtok_r(ptr noundef %161, ptr noundef nonnull @.str.55, ptr noundef nonnull %6) #16
-  %.not2940.i = icmp eq ptr %162, null
-  br i1 %.not2940.i, label %.critedge516, label %.lr.ph44.i
+  %.not2941.i = icmp eq ptr %162, null
+  br i1 %.not2941.i, label %.thread34.sink.split.i, label %.lr.ph44.i
 
 .lr.ph44.i:                                       ; preds = %160, %166
-  %.12241.i = phi ptr [ %167, %166 ], [ %162, %160 ]
-  %163 = call zeroext i1 @node_features_g_changeable_feature(ptr noundef nonnull %.12241.i) #16
+  %.12242.i = phi ptr [ %167, %166 ], [ %162, %160 ]
+  %163 = call zeroext i1 @node_features_g_changeable_feature(ptr noundef nonnull %.12242.i) #16
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %.lr.ph44.i
-  %165 = call i32 @list_delete_all(ptr noundef nonnull %.120.i, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef nonnull %.12241.i) #16
+  %165 = call i32 @list_delete_all(ptr noundef nonnull %.120.i, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef nonnull %.12242.i) #16
   %.not30.i = icmp eq i32 %165, 0
-  br i1 %.not30.i, label %._crit_edge45.i, label %166
+  br i1 %.not30.i, label %.critedge516, label %166
 
 166:                                              ; preds = %164, %.lr.ph44.i
   %167 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.55, ptr noundef nonnull %6) #16
   %.not29.i = icmp eq ptr %167, null
-  br i1 %.not29.i, label %.critedge516, label %.lr.ph44.i, !llvm.loop !26
+  br i1 %.not29.i, label %.thread34.sink.split.i, label %.lr.ph44.i, !llvm.loop !26
 
-._crit_edge45.i:                                  ; preds = %164
+.thread34.sink.split.i:                           ; preds = %166, %160
+  call void @slurm_xfree(ptr noundef nonnull %7) #16
+  br label %_valid_reported_active_features.exit.thread.sink.split.sink.split
+
+.critedge516:                                     ; preds = %164
   call void @slurm_xfree(ptr noundef nonnull %7) #16
   call void @list_destroy(ptr noundef nonnull %.120.i) #16
   call void @slurm_xfree(ptr noundef nonnull %8) #16
@@ -7518,8 +7522,8 @@ waiting_for_node_boot.exit:                       ; preds = %65, %48
   %.not5.i = icmp eq ptr %170, null
   br i1 %.not5.i, label %_node_changeable_features.exit, label %.lr.ph.i504
 
-.lr.ph.i504:                                      ; preds = %._crit_edge45.i, %175
-  %.06.i = phi ptr [ %176, %175 ], [ %170, %._crit_edge45.i ]
+.lr.ph.i504:                                      ; preds = %.critedge516, %175
+  %.06.i = phi ptr [ %176, %175 ], [ %170, %.critedge516 ]
   %171 = call zeroext i1 @node_features_g_changeable_feature(ptr noundef nonnull %.06.i) #16
   br i1 %171, label %172, label %175
 
@@ -7535,7 +7539,7 @@ waiting_for_node_boot.exit:                       ; preds = %65, %48
   %.not.i505 = icmp eq ptr %176, null
   br i1 %.not.i505, label %_node_changeable_features.exit, label %.lr.ph.i504, !llvm.loop !27
 
-_node_changeable_features.exit:                   ; preds = %175, %._crit_edge45.i
+_node_changeable_features.exit:                   ; preds = %175, %.critedge516
   call void @slurm_xfree(ptr noundef nonnull %3) #16
   %177 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -7563,11 +7567,7 @@ _node_changeable_features.exit:                   ; preds = %175, %._crit_edge45
   call void @slurm_xfree(ptr noundef nonnull %12) #16
   br label %197
 
-.critedge516:                                     ; preds = %166, %160
-  call void @slurm_xfree(ptr noundef nonnull %7) #16
-  br label %_valid_reported_active_features.exit.thread.sink.split.sink.split
-
-_valid_reported_active_features.exit.thread.sink.split.sink.split: ; preds = %158, %.critedge516
+_valid_reported_active_features.exit.thread.sink.split.sink.split: ; preds = %158, %.thread34.sink.split.i
   call void @list_destroy(ptr noundef nonnull %.120.i) #16
   br label %_valid_reported_active_features.exit.thread.sink.split
 
@@ -12817,13 +12817,13 @@ define dso_local range(i32 0, 2048) i32 @delete_nodes(ptr noundef %0, ptr nounde
   %7 = tail call ptr @xstrdup(ptr noundef nonnull @.str.141) #16
   store ptr %7, ptr %1, align 8
   %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.136, ptr noundef %7) #16
-  br label %46
+  br label %45
 
 9:                                                ; preds = %2
   tail call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #16
   %10 = tail call ptr @nodespec_to_hostlist(ptr noundef %0, i1 noundef zeroext true, ptr noundef null) #16
   %.not33 = icmp eq ptr %10, null
-  br i1 %.not33, label %.thread, label %11
+  br i1 %.not33, label %44, label %11
 
 11:                                               ; preds = %9
   %12 = tail call i32 @hostlist_count(ptr noundef nonnull %10) #16
@@ -12832,27 +12832,27 @@ define dso_local range(i32 0, 2048) i32 @delete_nodes(ptr noundef %0, ptr nounde
 
 .preheader:                                       ; preds = %11
   %13 = tail call ptr @hostlist_shift(ptr noundef nonnull %10) #16
-  %.not3546 = icmp eq ptr %13, null
-  br i1 %.not3546, label %.thread69, label %.lr.ph
+  %.not3552 = icmp eq ptr %13, null
+  br i1 %.not3552, label %.thread70, label %.lr.ph
 
-.thread69:                                        ; preds = %.preheader
+.thread70:                                        ; preds = %.preheader
   tail call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #16
-  br label %45
+  br label %.thread47
 
 14:                                               ; preds = %11
   %15 = tail call i32 @get_log_level() #16
   %16 = icmp sgt i32 %15, 2
-  br i1 %16, label %17, label %.thread
+  br i1 %16, label %17, label %.thread51
 
 17:                                               ; preds = %14
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__.delete_nodes, ptr noundef %0) #16
-  br label %.thread
+  br label %.thread51
 
 .lr.ph:                                           ; preds = %.preheader, %28
   %18 = phi ptr [ %30, %28 ], [ %13, %.preheader ]
-  %.02549 = phi ptr [ %.1, %28 ], [ null, %.preheader ]
-  %.12748 = phi i32 [ %29, %28 ], [ 0, %.preheader ]
-  %.12947 = phi i8 [ %.2, %28 ], [ 0, %.preheader ]
+  %.02555 = phi ptr [ %.1, %28 ], [ null, %.preheader ]
+  %.12754 = phi i32 [ %29, %28 ], [ 0, %.preheader ]
+  %.12953 = phi i8 [ %.2, %28 ], [ 0, %.preheader ]
   %19 = tail call ptr @find_node_record(ptr noundef nonnull %18) #16
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %_delete_node.exit.thread, label %_delete_node.exit
@@ -12869,7 +12869,7 @@ _delete_node.exit:                                ; preds = %.lr.ph
 22:                                               ; preds = %_delete_node.exit.thread, %_delete_node.exit
   %.0.i41 = phi i32 [ 2018, %_delete_node.exit.thread ], [ %21, %_delete_node.exit ]
   %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.142, ptr noundef nonnull %18) #16
-  %.not38 = icmp eq ptr %.02549, null
+  %.not38 = icmp eq ptr %.02555, null
   br i1 %.not38, label %24, label %26
 
 24:                                               ; preds = %22
@@ -12877,14 +12877,14 @@ _delete_node.exit:                                ; preds = %.lr.ph
   br label %28
 
 26:                                               ; preds = %22
-  %27 = tail call i32 @hostlist_push_host(ptr noundef nonnull %.02549, ptr noundef nonnull %18) #16
+  %27 = tail call i32 @hostlist_push_host(ptr noundef nonnull %.02555, ptr noundef nonnull %18) #16
   br label %28
 
 28:                                               ; preds = %_delete_node.exit, %24, %26
   %.0.i42 = phi i32 [ %.0.i41, %26 ], [ %.0.i41, %24 ], [ 0, %_delete_node.exit ]
-  %.2 = phi i8 [ %.12947, %26 ], [ %.12947, %24 ], [ 1, %_delete_node.exit ]
-  %.1 = phi ptr [ %.02549, %26 ], [ %25, %24 ], [ %.02549, %_delete_node.exit ]
-  %29 = or i32 %.0.i42, %.12748
+  %.2 = phi i8 [ %.12953, %26 ], [ %.12953, %24 ], [ 1, %_delete_node.exit ]
+  %.1 = phi ptr [ %.02555, %26 ], [ %25, %24 ], [ %.02555, %_delete_node.exit ]
+  %29 = or i32 %.0.i42, %.12754
   tail call void @free(ptr noundef nonnull %18) #16
   %30 = tail call ptr @hostlist_shift(ptr noundef nonnull %10) #16
   %.not35 = icmp eq ptr %30, null
@@ -12915,32 +12915,32 @@ _delete_node.exit:                                ; preds = %.lr.ph
   call void @slurm_xfree(ptr noundef nonnull %3) #16
   call void @hostlist_destroy(ptr noundef nonnull %.1) #16
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #16
-  br i1 %31, label %41, label %44
-
-.thread:                                          ; preds = %9, %17, %14
-  tail call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #16
-  br label %44
+  br i1 %31, label %41, label %.thread47
 
 40:                                               ; preds = %36
   tail call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #16
-  br i1 %31, label %41, label %44
+  br i1 %31, label %41, label %.thread47
 
 41:                                               ; preds = %37, %40
   %42 = load ptr, ptr @acct_db_conn, align 8
   %43 = call i32 @clusteracct_storage_g_cluster_tres(ptr noundef %42, ptr noundef null, ptr noundef null, i64 noundef 0, i16 noundef zeroext 10496) #16
-  br label %44
+  br label %.thread47
 
-44:                                               ; preds = %37, %.thread, %40, %41
-  %.02645 = phi i32 [ 2018, %.thread ], [ %29, %40 ], [ %29, %41 ], [ %29, %37 ]
-  br i1 %.not33, label %46, label %45
+.thread51:                                        ; preds = %17, %14
+  tail call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #16
+  br label %.thread47
 
-45:                                               ; preds = %.thread69, %44
-  %.0264571 = phi i32 [ 0, %.thread69 ], [ %.02645, %44 ]
+44:                                               ; preds = %9
+  tail call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.delete_nodes.write_lock) #16
+  br label %45
+
+.thread47:                                        ; preds = %37, %.thread70, %41, %40, %.thread51
+  %.0264549 = phi i32 [ 2018, %.thread51 ], [ %29, %40 ], [ %29, %41 ], [ 0, %.thread70 ], [ %29, %37 ]
   call void @hostlist_destroy(ptr noundef nonnull %10) #16
-  br label %46
+  br label %45
 
-46:                                               ; preds = %44, %45, %6
-  %.0 = phi i32 [ 2002, %6 ], [ %.0264571, %45 ], [ %.02645, %44 ]
+45:                                               ; preds = %44, %.thread47, %6
+  %.0 = phi i32 [ 2002, %6 ], [ %.0264549, %.thread47 ], [ 2018, %44 ]
   ret i32 %.0
 }
 

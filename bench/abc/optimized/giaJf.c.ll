@@ -10764,10 +10764,10 @@ Jf_ManPropagateFlow.exit:                         ; preds = %40, %66, %33
   br label %71
 
 71:                                               ; preds = %Jf_ManPropagateFlow.exit, %31
-  tail call void @Jf_ManPropagateEla(ptr noundef %16, i32 noundef 0)
-  tail call void @Jf_ManPrintStats(ptr noundef %16, ptr noundef nonnull @.str.31)
-  tail call void @Jf_ManPropagateEla(ptr noundef %16, i32 noundef 1)
-  tail call void @Jf_ManPrintStats(ptr noundef %16, ptr noundef nonnull @.str.32)
+  tail call void @Jf_ManPropagateEla(ptr noundef nonnull %16, i32 noundef 0)
+  tail call void @Jf_ManPrintStats(ptr noundef nonnull %16, ptr noundef nonnull @.str.31)
+  tail call void @Jf_ManPropagateEla(ptr noundef nonnull %16, i32 noundef 1)
+  tail call void @Jf_ManPrintStats(ptr noundef nonnull %16, ptr noundef nonnull @.str.32)
   %72 = add nuw nsw i32 %.051, 1
   %73 = load i32, ptr %22, align 4
   %74 = icmp slt i32 %72, %73

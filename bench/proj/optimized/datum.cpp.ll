@@ -11830,7 +11830,7 @@ define void @_ZN5osgeo4proj5datum13DatumEnsemble6createERKNS0_4util11PropertyMap
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %16) #28
+  tail call void @__cxa_free_exception(ptr nonnull %16) #28
   br label %181
 
 20:                                               ; preds = %4
@@ -11889,7 +11889,7 @@ define void @_ZN5osgeo4proj5datum13DatumEnsemble6createERKNS0_4util11PropertyMap
 47:                                               ; preds = %.thread49
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %45) #28
+  call void @__cxa_free_exception(ptr nonnull %45) #28
   br label %181
 
 49:                                               ; preds = %43
@@ -12001,7 +12001,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit: ; preds = %60, %7
 101:                                              ; preds = %96
   %102 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %97) #28
+  call void @__cxa_free_exception(ptr nonnull %97) #28
   br label %181
 
 103:                                              ; preds = %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit
@@ -12129,7 +12129,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit47: ; preds = %_ZNK
 161:                                              ; preds = %156
   %162 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %157) #28
+  call void @__cxa_free_exception(ptr nonnull %157) #28
   br label %181
 
 163:                                              ; preds = %23
@@ -12166,7 +12166,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit47: ; preds = %_ZNK
 175:                                              ; preds = %.critedge39
   %176 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %173) #28
+  tail call void @__cxa_free_exception(ptr nonnull %173) #28
   br label %181
 
 .critedge:                                        ; preds = %29, %165, %.preheader52, %20, %163
@@ -14503,7 +14503,7 @@ define hidden void @_ZNK5osgeo4proj5datum13TemporalDatum12_exportToWKTEPNS0_2io1
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #28
+  tail call void @__cxa_free_exception(ptr nonnull %7) #28
   br label %39
 
 11:                                               ; preds = %2
@@ -15739,7 +15739,7 @@ define hidden void @_ZNK5osgeo4proj5datum15ParametricDatum12_exportToWKTEPNS0_2i
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #28
+  tail call void @__cxa_free_exception(ptr nonnull %6) #28
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2

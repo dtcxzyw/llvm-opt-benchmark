@@ -831,7 +831,7 @@ ft_lookup_glyph_renderer.exit:                    ; preds = %.lr.ph.i.i, %285
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds nuw i8, ptr %274, i64 32
   %307 = tail call i32 %305(ptr noundef nonnull %.0.i210, ptr noundef nonnull %9, ptr noundef %274, ptr noundef nonnull %306) #34
-  br label %FT_Outline_Translate.exit
+  br label %FT_Outline_Translate.exit.thread
 
 .loopexit:                                        ; preds = %299, %290
   %308 = icmp eq i32 %291, 1869968492
@@ -885,13 +885,12 @@ ft_lookup_glyph_renderer.exit:                    ; preds = %.lr.ph.i.i, %285
   %333 = icmp ult i16 %331, %332
   br i1 %333, label %.lr.ph.i, label %FT_Outline_Translate.exit, !llvm.loop !10
 
-FT_Outline_Translate.exit:                        ; preds = %.lr.ph.i, %.loopexit, %ft_lookup_glyph_renderer.exit
-  %.3144 = phi i32 [ %307, %ft_lookup_glyph_renderer.exit ], [ %.0141, %.loopexit ], [ %.0141, %.lr.ph.i ]
+FT_Outline_Translate.exit:                        ; preds = %.lr.ph.i, %.loopexit
   %.not224 = icmp eq ptr %274, null
   br i1 %.not224, label %FT_Vector_Transform.exit, label %FT_Outline_Translate.exit.thread
 
-FT_Outline_Translate.exit.thread:                 ; preds = %313, %316, %FT_Outline_Translate.exit
-  %.3144223 = phi i32 [ %.3144, %FT_Outline_Translate.exit ], [ %.0141, %316 ], [ %.0141, %313 ]
+FT_Outline_Translate.exit.thread:                 ; preds = %ft_lookup_glyph_renderer.exit, %313, %316, %FT_Outline_Translate.exit
+  %.3144223 = phi i32 [ %.0141, %FT_Outline_Translate.exit ], [ %.0141, %316 ], [ %.0141, %313 ], [ %307, %ft_lookup_glyph_renderer.exit ]
   %334 = load i64, ptr %238, align 8
   %335 = load i64, ptr %274, align 8
   %sext.i.i = shl i64 %334, 32
@@ -944,7 +943,7 @@ FT_Outline_Translate.exit.thread:                 ; preds = %313, %316, %FT_Outl
   br label %FT_Vector_Transform.exit
 
 FT_Vector_Transform.exit:                         ; preds = %FT_Outline_Translate.exit.thread, %FT_Outline_Translate.exit, %272, %269
-  %.2143 = phi i32 [ %.0141, %272 ], [ %.0141, %269 ], [ %.3144, %FT_Outline_Translate.exit ], [ %.3144223, %FT_Outline_Translate.exit.thread ]
+  %.2143 = phi i32 [ %.0141, %272 ], [ %.0141, %269 ], [ %.0141, %FT_Outline_Translate.exit ], [ %.3144223, %FT_Outline_Translate.exit.thread ]
   store i32 %1, ptr %33, align 8
   %375 = load ptr, ptr %11, align 8
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 72

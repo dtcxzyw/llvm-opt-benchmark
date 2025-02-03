@@ -146,7 +146,7 @@ define internal void @lv_spangroup_event(ptr readnone captures(none) %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !22
-  %35 = call ptr @lv_obj_get_style_prop(ptr noundef %26, i32 noundef 0, i8 noundef zeroext 92) #8
+  %35 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %26, i32 noundef 0, i8 noundef zeroext 92) #8
   %36 = ptrtoint ptr %35 to i64
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %36 to i32
   %37 = call i32 @lv_area_get_width(ptr noundef nonnull %11) #8
@@ -1332,8 +1332,8 @@ define void @lv_spangroup_delete_span(ptr noundef %0, ptr noundef readnone %1) l
   %22 = load i8, ptr %21, align 8
   %23 = or i8 %22, 8
   store i8 %23, ptr %21, align 8
-  tail call void @lv_obj_invalidate(ptr noundef %0) #8
-  %24 = tail call zeroext i1 @lv_obj_refresh_self_size(ptr noundef %0) #8
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #8
+  %24 = tail call zeroext i1 @lv_obj_refresh_self_size(ptr noundef nonnull %0) #8
   br label %25
 
 25:                                               ; preds = %2, %.loopexit
@@ -1755,7 +1755,7 @@ define i32 @lv_spangroup_get_expand_height(ptr noundef %0, i32 noundef %1) local
   br i1 %or.cond, label %170, label %13
 
 13:                                               ; preds = %2
-  %14 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 92) #8
+  %14 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 92) #8
   %15 = ptrtoint ptr %14 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %15 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -1871,7 +1871,7 @@ span_text_check.exit124:                          ; preds = %._crit_edge
   br i1 %.not.i125, label %67, label %65
 
 65:                                               ; preds = %63
-  %66 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 90) #8
+  %66 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 90) #8
   br label %lv_span_get_style_text_font.exit
 
 67:                                               ; preds = %63
@@ -1888,7 +1888,7 @@ lv_span_get_style_text_font.exit:                 ; preds = %65, %67
   br i1 %.not.i127, label %73, label %70
 
 70:                                               ; preds = %lv_span_get_style_text_font.exit
-  %71 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 91) #8
+  %71 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 91) #8
   %72 = ptrtoint ptr %71 to i64
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %72 to i32
   br label %lv_span_get_style_text_letter_space.exit
@@ -2182,7 +2182,7 @@ define range(i32 0, -2147483648) i32 @lv_spangroup_get_max_line_height(ptr nound
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 90) #8
+  %8 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 90) #8
   br label %lv_span_get_style_text_font.exit
 
 9:                                                ; preds = %.lr.ph
@@ -2244,7 +2244,7 @@ define i32 @lv_spangroup_get_expand_width(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not.i, label %24, label %22
 
 22:                                               ; preds = %19
-  %23 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 90) #8
+  %23 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 90) #8
   br label %lv_span_get_style_text_font.exit
 
 24:                                               ; preds = %19
@@ -2260,7 +2260,7 @@ lv_span_get_style_text_font.exit:                 ; preds = %22, %24
   br i1 %.not.i38, label %30, label %27
 
 27:                                               ; preds = %lv_span_get_style_text_font.exit
-  %28 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 91) #8
+  %28 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 91) #8
   %29 = ptrtoint ptr %28 to i64
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %29 to i32
   br label %lv_span_get_style_text_letter_space.exit

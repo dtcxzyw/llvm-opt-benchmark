@@ -207,7 +207,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %11, %1
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 1376
   store ptr %39, ptr %40, align 8
-  %41 = tail call i32 @pmix_pointer_array_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_pmix_server_globals, i64 176), ptr noundef %7) #9
+  %41 = tail call i32 @pmix_pointer_array_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_pmix_server_globals, i64 176), ptr noundef nonnull %7) #9
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 428
   store i32 %41, ptr %42, align 4
   %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 820), align 4

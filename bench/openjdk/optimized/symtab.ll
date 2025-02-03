@@ -471,21 +471,21 @@ build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debu
   call void @hdestroy_r(ptr noundef nonnull %51) #14
   br label %.preheader.sink.split.sink.split
 
-.preheader.sink.split.sink.split:                 ; preds = %.loopexit247, %212
-  %.sink304 = phi ptr [ %213, %212 ], [ %51, %.loopexit247 ]
-  %.sink303.sink.ph = phi ptr [ %.1.lcssa226229234, %212 ], [ %41, %.loopexit247 ]
-  %.0111157241.ph.ph = phi ptr [ %.5145, %212 ], [ null, %.loopexit247 ]
+.preheader.sink.split.sink.split:                 ; preds = %212, %.loopexit247
+  %.sink304 = phi ptr [ %51, %.loopexit247 ], [ %213, %212 ]
+  %.1.lcssa226229234.sink.ph = phi ptr [ %41, %.loopexit247 ], [ %.1.lcssa226229234, %212 ]
+  %.0111157241.ph.ph = phi ptr [ null, %.loopexit247 ], [ %.5145, %212 ]
   call void @free(ptr noundef %.sink304) #14
   br label %.preheader.sink.split
 
 .preheader.sink.split:                            ; preds = %43, %.preheader.sink.split.sink.split, %179, %209
-  %.sink303.sink = phi ptr [ %177, %179 ], [ %.1.lcssa226229234, %209 ], [ %.sink303.sink.ph, %.preheader.sink.split.sink.split ], [ %41, %43 ]
-  %.0111157241.ph = phi ptr [ %.1.lcssa226229233, %179 ], [ %.5145, %209 ], [ %.0111157241.ph.ph, %.preheader.sink.split.sink.split ], [ null, %43 ]
-  call void @free(ptr noundef nonnull %.sink303.sink) #14
+  %.1.lcssa226229234.sink = phi ptr [ %.1.lcssa226229234, %209 ], [ %177, %179 ], [ %.1.lcssa226229234.sink.ph, %.preheader.sink.split.sink.split ], [ %41, %43 ]
+  %.0111157241.ph = phi ptr [ %.5145, %209 ], [ %.1.lcssa226229233, %179 ], [ %.0111157241.ph.ph, %.preheader.sink.split.sink.split ], [ null, %43 ]
+  call void @free(ptr noundef nonnull %.1.lcssa226229234.sink) #14
   br label %.preheader
 
-.preheader:                                       ; preds = %24, %40, %.preheader.sink.split, %build_symtab_from_debug_link.exit, %._crit_edge, %.thread, %open_file_from_debug_link.exit.i, %._crit_edge190.thread, %166, %._crit_edge.thread
-  %.0111157241 = phi ptr [ null, %._crit_edge.thread ], [ %.5145, %.thread ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa226229233, %build_symtab_from_debug_link.exit ], [ %.1.lcssa226229233, %open_file_from_debug_link.exit.i ], [ %.1.lcssa226229233, %._crit_edge190.thread ], [ %.1.lcssa226229233, %166 ], [ %.0111157241.ph, %.preheader.sink.split ], [ null, %40 ], [ null, %24 ]
+.preheader:                                       ; preds = %24, %40, %.preheader.sink.split, %._crit_edge, %.thread, %._crit_edge.thread, %build_symtab_from_debug_link.exit, %open_file_from_debug_link.exit.i, %._crit_edge190.thread, %166
+  %.0111157241 = phi ptr [ null, %._crit_edge.thread ], [ %.1.lcssa226229233, %build_symtab_from_debug_link.exit ], [ %.1.lcssa226229233, %open_file_from_debug_link.exit.i ], [ %.1.lcssa226229233, %._crit_edge190.thread ], [ %.1.lcssa226229233, %166 ], [ %.5145, %.thread ], [ %.1.lcssa, %._crit_edge ], [ %.0111157241.ph, %.preheader.sink.split ], [ null, %40 ], [ null, %24 ]
   call void @free(ptr noundef nonnull %9) #14
   %215 = load i16, ptr %13, align 4
   %.not199 = icmp eq i16 %215, 0

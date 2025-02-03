@@ -3316,7 +3316,7 @@ _ZNSt10shared_ptrIN3nix12TestResourceEEC2ERKS2_.exit.i: ; preds = %24, %21, %13
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @__cxa_free_exception(ptr %28) #22
+  tail call void @__cxa_free_exception(ptr nonnull %28) #22
   br label %34
 
 32:                                               ; preds = %29
@@ -6139,7 +6139,7 @@ _ZNSt10shared_ptrIN3nix12TestResourceEEC2ERKS2_.exit.i: ; preds = %1
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #22
+  tail call void @__cxa_free_exception(ptr nonnull %17) #22
   br label %.body
 
 21:                                               ; preds = %18

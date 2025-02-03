@@ -964,12 +964,12 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
   %5 = alloca [3 x %struct.cmsCurveSegment], align 16
   %6 = tail call ptr @cmsReverseToneCurveEx(i32 noundef %3, ptr noundef %2)
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread.thread, label %8
+  br i1 %7, label %.thread41, label %8
 
 8:                                                ; preds = %4
   %9 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %3, i32 noundef 4) #13
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread.thread39, label %.preheader
+  br i1 %10, label %46, label %.preheader
 
 .preheader:                                       ; preds = %8
   %.not = icmp eq i32 %3, 0
@@ -977,7 +977,7 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
 
 ._crit_edge.thread:                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %5)
-  br label %.thread
+  br label %.thread37
 
 .lr.ph:                                           ; preds = %.preheader
   %11 = add i32 %3, -1
@@ -1045,22 +1045,22 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 272
   store double 0.000000e+00, ptr %44, align 16
   %45 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %5)
-  br label %.thread
+  br label %.thread37
 
-.thread:                                          ; preds = %._crit_edge.thread, %._crit_edge
+.thread37:                                        ; preds = %._crit_edge.thread, %._crit_edge
   %.0.i = phi ptr [ %45, %._crit_edge ], [ null, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %5)
   call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %9) #13
-  br label %.thread.thread39
+  br label %46
 
-.thread.thread39:                                 ; preds = %.thread, %8
-  %.0263641 = phi ptr [ %.0.i, %.thread ], [ null, %8 ]
+46:                                               ; preds = %8, %.thread37
+  %.0263639 = phi ptr [ %.0.i, %.thread37 ], [ null, %8 ]
   call void @cmsFreeToneCurve(ptr noundef nonnull %6)
-  br label %.thread.thread
+  br label %.thread41
 
-.thread.thread:                                   ; preds = %4, %.thread.thread39
-  %.0263638 = phi ptr [ %.0263641, %.thread.thread39 ], [ null, %4 ]
-  ret ptr %.0263638
+.thread41:                                        ; preds = %4, %46
+  %.0263640 = phi ptr [ %.0263639, %46 ], [ null, %4 ]
+  ret ptr %.0263640
 }
 
 ; Function Attrs: nounwind uwtable

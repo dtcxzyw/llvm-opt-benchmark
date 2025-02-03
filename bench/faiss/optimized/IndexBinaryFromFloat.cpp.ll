@@ -175,7 +175,7 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #10
+  call void @__cxa_free_exception(ptr nonnull %19) #10
   br label %25
 
 25:                                               ; preds = %23, %21
@@ -218,7 +218,7 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
 41:                                               ; preds = %34
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %37) #10
+  call void @__cxa_free_exception(ptr nonnull %37) #10
   br label %43
 
 43:                                               ; preds = %41, %39

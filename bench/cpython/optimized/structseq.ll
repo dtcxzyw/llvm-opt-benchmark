@@ -2734,23 +2734,23 @@ if.end10:                                         ; preds = %if.end7
   br i1 %tobool12.not, label %if.then.i43, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end10
-  %cmp1565 = icmp slt i64 %self.val27, %call4.i
-  br i1 %cmp1565, label %for.body, label %for.end
+  %cmp1569 = icmp slt i64 %self.val27, %call4.i
+  br i1 %cmp1569, label %for.body, label %for.end
 
 for.cond:                                         ; preds = %for.body
-  %inc = add i64 %i.066, 1
+  %inc = add i64 %i.070, 1
   %exitcond.not = icmp eq i64 %inc, %call4.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %i.066 = phi i64 [ %inc, %for.cond ], [ %self.val27, %for.cond.preheader ]
+  %i.070 = phi i64 [ %inc, %for.cond ], [ %self.val27, %for.cond.preheader ]
   %self.val24 = load ptr, ptr %0, align 8
   %tp_members = getelementptr inbounds nuw i8, ptr %self.val24, i64 240
   %6 = load ptr, ptr %tp_members, align 8
-  %sub = sub i64 %i.066, %call4.i34
+  %sub = sub i64 %i.070, %call4.i34
   %arrayidx = getelementptr %struct.PyMemberDef, ptr %6, i64 %sub
   %7 = load ptr, ptr %arrayidx, align 8
-  %arrayidx18 = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.066
+  %arrayidx18 = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.070
   %8 = load ptr, ptr %arrayidx18, align 8
   %call19 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %call11, ptr noundef %7, ptr noundef %8) #8
   %cmp20 = icmp slt i32 %call19, 0

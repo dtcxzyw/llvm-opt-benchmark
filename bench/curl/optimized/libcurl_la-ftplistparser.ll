@@ -1093,7 +1093,7 @@ if.then698:                                       ; preds = %sw.bb685
   %136 = load i64, ptr %item_offset, align 8
   store i64 %136, ptr %offsets1126, align 8
   store i32 1, ptr %state, align 4
-  call fastcc void @ftp_pl_insert_finfo(ptr noundef %connptr, ptr noundef %10)
+  call fastcc void @ftp_pl_insert_finfo(ptr noundef %connptr, ptr noundef nonnull %10)
   br label %sw.epilog1144
 
 sw.bb716:                                         ; preds = %sw.bb671
@@ -1112,7 +1112,7 @@ if.then720:                                       ; preds = %sw.bb716
   %142 = load i64, ptr %item_offset, align 8
   store i64 %142, ptr %offsets1126, align 8
   store i32 1, ptr %state, align 4
-  call fastcc void @ftp_pl_insert_finfo(ptr noundef %connptr, ptr noundef %10)
+  call fastcc void @ftp_pl_insert_finfo(ptr noundef %connptr, ptr noundef nonnull %10)
   br label %sw.epilog1144
 
 if.else737:                                       ; preds = %sw.bb716
@@ -1283,7 +1283,7 @@ if.then889:                                       ; preds = %sw.bb876
   store i8 0, ptr %arrayidx895, align 1
   %163 = load i64, ptr %item_offset, align 8
   store i64 %163, ptr %symlink_target920, align 8
-  call fastcc void @ftp_pl_insert_finfo(ptr noundef %connptr, ptr noundef %10)
+  call fastcc void @ftp_pl_insert_finfo(ptr noundef %connptr, ptr noundef nonnull %10)
   store i32 1, ptr %state, align 4
   br label %sw.epilog1144
 
@@ -1302,7 +1302,7 @@ if.then911:                                       ; preds = %sw.bb907
   store i8 0, ptr %arrayidx917, align 1
   %169 = load i64, ptr %item_offset, align 8
   store i64 %169, ptr %symlink_target920, align 8
-  call fastcc void @ftp_pl_insert_finfo(ptr noundef %connptr, ptr noundef %10)
+  call fastcc void @ftp_pl_insert_finfo(ptr noundef %connptr, ptr noundef nonnull %10)
   store i32 1, ptr %state, align 4
   br label %sw.epilog1144
 
@@ -1528,7 +1528,7 @@ if.then1103:                                      ; preds = %sw.bb1088
   %200 = getelementptr i8, ptr %call36.us, i64 %call34.us
   %arrayidx1108 = getelementptr i8, ptr %200, i64 -1
   store i8 0, ptr %arrayidx1108, align 1
-  call fastcc void @ftp_pl_insert_finfo(ptr noundef %connptr, ptr noundef %10)
+  call fastcc void @ftp_pl_insert_finfo(ptr noundef %connptr, ptr noundef nonnull %10)
   store i32 0, ptr %state, align 4
   store i32 0, ptr %sub, align 4
   br label %sw.epilog1144
@@ -1541,7 +1541,7 @@ sw.bb1120:                                        ; preds = %sw.bb1074
 if.then1124:                                      ; preds = %sw.bb1120
   %202 = load i64, ptr %item_offset, align 8
   store i64 %202, ptr %offsets1126, align 8
-  call fastcc void @ftp_pl_insert_finfo(ptr noundef %connptr, ptr noundef %10)
+  call fastcc void @ftp_pl_insert_finfo(ptr noundef %connptr, ptr noundef nonnull %10)
   store i32 0, ptr %state, align 4
   store i32 0, ptr %sub, align 4
   br label %sw.epilog1144

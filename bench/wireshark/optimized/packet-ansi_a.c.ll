@@ -2449,7 +2449,7 @@ define internal fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr
   br label %56
 
 54:                                               ; preds = %46
-  %55 = tail call zeroext i8 %49(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %51, i32 noundef %27, ptr noundef %6) #5
+  %55 = tail call zeroext i8 %49(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %51, i32 noundef %27, ptr noundef nonnull %6) #5
   br label %56
 
 56:                                               ; preds = %52, %54, %39
@@ -11791,7 +11791,7 @@ define internal fastcc zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr 
   br label %43
 
 39:                                               ; preds = %20
-  %40 = tail call zeroext i8 %34(ptr noundef %0, ptr noundef %1, ptr noundef %29, i32 noundef %36, i32 noundef -1, ptr noundef %5) #5
+  %40 = tail call zeroext i8 %34(ptr noundef %0, ptr noundef %1, ptr noundef %29, i32 noundef %36, i32 noundef -1, ptr noundef nonnull %5) #5
   %41 = zext i8 %40 to i16
   %42 = add nuw nsw i16 %41, 1
   br label %43
@@ -14001,7 +14001,7 @@ define internal fastcc zeroext i16 @elem_lv(ptr noundef %0, ptr noundef %1, ptr 
   br label %39
 
 37:                                               ; preds = %29
-  %38 = tail call zeroext i8 %32(ptr noundef %0, ptr noundef %1, ptr noundef %26, i32 noundef %34, i32 noundef %18, ptr noundef %5) #5
+  %38 = tail call zeroext i8 %32(ptr noundef %0, ptr noundef %1, ptr noundef %26, i32 noundef %34, i32 noundef %18, ptr noundef nonnull %5) #5
   br label %39
 
 39:                                               ; preds = %35, %37, %12

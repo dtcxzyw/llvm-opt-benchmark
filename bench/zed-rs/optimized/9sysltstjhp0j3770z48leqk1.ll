@@ -9155,7 +9155,7 @@ _ZN4gpui7element7Element8into_any17h710ed800aface94eE.exit.i.i: ; preds = %160
   %165 = getelementptr inbounds ptr, ptr %153, i64 %154
   call void @llvm.experimental.noalias.scope.decl(metadata !1819)
   %166 = getelementptr inbounds nuw i8, ptr %13, i64 664
-  invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17hd55d59bd5c281d27E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %166, ptr noundef nonnull %153, ptr noundef %165)
+  invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17hd55d59bd5c281d27E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %166, ptr noundef nonnull %153, ptr noundef nonnull %165)
           to label %177 unwind label %167, !noalias !1819
 
 167:                                              ; preds = %164

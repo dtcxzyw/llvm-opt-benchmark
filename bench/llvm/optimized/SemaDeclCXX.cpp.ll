@@ -39653,7 +39653,7 @@ _ZN5clang4Decl21getLexicalDeclContextEv.exit332:  ; preds = %767, %772
   store i32 %804, ptr %60, align 4
   %805 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %59, ptr noundef nonnull align 4 dereferenceable(4) %60)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %59) #24
-  call fastcc void @_ZN12_GLOBAL__N_127DefaultedComparisonAnalyzerC2ERN5clang4SemaEPNS1_13CXXRecordDeclEPNS1_12FunctionDeclENS2_23DefaultedComparisonKindENS0_14DiagnosticKindE(ptr noundef nonnull align 8 dereferenceable(180) %61, ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %709, ptr noundef nonnull %2, i8 noundef zeroext %3, i32 noundef 1)
+  call fastcc void @_ZN12_GLOBAL__N_127DefaultedComparisonAnalyzerC2ERN5clang4SemaEPNS1_13CXXRecordDeclEPNS1_12FunctionDeclENS2_23DefaultedComparisonKindENS0_14DiagnosticKindE(ptr noundef nonnull align 8 dereferenceable(180) %61, ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %709, ptr noundef nonnull %2, i8 noundef zeroext %3, i32 noundef 1)
   %806 = call fastcc i24 @_ZN12_GLOBAL__N_127DefaultedComparisonAnalyzer5visitEv(ptr noundef nonnull align 8 dereferenceable(180) %61)
   call fastcc void @_ZN12_GLOBAL__N_127DefaultedComparisonAnalyzerD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %61) #24
   %807 = getelementptr inbounds nuw i8, ptr %2, i64 82
@@ -39771,7 +39771,7 @@ _ZN5clang4Decl21getLexicalDeclContextEv.exit332:  ; preds = %767, %772
   store i8 %869, ptr %67, align 1
   %870 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %865, ptr noundef nonnull align 1 dereferenceable(1) %67)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %64) #24
-  call fastcc void @_ZN12_GLOBAL__N_127DefaultedComparisonAnalyzerC2ERN5clang4SemaEPNS1_13CXXRecordDeclEPNS1_12FunctionDeclENS2_23DefaultedComparisonKindENS0_14DiagnosticKindE(ptr noundef nonnull align 8 dereferenceable(180) %68, ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %709, ptr noundef nonnull %2, i8 noundef zeroext %3, i32 noundef 2)
+  call fastcc void @_ZN12_GLOBAL__N_127DefaultedComparisonAnalyzerC2ERN5clang4SemaEPNS1_13CXXRecordDeclEPNS1_12FunctionDeclENS2_23DefaultedComparisonKindENS0_14DiagnosticKindE(ptr noundef nonnull align 8 dereferenceable(180) %68, ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %709, ptr noundef nonnull %2, i8 noundef zeroext %3, i32 noundef 2)
   %871 = call fastcc i24 @_ZN12_GLOBAL__N_127DefaultedComparisonAnalyzer5visitEv(ptr noundef nonnull align 8 dereferenceable(180) %68)
   call fastcc void @_ZN12_GLOBAL__N_127DefaultedComparisonAnalyzerD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %68) #24
   br label %872
@@ -40655,8 +40655,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema25ShouldDeleteSpecialMemberEP
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 128
-  %.not163 = icmp eq i32 %47, 0
-  br i1 %.not163, label %48, label %_ZN5clang4Sema11ContextRAIID2Ev.exit
+  %.not = icmp eq i32 %47, 0
+  br i1 %.not, label %48, label %_ZN5clang4Sema11ContextRAIID2Ev.exit
 
 48:                                               ; preds = %5
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -40701,15 +40701,15 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit:        ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 1048576
-  %.not164 = icmp eq i32 %72, 0
-  br i1 %.not164, label %_ZN5clang4Sema11ContextRAIID2Ev.exit, label %73
+  %.not163 = icmp eq i32 %72, 0
+  br i1 %.not163, label %_ZN5clang4Sema11ContextRAIID2Ev.exit, label %73
 
 73:                                               ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit, %65
   %74 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %75 = load i32, ptr %74, align 4
   %76 = and i32 %75, 128
-  %.not165 = icmp eq i32 %76, 0
-  br i1 %.not165, label %77, label %_ZN5clang4Sema11ContextRAIID2Ev.exit
+  %.not164 = icmp eq i32 %76, 0
+  br i1 %.not164, label %77, label %_ZN5clang4Sema11ContextRAIID2Ev.exit
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %60, i64 128
@@ -40721,8 +40721,8 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit69:      ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i32, ptr %80, align 8
   %82 = and i32 %81, 1048576
-  %.not166 = icmp eq i32 %82, 0
-  br i1 %.not166, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit69.thread, label %83
+  %.not165 = icmp eq i32 %82, 0
+  br i1 %.not165, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit69.thread, label %83
 
 83:                                               ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit69
   %84 = tail call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl41lambdaIsDefaultConstructibleAndAssignableEv(ptr noundef nonnull align 8 dereferenceable(144) %60) #24
@@ -40756,14 +40756,14 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit69.thread: ; preds = %77, %83, %_ZNK5cl
   %91 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %92 = load i64, ptr %91, align 8
   %93 = and i64 %92, 16777216
-  %.not167 = icmp eq i64 %93, 0
-  br i1 %.not167, label %94, label %_ZN5clang4Sema11ContextRAIID2Ev.exit
+  %.not166 = icmp eq i64 %93, 0
+  br i1 %.not166, label %94, label %_ZN5clang4Sema11ContextRAIID2Ev.exit
 
 94:                                               ; preds = %85, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit69.thread, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit69.thread, %90
   %95 = load i32, ptr %45, align 4
   %96 = and i32 %95, 512
-  %.not168 = icmp eq i32 %96, 0
-  br i1 %.not168, label %.thread, label %97
+  %.not167 = icmp eq i32 %96, 0
+  br i1 %.not167, label %.thread, label %97
 
 97:                                               ; preds = %94
   %98 = icmp eq i32 %2, 1
@@ -40807,8 +40807,8 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit69.thread: ; preds = %77, %83, %_ZNK5cl
   %119 = tail call { ptr, ptr } @_ZNK5clang13CXXRecordDecl5ctorsEv(ptr noundef nonnull align 8 dereferenceable(144) %60)
   %120 = extractvalue { ptr, ptr } %119, 0
   %121 = extractvalue { ptr, ptr } %119, 1
-  %.not170212 = icmp eq ptr %120, %121
-  br i1 %.not170212, label %.thread, label %.lr.ph214
+  %.not169212 = icmp eq ptr %120, %121
+  br i1 %.not169212, label %.thread, label %.lr.ph214
 
 .lr.ph214:                                        ; preds = %118, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit
   %.sroa.0142.0213 = phi ptr [ %.sroa.0142.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit ], [ %120, %118 ]
@@ -40844,8 +40844,8 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit69.thread: ; preds = %77, %83, %_ZNK5cl
 
 _ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit: ; preds = %.lr.ph.i.i, %131, %123
   %.sroa.0142.2 = phi ptr [ %126, %123 ], [ %134, %131 ], [ %.sroa.0142.1, %.lr.ph.i.i ]
-  %.not170 = icmp eq ptr %.sroa.0142.2, %121
-  br i1 %.not170, label %.thread, label %.lr.ph214
+  %.not169 = icmp eq ptr %.sroa.0142.2, %121
+  br i1 %.not169, label %.thread, label %.lr.ph214
 
 135:                                              ; preds = %108
   %136 = load ptr, ptr %109, align 8
@@ -40866,8 +40866,8 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exi
   %145 = tail call { ptr, ptr } @_ZNK5clang13CXXRecordDecl7methodsEv(ptr noundef nonnull align 8 dereferenceable(144) %60)
   %146 = extractvalue { ptr, ptr } %145, 0
   %147 = extractvalue { ptr, ptr } %145, 1
-  %.not169210 = icmp eq ptr %146, %147
-  br i1 %.not169210, label %.thread, label %.lr.ph
+  %.not168210 = icmp eq ptr %146, %147
+  br i1 %.not168210, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %144, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit
   %.sroa.0138.0211 = phi ptr [ %.sroa.0138.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit ], [ %146, %144 ]
@@ -40900,8 +40900,8 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exi
 
 _ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit: ; preds = %.lr.ph.i.i79, %157, %149
   %.sroa.0138.2 = phi ptr [ %152, %149 ], [ %160, %157 ], [ %.sroa.0138.1, %.lr.ph.i.i79 ]
-  %.not169 = icmp eq ptr %.sroa.0138.2, %147
-  br i1 %.not169, label %.thread, label %.lr.ph
+  %.not168 = icmp eq ptr %.sroa.0138.2, %147
+  br i1 %.not168, label %.thread, label %.lr.ph
 
 .loopexit180:                                     ; preds = %.lr.ph, %.lr.ph214
   %.061 = phi ptr [ %.sroa.0142.0213, %.lr.ph214 ], [ %.sroa.0138.0211, %.lr.ph ]
@@ -40958,8 +40958,8 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_13CXXMethodDeclEEppEv.exit: ; 
 
 _ZNK5clang13CXXMethodDecl9isVirtualEv.exit:       ; preds = %186
   %194 = call noundef i32 @_ZNK5clang13CXXMethodDecl23size_overridden_methodsEv(ptr noundef nonnull align 8 dereferenceable(168) %190) #24
-  %.not = icmp eq i32 %194, 0
-  br i1 %.not, label %.thread158, label %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread
+  %.not170 = icmp eq i32 %194, 0
+  br i1 %.not170, label %.thread158, label %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread
 
 _ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread: ; preds = %186, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit
   store ptr null, ptr %42, align 8

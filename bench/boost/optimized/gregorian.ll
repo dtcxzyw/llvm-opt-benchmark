@@ -819,7 +819,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendar9set_v
 85:                                               ; preds = %82
   %86 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %83) #20
+  tail call void @__cxa_free_exception(ptr nonnull %83) #20
   resume { ptr, i32 } %86
 
 87:                                               ; preds = %69, %53, %29, %27, %25, %19, %13, %11, %9, %7, %4, %3
@@ -1842,7 +1842,7 @@ _ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit: ; preds = %
 311:                                              ; preds = %309, %304, %275, %213, %155, %145, %135, %123, %112, %102, %86, %75, %52, %23, %13
   %.sink = phi ptr [ %307, %309 ], [ %302, %304 ], [ %273, %275 ], [ %211, %213 ], [ %153, %155 ], [ %143, %145 ], [ %133, %135 ], [ %121, %123 ], [ %110, %112 ], [ %100, %102 ], [ %84, %86 ], [ %73, %75 ], [ %50, %52 ], [ %21, %23 ], [ %11, %13 ]
   %.pn = phi { ptr, i32 } [ %310, %309 ], [ %305, %304 ], [ %276, %275 ], [ %214, %213 ], [ %156, %155 ], [ %146, %145 ], [ %136, %135 ], [ %124, %123 ], [ %113, %112 ], [ %103, %102 ], [ %87, %86 ], [ %76, %75 ], [ %53, %52 ], [ %24, %23 ], [ %14, %13 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #20
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #20
   resume { ptr, i32 } %.pn
 }
 
@@ -2014,7 +2014,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %32
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #20
+  tail call void @__cxa_free_exception(ptr nonnull %8) #20
   br label %45
 
 45:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %24, %43
@@ -2051,7 +2051,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale4util18gregorian_calend
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #20
+  tail call void @__cxa_free_exception(ptr nonnull %9) #20
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %2, %3
@@ -2218,7 +2218,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendar12adju
 81:                                               ; preds = %49, %44
   %.sink = phi ptr [ %47, %49 ], [ %42, %44 ]
   %.pn = phi { ptr, i32 } [ %50, %49 ], [ %45, %44 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #20
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #20
   resume { ptr, i32 } %.pn
 }
 
@@ -2544,7 +2544,7 @@ _ZNK5boost6locale4util18gregorian_calendar8get_diffENS0_6period5marks11period_ma
 179:                                              ; preds = %176
   %180 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %177) #20
+  call void @__cxa_free_exception(ptr nonnull %177) #20
   br label %.body
 
 181:                                              ; preds = %178

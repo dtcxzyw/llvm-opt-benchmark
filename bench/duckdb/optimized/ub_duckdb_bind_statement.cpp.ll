@@ -21207,7 +21207,7 @@ lpad127:                                          ; preds = %invoke.cont125
 lpad134:                                          ; preds = %if.then132
   %96 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception133) #25
+  call void @__cxa_free_exception(ptr nonnull %exception133) #25
   br label %ehcleanup141
 
 lpad137:                                          ; preds = %if.end138, %invoke.cont135
@@ -59019,7 +59019,7 @@ ehcleanup:                                        ; preds = %if.then.i.i18, %_ZN
 lpad4:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #25
+  call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %ehcleanup8
 
 lpad7:                                            ; preds = %invoke.cont5
@@ -79240,7 +79240,7 @@ lpad147.loopexit.split-lp:                        ; preds = %if.then.i.i734, %in
 lpad152:                                          ; preds = %if.then150
   %97 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception151) #25
+  call void @__cxa_free_exception(ptr nonnull %exception151) #25
   br label %ehcleanup157
 
 if.end155:                                        ; preds = %invoke.cont146
@@ -102213,7 +102213,7 @@ if.else.i:                                        ; preds = %for.body21
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %if.else.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin212.sroa.0.0140) #30
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin212.sroa.0.0140) #30
   %cmp.i64.not = icmp eq ptr %call.i, %0
   br i1 %cmp.i64.not, label %for.cond.cleanup20, label %for.body21
 
@@ -102646,7 +102646,7 @@ if.else.i:                                        ; preds = %for.body19
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %if.else.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.0138) #30
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.0138) #30
   %cmp.i62.not = icmp eq ptr %call.i, %0
   br i1 %cmp.i62.not, label %for.cond.cleanup18, label %for.body19
 

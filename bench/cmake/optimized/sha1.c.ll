@@ -85,7 +85,7 @@ define dso_local void @rhash_sha1_update(ptr noundef captures(none) %0, ptr noun
   br i1 %.not39, label %32, label %31
 
 31:                                               ; preds = %._crit_edge
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 1 %.1.lcssa, i64 %.135.lcssa, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr align 1 %.1.lcssa, i64 %.135.lcssa, i1 false)
   br label %32
 
 32:                                               ; preds = %9, %31, %._crit_edge

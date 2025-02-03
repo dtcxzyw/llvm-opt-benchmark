@@ -403,7 +403,7 @@ lpad4.loopexit.split-lp:                          ; preds = %for.end, %if.then.i
 lpad7:                                            ; preds = %invoke.cont6
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i16)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i16)
           to label %ehcleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad7

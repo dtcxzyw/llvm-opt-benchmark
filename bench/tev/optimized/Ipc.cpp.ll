@@ -1122,7 +1122,7 @@ define dso_local void @_ZN3tev9IpcPacketC2EPKcm(ptr noundef nonnull align 8 dere
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #27
+  tail call void @__cxa_free_exception(ptr nonnull %6) #27
   br label %14
 
 10:                                               ; preds = %12, %7
@@ -1132,7 +1132,7 @@ define dso_local void @_ZN3tev9IpcPacketC2EPKcm(ptr noundef nonnull align 8 dere
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %1, i64 %2
-  invoke void @_ZNSt3__16vectorIcNS_9allocatorIcEEE18__assign_with_sizeB8ne190000IPKcS6_EEvT_T0_l(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull %13, i64 noundef %2)
+  invoke void @_ZNSt3__16vectorIcNS_9allocatorIcEEE18__assign_with_sizeB8ne190000IPKcS6_EEvT_T0_l(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i64 noundef %2)
           to label %_ZNSt3__16vectorIcNS_9allocatorIcEEE6assignIPKcTnNS_9enable_ifIXaasr31__has_forward_iterator_categoryIT_EE5valuesr16is_constructibleIcNS_15iterator_traitsIS8_E9referenceEEE5valueEiE4typeELi0EEEvS8_S8_.exit unwind label %10
 
 _ZNSt3__16vectorIcNS_9allocatorIcEEE6assignIPKcTnNS_9enable_ifIXaasr31__has_forward_iterator_categoryIT_EE5valuesr16is_constructibleIcNS_15iterator_traitsIS8_E9referenceEEE5valueEiE4typeELi0EEEvS8_S8_.exit: ; preds = %12
@@ -2225,7 +2225,7 @@ define dso_local void @_ZN3tev9IpcPacket14setUpdateImageERKNSt3__112basic_string
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %20) #27
+  tail call void @__cxa_free_exception(ptr nonnull %20) #27
   br label %common.resume
 
 24:                                               ; preds = %9
@@ -3671,7 +3671,7 @@ define dso_local void @_ZN3tev9IpcPacket14setCreateImageERKNSt3__112basic_string
 20:                                               ; preds = %17
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %18) #27
+  tail call void @__cxa_free_exception(ptr nonnull %18) #27
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %7
@@ -4804,7 +4804,7 @@ define dso_local void @_ZNK3tev9IpcPacket20interpretAsOpenImageEv(ptr dead_on_un
 23:                                               ; preds = %21
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %22) #27
+  call void @__cxa_free_exception(ptr nonnull %22) #27
   br label %.body
 
 25:                                               ; preds = %9
@@ -4829,7 +4829,7 @@ define dso_local void @_ZNK3tev9IpcPacket20interpretAsOpenImageEv(ptr dead_on_un
 32:                                               ; preds = %28
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #27
+  call void @__cxa_free_exception(ptr nonnull %29) #27
   br label %.body
 
 34:                                               ; preds = %25, %25
@@ -4858,7 +4858,7 @@ define dso_local void @_ZNK3tev9IpcPacket20interpretAsOpenImageEv(ptr dead_on_un
 45:                                               ; preds = %42
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %43) #27
+  call void @__cxa_free_exception(ptr nonnull %43) #27
   br label %.body
 
 47:                                               ; preds = %34
@@ -5040,7 +5040,7 @@ define linkonce_odr dso_local void @_ZN3tev9IpcPacket7IStreamC2ERKNSt3__16vector
 common.resume:                                    ; preds = %26, %14
   %.sink = phi ptr [ %24, %26 ], [ %12, %14 ]
   %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %15, %14 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #27
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #27
   resume { ptr, i32 } %common.resume.op
 
 14:                                               ; preds = %11
@@ -5116,7 +5116,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %20) #27
+  tail call void @__cxa_free_exception(ptr nonnull %20) #27
   br label %61
 
 .loopexit:                                        ; preds = %43
@@ -5264,7 +5264,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsReloadImageEv(ptr dead_on_
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #27
+  call void @__cxa_free_exception(ptr nonnull %17) #27
   br label %.body
 
 20:                                               ; preds = %4
@@ -5287,7 +5287,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsReloadImageEv(ptr dead_on_
 27:                                               ; preds = %23
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %24) #27
+  call void @__cxa_free_exception(ptr nonnull %24) #27
   br label %.body
 
 29:                                               ; preds = %20
@@ -5316,7 +5316,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsReloadImageEv(ptr dead_on_
 40:                                               ; preds = %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %38) #27
+  call void @__cxa_free_exception(ptr nonnull %38) #27
   br label %.body
 
 42:                                               ; preds = %29
@@ -5376,7 +5376,7 @@ define dso_local void @_ZNK3tev9IpcPacket21interpretAsCloseImageEv(ptr dead_on_u
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #27
+  call void @__cxa_free_exception(ptr nonnull %17) #27
   br label %.body
 
 21:                                               ; preds = %4
@@ -5399,7 +5399,7 @@ define dso_local void @_ZNK3tev9IpcPacket21interpretAsCloseImageEv(ptr dead_on_u
 28:                                               ; preds = %24
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #27
+  call void @__cxa_free_exception(ptr nonnull %25) #27
   br label %.body
 
 30:                                               ; preds = %21
@@ -5459,7 +5459,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsUpdateImageEv(ptr dead_on_
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %30) #27
+  call void @__cxa_free_exception(ptr nonnull %30) #27
   br label %.body
 
 33:                                               ; preds = %17
@@ -5495,7 +5495,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsUpdateImageEv(ptr dead_on_
 38:                                               ; preds = %36
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %37) #27
+  call void @__cxa_free_exception(ptr nonnull %37) #27
   br label %.body
 
 40:                                               ; preds = %33, %33, %33
@@ -5516,7 +5516,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsUpdateImageEv(ptr dead_on_
 50:                                               ; preds = %48
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %49) #27
+  call void @__cxa_free_exception(ptr nonnull %49) #27
   br label %.body
 
 52:                                               ; preds = %40
@@ -5555,7 +5555,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsUpdateImageEv(ptr dead_on_
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %73) #27
+  call void @__cxa_free_exception(ptr nonnull %73) #27
   br label %.body
 
 _ZN3tev9IpcPacket7IStreamrsIiEERS1_RT_.exit:      ; preds = %61
@@ -5712,7 +5712,7 @@ _ZNSt3__16vectorIlNS_9allocatorIlEEE6resizeEmRKl.exit: ; preds = %134, %132, %13
 148:                                              ; preds = %146
   %149 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %147) #27
+  call void @__cxa_free_exception(ptr nonnull %147) #27
   br label %.body
 
 150:                                              ; preds = %_ZNSt3__16vectorIlNS_9allocatorIlEEE6resizeEmRKl.exit
@@ -5738,7 +5738,7 @@ _ZNSt3__16vectorIlNS_9allocatorIlEEE6resizeEmRKl.exit: ; preds = %134, %132, %13
 163:                                              ; preds = %161
   %164 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %162) #27
+  call void @__cxa_free_exception(ptr nonnull %162) #27
   br label %.body
 
 165:                                              ; preds = %150
@@ -5764,7 +5764,7 @@ _ZNSt3__16vectorIlNS_9allocatorIlEEE6resizeEmRKl.exit: ; preds = %134, %132, %13
 178:                                              ; preds = %176
   %179 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %177) #27
+  call void @__cxa_free_exception(ptr nonnull %177) #27
   br label %.body
 
 180:                                              ; preds = %165
@@ -5790,7 +5790,7 @@ _ZNSt3__16vectorIlNS_9allocatorIlEEE6resizeEmRKl.exit: ; preds = %134, %132, %13
 193:                                              ; preds = %191
   %194 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %192) #27
+  call void @__cxa_free_exception(ptr nonnull %192) #27
   br label %.body
 
 195:                                              ; preds = %180
@@ -5838,7 +5838,7 @@ _ZNSt3__16vectorIlNS_9allocatorIlEEE6resizeEmRKl.exit: ; preds = %134, %132, %13
 220:                                              ; preds = %218
   %221 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %219) #27
+  call void @__cxa_free_exception(ptr nonnull %219) #27
   br label %.body
 
 _ZN3tev9IpcPacket7IStreamrsIlEERS1_RT_.exit.i:    ; preds = %.lr.ph.i55
@@ -5889,7 +5889,7 @@ _ZN3tev9IpcPacket7IStreamrsIlEERS1_RNSt3__16vectorIT_NS4_9allocatorIS6_EEEE.exit
 242:                                              ; preds = %239
   %243 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %240) #27
+  call void @__cxa_free_exception(ptr nonnull %240) #27
   br label %.body
 
 _ZN3tev9IpcPacket7IStreamrsIlEERS1_RT_.exit.i65:  ; preds = %.lr.ph.i62
@@ -6055,7 +6055,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE6resizeEm.exit: ; preds = %295, %293, %291
 321:                                              ; preds = %319
   %322 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %320) #27
+  call void @__cxa_free_exception(ptr nonnull %320) #27
   br label %.body
 
 323:                                              ; preds = %._crit_edge
@@ -6813,7 +6813,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsCreateImageEv(ptr dead_on_
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #27
+  call void @__cxa_free_exception(ptr nonnull %18) #27
   br label %.body
 
 21:                                               ; preds = %5
@@ -6849,7 +6849,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsCreateImageEv(ptr dead_on_
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #27
+  call void @__cxa_free_exception(ptr nonnull %25) #27
   br label %.body
 
 29:                                               ; preds = %21
@@ -6870,7 +6870,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsCreateImageEv(ptr dead_on_
 39:                                               ; preds = %37
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %38) #27
+  call void @__cxa_free_exception(ptr nonnull %38) #27
   br label %.body
 
 41:                                               ; preds = %29
@@ -6905,7 +6905,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsCreateImageEv(ptr dead_on_
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %60) #27
+  call void @__cxa_free_exception(ptr nonnull %60) #27
   br label %.body
 
 63:                                               ; preds = %48
@@ -6931,7 +6931,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsCreateImageEv(ptr dead_on_
 76:                                               ; preds = %74
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %75) #27
+  call void @__cxa_free_exception(ptr nonnull %75) #27
   br label %.body
 
 78:                                               ; preds = %63
@@ -6957,7 +6957,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsCreateImageEv(ptr dead_on_
 91:                                               ; preds = %89
   %92 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %90) #27
+  call void @__cxa_free_exception(ptr nonnull %90) #27
   br label %.body
 
 93:                                               ; preds = %78
@@ -7097,7 +7097,7 @@ define dso_local void @_ZNK3tev9IpcPacket25interpretAsVectorGraphicsEv(ptr dead_
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #27
+  call void @__cxa_free_exception(ptr nonnull %18) #27
   br label %.body
 
 21:                                               ; preds = %5
@@ -7133,7 +7133,7 @@ define dso_local void @_ZNK3tev9IpcPacket25interpretAsVectorGraphicsEv(ptr dead_
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #27
+  call void @__cxa_free_exception(ptr nonnull %25) #27
   br label %.body
 
 29:                                               ; preds = %21
@@ -7154,7 +7154,7 @@ define dso_local void @_ZNK3tev9IpcPacket25interpretAsVectorGraphicsEv(ptr dead_
 39:                                               ; preds = %37
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %38) #27
+  call void @__cxa_free_exception(ptr nonnull %38) #27
   br label %.body
 
 41:                                               ; preds = %29
@@ -7189,7 +7189,7 @@ define dso_local void @_ZNK3tev9IpcPacket25interpretAsVectorGraphicsEv(ptr dead_
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %60) #27
+  call void @__cxa_free_exception(ptr nonnull %60) #27
   br label %.body
 
 63:                                               ; preds = %48
@@ -7218,7 +7218,7 @@ define dso_local void @_ZNK3tev9IpcPacket25interpretAsVectorGraphicsEv(ptr dead_
 79:                                               ; preds = %77
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %78) #27
+  call void @__cxa_free_exception(ptr nonnull %78) #27
   br label %.body
 
 81:                                               ; preds = %63
@@ -7300,7 +7300,7 @@ _ZNSt3__16vectorIN3tev9VgCommandENS_9allocatorIS2_EEE6resizeEm.exit: ; preds = %
 118:                                              ; preds = %116
   %119 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %117) #27
+  call void @__cxa_free_exception(ptr nonnull %117) #27
   br label %.body
 
 120:                                              ; preds = %.lr.ph
@@ -7379,7 +7379,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE6resizeEm.exit: ; preds = %._ZNSt3__16vector
 160:                                              ; preds = %158
   %161 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %159) #27
+  call void @__cxa_free_exception(ptr nonnull %159) #27
   br label %.body
 
 _ZN3tev9IpcPacket7IStreamrsIfEERS1_RT_.exit.i:    ; preds = %147
@@ -7881,7 +7881,7 @@ _ZN4tlog6StreamlsINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEE
   %199 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt13runtime_error
-  call void @__cxa_free_exception(ptr %196) #27
+  call void @__cxa_free_exception(ptr nonnull %196) #27
   br label %281
 
 200:                                              ; preds = %193
@@ -8082,7 +8082,7 @@ _ZN4tlog6StreamlsINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEE
   %279 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt13runtime_error
-  call void @__cxa_free_exception(ptr %277) #27
+  call void @__cxa_free_exception(ptr nonnull %277) #27
   br label %281
 
 280:                                              ; preds = %.loopexit
@@ -9455,7 +9455,7 @@ define dso_local void @_ZN3tev3Ipc21sendToPrimaryInstanceERKNS_9IpcPacketE(ptr n
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #27
+  tail call void @__cxa_free_exception(ptr nonnull %10) #27
   br label %58
 
 14:                                               ; preds = %2
@@ -9588,7 +9588,7 @@ define dso_local void @_ZN3tev3Ipc28receiveFromSecondaryInstanceENSt3__18functio
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %22) #27
+  tail call void @__cxa_free_exception(ptr nonnull %22) #27
   br label %common.resume
 
 26:                                               ; preds = %2
@@ -10349,7 +10349,7 @@ _ZN4tlog6StreamlsIA15_cEERS0_RKT_.exit:           ; preds = %_ZN4tlog6StreamlsIi
 139:                                              ; preds = %136
   %140 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %137) #27
+  call void @__cxa_free_exception(ptr nonnull %137) #27
   br label %thread-pre-split
 
 .loopexit:                                        ; preds = %_ZNSt3__16vectorIcNS_9allocatorIcEEE13__vdeallocateEv.exit.i
@@ -10801,7 +10801,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #27
+  tail call void @__cxa_free_exception(ptr nonnull %2) #27
   resume { ptr, i32 } %5
 }
 
@@ -11700,7 +11700,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3tev9VgCommand5bytesEv(ptr nounde
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %5) #27
+  tail call void @__cxa_free_exception(ptr nonnull %5) #27
   resume { ptr, i32 } %8
 
 switch.lookup:                                    ; preds = %1
@@ -12828,7 +12828,7 @@ define linkonce_odr dso_local void @_ZN4tlog12timeToStringERKNSt3__112basic_stri
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #27
+  call void @__cxa_free_exception(ptr nonnull %16) #27
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %3
@@ -12902,7 +12902,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
 32:                                               ; preds = %29
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %30) #27
+  tail call void @__cxa_free_exception(ptr nonnull %30) #27
   br label %319
 
 34:                                               ; preds = %5
@@ -12921,7 +12921,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
 39:                                               ; preds = %36
   %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %37) #27
+  tail call void @__cxa_free_exception(ptr nonnull %37) #27
   br label %319
 
 41:                                               ; preds = %34
@@ -16327,7 +16327,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18throw_format_errorEPKc(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #27
+  tail call void @__cxa_free_exception(ptr nonnull %2) #27
   resume { ptr, i32 } %5
 }
 
@@ -32419,7 +32419,7 @@ _ZN3fmt2v96detail6bigintmLIiEERS2_T_.exit303:     ; preds = %_ZN3fmt2v96detail6b
 505:                                              ; preds = %502
   %506 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %503) #27
+  call void @__cxa_free_exception(ptr nonnull %503) #27
   br label %.body
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %497
@@ -47307,7 +47307,7 @@ _ZN3fmt2v96detail9normalizeILi0EyEENS1_8basic_fpIT0_EES5_.exit: ; preds = %.lr.p
 118:                                              ; preds = %115
   %119 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %116) #27
+  tail call void @__cxa_free_exception(ptr nonnull %116) #27
   resume { ptr, i32 } %119
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %110
@@ -51352,7 +51352,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_future_errorB8ne190000ENS_11
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #27
+  tail call void @__cxa_free_exception(ptr nonnull %2) #27
   resume { ptr, i32 } %6
 }
 

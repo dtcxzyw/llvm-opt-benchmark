@@ -1701,7 +1701,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then23:                                        ; preds = %while.body
   tail call void @free(ptr noundef %call) #23
-  tail call void @free(ptr noundef %call1) #23
+  tail call void @free(ptr noundef nonnull %call1) #23
   %totalCompressedSize.i.i69 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !44
   store i64 %call20, ptr %totalCompressedSize.i.i69, align 8, !alias.scope !47
@@ -1714,7 +1714,7 @@ if.end24:                                         ; preds = %while.body
 
 if.then28:                                        ; preds = %if.end24
   tail call void @free(ptr noundef %call) #23
-  tail call void @free(ptr noundef %call1) #23
+  tail call void @free(ptr noundef nonnull %call1) #23
   %totalCompressedSize.i.i72 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false), !alias.scope !50
   store i64 %call25, ptr %totalCompressedSize.i.i72, align 8, !alias.scope !53
@@ -1740,7 +1740,7 @@ if.end35:                                         ; preds = %if.end29
   br i1 %cmp16, label %while.body, label %while.end, !llvm.loop !59
 
 while.end:                                        ; preds = %if.end35, %while.cond.preheader
-  tail call void @free(ptr noundef %call1) #23
+  tail call void @free(ptr noundef nonnull %call1) #23
   store ptr %call, ptr %agg.result, align 8, !alias.scope !60
   %dictSize.i75 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %call3, ptr %dictSize.i75, align 8, !alias.scope !60

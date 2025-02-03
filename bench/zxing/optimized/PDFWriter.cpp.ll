@@ -973,7 +973,7 @@ _ZSt10_ConstructISt6vectorIbSaIbEEJRS2_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
   %81 = tail call ptr @__cxa_begin_catch(ptr %80) #18
-  invoke void @_ZSt8_DestroyIPSt6vectorIbSaIbEEEvT_S4_(ptr noundef %73, ptr noundef %.016.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPSt6vectorIbSaIbEEEvT_S4_(ptr noundef %73, ptr noundef nonnull %.016.i.i.i.i)
           to label %82 unwind label %83
 
 82:                                               ; preds = %78
@@ -2248,7 +2248,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #18
+  tail call void @__cxa_free_exception(ptr nonnull %25) #18
   br label %32
 
 31:                                               ; preds = %19, %15
@@ -2334,7 +2334,7 @@ _ZSt10_ConstructISt6vectorIbSaIbEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.l
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #18
-  invoke void @_ZSt8_DestroyIPSt6vectorIbSaIbEEEvT_S4_(ptr noundef %13, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPSt6vectorIbSaIbEEEvT_S4_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
           to label %20 unwind label %21
 
 20:                                               ; preds = %16

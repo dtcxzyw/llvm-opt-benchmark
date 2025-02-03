@@ -846,7 +846,7 @@ define { ptr, ptr } @block_bind_library(ptr readnone captures(none) %0, ptr %1, 
   br i1 %.not39, label %._crit_edge, label %28, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %28, %25
-  tail call void @free(ptr noundef %18) #17
+  tail call void @free(ptr noundef nonnull %18) #17
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %2, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %3, 1
   ret { ptr, ptr } %.fca.1.insert

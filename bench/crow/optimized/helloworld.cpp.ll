@@ -15483,7 +15483,7 @@ define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJEE8validateEv(ptr noun
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #36
+  tail call void @__cxa_free_exception(ptr nonnull %15) #36
   br label %82
 
 19:                                               ; preds = %10
@@ -21211,7 +21211,7 @@ define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJNSt7__cxx1112basic_str
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #36
+  tail call void @__cxa_free_exception(ptr nonnull %15) #36
   br label %82
 
 19:                                               ; preds = %10
@@ -27983,7 +27983,7 @@ define linkonce_odr dso_local void @_ZN4crow4Trie8validateEv(ptr noundef nonnull
 33:                                               ; preds = %30
   %34 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %31) #36
+  tail call void @__cxa_free_exception(ptr nonnull %31) #36
   resume { ptr, i32 } %34
 
 35:                                               ; preds = %24, %22
@@ -49025,7 +49025,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail28reactive_socket_service_bas
   %20 = load ptr, ptr %0, align 8, !tbaa !209
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !156
-  tail call void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %22, ptr noundef %2, i1 noundef zeroext %3)
+  tail call void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %22, ptr noundef nonnull %2, i1 noundef zeroext %3)
   br label %37
 
 23:                                               ; preds = %5
@@ -79649,7 +79649,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_upgradeIRNS_13Socket
 295:                                              ; preds = %292
   %296 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %293) #36
+  call void @__cxa_free_exception(ptr nonnull %293) #36
   br label %759
 
 297:                                              ; preds = %282
@@ -81441,7 +81441,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router6handleINS_4CrowIJEEEEEvRNS_7
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %35) #36
+  tail call void @__cxa_free_exception(ptr nonnull %35) #36
   br label %505
 
 39:                                               ; preds = %4

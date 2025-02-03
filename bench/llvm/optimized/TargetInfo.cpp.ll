@@ -2183,7 +2183,11 @@ _ZNK4llvm9StringRef11starts_withES0_.exit50.thread111: ; preds = %_ZNK4llvm9Stri
 _ZNK4llvm9StringRef11starts_withES0_.exit63:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit50, %_ZNK4llvm9StringRef11starts_withES0_.exit50.thread111
   %bcmp.i62 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %53, ptr noundef nonnull dereferenceable(3) @.str.37, i64 3)
   %126 = icmp eq i32 %bcmp.i62, 0
-  br i1 %126, label %_ZNK4llvm9StringRef11starts_withES0_.exit63.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit63.thread112
+  br i1 %126, label %_ZNK4llvm9StringRef11starts_withES0_.exit63.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit63.thread112.thread
+
+_ZNK4llvm9StringRef11starts_withES0_.exit63.thread112.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit63
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  br label %144
 
 _ZNK4llvm9StringRef11starts_withES0_.exit63.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit63
   %127 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %.027124, ptr nonnull @.str.38, i64 1, i64 noundef 0) #21, !noalias !45
@@ -2240,7 +2244,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #21
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
-_ZNK4llvm9StringRef11starts_withES0_.exit63.thread112: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit50.thread111, %_ZNK4llvm9StringRef11starts_withES0_.exit63
+_ZNK4llvm9StringRef11starts_withES0_.exit63.thread112: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit50.thread111
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %.not.i69 = icmp eq ptr %53, null
   br i1 %.not.i69, label %143, label %144
@@ -2249,7 +2253,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit63.thread112: ; preds = %_ZNK4llvm9Stri
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #21
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit70
 
-144:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit63.thread112
+144:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit63.thread112.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit63.thread112
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21, !noalias !54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull %53, i64 noundef %.sroa.speculated.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %5) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21

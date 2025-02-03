@@ -886,7 +886,7 @@ define dso_local void @load_sacctmgr_cfg_file(i32 noundef %0, ptr noundef readon
   %.0325514 = phi i32 [ %36, %.thread ], [ -2, %44 ]
   %48 = tail call i32 @llvm.smax.i32(i32 %.0325514, i32 3)
   %49 = zext nneg i32 %48 to i64
-  %50 = tail call i32 @xstrncasecmp(ptr noundef %47, ptr noundef nonnull @.str.24, i64 noundef %49) #12
+  %50 = tail call i32 @xstrncasecmp(ptr noundef nonnull %47, ptr noundef nonnull @.str.24, i64 noundef %49) #12
   %.not489 = icmp eq i32 %50, 0
   br i1 %.not489, label %81, label %54
 

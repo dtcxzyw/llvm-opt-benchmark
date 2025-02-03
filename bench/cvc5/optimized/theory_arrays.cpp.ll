@@ -13969,7 +13969,7 @@ lpad333:                                          ; preds = %if.then13.i.i356, %
 lpad338:                                          ; preds = %if.then336
   %122 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception337) #23
+  call void @__cxa_free_exception(ptr nonnull %exception337) #23
   br label %ehcleanup366
 
 if.end341:                                        ; preds = %invoke.cont334
@@ -21868,7 +21868,7 @@ if.then13.i.i65.us:                               ; preds = %if.then.i.i59.us
           to label %if.end103.us unwind label %terminate.lpad.i.split.us
 
 if.end103.us:                                     ; preds = %if.then13.i.i65.us, %if.then.i.i59.us, %invoke.cont93.us
-  %call.i.us = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0103.us) #29
+  %call.i.us = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.0103.us) #29
   %cmp.i56.not.us = icmp eq ptr %call.i.us, %4
   br i1 %cmp.i56.not.us, label %while.end, label %while.body.us, !llvm.loop !518
 
@@ -26978,7 +26978,7 @@ lpad194.loopexit.split-lp:                        ; preds = %invoke.cont223
 lpad222:                                          ; preds = %if.then221
   %129 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #23
+  call void @__cxa_free_exception(ptr nonnull %exception) #23
   br label %ehcleanup355
 
 invoke.cont229:                                   ; preds = %invoke.cont195

@@ -1205,27 +1205,27 @@ define void @_ZN11CommandData16ParseCommandLineEbiPPc(ptr noundef nonnull align 
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %wide.trip.count35 = zext nneg i32 %2 to i64
+  %wide.trip.count52 = zext nneg i32 %2 to i64
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %24
-  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %24 ], [ 1, %.lr.ph ]
-  %.sroa.0.026.us = phi ptr [ %.sroa.0.2.us, %24 ], [ null, %.lr.ph ]
-  %.sroa.11.025.us = phi i64 [ %.sroa.11.1.us, %24 ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv32
+  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %24 ], [ 1, %.lr.ph ]
+  %.sroa.0.034.us = phi ptr [ %.sroa.0.2.us, %24 ], [ null, %.lr.ph ]
+  %.sroa.11.033.us = phi i64 [ %.sroa.11.1.us, %24 ], [ 0, %.lr.ph ]
+  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv49
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %11 = add i64 %10, 1
-  %12 = icmp ugt i64 %11, %.sroa.11.025.us
+  %12 = icmp ugt i64 %11, %.sroa.11.033.us
   br i1 %12, label %13, label %_ZN5ArrayIwE5AllocEm.exit.us
 
 13:                                               ; preds = %.lr.ph.split.us
-  %14 = lshr i64 %.sroa.11.025.us, 2
-  %15 = add i64 %.sroa.11.025.us, 32
+  %14 = lshr i64 %.sroa.11.033.us, 2
+  %15 = add i64 %.sroa.11.033.us, 32
   %16 = add i64 %15, %14
   %..i.i.us = tail call i64 @llvm.umax.i64(i64 %11, i64 %16)
   %17 = shl i64 %..i.i.us, 2
-  %18 = tail call ptr @realloc(ptr noundef %.sroa.0.026.us, i64 noundef %17) #19
+  %18 = tail call ptr @realloc(ptr noundef %.sroa.0.034.us, i64 noundef %17) #19
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %_ZN5ArrayIwE5AllocEm.exit.us
 
@@ -1234,45 +1234,49 @@ define void @_ZN11CommandData16ParseCommandLineEbiPPc(ptr noundef nonnull align 
           to label %_ZN5ArrayIwE5AllocEm.exit.us unwind label %.loopexit.split.us
 
 _ZN5ArrayIwE5AllocEm.exit.us:                     ; preds = %20, %13, %.lr.ph.split.us
-  %.sroa.11.1.us = phi i64 [ %.sroa.11.025.us, %.lr.ph.split.us ], [ %..i.i.us, %20 ], [ %..i.i.us, %13 ]
-  %.sroa.0.2.us = phi ptr [ %.sroa.0.026.us, %.lr.ph.split.us ], [ null, %20 ], [ %18, %13 ]
+  %.sroa.11.1.us = phi i64 [ %.sroa.11.033.us, %.lr.ph.split.us ], [ %..i.i.us, %20 ], [ %..i.i.us, %13 ]
+  %.sroa.0.2.us = phi ptr [ %.sroa.0.034.us, %.lr.ph.split.us ], [ null, %20 ], [ %18, %13 ]
   %21 = load ptr, ptr %8, align 8
   %22 = invoke noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %21, ptr noundef nonnull %.sroa.0.2.us, i64 noundef %11)
-          to label %23 unwind label %.loopexit.split.us
+          to label %23 unwind label %.thread.split.us
 
 23:                                               ; preds = %_ZN5ArrayIwE5AllocEm.exit.us
   invoke void @_ZN11CommandData13PreprocessArgEPKw(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %.sroa.0.2.us)
-          to label %24 unwind label %.loopexit.split.us
+          to label %24 unwind label %.thread.split.us
 
 24:                                               ; preds = %23
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
-  br i1 %exitcond36.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
+  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
-.loopexit.split.us:                               ; preds = %23, %_ZN5ArrayIwE5AllocEm.exit.us, %20
-  %.sroa.0.1.ph.us = phi ptr [ %.sroa.0.026.us, %20 ], [ %.sroa.0.2.us, %_ZN5ArrayIwE5AllocEm.exit.us ], [ %.sroa.0.2.us, %23 ]
+.loopexit.split.us:                               ; preds = %20
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %42
-  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 1, %.lr.ph ]
-  %.sroa.0.026 = phi ptr [ %.sroa.0.2, %42 ], [ null, %.lr.ph ]
-  %.sroa.11.025 = phi i64 [ %.sroa.11.1, %42 ], [ 0, %.lr.ph ]
+.thread.split.us:                                 ; preds = %23, %_ZN5ArrayIwE5AllocEm.exit.us
+  %lpad.thr_comm.us = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %41
+  %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 1, %.lr.ph ]
+  %.sroa.0.034 = phi ptr [ %.sroa.0.2, %41 ], [ null, %.lr.ph ]
+  %.sroa.11.033 = phi i64 [ %.sroa.11.1, %41 ], [ 0, %.lr.ph ]
   %25 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #16
   %28 = add i64 %27, 1
-  %29 = icmp ugt i64 %28, %.sroa.11.025
+  %29 = icmp ugt i64 %28, %.sroa.11.033
   br i1 %29, label %30, label %_ZN5ArrayIwE5AllocEm.exit
 
 30:                                               ; preds = %.lr.ph.split
-  %31 = lshr i64 %.sroa.11.025, 2
-  %32 = add i64 %.sroa.11.025, 32
+  %31 = lshr i64 %.sroa.11.033, 2
+  %32 = add i64 %.sroa.11.033, 32
   %33 = add i64 %32, %31
   %..i.i = tail call i64 @llvm.umax.i64(i64 %28, i64 %33)
   %34 = shl i64 %..i.i, 2
-  %35 = tail call ptr @realloc(ptr noundef %.sroa.0.026, i64 noundef %34) #19
+  %35 = tail call ptr @realloc(ptr noundef %.sroa.0.034, i64 noundef %34) #19
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %_ZN5ArrayIwE5AllocEm.exit
 
@@ -1281,116 +1285,123 @@ _ZN5ArrayIwE5AllocEm.exit.us:                     ; preds = %20, %13, %.lr.ph.sp
           to label %_ZN5ArrayIwE5AllocEm.exit unwind label %.loopexit.split
 
 _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %.lr.ph.split, %37, %30
-  %.sroa.11.1 = phi i64 [ %.sroa.11.025, %.lr.ph.split ], [ %..i.i, %37 ], [ %..i.i, %30 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.026, %.lr.ph.split ], [ null, %37 ], [ %35, %30 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.033, %.lr.ph.split ], [ %..i.i, %37 ], [ %..i.i, %30 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.034, %.lr.ph.split ], [ null, %37 ], [ %35, %30 ]
   %38 = load ptr, ptr %25, align 8
   %39 = invoke noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %38, ptr noundef nonnull %.sroa.0.2, i64 noundef %28)
-          to label %40 unwind label %.loopexit.split
+          to label %40 unwind label %.thread.split
 
 40:                                               ; preds = %_ZN5ArrayIwE5AllocEm.exit
   invoke void @_ZN11CommandData8ParseArgEPw(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %.sroa.0.2)
-          to label %42 unwind label %.loopexit.split
+          to label %41 unwind label %.thread.split
 
-.loopexit.split:                                  ; preds = %_ZN5ArrayIwE5AllocEm.exit, %40, %37
-  %.sroa.0.1.ph = phi ptr [ %.sroa.0.026, %37 ], [ %.sroa.0.2, %_ZN5ArrayIwE5AllocEm.exit ], [ %.sroa.0.2, %40 ]
+.thread.split:                                    ; preds = %40, %_ZN5ArrayIwE5AllocEm.exit
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread
+
+.loopexit.split:                                  ; preds = %37
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.loopexit.split-lp:                               ; preds = %52, %.noexc13
+.loopexit.split-lp:                               ; preds = %51, %.noexc13
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.split, %.loopexit.split.us, %.loopexit.split-lp
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0.lcssa, %.loopexit.split-lp ], [ %.sroa.0.1.ph, %.loopexit.split ], [ %.sroa.0.1.ph.us, %.loopexit.split.us ]
+  %.sroa.0.032 = phi ptr [ %.sroa.0.0.lcssa, %.loopexit.split-lp ], [ %.sroa.0.034, %.loopexit.split ], [ %.sroa.0.034.us, %.loopexit.split.us ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
-  %.not.i = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not.i, label %_ZN5ArrayIwED2Ev.exit, label %41
+  %.not.i = icmp eq ptr %.sroa.0.032, null
+  br i1 %.not.i, label %_ZN5ArrayIwED2Ev.exit, label %.thread
 
-41:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %.sroa.0.1) #18
+.thread:                                          ; preds = %.thread.split, %.thread.split.us, %.loopexit
+  %lpad.phi28 = phi { ptr, i32 } [ %lpad.phi, %.loopexit ], [ %lpad.thr_comm, %.thread.split ], [ %lpad.thr_comm.us, %.thread.split.us ]
+  %.sroa.0.127 = phi ptr [ %.sroa.0.032, %.loopexit ], [ %.sroa.0.2, %.thread.split ], [ %.sroa.0.2.us, %.thread.split.us ]
+  tail call void @free(ptr noundef nonnull %.sroa.0.127) #18
   br label %_ZN5ArrayIwED2Ev.exit
 
-_ZN5ArrayIwED2Ev.exit:                            ; preds = %.loopexit, %41
-  resume { ptr, i32 } %lpad.phi
+_ZN5ArrayIwED2Ev.exit:                            ; preds = %.loopexit, %.thread
+  %lpad.phi29 = phi { ptr, i32 } [ %lpad.phi, %.loopexit ], [ %lpad.phi28, %.thread ]
+  resume { ptr, i32 } %lpad.phi29
 
-42:                                               ; preds = %40
+41:                                               ; preds = %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count35
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %42, %24, %4
-  %.sroa.0.0.lcssa = phi ptr [ null, %4 ], [ %.sroa.0.2.us, %24 ], [ %.sroa.0.2, %42 ]
-  br i1 %1, label %_ZN11CommandData9ParseDoneEv.exit, label %43
+._crit_edge:                                      ; preds = %41, %24, %4
+  %.sroa.0.0.lcssa = phi ptr [ null, %4 ], [ %.sroa.0.2.us, %24 ], [ %.sroa.0.2, %41 ]
+  br i1 %1, label %_ZN11CommandData9ParseDoneEv.exit, label %42
 
-43:                                               ; preds = %._crit_edge
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 99928
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 99968
-  %46 = load i64, ptr %45, align 8
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %.noexc13
+42:                                               ; preds = %._crit_edge
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 99928
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 99968
+  %45 = load i64, ptr %44, align 8
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %47, label %.noexc13
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 83464
-  %50 = load i8, ptr %49, align 8
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %.noexc13, label %52
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 83464
+  %49 = load i8, ptr %48, align 8
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %.noexc13, label %51
 
-52:                                               ; preds = %48
-  invoke void @_ZN10StringList9AddStringEPKw(ptr noundef nonnull align 8 dereferenceable(184) %44, ptr noundef nonnull @.str)
+51:                                               ; preds = %47
+  invoke void @_ZN10StringList9AddStringEPKw(ptr noundef nonnull align 8 dereferenceable(184) %43, ptr noundef nonnull @.str)
           to label %.noexc13 unwind label %.loopexit.split-lp
 
-.noexc13:                                         ; preds = %52, %48, %43
-  %53 = load i32, ptr %5, align 4
-  %54 = invoke noundef i32 @_Z8toupperwi(i32 noundef %53)
+.noexc13:                                         ; preds = %51, %47, %42
+  %52 = load i32, ptr %5, align 4
+  %53 = invoke noundef i32 @_Z8toupperwi(i32 noundef %52)
           to label %.noexc14 unwind label %.loopexit.split-lp
 
 .noexc14:                                         ; preds = %.noexc13
-  switch i32 %54, label %_ZN11CommandData9ParseDoneEv.exit [
+  switch i32 %53, label %_ZN11CommandData9ParseDoneEv.exit [
     i32 88, label %switch.edge.i
     i32 69, label %switch.edge.i
     i32 80, label %switch.edge.i
-    i32 86, label %59
-    i32 76, label %59
+    i32 86, label %58
+    i32 76, label %58
   ]
 
 switch.edge.i:                                    ; preds = %.noexc14, %.noexc14, %.noexc14
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 58617
-  %56 = load i8, ptr %55, align 1
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %switch.edge.thread.i
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 58617
+  %55 = load i8, ptr %54, align 1
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %switch.edge.thread.i
 
-58:                                               ; preds = %switch.edge.i
-  store i8 0, ptr %55, align 1
+57:                                               ; preds = %switch.edge.i
+  store i8 0, ptr %54, align 1
   br label %switch.edge.thread.i
 
-switch.edge.thread.i:                             ; preds = %58, %switch.edge.i
-  switch i32 %54, label %_ZN11CommandData9ParseDoneEv.exit [
-    i32 86, label %59
-    i32 76, label %59
+switch.edge.thread.i:                             ; preds = %57, %switch.edge.i
+  switch i32 %53, label %_ZN11CommandData9ParseDoneEv.exit [
+    i32 86, label %58
+    i32 76, label %58
   ]
 
-59:                                               ; preds = %switch.edge.thread.i, %switch.edge.thread.i, %.noexc14, %.noexc14
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 83480
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %61, 66
-  br i1 %62, label %63, label %_ZN11CommandData9ParseDoneEv.exit
+58:                                               ; preds = %switch.edge.thread.i, %switch.edge.thread.i, %.noexc14, %.noexc14
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 83480
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp eq i32 %60, 66
+  br i1 %61, label %62, label %_ZN11CommandData9ParseDoneEv.exit
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 83472
-  store i8 1, ptr %64, align 8
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 83472
+  store i8 1, ptr %63, align 8
   br label %_ZN11CommandData9ParseDoneEv.exit
 
-_ZN11CommandData9ParseDoneEv.exit:                ; preds = %63, %59, %switch.edge.thread.i, %.noexc14, %._crit_edge
+_ZN11CommandData9ParseDoneEv.exit:                ; preds = %62, %58, %switch.edge.thread.i, %.noexc14, %._crit_edge
   %.not.i15 = icmp eq ptr %.sroa.0.0.lcssa, null
-  br i1 %.not.i15, label %_ZN5ArrayIwED2Ev.exit16, label %65
+  br i1 %.not.i15, label %_ZN5ArrayIwED2Ev.exit16, label %64
 
-65:                                               ; preds = %_ZN11CommandData9ParseDoneEv.exit
+64:                                               ; preds = %_ZN11CommandData9ParseDoneEv.exit
   tail call void @free(ptr noundef nonnull %.sroa.0.0.lcssa) #18
   br label %_ZN5ArrayIwED2Ev.exit16
 
-_ZN5ArrayIwED2Ev.exit16:                          ; preds = %_ZN11CommandData9ParseDoneEv.exit, %65
+_ZN5ArrayIwED2Ev.exit16:                          ; preds = %_ZN11CommandData9ParseDoneEv.exit, %64
   ret void
 }
 
@@ -3188,7 +3199,7 @@ declare void @_Z11AddEndSlashPwm(ptr noundef, i64 noundef) local_unnamed_addr #1
 define void @_ZN11CommandData11ParseEnvVarEv(ptr noundef nonnull align 8 dereferenceable(100904) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #18
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %15, label %3
+  br i1 %.not, label %13, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
@@ -3210,30 +3221,23 @@ define void @_ZN11CommandData11ParseEnvVarEv(ptr noundef nonnull align 8 derefer
 _ZN5ArrayIwEC2Em.exit:                            ; preds = %6, %9, %3
   %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %9 ], [ %malloc.i, %6 ]
   %10 = invoke noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %2, ptr noundef nonnull %.sroa.0.0, i64 noundef %5)
-          to label %11 unwind label %12
+          to label %11 unwind label %_ZN5ArrayIwED2Ev.exit7
 
 11:                                               ; preds = %_ZN5ArrayIwEC2Em.exit
   invoke void @_ZN11CommandData21ProcessSwitchesStringEPKw(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %.sroa.0.0)
-          to label %_ZN5ArrayIwED2Ev.exit unwind label %12
+          to label %_ZN5ArrayIwED2Ev.exit unwind label %_ZN5ArrayIwED2Ev.exit7
 
 _ZN5ArrayIwED2Ev.exit:                            ; preds = %11
   tail call void @free(ptr noundef nonnull %.sroa.0.0) #18
-  br label %15
+  br label %13
 
-12:                                               ; preds = %11, %_ZN5ArrayIwEC2Em.exit
-  %13 = landingpad { ptr, i32 }
+_ZN5ArrayIwED2Ev.exit7:                           ; preds = %11, %_ZN5ArrayIwEC2Em.exit
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %.not.i6 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i6, label %_ZN5ArrayIwED2Ev.exit7, label %14
-
-14:                                               ; preds = %12
   tail call void @free(ptr noundef nonnull %.sroa.0.0) #18
-  br label %_ZN5ArrayIwED2Ev.exit7
+  resume { ptr, i32 } %12
 
-_ZN5ArrayIwED2Ev.exit7:                           ; preds = %12, %14
-  resume { ptr, i32 } %13
-
-15:                                               ; preds = %_ZN5ArrayIwED2Ev.exit, %1
+13:                                               ; preds = %_ZN5ArrayIwED2Ev.exit, %1
   ret void
 }
 

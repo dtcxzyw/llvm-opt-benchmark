@@ -2087,7 +2087,7 @@ common.resume:                                    ; preds = %lpad13, %lpad.i
 lpad.i:                                           ; preds = %if.then.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #19
   br label %common.resume
 
 _ZNK5folly10IOBufQueue11chainLengthEv.exit:       ; preds = %_ZN5folly2io6CursorC2EPKNS_5IOBufE.exit

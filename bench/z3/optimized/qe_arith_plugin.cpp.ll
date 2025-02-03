@@ -9830,9 +9830,9 @@ invoke.cont30:                                    ; preds = %lor.lhs.false.i.i16
   %m_hash.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 %xor6.i.i.i, ptr %m_hash.i.i, align 8
   invoke void @_ZN14core_hashtableIN12obj_pair_mapI3app4exprPN2qe11bounds_procEE5entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE6insertEOS9_(ptr noundef nonnull align 8 dereferenceable(24) %m_bounds_cache, ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp.i)
-          to label %cleanup.thread unwind label %lpad
+          to label %cleanup unwind label %lpad
 
-cleanup.thread:                                   ; preds = %invoke.cont30
+cleanup:                                          ; preds = %invoke.cont30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %return
 
@@ -9848,8 +9848,8 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   tail call void @__clang_call_terminate(ptr %39) #20
   unreachable
 
-return:                                           ; preds = %land.lhs.true.i.i.i, %land.lhs.true25.i.i.i, %cleanup.thread, %if.end.i.i
-  %retval.0 = phi i1 [ false, %if.end.i.i ], [ true, %cleanup.thread ], [ true, %land.lhs.true25.i.i.i ], [ true, %land.lhs.true.i.i.i ]
+return:                                           ; preds = %land.lhs.true.i.i.i, %land.lhs.true25.i.i.i, %cleanup, %if.end.i.i
+  %retval.0 = phi i1 [ true, %cleanup ], [ false, %if.end.i.i ], [ true, %land.lhs.true25.i.i.i ], [ true, %land.lhs.true.i.i.i ]
   ret i1 %retval.0
 }
 
@@ -30314,7 +30314,7 @@ if.then.i.i:                                      ; preds = %invoke.cont11
   %16 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %idx.ext.i9, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %16, 1
   %mul.i.i11 = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN2qe13arith_qe_util6mul_ltEEEEvT_SA_T0_T1_(ptr noundef %.pre, ptr noundef nonnull %add.ptr.i10, i64 noundef %mul.i.i11, ptr nonnull %m_arith)
+  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN2qe13arith_qe_util6mul_ltEEEEvT_SA_T0_T1_(ptr noundef nonnull %.pre, ptr noundef nonnull %add.ptr.i10, i64 noundef %mul.i.i11, ptr nonnull %m_arith)
           to label %.noexc12 unwind label %lpad.loopexit.split-lp
 
 .noexc12:                                         ; preds = %if.then.i.i
@@ -30323,7 +30323,7 @@ if.then.i.i:                                      ; preds = %invoke.cont11
 
 if.then.i.i.i:                                    ; preds = %.noexc12
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.pre, i64 128
-  invoke void @_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN2qe13arith_qe_util6mul_ltEEEEvT_SA_T0_(ptr noundef %.pre, ptr noundef nonnull %add.ptr.i.i.i, ptr nonnull %m_arith)
+  invoke void @_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN2qe13arith_qe_util6mul_ltEEEEvT_SA_T0_(ptr noundef nonnull %.pre, ptr noundef nonnull %add.ptr.i.i.i, ptr nonnull %m_arith)
           to label %.noexc13 unwind label %lpad.loopexit.split-lp
 
 .noexc13:                                         ; preds = %if.then.i.i.i
@@ -30331,7 +30331,7 @@ if.then.i.i.i:                                    ; preds = %.noexc12
           to label %invoke.cont14 unwind label %lpad.loopexit.split-lp
 
 if.else.i.i.i:                                    ; preds = %.noexc12
-  invoke void @_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN2qe13arith_qe_util6mul_ltEEEEvT_SA_T0_(ptr noundef %.pre, ptr noundef nonnull %add.ptr.i10, ptr nonnull %m_arith)
+  invoke void @_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN2qe13arith_qe_util6mul_ltEEEEvT_SA_T0_(ptr noundef nonnull %.pre, ptr noundef nonnull %add.ptr.i10, ptr nonnull %m_arith)
           to label %invoke.cont14 unwind label %lpad.loopexit.split-lp
 
 invoke.cont14:                                    ; preds = %.noexc13, %if.else.i.i.i

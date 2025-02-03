@@ -30909,7 +30909,7 @@ lor.lhs.false:                                    ; preds = %if.then17
 lor.lhs.false21:                                  ; preds = %lor.lhs.false
   %call22 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %call10, i64 noundef %retval.0.i68, i32 noundef 2) #28
   %tobool23.not = icmp eq i32 %call22, 0
-  br i1 %tobool23.not, label %if.end50, label %if.end50.thread115
+  br i1 %tobool23.not, label %if.end50, label %if.end50.thread113
 
 if.else:                                          ; preds = %if.end13
   %call26 = tail call ptr @mpd_calloc(i64 noundef %retval.0.i68, i64 noundef 8) #28
@@ -30926,8 +30926,8 @@ if.end29:                                         ; preds = %if.else
 if.end34:                                         ; preds = %if.end29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call26, ptr align 8 %v, i64 %mul30, i1 false)
   %add.ptr = getelementptr i64, ptr %call26, i64 %vlen
-  %cmp.i6195.not = icmp eq i64 %retval.0.i68, %vlen
-  br i1 %cmp.i6195.not, label %mpd_uint_zero.exit65, label %for.body.i62.preheader
+  %cmp.i61103.not = icmp eq i64 %retval.0.i68, %vlen
+  br i1 %cmp.i61103.not, label %mpd_uint_zero.exit65, label %for.body.i62.preheader
 
 for.body.i62.preheader:                           ; preds = %if.end34
   %4 = sub i64 %retval.0.i68, %vlen
@@ -30942,7 +30942,7 @@ mpd_uint_zero.exit65:                             ; preds = %for.body.i62.prehea
 
 if.end39:                                         ; preds = %mpd_uint_zero.exit65
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call26, ptr align 8 %v, i64 %mul30, i1 false)
-  br i1 %cmp.i6195.not, label %mpd_uint_zero.exit, label %for.body.i.preheader
+  br i1 %cmp.i61103.not, label %mpd_uint_zero.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end39
   %6 = sub i64 %retval.0.i68, %vlen
@@ -30955,9 +30955,9 @@ mpd_uint_zero.exit:                               ; preds = %for.body.i.preheade
   %tobool44.not = icmp eq i32 %call43, 0
   %8 = load ptr, ptr @mpd_free, align 8
   tail call void %8(ptr noundef nonnull %call26) #28
-  br i1 %tobool44.not, label %if.end50, label %if.end50.thread115
+  br i1 %tobool44.not, label %if.end50, label %if.end50.thread113
 
-if.end50.thread115:                               ; preds = %mpd_uint_zero.exit, %lor.lhs.false21
+if.end50.thread113:                               ; preds = %mpd_uint_zero.exit, %lor.lhs.false21
   %9 = load i64, ptr %rsize, align 8
   tail call void @crt3(ptr noundef nonnull %call2, ptr noundef nonnull %call6, ptr noundef nonnull %call10, i64 noundef %9) #28
   %10 = load ptr, ptr @mpd_free, align 8
@@ -30977,16 +30977,16 @@ if.end50:                                         ; preds = %if.end50.sink.split
   %tobool51.not = icmp eq ptr %call10, null
   br i1 %tobool51.not, label %if.end53, label %if.end53.sink.split
 
-if.end53.sink.split:                              ; preds = %if.end50, %if.end50.thread115, %if.end5
-  %call2.sink = phi ptr [ %call2, %if.end5 ], [ %call10, %if.end50.thread115 ], [ %call10, %if.end50 ]
-  %c1.18994.ph = phi ptr [ null, %if.end5 ], [ %call2, %if.end50.thread115 ], [ null, %if.end50 ]
+if.end53.sink.split:                              ; preds = %if.end50, %if.end50.thread113, %if.end5
+  %call2.sink = phi ptr [ %call2, %if.end5 ], [ %call10, %if.end50.thread113 ], [ %call10, %if.end50 ]
+  %c1.177102.ph = phi ptr [ null, %if.end5 ], [ %call2, %if.end50.thread113 ], [ null, %if.end50 ]
   %14 = load ptr, ptr @mpd_free, align 8
   tail call void %14(ptr noundef nonnull %call2.sink) #28
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end53.sink.split, %if.else23.i, %if.end, %_mpd_get_transform_len.exit, %if.end50
-  %c1.18994 = phi ptr [ null, %if.end50 ], [ null, %_mpd_get_transform_len.exit ], [ null, %if.end ], [ null, %if.else23.i ], [ %c1.18994.ph, %if.end53.sink.split ]
-  ret ptr %c1.18994
+  %c1.177102 = phi ptr [ null, %if.end50 ], [ null, %_mpd_get_transform_len.exit ], [ null, %if.end ], [ null, %if.else23.i ], [ %c1.177102.ph, %if.end53.sink.split ]
+  ret ptr %c1.177102
 }
 
 ; Function Attrs: nounwind uwtable
@@ -31194,7 +31194,7 @@ common.ret154:                                    ; preds = %if.end24, %if.then,
 if.end16:                                         ; preds = %if.else, %if.then4
   %add.ptr17 = getelementptr i64, ptr %c, i64 %div147
   %add19 = add i64 %sub, %lb
-  tail call void @_mpd_baseaddto(ptr noundef %add.ptr17, ptr noundef %w, i64 noundef %add19) #28
+  tail call void @_mpd_baseaddto(ptr noundef %add.ptr17, ptr noundef nonnull %w, i64 noundef %add19) #28
   %add21 = or i64 %add, 1
   %7 = shl nuw i64 %add21, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %7, i1 false)
@@ -31328,7 +31328,7 @@ if.else19:                                        ; preds = %if.then9
 if.end31:                                         ; preds = %if.else19, %if.then11
   %add.ptr32 = getelementptr i64, ptr %c, i64 %div156
   %add34 = add i64 %sub, %lb
-  tail call void @_mpd_baseaddto(ptr noundef %add.ptr32, ptr noundef %w, i64 noundef %add34) #28
+  tail call void @_mpd_baseaddto(ptr noundef %add.ptr32, ptr noundef nonnull %w, i64 noundef %add34) #28
   %add36 = or i64 %add7, 1
   %8 = shl nuw i64 %add36, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %w, i8 0, i64 %8, i1 false)

@@ -1999,7 +1999,7 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr n
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #25
+  tail call void @__cxa_free_exception(ptr nonnull %2) #25
   resume { ptr, i32 } %5
 }
 
@@ -17231,7 +17231,7 @@ _ZN3fmt2v96detail6bigintmLIiEERS2_T_.exit303:     ; preds = %_ZN3fmt2v96detail6b
 503:                                              ; preds = %500
   %504 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %501) #25
+  call void @__cxa_free_exception(ptr nonnull %501) #25
   br label %.body
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %495
@@ -31663,7 +31663,7 @@ _ZN3fmt2v96detail9normalizeILi0EyEENS1_8basic_fpIT0_EES5_.exit: ; preds = %.lr.p
 118:                                              ; preds = %115
   %119 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %116) #25
+  tail call void @__cxa_free_exception(ptr nonnull %116) #25
   resume { ptr, i32 } %119
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %110

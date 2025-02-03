@@ -1939,7 +1939,7 @@ entry:
   br i1 %tobool.not, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %call1 = tail call i32 @FLAC__metadata_object_seektable_resize_points(ptr noundef %object, i32 noundef %call)
+  %call1 = tail call i32 @FLAC__metadata_object_seektable_resize_points(ptr noundef nonnull %object, i32 noundef %call)
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry

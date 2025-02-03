@@ -651,7 +651,7 @@ define noundef i64 @_ZN5faiss16BufferedIOWriterclEPKvmm(ptr noundef nonnull alig
 44:                                               ; preds = %37
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %40) #23
+  call void @__cxa_free_exception(ptr nonnull %40) #23
   br label %46
 
 46:                                               ; preds = %44, %42
@@ -1055,7 +1055,7 @@ define void @_ZN5faiss12FileIOReaderC2EPKc(ptr noundef nonnull align 8 dereferen
 30:                                               ; preds = %19
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %24) #23
+  call void @__cxa_free_exception(ptr nonnull %24) #23
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -1219,7 +1219,7 @@ define void @_ZN5faiss12FileIOWriterC2EPKc(ptr noundef nonnull align 8 dereferen
 30:                                               ; preds = %19
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %24) #23
+  call void @__cxa_free_exception(ptr nonnull %24) #23
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -1474,7 +1474,7 @@ define void @_ZN5faiss16BufferedIOWriterD2Ev(ptr noundef nonnull align 8 derefer
 35:                                               ; preds = %26
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #23
+  call void @__cxa_free_exception(ptr nonnull %29) #23
   br label %37
 
 37:                                               ; preds = %35, %33
@@ -1564,7 +1564,7 @@ define noundef i32 @_ZN5faiss6fourccEPKc(ptr noundef readonly captures(none) %0)
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #23
+  call void @__cxa_free_exception(ptr nonnull %14) #23
   br label %20
 
 20:                                               ; preds = %18, %16
@@ -1618,7 +1618,7 @@ define noundef i32 @_ZN5faiss6fourccERKNSt7__cxx1112basic_stringIcSt11char_trait
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #23
+  call void @__cxa_free_exception(ptr nonnull %14) #23
   br label %20
 
 20:                                               ; preds = %18, %16

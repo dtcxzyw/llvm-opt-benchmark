@@ -214,8 +214,6 @@ $_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11cha
 
 $_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12emplace_backIJmEEERS3_DpOT_ = comdat any
 
-$_ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEEEE7destroyIS3_EEvRS4_PT_ = comdat any
-
 $_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_ = comdat any
 
 $_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE12emplace_backIJmEEERS3_DpOT_ = comdat any
@@ -225,8 +223,6 @@ $_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE17_M_re
 $_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv = comdat any
 
 $_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12emplace_backIJmEEERS3_DpOT_ = comdat any
-
-$_ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEEEE7destroyIS3_EEvRS4_PT_ = comdat any
 
 $_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_ = comdat any
 
@@ -1785,7 +1781,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit.i: ; preds = %17, %15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !9
-  invoke void @_ZN4absl7debian215AsciiStrToUpperEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef align 8 %0)
+  invoke void @_ZN4absl7debian215AsciiStrToUpperEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 %0)
           to label %_ZN4absl7debian215AsciiStrToUpperB5cxx11ENS0_11string_viewE.exit unwind label %20
 
 20:                                               ; preds = %_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit.i
@@ -1827,7 +1823,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit.i6: ; preds = %26, %24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !15
-  invoke void @_ZN4absl7debian215AsciiStrToLowerEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef align 8 %0)
+  invoke void @_ZN4absl7debian215AsciiStrToLowerEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 %0)
           to label %_ZN4absl7debian215AsciiStrToUpperB5cxx11ENS0_11string_viewE.exit unwind label %29
 
 29:                                               ; preds = %_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit.i6
@@ -17459,56 +17455,6 @@ _ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EE
   ret ptr %35
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8
-  %.not4.i.i.i.i.i.i = icmp eq ptr %3, %5
-  br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm7EJEEES3_EvT_S5_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %2, %_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm7EJEEEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %13, %_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm7EJEEEEvPT_.exit.i.i.i.i.i.i ], [ %3, %2 ]
-  %6 = load ptr, ptr %.05.i.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm7EJEEEEvPT_.exit.i.i.i.i.i.i, label %7
-
-7:                                                ; preds = %.lr.ph.i.i.i.i.i.i
-  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = ptrtoint ptr %9 to i64
-  %11 = ptrtoint ptr %6 to i64
-  %12 = sub i64 %10, %11
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %12) #40
-  br label %_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm7EJEEEEvPT_.exit.i.i.i.i.i.i
-
-_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm7EJEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm7EJEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !73
-
-_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm7EJEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm7EJEEEEvPT_.exit.i.i.i.i.i.i
-  %.pr.i.i.i = load ptr, ptr %1, align 8
-  br label %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm7EJEEES3_EvT_S5_RSaIT0_E.exit.i.i.i
-
-_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm7EJEEES3_EvT_S5_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm7EJEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i, %2
-  %14 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm7EJEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %3, %2 ]
-  %.not.i.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEEE7destroyIS3_EEvPT_.exit, label %15
-
-15:                                               ; preds = %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm7EJEEES3_EvT_S5_RSaIT0_E.exit.i.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = ptrtoint ptr %14 to i64
-  %20 = sub i64 %18, %19
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #40
-  br label %_ZNSt15__new_allocatorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEEE7destroyIS3_EEvPT_.exit
-
-_ZNSt15__new_allocatorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEEE7destroyIS3_EEvPT_.exit: ; preds = %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm7EJEEES3_EvT_S5_RSaIT0_E.exit.i.i.i, %15
-  ret void
-}
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::mersenne_twister_engine", align 8
@@ -17535,189 +17481,171 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12_
   %18 = select i1 %16, i64 384307168202282325, i64 %17
   %19 = ptrtoint ptr %1 to i64
   %20 = sub i64 %19, %10
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_M_allocateEm.exit, label %21
-
-21:                                               ; preds = %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12_M_check_lenEmPKc.exit
-  %22 = mul nuw nsw i64 %18, 24
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #37
-  br label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12_M_check_lenEmPKc.exit, %21
-  %24 = phi ptr [ %23, %21 ], [ null, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12_M_check_lenEmPKc.exit ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 %20
-  %26 = load i64, ptr %2, align 8
+  %.not.i = icmp ne i64 %18, 0
+  tail call void @llvm.assume(i1 %.not.i)
+  %21 = mul nuw nsw i64 %18, 24
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #37
+  %23 = getelementptr inbounds i8, ptr %22, i64 %20
+  %24 = load i64, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  store i64 %26, ptr %4, align 8
-  br label %27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
+  store i64 %24, ptr %4, align 8
+  br label %25
 
-27:                                               ; preds = %27, %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_M_allocateEm.exit
-  %28 = phi i64 [ %26, %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_M_allocateEm.exit ], [ %32, %27 ]
-  %.011.i.i.i.i.i = phi i64 [ 1, %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_M_allocateEm.exit ], [ %34, %27 ]
-  %29 = lshr i64 %28, 62
-  %30 = xor i64 %29, %28
-  %31 = mul i64 %30, 6364136223846793005
-  %32 = add i64 %31, %.011.i.i.i.i.i
-  %33 = getelementptr inbounds nuw [312 x i64], ptr %4, i64 0, i64 %.011.i.i.i.i.i
-  store i64 %32, ptr %33, align 8
-  %34 = add nuw nsw i64 %.011.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %34, 312
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i, label %27, !llvm.loop !71
+25:                                               ; preds = %25, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12_M_check_lenEmPKc.exit
+  %26 = phi i64 [ %24, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %30, %25 ]
+  %.011.i.i.i.i.i = phi i64 [ 1, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %32, %25 ]
+  %27 = lshr i64 %26, 62
+  %28 = xor i64 %27, %26
+  %29 = mul i64 %28, 6364136223846793005
+  %30 = add i64 %29, %.011.i.i.i.i.i
+  %31 = getelementptr inbounds nuw [312 x i64], ptr %4, i64 0, i64 %.011.i.i.i.i.i
+  store i64 %30, ptr %31, align 8
+  %32 = add nuw nsw i64 %.011.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %32, 312
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i, label %25, !llvm.loop !71
 
-_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %27
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 2496
-  store i64 312, ptr %35, align 8
-  %36 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #37
+_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %25
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 2496
+  store i64 312, ptr %33, align 8
+  %34 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #37
           to label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE7reserveEm.exit.i.i.i unwind label %.loopexit.split-lp.i.i.i
 
 _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE7reserveEm.exit.i.i.i: ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store ptr %36, ptr %25, align 8
-  store ptr %36, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 72
-  store ptr %39, ptr %38, align 8
-  br label %40
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store ptr %34, ptr %23, align 8
+  store ptr %34, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 72
+  store ptr %37, ptr %36, align 8
+  br label %38
 
-40:                                               ; preds = %43, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE7reserveEm.exit.i.i.i
-  %.08.i.i.i = phi i64 [ 0, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE7reserveEm.exit.i.i.i ], [ %44, %43 ]
-  %41 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %4)
+38:                                               ; preds = %41, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE7reserveEm.exit.i.i.i
+  %.08.i.i.i = phi i64 [ 0, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE7reserveEm.exit.i.i.i ], [ %42, %41 ]
+  %39 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %4)
           to label %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i unwind label %.loopexit.i.i.i
 
-_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i: ; preds = %40
-  store i64 %41, ptr %5, align 8
-  %42 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE12emplace_backIJmEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %43 unwind label %.loopexit.i.i.i
+_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i: ; preds = %38
+  store i64 %39, ptr %5, align 8
+  %40 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE12emplace_backIJmEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %41 unwind label %.loopexit.i.i.i
 
-43:                                               ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
-  %44 = add nuw nsw i64 %.08.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %44, 3
-  br i1 %exitcond.not.i.i.i, label %47, label %40, !llvm.loop !117
+41:                                               ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
+  %42 = add nuw nsw i64 %.08.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %42, 3
+  br i1 %exitcond.not.i.i.i, label %43, label %38, !llvm.loop !117
 
-.loopexit.i.i.i:                                  ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i, %40
+.loopexit.i.i.i:                                  ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i, %38
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  br label %71
 
 .loopexit.split-lp.i.i.i:                         ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  br label %71
 
-.body:                                            ; preds = %.loopexit.split-lp.i.i.i, %.loopexit.i.i.i
-  %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
-  call void @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #34
-  %45 = extractvalue { ptr, i32 } %lpad.phi.i.i.i, 0
-  %46 = call ptr @__cxa_begin_catch(ptr %45) #34
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %.thread, label %75
-
-47:                                               ; preds = %43
+43:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not10.i.i.i = icmp eq ptr %8, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %47, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i ], [ %24, %47 ]
-  %.0911.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i ], [ %8, %47 ]
+.lr.ph.i.i.i:                                     ; preds = %43, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i ], [ %22, %43 ]
+  %.0911.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i ], [ %8, %43 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
-  %48 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !121, !noalias !118
-  store ptr %48, ptr %.012.i.i.i, align 8, !alias.scope !118, !noalias !121
-  %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %51 = load ptr, ptr %50, align 8, !alias.scope !121, !noalias !118
-  store ptr %51, ptr %49, align 8, !alias.scope !118, !noalias !121
-  %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %54 = load ptr, ptr %53, align 8, !alias.scope !121, !noalias !118
-  store ptr %54, ptr %52, align 8, !alias.scope !118, !noalias !121
+  %44 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !121, !noalias !118
+  store ptr %44, ptr %.012.i.i.i, align 8, !alias.scope !118, !noalias !121
+  %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
+  %47 = load ptr, ptr %46, align 8, !alias.scope !121, !noalias !118
+  store ptr %47, ptr %45, align 8, !alias.scope !118, !noalias !121
+  %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
+  %50 = load ptr, ptr %49, align 8, !alias.scope !121, !noalias !118
+  store ptr %50, ptr %48, align 8, !alias.scope !118, !noalias !121
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !121, !noalias !118
-  %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
-  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %55, %1
+  %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %51, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !123
 
-_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %47
-  %.0.lcssa.i.i.i = phi ptr [ %24, %47 ], [ %56, %.lr.ph.i.i.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 24
+_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %43
+  %.0.lcssa.i.i.i = phi ptr [ %22, %43 ], [ %52, %.lr.ph.i.i.i ]
+  %53 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i26 = icmp eq ptr %1, %7
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i27
-  %.012.i.i.i28 = phi ptr [ %66, %.lr.ph.i.i.i27 ], [ %57, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  %.0911.i.i.i29 = phi ptr [ %65, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.012.i.i.i28 = phi ptr [ %62, %.lr.ph.i.i.i27 ], [ %53, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.0911.i.i.i29 = phi ptr [ %61, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !124)
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  %58 = load ptr, ptr %.0911.i.i.i29, align 8, !alias.scope !127, !noalias !124
-  store ptr %58, ptr %.012.i.i.i28, align 8, !alias.scope !124, !noalias !127
-  %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 8
-  %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 8
-  %61 = load ptr, ptr %60, align 8, !alias.scope !127, !noalias !124
-  store ptr %61, ptr %59, align 8, !alias.scope !124, !noalias !127
-  %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 16
-  %63 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 16
-  %64 = load ptr, ptr %63, align 8, !alias.scope !127, !noalias !124
-  store ptr %64, ptr %62, align 8, !alias.scope !124, !noalias !127
+  %54 = load ptr, ptr %.0911.i.i.i29, align 8, !alias.scope !127, !noalias !124
+  store ptr %54, ptr %.012.i.i.i28, align 8, !alias.scope !124, !noalias !127
+  %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 8
+  %57 = load ptr, ptr %56, align 8, !alias.scope !127, !noalias !124
+  store ptr %57, ptr %55, align 8, !alias.scope !124, !noalias !127
+  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 16
+  %60 = load ptr, ptr %59, align 8, !alias.scope !127, !noalias !124
+  store ptr %60, ptr %58, align 8, !alias.scope !124, !noalias !127
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i29, i8 0, i64 24, i1 false), !alias.scope !127, !noalias !124
-  %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 24
-  %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 24
-  %.not.i.i.i30 = icmp eq ptr %65, %7
+  %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 24
+  %.not.i.i.i30 = icmp eq ptr %61, %7
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !123
 
 _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
-  %.0.lcssa.i.i.i31 = phi ptr [ %57, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %66, %.lr.ph.i.i.i27 ]
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.lcssa.i.i.i31 = phi ptr [ %53, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %62, %.lr.ph.i.i.i27 ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i33 = icmp eq ptr %8, null
-  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE13_M_deallocateEPS3_m.exit, label %68
+  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE13_M_deallocateEPS3_m.exit, label %64
 
-68:                                               ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32
-  %69 = load ptr, ptr %67, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = sub i64 %70, %10
-  call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %71) #40
+64:                                               ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32
+  %65 = load ptr, ptr %63, align 8
+  %66 = ptrtoint ptr %65 to i64
+  %67 = sub i64 %66, %10
+  call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %67) #40
   br label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %68
-  store ptr %24, ptr %0, align 8
+_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %64
+  store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %6, align 8
-  %72 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.63", ptr %24, i64 %18
-  store ptr %72, ptr %67, align 8
+  %68 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.63", ptr %22, i64 %18
+  store ptr %68, ptr %63, align 8
   ret void
 
-.thread:                                          ; preds = %.body
-  call void @_ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %25) #34
-  br label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE13_M_deallocateEPS3_m.exit37
-
-73:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE13_M_deallocateEPS3_m.exit37
-  %74 = landingpad { ptr, i32 }
+69:                                               ; preds = %71
+  %70 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %77 unwind label %78
+          to label %74 unwind label %75
 
-75:                                               ; preds = %.body
-  %76 = mul nuw nsw i64 %18, 24
-  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %76) #40
-  br label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE13_M_deallocateEPS3_m.exit37
-
-_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE13_M_deallocateEPS3_m.exit37: ; preds = %75, %.thread
+71:                                               ; preds = %.loopexit.i.i.i, %.loopexit.split-lp.i.i.i
+  %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
+  call void @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #34
+  %72 = extractvalue { ptr, i32 } %lpad.phi.i.i.i, 0
+  %73 = call ptr @__cxa_begin_catch(ptr %72) #34
+  call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %21) #40
   invoke void @__cxa_rethrow() #35
-          to label %81 unwind label %73
+          to label %78 unwind label %69
 
-77:                                               ; preds = %73
-  resume { ptr, i32 } %74
+74:                                               ; preds = %69
+  resume { ptr, i32 } %70
 
-78:                                               ; preds = %73
-  %79 = landingpad { ptr, i32 }
+75:                                               ; preds = %69
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #38
+  %77 = extractvalue { ptr, i32 } %76, 0
+  call void @__clang_call_terminate(ptr %77) #38
   unreachable
 
-81:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE13_M_deallocateEPS3_m.exit37
+78:                                               ; preds = %71
   unreachable
 }
 
@@ -18204,56 +18132,6 @@ _ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EE
   ret ptr %35
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8
-  %.not4.i.i.i.i.i.i = icmp eq ptr %3, %5
-  br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %2, %_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm2EJEEEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %13, %_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm2EJEEEEvPT_.exit.i.i.i.i.i.i ], [ %3, %2 ]
-  %6 = load ptr, ptr %.05.i.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm2EJEEEEvPT_.exit.i.i.i.i.i.i, label %7
-
-7:                                                ; preds = %.lr.ph.i.i.i.i.i.i
-  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = ptrtoint ptr %9 to i64
-  %11 = ptrtoint ptr %6 to i64
-  %12 = sub i64 %10, %11
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %12) #40
-  br label %_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm2EJEEEEvPT_.exit.i.i.i.i.i.i
-
-_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm2EJEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !76
-
-_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm2EJEEEEvPT_.exit.i.i.i.i.i.i
-  %.pr.i.i.i = load ptr, ptr %1, align 8
-  br label %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exit.i.i.i
-
-_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i, %2
-  %14 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %3, %2 ]
-  %.not.i.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEEE7destroyIS3_EEvPT_.exit, label %15
-
-15:                                               ; preds = %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exit.i.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = ptrtoint ptr %14 to i64
-  %20 = sub i64 %18, %19
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #40
-  br label %_ZNSt15__new_allocatorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEEE7destroyIS3_EEvPT_.exit
-
-_ZNSt15__new_allocatorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEEE7destroyIS3_EEvPT_.exit: ; preds = %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exit.i.i.i, %15
-  ret void
-}
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::mersenne_twister_engine", align 8
@@ -18280,187 +18158,169 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12_
   %18 = select i1 %16, i64 384307168202282325, i64 %17
   %19 = ptrtoint ptr %1 to i64
   %20 = sub i64 %19, %10
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_M_allocateEm.exit, label %21
-
-21:                                               ; preds = %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12_M_check_lenEmPKc.exit
-  %22 = mul nuw nsw i64 %18, 24
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #37
-  br label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12_M_check_lenEmPKc.exit, %21
-  %24 = phi ptr [ %23, %21 ], [ null, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12_M_check_lenEmPKc.exit ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 %20
-  %26 = load i64, ptr %2, align 8
+  %.not.i = icmp ne i64 %18, 0
+  tail call void @llvm.assume(i1 %.not.i)
+  %21 = mul nuw nsw i64 %18, 24
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #37
+  %23 = getelementptr inbounds i8, ptr %22, i64 %20
+  %24 = load i64, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  store i64 %26, ptr %4, align 8
-  br label %27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
+  store i64 %24, ptr %4, align 8
+  br label %25
 
-27:                                               ; preds = %27, %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_M_allocateEm.exit
-  %28 = phi i64 [ %26, %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_M_allocateEm.exit ], [ %32, %27 ]
-  %.011.i.i.i.i.i = phi i64 [ 1, %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_M_allocateEm.exit ], [ %34, %27 ]
-  %29 = lshr i64 %28, 62
-  %30 = xor i64 %29, %28
-  %31 = mul i64 %30, 6364136223846793005
-  %32 = add i64 %31, %.011.i.i.i.i.i
-  %33 = getelementptr inbounds nuw [312 x i64], ptr %4, i64 0, i64 %.011.i.i.i.i.i
-  store i64 %32, ptr %33, align 8
-  %34 = add nuw nsw i64 %.011.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %34, 312
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i, label %27, !llvm.loop !71
+25:                                               ; preds = %25, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12_M_check_lenEmPKc.exit
+  %26 = phi i64 [ %24, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %30, %25 ]
+  %.011.i.i.i.i.i = phi i64 [ 1, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %32, %25 ]
+  %27 = lshr i64 %26, 62
+  %28 = xor i64 %27, %26
+  %29 = mul i64 %28, 6364136223846793005
+  %30 = add i64 %29, %.011.i.i.i.i.i
+  %31 = getelementptr inbounds nuw [312 x i64], ptr %4, i64 0, i64 %.011.i.i.i.i.i
+  store i64 %30, ptr %31, align 8
+  %32 = add nuw nsw i64 %.011.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %32, 312
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i, label %25, !llvm.loop !71
 
-_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %27
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 2496
-  store i64 312, ptr %35, align 8
-  %36 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #37
+_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %25
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 2496
+  store i64 312, ptr %33, align 8
+  %34 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #37
           to label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE7reserveEm.exit.i.i.i unwind label %.loopexit.split-lp.i.i.i
 
 _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE7reserveEm.exit.i.i.i: ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store ptr %36, ptr %25, align 8
-  store ptr %36, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  store ptr %39, ptr %38, align 8
-  br label %40
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store ptr %34, ptr %23, align 8
+  store ptr %34, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  store ptr %37, ptr %36, align 8
+  br label %38
 
-40:                                               ; preds = %44, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE7reserveEm.exit.i.i.i
-  %41 = phi i1 [ true, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE7reserveEm.exit.i.i.i ], [ false, %44 ]
-  %42 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %4)
+38:                                               ; preds = %42, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE7reserveEm.exit.i.i.i
+  %39 = phi i1 [ true, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE7reserveEm.exit.i.i.i ], [ false, %42 ]
+  %40 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %4)
           to label %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i unwind label %.loopexit.i.i.i
 
-_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i: ; preds = %40
-  store i64 %42, ptr %5, align 8
-  %43 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12emplace_backIJmEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %44 unwind label %.loopexit.i.i.i
+_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i: ; preds = %38
+  store i64 %40, ptr %5, align 8
+  %41 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12emplace_backIJmEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %42 unwind label %.loopexit.i.i.i
 
-44:                                               ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
-  br i1 %41, label %40, label %47, !llvm.loop !142
+42:                                               ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
+  br i1 %39, label %38, label %43, !llvm.loop !142
 
-.loopexit.i.i.i:                                  ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i, %40
+.loopexit.i.i.i:                                  ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i, %38
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  br label %71
 
 .loopexit.split-lp.i.i.i:                         ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  br label %71
 
-.body:                                            ; preds = %.loopexit.split-lp.i.i.i, %.loopexit.i.i.i
-  %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
-  call void @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #34
-  %45 = extractvalue { ptr, i32 } %lpad.phi.i.i.i, 0
-  %46 = call ptr @__cxa_begin_catch(ptr %45) #34
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %.thread, label %75
-
-47:                                               ; preds = %44
+43:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not10.i.i.i = icmp eq ptr %8, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %47, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i ], [ %24, %47 ]
-  %.0911.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i ], [ %8, %47 ]
+.lr.ph.i.i.i:                                     ; preds = %43, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i ], [ %22, %43 ]
+  %.0911.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i ], [ %8, %43 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !143)
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  %48 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !146, !noalias !143
-  store ptr %48, ptr %.012.i.i.i, align 8, !alias.scope !143, !noalias !146
-  %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %51 = load ptr, ptr %50, align 8, !alias.scope !146, !noalias !143
-  store ptr %51, ptr %49, align 8, !alias.scope !143, !noalias !146
-  %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %54 = load ptr, ptr %53, align 8, !alias.scope !146, !noalias !143
-  store ptr %54, ptr %52, align 8, !alias.scope !143, !noalias !146
+  %44 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !146, !noalias !143
+  store ptr %44, ptr %.012.i.i.i, align 8, !alias.scope !143, !noalias !146
+  %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
+  %47 = load ptr, ptr %46, align 8, !alias.scope !146, !noalias !143
+  store ptr %47, ptr %45, align 8, !alias.scope !143, !noalias !146
+  %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
+  %50 = load ptr, ptr %49, align 8, !alias.scope !146, !noalias !143
+  store ptr %50, ptr %48, align 8, !alias.scope !143, !noalias !146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !146, !noalias !143
-  %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
-  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %55, %1
+  %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %51, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !148
 
-_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %47
-  %.0.lcssa.i.i.i = phi ptr [ %24, %47 ], [ %56, %.lr.ph.i.i.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 24
+_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %43
+  %.0.lcssa.i.i.i = phi ptr [ %22, %43 ], [ %52, %.lr.ph.i.i.i ]
+  %53 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i26 = icmp eq ptr %1, %7
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i27
-  %.012.i.i.i28 = phi ptr [ %66, %.lr.ph.i.i.i27 ], [ %57, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  %.0911.i.i.i29 = phi ptr [ %65, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.012.i.i.i28 = phi ptr [ %62, %.lr.ph.i.i.i27 ], [ %53, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.0911.i.i.i29 = phi ptr [ %61, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !149)
   call void @llvm.experimental.noalias.scope.decl(metadata !152)
-  %58 = load ptr, ptr %.0911.i.i.i29, align 8, !alias.scope !152, !noalias !149
-  store ptr %58, ptr %.012.i.i.i28, align 8, !alias.scope !149, !noalias !152
-  %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 8
-  %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 8
-  %61 = load ptr, ptr %60, align 8, !alias.scope !152, !noalias !149
-  store ptr %61, ptr %59, align 8, !alias.scope !149, !noalias !152
-  %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 16
-  %63 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 16
-  %64 = load ptr, ptr %63, align 8, !alias.scope !152, !noalias !149
-  store ptr %64, ptr %62, align 8, !alias.scope !149, !noalias !152
+  %54 = load ptr, ptr %.0911.i.i.i29, align 8, !alias.scope !152, !noalias !149
+  store ptr %54, ptr %.012.i.i.i28, align 8, !alias.scope !149, !noalias !152
+  %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 8
+  %57 = load ptr, ptr %56, align 8, !alias.scope !152, !noalias !149
+  store ptr %57, ptr %55, align 8, !alias.scope !149, !noalias !152
+  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 16
+  %60 = load ptr, ptr %59, align 8, !alias.scope !152, !noalias !149
+  store ptr %60, ptr %58, align 8, !alias.scope !149, !noalias !152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i29, i8 0, i64 24, i1 false), !alias.scope !152, !noalias !149
-  %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 24
-  %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 24
-  %.not.i.i.i30 = icmp eq ptr %65, %7
+  %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 24
+  %.not.i.i.i30 = icmp eq ptr %61, %7
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !148
 
 _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
-  %.0.lcssa.i.i.i31 = phi ptr [ %57, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %66, %.lr.ph.i.i.i27 ]
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.lcssa.i.i.i31 = phi ptr [ %53, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %62, %.lr.ph.i.i.i27 ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i33 = icmp eq ptr %8, null
-  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE13_M_deallocateEPS3_m.exit, label %68
+  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE13_M_deallocateEPS3_m.exit, label %64
 
-68:                                               ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32
-  %69 = load ptr, ptr %67, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = sub i64 %70, %10
-  call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %71) #40
+64:                                               ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32
+  %65 = load ptr, ptr %63, align 8
+  %66 = ptrtoint ptr %65 to i64
+  %67 = sub i64 %66, %10
+  call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %67) #40
   br label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %68
-  store ptr %24, ptr %0, align 8
+_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %64
+  store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %6, align 8
-  %72 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.81", ptr %24, i64 %18
-  store ptr %72, ptr %67, align 8
+  %68 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.81", ptr %22, i64 %18
+  store ptr %68, ptr %63, align 8
   ret void
 
-.thread:                                          ; preds = %.body
-  call void @_ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %25) #34
-  br label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE13_M_deallocateEPS3_m.exit37
-
-73:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE13_M_deallocateEPS3_m.exit37
-  %74 = landingpad { ptr, i32 }
+69:                                               ; preds = %71
+  %70 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %77 unwind label %78
+          to label %74 unwind label %75
 
-75:                                               ; preds = %.body
-  %76 = mul nuw nsw i64 %18, 24
-  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %76) #40
-  br label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE13_M_deallocateEPS3_m.exit37
-
-_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE13_M_deallocateEPS3_m.exit37: ; preds = %75, %.thread
+71:                                               ; preds = %.loopexit.i.i.i, %.loopexit.split-lp.i.i.i
+  %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
+  call void @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #34
+  %72 = extractvalue { ptr, i32 } %lpad.phi.i.i.i, 0
+  %73 = call ptr @__cxa_begin_catch(ptr %72) #34
+  call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %21) #40
   invoke void @__cxa_rethrow() #35
-          to label %81 unwind label %73
+          to label %78 unwind label %69
 
-77:                                               ; preds = %73
-  resume { ptr, i32 } %74
+74:                                               ; preds = %69
+  resume { ptr, i32 } %70
 
-78:                                               ; preds = %73
-  %79 = landingpad { ptr, i32 }
+75:                                               ; preds = %69
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #38
+  %77 = extractvalue { ptr, i32 } %76, 0
+  call void @__clang_call_terminate(ptr %77) #38
   unreachable
 
-81:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE13_M_deallocateEPS3_m.exit37
+78:                                               ; preds = %71
   unreachable
 }
 

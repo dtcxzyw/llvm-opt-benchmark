@@ -5563,7 +5563,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call2 = tail call ptr @dictGetVal(ptr noundef nonnull %call1) #33
-  %call3 = tail call ptr @listSearchKey(ptr noundef %call2, ptr noundef %node) #33
+  %call3 = tail call ptr @listSearchKey(ptr noundef %call2, ptr noundef nonnull %node) #33
   %cmp4.not = icmp eq ptr %call3, null
   br i1 %cmp4.not, label %if.end, label %if.then5
 
@@ -5624,7 +5624,7 @@ cond.end:                                         ; preds = %do.end
   %nodes.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %nodes.i, align 8
   %call.i = tail call ptr @sdsnewlen(ptr noundef nonnull %name, i64 noundef 40) #33
-  %call1.i = tail call i32 @dictAdd(ptr noundef %4, ptr noundef %call.i, ptr noundef %node) #33
+  %call1.i = tail call i32 @dictAdd(ptr noundef %4, ptr noundef %call.i, ptr noundef nonnull %node) #33
   %cmp.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.i, label %clusterAddNode.exit, label %cond.false.i
 
@@ -8989,9 +8989,9 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.not, label %land.lhs.true5, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void @clusterRemoveNodeFromShard(ptr noundef %node)
+  tail call void @clusterRemoveNodeFromShard(ptr noundef nonnull %node)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %shard_id1, ptr noundef nonnull align 1 dereferenceable(40) %shard_id, i64 40, i1 false)
-  tail call void @clusterAddNodeToShard(ptr noundef nonnull %shard_id, ptr noundef %node)
+  tail call void @clusterAddNodeToShard(ptr noundef nonnull %shard_id, ptr noundef nonnull %node)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5208), align 8
   %todo_before_sleep.i = getelementptr inbounds nuw i8, ptr %0, i64 393352
   %1 = load i32, ptr %todo_before_sleep.i, align 8
@@ -9474,20 +9474,20 @@ cond.false:                                       ; preds = %if.then283
 if.then303:                                       ; preds = %if.then283
   %tls_port = getelementptr inbounds nuw i8, ptr %call284, i64 2332
   %tcp_port = getelementptr inbounds nuw i8, ptr %call284, i64 2328
-  call fastcc void @getClientPortFromClusterMsg(ptr noundef %0, ptr noundef nonnull %tls_port, ptr noundef nonnull %tcp_port)
+  call fastcc void @getClientPortFromClusterMsg(ptr noundef nonnull %0, ptr noundef nonnull %tls_port, ptr noundef nonnull %tcp_port)
   %cport = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %57 = load i16, ptr %cport, align 8
   %call294 = call zeroext i16 @ntohs(i16 noundef zeroext %57) #36
   %conv295 = zext i16 %call294 to i32
   %cport296 = getelementptr inbounds nuw i8, ptr %call284, i64 2336
   store i32 %conv295, ptr %cport296, align 8
-  call void @clusterAddNode(ptr noundef %call284)
+  call void @clusterAddNode(ptr noundef nonnull %call284)
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5208), align 8
   %todo_before_sleep.i279 = getelementptr inbounds nuw i8, ptr %58, i64 393352
   %59 = load i32, ptr %todo_before_sleep.i279, align 8
   %or.i280 = or i32 %59, 4
   store i32 %or.i280, ptr %todo_before_sleep.i279, align 8
-  call void @clusterProcessGossipSection(ptr noundef %0, ptr noundef nonnull %link)
+  call void @clusterProcessGossipSection(ptr noundef nonnull %0, ptr noundef nonnull %link)
   br label %if.end305.thread
 
 if.end305.thread:                                 ; preds = %if.then303, %if.end277, %lor.lhs.false245
@@ -9895,8 +9895,8 @@ if.then596:                                       ; preds = %land.lhs.true592
   br label %if.then599
 
 if.then599:                                       ; preds = %land.lhs.true586, %land.lhs.true589, %land.lhs.true592, %if.then596
-  call void @clusterProcessGossipSection(ptr noundef %0, ptr noundef %link)
-  call void @clusterProcessPingExtensions(ptr noundef %0, ptr noundef %link)
+  call void @clusterProcessGossipSection(ptr noundef nonnull %0, ptr noundef %link)
+  call void @clusterProcessPingExtensions(ptr noundef nonnull %0, ptr noundef %link)
   br label %return
 
 if.else601:                                       ; preds = %if.end305

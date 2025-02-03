@@ -347,7 +347,7 @@ if.then.i.i25:                                    ; preds = %invoke.cont18
 lpad.i.i:                                         ; preds = %if.then.i.i25
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #21
   br label %lpad17.body
 
 invoke.cont22:                                    ; preds = %invoke.cont18
@@ -371,7 +371,7 @@ if.then.i.i28:                                    ; preds = %invoke.cont22
 lpad.i.i30:                                       ; preds = %if.then.i.i28
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i29) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i29) #21
   br label %lpad17.body
 
 invoke.cont31:                                    ; preds = %invoke.cont22
@@ -388,7 +388,7 @@ if.then.i.i38:                                    ; preds = %invoke.cont31
 lpad.i.i40:                                       ; preds = %if.then.i.i38
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i39) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i39) #21
   br label %lpad17.body
 
 invoke.cont33:                                    ; preds = %invoke.cont31
@@ -471,7 +471,7 @@ invoke.cont.i.i.i.cont:                           ; preds = %invoke.cont.i.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i56
   %36 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #21
   br label %lpad17.body
 
 _ZN3ue210verify_u32IlEEjT_.exit.i:                ; preds = %for.body.i51

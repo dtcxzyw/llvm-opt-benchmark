@@ -394,7 +394,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   %46 = ptrtoint ptr %33 to i64
   %47 = ptrtoint ptr %22 to i64
   %48 = sub i64 %46, %47
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr align 1 %22, i64 %48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %22, i64 %48, i1 false)
   %49 = ptrtoint ptr %25 to i64
   %50 = xor i64 %46, -1
   %51 = add i64 %50, %49

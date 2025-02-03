@@ -223,11 +223,11 @@ define hidden noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr noundef readonly captu
 
 22:                                               ; preds = %17
   %23 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %.02537) #11
-  tail call void @free(ptr noundef %.02537) #11
+  tail call void @free(ptr noundef nonnull %.02537) #11
   br label %25
 
 24:                                               ; preds = %17
-  tail call void @free(ptr noundef %.02537) #11
+  tail call void @free(ptr noundef nonnull %.02537) #11
   br label %.loopexit
 
 25:                                               ; preds = %22, %8

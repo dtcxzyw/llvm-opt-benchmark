@@ -348,7 +348,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 167:                                              ; preds = %157
   call void @free(ptr noundef nonnull %92) #6
   call void @free(ptr noundef nonnull %95) #6
-  br label %260
+  br label %.thread341
 
 .loopexit.thread:                                 ; preds = %.preheader361, %157, %.loopexit
   %168 = phi i1 [ true, %157 ], [ false, %.loopexit ], [ false, %.preheader361 ]
@@ -513,19 +513,19 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %259 = tail call i32 %253(ptr noundef %.0266, ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef %1, i32 noundef %256, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %258) #6
   br label %260
 
-.thread341:                                       ; preds = %60, %75, %99, %79, %89
-  %.0270.ph = phi i32 [ -2, %89 ], [ %82, %79 ], [ -2, %99 ], [ %78, %75 ], [ %63, %60 ]
-  tail call void @free(ptr noundef nonnull %14) #6
+.thread341:                                       ; preds = %60, %75, %99, %167, %79, %89
+  %.0270.ph = phi i32 [ -2, %89 ], [ %82, %79 ], [ %166, %167 ], [ -2, %99 ], [ %78, %75 ], [ %63, %60 ]
+  call void @free(ptr noundef %14) #6
   br label %261
 
 .thread357:                                       ; preds = %236, %55
   tail call void @free(ptr noundef nonnull %14) #6
   br label %264
 
-260:                                              ; preds = %167, %180, %185, %208, %241, %250, %210, %220, %.thread340.thread, %215, %225
-  %.0270 = phi i32 [ %166, %167 ], [ %179, %180 ], [ %184, %185 ], [ %207, %208 ], [ %219, %215 ], [ 0, %.thread340.thread ], [ %233, %225 ], [ 0, %220 ], [ 0, %210 ], [ %259, %250 ], [ %248, %241 ]
-  %.0264 = phi ptr [ %56, %167 ], [ %56, %180 ], [ %56, %185 ], [ %56, %208 ], [ %56, %215 ], [ %56, %.thread340.thread ], [ %56, %225 ], [ %56, %220 ], [ %56, %210 ], [ %.1265, %250 ], [ %.1265, %241 ]
-  %.0263 = phi ptr [ %61, %167 ], [ %61, %180 ], [ %61, %185 ], [ %61, %208 ], [ %61, %215 ], [ %61, %.thread340.thread ], [ %61, %225 ], [ %61, %220 ], [ %61, %210 ], [ null, %250 ], [ null, %241 ]
+260:                                              ; preds = %180, %185, %208, %241, %250, %210, %220, %.thread340.thread, %215, %225
+  %.0270 = phi i32 [ %179, %180 ], [ %184, %185 ], [ %207, %208 ], [ %219, %215 ], [ 0, %.thread340.thread ], [ %233, %225 ], [ 0, %220 ], [ 0, %210 ], [ %259, %250 ], [ %248, %241 ]
+  %.0264 = phi ptr [ %56, %180 ], [ %56, %185 ], [ %56, %208 ], [ %56, %215 ], [ %56, %.thread340.thread ], [ %56, %225 ], [ %56, %220 ], [ %56, %210 ], [ %.1265, %250 ], [ %.1265, %241 ]
+  %.0263 = phi ptr [ %61, %180 ], [ %61, %185 ], [ %61, %208 ], [ %61, %215 ], [ %61, %.thread340.thread ], [ %61, %225 ], [ %61, %220 ], [ %61, %210 ], [ null, %250 ], [ null, %241 ]
   call void @free(ptr noundef %14) #6
   %.not325 = icmp eq ptr %.0264, null
   br i1 %.not325, label %262, label %261

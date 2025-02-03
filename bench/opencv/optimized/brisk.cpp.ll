@@ -11338,7 +11338,7 @@ _ZN2cv4Mat_IhEC2ERKS1_.exit.i.i:                  ; preds = %.noexc
   %eh.lpad-body = phi { ptr, i32 } [ %31, %30 ], [ %24, %23 ]
   %32 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %33 = tail call ptr @__cxa_begin_catch(ptr %32) #24
-  invoke void @_ZSt8_DestroyIPN2cv10BriskLayerEEvT_S3_(ptr noundef %2, ptr noundef %.018)
+  invoke void @_ZSt8_DestroyIPN2cv10BriskLayerEEvT_S3_(ptr noundef %2, ptr noundef nonnull %.018)
           to label %34 unwind label %35
 
 34:                                               ; preds = %.body

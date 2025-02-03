@@ -59,7 +59,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %10, ptr noundef %1, i32 noundef 0) #5
   %.not114 = icmp eq ptr %12, null
-  br i1 %.not114, label %copy_fh.exit.thread147.thread.thread176, label %13
+  br i1 %.not114, label %copy_fh.exit.thread147.thread.thread178, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -74,8 +74,8 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %20 = load i32, ptr %19, align 4
   %.not117 = icmp eq i32 %20, 1
-  %or.cond180 = select i1 %.not116, i1 %.not117, i1 false
-  br i1 %or.cond180, label %21, label %copy_fh.exit.thread147.thread.thread
+  %or.cond182 = select i1 %.not116, i1 %.not117, i1 false
+  br i1 %or.cond182, label %21, label %copy_fh.exit.thread147.thread.thread
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -95,7 +95,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %33 = sext i32 %32 to i64
   %34 = call ptr %30(ptr noundef nonnull %10, i64 noundef %33) #5
   %.not119 = icmp eq ptr %34, null
-  br i1 %.not119, label %copy_fh.exit.thread147.thread162, label %35
+  br i1 %.not119, label %copy_fh.exit.thread147.thread164, label %35
 
 35:                                               ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false)
@@ -109,8 +109,8 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   store ptr %10, ptr %7, align 8
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %27, ptr %39, align 8
-  %.not120187 = icmp eq i32 %25, 0
-  br i1 %.not120187, label %copy_fh.exit.thread147.thread162, label %.lr.ph
+  %.not120189 = icmp eq i32 %25, 0
+  br i1 %.not120189, label %copy_fh.exit.thread147.thread164, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35
   %40 = getelementptr i8, ptr %34, i64 2
@@ -128,11 +128,11 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   br label %52
 
 52:                                               ; preds = %.lr.ph, %copy_fh.exit.thread
-  %.097188 = phi i32 [ %25, %.lr.ph ], [ %127, %copy_fh.exit.thread ]
+  %.097190 = phi i32 [ %25, %.lr.ph ], [ %127, %copy_fh.exit.thread ]
   %53 = load ptr, ptr %14, align 8
   %54 = call i32 %53(ptr noundef nonnull %12, ptr noundef nonnull %34, i32 noundef 16) #5
   %.not121 = icmp eq i32 %54, 16
-  br i1 %.not121, label %55, label %copy_fh.exit.thread147.thread162
+  br i1 %.not121, label %55, label %copy_fh.exit.thread147.thread164
 
 55:                                               ; preds = %52
   %56 = load i16, ptr %40, align 1
@@ -167,13 +167,13 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %85 = or disjoint i32 %82, %84
   %86 = load i32, ptr %48, align 1
   %87 = icmp ugt i32 %85, %23
-  br i1 %87, label %copy_fh.exit.thread147.thread162, label %88
+  br i1 %87, label %copy_fh.exit.thread147.thread164, label %88
 
 88:                                               ; preds = %55
-  %89 = icmp ugt i32 %85, %.097188
+  %89 = icmp ugt i32 %85, %.097190
   %90 = icmp ugt i32 %65, 1
   %or.cond = select i1 %89, i1 true, i1 %90
-  br i1 %or.cond, label %copy_fh.exit.thread147.thread162, label %91
+  br i1 %or.cond, label %copy_fh.exit.thread147.thread164, label %91
 
 91:                                               ; preds = %88
   %.not122 = icmp eq i32 %65, 0
@@ -181,7 +181,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
 
 92:                                               ; preds = %91
   %.not123 = icmp eq i32 %85, %75
-  br i1 %.not123, label %93, label %copy_fh.exit.thread147.thread162
+  br i1 %.not123, label %93, label %copy_fh.exit.thread147.thread164
 
 93:                                               ; preds = %92
   %94 = load i32, ptr %31, align 8
@@ -200,13 +200,13 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %97 = load ptr, ptr %14, align 8
   %98 = call i32 %97(ptr noundef nonnull %12, ptr noundef nonnull %34, i32 noundef %spec.select.i) #5
   %.not21.i = icmp eq i32 %98, %spec.select.i
-  br i1 %.not21.i, label %99, label %copy_fh.exit.thread147.thread162
+  br i1 %.not21.i, label %99, label %copy_fh.exit.thread147.thread164
 
 99:                                               ; preds = %.lr.ph.split.i
   %100 = load ptr, ptr %51, align 8
   %101 = call i32 %100(ptr noundef nonnull %27, ptr noundef nonnull %34, i32 noundef %spec.select.i) #5
   %.not23.i = icmp eq i32 %101, %spec.select.i
-  br i1 %.not23.i, label %102, label %copy_fh.exit.thread147.thread162
+  br i1 %.not23.i, label %102, label %copy_fh.exit.thread147.thread164
 
 102:                                              ; preds = %99
   %sext.i = shl i64 %spec.select24.i, 32
@@ -232,13 +232,13 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %113 = zext i32 %85 to i64
   %114 = call ptr @lzxd_init(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %.093, i32 noundef 0, i32 noundef %112, i64 noundef %113, i8 noundef signext 1) #5
   %.not125 = icmp eq ptr %114, null
-  br i1 %.not125, label %copy_fh.exit.thread147.thread162, label %115
+  br i1 %.not125, label %copy_fh.exit.thread147.thread164, label %115
 
 115:                                              ; preds = %110
   %116 = call i32 @lzxd_decompress(ptr noundef nonnull %114, i64 noundef %113) #5
   %.not126 = icmp eq i32 %116, 0
   call void @lzxd_free(ptr noundef nonnull %114) #5
-  br i1 %.not126, label %117, label %copy_fh.exit.thread147.thread162
+  br i1 %.not126, label %117, label %copy_fh.exit.thread147.thread164
 
 117:                                              ; preds = %115
   %118 = load i64, ptr %49, align 8
@@ -254,7 +254,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %121 = load ptr, ptr %14, align 8
   %122 = call i32 %121(ptr noundef nonnull %12, ptr noundef nonnull %34, i32 noundef %spec.select.us.i136) #5
   %.not21.us.i137 = icmp eq i32 %122, %spec.select.us.i136
-  br i1 %.not21.us.i137, label %123, label %copy_fh.exit.thread147.thread162
+  br i1 %.not21.us.i137, label %123, label %copy_fh.exit.thread147.thread164
 
 123:                                              ; preds = %.lr.ph.split.us.i133
   %sext.us.i139 = shl i64 %spec.select24.us.i135, 32
@@ -266,38 +266,38 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
 .loopexit:                                        ; preds = %123, %117
   %126 = load i32, ptr %50, align 8
   %.not128 = icmp eq i32 %126, %86
-  br i1 %.not128, label %copy_fh.exit.thread, label %copy_fh.exit.thread147.thread162
+  br i1 %.not128, label %copy_fh.exit.thread, label %copy_fh.exit.thread147.thread164
 
 copy_fh.exit.thread:                              ; preds = %102, %93, %.loopexit
-  %127 = sub i32 %.097188, %85
+  %127 = sub i32 %.097190, %85
   %.not120 = icmp eq i32 %127, 0
-  br i1 %.not120, label %copy_fh.exit.thread147.thread162, label %52
+  br i1 %.not120, label %copy_fh.exit.thread147.thread164, label %52
 
-copy_fh.exit.thread147.thread162:                 ; preds = %.loopexit, %110, %92, %55, %88, %52, %copy_fh.exit.thread, %115, %.lr.ph.split.us.i133, %.lr.ph.split.i, %99, %35, %28
-  %.092153169 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 4, %99 ], [ 3, %.lr.ph.split.i ], [ 3, %.lr.ph.split.us.i133 ], [ 9, %.loopexit ], [ 6, %110 ], [ 8, %92 ], [ 8, %55 ], [ 8, %88 ], [ 3, %52 ], [ 0, %copy_fh.exit.thread ], [ %116, %115 ]
+copy_fh.exit.thread147.thread164:                 ; preds = %.loopexit, %110, %92, %55, %88, %52, %copy_fh.exit.thread, %115, %.lr.ph.split.us.i133, %.lr.ph.split.i, %99, %35, %28
+  %.092153171 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 3, %.lr.ph.split.i ], [ 4, %99 ], [ 3, %.lr.ph.split.us.i133 ], [ 9, %.loopexit ], [ 6, %110 ], [ 8, %92 ], [ 8, %55 ], [ 8, %88 ], [ 3, %52 ], [ 0, %copy_fh.exit.thread ], [ %116, %115 ]
   %128 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %129 = load ptr, ptr %128, align 8
   call void %129(ptr noundef nonnull %27) #5
   br label %copy_fh.exit.thread147.thread.thread
 
-copy_fh.exit.thread147.thread.thread:             ; preds = %copy_fh.exit.thread147.thread162, %21, %17, %13
-  %.091154160174 = phi ptr [ %34, %copy_fh.exit.thread147.thread162 ], [ null, %13 ], [ null, %17 ], [ null, %21 ]
-  %.092153161172 = phi i32 [ %.092153169, %copy_fh.exit.thread147.thread162 ], [ 3, %13 ], [ 7, %17 ], [ 2, %21 ]
+copy_fh.exit.thread147.thread.thread:             ; preds = %copy_fh.exit.thread147.thread164, %21, %17, %13
+  %.091154160176 = phi ptr [ %34, %copy_fh.exit.thread147.thread164 ], [ null, %13 ], [ null, %17 ], [ null, %21 ]
+  %.092153161174 = phi i32 [ %.092153171, %copy_fh.exit.thread147.thread164 ], [ 3, %13 ], [ 7, %17 ], [ 2, %21 ]
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %131 = load ptr, ptr %130, align 8
   call void %131(ptr noundef nonnull %12) #5
-  br label %copy_fh.exit.thread147.thread.thread176
+  br label %copy_fh.exit.thread147.thread.thread178
 
-copy_fh.exit.thread147.thread.thread176:          ; preds = %8, %copy_fh.exit.thread147.thread.thread
-  %.091154160175 = phi ptr [ %.091154160174, %copy_fh.exit.thread147.thread.thread ], [ null, %8 ]
-  %.092153161173 = phi i32 [ %.092153161172, %copy_fh.exit.thread147.thread.thread ], [ 2, %8 ]
+copy_fh.exit.thread147.thread.thread178:          ; preds = %8, %copy_fh.exit.thread147.thread.thread
+  %.091154160177 = phi ptr [ %.091154160176, %copy_fh.exit.thread147.thread.thread ], [ null, %8 ]
+  %.092153161175 = phi i32 [ %.092153161174, %copy_fh.exit.thread147.thread.thread ], [ 2, %8 ]
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %133 = load ptr, ptr %132, align 8
-  call void %133(ptr noundef %.091154160175) #5
+  call void %133(ptr noundef %.091154160177) #5
   br label %134
 
-134:                                              ; preds = %3, %copy_fh.exit.thread147.thread.thread176
-  %.0 = phi i32 [ %.092153161173, %copy_fh.exit.thread147.thread.thread176 ], [ 1, %3 ]
+134:                                              ; preds = %3, %copy_fh.exit.thread147.thread.thread178
+  %.0 = phi i32 [ %.092153161175, %copy_fh.exit.thread147.thread.thread178 ], [ 1, %3 ]
   ret i32 %.0
 }
 

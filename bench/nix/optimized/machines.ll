@@ -30902,7 +30902,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us: ; preds = %_Z
   br i1 %68, label %107, label %.critedge
 
 107:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us
-  %108 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.097.0137.us) #29
+  %108 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.097.0137.us) #29
   %109 = add i64 %storemerge138.us, 1
   %110 = icmp eq ptr %108, %40
   br i1 %110, label %.critedge, label %.lr.ph.split.us, !llvm.loop !224
@@ -31002,7 +31002,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us: ; preds = %_Z
   br i1 %132, label %134, label %.critedge
 
 134:                                              ; preds = %133
-  %135 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.097.0137) #29
+  %135 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.097.0137) #29
   %136 = add i64 %storemerge138, 1
   %137 = icmp eq ptr %135, %40
   br i1 %137, label %.critedge, label %.lr.ph.split, !llvm.loop !224

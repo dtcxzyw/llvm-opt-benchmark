@@ -1330,7 +1330,7 @@ pmix_obj_run_destructors.exit328:                 ; preds = %.lr.ph.i325, %._cri
   br i1 %365, label %366, label %367
 
 366:                                              ; preds = %362
-  call void @free(ptr noundef %363) #13
+  call void @free(ptr noundef nonnull %363) #13
   br label %.loopexit335
 
 367:                                              ; preds = %362
@@ -1343,7 +1343,7 @@ pmix_obj_run_destructors.exit328:                 ; preds = %.lr.ph.i325, %._cri
   br i1 %371, label %372, label %373
 
 372:                                              ; preds = %367
-  call void @free(ptr noundef %363) #13
+  call void @free(ptr noundef nonnull %363) #13
   br label %.loopexit335
 
 373:                                              ; preds = %367
@@ -1354,7 +1354,7 @@ pmix_obj_run_destructors.exit328:                 ; preds = %.lr.ph.i325, %._cri
   %376 = call i64 @strtoull(ptr noundef nonnull captures(none) %374, ptr noundef null, i32 noundef 10) #13
   %377 = trunc i64 %376 to i32
   store i32 %377, ptr %10, align 4
-  call void @free(ptr noundef %363) #13
+  call void @free(ptr noundef nonnull %363) #13
   br label %557
 
 378:                                              ; preds = %pmix_obj_run_destructors.exit328

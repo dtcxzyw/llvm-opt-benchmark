@@ -1544,7 +1544,7 @@ define dso_local range(i64 -1, -9223372036854775808) i64 @set_vfd(ptr noundef re
 40:                                               ; preds = %.preheader
   %41 = call i32 @H5Pset_fapl_multi(i64 noundef %10, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false) #18
   %42 = icmp slt i32 %41, 0
-  call void @free(ptr noundef %26) #18
+  call void @free(ptr noundef nonnull %26) #18
   br i1 %42, label %47, label %46
 
 43:                                               ; preds = %12

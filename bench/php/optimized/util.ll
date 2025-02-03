@@ -2393,7 +2393,7 @@ define hidden ptr @phar_get_entry_info_dir(ptr noundef %0, ptr noundef %1, i64 n
 167:                                              ; preds = %161
   %168 = load ptr, ptr %7, align 8
   %169 = load i64, ptr %8, align 8
-  %170 = call i32 @phar_mount_entry(ptr noundef %0, ptr noundef %162, i64 noundef %146, ptr noundef %168, i64 noundef %169)
+  %170 = call i32 @phar_mount_entry(ptr noundef nonnull %0, ptr noundef %162, i64 noundef %146, ptr noundef %168, i64 noundef %169)
   %.not138 = icmp eq i32 %170, 0
   %171 = load ptr, ptr %10, align 8
   call void @_efree(ptr noundef %171) #15
@@ -3241,7 +3241,7 @@ phar_get_entrypfp.exit141:                        ; preds = %199, %202
   %209 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %210 = load i32, ptr %209, align 8
   %211 = zext i32 %210 to i64
-  %212 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef %.0.i140, ptr noundef %.0.i123, i64 noundef %211, ptr noundef null) #15
+  %212 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef %.0.i140, ptr noundef nonnull %.0.i123, i64 noundef %211, ptr noundef null) #15
   %.not98 = icmp eq i32 %212, 0
   br i1 %.not98, label %219, label %213
 
@@ -3255,9 +3255,9 @@ phar_get_entrypfp.exit141:                        ; preds = %199, %202
 
 219:                                              ; preds = %phar_get_entrypfp.exit141, %phar_get_entrypfp.exit
   %220 = call i32 @_php_stream_filter_flush(ptr noundef nonnull %171, i32 noundef 1) #15
-  %221 = call i32 @_php_stream_flush(ptr noundef %.0.i123, i32 noundef 0) #15
+  %221 = call i32 @_php_stream_flush(ptr noundef nonnull %.0.i123, i32 noundef 0) #15
   %222 = call ptr @php_stream_filter_remove(ptr noundef nonnull %171, i32 noundef 1) #15
-  %223 = call i64 @_php_stream_tell(ptr noundef %.0.i123) #15
+  %223 = call i64 @_php_stream_tell(ptr noundef nonnull %.0.i123) #15
   %224 = sub nsw i64 %223, %179
   %225 = load i32, ptr %.tr, align 8
   %226 = zext i32 %225 to i64

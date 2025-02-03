@@ -2360,7 +2360,7 @@ lpad:                                             ; preds = %new.notnull
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #17
   br label %eh.resume
 
-delete.notnull.i:                                 ; preds = %if.then.i12, %sw.bb.i, %call4.i.noexc, %sw.bb5.i, %sw.bb8.i
+_ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit: ; preds = %sw.bb8.i, %sw.bb5.i, %call4.i.noexc, %sw.bb.i, %if.then.i12
   %5 = landingpad { ptr, i32 }
           cleanup
   %vtable.i = load ptr, ptr %call, align 8
@@ -2376,7 +2376,7 @@ if.end:                                           ; preds = %_ZN6icu_7512LocalPo
 
 if.then.i12:                                      ; preds = %if.end
   %call.i13 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %call, ptr noundef nonnull align 8 dereferenceable(66) %7)
-          to label %invoke.cont10 unwind label %delete.notnull.i
+          to label %invoke.cont10 unwind label %_ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit
 
 if.end.i:                                         ; preds = %if.end
   %fType.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2391,24 +2391,24 @@ sw.bb.i:                                          ; preds = %if.end.i
   %fValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %9 = load double, ptr %fValue.i.i, align 8
   %call4.i14 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66) %call, double noundef %9)
-          to label %call4.i.noexc unwind label %delete.notnull.i
+          to label %call4.i.noexc unwind label %_ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit
 
 call4.i.noexc:                                    ; preds = %sw.bb.i
   invoke void @_ZN6icu_756number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66) %call)
-          to label %invoke.cont10 unwind label %delete.notnull.i
+          to label %invoke.cont10 unwind label %_ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit
 
 sw.bb5.i:                                         ; preds = %if.end.i
   %fValue.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %10 = load i64, ptr %fValue.i5.i, align 8
   %conv.i.i = trunc i64 %10 to i32
   %call7.i15 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity8setToIntEi(ptr noundef nonnull align 8 dereferenceable(66) %call, i32 noundef %conv.i.i)
-          to label %invoke.cont10 unwind label %delete.notnull.i
+          to label %invoke.cont10 unwind label %_ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit
 
 sw.bb8.i:                                         ; preds = %if.end.i
   %fValue.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load i64, ptr %fValue.i6.i, align 8
   %call10.i16 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity9setToLongEl(ptr noundef nonnull align 8 dereferenceable(66) %call, i64 noundef %11)
-          to label %invoke.cont10 unwind label %delete.notnull.i
+          to label %invoke.cont10 unwind label %_ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit
 
 invoke.cont10.thread:                             ; preds = %if.end.i
   store i32 27, ptr %status, align 4
@@ -2562,8 +2562,8 @@ return:                                           ; preds = %if.then.i, %new.con
   %retval.1 = phi ptr [ null, %if.then34 ], [ %39, %if.end83 ], [ null, %delete.notnull.i20 ], [ null, %new.cont ], [ null, %if.then.i ]
   ret ptr %retval.1
 
-eh.resume:                                        ; preds = %delete.notnull.i, %lpad25, %lpad, %lpad76, %lpad69
-  %.pn = phi { ptr, i32 } [ %35, %lpad69 ], [ %38, %lpad76 ], [ %13, %lpad25 ], [ %4, %lpad ], [ %5, %delete.notnull.i ]
+eh.resume:                                        ; preds = %lpad25, %lpad, %lpad76, %lpad69, %_ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit
+  %.pn = phi { ptr, i32 } [ %35, %lpad69 ], [ %38, %lpad76 ], [ %13, %lpad25 ], [ %5, %_ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit ], [ %4, %lpad ]
   resume { ptr, i32 } %.pn
 }
 

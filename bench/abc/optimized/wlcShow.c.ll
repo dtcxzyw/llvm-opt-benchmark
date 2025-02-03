@@ -1295,7 +1295,7 @@ define void @Wlc_NtkShow(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not18, label %17, label %16
 
 16:                                               ; preds = %14
-  tail call void @free(ptr noundef %11) #7
+  tail call void @free(ptr noundef nonnull %11) #7
   br label %17
 
 17:                                               ; preds = %16, %14

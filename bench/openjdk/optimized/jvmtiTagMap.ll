@@ -6519,87 +6519,84 @@ _ZN16JvmtiEnvIteratorD2Ev.exit:                   ; preds = %._crit_edge, %20
 define hidden void @_ZN11JvmtiTagMap15gc_notificationEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @Service_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
-  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %3
+  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
 
-3:                                                ; preds = %1
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1
+  %3 = icmp ne i64 %0, 0
+  %4 = zext i1 %3 to i8
+  store i8 %4, ptr @_ZN11JvmtiTagMap23_has_object_free_eventsE, align 1
+  br i1 %3, label %_ZN13MonitorLockerD2Ev.exit, label %_ZN13MonitorLockerD2Ev.exit.thread
+
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread: ; preds = %1
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #14
-  br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  %5 = icmp ne i64 %0, 0
+  %6 = zext i1 %5 to i8
+  store i8 %6, ptr @_ZN11JvmtiTagMap23_has_object_free_eventsE, align 1
+  br i1 %5, label %_ZN13MonitorLockerD2Ev.exit, label %_ZN13MonitorLockerD2Ev.exit.thread16
 
-_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1, %3
-  %4 = icmp ne i64 %0, 0
-  %5 = zext i1 %4 to i8
-  store i8 %5, ptr @_ZN11JvmtiTagMap23_has_object_free_eventsE, align 1
-  br i1 %4, label %6, label %7
-
-6:                                                ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #14
-  br label %7
-
-7:                                                ; preds = %6, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %8
-
-8:                                                ; preds = %7
+_ZN13MonitorLockerD2Ev.exit.thread16:             ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #14
-  br label %_ZN13MonitorLockerD2Ev.exit
+  br label %_ZN13MonitorLockerD2Ev.exit.thread
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %7, %8
-  %9 = icmp eq i64 %0, 0
-  br i1 %9, label %10, label %_ZN16JvmtiEnvIteratorD2Ev.exit
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
+  tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #14
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #14
+  br label %_ZN16JvmtiEnvIteratorD2Ev.exit
 
-10:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  %11 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
-  %.not15 = icmp eq i32 %11, 0
-  br i1 %.not15, label %_ZN16JvmtiEnvIteratorC2Ev.exit, label %12
+_ZN13MonitorLockerD2Ev.exit.thread:               ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %_ZN13MonitorLockerD2Ev.exit.thread16
+  %7 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
+  %.not17 = icmp eq i32 %7, 0
+  br i1 %.not17, label %_ZN16JvmtiEnvIteratorC2Ev.exit, label %8
 
-12:                                               ; preds = %10
-  %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 844
-  %16 = load volatile i32, ptr %15, align 4
-  %17 = add nsw i32 %16, 1
-  store volatile i32 %17, ptr %15, align 4
+8:                                                ; preds = %_ZN13MonitorLockerD2Ev.exit.thread
+  %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 844
+  %12 = load volatile i32, ptr %11, align 4
+  %13 = add nsw i32 %12, 1
+  store volatile i32 %13, ptr %11, align 4
   br label %_ZN16JvmtiEnvIteratorC2Ev.exit
 
-_ZN16JvmtiEnvIteratorC2Ev.exit:                   ; preds = %10, %12
-  %.016 = load ptr, ptr @_ZN12JvmtiEnvBase17_head_environmentE, align 8
-  %.not17 = icmp eq ptr %.016, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+_ZN16JvmtiEnvIteratorC2Ev.exit:                   ; preds = %_ZN13MonitorLockerD2Ev.exit.thread, %8
+  %.018 = load ptr, ptr @_ZN12JvmtiEnvBase17_head_environmentE, align 8
+  %.not19 = icmp eq ptr %.018, null
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN16JvmtiEnvIteratorC2Ev.exit, %22
-  %.018 = phi ptr [ %.0, %22 ], [ %.016, %_ZN16JvmtiEnvIteratorC2Ev.exit ]
-  %18 = getelementptr inbounds nuw i8, ptr %.018, i64 376
-  %19 = load volatile ptr, ptr %18, align 8
+.lr.ph:                                           ; preds = %_ZN16JvmtiEnvIteratorC2Ev.exit, %18
+  %.020 = phi ptr [ %.0, %18 ], [ %.018, %_ZN16JvmtiEnvIteratorC2Ev.exit ]
+  %14 = getelementptr inbounds nuw i8, ptr %.020, i64 376
+  %15 = load volatile ptr, ptr %14, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %.not8 = icmp eq ptr %19, null
-  br i1 %.not8, label %22, label %_ZN11MutexLockerD2Ev.exit
+  %.not8 = icmp eq ptr %15, null
+  br i1 %.not8, label %18, label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %.lr.ph
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %20) #14
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 120
-  store i8 0, ptr %21, align 8
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %20) #14
-  br label %22
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #14
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 120
+  store i8 0, ptr %17, align 8
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #14
+  br label %18
 
-22:                                               ; preds = %.lr.ph, %_ZN11MutexLockerD2Ev.exit
-  %23 = getelementptr inbounds nuw i8, ptr %.018, i64 16
-  %.0 = load ptr, ptr %23, align 8
+18:                                               ; preds = %.lr.ph, %_ZN11MutexLockerD2Ev.exit
+  %19 = getelementptr inbounds nuw i8, ptr %.020, i64 16
+  %.0 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %22, %_ZN16JvmtiEnvIteratorC2Ev.exit
-  br i1 %.not15, label %_ZN16JvmtiEnvIteratorD2Ev.exit, label %24
+._crit_edge:                                      ; preds = %18, %_ZN16JvmtiEnvIteratorC2Ev.exit
+  br i1 %.not17, label %_ZN16JvmtiEnvIteratorD2Ev.exit, label %20
 
-24:                                               ; preds = %._crit_edge
-  %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 844
-  %28 = load volatile i32, ptr %27, align 4
-  %29 = add nsw i32 %28, -1
-  store volatile i32 %29, ptr %27, align 4
+20:                                               ; preds = %._crit_edge
+  %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 844
+  %24 = load volatile i32, ptr %23, align 4
+  %25 = add nsw i32 %24, -1
+  store volatile i32 %25, ptr %23, align 4
   br label %_ZN16JvmtiEnvIteratorD2Ev.exit
 
-_ZN16JvmtiEnvIteratorD2Ev.exit:                   ; preds = %24, %._crit_edge, %_ZN13MonitorLockerD2Ev.exit
+_ZN16JvmtiEnvIteratorD2Ev.exit:                   ; preds = %20, %._crit_edge, %_ZN13MonitorLockerD2Ev.exit
   ret void
 }
 

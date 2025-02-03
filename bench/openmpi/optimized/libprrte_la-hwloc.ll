@@ -480,13 +480,13 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
 
 82:                                               ; preds = %80
   %83 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 1, ptr noundef nonnull @.str.63, ptr noundef nonnull %1) #9
-  tail call void @free(ptr noundef %5) #9
+  tail call void @free(ptr noundef nonnull %5) #9
   br label %96
 
 84:                                               ; preds = %80, %78, %76, %74, %72, %69, %65, %63
   %.sink = phi i16 [ 16385, %63 ], [ 16392, %65 ], [ %., %69 ], [ 16390, %72 ], [ 16389, %74 ], [ 16388, %76 ], [ 16387, %78 ], [ 16386, %80 ]
   %85 = or disjoint i16 %.058, %.sink
-  tail call void @free(ptr noundef %5) #9
+  tail call void @free(ptr noundef nonnull %5) #9
   %86 = icmp eq ptr %0, null
   br i1 %86, label %87, label %88
 

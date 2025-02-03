@@ -4068,7 +4068,7 @@ _ZL14stbi_write_jpgPKciiiPKvi.exit:               ; preds = %212, %_ZL19stbi_wri
   br i1 %exitcond307.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !37
 
 ._crit_edge.i.i:                                  ; preds = %496, %.preheader211.i.i
-  call void @free(ptr noundef %481) #46
+  call void @free(ptr noundef nonnull %481) #46
   %500 = call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #48
   %501 = icmp eq ptr %500, null
   br i1 %501, label %_ZL21stbi_write_png_to_memPKhiiiiPi.exit.thread.sink.split.i, label %502
@@ -48219,14 +48219,14 @@ _ZL17stbi__hdr_convertPfPhi.exit:                 ; preds = %_ZL10stbi__getnP13s
   br label %202
 
 .split68.us:                                      ; preds = %81
-  call void @free(ptr noundef %57) #46
+  call void @free(ptr noundef nonnull %57) #46
   call void @free(ptr noundef %.011758.us) #46
   %263 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.106, ptr %263, align 8
   br label %._crit_edge60.thread
 
 _ZL17stbi__malloc_mad2iii.exit.thread:            ; preds = %_ZL17stbi__malloc_mad2iii.exit.us
-  call void @free(ptr noundef %57) #46
+  call void @free(ptr noundef nonnull %57) #46
   %264 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.30, ptr %264, align 8
   br label %._crit_edge60.thread
@@ -52056,7 +52056,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i121.i:     ; preds = %1807, %1802
   br i1 %.not213.i.i, label %.split234.us.i.i, label %.preheader226.i.i
 
 .split234.us.i.i:                                 ; preds = %1867, %1863
-  tail call void @free(ptr noundef %1848) #46
+  tail call void @free(ptr noundef nonnull %1848) #46
   store ptr @.str.107, ptr %92, align 8
   br label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread
 

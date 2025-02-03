@@ -364,7 +364,7 @@ define noundef double @_ZNK5faiss21OneRecallAtRCriterion8evaluateEPKfPKl(ptr nou
 53:                                               ; preds = %46
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %49) #16
+  call void @__cxa_free_exception(ptr nonnull %49) #16
   br label %55
 
 55:                                               ; preds = %53, %51
@@ -502,7 +502,7 @@ define noundef double @_ZNK5faiss21IntersectionCriterion8evaluateEPKfPKl(ptr nou
 39:                                               ; preds = %32
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %35) #16
+  call void @__cxa_free_exception(ptr nonnull %35) #16
   br label %41
 
 41:                                               ; preds = %39, %37
@@ -2065,7 +2065,7 @@ _ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit:     ; preds = %81, %83
 252:                                              ; preds = %244
   %253 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %248) #16
+  call void @__cxa_free_exception(ptr nonnull %248) #16
   br label %.body
 
 254:                                              ; preds = %156, %158, %144, %145, %235, %222, %211, %202, %191, %178, %169, %127, %116, %107, %103, %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit, %59, %38, %28
@@ -3961,7 +3961,7 @@ define void @_ZNK5faiss14ParameterSpace16combination_nameB5cxx11Em(ptr dead_on_u
 31:                                               ; preds = %24
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #16
+  call void @__cxa_free_exception(ptr nonnull %27) #16
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -4745,7 +4745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 43:                                               ; preds = %32
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %35) #16
+  call void @__cxa_free_exception(ptr nonnull %35) #16
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -6782,7 +6782,7 @@ define void @_ZNK5faiss14ParameterSpace7exploreEPNS_5IndexEmPKfRKNS_17AutoTuneCr
 34:                                               ; preds = %27
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %30) #16
+  call void @__cxa_free_exception(ptr nonnull %30) #16
   br label %36
 
 36:                                               ; preds = %34, %32
@@ -7076,7 +7076,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit139:                 ; preds = %142, %141
 161:                                              ; preds = %154
   %162 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %157) #16
+  call void @__cxa_free_exception(ptr nonnull %157) #16
   br label %163
 
 163:                                              ; preds = %161, %159

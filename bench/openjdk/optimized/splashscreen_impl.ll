@@ -1438,7 +1438,7 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr noundef readonly
   br label %99
 
 87:                                               ; preds = %79, %46
-  call void @free(ptr noundef %11) #21
+  call void @free(ptr noundef nonnull %11) #21
   %88 = call noalias ptr @fopen64(ptr noundef %10, ptr noundef nonnull @.str.7)
   %.not = icmp eq ptr %88, null
   br i1 %.not, label %89, label %96

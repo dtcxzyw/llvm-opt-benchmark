@@ -12147,7 +12147,7 @@ define internal fastcc void @add_name_to_table(ptr noundef nonnull readonly capt
   %23 = sub nsw i32 %4, %.03039
   %24 = mul i32 %23, %20
   %25 = zext i32 %24 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %22, ptr align 1 %.02940, i64 %25, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %.02940, i64 %25, i1 false)
   br label %.loopexit
 
 .thread34:                                        ; preds = %13, %17

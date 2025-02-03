@@ -258,7 +258,7 @@ define range(i32 -1, 1) i32 @H5AC_proxy_entry_add_parent(ptr noundef %0, ptr nou
   br i1 %.not, label %32, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @H5AC_create_flush_dependency(ptr noundef %1, ptr noundef nonnull %0) #3
+  %26 = tail call i32 @H5AC_create_flush_dependency(ptr noundef nonnull %1, ptr noundef nonnull %0) #3
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %32
 

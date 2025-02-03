@@ -1756,7 +1756,7 @@ define internal noundef i32 @_ZL13printf_to_envPvPKcz(ptr noundef readonly captu
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 1
   %8 = icmp eq i8 %7, 10
-  br i1 %8, label %9, label %.thread34
+  br i1 %8, label %9, label %select.unfold
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1771,52 +1771,52 @@ define internal noundef i32 @_ZL13printf_to_envPvPKcz(ptr noundef readonly captu
 14:                                               ; preds = %2
   %15 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 37) #13
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread34, label %17
+  br i1 %16, label %select.unfold, label %17
 
 17:                                               ; preds = %14
   %18 = load i8, ptr %1, align 1
   %19 = icmp eq i8 %18, 37
-  br i1 %19, label %20, label %.thread
+  br i1 %19, label %20, label %30
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 37
-  br i1 %23, label %24, label %.thread
+  br i1 %23, label %24, label %30
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %26 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 37) #13
   %27 = icmp eq ptr %26, null
   %28 = add i64 %5, -1
-  br i1 %27, label %.thread34, label %.thread
+  br i1 %27, label %select.unfold, label %30
 
-.thread34:                                        ; preds = %14, %24, %6
-  %.02639 = phi i64 [ 1, %6 ], [ %28, %24 ], [ %5, %14 ]
-  %.02738 = phi ptr [ %1, %6 ], [ %21, %24 ], [ %1, %14 ]
-  tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %.02738, i64 noundef %.02639) #12
-  %29 = trunc i64 %.02639 to i32
+select.unfold:                                    ; preds = %24, %14, %6
+  %.027 = phi ptr [ %1, %14 ], [ %1, %6 ], [ %21, %24 ]
+  %.026 = phi i64 [ %5, %14 ], [ 1, %6 ], [ %28, %24 ]
+  tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %.027, i64 noundef %.026) #12
+  %29 = trunc i64 %.026 to i32
   br label %_ZN12outputStream3bolEv.exit
 
-.thread:                                          ; preds = %24, %17, %20
+30:                                               ; preds = %20, %17, %24
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %33 = load i32, ptr %32, align 8
-  %34 = zext i32 %33 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %34 = load i32, ptr %33, align 8
+  %35 = zext i32 %34 to i64
   call void @_ZN12outputStream6vprintEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %1, ptr noundef nonnull %3) #12
-  %35 = load i64, ptr %30, align 8
-  %36 = load i32, ptr %32, align 8
+  %36 = load i64, ptr %31, align 8
+  %37 = load i32, ptr %33, align 8
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %37 = add i64 %31, %34
-  %38 = sub i64 %35, %37
-  %39 = trunc i64 %38 to i32
-  %40 = add i32 %36, %39
+  %38 = add i64 %32, %35
+  %39 = sub i64 %36, %38
+  %40 = trunc i64 %39 to i32
+  %41 = add i32 %37, %40
   br label %_ZN12outputStream3bolEv.exit
 
-_ZN12outputStream3bolEv.exit:                     ; preds = %13, %9, %2, %.thread, %.thread34
-  %.0 = phi i32 [ %29, %.thread34 ], [ %40, %.thread ], [ 0, %2 ], [ 1, %9 ], [ 1, %13 ]
+_ZN12outputStream3bolEv.exit:                     ; preds = %13, %9, %2, %30, %select.unfold
+  %.0 = phi i32 [ %29, %select.unfold ], [ %41, %30 ], [ 0, %2 ], [ 1, %9 ], [ 1, %13 ]
   ret i32 %.0
 }
 

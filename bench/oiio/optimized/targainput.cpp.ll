@@ -737,7 +737,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %2, %lpad ], [ %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i ]
-  tail call void @_ZN18OpenImageIO_v2_6_010ImageInputdlEPv(ptr noundef %call) #25
+  tail call void @_ZN18OpenImageIO_v2_6_010ImageInputdlEPv(ptr noundef nonnull %call) #25
   resume { ptr, i32 } %eh.lpad-body
 }
 

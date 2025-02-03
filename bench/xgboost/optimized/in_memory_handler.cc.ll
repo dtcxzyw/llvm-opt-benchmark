@@ -4986,7 +4986,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor10Accumulate
 34:                                               ; preds = %31
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %32) #7
+  tail call void @__cxa_free_exception(ptr nonnull %32) #7
   resume { ptr, i32 } %35
 
 36:                                               ; preds = %28, %25, %22, %19, %16, %13, %10, %7
@@ -5074,7 +5074,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor10Accumulate
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %27) #7
+  tail call void @__cxa_free_exception(ptr nonnull %27) #7
   resume { ptr, i32 } %30
 
 _ZSt9transformIPaPKaS0_ZNK7xgboost10collective16AllreduceFunctor10AccumulateIaEEvPT_PKS7_mNS4_2OpEEUlaaE_ET1_S7_S7_T0_SD_T2_.exit: ; preds = %.lr.ph.i31, %.lr.ph.i23, %.lr.ph.i, %18, %12, %6, %25
@@ -5159,7 +5159,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor10Accumulate
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %27) #7
+  tail call void @__cxa_free_exception(ptr nonnull %27) #7
   resume { ptr, i32 } %30
 
 _ZSt9transformIPhPKhS0_ZNK7xgboost10collective16AllreduceFunctor10AccumulateIhEEvPT_PKS7_mNS4_2OpEEUlhhE_ET1_S7_S7_T0_SD_T2_.exit: ; preds = %.lr.ph.i31, %.lr.ph.i23, %.lr.ph.i, %18, %12, %6, %25
@@ -5244,7 +5244,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor10Accumulate
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %27) #7
+  tail call void @__cxa_free_exception(ptr nonnull %27) #7
   resume { ptr, i32 } %30
 
 _ZSt9transformIPiPKiS0_ZNK7xgboost10collective16AllreduceFunctor10AccumulateIiEEvPT_PKS7_mNS4_2OpEEUliiE_ET1_S7_S7_T0_SD_T2_.exit: ; preds = %.lr.ph.i31, %.lr.ph.i23, %.lr.ph.i, %18, %12, %6, %25
@@ -5329,7 +5329,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor10Accumulate
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %27) #7
+  tail call void @__cxa_free_exception(ptr nonnull %27) #7
   resume { ptr, i32 } %30
 
 _ZSt9transformIPjPKjS0_ZNK7xgboost10collective16AllreduceFunctor10AccumulateIjEEvPT_PKS7_mNS4_2OpEEUljjE_ET1_S7_S7_T0_SD_T2_.exit: ; preds = %.lr.ph.i31, %.lr.ph.i23, %.lr.ph.i, %18, %12, %6, %25
@@ -5414,7 +5414,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor10Accumulate
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %27) #7
+  tail call void @__cxa_free_exception(ptr nonnull %27) #7
   resume { ptr, i32 } %30
 
 _ZSt9transformIPlPKlS0_ZNK7xgboost10collective16AllreduceFunctor10AccumulateIlEEvPT_PKS7_mNS4_2OpEEUlllE_ET1_S7_S7_T0_SD_T2_.exit: ; preds = %.lr.ph.i31, %.lr.ph.i23, %.lr.ph.i, %18, %12, %6, %25
@@ -5499,7 +5499,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor10Accumulate
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %27) #7
+  tail call void @__cxa_free_exception(ptr nonnull %27) #7
   resume { ptr, i32 } %30
 
 _ZSt9transformIPmPKmS0_ZNK7xgboost10collective16AllreduceFunctor10AccumulateImEEvPT_PKS7_mNS4_2OpEEUlmmE_ET1_S7_S7_T0_SD_T2_.exit: ; preds = %.lr.ph.i31, %.lr.ph.i23, %.lr.ph.i, %18, %12, %6, %25
@@ -5586,7 +5586,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor10Accumulate
 31:                                               ; preds = %28
   %32 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %29) #7
+  tail call void @__cxa_free_exception(ptr nonnull %29) #7
   resume { ptr, i32 } %32
 
 _ZSt9transformIPfPKfS0_ZNK7xgboost10collective16AllreduceFunctor10AccumulateIfEEvPT_PKS7_mNS4_2OpEEUlffE_ET1_S7_S7_T0_SD_T2_.exit: ; preds = %.lr.ph.i31, %.lr.ph.i23, %.lr.ph.i, %20, %13, %6, %27
@@ -5673,7 +5673,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor10Accumulate
 31:                                               ; preds = %28
   %32 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %29) #7
+  tail call void @__cxa_free_exception(ptr nonnull %29) #7
   resume { ptr, i32 } %32
 
 _ZSt9transformIPdPKdS0_ZNK7xgboost10collective16AllreduceFunctor10AccumulateIdEEvPT_PKS7_mNS4_2OpEEUlddE_ET1_S7_S7_T0_SD_T2_.exit: ; preds = %.lr.ph.i31, %.lr.ph.i23, %.lr.ph.i, %20, %13, %6, %27
@@ -5756,7 +5756,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor17Accumulate
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #7
+  tail call void @__cxa_free_exception(ptr nonnull %28) #7
   resume { ptr, i32 } %31
 
 _ZSt9transformIPaPKaS0_St7bit_andIaEET1_T_S6_T0_S5_T2_.exit: ; preds = %.lr.ph.i25, %.lr.ph.i18, %.lr.ph.i, %20, %13, %6
@@ -5834,7 +5834,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor17Accumulate
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #7
+  tail call void @__cxa_free_exception(ptr nonnull %28) #7
   resume { ptr, i32 } %31
 
 _ZSt9transformIPhPKhS0_St7bit_andIhEET1_T_S6_T0_S5_T2_.exit: ; preds = %.lr.ph.i25, %.lr.ph.i18, %.lr.ph.i, %20, %13, %6
@@ -5912,7 +5912,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor17Accumulate
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #7
+  tail call void @__cxa_free_exception(ptr nonnull %28) #7
   resume { ptr, i32 } %31
 
 _ZSt9transformIPiPKiS0_St7bit_andIiEET1_T_S6_T0_S5_T2_.exit: ; preds = %.lr.ph.i25, %.lr.ph.i18, %.lr.ph.i, %20, %13, %6
@@ -5990,7 +5990,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor17Accumulate
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #7
+  tail call void @__cxa_free_exception(ptr nonnull %28) #7
   resume { ptr, i32 } %31
 
 _ZSt9transformIPjPKjS0_St7bit_andIjEET1_T_S6_T0_S5_T2_.exit: ; preds = %.lr.ph.i25, %.lr.ph.i18, %.lr.ph.i, %20, %13, %6
@@ -6068,7 +6068,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor17Accumulate
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #7
+  tail call void @__cxa_free_exception(ptr nonnull %28) #7
   resume { ptr, i32 } %31
 
 _ZSt9transformIPlPKlS0_St7bit_andIlEET1_T_S6_T0_S5_T2_.exit: ; preds = %.lr.ph.i25, %.lr.ph.i18, %.lr.ph.i, %20, %13, %6
@@ -6146,7 +6146,7 @@ define linkonce_odr void @_ZNK7xgboost10collective16AllreduceFunctor17Accumulate
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #7
+  tail call void @__cxa_free_exception(ptr nonnull %28) #7
   resume { ptr, i32 } %31
 
 _ZSt9transformIPmPKmS0_St7bit_andImEET1_T_S6_T0_S5_T2_.exit: ; preds = %.lr.ph.i25, %.lr.ph.i18, %.lr.ph.i, %20, %13, %6

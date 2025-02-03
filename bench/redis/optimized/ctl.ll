@@ -9951,7 +9951,7 @@ for.body79:                                       ; preds = %for.body79.lr.ph, %
   br i1 %cmp.i.not.i235, label %if.end.i238, label %if.then.i236
 
 if.then.i236:                                     ; preds = %for.body79
-  tail call void @malloc_mutex_lock_slow(ptr noundef %add.ptr.i) #14
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %add.ptr.i) #14
   %locked.i237 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 104
   store atomic i8 1, ptr %locked.i237 monotonic, align 1
   br label %if.end.i238

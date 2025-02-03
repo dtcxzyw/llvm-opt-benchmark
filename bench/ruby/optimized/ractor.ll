@@ -844,7 +844,7 @@ define hidden void @rb_ractor_receive_parameters(ptr noundef %0, ptr noundef %1,
   br i1 %17, label %.lr.ph.i, label %ractor_receive.exit
 
 .lr.ph.i:                                         ; preds = %15, %ractor_try_receive.exit
-  tail call fastcc void @ractor_wait_receive(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6)
+  tail call fastcc void @ractor_wait_receive(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
   %.val.i = load i64, ptr %7, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %ractor_recursive_receive_if.exit.i, label %18
@@ -4099,8 +4099,8 @@ rb_ec_ractor_ptr.exit:                            ; preds = %2, %4
   br i1 %9, label %.lr.ph.i, label %ractor_receive.exit
 
 .lr.ph.i:                                         ; preds = %rb_ec_ractor_ptr.exit, %.lr.ph.i
-  tail call fastcc void @ractor_wait_receive(ptr noundef %0, ptr noundef %.0.i, ptr noundef nonnull %7)
-  %10 = tail call fastcc i64 @ractor_try_receive(ptr noundef %.0.i, ptr noundef nonnull %7)
+  tail call fastcc void @ractor_wait_receive(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull %7)
+  %10 = tail call fastcc i64 @ractor_try_receive(ptr noundef nonnull %.0.i, ptr noundef nonnull %7)
   %11 = icmp eq i64 %10, 36
   br i1 %11, label %.lr.ph.i, label %ractor_receive.exit, !llvm.loop !12
 
@@ -4129,8 +4129,8 @@ rb_ec_ractor_ptr.exit:                            ; preds = %2, %4
   br i1 %9, label %.lr.ph.i, label %ractor_receive.exit
 
 .lr.ph.i:                                         ; preds = %rb_ec_ractor_ptr.exit, %.lr.ph.i
-  tail call fastcc void @ractor_wait_receive(ptr noundef %0, ptr noundef %.0.i, ptr noundef nonnull %7)
-  %10 = tail call fastcc i64 @ractor_try_receive(ptr noundef %.0.i, ptr noundef nonnull %7)
+  tail call fastcc void @ractor_wait_receive(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull %7)
+  %10 = tail call fastcc i64 @ractor_try_receive(ptr noundef nonnull %.0.i, ptr noundef nonnull %7)
   %11 = icmp eq i64 %10, 36
   br i1 %11, label %.lr.ph.i, label %ractor_receive.exit, !llvm.loop !12
 

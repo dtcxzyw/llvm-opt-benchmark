@@ -1075,7 +1075,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit342:  ; preds = %59, %63
     i32 199, label %367
     i32 168, label %379
     i32 201, label %387
-    i32 169, label %._crit_edge
+    i32 169, label %._crit_edge.thread
     i32 170, label %394
     i32 171, label %439
     i32 172, label %479
@@ -1858,14 +1858,14 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422: ; preds =
   %481 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %480
   %482 = load i8, ptr %481, align 1
   %483 = icmp slt i8 %482, 0
-  br i1 %483, label %._crit_edge.thread, label %._crit_edge
+  br i1 %483, label %.lr.ph.preheader.i423, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %479
+.lr.ph.preheader.i423:                            ; preds = %479
   %484 = sext i8 %482 to i32
   %.promoted.i424 = load i32, ptr %37, align 1
   %485 = add i32 %.promoted.i424, %484
   store i32 %485, ptr %37, align 8
-  br label %671
+  br label %._crit_edge.thread
 
 486:                                              ; preds = %71, %71
   %487 = sext i32 %.0332 to i64
@@ -2105,133 +2105,129 @@ _ZN21SimulatedOperandStack3popEi.exit454:         ; preds = %614, %.lr.ph.prehea
   store i8 0, ptr %624, align 1
   %625 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 0, ptr %625, align 4
-  %626 = icmp eq ptr %37, null
-  br i1 %626, label %_ZN13GrowableArrayIiED2Ev.exit, label %627
+  %626 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %627 = load i64, ptr %626, align 8
+  %628 = and i64 %627, 1
+  %.not.i.i456 = icmp eq i64 %628, 0
+  br i1 %.not.i.i456, label %_ZN21SimulatedOperandStackD2Ev.exit, label %629
 
-627:                                              ; preds = %623
-  %628 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %629 = load i64, ptr %628, align 8
-  %630 = and i64 %629, 1
-  %.not.i.i456 = icmp eq i64 %630, 0
-  br i1 %.not.i.i456, label %_ZN21SimulatedOperandStackD2Ev.exit, label %631
-
-631:                                              ; preds = %627
+629:                                              ; preds = %623
   store i32 0, ptr %37, align 4
   tail call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(32) %37)
   br label %_ZN21SimulatedOperandStackD2Ev.exit
 
-_ZN21SimulatedOperandStackD2Ev.exit:              ; preds = %627, %631
+_ZN21SimulatedOperandStackD2Ev.exit:              ; preds = %623, %629
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %37) #12
   br label %_ZN13GrowableArrayIiED2Ev.exit
 
 .loopexit.loopexit:                               ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
-  %632 = trunc nuw i64 %417 to i32
+  %630 = trunc nuw i64 %417 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422, %.loopexit.loopexit, %439, %394, %119, %_ZN21SimulatedOperandStack3popEi.exit447, %71, %591, %582, %_ZN21SimulatedOperandStack3popEi.exit440, %_ZN21SimulatedOperandStack3popEi.exit429, %_ZN21SimulatedOperandStack3popEi.exit404, %_ZN21SimulatedOperandStack3popEi.exit401, %349, %340, %_ZN21SimulatedOperandStack3popEi.exit394, %_ZN21SimulatedOperandStack3popEi.exit391, %_ZN21SimulatedOperandStack3popEi.exit388, %290, %274, %261, %249, %236, %226, %219, %140, %125, %128, %131, %134, %137, %72, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit, %.lr.ph.preheader.i, %172, %.lr.ph.preheader.i345, %182, %.lr.ph.preheader.i348, %192, %.lr.ph.preheader.i351, %202, %.lr.ph.preheader.i354, %212, %.lr.ph.preheader.i357, %516, %.lr.ph.preheader.i431
-  %.sroa.0497.0.ph = phi i32 [ 0, %.lr.ph.preheader.i431 ], [ 0, %516 ], [ 0, %.lr.ph.preheader.i357 ], [ 0, %212 ], [ 0, %.lr.ph.preheader.i354 ], [ 0, %202 ], [ 0, %.lr.ph.preheader.i351 ], [ 0, %192 ], [ 0, %.lr.ph.preheader.i348 ], [ 0, %182 ], [ 0, %.lr.ph.preheader.i345 ], [ 0, %172 ], [ 0, %.lr.ph.preheader.i ], [ 0, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit ], [ 0, %72 ], [ 0, %137 ], [ 0, %134 ], [ 0, %131 ], [ 0, %128 ], [ 0, %125 ], [ 0, %140 ], [ 0, %219 ], [ 0, %226 ], [ 0, %236 ], [ 0, %249 ], [ 0, %261 ], [ 0, %274 ], [ 0, %290 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit388 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit391 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit394 ], [ 0, %340 ], [ 0, %349 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit401 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit404 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit429 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit440 ], [ 0, %582 ], [ 0, %591 ], [ 0, %71 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit447 ], [ 0, %119 ], [ 0, %394 ], [ 0, %439 ], [ %632, %.loopexit.loopexit ], [ %448, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422 ]
+  %.sroa.0497.0.ph = phi i32 [ 0, %.lr.ph.preheader.i431 ], [ 0, %516 ], [ 0, %.lr.ph.preheader.i357 ], [ 0, %212 ], [ 0, %.lr.ph.preheader.i354 ], [ 0, %202 ], [ 0, %.lr.ph.preheader.i351 ], [ 0, %192 ], [ 0, %.lr.ph.preheader.i348 ], [ 0, %182 ], [ 0, %.lr.ph.preheader.i345 ], [ 0, %172 ], [ 0, %.lr.ph.preheader.i ], [ 0, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit ], [ 0, %72 ], [ 0, %137 ], [ 0, %134 ], [ 0, %131 ], [ 0, %128 ], [ 0, %125 ], [ 0, %140 ], [ 0, %219 ], [ 0, %226 ], [ 0, %236 ], [ 0, %249 ], [ 0, %261 ], [ 0, %274 ], [ 0, %290 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit388 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit391 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit394 ], [ 0, %340 ], [ 0, %349 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit401 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit404 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit429 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit440 ], [ 0, %582 ], [ 0, %591 ], [ 0, %71 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit447 ], [ 0, %119 ], [ 0, %394 ], [ 0, %439 ], [ %630, %.loopexit.loopexit ], [ %448, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422 ]
   %.sroa.25.0.ph = phi ptr [ %43, %.lr.ph.preheader.i431 ], [ %43, %516 ], [ %43, %.lr.ph.preheader.i357 ], [ %43, %212 ], [ %43, %.lr.ph.preheader.i354 ], [ %43, %202 ], [ %43, %.lr.ph.preheader.i351 ], [ %43, %192 ], [ %43, %.lr.ph.preheader.i348 ], [ %43, %182 ], [ %43, %.lr.ph.preheader.i345 ], [ %43, %172 ], [ %43, %.lr.ph.preheader.i ], [ %43, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit ], [ %43, %72 ], [ %43, %137 ], [ %43, %134 ], [ %43, %131 ], [ %43, %128 ], [ %43, %125 ], [ %43, %140 ], [ %43, %219 ], [ %43, %226 ], [ %43, %236 ], [ %43, %249 ], [ %43, %261 ], [ %43, %274 ], [ %43, %290 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit388 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit391 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit394 ], [ %43, %340 ], [ %43, %349 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit401 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit404 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit429 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit440 ], [ %43, %582 ], [ %43, %591 ], [ %43, %71 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit447 ], [ %43, %119 ], [ %43, %394 ], [ %43, %439 ], [ %.sroa.25.4, %.loopexit.loopexit ], [ %.sroa.25.5, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422 ]
   %.0327.ph = phi i32 [ -1, %.lr.ph.preheader.i431 ], [ -1, %516 ], [ -1, %.lr.ph.preheader.i357 ], [ -1, %212 ], [ -1, %.lr.ph.preheader.i354 ], [ -1, %202 ], [ -1, %.lr.ph.preheader.i351 ], [ -1, %192 ], [ -1, %.lr.ph.preheader.i348 ], [ -1, %182 ], [ -1, %.lr.ph.preheader.i345 ], [ -1, %172 ], [ -1, %.lr.ph.preheader.i ], [ -1, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit ], [ -1, %72 ], [ -1, %137 ], [ -1, %134 ], [ -1, %131 ], [ -1, %128 ], [ -1, %125 ], [ -1, %140 ], [ -1, %219 ], [ -1, %226 ], [ -1, %236 ], [ -1, %249 ], [ -1, %261 ], [ -1, %274 ], [ -1, %290 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit388 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit391 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit394 ], [ -1, %340 ], [ -1, %349 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit401 ], [ %378, %_ZN21SimulatedOperandStack3popEi.exit404 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit429 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit440 ], [ -1, %582 ], [ -1, %591 ], [ -1, %71 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit447 ], [ -1, %119 ], [ %401, %394 ], [ %446, %439 ], [ %401, %.loopexit.loopexit ], [ %446, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422 ]
-  %633 = load ptr, ptr %0, align 8
-  %634 = add nsw i32 %27, %1
-  %635 = getelementptr inbounds nuw i8, ptr %633, i64 8
-  %636 = load ptr, ptr %635, align 8
-  %637 = sext i32 %634 to i64
-  %638 = getelementptr inbounds ptr, ptr %636, i64 %637
-  %639 = load ptr, ptr %638, align 8
-  %640 = icmp eq ptr %639, null
-  br i1 %640, label %641, label %643
+  %631 = load ptr, ptr %0, align 8
+  %632 = add nsw i32 %27, %1
+  %633 = getelementptr inbounds nuw i8, ptr %631, i64 8
+  %634 = load ptr, ptr %633, align 8
+  %635 = sext i32 %632 to i64
+  %636 = getelementptr inbounds ptr, ptr %634, i64 %635
+  %637 = load ptr, ptr %636, align 8
+  %638 = icmp eq ptr %637, null
+  br i1 %638, label %639, label %641
 
-641:                                              ; preds = %.loopexit
-  %642 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %642, align 4
-  br label %643
+639:                                              ; preds = %.loopexit
+  %640 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %640, align 4
+  br label %641
 
-643:                                              ; preds = %641, %.loopexit
-  call void @_ZN23ExceptionMessageBuilder5mergeEiP21SimulatedOperandStack(ptr noundef nonnull align 8 dereferenceable(22) %0, i32 noundef %634, ptr noundef %37)
+641:                                              ; preds = %639, %.loopexit
+  call void @_ZN23ExceptionMessageBuilder5mergeEiP21SimulatedOperandStack(ptr noundef nonnull align 8 dereferenceable(22) %0, i32 noundef %632, ptr noundef %37)
   br label %_ZN21SimulatedOperandStack3popEi.exit
 
-_ZN21SimulatedOperandStack3popEi.exit:            ; preds = %379, %387, %_ZN21SimulatedOperandStack3popEi.exit450, %_ZN21SimulatedOperandStack3popEi.exit454, %643
-  %.0327542 = phi i32 [ %.0327.ph, %643 ], [ %622, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ %613, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ %393, %387 ], [ %386, %379 ]
-  %.sroa.25.0540 = phi ptr [ %.sroa.25.0.ph, %643 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ %43, %387 ], [ %43, %379 ]
-  %.sroa.0497.0536 = phi i32 [ %.sroa.0497.0.ph, %643 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ 0, %387 ], [ 0, %379 ]
+_ZN21SimulatedOperandStack3popEi.exit:            ; preds = %379, %387, %_ZN21SimulatedOperandStack3popEi.exit450, %_ZN21SimulatedOperandStack3popEi.exit454, %641
+  %.0327542 = phi i32 [ %.0327.ph, %641 ], [ %622, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ %613, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ %393, %387 ], [ %386, %379 ]
+  %.sroa.25.0540 = phi ptr [ %.sroa.25.0.ph, %641 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ %43, %387 ], [ %43, %379 ]
+  %.sroa.0497.0536 = phi i32 [ %.sroa.0497.0.ph, %641 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ 0, %387 ], [ 0, %379 ]
   %.not339 = icmp eq i32 %.0327542, -1
-  br i1 %.not339, label %_ZN21SimulatedOperandStack3popEi.exit.thread544, label %644
+  br i1 %.not339, label %_ZN21SimulatedOperandStack3popEi.exit.thread544, label %642
 
-644:                                              ; preds = %_ZN21SimulatedOperandStack3popEi.exit
-  %645 = load ptr, ptr %0, align 8
-  %646 = getelementptr inbounds nuw i8, ptr %645, i64 8
-  %647 = load ptr, ptr %646, align 8
-  %648 = sext i32 %.0327542 to i64
-  %649 = getelementptr inbounds ptr, ptr %647, i64 %648
-  %650 = load ptr, ptr %649, align 8
-  %651 = icmp eq ptr %650, null
-  br i1 %651, label %652, label %654
+642:                                              ; preds = %_ZN21SimulatedOperandStack3popEi.exit
+  %643 = load ptr, ptr %0, align 8
+  %644 = getelementptr inbounds nuw i8, ptr %643, i64 8
+  %645 = load ptr, ptr %644, align 8
+  %646 = sext i32 %.0327542 to i64
+  %647 = getelementptr inbounds ptr, ptr %645, i64 %646
+  %648 = load ptr, ptr %647, align 8
+  %649 = icmp eq ptr %648, null
+  br i1 %649, label %650, label %652
 
-652:                                              ; preds = %644
-  %653 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %653, align 4
-  br label %654
+650:                                              ; preds = %642
+  %651 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %651, align 4
+  br label %652
 
-654:                                              ; preds = %652, %644
+652:                                              ; preds = %650, %642
   call void @_ZN23ExceptionMessageBuilder5mergeEiP21SimulatedOperandStack(ptr noundef nonnull align 8 dereferenceable(22) %0, i32 noundef %.0327542, ptr noundef %37)
   br label %_ZN21SimulatedOperandStack3popEi.exit.thread544
 
-_ZN21SimulatedOperandStack3popEi.exit.thread544:  ; preds = %654, %_ZN21SimulatedOperandStack3popEi.exit
-  %655 = icmp sgt i32 %.sroa.0497.0536, 0
-  br i1 %655, label %.lr.ph573, label %._crit_edge
+_ZN21SimulatedOperandStack3popEi.exit.thread544:  ; preds = %652, %_ZN21SimulatedOperandStack3popEi.exit
+  %653 = icmp sgt i32 %.sroa.0497.0536, 0
+  br i1 %653, label %.lr.ph573, label %._crit_edge
 
 .lr.ph573:                                        ; preds = %_ZN21SimulatedOperandStack3popEi.exit.thread544
-  %656 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %654 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %wide.trip.count588 = zext nneg i32 %.sroa.0497.0536 to i64
-  br label %657
+  br label %655
 
-657:                                              ; preds = %.lr.ph573, %668
-  %indvars.iv585 = phi i64 [ 0, %.lr.ph573 ], [ %indvars.iv.next586, %668 ]
-  %658 = load ptr, ptr %0, align 8
-  %659 = getelementptr inbounds nuw i32, ptr %.sroa.25.0540, i64 %indvars.iv585
-  %660 = load i32, ptr %659, align 4
-  %661 = getelementptr inbounds nuw i8, ptr %658, i64 8
-  %662 = load ptr, ptr %661, align 8
-  %663 = sext i32 %660 to i64
-  %664 = getelementptr inbounds ptr, ptr %662, i64 %663
-  %665 = load ptr, ptr %664, align 8
-  %666 = icmp eq ptr %665, null
-  br i1 %666, label %667, label %668
+655:                                              ; preds = %.lr.ph573, %666
+  %indvars.iv585 = phi i64 [ 0, %.lr.ph573 ], [ %indvars.iv.next586, %666 ]
+  %656 = load ptr, ptr %0, align 8
+  %657 = getelementptr inbounds nuw i32, ptr %.sroa.25.0540, i64 %indvars.iv585
+  %658 = load i32, ptr %657, align 4
+  %659 = getelementptr inbounds nuw i8, ptr %656, i64 8
+  %660 = load ptr, ptr %659, align 8
+  %661 = sext i32 %658 to i64
+  %662 = getelementptr inbounds ptr, ptr %660, i64 %661
+  %663 = load ptr, ptr %662, align 8
+  %664 = icmp eq ptr %663, null
+  br i1 %664, label %665, label %666
 
-667:                                              ; preds = %657
-  store i8 1, ptr %656, align 4
-  %.pre = load i32, ptr %659, align 4
-  br label %668
+665:                                              ; preds = %655
+  store i8 1, ptr %654, align 4
+  %.pre = load i32, ptr %657, align 4
+  br label %666
 
-668:                                              ; preds = %667, %657
-  %669 = phi i32 [ %.pre, %667 ], [ %660, %657 ]
-  call void @_ZN23ExceptionMessageBuilder5mergeEiP21SimulatedOperandStack(ptr noundef nonnull align 8 dereferenceable(22) %0, i32 noundef %669, ptr noundef %37)
+666:                                              ; preds = %665, %655
+  %667 = phi i32 [ %.pre, %665 ], [ %658, %655 ]
+  call void @_ZN23ExceptionMessageBuilder5mergeEiP21SimulatedOperandStack(ptr noundef nonnull align 8 dereferenceable(22) %0, i32 noundef %667, ptr noundef %37)
   %indvars.iv.next586 = add nuw nsw i64 %indvars.iv585, 1
   %exitcond589.not = icmp eq i64 %indvars.iv.next586, %wide.trip.count588
-  br i1 %exitcond589.not, label %._crit_edge, label %657, !llvm.loop !19
+  br i1 %exitcond589.not, label %._crit_edge, label %655, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %668, %71, %479, %_ZN21SimulatedOperandStack3popEi.exit.thread544
-  %670 = icmp eq ptr %37, null
-  br i1 %670, label %_ZN13GrowableArrayIiED2Ev.exit, label %671
+._crit_edge:                                      ; preds = %666, %_ZN21SimulatedOperandStack3popEi.exit.thread544
+  %668 = icmp eq ptr %37, null
+  br i1 %668, label %_ZN13GrowableArrayIiED2Ev.exit, label %._crit_edge.thread
 
-671:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %672 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %673 = load i64, ptr %672, align 8
-  %674 = and i64 %673, 1
-  %.not.i.i457 = icmp eq i64 %674, 0
-  br i1 %.not.i.i457, label %_ZN21SimulatedOperandStackD2Ev.exit458, label %675
+._crit_edge.thread:                               ; preds = %479, %.lr.ph.preheader.i423, %71, %._crit_edge
+  %669 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %670 = load i64, ptr %669, align 8
+  %671 = and i64 %670, 1
+  %.not.i.i457 = icmp eq i64 %671, 0
+  br i1 %.not.i.i457, label %_ZN21SimulatedOperandStackD2Ev.exit458, label %672
 
-675:                                              ; preds = %671
+672:                                              ; preds = %._crit_edge.thread
   store i32 0, ptr %37, align 4
   call void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(32) %37)
   br label %_ZN21SimulatedOperandStackD2Ev.exit458
 
-_ZN21SimulatedOperandStackD2Ev.exit458:           ; preds = %671, %675
+_ZN21SimulatedOperandStackD2Ev.exit458:           ; preds = %._crit_edge.thread, %672
   call void @_Z8FreeHeapPv(ptr noundef nonnull %37) #12
   br label %_ZN13GrowableArrayIiED2Ev.exit
 
-_ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %._crit_edge, %_ZN21SimulatedOperandStackD2Ev.exit458, %623, %_ZN21SimulatedOperandStackD2Ev.exit, %34
+_ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %._crit_edge, %_ZN21SimulatedOperandStackD2Ev.exit458, %_ZN21SimulatedOperandStackD2Ev.exit, %34
   ret i32 %27
 }
 

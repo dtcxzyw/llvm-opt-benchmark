@@ -15873,7 +15873,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit50.i: ; preds = %_Z
   %.sroa.3.0.i = phi ptr [ %214, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit50.i ], [ %.sroa.12.0.i, %211 ], [ %.sroa.12.0.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i43.i ], [ %.sroa.12.0.i, %155 ], [ %.0.i.i.i, %146 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  invoke fastcc void @_ZL17parseFValueHelperB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %4, i64 %.sroa.02.0.i, ptr %.sroa.3.0.i)
+  invoke fastcc void @_ZL17parseFValueHelperB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %4, i64 %.sroa.02.0.i, ptr nonnull %.sroa.3.0.i)
           to label %.noexc73 unwind label %.loopexit153
 
 .noexc73:                                         ; preds = %.thread55.i
@@ -24862,7 +24862,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #51
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
+          to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit unwind label %35
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i = icmp eq ptr %6, %1
@@ -24914,32 +24914,32 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %32, ptr %27, align 8
   ret void
 
-33:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
+33:                                               ; preds = %35
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %38 unwind label %39
+          to label %39 unwind label %40
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  %37 = tail call ptr @__cxa_begin_catch(ptr %36) #9
+  %37 = extractvalue { ptr, i32 } %36, 0
+  %38 = tail call ptr @__cxa_begin_catch(ptr %37) #9
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #49
   invoke void @__cxa_rethrow() #50
-          to label %42 unwind label %33
-
-38:                                               ; preds = %33
-  resume { ptr, i32 } %34
+          to label %43 unwind label %33
 
 39:                                               ; preds = %33
-  %40 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %34
+
+40:                                               ; preds = %33
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #53
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #53
   unreachable
 
-42:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
+43:                                               ; preds = %35
   unreachable
 }
 
@@ -28876,7 +28876,7 @@ _ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16J
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %56) #9
-  br label %.body.i.i.i
+  br label %76
 
 _ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageEEE9constructIS4_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvRS5_PT_DpOT0_.exit.i.i.i: ; preds = %.noexc.i.i.i
   br i1 %47, label %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit37.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -28915,42 +28915,31 @@ _ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTes
 72:                                               ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE11_M_allocateEm.exit.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body.i.i.i
+  br label %76
 
-.body.i.i.i:                                      ; preds = %72, %59
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %73, %72 ], [ %60, %59 ]
-  %74 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
-  %75 = call ptr @__cxa_begin_catch(ptr %74) #9
-  %.not.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i.i, label %.thread.i.i.i, label %78
-
-.thread.i.i.i:                                    ; preds = %.body.i.i.i
-  call fastcc void @_ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageEEE7destroyIS4_EEvRS5_PT_(ptr noundef %56) #9
-  br label %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i.i
-
-76:                                               ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i.i
-  %77 = landingpad { ptr, i32 }
+74:                                               ; preds = %76
+  %75 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %.body17 unwind label %80
 
-78:                                               ; preds = %.body.i.i.i
+76:                                               ; preds = %72, %59
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %73, %72 ], [ %60, %59 ]
+  %77 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
+  %78 = call ptr @__cxa_begin_catch(ptr %77) #9
   %79 = mul nuw nsw i64 %51, 96
   call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %79) #49
-  br label %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i.i
-
-_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i.i: ; preds = %78, %.thread.i.i.i
   invoke void @__cxa_rethrow() #50
-          to label %83 unwind label %76
+          to label %83 unwind label %74
 
-80:                                               ; preds = %76
+80:                                               ; preds = %74
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
   call void @__clang_call_terminate(ptr %82) #53
   unreachable
 
-83:                                               ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i.i
+83:                                               ; preds = %76
   unreachable
 
 _ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %68, %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit37.i.i.i
@@ -28987,8 +28976,8 @@ _ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTes
           cleanup
   br label %.body17
 
-.body17:                                          ; preds = %36, %76, %94
-  %eh.lpad-body18 = phi { ptr, i32 } [ %95, %94 ], [ %37, %36 ], [ %77, %76 ]
+.body17:                                          ; preds = %36, %74, %94
+  %eh.lpad-body18 = phi { ptr, i32 } [ %95, %94 ], [ %37, %36 ], [ %75, %74 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
   br label %.body12
 
@@ -29460,7 +29449,7 @@ _ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16J
 153:                                              ; preds = %151, %149
   %.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %152, %151 ], [ %150, %149 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %145) #9
-  br label %.body.i.i.i
+  br label %169
 
 _ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageEEE9constructIS4_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_SF_EEEvRS5_PT_DpOT0_.exit.i.i.i: ; preds = %147
   br i1 %136, label %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit38.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -29499,42 +29488,31 @@ _ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTes
 165:                                              ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE11_M_allocateEm.exit.i.i.i
   %166 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body.i.i.i
+  br label %169
 
-.body.i.i.i:                                      ; preds = %165, %153
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %166, %165 ], [ %.pn.i.i.i.i.i.i, %153 ]
-  %167 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
-  %168 = call ptr @__cxa_begin_catch(ptr %167) #9
-  %.not.i.i.i = icmp eq ptr %144, null
-  br i1 %.not.i.i.i, label %.thread.i.i.i, label %171
-
-.thread.i.i.i:                                    ; preds = %.body.i.i.i
-  call fastcc void @_ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageEEE7destroyIS4_EEvRS5_PT_(ptr noundef %145) #9
-  br label %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE13_M_deallocateEPS4_m.exit43.i.i.i
-
-169:                                              ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE13_M_deallocateEPS4_m.exit43.i.i.i
-  %170 = landingpad { ptr, i32 }
+167:                                              ; preds = %169
+  %168 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %.body36 unwind label %173
 
-171:                                              ; preds = %.body.i.i.i
+169:                                              ; preds = %165, %153
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %166, %165 ], [ %.pn.i.i.i.i.i.i, %153 ]
+  %170 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
+  %171 = call ptr @__cxa_begin_catch(ptr %170) #9
   %172 = mul nuw nsw i64 %140, 96
   call void @_ZdlPvm(ptr noundef nonnull %144, i64 noundef %172) #49
-  br label %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE13_M_deallocateEPS4_m.exit43.i.i.i
-
-_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE13_M_deallocateEPS4_m.exit43.i.i.i: ; preds = %171, %.thread.i.i.i
   invoke void @__cxa_rethrow() #50
-          to label %176 unwind label %169
+          to label %176 unwind label %167
 
-173:                                              ; preds = %169
+173:                                              ; preds = %167
   %174 = landingpad { ptr, i32 }
           catch ptr null
   %175 = extractvalue { ptr, i32 } %174, 0
   call void @__clang_call_terminate(ptr %175) #53
   unreachable
 
-176:                                              ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE13_M_deallocateEPS4_m.exit43.i.i.i
+176:                                              ; preds = %169
   unreachable
 
 _ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_SF_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %161, %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit38.i.i.i
@@ -29601,8 +29579,8 @@ _ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTes
           cleanup
   br label %.body36
 
-.body36:                                          ; preds = %126, %169, %194
-  %eh.lpad-body37 = phi { ptr, i32 } [ %195, %194 ], [ %.pn.i.i.i.i.i, %126 ], [ %170, %169 ]
+.body36:                                          ; preds = %126, %167, %194
+  %eh.lpad-body37 = phi { ptr, i32 } [ %195, %194 ], [ %.pn.i.i.i.i.i, %126 ], [ %168, %167 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #9
   br label %196
 
@@ -29817,8 +29795,8 @@ define internal fastcc void @_ZN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTest
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseEEE9constructIS4_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvRS5_PT_DpOT0_.exit.i unwind label %10
 
-common.resume.i:                                  ; preds = %71, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %11, %10 ], [ %72, %71 ]
+common.resume.i:                                  ; preds = %69, %10
+  %common.resume.op.i = phi { ptr, i32 } [ %11, %10 ], [ %70, %69 ]
   resume { ptr, i32 } %common.resume.op.i
 
 10:                                               ; preds = %8
@@ -29878,7 +29856,7 @@ _ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13J
   %34 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %31) #9
-  br label %.body.i.i
+  br label %71
 
 35:                                               ; preds = %.noexc.i.i
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 64
@@ -29946,42 +29924,31 @@ _ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTes
 67:                                               ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_M_allocateEm.exit.i.i
   %68 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body.i.i
+  br label %71
 
-.body.i.i:                                        ; preds = %67, %33
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %68, %67 ], [ %34, %33 ]
-  %69 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
-  %70 = tail call ptr @__cxa_begin_catch(ptr %69) #9
-  %.not.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i, label %.thread.i.i, label %73
-
-.thread.i.i:                                      ; preds = %.body.i.i
-  tail call fastcc void @_ZN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %31) #9
-  br label %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i
-
-71:                                               ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i
-  %72 = landingpad { ptr, i32 }
+69:                                               ; preds = %71
+  %70 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume.i unwind label %75
 
-73:                                               ; preds = %.body.i.i
+71:                                               ; preds = %67, %33
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %68, %67 ], [ %34, %33 ]
+  %72 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
+  %73 = tail call ptr @__cxa_begin_catch(ptr %72) #9
   %74 = mul nuw nsw i64 %26, 120
   tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %74) #49
-  br label %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i
-
-_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i: ; preds = %73, %.thread.i.i
   invoke void @__cxa_rethrow() #50
-          to label %78 unwind label %71
+          to label %78 unwind label %69
 
-75:                                               ; preds = %71
+75:                                               ; preds = %69
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
   tail call void @__clang_call_terminate(ptr %77) #53
   unreachable
 
-78:                                               ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i
+78:                                               ; preds = %71
   unreachable
 
 _ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %63, %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit37.i.i
@@ -30282,16 +30249,6 @@ _ZSt10_ConstructIN7doctest6StringEJRKS1_EEvPT_DpOT0_.exit: ; preds = %_ZN7doctes
 
 43:                                               ; preds = %36
   unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageEEE7destroyIS4_EEvRS5_PT_(ptr noundef %0) unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #9
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #9
-  ret void
 }
 
 ; Function Attrs: mustprogress uwtable

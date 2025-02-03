@@ -3845,7 +3845,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$jus
   tail call void @llvm.experimental.noalias.scope.decl(metadata !701)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !704)
   %6 = load ptr, ptr %5, align 8, !alias.scope !707, !noundef !9
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$just..compile_error_kind..CompileErrorKind$GT$17hbed5a2c9027d5efdE.llvm.1798434116971987782"(ptr noalias noundef align 8 dereferenceable(96) %6)
+  invoke void @"_ZN4core3ptr63drop_in_place$LT$just..compile_error_kind..CompileErrorKind$GT$17hbed5a2c9027d5efdE.llvm.1798434116971987782"(ptr noalias noundef nonnull align 8 dereferenceable(96) %6)
           to label %"_ZN4core3ptr54drop_in_place$LT$just..compile_error..CompileError$GT$17h7ccec9bd220f87ebE.exit" unwind label %7, !noalias !707
 
 7:                                                ; preds = %4
@@ -4456,7 +4456,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$just..error..Error$GT$17h241
   tail call void @llvm.experimental.noalias.scope.decl(metadata !860)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !863)
   %146 = load ptr, ptr %145, align 8, !alias.scope !866, !noundef !9
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$just..compile_error_kind..CompileErrorKind$GT$17hbed5a2c9027d5efdE.llvm.1798434116971987782"(ptr noalias noundef align 8 dereferenceable(96) %146)
+  invoke void @"_ZN4core3ptr63drop_in_place$LT$just..compile_error_kind..CompileErrorKind$GT$17hbed5a2c9027d5efdE.llvm.1798434116971987782"(ptr noalias noundef nonnull align 8 dereferenceable(96) %146)
           to label %"_ZN4core3ptr54drop_in_place$LT$just..compile_error..CompileError$GT$17h7ccec9bd220f87ebE.exit" unwind label %147, !noalias !866
 
 common.resume:                                    ; preds = %425, %437, %446, %455, %473, %483, %488, %497, %522, %531, %357, %176, %234, %147
@@ -6950,7 +6950,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$6map_or17hb5561809cdb8ee24E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1545)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1548)
   %15 = load ptr, ptr %14, align 8, !alias.scope !1551, !noundef !9
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$just..compile_error_kind..CompileErrorKind$GT$17hbed5a2c9027d5efdE.llvm.1798434116971987782"(ptr noalias noundef align 8 dereferenceable(96) %15)
+  invoke void @"_ZN4core3ptr63drop_in_place$LT$just..compile_error_kind..CompileErrorKind$GT$17hbed5a2c9027d5efdE.llvm.1798434116971987782"(ptr noalias noundef nonnull align 8 dereferenceable(96) %15)
           to label %"_ZN4core3ptr54drop_in_place$LT$just..compile_error..CompileError$GT$17h7ccec9bd220f87ebE.exit.i" unwind label %16, !noalias !1551
 
 common.resume:                                    ; preds = %8, %16

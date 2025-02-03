@@ -11369,7 +11369,7 @@ _ZN3std2fs12canonicalize17h78c68a55a7d8c47eE.exit: ; preds = %55
 110:                                              ; preds = %106
   %111 = extractvalue { ptr, ptr } %107, 0
   %112 = extractvalue { ptr, ptr } %107, 1
-  invoke void @_ZN4gpui6window13WindowContext15dispatch_action17h64a9388a79727572E(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 1 %111, ptr noalias noundef readonly align 8 dereferenceable(56) %112)
+  invoke void @_ZN4gpui6window13WindowContext15dispatch_action17h64a9388a79727572E(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 1 %111, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %112)
           to label %113 unwind label %108
 
 113:                                              ; preds = %110

@@ -1325,7 +1325,7 @@ if.end8:                                          ; preds = %if.then, %land.lhs.
 
 if.then11:                                        ; preds = %if.end8
   %2 = load ptr, ptr @stderr, align 8
-  %call12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.49, ptr noundef %p.addr.0) #16
+  %call12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.49, ptr noundef nonnull %p.addr.0) #16
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
@@ -1348,7 +1348,7 @@ if.end21:                                         ; preds = %if.end13
   %or = or i64 %n.0, %conv22
   %conv23 = trunc i64 %or to i8
   store i8 %conv23, ptr %3, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14, ptr align 1 %p.addr.0, i64 %n.0, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14, ptr nonnull align 1 %p.addr.0, i64 %n.0, i1 false)
   store ptr %add.ptr15, ptr @optr, align 8
   ret void
 }

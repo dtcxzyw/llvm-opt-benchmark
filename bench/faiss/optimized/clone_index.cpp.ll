@@ -1616,7 +1616,7 @@ common.ret268:                                    ; preds = %_ZN5faiss11IndexFla
 315:                                              ; preds = %300
   %316 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %311) #23
+  call void @__cxa_free_exception(ptr nonnull %311) #23
   br label %317
 
 317:                                              ; preds = %315, %313
@@ -7045,7 +7045,7 @@ _ZSt10_ConstructIN5faiss9nndescent5NhoodEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i: ; pred
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #23
-  invoke void @_ZSt8_DestroyIPN5faiss9nndescent5NhoodEEvT_S4_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN5faiss9nndescent5NhoodEEvT_S4_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22
@@ -10584,7 +10584,7 @@ define internal fastcc noundef nonnull ptr @_ZN5faiss12_GLOBAL__N_119clone_Inver
 33:                                               ; preds = %26
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #23
+  call void @__cxa_free_exception(ptr nonnull %29) #23
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -10655,7 +10655,7 @@ define internal fastcc noundef nonnull ptr @_ZN5faiss12_GLOBAL__N_119clone_Inver
 73:                                               ; preds = %58
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %69) #23
+  call void @__cxa_free_exception(ptr nonnull %69) #23
   br label %75
 
 75:                                               ; preds = %73, %71

@@ -6158,7 +6158,7 @@ limit_needed.exit:                                ; preds = %1885, %1881, %1876,
   br i1 %.not439, label %1927, label %1925
 
 1925:                                             ; preds = %1924
-  %1926 = call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef nonnull %1923, ptr noundef %1907, ptr noundef %1899) #12
+  %1926 = call ptr @adjust_appendrel_attrs_multilevel(ptr noundef nonnull %0, ptr noundef nonnull %1923, ptr noundef %1907, ptr noundef %1899) #12
   br label %1927
 
 1927:                                             ; preds = %1925, %1924
@@ -6177,7 +6177,7 @@ limit_needed.exit:                                ; preds = %1885, %1881, %1876,
   br i1 %.not441, label %1934, label %1932
 
 1932:                                             ; preds = %1931
-  %1933 = call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef nonnull %1930, ptr noundef %1907, ptr noundef %1899) #12
+  %1933 = call ptr @adjust_appendrel_attrs_multilevel(ptr noundef nonnull %0, ptr noundef nonnull %1930, ptr noundef %1907, ptr noundef %1899) #12
   br label %1934
 
 1934:                                             ; preds = %1932, %1931

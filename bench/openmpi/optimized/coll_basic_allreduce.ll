@@ -125,13 +125,13 @@ opal_datatype_span.exit:                          ; preds = %19, %25
   %.0.i = phi i64 [ %36, %25 ], [ 0, %19 ]
   %37 = tail call noalias ptr @malloc(i64 noundef %.0.i) #5
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %ompi_coll_base_free_reqs.exit.thread, label %39
+  br i1 %38, label %ompi_coll_base_free_reqs.exit.thread147, label %39
 
 39:                                               ; preds = %opal_datatype_span.exit
   %40 = sub i64 0, %.0116
   %41 = getelementptr inbounds i8, ptr %37, i64 %40
   %42 = icmp sgt i32 %17, 1
-  br i1 %42, label %43, label %.thread162
+  br i1 %42, label %43, label %.thread166
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 584
@@ -139,28 +139,28 @@ opal_datatype_span.exit:                          ; preds = %19, %25
   %46 = add nsw i32 %17, -1
   %47 = tail call ptr @ompi_coll_base_comm_get_reqs(ptr noundef %45, i32 noundef %46) #4
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %ompi_coll_base_free_reqs.exit.thread145, label %49
+  br i1 %48, label %ompi_coll_base_free_reqs.exit.thread, label %49
 
 49:                                               ; preds = %43
   %50 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %0, i64 noundef %20, ptr noundef nonnull %3, i32 noundef 0, i32 noundef -12, ptr noundef %1, i64 noundef %20, ptr noundef nonnull %3, i32 noundef 0, i32 noundef -12, ptr noundef nonnull %5, ptr noundef null) #4
   %.not103 = icmp eq i32 %50, 0
   br i1 %.not103, label %.lr.ph, label %.thread122
 
-.thread162:                                       ; preds = %39
+.thread166:                                       ; preds = %39
   %51 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %0, i64 noundef %20, ptr noundef nonnull %3, i32 noundef 0, i32 noundef -12, ptr noundef %1, i64 noundef %20, ptr noundef nonnull %3, i32 noundef 0, i32 noundef -12, ptr noundef nonnull %5, ptr noundef null) #4
-  %.not103164 = icmp eq i32 %51, 0
-  br i1 %.not103164, label %._crit_edge.thread, label %ompi_coll_base_free_reqs.exit.thread145
+  %.not103168 = icmp eq i32 %51, 0
+  br i1 %.not103168, label %._crit_edge.thread, label %ompi_coll_base_free_reqs.exit.thread
 
 .lr.ph:                                           ; preds = %49, %54
-  %.085154 = phi i32 [ %55, %54 ], [ 1, %49 ]
+  %.085158 = phi i32 [ %55, %54 ], [ 1, %49 ]
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
-  %53 = tail call i32 %52(ptr noundef nonnull %41, i64 noundef %20, ptr noundef nonnull %3, i32 noundef %.085154, i32 noundef -12, ptr noundef nonnull %5, ptr noundef null) #4
+  %53 = tail call i32 %52(ptr noundef nonnull %41, i64 noundef %20, ptr noundef nonnull %3, i32 noundef %.085158, i32 noundef -12, ptr noundef nonnull %5, ptr noundef null) #4
   %.not108 = icmp eq i32 %53, 0
   br i1 %.not108, label %54, label %.thread122
 
 54:                                               ; preds = %.lr.ph
   tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %41, ptr noundef %1, i64 noundef %20, ptr noundef nonnull %3)
-  %55 = add nuw nsw i32 %.085154, 1
+  %55 = add nuw nsw i32 %.085158, 1
   %exitcond.not = icmp eq i32 %55, %17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -169,16 +169,16 @@ opal_datatype_span.exit:                          ; preds = %19, %25
   %58 = sext i32 %2 to i64
   %59 = tail call i32 %57(ptr noundef %0, i64 noundef %58, ptr noundef %3, i32 noundef 0, i32 noundef -12, i32 noundef 4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %59, 0
-  br i1 %.not, label %.thread, label %ompi_coll_base_free_reqs.exit.thread
+  br i1 %.not, label %.thread, label %ompi_coll_base_free_reqs.exit.thread147
 
 ._crit_edge:                                      ; preds = %54
   %60 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %1, i64 noundef %20, ptr noundef nonnull %3, i32 noundef 0, i32 noundef -12, ptr noundef nonnull %41, i64 noundef %20, ptr noundef nonnull %3, i32 noundef 0, i32 noundef -12, ptr noundef nonnull %5, ptr noundef null) #4
   %.not105 = icmp eq i32 %60, 0
   br i1 %.not105, label %.preheader, label %.thread122
 
-._crit_edge.thread:                               ; preds = %.thread162
+._crit_edge.thread:                               ; preds = %.thread166
   %61 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %1, i64 noundef %20, ptr noundef nonnull %3, i32 noundef 0, i32 noundef -12, ptr noundef nonnull %41, i64 noundef %20, ptr noundef nonnull %3, i32 noundef 0, i32 noundef -12, ptr noundef nonnull %5, ptr noundef null) #4
-  br label %ompi_coll_base_free_reqs.exit.thread145
+  br label %ompi_coll_base_free_reqs.exit.thread
 
 .preheader:                                       ; preds = %._crit_edge
   %invariant.gep = getelementptr i8, ptr %47, i64 -8
@@ -187,8 +187,8 @@ opal_datatype_span.exit:                          ; preds = %19, %25
 
 62:                                               ; preds = %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond161.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond161.not, label %67, label %63, !llvm.loop !6
+  %exitcond165.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond165.not, label %67, label %63, !llvm.loop !6
 
 63:                                               ; preds = %.preheader, %62
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %62 ]
@@ -276,17 +276,17 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %94, %.thread122, %7
   %.081130 = phi ptr [ %.081, %74 ], [ %.081129, %.thread122 ], [ %.081129, %94 ]
   %.084128 = phi i32 [ 0, %74 ], [ %.084127, %.thread122 ], [ %.084127, %94 ]
   %.not110 = icmp eq ptr %.081130, null
-  br i1 %.not110, label %ompi_coll_base_free_reqs.exit.thread, label %ompi_coll_base_free_reqs.exit.thread145
+  br i1 %.not110, label %ompi_coll_base_free_reqs.exit.thread147, label %ompi_coll_base_free_reqs.exit.thread
 
-ompi_coll_base_free_reqs.exit.thread145:          ; preds = %._crit_edge.thread, %.thread162, %43, %ompi_coll_base_free_reqs.exit
-  %.084128150 = phi i32 [ %.084128, %ompi_coll_base_free_reqs.exit ], [ -2, %43 ], [ %51, %.thread162 ], [ %61, %._crit_edge.thread ]
-  %.081130149 = phi ptr [ %.081130, %ompi_coll_base_free_reqs.exit ], [ %37, %43 ], [ %37, %.thread162 ], [ %37, %._crit_edge.thread ]
-  tail call void @free(ptr noundef nonnull %.081130149) #4
-  br label %ompi_coll_base_free_reqs.exit.thread
+ompi_coll_base_free_reqs.exit.thread:             ; preds = %._crit_edge.thread, %.thread166, %43, %ompi_coll_base_free_reqs.exit
+  %.084128141 = phi i32 [ %.084128, %ompi_coll_base_free_reqs.exit ], [ -2, %43 ], [ %51, %.thread166 ], [ %61, %._crit_edge.thread ]
+  %.081130140 = phi ptr [ %.081130, %ompi_coll_base_free_reqs.exit ], [ %37, %43 ], [ %37, %.thread166 ], [ %37, %._crit_edge.thread ]
+  tail call void @free(ptr noundef nonnull %.081130140) #4
+  br label %ompi_coll_base_free_reqs.exit.thread147
 
-ompi_coll_base_free_reqs.exit.thread:             ; preds = %56, %opal_datatype_span.exit, %ompi_coll_base_free_reqs.exit, %ompi_coll_base_free_reqs.exit.thread145
-  %.084128144 = phi i32 [ %.084128, %ompi_coll_base_free_reqs.exit ], [ %.084128150, %ompi_coll_base_free_reqs.exit.thread145 ], [ %59, %56 ], [ -2, %opal_datatype_span.exit ]
-  ret i32 %.084128144
+ompi_coll_base_free_reqs.exit.thread147:          ; preds = %56, %opal_datatype_span.exit, %ompi_coll_base_free_reqs.exit, %ompi_coll_base_free_reqs.exit.thread
+  %.084128142 = phi i32 [ %.084128, %ompi_coll_base_free_reqs.exit ], [ %.084128141, %ompi_coll_base_free_reqs.exit.thread ], [ %59, %56 ], [ -2, %opal_datatype_span.exit ]
+  ret i32 %.084128142
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

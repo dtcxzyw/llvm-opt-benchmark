@@ -2499,15 +2499,15 @@ default.unreachable:                              ; preds = %9
   tail call void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
   br label %9
 
-12:                                               ; preds = %102, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit", %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit", %13, %1
-  %.sroa.0.0 = phi i8 [ 0, %1 ], [ 0, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit" ], [ 2, %13 ], [ 1, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit" ], [ 1, %102 ]
+12:                                               ; preds = %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit.thread", %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit", %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit", %13, %1
+  %.sroa.0.0 = phi i8 [ 0, %1 ], [ 0, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit" ], [ 2, %13 ], [ 1, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit" ], [ 1, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit.thread" ]
   ret i8 %.sroa.0.0
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %15 = load atomic i64, ptr %14 seq_cst, align 8
   %or.cond = icmp eq i64 %15, 0
-  br i1 %or.cond, label %87, label %12
+  br i1 %or.cond, label %86, label %12
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h376d5103c6e76769E.exit": ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -2518,7 +2518,7 @@ default.unreachable:                              ; preds = %9
   %19 = extractvalue { i64, ptr } %18, 0
   switch i64 %19, label %20 [
     i64 0, label %22
-    i64 1, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit"
+    i64 1, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit.thread"
     i64 2, label %21
   ]
 
@@ -2654,7 +2654,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.531992751332406584.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %67 = atomicrmw sub ptr %23, i64 1 release, align 8, !noalias !566
   %68 = icmp eq i64 %67, 1
-  br i1 %68, label %69, label %"_ZN4core3ptr109drop_in_place$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$futures_channel..mpsc..SenderTask$GT$$GT$$GT$17he6ccd9096824c150E.llvm.531992751332406584.exit.i"
+  br i1 %68, label %69, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit"
 
 69:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$std..sync..mutex..MutexGuard$LT$futures_channel..mpsc..SenderTask$GT$$GT$17hecadae56d94256feE.llvm.531992751332406584.exit.i"
   fence acquire
@@ -2678,22 +2678,17 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.531992751332406584.exit.i
 
 "_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..Mutex$LT$futures_channel..mpsc..SenderTask$GT$$GT$17h24ba59338ffa915fE.exit.i.i.i.i": ; preds = %72, %69
   %77 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
-  br i1 %77, label %"_ZN4core3ptr109drop_in_place$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$futures_channel..mpsc..SenderTask$GT$$GT$$GT$17he6ccd9096824c150E.llvm.531992751332406584.exit.i", label %78
+  br i1 %77, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit", label %78
 
 78:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..Mutex$LT$futures_channel..mpsc..SenderTask$GT$$GT$17h24ba59338ffa915fE.exit.i.i.i.i"
   %79 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %80 = atomicrmw sub ptr %79, i64 1 release, align 8, !noalias !595
   %81 = icmp eq i64 %80, 1
-  br i1 %81, label %82, label %"_ZN4core3ptr109drop_in_place$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$futures_channel..mpsc..SenderTask$GT$$GT$$GT$17he6ccd9096824c150E.llvm.531992751332406584.exit.i"
+  br i1 %81, label %82, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit"
 
 82:                                               ; preds = %78
   fence acquire
   tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef 48, i64 noundef 8) #30, !noalias !595
-  br label %"_ZN4core3ptr109drop_in_place$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$futures_channel..mpsc..SenderTask$GT$$GT$$GT$17he6ccd9096824c150E.llvm.531992751332406584.exit.i"
-
-"_ZN4core3ptr109drop_in_place$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$futures_channel..mpsc..SenderTask$GT$$GT$$GT$17he6ccd9096824c150E.llvm.531992751332406584.exit.i": ; preds = %82, %78, %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..Mutex$LT$futures_channel..mpsc..SenderTask$GT$$GT$17h24ba59338ffa915fE.exit.i.i.i.i", %"_ZN4core3ptr90drop_in_place$LT$std..sync..mutex..MutexGuard$LT$futures_channel..mpsc..SenderTask$GT$$GT$17hecadae56d94256feE.llvm.531992751332406584.exit.i"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.pre = load ptr, ptr %0, align 8
   br label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit"
 
 83:                                               ; preds = %50, %.body.i
@@ -2702,59 +2697,61 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.531992751332406584.exit.i
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-common.resume:                                    ; preds = %.body.i, %100
-  %common.resume.op = phi { ptr, i32 } [ %101, %100 ], [ %.pn.i, %.body.i ]
+common.resume:                                    ; preds = %.body.i, %99
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %.pn.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit": ; preds = %17, %"_ZN4core3ptr109drop_in_place$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$futures_channel..mpsc..SenderTask$GT$$GT$$GT$17he6ccd9096824c150E.llvm.531992751332406584.exit.i"
-  %85 = phi ptr [ %.pre, %"_ZN4core3ptr109drop_in_place$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$futures_channel..mpsc..SenderTask$GT$$GT$$GT$17he6ccd9096824c150E.llvm.531992751332406584.exit.i" ], [ %5, %17 ]
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %12, label %102
+"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit": ; preds = %"_ZN4core3ptr90drop_in_place$LT$std..sync..mutex..MutexGuard$LT$futures_channel..mpsc..SenderTask$GT$$GT$17hecadae56d94256feE.llvm.531992751332406584.exit.i", %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..Mutex$LT$futures_channel..mpsc..SenderTask$GT$$GT$17h24ba59338ffa915fE.exit.i.i.i.i", %78, %82
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  %.pre = load ptr, ptr %0, align 8
+  %85 = icmp eq ptr %.pre, null
+  br i1 %85, label %12, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit.thread"
 
-87:                                               ; preds = %13
+86:                                               ; preds = %13
   %.val9 = load ptr, ptr %0, align 8, !noundef !4
-  %88 = icmp eq ptr %.val9, null
-  br i1 %88, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit", label %89
+  %87 = icmp eq ptr %.val9, null
+  br i1 %87, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit", label %88
 
-89:                                               ; preds = %87
-  %90 = atomicrmw sub ptr %.val9, i64 1 release, align 8
-  %91 = icmp eq i64 %90, 1
-  br i1 %91, label %92, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit"
+88:                                               ; preds = %86
+  %89 = atomicrmw sub ptr %.val9, i64 1 release, align 8
+  %90 = icmp eq i64 %89, 1
+  br i1 %90, label %91, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit"
 
-92:                                               ; preds = %89
+91:                                               ; preds = %88
   fence acquire
-  %93 = getelementptr inbounds nuw i8, ptr %.val9, i64 16
-  invoke void @"_ZN4core3ptr72drop_in_place$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$17h4d6436f2088913b3E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %93)
-          to label %.noexc unwind label %100
+  %92 = getelementptr inbounds nuw i8, ptr %.val9, i64 16
+  invoke void @"_ZN4core3ptr72drop_in_place$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$17h4d6436f2088913b3E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %92)
+          to label %.noexc unwind label %99
 
-.noexc:                                           ; preds = %92
-  %94 = icmp eq ptr %.val9, inttoptr (i64 -1 to ptr)
-  br i1 %94, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit", label %95
+.noexc:                                           ; preds = %91
+  %93 = icmp eq ptr %.val9, inttoptr (i64 -1 to ptr)
+  br i1 %93, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit", label %94
 
-95:                                               ; preds = %.noexc
-  %96 = getelementptr inbounds nuw i8, ptr %.val9, i64 8
-  %97 = atomicrmw sub ptr %96, i64 1 release, align 8, !noalias !600
-  %98 = icmp eq i64 %97, 1
-  br i1 %98, label %99, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit"
+94:                                               ; preds = %.noexc
+  %95 = getelementptr inbounds nuw i8, ptr %.val9, i64 8
+  %96 = atomicrmw sub ptr %95, i64 1 release, align 8, !noalias !600
+  %97 = icmp eq i64 %96, 1
+  br i1 %97, label %98, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit"
 
-99:                                               ; preds = %95
+98:                                               ; preds = %94
   fence acquire
   tail call void @__rust_dealloc(ptr noundef nonnull %.val9, i64 noundef 96, i64 noundef 8) #30, !noalias !600
   br label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit"
 
-100:                                              ; preds = %92
-  %101 = landingpad { ptr, i32 }
+99:                                               ; preds = %91
+  %100 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %0, align 8
   br label %common.resume
 
-"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit": ; preds = %99, %95, %.noexc, %89, %87
+"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7ba18bb4c7583263E.exit": ; preds = %98, %94, %.noexc, %88, %86
   store ptr null, ptr %0, align 8
   br label %12
 
-102:                                              ; preds = %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit"
-  %103 = getelementptr inbounds nuw i8, ptr %85, i64 56
-  %104 = atomicrmw sub ptr %103, i64 1 seq_cst, align 8
+"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit.thread": ; preds = %17, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit"
+  %101 = phi ptr [ %.pre, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h5b3e36f582fea4a3E.exit" ], [ %5, %17 ]
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 56
+  %103 = atomicrmw sub ptr %102, i64 1 seq_cst, align 8
   br label %12
 }
 
@@ -20724,7 +20721,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h02df4a28ac095c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4088)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4091)
   %4 = load ptr, ptr %3, align 8, !alias.scope !4094, !noundef !4
-  invoke void @"_ZN4core3ptr380drop_in_place$LT$regex_automata..util..pool..inner..Pool$LT$regex_automata..util..search..PatternSet$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..util..search..PatternSet$u2b$core..marker..Send$u2b$core..marker..Sync$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..panic..unwind_safe..RefUnwindSafe$GT$$GT$$GT$17hf3b8384648482225E"(ptr noalias noundef align 8 dereferenceable(72) %4)
+  invoke void @"_ZN4core3ptr380drop_in_place$LT$regex_automata..util..pool..inner..Pool$LT$regex_automata..util..search..PatternSet$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..util..search..PatternSet$u2b$core..marker..Send$u2b$core..marker..Sync$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..panic..unwind_safe..RefUnwindSafe$GT$$GT$$GT$17hf3b8384648482225E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4)
           to label %"_ZN4core3ptr373drop_in_place$LT$regex_automata..util..pool..Pool$LT$regex_automata..util..search..PatternSet$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..util..search..PatternSet$u2b$core..marker..Send$u2b$core..marker..Sync$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..panic..unwind_safe..RefUnwindSafe$GT$$GT$$GT$17hf564433e7089e8e5E.exit" unwind label %5, !noalias !4094
 
 5:                                                ; preds = %1
@@ -21472,7 +21469,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h33b92a13cc776a
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4401)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4404)
   %4 = load ptr, ptr %3, align 8, !alias.scope !4407, !noundef !4
-  invoke void @"_ZN4core3ptr152drop_in_place$LT$regex_automata..util..pool..inner..Pool$LT$alloc..vec..Vec$LT$usize$GT$$C$fn$LP$$RP$$u20$.$GT$$u20$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17h332d536193b81ecbE"(ptr noalias noundef align 8 dereferenceable(64) %4)
+  invoke void @"_ZN4core3ptr152drop_in_place$LT$regex_automata..util..pool..inner..Pool$LT$alloc..vec..Vec$LT$usize$GT$$C$fn$LP$$RP$$u20$.$GT$$u20$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17h332d536193b81ecbE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
           to label %"_ZN4core3ptr89drop_in_place$LT$regex_automata..util..pool..Pool$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17h034da3378b61c358E.exit" unwind label %5, !noalias !4407
 
 5:                                                ; preds = %1

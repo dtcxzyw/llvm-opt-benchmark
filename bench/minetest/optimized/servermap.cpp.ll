@@ -5643,7 +5643,7 @@ lpad2:                                            ; preds = %invoke.cont8, %if.t
 lpad7:                                            ; preds = %invoke.cont5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #31
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad7, %lpad2
@@ -5705,7 +5705,7 @@ lpad21:                                           ; preds = %invoke.cont28, %if.
 lpad27:                                           ; preds = %invoke.cont24
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception26) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception26) #31
   br label %ehcleanup30
 
 ehcleanup30:                                      ; preds = %lpad27, %lpad21
@@ -11743,7 +11743,7 @@ if.then.i1249:                                    ; preds = %_ZNKSt4lessIN3irr4c
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i) #31
   store ptr %blockpos, ptr %ref.tmp9.i, align 8, !tbaa !152
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i) #31
-  %call12.i1250 = invoke ptr @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks, ptr %__y.addr.0.lcssa.i.i.i23.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  %call12.i1250 = invoke ptr @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks, ptr nonnull %__y.addr.0.lcssa.i.i.i23.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %call12.i.noexc unwind label %lpad481.loopexit
 
 call12.i.noexc:                                   ; preds = %if.then.i1249

@@ -1330,7 +1330,7 @@ GetLine.exit134.i:                                ; preds = %99, %.split.loop.ex
   br i1 %166, label %.lr.ph172.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph172.i, %150, %._crit_edge168.i, %._crit_edge163.i, %._crit_edge163.thread.i
-  call void @free(ptr noundef %112) #41, !noalias !7
+  call void @free(ptr noundef nonnull %112) #41, !noalias !7
   call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %16, ptr noundef nonnull byval(%struct.Image) align 8 %15) #41, !noalias !7
   %.sroa.6.12.copyload = load i32, ptr %16, align 4
   %.sroa.8.12..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -1463,7 +1463,7 @@ GetLine.exit140.i:                                ; preds = %179, %.split.loop.e
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
-  call void @free(ptr noundef %171) #41, !noalias !7
+  call void @free(ptr noundef nonnull %171) #41, !noalias !7
   br label %UnloadFontData.exit.i.i
 
 UnloadFontData.exit.i.i:                          ; preds = %._crit_edge.i.i.i, %220
@@ -8486,7 +8486,7 @@ define void @UnloadFontData(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call void @free(ptr noundef %0) #41
+  tail call void @free(ptr noundef nonnull %0) #41
   br label %5
 
 5:                                                ; preds = %._crit_edge, %2
@@ -8527,7 +8527,7 @@ define void @UnloadFont(ptr noundef readonly byval(%struct.Font) align 8 capture
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef %7) #41
+  tail call void @free(ptr noundef nonnull %7) #41
   br label %UnloadFontData.exit
 
 UnloadFontData.exit:                              ; preds = %5, %._crit_edge.i
@@ -10667,7 +10667,7 @@ TextLength.exit67:                                ; preds = %.lr.ph.i62, %.prehe
   %40 = trunc i64 %39 to i32
   %sext = shl i64 %39, 32
   %41 = ashr exact i64 %sext, 32
-  %42 = tail call ptr @strncpy(ptr noundef %.03875, ptr noundef nonnull %.04174, i64 noundef %41) #41
+  %42 = tail call ptr @strncpy(ptr noundef nonnull %.03875, ptr noundef nonnull %.04174, i64 noundef %41) #41
   %43 = getelementptr inbounds i8, ptr %.03875, i64 %41
   %44 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %2) #41
   %45 = getelementptr inbounds i8, ptr %43, i64 %33

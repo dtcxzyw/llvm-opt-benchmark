@@ -520,7 +520,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang6form
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2176
-  tail call void @_ZSt16__insertion_sortIPN5clang6format17WhitespaceManager6ChangeEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_14IsBeforeInFileEEEEvT_SA_T0_(ptr noundef %6, ptr noundef nonnull %15, ptr %5)
+  tail call void @_ZSt16__insertion_sortIPN5clang6format17WhitespaceManager6ChangeEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_14IsBeforeInFileEEEEvT_SA_T0_(ptr noundef nonnull %6, ptr noundef nonnull %15, ptr %5)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %14
@@ -531,7 +531,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang6form
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4sortIRNS_11SmallVectorIN5clang6format17WhitespaceManager6ChangeELj16EEENS5_14IsBeforeInFileEEEvOT_T0_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
 
 17:                                               ; preds = %9
-  tail call void @_ZSt16__insertion_sortIPN5clang6format17WhitespaceManager6ChangeEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_14IsBeforeInFileEEEEvT_SA_T0_(ptr noundef %6, ptr noundef nonnull %8, ptr %5)
+  tail call void @_ZSt16__insertion_sortIPN5clang6format17WhitespaceManager6ChangeEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_14IsBeforeInFileEEEEvT_SA_T0_(ptr noundef nonnull %6, ptr noundef nonnull %8, ptr %5)
   br label %_ZN4llvm4sortIRNS_11SmallVectorIN5clang6format17WhitespaceManager6ChangeELj16EEENS5_14IsBeforeInFileEEEvOT_T0_.exit
 
 _ZN4llvm4sortIRNS_11SmallVectorIN5clang6format17WhitespaceManager6ChangeELj16EEENS5_14IsBeforeInFileEEEvOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %3, %17

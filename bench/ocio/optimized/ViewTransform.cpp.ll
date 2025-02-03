@@ -1984,7 +1984,7 @@ common.resume:                                    ; preds = %lpad, %ehcleanup, %
 lpad.i:                                           ; preds = %sw.epilog.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #21
   br label %common.resume
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_126ReferenceSpaceTypeToStringENS_18ReferenceSpaceTypeE.exit: ; preds = %entry, %sw.bb1.i

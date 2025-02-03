@@ -312,7 +312,7 @@ define void @_ZNK5ZXing6Pdf4179ModulusGF13buildMonomialEii(ptr dead_on_unwind no
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #12
+  tail call void @__cxa_free_exception(ptr nonnull %8) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit11
 
 12:                                               ; preds = %4

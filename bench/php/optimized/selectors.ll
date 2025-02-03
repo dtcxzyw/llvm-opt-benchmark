@@ -2565,48 +2565,48 @@ lxb_selectors_descendant.exit:                    ; preds = %61, %59, %.preheade
   %.039.i = phi ptr [ null, %44 ], [ null, %.preheader7 ], [ %.0..i, %lxb_selectors_descendant.exit.sink.split ], [ null, %41 ], [ null, %.preheader ], [ %.0.i41, %33 ], [ null, %50 ], [ %.0.i3824, %48 ], [ null, %.preheader5 ], [ null, %61 ], [ %.0.i3019, %59 ]
   %63 = tail call fastcc i32 @lxb_selectors_find_by(ptr noundef %0, ptr noundef %.040.i, ptr noundef nonnull %1, ptr noundef %.039.i, ptr noundef %19, ptr noundef nonnull @lxb_selectors_first_match, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %63, 0
-  br i1 %.not.i, label %lxb_selectors_find_by_selector.exit, label %lxb_selectors_find_by_selector.exit.thread
+  br i1 %.not.i, label %64, label %lxb_selectors_find_by_selector.exit.thread
 
 lxb_selectors_find_by_selector.exit.thread:       ; preds = %21, %27, %lxb_selectors_descendant.exit
   store ptr null, ptr %.1, align 8
   br label %.loopexit
 
-lxb_selectors_find_by_selector.exit:              ; preds = %lxb_selectors_descendant.exit
+64:                                               ; preds = %lxb_selectors_descendant.exit
   store ptr %.040.i, ptr %.1, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %.026, i64 24
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %.loopexit, label %67
+  %65 = getelementptr inbounds nuw i8, ptr %.026, i64 24
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %.loopexit, label %68
 
-67:                                               ; preds = %lxb_selectors_find_by_selector.exit
-  %68 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %.backedge
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %72, label %.backedge
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr %16, align 8
-  %73 = tail call ptr @lexbor_dobject_calloc(ptr noundef %72) #6
-  store ptr %73, ptr %68, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %.loopexit10, label %._crit_edge
+72:                                               ; preds = %68
+  %73 = load ptr, ptr %16, align 8
+  %74 = tail call ptr @lexbor_dobject_calloc(ptr noundef %73) #6
+  store ptr %74, ptr %69, align 8
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %.loopexit10, label %._crit_edge
 
-._crit_edge:                                      ; preds = %71
-  %.pre = load ptr, ptr %64, align 8
+._crit_edge:                                      ; preds = %72
+  %.pre = load ptr, ptr %65, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %._crit_edge, %67
-  %.026.be = phi ptr [ %.pre, %._crit_edge ], [ %65, %67 ]
-  %.1.be = phi ptr [ %73, %._crit_edge ], [ %69, %67 ]
+.backedge:                                        ; preds = %._crit_edge, %68
+  %.026.be = phi ptr [ %.pre, %._crit_edge ], [ %66, %68 ]
+  %.1.be = phi ptr [ %74, %._crit_edge ], [ %70, %68 ]
   br label %17
 
-.loopexit10:                                      ; preds = %71, %9
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 2, ptr %75, align 8
+.loopexit10:                                      ; preds = %72, %9
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 2, ptr %76, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %lxb_selectors_find_by_selector.exit, %lxb_selectors_find_by_selector.exit.thread, %5, %.loopexit10
-  %.024 = phi ptr [ null, %.loopexit10 ], [ null, %5 ], [ null, %lxb_selectors_find_by_selector.exit.thread ], [ %.0, %lxb_selectors_find_by_selector.exit ]
+.loopexit:                                        ; preds = %64, %lxb_selectors_find_by_selector.exit.thread, %5, %.loopexit10
+  %.024 = phi ptr [ null, %.loopexit10 ], [ null, %5 ], [ null, %lxb_selectors_find_by_selector.exit.thread ], [ %.0, %64 ]
   ret ptr %.024
 }
 

@@ -383,12 +383,12 @@ define i32 @cli_magic_scan_dir(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %4 = alloca %struct.stat, align 8
   %5 = tail call ptr @opendir(ptr noundef %0)
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %.thread57, label %.preheader
+  br i1 %.not, label %.thread59, label %.preheader
 
 .preheader:                                       ; preds = %3
   %6 = tail call ptr @readdir(ptr noundef nonnull %5) #16
-  %.not3866 = icmp eq ptr %6, null
-  br i1 %.not3866, label %cli_magic_scan_file.exit.thread.thread, label %.lr.ph
+  %.not3876 = icmp eq ptr %6, null
+  br i1 %.not3876, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -403,28 +403,28 @@ define i32 @cli_magic_scan_dir(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 sub_0:                                            ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 19
   %12 = load i8, ptr %11, align 1
-  %.not76 = icmp eq i8 %12, 46
-  br i1 %.not76, label %.tail, label %.tail62.thread
+  %.not77 = icmp eq i8 %12, 46
+  br i1 %.not77, label %.tail, label %.tail71.thread
 
 .tail:                                            ; preds = %sub_0
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %41, label %sub_164
+  br i1 %15, label %41, label %sub_173
 
-sub_164:                                          ; preds = %.tail
+sub_173:                                          ; preds = %.tail
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %17 = load i8, ptr %16, align 1
-  %.not78 = icmp eq i8 %17, 46
-  br i1 %.not78, label %.tail62, label %.tail62.thread
+  %.not79 = icmp eq i8 %17, 46
+  br i1 %.not79, label %.tail71, label %.tail71.thread
 
-.tail62:                                          ; preds = %sub_164
+.tail71:                                          ; preds = %sub_173
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 21
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %41, label %.tail62.thread
+  br i1 %20, label %41, label %.tail71.thread
 
-.tail62.thread:                                   ; preds = %sub_0, %sub_164, %.tail62
+.tail71.thread:                                   ; preds = %sub_0, %sub_173, %.tail71
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #17
   %23 = add i64 %21, 2
@@ -433,11 +433,11 @@ sub_164:                                          ; preds = %.tail
   %.not42 = icmp eq ptr %25, null
   br i1 %.not42, label %26, label %27
 
-26:                                               ; preds = %.tail62.thread
+26:                                               ; preds = %.tail71.thread
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #16
-  br label %cli_magic_scan_file.exit.thread.thread
+  br label %.loopexit
 
-27:                                               ; preds = %.tail62.thread
+27:                                               ; preds = %.tail71.thread
   %28 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %0, ptr noundef nonnull %11) #16
   %29 = call i32 @lstat(ptr noundef nonnull %25, ptr noundef nonnull %4) #16
   %.not43 = icmp eq i32 %29, -1
@@ -455,46 +455,46 @@ sub_164:                                          ; preds = %.tail
 33:                                               ; preds = %30
   %34 = tail call i32 @cli_magic_scan_dir(ptr noundef nonnull %25, ptr noundef %1, i32 noundef %2)
   %.not45 = icmp eq i32 %34, 0
-  br i1 %.not45, label %40, label %44
+  br i1 %.not45, label %40, label %cli_magic_scan_file.exit.thread
 
 35:                                               ; preds = %30
   %36 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %25, i32 noundef 0) #16
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %44, label %cli_magic_scan_file.exit
+  br i1 %37, label %cli_magic_scan_file.exit.thread, label %cli_magic_scan_file.exit
 
 cli_magic_scan_file.exit:                         ; preds = %35
   %38 = tail call i32 @cli_magic_scan_desc_type(i32 noundef %36, ptr noundef nonnull %25, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %11, i32 noundef %2)
   %39 = tail call i32 @close(i32 noundef %36) #16
   %.not44 = icmp eq i32 %38, 0
-  br i1 %.not44, label %40, label %44
+  br i1 %.not44, label %40, label %cli_magic_scan_file.exit.thread
 
 40:                                               ; preds = %30, %33, %cli_magic_scan_file.exit, %27
   tail call void @free(ptr noundef nonnull %25) #16
   br label %41
 
-41:                                               ; preds = %.tail, %.tail62, %40, %8
+41:                                               ; preds = %.tail, %.tail71, %40, %8
   %42 = tail call ptr @readdir(ptr noundef nonnull %5) #16
   %.not38 = icmp eq ptr %42, null
-  br i1 %.not38, label %cli_magic_scan_file.exit.thread.thread, label %8
+  br i1 %.not38, label %.loopexit, label %8
 
-.thread57:                                        ; preds = %3
+.thread59:                                        ; preds = %3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4, ptr noundef %0) #16
-  br label %46
+  br label %45
 
-cli_magic_scan_file.exit.thread.thread:           ; preds = %41, %26, %.preheader
-  %.229.ph = phi i32 [ 0, %.preheader ], [ 20, %26 ], [ 0, %41 ]
+.loopexit:                                        ; preds = %41, %.preheader, %26
+  %.229.ph = phi i32 [ 20, %26 ], [ 0, %.preheader ], [ 0, %41 ]
   %43 = tail call i32 @closedir(ptr noundef nonnull %5)
-  br label %46
+  br label %45
 
-44:                                               ; preds = %33, %cli_magic_scan_file.exit, %35
-  %.229 = phi i32 [ %34, %33 ], [ %38, %cli_magic_scan_file.exit ], [ 8, %35 ]
-  %45 = tail call i32 @closedir(ptr noundef nonnull %5)
+cli_magic_scan_file.exit.thread:                  ; preds = %35, %33, %cli_magic_scan_file.exit
+  %.229.ph.ph = phi i32 [ %38, %cli_magic_scan_file.exit ], [ %34, %33 ], [ 8, %35 ]
+  %44 = tail call i32 @closedir(ptr noundef nonnull %5)
   tail call void @free(ptr noundef nonnull %25) #16
-  br label %46
+  br label %45
 
-46:                                               ; preds = %cli_magic_scan_file.exit.thread.thread, %.thread57, %44
-  %.2295561 = phi i32 [ 8, %.thread57 ], [ %.229, %44 ], [ %.229.ph, %cli_magic_scan_file.exit.thread.thread ]
-  ret i32 %.2295561
+45:                                               ; preds = %.loopexit, %.thread59, %cli_magic_scan_file.exit.thread
+  %.2295663 = phi i32 [ 8, %.thread59 ], [ %.229.ph.ph, %cli_magic_scan_file.exit.thread ], [ %.229.ph, %.loopexit ]
+  ret i32 %.2295663
 }
 
 ; Function Attrs: nofree nounwind
@@ -6051,7 +6051,7 @@ define internal fastcc i32 @cli_scanarj(ptr noundef %0) unnamed_addr #0 {
 
 40:                                               ; preds = %30
   %41 = call i32 @cli_rmdirs(ptr noundef nonnull %5) #16
-  call void @free(ptr noundef %5) #16
+  call void @free(ptr noundef nonnull %5) #16
   br label %84
 
 42:                                               ; preds = %30
@@ -7517,13 +7517,13 @@ fmap_need_off_once_len.exit:                      ; preds = %10, %16
 
 33:                                               ; preds = %._crit_edge
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.289, i32 noundef %11) #16
-  tail call void @free(ptr noundef %2) #16
+  tail call void @free(ptr noundef nonnull %2) #16
   %34 = tail call i32 @close(i32 noundef %11) #16
   tail call void @free(ptr noundef %8) #16
   br label %45
 
 fmap_need_off_once_len.exit.thread:               ; preds = %fmap_need_off_once_len.exit, %16, %10
-  tail call void @free(ptr noundef %2) #16
+  tail call void @free(ptr noundef nonnull %2) #16
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.290) #16
   %35 = tail call i32 @cli_magic_scan_desc_type(i32 noundef %11, ptr noundef nonnull %8, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %36 = tail call i32 @close(i32 noundef %11) #16
@@ -7546,7 +7546,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %fmap_need_off_once_
 
 44:                                               ; preds = %42, %41
   %.032 = phi i32 [ %35, %41 ], [ %spec.select, %42 ]
-  tail call void @free(ptr noundef %8) #16
+  tail call void @free(ptr noundef nonnull %8) #16
   br label %45
 
 45:                                               ; preds = %44, %33, %9, %4
@@ -9940,8 +9940,8 @@ define internal fastcc i32 @cli_ole2_scan_tempdir(ptr noundef %0, ptr noundef no
   %50 = load i32, ptr %8, align 4
   %51 = add i32 %50, -1
   store i32 %51, ptr %8, align 4
-  %.not12.i133 = icmp eq i32 %51, 0
-  br i1 %.not12.i133, label %.sink.split, label %.lr.ph.i.backedge
+  %.not12.i140 = icmp eq i32 %51, 0
+  br i1 %.not12.i140, label %.sink.split, label %.lr.ph.i.backedge
 
 cli_ole2_tempdir_scan_for_xlm_and_images.exit.thread: ; preds = %.lr.ph.i, %.lr.ph.i, %42
   %.1.i.ph = phi i32 [ %41, %42 ], [ %46, %.lr.ph.i ], [ %46, %.lr.ph.i ]
@@ -9982,8 +9982,8 @@ cli_ole2_tempdir_scan_for_xlm_and_images.exit:    ; preds = %47
 
 .preheader:                                       ; preds = %56
   %58 = call ptr @readdir(ptr noundef nonnull %57) #16
-  %.not94124 = icmp eq ptr %58, null
-  br i1 %.not94124, label %.loopexit.thread, label %.lr.ph
+  %.not94133 = icmp eq ptr %58, null
+  br i1 %.not94133, label %.thread121, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -9998,28 +9998,28 @@ cli_ole2_tempdir_scan_for_xlm_and_images.exit:    ; preds = %47
 sub_0:                                            ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 19
   %64 = load i8, ptr %63, align 1
-  %.not129 = icmp eq i8 %64, 46
-  br i1 %.not129, label %.tail, label %.tail119.thread
+  %.not134 = icmp eq i8 %64, 46
+  br i1 %.not134, label %.tail, label %.tail126.thread
 
 .tail:                                            ; preds = %sub_0
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 0
-  br i1 %67, label %89, label %sub_1121
+  br i1 %67, label %89, label %sub_1128
 
-sub_1121:                                         ; preds = %.tail
+sub_1128:                                         ; preds = %.tail
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %69 = load i8, ptr %68, align 1
-  %.not131 = icmp eq i8 %69, 46
-  br i1 %.not131, label %.tail119, label %.tail119.thread
+  %.not136 = icmp eq i8 %69, 46
+  br i1 %.not136, label %.tail126, label %.tail126.thread
 
-.tail119:                                         ; preds = %sub_1121
+.tail126:                                         ; preds = %sub_1128
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 21
   %71 = load i8, ptr %70, align 1
   %72 = icmp eq i8 %71, 0
-  br i1 %72, label %89, label %.tail119.thread
+  br i1 %72, label %89, label %.tail126.thread
 
-.tail119.thread:                                  ; preds = %sub_0, %sub_1121, %.tail119
+.tail126.thread:                                  ; preds = %sub_0, %sub_1128, %.tail126
   %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #17
   %75 = add i64 %73, 2
@@ -10028,11 +10028,11 @@ sub_1121:                                         ; preds = %.tail
   %.not98 = icmp eq ptr %77, null
   br i1 %.not98, label %78, label %79
 
-78:                                               ; preds = %.tail119.thread
+78:                                               ; preds = %.tail126.thread
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.234) #16
-  br label %.loopexit.thread
+  br label %.thread121
 
-79:                                               ; preds = %.tail119.thread
+79:                                               ; preds = %.tail126.thread
   %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %1, ptr noundef nonnull %63) #16
   %81 = call i32 @lstat(ptr noundef nonnull %77, ptr noundef nonnull %12) #16
   %.not99 = icmp eq i32 %81, -1
@@ -10053,17 +10053,17 @@ sub_1121:                                         ; preds = %.tail
   call void @free(ptr noundef nonnull %77) #16
   br label %89
 
-89:                                               ; preds = %.tail, %.tail119, %88, %60
+89:                                               ; preds = %.tail, %.tail126, %88, %60
   %90 = call ptr @readdir(ptr noundef nonnull %57) #16
   %.not94 = icmp eq ptr %90, null
-  br i1 %.not94, label %.loopexit.thread, label %60
+  br i1 %.not94, label %.thread121, label %60
 
 91:                                               ; preds = %56
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.235, ptr noundef nonnull %1) #16
   br label %.thread114
 
-.loopexit.thread:                                 ; preds = %89, %78, %.preheader
-  %.062.ph = phi i32 [ 0, %.preheader ], [ 20, %78 ], [ 0, %89 ]
+.thread121:                                       ; preds = %89, %.preheader, %78
+  %.062.ph120 = phi i32 [ 20, %78 ], [ 0, %.preheader ], [ 0, %89 ]
   %92 = call i32 @closedir(ptr noundef nonnull %57)
   br label %.thread114
 
@@ -10072,8 +10072,8 @@ sub_1121:                                         ; preds = %.tail
   call void @free(ptr noundef nonnull %77) #16
   br label %.thread114
 
-.thread114:                                       ; preds = %cli_ole2_tempdir_scan_for_xlm_and_images.exit, %.loopexit.thread, %21, %24, %26, %34, %54, %91, %cli_ole2_tempdir_scan_for_xlm_and_images.exit.thread, %93
-  %.062112118 = phi i32 [ %87, %93 ], [ %.1.i.ph, %cli_ole2_tempdir_scan_for_xlm_and_images.exit.thread ], [ 8, %91 ], [ %55, %54 ], [ %46, %cli_ole2_tempdir_scan_for_xlm_and_images.exit ], [ %35, %34 ], [ %27, %26 ], [ %25, %24 ], [ %22, %21 ], [ %.062.ph, %.loopexit.thread ]
+.thread114:                                       ; preds = %cli_ole2_tempdir_scan_for_xlm_and_images.exit, %21, %24, %26, %34, %54, %91, %cli_ole2_tempdir_scan_for_xlm_and_images.exit.thread, %.thread121, %93
+  %.062112118 = phi i32 [ %87, %93 ], [ %.062.ph120, %.thread121 ], [ %.1.i.ph, %cli_ole2_tempdir_scan_for_xlm_and_images.exit.thread ], [ 8, %91 ], [ %55, %54 ], [ %46, %cli_ole2_tempdir_scan_for_xlm_and_images.exit ], [ %35, %34 ], [ %27, %26 ], [ %25, %24 ], [ %22, %21 ]
   ret i32 %.062112118
 }
 

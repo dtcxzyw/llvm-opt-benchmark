@@ -1807,7 +1807,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit445:          ; preds = %603
   br label %620
 
 620:                                              ; preds = %615, %_ZL15fstWriterUint64P8_IO_FILEm.exit445
-  call void @free(ptr noundef %543) #37
+  call void @free(ptr noundef nonnull %543) #37
   br label %623
 
 621:                                              ; preds = %534
@@ -7679,7 +7679,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit165:           ; preds = %96
   %109 = tail call noalias ptr @tmpfile()
   store ptr null, ptr %108, align 8
   store ptr %109, ptr %6, align 8
-  tail call void @free(ptr noundef %15) #37
+  tail call void @free(ptr noundef nonnull %15) #37
   %.not139 = icmp eq ptr %109, null
   br i1 %.not139, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %.thread
 
@@ -9035,7 +9035,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit281:           ; preds = %39
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 67232
   %55 = tail call noalias ptr @tmpfile()
   store ptr null, ptr %54, align 8
-  tail call void @free(ptr noundef %48) #37
+  tail call void @free(ptr noundef nonnull %48) #37
   %.not255 = icmp eq ptr %55, null
   br i1 %.not255, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %.thread
 

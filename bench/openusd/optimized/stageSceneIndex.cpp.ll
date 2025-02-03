@@ -6948,7 +6948,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZNSt6vectorI
           to label %205 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 205:                                              ; preds = %204
-  %206 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.082.0126) #28
+  %206 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.082.0126) #28
   %.not110 = icmp eq ptr %206, %105
   br i1 %.not110, label %._crit_edge, label %111, !llvm.loop !89
 
@@ -7305,7 +7305,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit: ; pr
           to label %365 unwind label %.loopexit
 
 365:                                              ; preds = %363
-  %366 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.069.0138) #28
+  %366 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.069.0138) #28
   %.not112 = icmp eq ptr %366, %359
   br i1 %.not112, label %._crit_edge141, label %363
 
@@ -9648,7 +9648,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZNSt6vectorI
           to label %.invoke unwind label %.loopexit
 
 125:                                              ; preds = %.invoke, %60, %119, %70
-  %126 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.045) #28
+  %126 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.045) #28
   %.not = icmp eq ptr %126, %27
   br i1 %.not, label %._crit_edge, label %30, !llvm.loop !116
 
@@ -11097,7 +11097,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_7TfTokenESaI
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %.lr.ph
-  %19 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.09.018) #28
+  %19 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.09.018) #28
   %.not = icmp eq ptr %19, %5
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !120
 
@@ -13534,7 +13534,7 @@ _ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7Sdf
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %_ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEmEvRT_T0_.exit.i
-  %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.0.i) #28
+  %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.0.i) #28
   %34 = xor i64 %26, -1
   %35 = add i64 %.06.i, %34
   br label %36

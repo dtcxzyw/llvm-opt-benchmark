@@ -1226,19 +1226,19 @@ Kit_GraphNodeFanin1.exit:                         ; preds = %2
 define i32 @Kit_TruthStats(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = tail call i32 @Kit_TruthIsop(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 1) #20
   %5 = icmp eq i32 %4, -1
-  br i1 %5, label %Kit_TruthToGraph.exit, label %6
+  br i1 %5, label %Kit_GraphFree.exit, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %2, i64 4
   %.val.i = load i32, ptr %7, align 4
   %8 = icmp sgt i32 %.val.i, 65536
-  br i1 %8, label %Kit_TruthToGraph.exit, label %9
+  br i1 %8, label %Kit_GraphFree.exit, label %9
 
 9:                                                ; preds = %6
   %10 = tail call ptr @Kit_SopFactor(ptr noundef nonnull %2, i32 noundef %4, i32 noundef %1, ptr noundef nonnull %2) #20
-  br label %Kit_TruthToGraph.exit
+  br label %Kit_GraphFree.exit
 
-Kit_TruthToGraph.exit:                            ; preds = %3, %6, %9
+Kit_GraphFree.exit:                               ; preds = %3, %6, %9
   %.0.i = phi ptr [ %10, %9 ], [ null, %3 ], [ null, %6 ]
   %11 = getelementptr i8, ptr %.0.i, i64 4
   %.val = load i32, ptr %11, align 4
@@ -1250,19 +1250,12 @@ Kit_TruthToGraph.exit:                            ; preds = %3, %6, %9
   %15 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val10, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 -24
   %17 = tail call i32 @Kit_GraphLevelNum_rec(ptr noundef %.0.i, ptr noundef nonnull %16)
-  %.not.i = icmp eq ptr %.val10, null
-  br i1 %.not.i, label %Kit_GraphFree.exit, label %18
-
-18:                                               ; preds = %Kit_TruthToGraph.exit
   tail call void @free(ptr noundef nonnull %.val10) #20
-  br label %Kit_GraphFree.exit
-
-Kit_GraphFree.exit:                               ; preds = %Kit_TruthToGraph.exit, %18
-  %19 = sub nsw i32 %.val8, %.val
+  %18 = sub nsw i32 %.val8, %.val
   tail call void @free(ptr noundef nonnull %.0.i) #20
-  %20 = shl i32 %17, 16
-  %21 = or i32 %20, %19
-  ret i32 %21
+  %19 = shl i32 %17, 16
+  %20 = or i32 %19, %18
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1293,18 +1286,18 @@ define noalias noundef ptr @Kit_TruthStatsArray(ptr noundef %0, i32 noundef %1, 
   %17 = getelementptr inbounds i32, ptr %0, i64 %16
   %18 = tail call i32 @Kit_TruthIsop(ptr noundef %17, i32 noundef %1, ptr noundef nonnull %6, i32 noundef 1) #20
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %Kit_TruthToGraph.exit.i, label %20
+  br i1 %19, label %Kit_TruthStats.exit, label %20
 
 20:                                               ; preds = %13
   %.val.i.i = load i32, ptr %7, align 4
   %21 = icmp sgt i32 %.val.i.i, 65536
-  br i1 %21, label %Kit_TruthToGraph.exit.i, label %22
+  br i1 %21, label %Kit_TruthStats.exit, label %22
 
 22:                                               ; preds = %20
   %23 = tail call ptr @Kit_SopFactor(ptr noundef nonnull %6, i32 noundef %18, i32 noundef %1, ptr noundef nonnull %6) #20
-  br label %Kit_TruthToGraph.exit.i
+  br label %Kit_TruthStats.exit
 
-Kit_TruthToGraph.exit.i:                          ; preds = %22, %20, %13
+Kit_TruthStats.exit:                              ; preds = %13, %20, %22
   %.0.i.i = phi ptr [ %23, %22 ], [ null, %13 ], [ null, %20 ]
   %24 = getelementptr i8, ptr %.0.i.i, i64 4
   %.val.i = load i32, ptr %24, align 4
@@ -1316,20 +1309,13 @@ Kit_TruthToGraph.exit.i:                          ; preds = %22, %20, %13
   %28 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val10.i, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 -24
   %30 = tail call i32 @Kit_GraphLevelNum_rec(ptr noundef %.0.i.i, ptr noundef nonnull %29)
-  %.not.i.i = icmp eq ptr %.val10.i, null
-  br i1 %.not.i.i, label %Kit_TruthStats.exit, label %31
-
-31:                                               ; preds = %Kit_TruthToGraph.exit.i
   tail call void @free(ptr noundef nonnull %.val10.i) #20
-  br label %Kit_TruthStats.exit
-
-Kit_TruthStats.exit:                              ; preds = %Kit_TruthToGraph.exit.i, %31
-  %32 = sub nsw i32 %.val8.i, %.val.i
+  %31 = sub nsw i32 %.val8.i, %.val.i
   tail call void @free(ptr noundef nonnull %.0.i.i) #20
-  %33 = shl i32 %30, 16
-  %34 = or i32 %33, %32
-  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
-  store i32 %34, ptr %35, align 4
+  %32 = shl i32 %30, 16
+  %33 = or i32 %32, %31
+  %34 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  store i32 %33, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %13, !llvm.loop !7
@@ -1339,15 +1325,15 @@ Kit_TruthStats.exit:                              ; preds = %Kit_TruthToGraph.ex
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %36 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %8, %3 ]
-  %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %37
+  %35 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %8, %3 ]
+  %.not.i = icmp eq ptr %35, null
+  br i1 %.not.i, label %Vec_IntFree.exit, label %36
 
-37:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %36) #20
+36:                                               ; preds = %._crit_edge
+  tail call void @free(ptr noundef nonnull %35) #20
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %._crit_edge, %37
+Vec_IntFree.exit:                                 ; preds = %._crit_edge, %36
   tail call void @free(ptr noundef nonnull %6) #20
   ret ptr %5
 }

@@ -42283,7 +42283,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #29
-  invoke void @_ZSt8_DestroyIPN6duckdb15AggregateObjectEEvT_S3_(ptr noundef %__result, ptr noundef %__cur.018)
+  invoke void @_ZSt8_DestroyIPN6duckdb15AggregateObjectEEvT_S3_(ptr noundef %__result, ptr noundef nonnull %__cur.018)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %lpad
@@ -42962,7 +42962,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #29
-  invoke void @_ZSt8_DestroyIPN6duckdb15AggregateObjectEEvT_S3_(ptr noundef %__result, ptr noundef %__cur.016)
+  invoke void @_ZSt8_DestroyIPN6duckdb15AggregateObjectEEvT_S3_(ptr noundef %__result, ptr noundef nonnull %__cur.016)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %lpad
@@ -45996,7 +45996,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN6duckdb18TupleDataAllocatorEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6duckdb16TupleDataSegmentESaIS1_EE11_M_allocateEm.exit
   invoke void @_ZN6duckdb16TupleDataSegmentC1ESt10shared_ptrINS_18TupleDataAllocatorEE(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull %agg.tmp.i.i)
-          to label %invoke.cont.i.i unwind label %lpad.i.i
+          to label %invoke.cont.i.i unwind label %invoke.cont19
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt10shared_ptrIN6duckdb18TupleDataAllocatorEEC2ERKS2_.exit.i.i
   %8 = load ptr, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !54
@@ -46047,15 +46047,6 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   br label %invoke.cont
 
-lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN6duckdb18TupleDataAllocatorEEC2ERKS2_.exit.i.i
-  %15 = landingpad { ptr, i32 }
-          catch ptr null
-  call void @_ZNSt12__shared_ptrIN6duckdb18TupleDataAllocatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i) #29
-  %16 = extractvalue { ptr, i32 } %15, 0
-  %17 = call ptr @__cxa_begin_catch(ptr %16) #29
-  %tobool.not = icmp eq ptr %cond.i47, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i60
-
 invoke.cont:                                      ; preds = %if.then7.i.i.i.i.i, %invoke.cont.i.i.i.i.i, %if.then.i.i.i3.i.i, %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %cmp.not6.i.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -46104,26 +46095,24 @@ _ZNSt12_Vector_baseIN6duckdb16TupleDataSegmentESaIS1_EE13_M_deallocateEPS1_m.exi
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !238
   ret void
 
-if.end.thread:                                    ; preds = %lpad.i.i
-  call void @_ZN6duckdb16TupleDataSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr) #29
-  br label %invoke.cont19
-
 lpad17:                                           ; preds = %invoke.cont19
-  %18 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont20 unwind label %terminate.lpad
 
-if.then.i60:                                      ; preds = %lpad.i.i
+invoke.cont19:                                    ; preds = %_ZNSt10shared_ptrIN6duckdb18TupleDataAllocatorEEC2ERKS2_.exit.i.i
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  call void @_ZNSt12__shared_ptrIN6duckdb18TupleDataAllocatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i) #29
+  %17 = extractvalue { ptr, i32 } %16, 0
+  %18 = call ptr @__cxa_begin_catch(ptr %17) #29
   call void @_ZdlPv(ptr noundef nonnull %cond.i47) #30
-  br label %invoke.cont19
-
-invoke.cont19:                                    ; preds = %if.then.i60, %if.end.thread
   invoke void @__cxa_rethrow() #31
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %15
 
 terminate.lpad:                                   ; preds = %lpad17
   %19 = landingpad { ptr, i32 }

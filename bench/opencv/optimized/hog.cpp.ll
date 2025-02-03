@@ -1306,7 +1306,7 @@ _ZN3App10hogWorkEndEv.exit:                       ; preds = %.noexc
 394:                                              ; preds = %391
   %395 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %392) #17
+  call void @__cxa_free_exception(ptr nonnull %392) #17
   br label %.body
 
 396:                                              ; preds = %390, %379

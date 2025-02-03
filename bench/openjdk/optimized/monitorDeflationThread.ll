@@ -178,73 +178,74 @@ define hidden void @_ZN22MonitorDeflationThread30monitor_deflation_thread_entryE
   store volatile i32 10, ptr %11, align 4
   %18 = load ptr, ptr @MonitorDeflation_lock, align 8
   %.not.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %19
+  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
 
-19:                                               ; preds = %17
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %17
+  %19 = call noundef zeroext i1 @_ZN18ObjectSynchronizer25is_async_deflation_neededEv() #6
+  br i1 %19, label %_ZN13MonitorLockerD2Ev.exit, label %_ZN13MonitorLocker4waitEl.exit.preheader
+
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread: ; preds = %17
   call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #6
-  br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-
-_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %17, %19
   %20 = call noundef zeroext i1 @_ZN18ObjectSynchronizer25is_async_deflation_neededEv() #6
-  br i1 %20, label %._crit_edge, label %_ZN13MonitorLocker4waitEl.exit
+  br i1 %20, label %._crit_edge.thread14, label %_ZN13MonitorLocker4waitEl.exit.preheader
 
-_ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %_ZN13MonitorLocker4waitEl.exit
+_ZN13MonitorLocker4waitEl.exit.preheader:         ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  br label %_ZN13MonitorLocker4waitEl.exit
+
+_ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLocker4waitEl.exit.preheader, %_ZN13MonitorLocker4waitEl.exit
   %21 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %18, i64 noundef %.1) #6
   %22 = call noundef zeroext i1 @_ZN18ObjectSynchronizer25is_async_deflation_neededEv() #6
-  br i1 %22, label %._crit_edge, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !7
+  br i1 %22, label %._crit_edge.thread14, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %23
-
-23:                                               ; preds = %._crit_edge
+._crit_edge.thread14:                             ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #6
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %23
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %._crit_edge.thread14
   store volatile i32 6, ptr %11, align 4
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
-  %24 = load volatile i64, ptr %12, align 8
+  %23 = load volatile i64, ptr %12, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
-  %25 = and i64 %24, 1
-  %.not.i.i7 = icmp eq i64 %25, 0
-  br i1 %.not.i.i7, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %26
+  %24 = and i64 %23, 1
+  %.not.i.i7 = icmp eq i64 %24, 0
+  br i1 %.not.i.i7, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %25
 
-26:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  %27 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %27, 0
-  br i1 %.not5.i.i, label %28, label %33
+25:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
+  %26 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
+  %.not5.i.i = icmp eq i32 %26, 0
+  br i1 %.not5.i.i, label %27, label %32
 
-28:                                               ; preds = %26
-  %29 = call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %13, i1 noundef zeroext false, i1 noundef zeroext false) #6
-  br i1 %29, label %33, label %30
+27:                                               ; preds = %25
+  %28 = call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %13, i1 noundef zeroext false, i1 noundef zeroext false) #6
+  br i1 %28, label %32, label %29
 
-30:                                               ; preds = %28
-  %31 = call noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaThread(ptr noundef nonnull %0) #6
-  br i1 %31, label %32, label %33
+29:                                               ; preds = %27
+  %30 = call noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaThread(ptr noundef nonnull %0) #6
+  br i1 %30, label %31, label %32
 
-32:                                               ; preds = %30
+31:                                               ; preds = %29
   call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %0) #6
   br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
 
-33:                                               ; preds = %30, %28, %26
-  %34 = load volatile i64, ptr %12, align 8
+32:                                               ; preds = %29, %27, %25
+  %33 = load volatile i64, ptr %12, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
-  %35 = and i64 %34, 1
-  %.not.i1.i = icmp eq i64 %35, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %36
+  %34 = and i64 %33, 1
+  %.not.i1.i = icmp eq i64 %34, 0
+  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %35
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false) #6
   br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN13MonitorLockerD2Ev.exit, %32, %33, %36
-  %37 = call noundef i64 @_ZN18ObjectSynchronizer21deflate_idle_monitorsEv() #6
-  %38 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not = icmp eq ptr %38, null
-  br i1 %.not, label %.backedge, label %39
+_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN13MonitorLockerD2Ev.exit, %31, %32, %35
+  %36 = call noundef i64 @_ZN18ObjectSynchronizer21deflate_idle_monitorsEv() #6
+  %37 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not = icmp eq ptr %37, null
+  br i1 %.not, label %.backedge, label %38
 
-39:                                               ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+38:                                               ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #6
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %14) #6
@@ -255,7 +256,7 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN13Monit
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #6
   br label %.backedge
 
-.backedge:                                        ; preds = %39, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+.backedge:                                        ; preds = %38, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
   br label %17, !llvm.loop !10
 }
 

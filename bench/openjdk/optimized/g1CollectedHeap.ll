@@ -4593,13 +4593,13 @@ define hidden noundef zeroext i1 @_ZN15G1CollectedHeap24try_collect_concurrently
   %.sroa.21.0..sroa_idx.i.i98 = getelementptr inbounds nuw i8, ptr %17, i64 152
   br label %41
 
-41:                                               ; preds = %409, %4
-  %.039 = phi i32 [ %3, %4 ], [ %.140, %409 ]
-  %.038 = phi i32 [ 1, %4 ], [ %410, %409 ]
-  %.034 = phi i32 [ %2, %4 ], [ %139, %409 ]
+41:                                               ; preds = %407, %4
+  %.039 = phi i32 [ %3, %4 ], [ %.140, %407 ]
+  %.038 = phi i32 [ 1, %4 ], [ %408, %407 ]
+  %.034 = phi i32 [ %2, %4 ], [ %139, %407 ]
   %42 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not206 = icmp eq ptr %42, null
-  br i1 %.not206, label %_ZN12ResourceMarkD2Ev.exit, label %43
+  %.not207 = icmp eq ptr %42, null
+  br i1 %.not207, label %_ZN12ResourceMarkD2Ev.exit, label %43
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %18, align 8
@@ -4655,8 +4655,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %65, %63, %41
 
 66:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
   %67 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not217 = icmp eq ptr %67, null
-  br i1 %.not217, label %_ZN12ResourceMarkD2Ev.exit53, label %68
+  %.not218 = icmp eq ptr %67, null
+  br i1 %.not218, label %_ZN12ResourceMarkD2Ev.exit53, label %68
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %18, align 8
@@ -4723,8 +4723,8 @@ _ZN12ResourceMarkD2Ev.exit53:                     ; preds = %95, %93, %66
 
 101:                                              ; preds = %98
   %102 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not216 = icmp eq ptr %102, null
-  br i1 %.not216, label %.loopexit, label %103
+  %.not217 = icmp eq ptr %102, null
+  br i1 %.not217, label %.loopexit, label %103
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %18, align 8
@@ -4812,8 +4812,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 143:                                              ; preds = %140
   %144 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not213 = icmp eq ptr %144, null
-  br i1 %.not213, label %.loopexit, label %145
+  %.not214 = icmp eq ptr %144, null
+  br i1 %.not214, label %.loopexit, label %145
 
 145:                                              ; preds = %143
   %146 = load ptr, ptr %18, align 8
@@ -4871,8 +4871,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 171:                                              ; preds = %170
   %172 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not212 = icmp eq ptr %172, null
-  br i1 %.not212, label %_ZN12ResourceMarkD2Ev.exit66, label %173
+  %.not213 = icmp eq ptr %172, null
+  br i1 %.not213, label %_ZN12ResourceMarkD2Ev.exit66, label %173
 
 173:                                              ; preds = %171
   %174 = load ptr, ptr %18, align 8
@@ -4940,8 +4940,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 205:                                              ; preds = %196, %199, %202
   %206 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not215 = icmp eq ptr %206, null
-  br i1 %.not215, label %.loopexit, label %207
+  %.not216 = icmp eq ptr %206, null
+  br i1 %.not216, label %.loopexit, label %207
 
 207:                                              ; preds = %205
   %208 = load ptr, ptr %18, align 8
@@ -5000,8 +5000,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 235:                                              ; preds = %232
   %236 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not211 = icmp eq ptr %236, null
-  br i1 %.not211, label %.loopexit, label %237
+  %.not212 = icmp eq ptr %236, null
+  br i1 %.not212, label %.loopexit, label %237
 
 237:                                              ; preds = %235
   %238 = load ptr, ptr %18, align 8
@@ -5059,8 +5059,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 263:                                              ; preds = %262
   %264 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not207 = icmp eq ptr %264, null
-  br i1 %.not207, label %_ZN12ResourceMarkD2Ev.exit78, label %265
+  %.not208 = icmp eq ptr %264, null
+  br i1 %.not208, label %_ZN12ResourceMarkD2Ev.exit78, label %265
 
 265:                                              ; preds = %263
   %266 = load ptr, ptr %18, align 8
@@ -5137,8 +5137,8 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLockerC
 
 297:                                              ; preds = %._crit_edge
   %298 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not208 = icmp eq ptr %298, null
-  br i1 %.not208, label %_ZN12ResourceMarkD2Ev.exit83, label %299
+  %.not209 = icmp eq ptr %298, null
+  br i1 %.not209, label %_ZN12ResourceMarkD2Ev.exit83, label %299
 
 299:                                              ; preds = %297
   %300 = load ptr, ptr %18, align 8
@@ -5204,8 +5204,8 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN12ResourceMarkD2
 
 326:                                              ; preds = %323
   %327 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not210 = icmp eq ptr %327, null
-  br i1 %.not210, label %409, label %328
+  %.not211 = icmp eq ptr %327, null
+  br i1 %.not211, label %407, label %328
 
 328:                                              ; preds = %326
   %329 = load ptr, ptr %18, align 8
@@ -5246,13 +5246,13 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN12ResourceMarkD2
 348:                                              ; preds = %347, %328
   %349 = load ptr, ptr %334, align 8
   %.not8.i.i.i.i87 = icmp eq ptr %349, %335
-  br i1 %.not8.i.i.i.i87, label %409, label %350
+  br i1 %.not8.i.i.i.i87, label %407, label %350
 
 350:                                              ; preds = %348
   store ptr %333, ptr %332, align 8
   store ptr %335, ptr %334, align 8
   store ptr %337, ptr %336, align 8
-  br label %409
+  br label %407
 
 351:                                              ; preds = %323
   %352 = load i8, ptr %31, align 1
@@ -5261,8 +5261,8 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN12ResourceMarkD2
 
 354:                                              ; preds = %351
   %355 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not209 = icmp eq ptr %355, null
-  br i1 %.not209, label %_ZN12ResourceMarkD2Ev.exit92, label %356
+  %.not210 = icmp eq ptr %355, null
+  br i1 %.not210, label %_ZN12ResourceMarkD2Ev.exit92, label %356
 
 356:                                              ; preds = %354
   %357 = load ptr, ptr %18, align 8
@@ -5314,84 +5314,82 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN12ResourceMarkD2
 _ZN12ResourceMarkD2Ev.exit92:                     ; preds = %378, %376, %354
   %379 = call noundef ptr @_ZN23ConcurrentGCBreakpoints7monitorEv() #23
   %.not.i.i93 = icmp eq ptr %379, null
-  br i1 %.not.i.i93, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94, label %380
+  br i1 %.not.i.i93, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94.thread
 
-380:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit92
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94: ; preds = %_ZN12ResourceMarkD2Ev.exit92
+  %380 = call noundef zeroext i1 @_ZN23ConcurrentGCBreakpoints13is_controlledEv() #23
+  br i1 %380, label %.thread, label %407
+
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94.thread: ; preds = %_ZN12ResourceMarkD2Ev.exit92
   call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %379) #23
-  br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94
-
-_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94: ; preds = %_ZN12ResourceMarkD2Ev.exit92, %380
   %381 = call noundef zeroext i1 @_ZN23ConcurrentGCBreakpoints13is_controlledEv() #23
-  br i1 %381, label %_ZN13MonitorLocker4waitEl.exit95, label %383
+  br i1 %381, label %.thread, label %.thread199
 
-_ZN13MonitorLocker4waitEl.exit95:                 ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94
+.thread:                                          ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94.thread
   %382 = call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %379, i64 noundef 0) #23
-  br label %383
+  br label %.thread199
 
-383:                                              ; preds = %_ZN13MonitorLocker4waitEl.exit95, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94
-  br i1 %.not.i.i93, label %409, label %384
-
-384:                                              ; preds = %383
+.thread199:                                       ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94.thread, %.thread
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %379) #23
-  br label %409
+  br label %407
 
 _ZN12ResourceMarkD2Ev.exit66:                     ; preds = %195, %193, %202, %171, %170, %351
   %.241 = phi i32 [ %.039, %170 ], [ %.039, %351 ], [ %138, %171 ], [ %.039, %202 ], [ %138, %193 ], [ %138, %195 ]
-  %385 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not214 = icmp eq ptr %385, null
-  br i1 %.not214, label %409, label %386
+  %383 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not215 = icmp eq ptr %383, null
+  br i1 %.not215, label %407, label %384
 
-386:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit66
-  %387 = load ptr, ptr %18, align 8
-  %388 = getelementptr inbounds nuw i8, ptr %387, i64 800
+384:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit66
+  %385 = load ptr, ptr %18, align 8
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 800
+  %387 = load ptr, ptr %386, align 8
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 24
   %389 = load ptr, ptr %388, align 8
-  %390 = getelementptr inbounds nuw i8, ptr %389, i64 24
+  %390 = getelementptr inbounds nuw i8, ptr %387, i64 32
   %391 = load ptr, ptr %390, align 8
-  %392 = getelementptr inbounds nuw i8, ptr %389, i64 32
+  %392 = getelementptr inbounds nuw i8, ptr %387, i64 40
   %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds nuw i8, ptr %389, i64 40
-  %395 = load ptr, ptr %394, align 8
-  %396 = getelementptr inbounds nuw i8, ptr %389, i64 8
-  %397 = load i64, ptr %396, align 8
+  %394 = getelementptr inbounds nuw i8, ptr %387, i64 8
+  %395 = load i64, ptr %394, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %17, i1 noundef zeroext false) #23
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %17, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %39) #23
   store i32 1, ptr %40, align 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i98, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %17, align 8
-  %398 = load ptr, ptr %18, align 8
+  %396 = load ptr, ptr %18, align 8
+  %397 = load ptr, ptr %396, align 8
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 168
   %399 = load ptr, ptr %398, align 8
-  %400 = getelementptr inbounds nuw i8, ptr %399, i64 168
-  %401 = load ptr, ptr %400, align 8
-  %402 = call noundef ptr %401(ptr noundef nonnull align 8 dereferenceable(888) %398) #23
-  %403 = call noundef ptr @_ZN7GCCause9to_stringENS_5CauseE(i32 noundef %1) #23
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull @.str.51, ptr noundef %402, ptr noundef %403) #23
+  %400 = call noundef ptr %399(ptr noundef nonnull align 8 dereferenceable(888) %396) #23
+  %401 = call noundef ptr @_ZN7GCCause9to_stringENS_5CauseE(i32 noundef %1) #23
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull @.str.51, ptr noundef %400, ptr noundef %401) #23
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull @.str.62) #23
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %17) #23
-  %404 = load ptr, ptr %391, align 8
-  %.not.i.i.i.i99 = icmp eq ptr %404, null
-  br i1 %.not.i.i.i.i99, label %406, label %405
+  %402 = load ptr, ptr %389, align 8
+  %.not.i.i.i.i99 = icmp eq ptr %402, null
+  br i1 %.not.i.i.i.i99, label %404, label %403
 
-405:                                              ; preds = %386
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %389, i64 noundef %397) #23
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %391) #23
-  br label %406
+403:                                              ; preds = %384
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %387, i64 noundef %395) #23
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %389) #23
+  br label %404
 
-406:                                              ; preds = %405, %386
-  %407 = load ptr, ptr %392, align 8
-  %.not8.i.i.i.i100 = icmp eq ptr %407, %393
-  br i1 %.not8.i.i.i.i100, label %409, label %408
+404:                                              ; preds = %403, %384
+  %405 = load ptr, ptr %390, align 8
+  %.not8.i.i.i.i100 = icmp eq ptr %405, %391
+  br i1 %.not8.i.i.i.i100, label %407, label %406
 
-408:                                              ; preds = %406
+406:                                              ; preds = %404
+  store ptr %389, ptr %388, align 8
   store ptr %391, ptr %390, align 8
   store ptr %393, ptr %392, align 8
-  store ptr %395, ptr %394, align 8
-  br label %409
+  br label %407
 
-409:                                              ; preds = %326, %_ZN12ResourceMarkD2Ev.exit66, %348, %350, %383, %384, %406, %408
-  %.140 = phi i32 [ %.039, %326 ], [ %.241, %_ZN12ResourceMarkD2Ev.exit66 ], [ %.039, %348 ], [ %.039, %350 ], [ %.039, %383 ], [ %.039, %384 ], [ %.241, %406 ], [ %.241, %408 ]
+407:                                              ; preds = %326, %_ZN12ResourceMarkD2Ev.exit66, %348, %350, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94, %.thread199, %404, %406
+  %.140 = phi i32 [ %.039, %326 ], [ %.241, %_ZN12ResourceMarkD2Ev.exit66 ], [ %.039, %348 ], [ %.039, %350 ], [ %.039, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94 ], [ %.039, %.thread199 ], [ %.241, %404 ], [ %.241, %406 ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(38) %6) #23
-  %410 = add i32 %.038, 1
+  %408 = add i32 %.038, 1
   br label %41, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_ZN13MonitorLockerD2Ev.exit, %_ZN12ResourceMarkD2Ev.exit53, %101, %143, %205, %235, %125, %127, %167, %169, %229, %231, %259, %261

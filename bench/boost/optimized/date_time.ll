@@ -2252,7 +2252,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu13calendar_impl9set_va
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #29
+  tail call void @__cxa_free_exception(ptr nonnull %6) #29
   resume { ptr, i32 } %9
 
 switch.lookup:                                    ; preds = %3
@@ -2407,7 +2407,7 @@ common.resume:                                    ; preds = %87, %45
 45:                                               ; preds = %42
   %46 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %43) #29
+  tail call void @__cxa_free_exception(ptr nonnull %43) #29
   br label %common.resume
 
 _ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit: ; preds = %3, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41
@@ -2753,7 +2753,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %32
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #29
+  tail call void @__cxa_free_exception(ptr nonnull %8) #29
   br label %45
 
 45:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %24, %43
@@ -2867,7 +2867,7 @@ _ZN5boost11unique_lockINS_5mutexEED2Ev.exit8:     ; preds = %44, %38
 50:                                               ; preds = %47
   %51 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %48) #29
+  tail call void @__cxa_free_exception(ptr nonnull %48) #29
   br label %52
 
 _ZN5boost6locale8impl_icu8icu_castIKN6icu_7017GregorianCalendarEKNS3_8CalendarEEEPT_PT0_.exit: ; preds = %12, %9, %5, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit
@@ -2907,7 +2907,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu13calendar_impl12adjus
 common.resume:                                    ; preds = %24, %11
   %.sink = phi ptr [ %22, %24 ], [ %9, %11 ]
   %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %12, %11 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #29
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #29
   resume { ptr, i32 } %common.resume.op
 
 11:                                               ; preds = %8
@@ -3014,7 +3014,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale8impl_icu13calendar_imp
 31:                                               ; preds = %28
   %32 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %29) #29
+  tail call void @__cxa_free_exception(ptr nonnull %29) #29
   br label %.body
 
 switch.lookup:                                    ; preds = %16
@@ -3330,7 +3330,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_21thread_resource
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -3512,7 +3512,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_21thread_resource_err
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -5378,7 +5378,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_10lock_errorEEEvR
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -5550,7 +5550,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_10lock_errorEE7rethro
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -5875,7 +5875,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx11
 18:                                               ; preds = %13
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #29
+  call void @__cxa_free_exception(ptr nonnull %14) #29
   br label %28
 
 20:                                               ; preds = %10
@@ -6878,7 +6878,7 @@ define linkonce_odr hidden void @_ZNK5boost16exception_detail10clone_implINS0_10
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -7022,7 +7022,7 @@ define linkonce_odr hidden void @_ZTv0_n32_NK5boost16exception_detail10clone_imp
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #29
+  tail call void @__cxa_free_exception(ptr nonnull %6) #29
   resume { ptr, i32 } %9
 }
 
@@ -7557,7 +7557,7 @@ define linkonce_odr hidden void @_ZNK5boost16exception_detail10clone_implINS0_14
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -7701,7 +7701,7 @@ define linkonce_odr hidden void @_ZTv0_n32_NK5boost16exception_detail10clone_imp
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #29
+  tail call void @__cxa_free_exception(ptr nonnull %6) #29
   resume { ptr, i32 } %9
 }
 

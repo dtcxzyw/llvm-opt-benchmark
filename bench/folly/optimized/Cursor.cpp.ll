@@ -91,7 +91,7 @@ lpad:                                             ; preds = %invoke.cont6
 lpad5:                                            ; preds = %if.then
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #10
+  call void @__cxa_free_exception(ptr nonnull %exception) #10
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit100"
 
 invoke.cont8:                                     ; preds = %invoke.cont2
@@ -194,7 +194,7 @@ if.then22:                                        ; preds = %_ZNSt10unique_ptrIN
 lpad24:                                           ; preds = %if.then22
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception23) #10
+  call void @__cxa_free_exception(ptr nonnull %exception23) #10
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit100"
 
 invoke.cont28:                                    ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
@@ -231,7 +231,7 @@ invoke.cont34.cont:                               ; preds = %invoke.cont34.invok
 lpad33:                                           ; preds = %if.then31
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception32) #10
+  call void @__cxa_free_exception(ptr nonnull %exception32) #10
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit100"
 
 if.end35:                                         ; preds = %invoke.cont28

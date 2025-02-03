@@ -174,7 +174,7 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
 62:                                               ; preds = %59
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %60) #16
+  call void @__cxa_free_exception(ptr nonnull %60) #16
   br label %_ZN5ZXing8BitArrayD2Ev.exit309
 
 64:                                               ; preds = %47
@@ -191,7 +191,7 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
 69:                                               ; preds = %67
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #16
+  call void @__cxa_free_exception(ptr nonnull %68) #16
   br label %_ZN5ZXing8BitArrayD2Ev.exit309
 
 71:                                               ; preds = %99
@@ -202,7 +202,7 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
 73:                                               ; preds = %71
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %72) #16
+  call void @__cxa_free_exception(ptr nonnull %72) #16
   br label %_ZN5ZXing8BitArrayD2Ev.exit309
 
 75:                                               ; preds = %.preheader370, %99
@@ -3082,7 +3082,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #16
+  tail call void @__cxa_free_exception(ptr nonnull %25) #16
   br label %32
 
 29:                                               ; preds = %26

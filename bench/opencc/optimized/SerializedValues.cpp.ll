@@ -1900,7 +1900,7 @@ define linkonce_odr void @_ZNK6opencc16SerializableDict15SerializeToFileERKNSt7_
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #22
+  tail call void @__cxa_free_exception(ptr nonnull %7) #22
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %2

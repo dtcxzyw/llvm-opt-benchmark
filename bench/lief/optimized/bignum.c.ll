@@ -927,7 +927,7 @@ mbedtls_mpi_lset.exit75:                          ; preds = %._crit_edge.i70, %1
   br i1 %25, label %129, label %mbedtls_mpi_grow.exit
 
 129:                                              ; preds = %.loopexit
-  %130 = call i64 @mbedtls_mpi_bitlen(ptr noundef %0)
+  %130 = call i64 @mbedtls_mpi_bitlen(ptr noundef nonnull %0)
   %.not65 = icmp eq i64 %130, 0
   br i1 %.not65, label %mbedtls_mpi_grow.exit, label %131
 

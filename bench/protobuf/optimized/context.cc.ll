@@ -1198,7 +1198,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i2.i.i.i.i, label %if.then6.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %land.rhs.i.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr readonly %name1.coerce1.tr.i, ptr readonly %name2.coerce1.tr.i, i64 %name1.coerce0.tr.i)
+  %bcmp.i.i.i = call i32 @bcmp(ptr readonly %name1.coerce1.tr.i, ptr nonnull readonly %name2.coerce1.tr.i, i64 %name1.coerce0.tr.i)
   %cmp.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then6.i, label %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i24.i
 
@@ -1257,7 +1257,7 @@ land.rhs.i.i33.i:                                 ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i2.i.i.i34.i, label %if.then19.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i35.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i35.i: ; preds = %land.rhs.i.i33.i
-  %bcmp.i.i36.i = call i32 @bcmp(ptr readonly %name1.coerce1.tr.i, ptr readonly %name2.coerce1.tr.i, i64 %name1.coerce0.tr.i)
+  %bcmp.i.i36.i = call i32 @bcmp(ptr readonly %name1.coerce1.tr.i, ptr nonnull readonly %name2.coerce1.tr.i, i64 %name1.coerce0.tr.i)
   %cmp.i.i.i37.i = icmp eq i32 %bcmp.i.i36.i, 0
   br i1 %cmp.i.i.i37.i, label %if.then19.i, label %invoke.cont63.thread
 

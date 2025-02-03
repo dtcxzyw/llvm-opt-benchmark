@@ -3919,7 +3919,7 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
   br i1 %.not301, label %137, label %126
 
 126:                                              ; preds = %123
-  %127 = call ptr (i64, ptr, ...) @zend_strpprintf_unchecked(i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %60) #15
+  %127 = call ptr (i64, ptr, ...) @zend_strpprintf_unchecked(i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %60) #15
   %128 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = and i32 %129, 64

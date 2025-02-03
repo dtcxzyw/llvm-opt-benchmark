@@ -557,7 +557,7 @@ get_entry_hardlink.exit:                          ; preds = %40, %51
 
 107:                                              ; preds = %.critedge, %._crit_edge
   call void @archive_entry_copy_pathname(ptr noundef %85, ptr noundef nonnull %89) #15
-  call void @free(ptr noundef %89) #15
+  call void @free(ptr noundef nonnull %89) #15
   %108 = load i64, ptr %8, align 8
   call void @archive_entry_set_size(ptr noundef %85, i64 noundef %108) #15
   call void @archive_entry_set_filetype(ptr noundef %85, i32 noundef 32768) #15
@@ -643,7 +643,7 @@ archive_write_pax_finish_entry.exit:              ; preds = %136, %123, %.prehea
   br i1 %146, label %147, label %148
 
 147:                                              ; preds = %144
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.3) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.3) #15
   br label %550
 
 148:                                              ; preds = %144
@@ -1367,7 +1367,7 @@ select.unfold:                                    ; preds = %367, %365
   %457 = load i64, ptr %24, align 8
   %458 = add i64 %457, %.2453
   %459 = load i64, ptr %23, align 8
-  %460 = call fastcc i32 @sparse_list_add(ptr noundef %26, i64 noundef %459, i64 noundef %457)
+  %460 = call fastcc i32 @sparse_list_add(ptr noundef nonnull %26, i64 noundef %459, i64 noundef %457)
   %.not561 = icmp eq i32 %460, 0
   br i1 %.not561, label %451, label %461, !llvm.loop !11
 

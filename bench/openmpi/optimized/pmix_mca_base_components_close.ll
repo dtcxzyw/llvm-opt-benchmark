@@ -40,7 +40,7 @@ define void @pmix_mca_base_component_unload(ptr noundef %0, i32 noundef %1) loca
   br label %18
 
 18:                                               ; preds = %16, %10
-  tail call void @pmix_mca_base_component_repository_release(ptr noundef %0) #7
+  tail call void @pmix_mca_base_component_repository_release(ptr noundef nonnull %0) #7
   ret void
 }
 

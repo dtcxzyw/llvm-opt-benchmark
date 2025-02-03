@@ -1349,7 +1349,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingAux(ptr noundef %0, i3
 .lr.ph166:                                        ; preds = %._crit_edge, %39
   %.1164 = phi i32 [ %.0, %39 ], [ %1, %._crit_edge ]
   %31 = add nsw i32 %.1164, 1
-  %32 = tail call i32 %4(ptr noundef %0, i32 noundef %.1164, i32 noundef %31) #10, !callees !23
+  %32 = tail call i32 %4(ptr noundef nonnull %0, i32 noundef %.1164, i32 noundef %31) #10, !callees !23
   %.not140 = icmp eq i32 %32, 0
   br i1 %.not140, label %.loopexit157, label %.preheader
 

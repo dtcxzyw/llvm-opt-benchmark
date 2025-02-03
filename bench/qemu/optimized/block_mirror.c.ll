@@ -542,8 +542,8 @@ if.end184:                                        ; preds = %if.then182, %if.the
 if.end187:                                        ; preds = %if.end44, %if.end184
   %stop = getelementptr inbounds nuw i8, ptr %call36, i64 8
   store i8 1, ptr %stop, align 8
-  tail call void @bdrv_drained_begin(ptr noundef %bs) #12
-  tail call void @bdrv_graph_wrlock(ptr noundef %bs) #12
+  tail call void @bdrv_drained_begin(ptr noundef nonnull %bs) #12
+  tail call void @bdrv_graph_wrlock(ptr noundef nonnull %bs) #12
   %backing = getelementptr inbounds nuw i8, ptr %call28, i64 16832
   %16 = load ptr, ptr %backing, align 8
   %17 = load ptr, ptr %16, align 8
@@ -556,9 +556,9 @@ if.else192:                                       ; preds = %if.end187
 
 if.end193:                                        ; preds = %if.end187
   %call195 = tail call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %call28, ptr noundef nonnull %16, ptr noundef nonnull @error_abort) #12
-  %call196 = tail call i32 @bdrv_replace_node(ptr noundef nonnull %call28, ptr noundef %bs, ptr noundef nonnull @error_abort) #12
-  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #12
-  tail call void @bdrv_drained_end(ptr noundef %bs) #12
+  %call196 = tail call i32 @bdrv_replace_node(ptr noundef nonnull %call28, ptr noundef nonnull %bs, ptr noundef nonnull @error_abort) #12
+  tail call void @bdrv_graph_wrunlock(ptr noundef nonnull %bs) #12
+  tail call void @bdrv_drained_end(ptr noundef nonnull %bs) #12
   tail call void @bdrv_unref(ptr noundef nonnull %call28) #12
   br label %return
 

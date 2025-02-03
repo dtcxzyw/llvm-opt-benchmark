@@ -640,7 +640,7 @@ _ZN13CmdlineParser3runEv.exit.thread:             ; preds = %2, %_ZN13CmdlinePar
   %62 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @__cxa_free_exception(ptr %60) #21
+  tail call void @__cxa_free_exception(ptr nonnull %60) #21
   br label %.body
 
 .body:                                            ; preds = %151, %162, %239, %125, %54, %61
@@ -810,7 +810,7 @@ _ZN13CmdlineParser3runEv.exit.thread:             ; preds = %2, %_ZN13CmdlinePar
 125:                                              ; preds = %123, %111, %102
   %.sink.i = phi ptr [ %121, %123 ], [ %110, %111 ], [ %101, %102 ]
   %.pn.i = phi { ptr, i32 } [ %124, %123 ], [ %112, %111 ], [ %103, %102 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #21
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #21
   br label %.body
 
 126:                                              ; preds = %.noexc24
@@ -1002,7 +1002,7 @@ _ZN13CmdlineParser3runEv.exit.thread:             ; preds = %2, %_ZN13CmdlinePar
   %180 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @__cxa_free_exception(ptr %175) #21
+  call void @__cxa_free_exception(ptr nonnull %175) #21
   br label %239
 
 181:                                              ; preds = %172

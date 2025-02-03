@@ -1746,7 +1746,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..ColumnDef$u20$as$u20$syn..par
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 56
   call void @llvm.experimental.noalias.scope.decl(metadata !337)
   %72 = load ptr, ptr %71, align 8, !alias.scope !340, !noundef !5
-  invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h39587fab5c306a2cE.llvm.14510580911666860995"(ptr noalias noundef align 8 dereferenceable(232) %72)
+  invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h39587fab5c306a2cE.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(232) %72)
           to label %"_ZN4core3ptr37drop_in_place$LT$syn..path..QSelf$GT$17h0358516cb7174902E.llvm.14510580911666860995.exit.i.i" unwind label %73, !noalias !340
 
 73:                                               ; preds = %70

@@ -3233,7 +3233,7 @@ while.body:                                       ; preds = %entry, %sw.epilog
   %refp.042 = phi ptr [ %prev76, %sw.epilog ], [ %arrayidx4, %entry ]
   %idxprom37 = zext i16 %ref.0.in43 to i64
   %arrayidx38 = getelementptr inbounds nuw %union.IRIns, ptr %1, i64 %idxprom37
-  %call = tail call fastcc i32 @aa_xref(ptr noundef %J, ptr noundef %arrayidx, ptr noundef nonnull %fold, ptr noundef nonnull %arrayidx38)
+  %call = tail call fastcc i32 @aa_xref(ptr noundef nonnull %J, ptr noundef %arrayidx, ptr noundef nonnull %fold, ptr noundef nonnull %arrayidx38)
   switch i32 %call, label %sw.epilog [
     i32 2, label %sw.bb48
     i32 1, label %sw.bb41

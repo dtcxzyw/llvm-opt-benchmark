@@ -1809,7 +1809,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 713, ptr noundef nonnull @__func__.tls_process_key_update) #11
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 10, i32 noundef 182, ptr noundef null) #11
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 10, i32 noundef 182, ptr noundef null) #11
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1831,7 +1831,7 @@ lor.lhs.false:                                    ; preds = %if.end
 if.then4:                                         ; preds = %if.end, %lor.lhs.false
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 719, ptr noundef nonnull @__func__.tls_process_key_update) #11
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef 122, ptr noundef null) #11
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 50, i32 noundef 122, ptr noundef null) #11
   br label %return
 
 if.end5:                                          ; preds = %lor.lhs.false
@@ -1841,7 +1841,7 @@ if.end5:                                          ; preds = %lor.lhs.false
 if.then8:                                         ; preds = %if.end5
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 729, ptr noundef nonnull @__func__.tls_process_key_update) #11
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 47, i32 noundef 122, ptr noundef null) #11
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 47, i32 noundef 122, ptr noundef null) #11
   br label %return
 
 if.end9:                                          ; preds = %if.end5
@@ -1854,7 +1854,7 @@ if.then11:                                        ; preds = %if.end9
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.end9
-  %call13 = tail call i32 @tls13_update_key(ptr noundef %s, i32 noundef 0) #11
+  %call13 = tail call i32 @tls13_update_key(ptr noundef nonnull %s, i32 noundef 0) #11
   %tobool14.not = icmp ne i32 %call13, 0
   %. = zext i1 %tobool14.not to i32
   br label %return
@@ -3033,7 +3033,7 @@ if.then10:                                        ; preds = %if.end7
 if.then12:                                        ; preds = %if.then10
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1402, ptr noundef nonnull @__func__.ssl3_output_cert_chain) #11
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #11
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #11
   br label %return
 
 return:                                           ; preds = %for.body70.i, %if.end61.i, %if.then57.i, %if.then59.i, %if.then40.i, %if.then42.i, %if.then31.i, %if.then33.i, %if.then24.i, %if.then26.i, %if.then52.i, %if.end7, %if.then10, %if.then12, %if.then, %if.then2

@@ -628,8 +628,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_ret_list(ptr noundef captur
   %8 = call ptr @list_create(ptr noundef nonnull @destroy_data_info) #8
   store ptr %8, ptr %0, align 8
   %9 = zext i16 %1 to i32
-  %.not44 = icmp eq i16 %1, 0
-  br i1 %.not44, label %.loopexit, label %.lr.ph
+  %.not39 = icmp eq i16 %1, 0
+  br i1 %.not39, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 204
@@ -637,7 +637,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_ret_list(ptr noundef captur
   br label %12
 
 12:                                               ; preds = %.lr.ph, %25
-  %.043 = phi i32 [ 0, %.lr.ph ], [ %28, %25 ]
+  %.038 = phi i32 [ 0, %.lr.ph ], [ %28, %25 ]
   %13 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7591, ptr noundef nonnull @__func__._unpack_ret_list) #8
   %14 = load ptr, ptr %0, align 8
   call void @list_push(ptr noundef %14, ptr noundef %13) #8
@@ -647,7 +647,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_ret_list(ptr noundef captur
   br i1 %.not, label %17, label %29
 
 17:                                               ; preds = %12
-  %18 = call i32 @unpack16(ptr noundef %13, ptr noundef %2) #8
+  %18 = call i32 @unpack16(ptr noundef nonnull %13, ptr noundef %2) #8
   %.not29 = icmp eq i32 %18, 0
   br i1 %.not29, label %19, label %29
 
@@ -662,31 +662,27 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_ret_list(ptr noundef captur
   store i16 %23, ptr %10, align 4
   %24 = call i32 @unpack_msg(ptr noundef nonnull %5, ptr noundef %2)
   %.not31 = icmp eq i32 %24, 0
-  br i1 %.not31, label %25, label %.thread
+  br i1 %.not31, label %25, label %29
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %11, align 8
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %26, ptr %27, align 8
-  %28 = add nuw nsw i32 %.043, 1
+  %28 = add nuw nsw i32 %.038, 1
   %exitcond.not = icmp eq i32 %28, %9
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !8
 
-29:                                               ; preds = %19, %17, %12
-  %.not32 = icmp eq ptr %13, null
-  br i1 %.not32, label %34, label %.thread
-
-.thread:                                          ; preds = %22, %29
+29:                                               ; preds = %12, %17, %19, %22
   %30 = load i16, ptr %13, align 8
   %.not33 = icmp eq i16 %30, 0
   br i1 %.not33, label %34, label %31
 
-31:                                               ; preds = %.thread
+31:                                               ; preds = %29
   %32 = call ptr @rpc_num2string(i16 noundef zeroext %30) #8
-  %33 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %32, i32 noundef %.043, i32 noundef %9) #8
+  %33 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %32, i32 noundef %.038, i32 noundef %9) #8
   br label %34
 
-34:                                               ; preds = %29, %.thread, %31
+34:                                               ; preds = %29, %31
   %35 = load ptr, ptr %0, align 8
   %.not34 = icmp eq ptr %35, null
   br i1 %.not34, label %37, label %36
@@ -1353,7 +1349,7 @@ slurm_unpack_list.exit:                           ; preds = %.loopexit16.i, %25
   br i1 %.not10, label %29, label %28
 
 28:                                               ; preds = %slurm_unpack_list.exit, %.loopexit
-  call void @slurm_free_config_response_msg(ptr noundef %7) #8
+  call void @slurm_free_config_response_msg(ptr noundef nonnull %7) #8
   store ptr null, ptr %0, align 8
   br label %29
 
@@ -1572,7 +1568,7 @@ define range(i32 -1, 1) i32 @slurm_unpack_node_alias_addrs(ptr noundef writeonly
   br i1 %.not12, label %18, label %17
 
 17:                                               ; preds = %14, %11, %8
-  call void @slurm_free_node_alias_addrs(ptr noundef %6) #8
+  call void @slurm_free_node_alias_addrs(ptr noundef nonnull %6) #8
   store ptr null, ptr %0, align 8
   br label %18
 
@@ -20112,7 +20108,7 @@ _unpack_each_container_id.exit.thread:            ; preds = %.preheader, %18, %2
 
 _unpack_each_container_id.exit:                   ; preds = %21
   %24 = load ptr, ptr %4, align 8
-  call void @list_append(ptr noundef %24, ptr noundef %16) #8
+  call void @list_append(ptr noundef %24, ptr noundef nonnull %16) #8
   %25 = add nuw nsw i32 %.017.i, 1
   %26 = load i32, ptr %3, align 4
   %27 = icmp ult i32 %25, %26
@@ -20166,7 +20162,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_msg(ptr noundef ca
   br i1 %.not39, label %14, label %.loopexit47
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @unpack_time(ptr noundef %3, ptr noundef %1) #8
+  %15 = tail call i32 @unpack_time(ptr noundef nonnull %3, ptr noundef %1) #8
   %.not40 = icmp eq i32 %15, 0
   br i1 %.not40, label %16, label %.loopexit47
 
@@ -20235,7 +20231,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_msg(ptr noundef ca
   br i1 %47, label %.lr.ph, label %.loopexit, !llvm.loop !51
 
 .loopexit47:                                      ; preds = %.lr.ph, %19, %14, %11, %8
-  tail call void @slurm_free_job_info_msg(ptr noundef %3) #8
+  tail call void @slurm_free_job_info_msg(ptr noundef nonnull %3) #8
   store ptr null, ptr %4, align 8
   br label %.loopexit
 
@@ -20650,7 +20646,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
   br i1 %.not124.i, label %187, label %_unpack_partition_info_members.exit
 
 _unpack_partition_info_members.exit:              ; preds = %.lr.ph, %54, %57, %60, %63, %66, %69, %72, %75, %78, %81, %84, %87, %90, %93, %96, %99, %102, %105, %108, %111, %114, %117, %120, %123, %126, %129, %131, %134, %137, %140, %143, %146, %149, %152, %156, %178, %181, %184, %168
-  call void @slurm_free_partition_info_members(ptr noundef %46) #8
+  call void @slurm_free_partition_info_members(ptr noundef nonnull %46) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -20784,7 +20780,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
   br i1 %.not, label %72, label %525
 
 72:                                               ; preds = %69
-  %73 = tail call i32 @unpack_time(ptr noundef %67, ptr noundef %1) #8
+  %73 = tail call i32 @unpack_time(ptr noundef nonnull %67, ptr noundef %1) #8
   %.not26 = icmp eq i32 %73, 0
   br i1 %.not26, label %74, label %525
 
@@ -21076,7 +21072,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
   br i1 %.not424.i.us, label %182, label %_unpack_node_info_members.exit
 
 182:                                              ; preds = %179
-  %183 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %86, ptr noundef nonnull %11, ptr noundef %1) #8
+  %183 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %86, ptr noundef nonnull %11, ptr noundef %1) #8
   %.not425.i.us = icmp eq i32 %183, 0
   br i1 %.not425.i.us, label %184, label %_unpack_node_info_members.exit
 
@@ -21498,7 +21494,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
   br i1 %.not375.i.us, label %328, label %_unpack_node_info_members.exit
 
 328:                                              ; preds = %325
-  %329 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %232, ptr noundef nonnull %33, ptr noundef %1) #8
+  %329 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %232, ptr noundef nonnull %33, ptr noundef %1) #8
   %.not376.i.us = icmp eq i32 %329, 0
   br i1 %.not376.i.us, label %330, label %_unpack_node_info_members.exit
 
@@ -21927,7 +21923,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
   br i1 %.not328.i, label %478, label %_unpack_node_info_members.exit
 
 478:                                              ; preds = %475
-  %479 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %382, ptr noundef nonnull %55, ptr noundef %1) #8
+  %479 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %382, ptr noundef nonnull %55, ptr noundef %1) #8
   %.not329.i = icmp eq i32 %479, 0
   br i1 %.not329.i, label %480, label %_unpack_node_info_members.exit
 
@@ -22016,7 +22012,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
 
 _unpack_node_info_members.exit:                   ; preds = %.lr.ph.split.split, %385, %388, %391, %394, %397, %400, %403, %406, %409, %412, %415, %418, %421, %424, %427, %430, %433, %436, %439, %442, %445, %448, %451, %454, %457, %460, %463, %466, %469, %472, %475, %478, %480, %483, %486, %489, %492, %495, %498, %501, %504, %507, %510, %513, %515, %518, %374, %371, %369, %366, %363, %360, %357, %354, %351, %348, %345, %342, %339, %336, %333, %330, %328, %325, %322, %319, %316, %313, %310, %307, %304, %301, %298, %295, %292, %289, %286, %283, %280, %277, %274, %271, %268, %265, %262, %259, %256, %253, %250, %247, %244, %241, %238, %235, %.lr.ph.split.split.us, %.lr.ph.split.us, %89, %92, %95, %98, %101, %104, %107, %110, %113, %116, %119, %122, %125, %128, %131, %134, %137, %140, %143, %146, %149, %152, %155, %158, %161, %164, %167, %170, %173, %176, %179, %182, %184, %187, %190, %193, %196, %199, %202, %205, %208, %211, %214, %217, %220, %223
   %.us-phi = phi ptr [ %86, %223 ], [ %86, %220 ], [ %86, %217 ], [ %86, %214 ], [ %86, %211 ], [ %86, %208 ], [ %86, %205 ], [ %86, %202 ], [ %86, %199 ], [ %86, %196 ], [ %86, %193 ], [ %86, %190 ], [ %86, %187 ], [ %86, %184 ], [ %86, %182 ], [ %86, %179 ], [ %86, %176 ], [ %86, %173 ], [ %86, %170 ], [ %86, %167 ], [ %86, %164 ], [ %86, %161 ], [ %86, %158 ], [ %86, %155 ], [ %86, %152 ], [ %86, %149 ], [ %86, %146 ], [ %86, %143 ], [ %86, %140 ], [ %86, %137 ], [ %86, %134 ], [ %86, %131 ], [ %86, %128 ], [ %86, %125 ], [ %86, %122 ], [ %86, %119 ], [ %86, %116 ], [ %86, %113 ], [ %86, %110 ], [ %86, %107 ], [ %86, %104 ], [ %86, %101 ], [ %86, %98 ], [ %86, %95 ], [ %86, %92 ], [ %86, %89 ], [ %86, %.lr.ph.split.us ], [ %232, %.lr.ph.split.split.us ], [ %232, %235 ], [ %232, %238 ], [ %232, %241 ], [ %232, %244 ], [ %232, %247 ], [ %232, %250 ], [ %232, %253 ], [ %232, %256 ], [ %232, %259 ], [ %232, %262 ], [ %232, %265 ], [ %232, %268 ], [ %232, %271 ], [ %232, %274 ], [ %232, %277 ], [ %232, %280 ], [ %232, %283 ], [ %232, %286 ], [ %232, %289 ], [ %232, %292 ], [ %232, %295 ], [ %232, %298 ], [ %232, %301 ], [ %232, %304 ], [ %232, %307 ], [ %232, %310 ], [ %232, %313 ], [ %232, %316 ], [ %232, %319 ], [ %232, %322 ], [ %232, %325 ], [ %232, %328 ], [ %232, %330 ], [ %232, %333 ], [ %232, %336 ], [ %232, %339 ], [ %232, %342 ], [ %232, %345 ], [ %232, %348 ], [ %232, %351 ], [ %232, %354 ], [ %232, %357 ], [ %232, %360 ], [ %232, %363 ], [ %232, %366 ], [ %232, %369 ], [ %232, %371 ], [ %232, %374 ], [ %382, %518 ], [ %382, %515 ], [ %382, %513 ], [ %382, %510 ], [ %382, %507 ], [ %382, %504 ], [ %382, %501 ], [ %382, %498 ], [ %382, %495 ], [ %382, %492 ], [ %382, %489 ], [ %382, %486 ], [ %382, %483 ], [ %382, %480 ], [ %382, %478 ], [ %382, %475 ], [ %382, %472 ], [ %382, %469 ], [ %382, %466 ], [ %382, %463 ], [ %382, %460 ], [ %382, %457 ], [ %382, %454 ], [ %382, %451 ], [ %382, %448 ], [ %382, %445 ], [ %382, %442 ], [ %382, %439 ], [ %382, %436 ], [ %382, %433 ], [ %382, %430 ], [ %382, %427 ], [ %382, %424 ], [ %382, %421 ], [ %382, %418 ], [ %382, %415 ], [ %382, %412 ], [ %382, %409 ], [ %382, %406 ], [ %382, %403 ], [ %382, %400 ], [ %382, %397 ], [ %382, %394 ], [ %382, %391 ], [ %382, %388 ], [ %382, %385 ], [ %382, %.lr.ph.split.split ]
-  call void @slurm_free_node_info_members(ptr noundef %.us-phi) #8
+  call void @slurm_free_node_info_members(ptr noundef nonnull %.us-phi) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -22257,7 +22253,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_registration_status_ms
   br i1 %.not216, label %62, label %.loopexit
 
 62:                                               ; preds = %59
-  %63 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %30, ptr noundef nonnull %14, ptr noundef %1) #8
+  %63 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %30, ptr noundef nonnull %14, ptr noundef %1) #8
   %.not217 = icmp eq i32 %63, 0
   br i1 %.not217, label %64, label %.loopexit
 
@@ -22501,7 +22497,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_registration_status_ms
   br i1 %.not178, label %177, label %.loopexit
 
 177:                                              ; preds = %174
-  %178 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %30, ptr noundef nonnull %24, ptr noundef %1) #8
+  %178 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %30, ptr noundef nonnull %24, ptr noundef %1) #8
   %.not179 = icmp eq i32 %178, 0
   br i1 %.not179, label %179, label %.loopexit
 
@@ -22700,7 +22696,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_registration_status_ms
 
 .loopexit:                                        ; preds = %235, %120, %221, %106, %266, %263, %260, %257, %254, %247, %245, %241, %._crit_edge, %224, %218, %215, %212, %209, %206, %203, %200, %197, %194, %191, %188, %185, %182, %179, %177, %174, %171, %168, %165, %162, %159, %156, %151, %148, %145, %142, %139, %132, %130, %126, %._crit_edge250, %109, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32
   call void @slurm_xfree(ptr noundef nonnull %4) #8
-  call void @slurm_free_node_registration_status_msg(ptr noundef %30) #8
+  call void @slurm_free_node_registration_status_msg(ptr noundef nonnull %30) #8
   store ptr null, ptr %0, align 8
   br label %269
 
@@ -22764,7 +22760,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_acct_gather_node_resp_msg(p
   br i1 %.not29, label %21, label %.loopexit30
 
 .loopexit30:                                      ; preds = %.lr.ph, %16, %11, %8
-  call void @slurm_free_acct_gather_node_resp_msg(ptr noundef %6) #8
+  call void @slurm_free_acct_gather_node_resp_msg(ptr noundef nonnull %6) #8
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %14, %.loopexit30
@@ -23022,7 +23018,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   br i1 %.not297, label %149, label %440
 
 149:                                              ; preds = %146
-  %150 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %56, ptr noundef nonnull %19, ptr noundef %1) #8
+  %150 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %56, ptr noundef nonnull %19, ptr noundef %1) #8
   %.not298 = icmp eq i32 %150, 0
   br i1 %.not298, label %151, label %440
 
@@ -23596,7 +23592,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_desc_msg(ptr noundef wr
   br i1 %.not388, label %441, label %440
 
 440:                                              ; preds = %437, %434, %431, %428, %425, %422, %419, %416, %413, %410, %407, %404, %401, %398, %395, %392, %389, %386, %383, %380, %377, %374, %371, %368, %365, %362, %359, %356, %353, %350, %347, %344, %341, %338, %335, %332, %329, %326, %323, %320, %317, %314, %311, %308, %305, %302, %299, %296, %293, %290, %287, %284, %281, %278, %275, %272, %269, %266, %263, %260, %257, %254, %251, %248, %245, %242, %239, %236, %233, %225, %222, %218, %214, %210, %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %151, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %65, %62, %59, %55
-  call void @slurm_free_job_desc_msg(ptr noundef %56) #8
+  call void @slurm_free_job_desc_msg(ptr noundef nonnull %56) #8
   store ptr null, ptr %0, align 8
   br label %441
 
@@ -25214,7 +25210,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_update_partition_msg(ptr no
   br i1 %.not, label %21, label %104
 
 21:                                               ; preds = %18
-  %22 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %16, ptr noundef nonnull %5, ptr noundef %1) #8
+  %22 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef %1) #8
   %.not63 = icmp eq i32 %22, 0
   br i1 %.not63, label %23, label %104
 
@@ -25381,7 +25377,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_update_partition_msg(ptr no
   br i1 %.not90, label %105, label %104
 
 104:                                              ; preds = %101, %98, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26, %23, %21, %18
-  call void @slurm_free_update_part_msg(ptr noundef %16) #8
+  call void @slurm_free_update_part_msg(ptr noundef nonnull %16) #8
   store ptr null, ptr %0, align 8
   br label %105
 
@@ -25536,7 +25532,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_update_resv_msg(ptr noundef
   br i1 %.not134, label %75, label %171
 
 75:                                               ; preds = %72
-  %76 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %28, ptr noundef nonnull %11, ptr noundef %1) #8
+  %76 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %28, ptr noundef nonnull %11, ptr noundef %1) #8
   %.not135 = icmp eq i32 %76, 0
   br i1 %.not135, label %77, label %171
 
@@ -25709,7 +25705,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_update_resv_msg(ptr noundef
   br i1 %.not115, label %156, label %171
 
 156:                                              ; preds = %153
-  %157 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %28, ptr noundef nonnull %24, ptr noundef %1) #8
+  %157 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %28, ptr noundef nonnull %24, ptr noundef %1) #8
   %.not116 = icmp eq i32 %157, 0
   br i1 %.not116, label %158, label %171
 
@@ -25742,7 +25738,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_update_resv_msg(ptr noundef
   br label %172
 
 171:                                              ; preds = %164, %161, %158, %156, %153, %150, %147, %144, %141, %138, %135, %.loopexit, %.loopexit141, %106, %103, %100, %97, %94, %91, %86, %83, %80, %77, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30
-  call void @slurm_free_resv_desc_msg(ptr noundef %28) #8
+  call void @slurm_free_resv_desc_msg(ptr noundef nonnull %28) #8
   store ptr null, ptr %0, align 8
   br label %172
 
@@ -26223,7 +26219,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   br i1 %.not620, label %60, label %unpack_step_id_members.exit
 
 60:                                               ; preds = %56
-  %61 = tail call i32 @unpack32(ptr noundef %45, ptr noundef %1) #8
+  %61 = tail call i32 @unpack32(ptr noundef nonnull %45, ptr noundef %1) #8
   %.not621 = icmp eq i32 %61, 0
   br i1 %.not621, label %62, label %unpack_step_id_members.exit
 
@@ -26941,7 +26937,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   br i1 %.not535, label %399, label %unpack_step_id_members.exit
 
 399:                                              ; preds = %395
-  %400 = call i32 @unpack32(ptr noundef %45, ptr noundef %1) #8
+  %400 = call i32 @unpack32(ptr noundef nonnull %45, ptr noundef %1) #8
   %.not536 = icmp eq i32 %400, 0
   br i1 %.not536, label %401, label %unpack_step_id_members.exit
 
@@ -27610,7 +27606,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   br i1 %.not611, label %714, label %unpack_step_id_members.exit
 
 unpack_step_id_members.exit:                      ; preds = %424, %452, %558, %554, %550, %.lr.ph753, %.lr.ph755, %85, %113, %222, %218, %214, %.lr.ph767, %.lr.ph769, %386, %383, %380, %53, %50, %47, %711, %708, %705, %702, %699, %696, %693, %690, %687, %684, %681, %678, %675, %672, %669, %652, %649, %646, %.loopexit737, %632, %628, %625, %622, %619, %616, %613, %609, %606, %603, %600, %597, %594, %591, %587, %.loopexit740, %570, %566, %._crit_edge, %538, %532, %525, %522, %519, %516, %513, %510, %507, %504, %501, %498, %495, %492, %489, %486, %483, %480, %477, %474, %467, %464, %461, %458, %.loopexit743, %441, %.loopexit745, %416, %410, %404, %401, %399, %395, %393, %391, %389, %375, %372, %369, %366, %363, %360, %357, %354, %351, %348, %345, %342, %339, %336, %333, %316, %313, %310, %.loopexit, %296, %292, %289, %286, %283, %280, %277, %273, %270, %267, %264, %261, %258, %255, %251, %.loopexit729, %234, %230, %._crit_edge765, %202, %196, %189, %186, %183, %180, %177, %174, %171, %168, %165, %161, %158, %155, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %.loopexit732, %102, %.loopexit734, %77, %71, %65, %62, %60, %56, %667, %659, %331, %323
-  call void @slurm_free_launch_tasks_request_msg(ptr noundef %45) #8
+  call void @slurm_free_launch_tasks_request_msg(ptr noundef nonnull %45) #8
   store ptr null, ptr %0, align 8
   br label %714
 
@@ -27647,7 +27643,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_response_msg(p
   br i1 %.not10.i, label %17, label %unpack_step_id_members.exit
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @unpack32(ptr noundef %6, ptr noundef %1) #8
+  %18 = tail call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %1) #8
   %.not20 = icmp eq i32 %18, 0
   br i1 %.not20, label %19, label %unpack_step_id_members.exit
 
@@ -27688,7 +27684,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_response_msg(p
   br i1 %.not26, label %37, label %unpack_step_id_members.exit
 
 unpack_step_id_members.exit:                      ; preds = %14, %11, %8, %34, %31, %28, %25, %22, %19, %17
-  call void @slurm_free_launch_tasks_response_msg(ptr noundef %6) #8
+  call void @slurm_free_launch_tasks_response_msg(ptr noundef nonnull %6) #8
   store ptr null, ptr %0, align 8
   br label %37
 
@@ -27723,7 +27719,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_request_msg(
   br i1 %.not10.i, label %15, label %unpack_step_id_members.exit
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @unpack16(ptr noundef %4, ptr noundef %1) #8
+  %16 = tail call i32 @unpack16(ptr noundef nonnull %4, ptr noundef %1) #8
   %.not53 = icmp eq i32 %16, 0
   br i1 %.not53, label %17, label %unpack_step_id_members.exit
 
@@ -27815,7 +27811,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_request_msg(
   br i1 %.not59, label %unpack_step_id_members.exit, label %53
 
 unpack_step_id_members.exit:                      ; preds = %.lr.ph, %.lr.ph69, %12, %9, %6, %.loopexit, %39, %35, %.loopexit65, %21, %17, %15
-  tail call void @slurm_free_reattach_tasks_request_msg(ptr noundef %4) #8
+  tail call void @slurm_free_reattach_tasks_request_msg(ptr noundef nonnull %4) #8
   store ptr null, ptr %0, align 8
   br label %53
 
@@ -27942,7 +27938,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_cancel_tasks_msg(ptr nounde
   br i1 %.not10.i, label %15, label %unpack_step_id_members.exit
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @unpack16(ptr noundef %4, ptr noundef %1) #8
+  %16 = tail call i32 @unpack16(ptr noundef nonnull %4, ptr noundef %1) #8
   %.not12 = icmp eq i32 %16, 0
   br i1 %.not12, label %17, label %unpack_step_id_members.exit
 
@@ -27953,7 +27949,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_cancel_tasks_msg(ptr nounde
   br i1 %.not13, label %20, label %unpack_step_id_members.exit
 
 unpack_step_id_members.exit:                      ; preds = %12, %9, %6, %17, %15
-  tail call void @slurm_free_signal_tasks_msg(ptr noundef %4) #8
+  tail call void @slurm_free_signal_tasks_msg(ptr noundef nonnull %4) #8
   store ptr null, ptr %0, align 8
   br label %20
 
@@ -28334,7 +28330,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_kill_msg(ptr nound
   br i1 %.not10.i, label %17, label %unpack_step_id_members.exit
 
 17:                                               ; preds = %14
-  %18 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %1) #8
+  %18 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %1) #8
   %.not16 = icmp eq i32 %18, 0
   br i1 %.not16, label %19, label %unpack_step_id_members.exit
 
@@ -28357,7 +28353,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_kill_msg(ptr nound
   br i1 %.not19, label %28, label %unpack_step_id_members.exit
 
 unpack_step_id_members.exit:                      ; preds = %14, %11, %8, %25, %22, %19, %17
-  call void @slurm_free_job_step_kill_msg(ptr noundef %6) #8
+  call void @slurm_free_job_step_kill_msg(ptr noundef nonnull %6) #8
   store ptr null, ptr %0, align 8
   br label %28
 
@@ -28504,7 +28500,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_step_complete_msg(ptr nound
   br i1 %.not10.i, label %15, label %unpack_step_id_members.exit
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @unpack32(ptr noundef %4, ptr noundef %1) #8
+  %16 = tail call i32 @unpack32(ptr noundef nonnull %4, ptr noundef %1) #8
   %.not17 = icmp eq i32 %16, 0
   br i1 %.not17, label %17, label %unpack_step_id_members.exit
 
@@ -28527,7 +28523,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_step_complete_msg(ptr nound
   br i1 %.not20, label %26, label %unpack_step_id_members.exit
 
 unpack_step_id_members.exit:                      ; preds = %12, %9, %6, %23, %20, %17, %15
-  tail call void @slurm_free_step_complete_msg(ptr noundef %4) #8
+  tail call void @slurm_free_step_complete_msg(ptr noundef nonnull %4) #8
   store ptr null, ptr %0, align 8
   br label %26
 
@@ -28553,7 +28549,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_stat(ptr noundef w
   br i1 %.not15, label %11, label %22
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @jobacctinfo_unpack(ptr noundef %5, i16 noundef zeroext %2, i16 noundef zeroext 0, ptr noundef %1, i1 noundef zeroext true) #8
+  %12 = tail call i32 @jobacctinfo_unpack(ptr noundef nonnull %5, i16 noundef zeroext %2, i16 noundef zeroext 0, ptr noundef %1, i1 noundef zeroext true) #8
   %.not16 = icmp eq i32 %12, 0
   br i1 %.not16, label %13, label %22
 
@@ -28584,7 +28580,7 @@ _unpack_job_step_pids.exit:                       ; preds = %17, %21
   br label %23
 
 22:                                               ; preds = %11, %8, %3
-  tail call void @slurm_free_job_step_stat(ptr noundef %5) #8
+  tail call void @slurm_free_job_step_stat(ptr noundef nonnull %5) #8
   store ptr null, ptr %0, align 8
   br label %23
 
@@ -29784,7 +29780,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_task_exit_msg(ptr noundef w
   br i1 %.not, label %10, label %21
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @unpack32(ptr noundef %5, ptr noundef %1) #8
+  %11 = tail call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %1) #8
   %.not15 = icmp eq i32 %11, 0
   br i1 %.not15, label %12, label %21
 
@@ -29807,7 +29803,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_task_exit_msg(ptr noundef w
   br i1 %.not18, label %22, label %21
 
 21:                                               ; preds = %18, %15, %12, %10, %7
-  call void @slurm_free_task_exit_msg(ptr noundef %5) #8
+  call void @slurm_free_task_exit_msg(ptr noundef nonnull %5) #8
   store ptr null, ptr %0, align 8
   br label %22
 
@@ -30412,7 +30408,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_batch_job_launch_msg(ptr no
   br i1 %.not235, label %316, label %315
 
 315:                                              ; preds = %312, %309, %306, %303, %300, %298, %294, %291, %288, %285, %282, %278, %275, %272, %269, %266, %263, %260, %257, %254, %251, %248, %245, %242, %239, %236, %231, %228, %225, %222, %219, %216, %213, %210, %207, %204, %201, %198, %195, %192, %188, %186, %184, %182, %179, %176, %171, %168, %165, %162, %159, %157, %153, %150, %147, %144, %141, %137, %134, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %95, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %47, %44, %41
-  call void @slurm_free_job_launch_msg(ptr noundef %39) #8
+  call void @slurm_free_job_launch_msg(ptr noundef nonnull %39) #8
   store ptr null, ptr %0, align 8
   br label %316
 
@@ -30479,7 +30475,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_prolog_launch_msg(ptr nound
   br i1 %.not103, label %40, label %132
 
 40:                                               ; preds = %37
-  %41 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %20, ptr noundef nonnull %3, ptr noundef %1) #8
+  %41 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %20, ptr noundef nonnull %3, ptr noundef %1) #8
   %.not104 = icmp eq i32 %41, 0
   br i1 %.not104, label %42, label %132
 
@@ -30581,7 +30577,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_prolog_launch_msg(ptr nound
   br i1 %.not84, label %91, label %132
 
 91:                                               ; preds = %88
-  %92 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %20, ptr noundef nonnull %9, ptr noundef %1) #8
+  %92 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %20, ptr noundef nonnull %9, ptr noundef %1) #8
   %.not85 = icmp eq i32 %92, 0
   br i1 %.not85, label %93, label %132
 
@@ -30669,7 +30665,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_prolog_launch_msg(ptr nound
   br i1 %.not98, label %133, label %132
 
 132:                                              ; preds = %129, %125, %121, %118, %115, %112, %109, %106, %103, %100, %98, %96, %93, %91, %88, %85, %82, %79, %76, %70, %66, %63, %60, %57, %54, %51, %48, %45, %42, %40, %37, %34, %31, %28, %25
-  call void @slurm_free_prolog_launch_msg(ptr noundef %20) #8
+  call void @slurm_free_prolog_launch_msg(ptr noundef nonnull %20) #8
   store ptr null, ptr %21, align 8
   br label %133
 
@@ -30930,7 +30926,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_request_msg
   br i1 %.not228, label %63, label %unpack_step_id_members.exit
 
 63:                                               ; preds = %60
-  %64 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %40, ptr noundef nonnull %4, ptr noundef %1) #8
+  %64 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %40, ptr noundef nonnull %4, ptr noundef %1) #8
   %.not229 = icmp eq i32 %64, 0
   br i1 %.not229, label %65, label %unpack_step_id_members.exit
 
@@ -31197,7 +31193,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_request_msg
   br i1 %.not186, label %196, label %unpack_step_id_members.exit
 
 196:                                              ; preds = %193
-  %197 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %40, ptr noundef nonnull %22, ptr noundef %1) #8
+  %197 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %40, ptr noundef nonnull %22, ptr noundef %1) #8
   %.not187 = icmp eq i32 %197, 0
   br i1 %.not187, label %198, label %unpack_step_id_members.exit
 
@@ -31427,7 +31423,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_request_msg
   br label %307
 
 unpack_step_id_members.exit:                      ; preds = %181, %178, %175, %48, %45, %42, %303, %300, %297, %294, %291, %288, %285, %282, %279, %276, %273, %270, %267, %264, %261, %258, %255, %252, %249, %246, %243, %240, %237, %234, %231, %228, %225, %222, %219, %216, %213, %210, %207, %204, %201, %198, %196, %193, %190, %187, %184, %170, %167, %164, %161, %158, %155, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %65, %63, %60, %57, %54, %51
-  call void @slurm_free_job_step_create_request_msg(ptr noundef %40) #8
+  call void @slurm_free_job_step_create_request_msg(ptr noundef nonnull %40) #8
   store ptr null, ptr %0, align 8
   br label %307
 
@@ -31570,12 +31566,12 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_srun_node_fail_msg(ptr noun
   br i1 %.not10.i, label %18, label %unpack_step_id_members.exit
 
 18:                                               ; preds = %15
-  %19 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %4, ptr noundef nonnull %3, ptr noundef %1) #8
+  %19 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %1) #8
   %.not10 = icmp eq i32 %19, 0
   br i1 %.not10, label %20, label %unpack_step_id_members.exit
 
 unpack_step_id_members.exit:                      ; preds = %15, %12, %9, %18
-  call void @slurm_free_srun_node_fail_msg(ptr noundef %4) #8
+  call void @slurm_free_srun_node_fail_msg(ptr noundef nonnull %4) #8
   store ptr null, ptr %5, align 8
   br label %20
 
@@ -31611,12 +31607,12 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_srun_step_missing_msg(ptr n
   br i1 %.not10.i, label %16, label %unpack_step_id_members.exit
 
 16:                                               ; preds = %13
-  %17 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %5, ptr noundef nonnull %4, ptr noundef %1) #8
+  %17 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %1) #8
   %.not10 = icmp eq i32 %17, 0
   br i1 %.not10, label %18, label %unpack_step_id_members.exit
 
 unpack_step_id_members.exit:                      ; preds = %13, %10, %7, %16
-  call void @slurm_free_srun_step_missing_msg(ptr noundef %5) #8
+  call void @slurm_free_srun_step_missing_msg(ptr noundef nonnull %5) #8
   store ptr null, ptr %0, align 8
   br label %18
 
@@ -32489,7 +32485,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   br i1 %.not372, label %58, label %.loopexit
 
 58:                                               ; preds = %.lr.ph463
-  %59 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %.0300460, ptr noundef nonnull %5, ptr noundef %1) #8
+  %59 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.0300460, ptr noundef nonnull %5, ptr noundef %1) #8
   %.not373 = icmp eq i32 %59, 0
   br i1 %.not373, label %60, label %.loopexit
 
@@ -32884,7 +32880,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   br i1 %.not323, label %243, label %.loopexit
 
 243:                                              ; preds = %.lr.ph445
-  %244 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %.1301442, ptr noundef nonnull %23, ptr noundef %1) #8
+  %244 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.1301442, ptr noundef nonnull %23, ptr noundef %1) #8
   %.not324 = icmp eq i32 %244, 0
   br i1 %.not324, label %245, label %.loopexit
 
@@ -33335,7 +33331,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_file_bcast(ptr noundef writ
   br i1 %.not104, label %39, label %119
 
 39:                                               ; preds = %36
-  %40 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %10, ptr noundef nonnull %6, ptr noundef %1) #8
+  %40 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef %1) #8
   %.not105 = icmp eq i32 %40, 0
   br i1 %.not105, label %41, label %119
 
@@ -33447,7 +33443,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_file_bcast(ptr noundef writ
   br i1 %.not88, label %95, label %119
 
 95:                                               ; preds = %92
-  %96 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %10, ptr noundef nonnull %9, ptr noundef %1) #8
+  %96 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %1) #8
   %.not89 = icmp eq i32 %96, 0
   br i1 %.not89, label %97, label %119
 
@@ -33495,7 +33491,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_file_bcast(ptr noundef writ
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %115, %112, %109, %106, %103, %100, %97, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %62, %59, %56, %53, %50, %47, %44, %41, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12
-  call void @slurm_free_file_bcast_msg(ptr noundef %10) #8
+  call void @slurm_free_file_bcast_msg(ptr noundef nonnull %10) #8
   store ptr null, ptr %0, align 8
   br label %120
 
@@ -34037,12 +34033,12 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_notify(ptr noundef writ
   br i1 %.not10.i, label %16, label %unpack_step_id_members.exit
 
 16:                                               ; preds = %13
-  %17 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %5, ptr noundef nonnull %4, ptr noundef %1) #8
+  %17 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %1) #8
   %.not10 = icmp eq i32 %17, 0
   br i1 %.not10, label %18, label %unpack_step_id_members.exit
 
 unpack_step_id_members.exit:                      ; preds = %13, %10, %7, %16
-  call void @slurm_free_job_notify_msg(ptr noundef %5) #8
+  call void @slurm_free_job_notify_msg(ptr noundef nonnull %5) #8
   br label %18
 
 18:                                               ; preds = %3, %16, %unpack_step_id_members.exit
@@ -35321,7 +35317,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
   br i1 %.not, label %10, label %.loopexit74
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @unpack_time(ptr noundef %5, ptr noundef %1) #8
+  %11 = tail call i32 @unpack_time(ptr noundef nonnull %5, ptr noundef %1) #8
   %.not63 = icmp eq i32 %11, 0
   br i1 %.not63, label %12, label %.loopexit74
 
@@ -35429,7 +35425,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
   br i1 %67, label %22, label %.loopexit, !llvm.loop !98
 
 .loopexit74:                                      ; preds = %50, %46, %42, %38, %34, %30, %26, %22, %15, %10, %7
-  call void @slurm_free_license_info_msg(ptr noundef %5) #8
+  call void @slurm_free_license_info_msg(ptr noundef nonnull %5) #8
   store ptr null, ptr %0, align 8
   br label %.loopexit
 
@@ -35965,7 +35961,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_bb_status_req_msg(ptr nound
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @slurm_free_bb_status_req_msg(ptr noundef %3) #8
+  tail call void @slurm_free_bb_status_req_msg(ptr noundef nonnull %3) #8
   store ptr null, ptr %0, align 8
   br label %7
 
@@ -38894,7 +38890,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_members(ptr nounde
   br label %1134
 
 1134:                                             ; preds = %.sink.split, %1131, %1128, %1125, %1122, %1119, %1116, %1113, %1110, %1107, %1104, %1101, %1098, %1095, %1092, %1089, %1086, %1083, %1080, %1077, %1074, %1046, %1043, %1040, %1037, %1017, %1013, %1010, %990, %986, %983, %980, %977, %974, %971, %968, %965, %962, %959, %956, %953, %950, %947, %944, %941, %.thread884, %922, %918, %915, %912, %909, %906, %903, %900, %897, %894, %891, %888, %868, %864, %861, %858, %855, %852, %849, %846, %842, %839, %836, %833, %830, %827, %824, %821, %818, %815, %812, %809, %806, %803, %800, %797, %795, %792, %789, %786, %783, %780, %778, %775, %772, %769, %766, %763, %760, %757, %754, %751, %748, %745, %742, %739, %736, %733, %730, %727, %724, %721, %718, %715, %712, %709, %706, %703, %700, %697, %694, %691, %688, %685, %682, %679, %676, %673, %670, %667, %664, %661, %656, %653, %650, %647, %644, %639, %636, %633, %630, %627, %624, %621, %618, %615, %612, %609, %606, %603, %600, %597, %594, %591, %588, %585, %582, %554, %551, %548, %545, %525, %521, %518, %498, %494, %491, %488, %485, %482, %479, %476, %473, %470, %467, %464, %461, %458, %455, %452, %449, %.thread877, %430, %426, %423, %420, %417, %414, %411, %408, %405, %402, %399, %396, %376, %372, %369, %366, %363, %360, %357, %354, %350, %347, %344, %341, %338, %335, %332, %329, %326, %323, %320, %317, %314, %311, %308, %305, %303, %300, %297, %294, %291, %288, %286, %283, %280, %277, %274, %271, %268, %265, %262, %259, %256, %253, %250, %247, %244, %241, %238, %235, %232, %229, %226, %223, %220, %217, %214, %211, %208, %205, %202, %199, %196, %193, %190, %187, %184, %181, %178, %175, %172, %169, %164, %161, %158, %155, %152
-  call void @slurm_free_job_info_members(ptr noundef %0) #8
+  call void @slurm_free_job_info_members(ptr noundef nonnull %0) #8
   br label %1135
 
 1135:                                             ; preds = %639, %1131, %642, %1134
@@ -39202,7 +39198,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_priority_factors(ptr nounde
   br i1 %.not37, label %42, label %41
 
 41:                                               ; preds = %39, %36, %31, %28, %25, %22, %19, %16, %13, %10, %7
-  call void @slurm_destroy_priority_factors(ptr noundef %5) #8
+  call void @slurm_destroy_priority_factors(ptr noundef nonnull %5) #8
   store ptr null, ptr %0, align 8
   br label %42
 

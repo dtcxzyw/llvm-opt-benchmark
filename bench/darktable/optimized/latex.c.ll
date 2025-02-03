@@ -345,7 +345,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %31
-  %34 = call ptr @g_strrstr(ptr noundef %1, ptr noundef nonnull @.str.11) #16
+  %34 = call ptr @g_strrstr(ptr noundef nonnull %1, ptr noundef nonnull @.str.11) #16
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %41
 
@@ -357,8 +357,8 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   br label %41
 
 41:                                               ; preds = %36, %33, %31
-  %42 = call ptr @dt_util_fix_path(ptr noundef %1) #16
-  %43 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %42, i64 noundef 4096) #16
+  %42 = call ptr @dt_util_fix_path(ptr noundef nonnull %1) #16
+  %43 = call i64 @g_strlcpy(ptr noundef nonnull %1, ptr noundef %42, i64 noundef 4096) #16
   call void @g_free(ptr noundef %42) #16
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 9216
   %45 = load ptr, ptr %44, align 8, !tbaa !35
@@ -376,7 +376,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   store i32 %2, ptr %52, align 8, !tbaa !43
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i32 %5, ptr %53, align 4, !tbaa !44
-  %54 = call ptr @dt_variables_expand(ptr noundef nonnull %50, ptr noundef %1, i32 noundef 1) #16
+  %54 = call ptr @dt_variables_expand(ptr noundef nonnull %50, ptr noundef nonnull %1, i32 noundef 1) #16
   %55 = call i64 @g_strlcpy(ptr noundef nonnull %15, ptr noundef %54, i64 noundef 4096) #16
   call void @g_free(ptr noundef %54) #16
   %56 = call i64 @g_strlcpy(ptr noundef nonnull %16, ptr noundef nonnull %15, i64 noundef 4096) #16

@@ -3094,7 +3094,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 36
   %3 = load i32, ptr %__args1, align 4, !tbaa !20
   store i32 %3, ptr %second.i.i.i.i.i.i.i.i, align 4, !tbaa !20
-  %call6.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIfSt4pairIKfN3irr5video6SColorEESt10_Select1stIS5_ESt4lessIfESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i36, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i.i)
+  %call6.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIfSt4pairIKfN3irr5video6SColorEESt10_Select1stIS5_ESt4lessIfESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i36, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i.i)
           to label %invoke.cont5.i.i unwind label %_ZNSt8_Rb_treeIfSt4pairIKfN3irr5video6SColorEESt10_Select1stIS5_ESt4lessIfESaIS5_EE10_Auto_nodeD2Ev.exit.i.i
 
 invoke.cont5.i.i:                                 ; preds = %if.then
@@ -4249,7 +4249,7 @@ lpad44:                                           ; preds = %sw.epilog
 ehcleanup:                                        ; preds = %lpad44, %lpad
   %exception43.sink = phi ptr [ %exception43, %lpad44 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %22, %lpad44 ], [ %21, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception43.sink) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception43.sink) #25
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %sw.bb39, %if.then23, %while.body3.i.i.i65.preheader, %if.then8, %entry

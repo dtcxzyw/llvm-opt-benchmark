@@ -1298,7 +1298,7 @@ if.end32.i:                                       ; preds = %while.end.i
   %6 = load ptr, ptr %arrayidx.i34.i, align 8
   %call36.i = tail call noundef signext i8 @_ZNK6icu_756NFRule14shouldRollBackEl(ptr noundef nonnull align 8 dereferenceable(112) %6, i64 noundef %number.addr.0.i)
   %tobool37.not.i = icmp eq i8 %call36.i, 0
-  br i1 %tobool37.not.i, label %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit, label %if.then38.i
+  br i1 %tobool37.not.i, label %if.then2, label %if.then38.i
 
 if.then38.i:                                      ; preds = %if.end32.i
   %cmp39.i = icmp eq i32 %hi.1.i, 1
@@ -1321,13 +1321,13 @@ if.end46.i:                                       ; preds = %if.end8.i
   %9 = load ptr, ptr %arrayidx48.i, align 8
   br label %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit
 
-_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit:     ; preds = %if.then.i, %if.end32.i, %cond.true.i38.i, %if.end46.i
-  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %9, %if.end46.i ], [ %6, %if.end32.i ], [ %8, %cond.true.i38.i ]
+_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit:     ; preds = %if.then.i, %cond.true.i38.i, %if.end46.i
+  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %9, %if.end46.i ], [ %8, %cond.true.i38.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   br i1 %tobool.not, label %if.end3, label %if.then2
 
-if.then2:                                         ; preds = %while.body.i, %if.then2.i, %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit
-  %retval.0.i11 = phi ptr [ %retval.0.i, %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit ], [ %1, %if.then2.i ], [ %4, %while.body.i ]
+if.then2:                                         ; preds = %while.body.i, %if.end32.i, %if.then2.i, %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit
+  %retval.0.i11 = phi ptr [ %retval.0.i, %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit ], [ %6, %if.end32.i ], [ %1, %if.then2.i ], [ %4, %while.body.i ]
   %inc = add nsw i32 %recursionCount, 1
   tail call void @_ZNK6icu_756NFRule8doFormatElRNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %retval.0.i11, i64 noundef %number, ptr noundef nonnull align 8 dereferenceable(64) %toAppendTo, i32 noundef %pos, i32 noundef %inc, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end3

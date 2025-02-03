@@ -1497,7 +1497,7 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
   br i1 %142, label %143, label %.critedge4.i
 
 143:                                              ; preds = %138
-  %144 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef %139, ptr noundef %.2188284.i) #10
+  %144 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %139, ptr noundef %.2188284.i) #10
   %145 = icmp slt i32 %144, 0
   %spec.select204.i = select i1 %145, ptr %139, ptr %.2188284.i
   %indvars.iv.next355.i = add nsw i64 %indvars.iv354.i, -1

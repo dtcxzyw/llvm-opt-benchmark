@@ -5733,9 +5733,9 @@ _ZN9Signature8is_arrayEPK6Symbol.exit.thread:     ; preds = %_Z17class_loader_da
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN9Signature8is_arrayEPK6Symbol.exit.thread, %48
-  %49 = call noundef ptr @_ZN10Dictionary10find_classEP6ThreadP6Symbol(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef %46, ptr noundef %.031) #14
-  %50 = call noundef ptr @_ZN10Dictionary10find_classEP6ThreadP6Symbol(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef %46, ptr noundef %.031) #14
-  %51 = call noundef zeroext i1 @_ZN21LoaderConstraintTable9add_entryEP6SymbolP13InstanceKlassP15ClassLoaderDataS3_S5_(ptr noundef %.031, ptr noundef %49, ptr noundef nonnull %.0.i.i.i, ptr noundef %50, ptr noundef nonnull %.0.i.i.i35) #14
+  %49 = call noundef ptr @_ZN10Dictionary10find_classEP6ThreadP6Symbol(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef %46, ptr noundef nonnull %.031) #14
+  %50 = call noundef ptr @_ZN10Dictionary10find_classEP6ThreadP6Symbol(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef %46, ptr noundef nonnull %.031) #14
+  %51 = call noundef zeroext i1 @_ZN21LoaderConstraintTable9add_entryEP6SymbolP13InstanceKlassP15ClassLoaderDataS3_S5_(ptr noundef nonnull %.031, ptr noundef %49, ptr noundef nonnull %.0.i.i.i, ptr noundef %50, ptr noundef nonnull %.0.i.i.i35) #14
   %52 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
   %53 = trunc i8 %52 to i1
   %54 = load i8, ptr @_ZN9CDSConfig27_is_dumping_dynamic_archiveE, align 1
@@ -5753,7 +5753,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN9Signatu
   br i1 %.not, label %62, label %63
 
 62:                                               ; preds = %58
-  call void @_ZN22SystemDictionaryShared25record_linking_constraintEP6SymbolP13InstanceKlass6HandleS4_(ptr noundef %.031, ptr noundef nonnull %1, ptr %2, ptr %3) #14
+  call void @_ZN22SystemDictionaryShared25record_linking_constraintEP6SymbolP13InstanceKlass6HandleS4_(ptr noundef nonnull %.031, ptr noundef nonnull %1, ptr %2, ptr %3) #14
   br label %63
 
 63:                                               ; preds = %62, %58, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
@@ -6065,7 +6065,7 @@ _ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds
   %32 = getelementptr inbounds nuw ptr, ptr %15, i64 %31
   %33 = load ptr, ptr %32, align 8
   %.not11.i.i = icmp eq ptr %33, null
-  br i1 %.not11.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i.loopexit62, label %.lr.ph.i.i
+  br i1 %.not11.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i.loopexit63, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %44
   %.pr.i = phi ptr [ %46, %44 ], [ %33, %14 ]
@@ -6093,12 +6093,12 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodK
   %47 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 32
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i.loopexit62: ; preds = %14
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i.loopexit63: ; preds = %14
   %48 = getelementptr inbounds nuw ptr, ptr %15, i64 %31
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i.loopexit62, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i.loopexit
-  %.0.lcssa.i11.i = phi ptr [ %47, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i.loopexit ], [ %48, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i.loopexit62 ]
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i.loopexit63, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i.loopexit
+  %.0.lcssa.i11.i = phi ptr [ %47, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i.loopexit ], [ %48, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.thread.i.loopexit63 ]
   %49 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 40, i8 noundef zeroext 1) #14
   %50 = icmp eq ptr %49, null
   br i1 %50, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE13put_if_absentES9_Pb.exit.thread, label %51
@@ -6122,7 +6122,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodK
   %.pre = load ptr, ptr %.0.lcssa.i11.i, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %58 = load ptr, ptr %57, align 8
-  %.not25.not59 = icmp eq ptr %58, null
+  %.not25.not60 = icmp eq ptr %58, null
   br label %63
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE13put_if_absentES9_Pb.exit: ; preds = %36
@@ -6140,7 +6140,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN21ResourceHashta
   br label %63
 
 63:                                               ; preds = %.loopexit, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE13put_if_absentES9_Pb.exit.thread
-  %.not25.not61 = phi i1 [ %.not25.not59, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE13put_if_absentES9_Pb.exit.thread ], [ false, %.loopexit ]
+  %.not25.not62 = phi i1 [ %.not25.not60, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE13put_if_absentES9_Pb.exit.thread ], [ false, %.loopexit ]
   %64 = phi ptr [ %58, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE13put_if_absentES9_Pb.exit.thread ], [ %60, %.loopexit ]
   %65 = phi ptr [ %57, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE13put_if_absentES9_Pb.exit.thread ], [ %62, %.loopexit ]
   br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %66
@@ -6150,7 +6150,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN21ResourceHashta
   br label %_ZN13MonitorLockerD2Ev.exit
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %63, %66
-  br i1 %.not25.not61, label %67, label %129
+  br i1 %.not25.not62, label %67, label %125
 
 67:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
   call void @_ZN6Method28make_method_handle_intrinsicE13vmIntrinsicIDP6SymbolP10JavaThread(ptr dead_on_unwind nonnull writable sret(%class.methodHandle) align 8 %4, i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2) #14
@@ -6172,11 +6172,11 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %63, %66
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 72
   %77 = load volatile ptr, ptr %76, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
-  %.not41 = icmp eq ptr %77, null
+  %.not42 = icmp eq ptr %77, null
   br label %78
 
 78:                                               ; preds = %70, %74, %67
-  %.022.in = phi i1 [ true, %67 ], [ %.not41, %74 ], [ false, %70 ]
+  %.022.in = phi i1 [ true, %67 ], [ %.not42, %74 ], [ false, %70 ]
   %79 = load ptr, ptr @InvokeMethodIntrinsicTable_lock, align 8
   %.not.i.i29 = icmp eq ptr %79, null
   br i1 %.not.i.i29, label %_ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit30, label %80
@@ -6186,7 +6186,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %63, %66
   br label %_ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit30
 
 _ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit30: ; preds = %78, %80
-  br i1 %.022.in, label %81, label %119
+  br i1 %.022.in, label %81, label %_ZN13MonitorLockerD2Ev.exit32.thread
 
 81:                                               ; preds = %_ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit30
   %82 = load ptr, ptr @_ZL30_invoke_method_intrinsic_table, align 8
@@ -6209,7 +6209,7 @@ _ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit30: ; pre
   %99 = getelementptr inbounds nuw ptr, ptr %82, i64 %98
   %100 = load ptr, ptr %99, align 8
   %.not11.i.i.i = icmp eq ptr %100, null
-  br i1 %.not11.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE6removeES9_.exit, label %.lr.ph.i.i.i
+  br i1 %.not11.i.i.i, label %_ZN13MonitorLockerD2Ev.exit32, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %81, %111
   %.pr.i.i = phi ptr [ %113, %111 ], [ %100, %81 ]
@@ -6232,7 +6232,7 @@ _ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit30: ; pre
   %112 = getelementptr inbounds nuw i8, ptr %.pr.i.i, i64 32
   %113 = load ptr, ptr %112, align 8
   %.not.i.i.i = icmp eq ptr %113, null
-  br i1 %.not.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE6removeES9_.exit, label %.lr.ph.i.i.i, !llvm.loop !19
+  br i1 %.not.i.i.i, label %_ZN13MonitorLockerD2Ev.exit32, label %.lr.ph.i.i.i, !llvm.loop !19
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.i.i: ; preds = %103
   %114 = getelementptr inbounds nuw i8, ptr %.pr.i.i, i64 32
@@ -6243,48 +6243,36 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodK
   %117 = load i32, ptr %116, align 8
   %118 = add nsw i32 %117, -1
   store i32 %118, ptr %116, align 8
-  br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE6removeES9_.exit
-
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE6removeES9_.exit: ; preds = %111, %81, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.i.i
-  call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %79) #14
-  br label %122
-
-119:                                              ; preds = %_ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit30
-  call void @_ZN6Symbol14make_permanentEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #14
-  %120 = load ptr, ptr %4, align 8
-  store ptr %120, ptr %65, align 8
-  call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %79) #14
-  %121 = load ptr, ptr %4, align 8
-  br label %122
-
-122:                                              ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE6removeES9_.exit, %119
-  %.2 = phi ptr [ null, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE6removeES9_.exit ], [ %121, %119 ]
-  br i1 %.not.i.i29, label %_ZN13MonitorLockerD2Ev.exit32, label %123
-
-123:                                              ; preds = %122
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %79) #14
   br label %_ZN13MonitorLockerD2Ev.exit32
 
-_ZN13MonitorLockerD2Ev.exit32:                    ; preds = %122, %123
-  br i1 %.022.in, label %124, label %128
+_ZN13MonitorLockerD2Ev.exit32.thread:             ; preds = %_ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit30
+  call void @_ZN6Symbol14make_permanentEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #14
+  %119 = load ptr, ptr %4, align 8
+  store ptr %119, ptr %65, align 8
+  call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %79) #14
+  %120 = load ptr, ptr %4, align 8
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %79) #14
+  br label %124
 
-124:                                              ; preds = %_ZN13MonitorLockerD2Ev.exit32
-  %125 = load ptr, ptr %68, align 8
-  %.not42 = icmp eq ptr %125, null
-  br i1 %.not42, label %126, label %128
+_ZN13MonitorLockerD2Ev.exit32:                    ; preds = %111, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj139E15InvokeMethodKeyP6MethodES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_12compute_hashERKS1_EEXadL_ZNS1_14key_comparisonES9_S9_EEE11lookup_nodeEjS9_.exit.i.i, %81
+  call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %79) #14
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %79) #14
+  %121 = load ptr, ptr %68, align 8
+  %.not43 = icmp eq ptr %121, null
+  br i1 %.not43, label %122, label %124
 
-126:                                              ; preds = %124
-  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef 2015, ptr noundef %127, ptr noundef nonnull @.str.19) #14
-  br label %128
+122:                                              ; preds = %_ZN13MonitorLockerD2Ev.exit32
+  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef 2015, ptr noundef %123, ptr noundef nonnull @.str.19) #14
+  br label %124
 
-128:                                              ; preds = %124, %_ZN13MonitorLockerD2Ev.exit32, %126
-  %.3 = phi ptr [ null, %126 ], [ %.2, %_ZN13MonitorLockerD2Ev.exit32 ], [ null, %124 ]
+124:                                              ; preds = %_ZN13MonitorLockerD2Ev.exit32.thread, %_ZN13MonitorLockerD2Ev.exit32, %122
+  %.3 = phi ptr [ null, %122 ], [ null, %_ZN13MonitorLockerD2Ev.exit32 ], [ %120, %_ZN13MonitorLockerD2Ev.exit32.thread ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  br label %129
+  br label %125
 
-129:                                              ; preds = %_ZN13MonitorLockerD2Ev.exit, %128
-  %.1 = phi ptr [ %64, %_ZN13MonitorLockerD2Ev.exit ], [ %.3, %128 ]
+125:                                              ; preds = %_ZN13MonitorLockerD2Ev.exit, %124
+  %.1 = phi ptr [ %64, %_ZN13MonitorLockerD2Ev.exit ], [ %.3, %124 ]
   ret ptr %.1
 }
 

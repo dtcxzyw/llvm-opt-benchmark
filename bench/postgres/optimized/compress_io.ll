@@ -182,7 +182,7 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
 22:                                               ; preds = %hasSuffix.exit21.thread
   %23 = tail call ptr @__errno_location() #11
   %24 = load i32, ptr %23, align 4
-  tail call void @free(ptr noundef %6) #9
+  tail call void @free(ptr noundef nonnull %6) #9
   store i32 %24, ptr %23, align 4
   %25 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.7, ptr noundef %0, ptr noundef nonnull @.str.4) #9
   store ptr %25, ptr %5, align 8

@@ -792,7 +792,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_15program_options
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #23
+  tail call void @__cxa_free_exception(ptr nonnull %2) #23
   resume { ptr, i32 } %5
 }
 
@@ -1751,7 +1751,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_15program_options
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #23
+  tail call void @__cxa_free_exception(ptr nonnull %2) #23
   resume { ptr, i32 } %5
 }
 
@@ -6195,7 +6195,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_15program_options5err
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #23
+  tail call void @__cxa_free_exception(ptr nonnull %2) #23
   resume { ptr, i32 } %5
 }
 
@@ -8184,7 +8184,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_15program_options12re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #23
+  tail call void @__cxa_free_exception(ptr nonnull %2) #23
   resume { ptr, i32 } %5
 }
 
@@ -8421,7 +8421,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_17bad_function_ca
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #23
+  tail call void @__cxa_free_exception(ptr nonnull %2) #23
   resume { ptr, i32 } %5
 }
 
@@ -8554,7 +8554,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_17bad_function_callEE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #23
+  tail call void @__cxa_free_exception(ptr nonnull %2) #23
   resume { ptr, i32 } %5
 }
 
@@ -9046,7 +9046,7 @@ _ZNKSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE12_M_check_lenEm
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #27
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   invoke void @_ZN5boost15program_options12basic_optionIcEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(90) %21, ptr noundef nonnull align 8 dereferenceable(90) %2)
-          to label %_ZNSt16allocator_traitsISaIN5boost15program_options12basic_optionIcEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseIN5boost15program_options12basic_optionIcEESaIS3_EE13_M_deallocateEPS3_m.exit41
+          to label %_ZNSt16allocator_traitsISaIN5boost15program_options12basic_optionIcEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit unwind label %109
 
 _ZNSt16allocator_traitsISaIN5boost15program_options12basic_optionIcEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i = icmp eq ptr %6, %1
@@ -9232,32 +9232,32 @@ _ZNSt12_Vector_baseIN5boost15program_options12basic_optionIcEESaIS3_EE13_M_deall
   store ptr %106, ptr %101, align 8, !tbaa !51
   ret void
 
-107:                                              ; preds = %_ZNSt12_Vector_baseIN5boost15program_options12basic_optionIcEESaIS3_EE13_M_deallocateEPS3_m.exit41
+107:                                              ; preds = %109
   %108 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %112 unwind label %113
+          to label %113 unwind label %114
 
-_ZNSt12_Vector_baseIN5boost15program_options12basic_optionIcEESaIS3_EE13_M_deallocateEPS3_m.exit41: ; preds = %_ZNKSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE12_M_check_lenEmPKc.exit
-  %109 = landingpad { ptr, i32 }
+109:                                              ; preds = %_ZNKSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE12_M_check_lenEmPKc.exit
+  %110 = landingpad { ptr, i32 }
           catch ptr null
-  %110 = extractvalue { ptr, i32 } %109, 0
-  %111 = tail call ptr @__cxa_begin_catch(ptr %110) #23
+  %111 = extractvalue { ptr, i32 } %110, 0
+  %112 = tail call ptr @__cxa_begin_catch(ptr %111) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #25
   invoke void @__cxa_rethrow() #24
-          to label %116 unwind label %107
-
-112:                                              ; preds = %107
-  resume { ptr, i32 } %108
+          to label %117 unwind label %107
 
 113:                                              ; preds = %107
-  %114 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %108
+
+114:                                              ; preds = %107
+  %115 = landingpad { ptr, i32 }
           catch ptr null
-  %115 = extractvalue { ptr, i32 } %114, 0
-  tail call void @__clang_call_terminate(ptr %115) #26
+  %116 = extractvalue { ptr, i32 } %115, 0
+  tail call void @__clang_call_terminate(ptr %116) #26
   unreachable
 
-116:                                              ; preds = %_ZNSt12_Vector_baseIN5boost15program_options12basic_optionIcEESaIS3_EE13_M_deallocateEPS3_m.exit41
+117:                                              ; preds = %109
   unreachable
 }
 

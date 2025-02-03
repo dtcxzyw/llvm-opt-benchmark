@@ -614,9 +614,9 @@ if.end16:                                         ; preds = %lor.lhs.false.i, %i
   br i1 %cmp20, label %if.then22, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end16
-  %call25154 = tail call i32 @OPENSSL_sk_num(ptr noundef %call17) #4
-  %cmp26155 = icmp sgt i32 %call25154, 0
-  br i1 %cmp26155, label %for.body, label %for.end
+  %call25156 = tail call i32 @OPENSSL_sk_num(ptr noundef %call17) #4
+  %cmp26157 = icmp sgt i32 %call25156, 0
+  br i1 %cmp26157, label %for.body, label %for.end
 
 if.then22:                                        ; preds = %if.end16
   tail call void @ERR_new() #4
@@ -625,15 +625,15 @@ if.then22:                                        ; preds = %if.end16
   br label %err
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %scount.1157 = phi i32 [ %spec.select107, %for.body ], [ 0, %for.cond.preheader ]
-  %i.0156 = phi i32 [ %inc34, %for.body ], [ 0, %for.cond.preheader ]
-  %call29 = call ptr @OPENSSL_sk_value(ptr noundef %call17, i32 noundef %i.0156) #4
+  %scount.1159 = phi i32 [ %spec.select107, %for.body ], [ 0, %for.cond.preheader ]
+  %i.0158 = phi i32 [ %inc34, %for.body ], [ 0, %for.cond.preheader ]
+  %call29 = call ptr @OPENSSL_sk_value(ptr noundef %call17, i32 noundef %i.0158) #4
   call void @CMS_SignerInfo_get0_algs(ptr noundef %call29, ptr noundef null, ptr noundef nonnull %signer, ptr noundef null, ptr noundef null) #4
   %1 = load ptr, ptr %signer, align 8
   %cmp30.not = icmp ne ptr %1, null
   %inc = zext i1 %cmp30.not to i32
-  %spec.select107 = add nuw nsw i32 %scount.1157, %inc
-  %inc34 = add nuw nsw i32 %i.0156, 1
+  %spec.select107 = add nuw nsw i32 %scount.1159, %inc
+  %inc34 = add nuw nsw i32 %i.0158, 1
   %call25 = call i32 @OPENSSL_sk_num(ptr noundef %call17) #4
   %cmp26 = icmp slt i32 %inc34, %call25
   br i1 %cmp26, label %for.body, label %for.end, !llvm.loop !6
@@ -690,8 +690,8 @@ if.then65:                                        ; preds = %if.end61
 
 if.end67:                                         ; preds = %if.then65, %if.end61
   %crls.2 = phi ptr [ null, %if.end61 ], [ %call66, %if.then65 ]
-  %cmp69158 = icmp sgt i32 %scount.3, 0
-  br i1 %cmp69158, label %for.body71.lr.ph, label %if.end123
+  %cmp69160 = icmp sgt i32 %scount.3, 0
+  br i1 %cmp69160, label %for.body71.lr.ph, label %if.end123
 
 for.body71.lr.ph:                                 ; preds = %if.end67
   %tobool74.not = icmp eq ptr %si_chains.2, null
@@ -781,21 +781,21 @@ if.end82:                                         ; preds = %for.inc79, %if.end4
   %and83 = and i32 %flags.addr.0, 8
   %cmp84 = icmp eq i32 %and83, 0
   %or.cond1 = or i1 %cmp, %cmp84
-  %cmp90160 = icmp sgt i32 %scount.3, 0
-  %or.cond168 = select i1 %or.cond1, i1 %cmp90160, i1 false
-  br i1 %or.cond168, label %for.body92.lr.ph, label %if.end123
+  %cmp90162 = icmp sgt i32 %scount.3, 0
+  %or.cond170 = select i1 %or.cond1, i1 %cmp90162, i1 false
+  br i1 %or.cond170, label %for.body92.lr.ph, label %if.end123
 
 for.body92.lr.ph:                                 ; preds = %if.end82
   %tobool107.not = icmp eq ptr %si_chains.1, null
   br i1 %cmp, label %for.body92.us.preheader, label %for.body92
 
 for.body92.us.preheader:                          ; preds = %for.body92.lr.ph
-  %wide.trip.count181 = zext nneg i32 %scount.3 to i64
+  %wide.trip.count183 = zext nneg i32 %scount.3 to i64
   br label %for.body92.us
 
 for.body92.us:                                    ; preds = %for.body92.us.preheader, %for.inc120.us
-  %indvars.iv178 = phi i64 [ 0, %for.body92.us.preheader ], [ %indvars.iv.next179, %for.inc120.us ]
-  %4 = trunc nuw nsw i64 %indvars.iv178 to i32
+  %indvars.iv180 = phi i64 [ 0, %for.body92.us.preheader ], [ %indvars.iv.next181, %for.inc120.us ]
+  %4 = trunc nuw nsw i64 %indvars.iv180 to i32
   %call94.us = call ptr @OPENSSL_sk_value(ptr noundef %call17, i32 noundef %4) #4
   %call95.us = call i32 @CMS_signed_get_attr_count(ptr noundef %call94.us) #4
   %cmp96.us = icmp slt i32 %call95.us, 0
@@ -810,7 +810,7 @@ if.end104.us:                                     ; preds = %if.end99.us
   br i1 %tobool107.not, label %cond.end112.us, label %cond.true108.us
 
 cond.true108.us:                                  ; preds = %if.end104.us
-  %arrayidx110.us = getelementptr inbounds nuw ptr, ptr %si_chains.1, i64 %indvars.iv178
+  %arrayidx110.us = getelementptr inbounds nuw ptr, ptr %si_chains.1, i64 %indvars.iv180
   %5 = load ptr, ptr %arrayidx110.us, align 8
   br label %cond.end112.us
 
@@ -821,13 +821,13 @@ cond.end112.us:                                   ; preds = %cond.true108.us, %i
   br i1 %cmp115.us, label %err, label %for.inc120.us
 
 for.inc120.us:                                    ; preds = %cond.end112.us, %for.body92.us
-  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %if.end123, label %for.body92.us, !llvm.loop !8
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
+  br i1 %exitcond184.not, label %if.end123, label %for.body92.us, !llvm.loop !8
 
 for.body92:                                       ; preds = %for.body92.lr.ph, %for.inc120
-  %i.2161 = phi i32 [ %inc121, %for.inc120 ], [ 0, %for.body92.lr.ph ]
-  %call94 = call ptr @OPENSSL_sk_value(ptr noundef %call17, i32 noundef %i.2161) #4
+  %i.2163 = phi i32 [ %inc121, %for.inc120 ], [ 0, %for.body92.lr.ph ]
+  %call94 = call ptr @OPENSSL_sk_value(ptr noundef %call17, i32 noundef %i.2163) #4
   %call95 = call i32 @CMS_signed_get_attr_count(ptr noundef %call94) #4
   %cmp96 = icmp slt i32 %call95, 0
   br i1 %cmp96, label %for.inc120, label %if.end99
@@ -838,14 +838,14 @@ if.end99:                                         ; preds = %for.body92
   br i1 %cmp101, label %err, label %for.inc120
 
 for.inc120:                                       ; preds = %if.end99, %for.body92
-  %inc121 = add nuw nsw i32 %i.2161, 1
-  %exitcond177.not = icmp eq i32 %inc121, %scount.3
-  br i1 %exitcond177.not, label %if.end123, label %for.body92, !llvm.loop !8
+  %inc121 = add nuw nsw i32 %i.2163, 1
+  %exitcond179.not = icmp eq i32 %inc121, %scount.3
+  br i1 %exitcond179.not, label %if.end123, label %for.body92, !llvm.loop !8
 
 if.end123:                                        ; preds = %for.inc120, %for.inc120.us, %if.end67, %if.end82
-  %cms_certs.1200 = phi ptr [ %cms_certs.1, %if.end82 ], [ %call62, %if.end67 ], [ %cms_certs.1, %for.inc120.us ], [ %cms_certs.1, %for.inc120 ]
-  %crls.1198 = phi ptr [ %crls.1, %if.end82 ], [ %crls.2, %if.end67 ], [ %crls.1, %for.inc120.us ], [ %crls.1, %for.inc120 ]
-  %si_chains.1196 = phi ptr [ %si_chains.1, %if.end82 ], [ %si_chains.2, %if.end67 ], [ %si_chains.1, %for.inc120.us ], [ %si_chains.1, %for.inc120 ]
+  %cms_certs.1202 = phi ptr [ %cms_certs.1, %if.end82 ], [ %call62, %if.end67 ], [ %cms_certs.1, %for.inc120.us ], [ %cms_certs.1, %for.inc120 ]
+  %crls.1200 = phi ptr [ %crls.1, %if.end82 ], [ %crls.2, %if.end67 ], [ %crls.1, %for.inc120.us ], [ %crls.1, %for.inc120 ]
+  %si_chains.1198 = phi ptr [ %si_chains.1, %if.end82 ], [ %si_chains.2, %if.end67 ], [ %si_chains.1, %for.inc120.us ], [ %si_chains.1, %for.inc120 ]
   br i1 %cmp1, label %land.lhs.true126, label %if.else173
 
 land.lhs.true126:                                 ; preds = %if.end123
@@ -909,8 +909,8 @@ if.then153:                                       ; preds = %cms_get_text_bio.ex
   br label %err
 
 if.end154:                                        ; preds = %if.else.i, %cms_get_text_bio.exit
-  %rbio.0.i149 = phi ptr [ %rbio.0.i, %cms_get_text_bio.exit ], [ %out, %if.else.i ]
-  %call155 = call ptr @CMS_dataInit(ptr noundef %cms, ptr noundef nonnull %rbio.0.i149) #4
+  %rbio.0.i151 = phi ptr [ %rbio.0.i, %cms_get_text_bio.exit ], [ %out, %if.else.i ]
+  %call155 = call ptr @CMS_dataInit(ptr noundef %cms, ptr noundef nonnull %rbio.0.i151) #4
   %cmp156 = icmp eq ptr %call155, null
   br i1 %cmp156, label %err, label %if.end159
 
@@ -926,7 +926,7 @@ if.end164:                                        ; preds = %if.end159
   br i1 %tobool166.not, label %if.end183, label %if.then167
 
 if.then167:                                       ; preds = %if.end164
-  %call168 = call i32 @SMIME_text(ptr noundef nonnull %rbio.0.i149, ptr noundef %out) #4
+  %call168 = call i32 @SMIME_text(ptr noundef nonnull %rbio.0.i151, ptr noundef %out) #4
   %tobool169.not = icmp eq i32 %call168, 0
   br i1 %tobool169.not, label %if.then170, label %if.end183
 
@@ -937,8 +937,8 @@ if.then170:                                       ; preds = %if.then167
   br label %err
 
 if.else173:                                       ; preds = %if.end123, %if.end144
-  %tmpin.1145 = phi ptr [ %tmpin.1, %if.end144 ], [ null, %if.end123 ]
-  %call174 = call ptr @CMS_dataInit(ptr noundef %cms, ptr noundef %tmpin.1145) #4
+  %tmpin.1147 = phi ptr [ %tmpin.1, %if.end144 ], [ null, %if.end123 ]
+  %call174 = call ptr @CMS_dataInit(ptr noundef %cms, ptr noundef %tmpin.1147) #4
   %cmp175 = icmp eq ptr %call174, null
   br i1 %cmp175, label %err, label %if.end178
 
@@ -948,27 +948,27 @@ if.end178:                                        ; preds = %if.else173
   br i1 %tobool180.not, label %err, label %if.end183
 
 if.end183:                                        ; preds = %if.end178, %if.end164, %if.then167
-  %tmpin.1146 = phi ptr [ %tmpin.1, %if.then167 ], [ %tmpin.1, %if.end164 ], [ %tmpin.1145, %if.end178 ]
+  %tmpin.1148 = phi ptr [ %tmpin.1, %if.then167 ], [ %tmpin.1, %if.end164 ], [ %tmpin.1147, %if.end178 ]
   %cmsbio.1 = phi ptr [ %call155, %if.then167 ], [ %call155, %if.end164 ], [ %call174, %if.end178 ]
-  %tmpout.1 = phi ptr [ %rbio.0.i149, %if.then167 ], [ %rbio.0.i149, %if.end164 ], [ null, %if.end178 ]
+  %tmpout.1 = phi ptr [ %rbio.0.i151, %if.then167 ], [ %rbio.0.i151, %if.end164 ], [ null, %if.end178 ]
   %and184 = and i32 %flags.addr.0, 4
   %tobool185.not = icmp eq i32 %and184, 0
   br i1 %tobool185.not, label %for.cond187.preheader, label %err
 
 for.cond187.preheader:                            ; preds = %if.end183
-  %call189163 = call i32 @OPENSSL_sk_num(ptr noundef %call17) #4
-  %cmp190164 = icmp sgt i32 %call189163, 0
-  br i1 %cmp190164, label %for.body192, label %err
+  %call189165 = call i32 @OPENSSL_sk_num(ptr noundef %call17) #4
+  %cmp190166 = icmp sgt i32 %call189165, 0
+  br i1 %cmp190166, label %for.body192, label %err
 
 for.cond187:                                      ; preds = %for.body192
-  %inc201 = add nuw nsw i32 %i.3165, 1
+  %inc201 = add nuw nsw i32 %i.3167, 1
   %call189 = call i32 @OPENSSL_sk_num(ptr noundef %call17) #4
   %cmp190 = icmp slt i32 %inc201, %call189
   br i1 %cmp190, label %for.body192, label %err, !llvm.loop !9
 
 for.body192:                                      ; preds = %for.cond187.preheader, %for.cond187
-  %i.3165 = phi i32 [ %inc201, %for.cond187 ], [ 0, %for.cond187.preheader ]
-  %call194 = call ptr @OPENSSL_sk_value(ptr noundef %call17, i32 noundef %i.3165) #4
+  %i.3167 = phi i32 [ %inc201, %for.cond187 ], [ 0, %for.cond187.preheader ]
+  %call194 = call ptr @OPENSSL_sk_value(ptr noundef %call17, i32 noundef %i.3167) #4
   %call195 = call i32 @CMS_SignerInfo_verify_content(ptr noundef %call194, ptr noundef nonnull %cmsbio.1) #4
   %cmp196 = icmp slt i32 %call195, 1
   br i1 %cmp196, label %if.then198, label %for.cond187
@@ -980,14 +980,14 @@ if.then198:                                       ; preds = %for.body192
   br label %err
 
 err:                                              ; preds = %if.end99, %cond.end112.us, %if.end99.us, %for.cond187, %for.cond187.preheader, %cms_signerinfo_verify_cert.exit.thread, %if.end183, %if.end178, %if.else173, %if.end159, %if.end154, %if.then54, %if.then198, %if.then170, %if.then153, %if.then46, %if.then22
-  %si_chains.0 = phi ptr [ null, %if.then22 ], [ null, %if.then46 ], [ null, %if.then54 ], [ %si_chains.1196, %if.then153 ], [ %si_chains.1196, %if.end154 ], [ %si_chains.1196, %if.then198 ], [ %si_chains.1196, %if.then170 ], [ %si_chains.1196, %if.end159 ], [ %si_chains.1196, %if.else173 ], [ %si_chains.1196, %if.end178 ], [ %si_chains.1196, %if.end183 ], [ %si_chains.2, %cms_signerinfo_verify_cert.exit.thread ], [ %si_chains.1196, %for.cond187.preheader ], [ %si_chains.1196, %for.cond187 ], [ %si_chains.1, %if.end99.us ], [ %si_chains.1, %cond.end112.us ], [ %si_chains.1, %if.end99 ]
+  %si_chains.0 = phi ptr [ null, %if.then22 ], [ null, %if.then46 ], [ null, %if.then54 ], [ %si_chains.1198, %if.then153 ], [ %si_chains.1198, %if.end154 ], [ %si_chains.1198, %if.then198 ], [ %si_chains.1198, %if.then170 ], [ %si_chains.1198, %if.end159 ], [ %si_chains.1198, %if.else173 ], [ %si_chains.1198, %if.end178 ], [ %si_chains.1198, %if.end183 ], [ %si_chains.2, %cms_signerinfo_verify_cert.exit.thread ], [ %si_chains.1198, %for.cond187.preheader ], [ %si_chains.1198, %for.cond187 ], [ %si_chains.1, %if.end99.us ], [ %si_chains.1, %cond.end112.us ], [ %si_chains.1, %if.end99 ]
   %scount.0 = phi i32 [ 0, %if.then22 ], [ %scount.3, %if.then46 ], [ %scount.3, %if.then54 ], [ %scount.3, %if.then153 ], [ %scount.3, %if.end154 ], [ %scount.3, %if.then198 ], [ %scount.3, %if.then170 ], [ %scount.3, %if.end159 ], [ %scount.3, %if.else173 ], [ %scount.3, %if.end178 ], [ %scount.3, %if.end183 ], [ %scount.3, %cms_signerinfo_verify_cert.exit.thread ], [ %scount.3, %for.cond187.preheader ], [ %scount.3, %for.cond187 ], [ %scount.3, %if.end99.us ], [ %scount.3, %cond.end112.us ], [ %scount.3, %if.end99 ]
   %ret.0 = phi i32 [ 0, %if.then22 ], [ 0, %if.then46 ], [ 0, %if.then54 ], [ 0, %if.then153 ], [ 0, %if.end154 ], [ 0, %if.then198 ], [ 0, %if.then170 ], [ 0, %if.end159 ], [ 0, %if.else173 ], [ 0, %if.end178 ], [ 1, %if.end183 ], [ 0, %cms_signerinfo_verify_cert.exit.thread ], [ 1, %for.cond187.preheader ], [ 1, %for.cond187 ], [ 0, %if.end99.us ], [ 0, %cond.end112.us ], [ 0, %if.end99 ]
   %cmsbio.0 = phi ptr [ null, %if.then22 ], [ null, %if.then46 ], [ null, %if.then54 ], [ null, %if.then153 ], [ null, %if.end154 ], [ %cmsbio.1, %if.then198 ], [ %call155, %if.then170 ], [ %call155, %if.end159 ], [ null, %if.else173 ], [ %call174, %if.end178 ], [ %cmsbio.1, %if.end183 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %cmsbio.1, %for.cond187.preheader ], [ %cmsbio.1, %for.cond187 ], [ null, %if.end99.us ], [ null, %cond.end112.us ], [ null, %if.end99 ]
-  %tmpin.0 = phi ptr [ null, %if.then22 ], [ null, %if.then46 ], [ null, %if.then54 ], [ %tmpin.1, %if.then153 ], [ %tmpin.1, %if.end154 ], [ %tmpin.1146, %if.then198 ], [ %tmpin.1, %if.then170 ], [ %tmpin.1, %if.end159 ], [ %tmpin.1145, %if.else173 ], [ %tmpin.1145, %if.end178 ], [ %tmpin.1146, %if.end183 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %tmpin.1146, %for.cond187.preheader ], [ %tmpin.1146, %for.cond187 ], [ null, %if.end99.us ], [ null, %cond.end112.us ], [ null, %if.end99 ]
-  %tmpout.0 = phi ptr [ null, %if.then22 ], [ null, %if.then46 ], [ null, %if.then54 ], [ null, %if.then153 ], [ %rbio.0.i149, %if.end154 ], [ %tmpout.1, %if.then198 ], [ %rbio.0.i149, %if.then170 ], [ %rbio.0.i149, %if.end159 ], [ null, %if.else173 ], [ null, %if.end178 ], [ %tmpout.1, %if.end183 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %tmpout.1, %for.cond187.preheader ], [ %tmpout.1, %for.cond187 ], [ null, %if.end99.us ], [ null, %cond.end112.us ], [ null, %if.end99 ]
-  %crls.0 = phi ptr [ null, %if.then22 ], [ null, %if.then46 ], [ null, %if.then54 ], [ %crls.1198, %if.then153 ], [ %crls.1198, %if.end154 ], [ %crls.1198, %if.then198 ], [ %crls.1198, %if.then170 ], [ %crls.1198, %if.end159 ], [ %crls.1198, %if.else173 ], [ %crls.1198, %if.end178 ], [ %crls.1198, %if.end183 ], [ %crls.2, %cms_signerinfo_verify_cert.exit.thread ], [ %crls.1198, %for.cond187.preheader ], [ %crls.1198, %for.cond187 ], [ %crls.1, %if.end99.us ], [ %crls.1, %cond.end112.us ], [ %crls.1, %if.end99 ]
-  %cms_certs.0 = phi ptr [ null, %if.then22 ], [ null, %if.then46 ], [ null, %if.then54 ], [ %cms_certs.1200, %if.then153 ], [ %cms_certs.1200, %if.end154 ], [ %cms_certs.1200, %if.then198 ], [ %cms_certs.1200, %if.then170 ], [ %cms_certs.1200, %if.end159 ], [ %cms_certs.1200, %if.else173 ], [ %cms_certs.1200, %if.end178 ], [ %cms_certs.1200, %if.end183 ], [ %call62, %cms_signerinfo_verify_cert.exit.thread ], [ %cms_certs.1200, %for.cond187.preheader ], [ %cms_certs.1200, %for.cond187 ], [ %cms_certs.1, %if.end99.us ], [ %cms_certs.1, %cond.end112.us ], [ %cms_certs.1, %if.end99 ]
+  %tmpin.0 = phi ptr [ null, %if.then22 ], [ null, %if.then46 ], [ null, %if.then54 ], [ %tmpin.1, %if.then153 ], [ %tmpin.1, %if.end154 ], [ %tmpin.1148, %if.then198 ], [ %tmpin.1, %if.then170 ], [ %tmpin.1, %if.end159 ], [ %tmpin.1147, %if.else173 ], [ %tmpin.1147, %if.end178 ], [ %tmpin.1148, %if.end183 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %tmpin.1148, %for.cond187.preheader ], [ %tmpin.1148, %for.cond187 ], [ null, %if.end99.us ], [ null, %cond.end112.us ], [ null, %if.end99 ]
+  %tmpout.0 = phi ptr [ null, %if.then22 ], [ null, %if.then46 ], [ null, %if.then54 ], [ null, %if.then153 ], [ %rbio.0.i151, %if.end154 ], [ %tmpout.1, %if.then198 ], [ %rbio.0.i151, %if.then170 ], [ %rbio.0.i151, %if.end159 ], [ null, %if.else173 ], [ null, %if.end178 ], [ %tmpout.1, %if.end183 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %tmpout.1, %for.cond187.preheader ], [ %tmpout.1, %for.cond187 ], [ null, %if.end99.us ], [ null, %cond.end112.us ], [ null, %if.end99 ]
+  %crls.0 = phi ptr [ null, %if.then22 ], [ null, %if.then46 ], [ null, %if.then54 ], [ %crls.1200, %if.then153 ], [ %crls.1200, %if.end154 ], [ %crls.1200, %if.then198 ], [ %crls.1200, %if.then170 ], [ %crls.1200, %if.end159 ], [ %crls.1200, %if.else173 ], [ %crls.1200, %if.end178 ], [ %crls.1200, %if.end183 ], [ %crls.2, %cms_signerinfo_verify_cert.exit.thread ], [ %crls.1200, %for.cond187.preheader ], [ %crls.1200, %for.cond187 ], [ %crls.1, %if.end99.us ], [ %crls.1, %cond.end112.us ], [ %crls.1, %if.end99 ]
+  %cms_certs.0 = phi ptr [ null, %if.then22 ], [ null, %if.then46 ], [ null, %if.then54 ], [ %cms_certs.1202, %if.then153 ], [ %cms_certs.1202, %if.end154 ], [ %cms_certs.1202, %if.then198 ], [ %cms_certs.1202, %if.then170 ], [ %cms_certs.1202, %if.end159 ], [ %cms_certs.1202, %if.else173 ], [ %cms_certs.1202, %if.end178 ], [ %cms_certs.1202, %if.end183 ], [ %call62, %cms_signerinfo_verify_cert.exit.thread ], [ %cms_certs.1202, %for.cond187.preheader ], [ %cms_certs.1202, %for.cond187 ], [ %cms_certs.1, %if.end99.us ], [ %cms_certs.1, %cond.end112.us ], [ %cms_certs.1, %if.end99 ]
   %and204 = and i32 %flags.addr.0, 128
   %tobool205 = icmp eq i32 %and204, 0
   %or.cond3 = and i1 %cmp1, %tobool205
@@ -1045,30 +1045,30 @@ if.then225:                                       ; preds = %if.end222
   br label %err2
 
 err2:                                             ; preds = %if.end222, %if.then225, %if.then142
-  %si_chains.3 = phi ptr [ %si_chains.0, %if.then225 ], [ %si_chains.0, %if.end222 ], [ %si_chains.1196, %if.then142 ]
+  %si_chains.3 = phi ptr [ %si_chains.0, %if.then225 ], [ %si_chains.0, %if.end222 ], [ %si_chains.1198, %if.then142 ]
   %scount.4 = phi i32 [ %scount.0, %if.then225 ], [ %scount.0, %if.end222 ], [ %scount.3, %if.then142 ]
   %ret.1 = phi i32 [ %ret.0, %if.then225 ], [ %ret.0, %if.end222 ], [ 0, %if.then142 ]
-  %crls.3 = phi ptr [ %crls.0, %if.then225 ], [ %crls.0, %if.end222 ], [ %crls.1198, %if.then142 ]
-  %cms_certs.2 = phi ptr [ %cms_certs.0, %if.then225 ], [ %cms_certs.0, %if.end222 ], [ %cms_certs.1200, %if.then142 ]
+  %crls.3 = phi ptr [ %crls.0, %if.then225 ], [ %crls.0, %if.end222 ], [ %crls.1200, %if.then142 ]
+  %cms_certs.2 = phi ptr [ %cms_certs.0, %if.then225 ], [ %cms_certs.0, %if.end222 ], [ %cms_certs.1202, %if.then142 ]
   %cmp227.not = icmp eq ptr %si_chains.3, null
   br i1 %cmp227.not, label %if.end239, label %for.cond230.preheader
 
 for.cond230.preheader:                            ; preds = %err2
-  %cmp231166 = icmp sgt i32 %scount.4, 0
-  br i1 %cmp231166, label %for.body233.preheader, label %for.end238
+  %cmp231168 = icmp sgt i32 %scount.4, 0
+  br i1 %cmp231168, label %for.body233.preheader, label %for.end238
 
 for.body233.preheader:                            ; preds = %for.cond230.preheader
-  %wide.trip.count186 = zext nneg i32 %scount.4 to i64
+  %wide.trip.count188 = zext nneg i32 %scount.4 to i64
   br label %for.body233
 
 for.body233:                                      ; preds = %for.body233.preheader, %for.body233
-  %indvars.iv183 = phi i64 [ 0, %for.body233.preheader ], [ %indvars.iv.next184, %for.body233 ]
-  %arrayidx235 = getelementptr inbounds nuw ptr, ptr %si_chains.3, i64 %indvars.iv183
+  %indvars.iv185 = phi i64 [ 0, %for.body233.preheader ], [ %indvars.iv.next186, %for.body233 ]
+  %arrayidx235 = getelementptr inbounds nuw ptr, ptr %si_chains.3, i64 %indvars.iv185
   %9 = load ptr, ptr %arrayidx235, align 8
   call void @OSSL_STACK_OF_X509_free(ptr noundef %9) #4
-  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
-  br i1 %exitcond187.not, label %for.end238, label %for.body233, !llvm.loop !10
+  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
+  %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
+  br i1 %exitcond189.not, label %for.end238, label %for.body233, !llvm.loop !10
 
 for.end238:                                       ; preds = %for.body233, %for.cond230.preheader
   call void @CRYPTO_free(ptr noundef nonnull %si_chains.3, ptr noundef nonnull @.str, i32 noundef 482) #4

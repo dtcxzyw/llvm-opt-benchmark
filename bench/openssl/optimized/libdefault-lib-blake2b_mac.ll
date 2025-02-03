@@ -138,7 +138,7 @@ if.then11:                                        ; preds = %if.else
 if.end13:                                         ; preds = %blake2_setkey.exit, %if.else
   %params14 = getelementptr inbounds nuw i8, ptr %vmacctx, i64 240
   %key15 = getelementptr inbounds nuw i8, ptr %vmacctx, i64 304
-  %call16 = tail call i32 @ossl_blake2b_init_key(ptr noundef %vmacctx, ptr noundef nonnull %params14, ptr noundef nonnull %key15) #5
+  %call16 = tail call i32 @ossl_blake2b_init_key(ptr noundef nonnull %vmacctx, ptr noundef nonnull %params14, ptr noundef nonnull %key15) #5
   br label %return
 
 return:                                           ; preds = %blake2_setkey.exit.thread, %entry, %lor.lhs.false, %if.end13, %if.then11

@@ -975,13 +975,9 @@ if.end39:                                         ; preds = %ossl_provider_up_re
 
 if.end40:                                         ; preds = %if.end39, %if.end31
   %cmp41 = icmp sgt i32 %call.i25, -1
-  br i1 %cmp41, label %if.then42, label %if.else44
+  br i1 %cmp41, label %lor.lhs.false.i, label %if.else44
 
-if.then42:                                        ; preds = %if.end40
-  %cmp.i29 = icmp eq ptr %prov, null
-  br i1 %cmp.i29, label %ossl_provider_deactivate.exit, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %if.then42
+lor.lhs.false.i:                                  ; preds = %if.end40
   %call.i30 = call fastcc i32 @provider_deactivate(ptr noundef nonnull %prov, i32 noundef 1, i32 noundef 0)
   %cmp2.i = icmp eq i32 %call.i30, 0
   br i1 %cmp2.i, label %cond.true.i, label %ossl_provider_deactivate.exit
@@ -990,8 +986,8 @@ cond.true.i:                                      ; preds = %lor.lhs.false.i
   %call3.i = call fastcc i32 @provider_remove_store_methods(ptr noundef nonnull %prov)
   br label %ossl_provider_deactivate.exit
 
-ossl_provider_deactivate.exit:                    ; preds = %if.then42, %lor.lhs.false.i, %cond.true.i
-  call void @ossl_provider_free(ptr noundef %prov)
+ossl_provider_deactivate.exit:                    ; preds = %lor.lhs.false.i, %cond.true.i
+  call void @ossl_provider_free(ptr noundef nonnull %prov)
   br label %return
 
 if.else44:                                        ; preds = %if.end40

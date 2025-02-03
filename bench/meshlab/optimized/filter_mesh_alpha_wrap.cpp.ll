@@ -73314,7 +73314,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionISt14overflow_errorEEvRKT_RK
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #23
+  tail call void @__cxa_free_exception(ptr nonnull %3) #23
   resume { ptr, i32 } %6
 }
 
@@ -73467,7 +73467,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptISt14overflow_errorE7rethrowEv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #23
+  tail call void @__cxa_free_exception(ptr nonnull %2) #23
   resume { ptr, i32 } %5
 }
 

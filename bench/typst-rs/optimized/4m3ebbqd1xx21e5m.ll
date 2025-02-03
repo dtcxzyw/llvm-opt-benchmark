@@ -19536,7 +19536,7 @@ define internal fastcc void @"_ZN4core3ptr178drop_in_place$LT$core..result..Resu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4895)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4898)
   %7 = load ptr, ptr %6, align 8, !alias.scope !4901, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_yaml..error..ErrorImpl$GT$17hb697530f1f0d06d6E.llvm.16845035774076767816"(ptr noalias noundef align 8 dereferenceable(80) %7)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_yaml..error..ErrorImpl$GT$17hb697530f1f0d06d6E.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7)
           to label %"_ZN4core3ptr45drop_in_place$LT$serde_yaml..error..Error$GT$17h679ef07211a011f4E.exit.i" unwind label %8, !noalias !4901
 
 8:                                                ; preds = %5
@@ -19722,8 +19722,8 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_yaml..de..Pro
     i64 0, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h641f3b0e0fc0763cE.exit"
     i64 1, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h641f3b0e0fc0763cE.exit"
     i64 2, label %13
-    i64 3, label %33
-    i64 4, label %38
+    i64 3, label %32
+    i64 4, label %37
   ]
 
 7:                                                ; preds = %1
@@ -19740,7 +19740,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_yaml..de..Pro
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf19b5eb9adb8959fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h641f3b0e0fc0763cE.exit"
 
-"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h641f3b0e0fc0763cE.exit": ; preds = %37, %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.exit.i4.i", %26, %12, %7, %38, %1, %1
+"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h641f3b0e0fc0763cE.exit": ; preds = %36, %32, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.exit.i4.i", %25, %12, %7, %37, %1, %1
   ret void
 
 13:                                               ; preds = %1
@@ -19750,59 +19750,57 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_yaml..de..Pro
   %.val1 = load ptr, ptr %15, align 8, !nonnull !4, !align !60, !noundef !4
   %16 = load ptr, ptr %.val1, align 8, !invariant.load !4, !nonnull !4
   invoke void %16(ptr noundef nonnull align 1 %.val)
-          to label %26 unwind label %17
+          to label %25 unwind label %17
 
 17:                                               ; preds = %13
   %18 = landingpad { ptr, i32 }
           cleanup
-  %19 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %21 = load i64, ptr %20, align 8, !range !4956, !invariant.load !4
-  %22 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
-  %23 = load i64, ptr %22, align 8, !range !540, !invariant.load !4
-  %24 = icmp ult i64 %23, -9223372036854775807
-  tail call void @llvm.assume(i1 %24)
-  %25 = icmp eq i64 %21, 0
-  br i1 %25, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha5826cb61a775dedE.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.exit.i.i"
+  %19 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %20 = load i64, ptr %19, align 8, !range !4956, !invariant.load !4
+  %21 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
+  %22 = load i64, ptr %21, align 8, !range !540, !invariant.load !4
+  %23 = icmp ult i64 %22, -9223372036854775807
+  tail call void @llvm.assume(i1 %23)
+  %24 = icmp eq i64 %20, 0
+  br i1 %24, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha5826cb61a775dedE.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.exit.i.i": ; preds = %17
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %21, i64 noundef range(i64 0, -9223372036854775807) %23) #53
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %20, i64 noundef range(i64 0, -9223372036854775807) %22) #53
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha5826cb61a775dedE.exit.i"
 
-26:                                               ; preds = %13
-  %27 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %28 = load i64, ptr %27, align 8, !range !4956, !invariant.load !4
-  %29 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
-  %30 = load i64, ptr %29, align 8, !range !540, !invariant.load !4
-  %31 = icmp ult i64 %30, -9223372036854775807
-  tail call void @llvm.assume(i1 %31)
-  %32 = icmp eq i64 %28, 0
-  br i1 %32, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h641f3b0e0fc0763cE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.exit.i4.i"
+25:                                               ; preds = %13
+  %26 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %27 = load i64, ptr %26, align 8, !range !4956, !invariant.load !4
+  %28 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
+  %29 = load i64, ptr %28, align 8, !range !540, !invariant.load !4
+  %30 = icmp ult i64 %29, -9223372036854775807
+  tail call void @llvm.assume(i1 %30)
+  %31 = icmp eq i64 %27, 0
+  br i1 %31, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h641f3b0e0fc0763cE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.exit.i4.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.exit.i4.i": ; preds = %26
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %28, i64 noundef range(i64 0, -9223372036854775807) %30) #53
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.exit.i4.i": ; preds = %25
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %27, i64 noundef range(i64 0, -9223372036854775807) %29) #53
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h641f3b0e0fc0763cE.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha5826cb61a775dedE.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.exit.i.i", %17
   resume { ptr, i32 } %18
 
-33:                                               ; preds = %1
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+32:                                               ; preds = %1
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4957)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4960)
-  %35 = load ptr, ptr %34, align 8, !alias.scope !4963, !noundef !4
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h641f3b0e0fc0763cE.exit", label %37
+  %34 = load ptr, ptr %33, align 8, !alias.scope !4963, !noundef !4
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h641f3b0e0fc0763cE.exit", label %36
 
-37:                                               ; preds = %33
+36:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !4964
-  store ptr %35, ptr %2, align 8, !noalias !4964
+  store ptr %34, ptr %2, align 8, !noalias !4964
   call void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$serde_yaml..libyaml..parser..ParserPinned$GT$$GT$17h38af0731323b18cbE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !4964
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !4964
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h641f3b0e0fc0763cE.exit"
 
-38:                                               ; preds = %1
+37:                                               ; preds = %1
   tail call void @"_ZN4core3ptr49drop_in_place$LT$serde_yaml..loader..Document$GT$17h4cf04c36c393e1b8E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$serde_yaml..error..ErrorImpl$GT$$GT$17h641f3b0e0fc0763cE.exit"
 }

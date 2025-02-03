@@ -1615,12 +1615,12 @@ _ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit: ; preds = 
   %58 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #15
   %59 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_118VariantHeldTypeMapEE8GDMIndexEvE5Index) #15
   %.not.i.i35 = icmp eq ptr %59, null
-  br i1 %.not.i.i35, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %60
+  br i1 %.not.i.i35, label %_ZN4llvm11SmallStringILj128EED2Ev.exit.thread, label %60
 
 60:                                               ; preds = %53
   %61 = load ptr, ptr %59, align 8, !noalias !18
   %.not.i.i.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionENS_8QualTypeENS2_16ImutKeyValueInfoIS6_S7_EEEEvE8MakeDataEPKPv.exit.i
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm11SmallStringILj128EED2Ev.exit.thread, label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionENS_8QualTypeENS2_16ImutKeyValueInfoIS6_S7_EEEEvE8MakeDataEPKPv.exit.i
 
 _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionENS_8QualTypeENS2_16ImutKeyValueInfoIS6_S7_EEEEvE8MakeDataEPKPv.exit.i: ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 68
@@ -1922,13 +1922,13 @@ switch.lookup:                                    ; preds = %_ZN4llvm11raw_ostre
   %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.3, i64 0, i64 %209
   %switch.load = load i64, ptr %switch.gep, align 8
   %210 = zext nneg i32 %207 to i64
-  %switch.gep119 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.4, i64 0, i64 %210
-  %switch.load120 = load ptr, ptr %switch.gep119, align 8
+  %switch.gep122 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.4, i64 0, i64 %210
+  %switch.load123 = load ptr, ptr %switch.gep122, align 8
   br label %_ZL29indefiniteArticleBasedOnVowelc.exit
 
 _ZL29indefiniteArticleBasedOnVowelc.exit:         ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit52, %switch.lookup
   %.sroa.3.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit52 ]
-  %.sroa.0.0.i = phi ptr [ %switch.load120, %switch.lookup ], [ @.str.15, %_ZN4llvm11raw_ostreamlsEPKc.exit52 ]
+  %.sroa.0.0.i = phi ptr [ %switch.load123, %switch.lookup ], [ @.str.15, %_ZN4llvm11raw_ostreamlsEPKc.exit52 ]
   %211 = getelementptr inbounds nuw i8, ptr %.0.i.i51, i64 24
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds nuw i8, ptr %.0.i.i51, i64 32
@@ -2009,20 +2009,20 @@ _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %248, %250
   %256 = add nsw i32 %255, -97
   %257 = call i32 @llvm.fshl.i32(i32 %256, i32 %256, i32 31)
   %258 = icmp ult i32 %257, 11
-  br i1 %258, label %switch.lookup121, label %_ZL29indefiniteArticleBasedOnVowelc.exit67
+  br i1 %258, label %switch.lookup124, label %_ZL29indefiniteArticleBasedOnVowelc.exit67
 
-switch.lookup121:                                 ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit61
+switch.lookup124:                                 ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit61
   %259 = zext nneg i32 %257 to i64
-  %switch.gep122 = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.3, i64 0, i64 %259
-  %switch.load123 = load i64, ptr %switch.gep122, align 8
+  %switch.gep125 = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.3, i64 0, i64 %259
+  %switch.load126 = load i64, ptr %switch.gep125, align 8
   %260 = zext nneg i32 %257 to i64
-  %switch.gep124 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.4, i64 0, i64 %260
-  %switch.load125 = load ptr, ptr %switch.gep124, align 8
+  %switch.gep127 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.4, i64 0, i64 %260
+  %switch.load128 = load ptr, ptr %switch.gep127, align 8
   br label %_ZL29indefiniteArticleBasedOnVowelc.exit67
 
-_ZL29indefiniteArticleBasedOnVowelc.exit67:       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit61, %switch.lookup121
-  %.sroa.3.0.i62 = phi i64 [ %switch.load123, %switch.lookup121 ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit61 ]
-  %.sroa.0.0.i63 = phi ptr [ %switch.load125, %switch.lookup121 ], [ @.str.15, %_ZN4llvm11raw_ostreamlsEPKc.exit61 ]
+_ZL29indefiniteArticleBasedOnVowelc.exit67:       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit61, %switch.lookup124
+  %.sroa.3.0.i62 = phi i64 [ %switch.load126, %switch.lookup124 ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit61 ]
+  %.sroa.0.0.i63 = phi ptr [ %switch.load128, %switch.lookup124 ], [ @.str.15, %_ZN4llvm11raw_ostreamlsEPKc.exit61 ]
   %261 = getelementptr inbounds nuw i8, ptr %.0.i.i60, i64 24
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %.0.i.i60, i64 32
@@ -2035,8 +2035,8 @@ _ZL29indefiniteArticleBasedOnVowelc.exit67:       ; preds = %_ZN4llvm11raw_ostre
 
 269:                                              ; preds = %_ZL29indefiniteArticleBasedOnVowelc.exit67
   %270 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i60, ptr noundef nonnull %.sroa.0.0.i63, i64 noundef %.sroa.3.0.i62) #15
-  %.phi.trans.insert115 = getelementptr inbounds nuw i8, ptr %270, i64 32
-  %.pre116 = load ptr, ptr %.phi.trans.insert115, align 8
+  %.phi.trans.insert118 = getelementptr inbounds nuw i8, ptr %270, i64 32
+  %.pre119 = load ptr, ptr %.phi.trans.insert118, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit70
 
 271:                                              ; preds = %_ZL29indefiniteArticleBasedOnVowelc.exit67
@@ -2047,7 +2047,7 @@ _ZL29indefiniteArticleBasedOnVowelc.exit67:       ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit70
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit70:    ; preds = %269, %271
-  %274 = phi ptr [ %.pre116, %269 ], [ %273, %271 ]
+  %274 = phi ptr [ %.pre119, %269 ], [ %273, %271 ]
   %.0.i69 = phi ptr [ %270, %269 ], [ %.0.i.i60, %271 ]
   %275 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 24
   %276 = load ptr, ptr %275, align 8
@@ -2144,16 +2144,18 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
   call void @free(ptr noundef %319) #15
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit
 
-_ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %53, %60, %39, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit, %321, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %142, %93, %_ZN4llvm6APSIntD2Ev.exit, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_118VariantHeldTypeMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit, %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit
-  %.0 = phi i1 [ false, %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit ], [ false, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_118VariantHeldTypeMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit ], [ false, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit ], [ false, %_ZN4llvm6APSIntD2Ev.exit ], [ false, %93 ], [ true, %142 ], [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ true, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit ], [ true, %321 ], [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ false, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i ], [ false, %39 ], [ false, %60 ], [ false, %53 ]
-  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit83, label %322
+_ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %39, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit, %321, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %142, %93, %_ZN4llvm6APSIntD2Ev.exit, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_118VariantHeldTypeMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit, %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit
+  %.0 = phi i1 [ false, %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit ], [ false, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_118VariantHeldTypeMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit ], [ false, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit ], [ false, %_ZN4llvm6APSIntD2Ev.exit ], [ false, %93 ], [ true, %142 ], [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ true, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit ], [ true, %321 ], [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ false, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i ], [ false, %39 ]
+  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit83, label %_ZN4llvm11SmallStringILj128EED2Ev.exit.thread
 
-322:                                              ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit
+_ZN4llvm11SmallStringILj128EED2Ev.exit.thread:    ; preds = %60, %53, %_ZN4llvm11SmallStringILj128EED2Ev.exit
+  %.0114 = phi i1 [ %.0, %_ZN4llvm11SmallStringILj128EED2Ev.exit ], [ false, %53 ], [ false, %60 ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %17) #15
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit83
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit83: ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit, %322
-  ret i1 %.0
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit83: ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit, %_ZN4llvm11SmallStringILj128EED2Ev.exit.thread
+  %.0115 = phi i1 [ %.0, %_ZN4llvm11SmallStringILj128EED2Ev.exit ], [ %.0114, %_ZN4llvm11SmallStringILj128EED2Ev.exit.thread ]
+  ret i1 %.0115
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

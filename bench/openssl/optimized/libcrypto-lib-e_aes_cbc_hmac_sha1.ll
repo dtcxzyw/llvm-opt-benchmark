@@ -476,7 +476,7 @@ if.end21.i396:                                    ; preds = %if.then18.i401, %if
   br i1 %tobool22.not.i398, label %sha1_update.exit403, label %if.then23.i399
 
 if.then23.i399:                                   ; preds = %if.end21.i396
-  %call24.i400 = call i32 @SHA1_Update(ptr noundef nonnull %md, ptr noundef %ptr.1.i397, i64 noundef %rem.i383) #7
+  %call24.i400 = call i32 @SHA1_Update(ptr noundef nonnull %md, ptr noundef nonnull %ptr.1.i397, i64 noundef %rem.i383) #7
   br label %sha1_update.exit403
 
 sha1_update.exit403:                              ; preds = %if.end21.i396, %if.then23.i399
@@ -513,7 +513,7 @@ if.end4.i413:                                     ; preds = %if.then.i406, %if.t
 
 if.then7.i419:                                    ; preds = %if.end4.i413
   %div29.i420 = lshr i64 %len.addr.0.i414, 6
-  call void @sha1_block_data_order(ptr noundef nonnull %md, ptr noundef %ptr.0.i415, i64 noundef %div29.i420) #7
+  call void @sha1_block_data_order(ptr noundef nonnull %md, ptr noundef nonnull %ptr.0.i415, i64 noundef %div29.i420) #7
   %add.ptr8.i421 = getelementptr inbounds i8, ptr %ptr.0.i415, i64 %sub5.i417
   %shr.i422 = lshr i64 %len.addr.0.i414, 29
   %Nh.i423 = getelementptr inbounds nuw i8, ptr %call, i64 460
@@ -780,7 +780,7 @@ if.end4.i446:                                     ; preds = %if.end344
 if.then23.i465:                                   ; preds = %if.end344, %if.end4.i446
   %ptr.1.i463524 = phi ptr [ %add.ptr.i444, %if.end4.i446 ], [ %22, %if.end344 ]
   %rem.i449519523 = phi i64 [ %sub3.i445, %if.end4.i446 ], [ 20, %if.end344 ]
-  %call24.i466 = call i32 @SHA1_Update(ptr noundef nonnull %md, ptr noundef %ptr.1.i463524, i64 noundef %rem.i449519523) #7
+  %call24.i466 = call i32 @SHA1_Update(ptr noundef nonnull %md, ptr noundef nonnull %ptr.1.i463524, i64 noundef %rem.i449519523) #7
   br label %sha1_update.exit469
 
 sha1_update.exit469:                              ; preds = %if.end4.i446, %if.then23.i465
@@ -1198,7 +1198,7 @@ if.end4.i164:                                     ; preds = %if.end75
 if.then23.i183:                                   ; preds = %if.end75, %if.end4.i164
   %ptr.1.i181226 = phi ptr [ %add.ptr.i162, %if.end4.i164 ], [ %ptr, %if.end75 ]
   %rem.i167221225 = phi i64 [ %sub3.i163, %if.end4.i164 ], [ 13, %if.end75 ]
-  %call24.i184 = tail call i32 @SHA1_Update(ptr noundef nonnull %md, ptr noundef %ptr.1.i181226, i64 noundef %rem.i167221225) #7
+  %call24.i184 = tail call i32 @SHA1_Update(ptr noundef nonnull %md, ptr noundef nonnull %ptr.1.i181226, i64 noundef %rem.i167221225) #7
   br label %sha1_update.exit187
 
 sha1_update.exit187:                              ; preds = %if.end4.i164, %if.then23.i183

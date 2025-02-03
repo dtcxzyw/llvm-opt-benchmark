@@ -3909,7 +3909,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  %222 = call i32 @ref_path_table_lookup(ptr noundef %212, ptr noundef nonnull %5) #14
+  %222 = call i32 @ref_path_table_lookup(ptr noundef nonnull %212, ptr noundef nonnull %5) #14
   %223 = icmp slt i32 %222, 0
   br i1 %223, label %224, label %229
 
@@ -3957,7 +3957,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   call void @free(ptr noundef %204) #14
   call void @free(ptr noundef %205) #14
   call void @free(ptr noundef %206) #14
-  call void @free(ptr noundef %212) #14
+  call void @free(ptr noundef nonnull %212) #14
   br label %249
 
 249:                                              ; preds = %244, %199

@@ -849,7 +849,7 @@ lpad:                                             ; preds = %invoke.cont4
 lpad3:                                            ; preds = %if.then
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #34
+  call void @__cxa_free_exception(ptr nonnull %exception) #34
   br label %ehcleanup19
 
 if.end:                                           ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC2EPKS3_.exit
@@ -2556,7 +2556,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #34
+  call void @__cxa_free_exception(ptr nonnull %exception) #34
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont

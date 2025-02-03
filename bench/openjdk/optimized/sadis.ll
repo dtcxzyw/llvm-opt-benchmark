@@ -242,40 +242,40 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   switch i64 %5, label %6 [
-    i64 0, label %79
-    i64 1, label %.thread58
+    i64 0, label %80
+    i64 1, label %select.unfold
   ]
 
 6:                                                ; preds = %2
   %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 37) #7
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread58, label %9
+  br i1 %8, label %select.unfold, label %9
 
 9:                                                ; preds = %6
   %10 = load i8, ptr %1, align 1
   %11 = icmp eq i8 %10, 37
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %50
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 37
-  br i1 %15, label %16, label %.thread
+  br i1 %15, label %16, label %50
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 37) #7
   %19 = icmp eq ptr %18, null
   %20 = add i64 %5, -1
-  br i1 %19, label %.thread58, label %.thread
+  br i1 %19, label %select.unfold, label %50
 
-.thread58:                                        ; preds = %2, %6, %16
-  %.04763 = phi ptr [ %13, %16 ], [ %1, %6 ], [ %1, %2 ]
-  %.04862 = phi i64 [ %20, %16 ], [ %5, %6 ], [ %5, %2 ]
+select.unfold:                                    ; preds = %16, %2, %6
+  %.048 = phi i64 [ %5, %2 ], [ %5, %6 ], [ %20, %16 ]
+  %.047 = phi ptr [ %1, %2 ], [ %1, %6 ], [ %13, %16 ]
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1336
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr %23(ptr noundef nonnull %4, ptr noundef nonnull %.04763) #6
+  %24 = tail call ptr %23(ptr noundef nonnull %4, ptr noundef nonnull %.047) #6
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 120
   %27 = load ptr, ptr %26, align 8
@@ -283,7 +283,7 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
   %.not52 = icmp eq ptr %28, null
   br i1 %.not52, label %29, label %39
 
-29:                                               ; preds = %.thread58
+29:                                               ; preds = %select.unfold
   %30 = load ptr, ptr %4, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 488
   %32 = load ptr, ptr %31, align 8
@@ -296,7 +296,7 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
   tail call void (ptr, ptr, ptr, ...) %32(ptr noundef nonnull %4, ptr noundef %34, ptr noundef %36, ptr noundef %38, ptr noundef %24) #6
   br label %39
 
-39:                                               ; preds = %29, %.thread58
+39:                                               ; preds = %29, %select.unfold
   %40 = load ptr, ptr %4, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 120
   %42 = load ptr, ptr %41, align 8
@@ -312,55 +312,55 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
   br label %48
 
 48:                                               ; preds = %44, %39
-  %49 = trunc i64 %.04862 to i32
-  br label %79
+  %49 = trunc i64 %.048 to i32
+  br label %80
 
-.thread:                                          ; preds = %16, %9, %12
+50:                                               ; preds = %12, %9, %16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %51 = call i32 @vsnprintf(ptr noundef nonnull %50, i64 noundef 4096, ptr noundef nonnull %1, ptr noundef nonnull %3) #6
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %52 = call i32 @vsnprintf(ptr noundef nonnull %51, i64 noundef 4096, ptr noundef nonnull %1, ptr noundef nonnull %3) #6
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1336
-  %54 = load ptr, ptr %53, align 8
-  %55 = call ptr %54(ptr noundef nonnull %4, ptr noundef nonnull %50) #6
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 120
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr %58(ptr noundef nonnull %4) #6
-  %.not50 = icmp eq ptr %59, null
-  br i1 %.not50, label %60, label %70
+  %53 = load ptr, ptr %4, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1336
+  %55 = load ptr, ptr %54, align 8
+  %56 = call ptr %55(ptr noundef nonnull %4, ptr noundef nonnull %51) #6
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 120
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr %59(ptr noundef nonnull %4) #6
+  %.not50 = icmp eq ptr %60, null
+  br i1 %.not50, label %61, label %71
 
-60:                                               ; preds = %.thread
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 488
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %69 = load ptr, ptr %68, align 8
-  call void (ptr, ptr, ptr, ...) %63(ptr noundef nonnull %4, ptr noundef %65, ptr noundef %67, ptr noundef %69, ptr noundef %55) #6
-  br label %70
+61:                                               ; preds = %50
+  %62 = load ptr, ptr %4, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 488
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %70 = load ptr, ptr %69, align 8
+  call void (ptr, ptr, ptr, ...) %64(ptr noundef nonnull %4, ptr noundef %66, ptr noundef %68, ptr noundef %70, ptr noundef %56) #6
+  br label %71
 
-70:                                               ; preds = %60, %.thread
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 120
-  %73 = load ptr, ptr %72, align 8
-  %74 = call ptr %73(ptr noundef nonnull %4) #6
-  %.not51 = icmp eq ptr %74, null
-  br i1 %.not51, label %79, label %75
+71:                                               ; preds = %61, %50
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 120
+  %74 = load ptr, ptr %73, align 8
+  %75 = call ptr %74(ptr noundef nonnull %4) #6
+  %.not51 = icmp eq ptr %75, null
+  br i1 %.not51, label %80, label %76
 
-75:                                               ; preds = %70
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 136
-  %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef nonnull %4) #6
-  br label %79
+76:                                               ; preds = %71
+  %77 = load ptr, ptr %4, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 136
+  %79 = load ptr, ptr %78, align 8
+  call void %79(ptr noundef nonnull %4) #6
+  br label %80
 
-79:                                               ; preds = %70, %75, %2, %48
-  %.0 = phi i32 [ %49, %48 ], [ 0, %2 ], [ %51, %75 ], [ %51, %70 ]
+80:                                               ; preds = %71, %76, %2, %48
+  %.0 = phi i32 [ %49, %48 ], [ 0, %2 ], [ %52, %76 ], [ %52, %71 ]
   ret i32 %.0
 }
 

@@ -6139,7 +6139,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %86
   %192 = ptrtoint ptr %.sroa.9.2.i to i64
   %193 = ptrtoint ptr %.sroa.0.1.i to i64
   %194 = sub i64 %192, %193
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.sroa.17.2.i, ptr align 8 %.sroa.0.1.i, i64 %194, i1 false), !noalias !1519
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.17.2.i, ptr align 8 %.sroa.0.1.i, i64 %194, i1 false), !noalias !1519
   br label %.body
 
 .loopexit:                                        ; preds = %186, %179, %172, %168
@@ -6149,7 +6149,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %86
   %195 = ptrtoint ptr %.sroa.9.1.i to i64
   %196 = ptrtoint ptr %.sroa.0.0.i124 to i64
   %197 = sub i64 %195, %196
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.sroa.17.1.i, ptr align 8 %.sroa.0.0.i124, i64 %197, i1 false), !noalias !1524
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.17.1.i, ptr align 8 %.sroa.0.0.i124, i64 %197, i1 false), !noalias !1524
   %198 = load i64, ptr %10, align 8, !noundef !18
   %199 = icmp ult i64 %.sroa.4.0.i.ph, %198
   br i1 %199, label %200, label %.invoke439, !prof !1374

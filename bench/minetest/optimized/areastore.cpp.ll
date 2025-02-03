@@ -1803,7 +1803,7 @@ lor.rhs.i:                                        ; preds = %_ZNSt3mapIj4AreaSt4
 
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3mapIj4AreaSt4lessIjESaISt4pairIKjS0_EEE11lower_boundERS4_.exit.i, %_ZSt9make_pairIRjR4AreaESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.exit
   %__y.addr.0.lcssa.i.i.i25.i = phi ptr [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %add.ptr.i.i.i.i, %_ZNSt3mapIj4AreaSt4lessIjESaISt4pairIKjS0_EEE11lower_boundERS4_.exit.i ], [ %add.ptr.i.i.i.i, %_ZSt9make_pairIRjR4AreaESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.exit ]
-  %call.i.i1617 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKj4AreaESt10_Select1stIS3_ESt4lessIjESaIS3_EE22_M_emplace_hint_uniqueIJS0_IjS2_EEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %areas_map, ptr %__y.addr.0.lcssa.i.i.i25.i, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
+  %call.i.i1617 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKj4AreaESt10_Select1stIS3_ESt4lessIjESaIS3_EE22_M_emplace_hint_uniqueIJS0_IjS2_EEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %areas_map, ptr nonnull %__y.addr.0.lcssa.i.i.i25.i, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then.i, %lor.rhs.i

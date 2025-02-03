@@ -2416,14 +2416,14 @@ define internal i32 @dissect_ICBAAccoCallback_OnDataChanged_rqst(ptr noundef %0,
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @address_to_str(ptr noundef %26, ptr noundef nonnull %10) #7
-  %28 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %27) #7
+  %28 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %27) #7
   br label %cba_ldev_find.exit
 
 29:                                               ; preds = %6
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @address_to_str(ptr noundef %31, ptr noundef nonnull %10) #7
-  %33 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %32) #7
+  %33 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %32) #7
   br label %cba_ldev_find.exit
 
 cba_ldev_find.exit:                               ; preds = %15, %19, %24, %29
@@ -2450,12 +2450,12 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr @proto_ICBAAccoMgt, align 4
-  tail call void @p_add_proto_data(ptr noundef %44, ptr noundef %2, i32 noundef %45, i32 noundef 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
+  tail call void @p_add_proto_data(ptr noundef %44, ptr noundef nonnull %2, i32 noundef %45, i32 noundef 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %46 = load i32, ptr @hf_cba_acco_cb_length, align 4
-  %47 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, ptr noundef nonnull %7) #7
-  %48 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %8) #7
+  %47 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, ptr noundef nonnull %7) #7
+  %48 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %47, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %8) #7
   %49 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %48) #7
-  %50 = call fastcc i32 @dissect_CBA_Connection_Data(ptr noundef %49, ptr noundef %2, ptr noundef %3, ptr noundef %.1.i, ptr noundef null)
+  %50 = call fastcc i32 @dissect_CBA_Connection_Data(ptr noundef %49, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %.1.i, ptr noundef null)
   %51 = add i32 %50, %48
   ret i32 %51
 }
@@ -3690,14 +3690,14 @@ define internal i32 @dissect_ICBAAccoServer_Connect_rqst(ptr noundef %0, i32 nou
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @address_to_str(ptr noundef %35, ptr noundef nonnull %19) #7
-  %37 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %36) #7
+  %37 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %36) #7
   br label %cba_ldev_find.exit
 
 38:                                               ; preds = %6
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @address_to_str(ptr noundef %40, ptr noundef nonnull %19) #7
-  %42 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %41) #7
+  %42 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %41) #7
   br label %cba_ldev_find.exit
 
 cba_ldev_find.exit:                               ; preds = %24, %28, %33, %38
@@ -3724,17 +3724,17 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr @proto_ICBAAccoMgt, align 4
-  tail call void @p_add_proto_data(ptr noundef %53, ptr noundef %2, i32 noundef %54, i32 noundef 0, ptr noundef nonnull inttoptr (i64 2 to ptr)) #7
+  tail call void @p_add_proto_data(ptr noundef %53, ptr noundef nonnull %2, i32 noundef %54, i32 noundef 0, ptr noundef nonnull inttoptr (i64 2 to ptr)) #7
   %55 = load i32, ptr @hf_cba_acco_conn_consumer, align 4
-  %56 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %55, ptr noundef nonnull %16, i32 noundef 1000) #7
-  %57 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef %16)
+  %56 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %18, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %55, ptr noundef nonnull %16, i32 noundef 1000) #7
+  %57 = call fastcc ptr @cba_acco_add(ptr noundef nonnull %2, ptr noundef %16)
   %58 = load i32, ptr @hf_cba_acco_conn_qos_type, align 4
-  %59 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %56, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, ptr noundef nonnull %7) #7
+  %59 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %56, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, ptr noundef nonnull %7) #7
   %60 = load i32, ptr @hf_cba_acco_conn_qos_value, align 4
-  %61 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef nonnull %8) #7
+  %61 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %59, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef nonnull %8) #7
   %62 = load i32, ptr @hf_cba_acco_conn_state, align 4
-  %63 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, ptr noundef nonnull %9) #7
-  %64 = call i32 @dissect_dcom_PMInterfacePointer(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, ptr noundef nonnull %17) #7
+  %63 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %61, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, ptr noundef nonnull %9) #7
+  %64 = call i32 @dissect_dcom_PMInterfacePointer(ptr noundef %0, i32 noundef %63, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, ptr noundef nonnull %17) #7
   %65 = load ptr, ptr %17, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %69
@@ -4004,7 +4004,7 @@ proto_item_set_generated.exit:                    ; preds = %20, %23, %26
 .loopexit:                                        ; preds = %62, %37, %proto_item_set_generated.exit
   %.084 = phi i32 [ 1, %proto_item_set_generated.exit ], [ 1, %37 ], [ %67, %62 ]
   %.0 = phi i32 [ %35, %proto_item_set_generated.exit ], [ %38, %37 ], [ %49, %62 ]
-  %70 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %10) #7
+  %70 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %10) #7
   %.pre = load i32, ptr %10, align 4
   br i1 %17, label %.critedge, label %.lr.ph99
 
@@ -4351,7 +4351,7 @@ cba_connection_disconnect.exit:                   ; preds = %59, %58, %.thread.i
 
 .loopexit:                                        ; preds = %cba_connection_disconnect.exit, %cba_connection_disconnect.exit.us, %33, %proto_item_set_generated.exit
   %.0 = phi i32 [ %31, %proto_item_set_generated.exit ], [ %34, %33 ], [ %40, %cba_connection_disconnect.exit.us ], [ %45, %cba_connection_disconnect.exit ]
-  %62 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %7) #7
+  %62 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %7) #7
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = load i32, ptr %9, align 4
@@ -4390,14 +4390,14 @@ define internal i32 @dissect_ICBAAccoServer_DisconnectMe_rqst(ptr noundef %0, i3
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @address_to_str(ptr noundef %25, ptr noundef nonnull %9) #7
-  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %26) #7
+  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %26) #7
   br label %cba_ldev_find.exit
 
 28:                                               ; preds = %6
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @address_to_str(ptr noundef %30, ptr noundef nonnull %9) #7
-  %32 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %31) #7
+  %32 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %31) #7
   br label %cba_ldev_find.exit
 
 cba_ldev_find.exit:                               ; preds = %14, %18, %23, %28
@@ -4424,10 +4424,10 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr @proto_ICBAAccoMgt, align 4
-  tail call void @p_add_proto_data(ptr noundef %43, ptr noundef %2, i32 noundef %44, i32 noundef 0, ptr noundef nonnull inttoptr (i64 2 to ptr)) #7
+  tail call void @p_add_proto_data(ptr noundef %43, ptr noundef nonnull %2, i32 noundef %44, i32 noundef 0, ptr noundef nonnull inttoptr (i64 2 to ptr)) #7
   %45 = load i32, ptr @hf_cba_acco_conn_consumer, align 4
-  %46 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, ptr noundef nonnull %7, i32 noundef 1000) #7
-  %47 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef %7)
+  %46 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, ptr noundef nonnull %7, i32 noundef 1000) #7
+  %47 = call fastcc ptr @cba_acco_add(ptr noundef nonnull %2, ptr noundef %7)
   %48 = icmp ne ptr %.1.i, null
   %49 = icmp ne ptr %47, null
   %or.cond = select i1 %48, i1 %49, i1 false
@@ -4687,7 +4687,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %proto_item_set_generated.exit
   %.0 = phi i32 [ %23, %proto_item_set_generated.exit ], [ %26, %25 ], [ %29, %.lr.ph ]
-  %31 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #7
+  %31 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #7
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %9, align 4
@@ -4811,14 +4811,14 @@ define internal i32 @dissect_ICBAAccoServer2_Connect2_rqst(ptr noundef %0, i32 n
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr @address_to_str(ptr noundef %37, ptr noundef nonnull %21) #7
-  %39 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %38) #7
+  %39 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %38) #7
   br label %cba_ldev_find.exit
 
 40:                                               ; preds = %6
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @address_to_str(ptr noundef %42, ptr noundef nonnull %21) #7
-  %44 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %43) #7
+  %44 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %43) #7
   br label %cba_ldev_find.exit
 
 cba_ldev_find.exit:                               ; preds = %26, %30, %35, %40
@@ -4845,17 +4845,17 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr @proto_ICBAAccoMgt, align 4
-  tail call void @p_add_proto_data(ptr noundef %55, ptr noundef %2, i32 noundef %56, i32 noundef 0, ptr noundef nonnull inttoptr (i64 2 to ptr)) #7
+  tail call void @p_add_proto_data(ptr noundef %55, ptr noundef nonnull %2, i32 noundef %56, i32 noundef 0, ptr noundef nonnull inttoptr (i64 2 to ptr)) #7
   %57 = load i32, ptr @hf_cba_acco_conn_consumer, align 4
-  %58 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef nonnull %16, i32 noundef 1000) #7
-  %59 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef %16)
+  %58 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %20, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef nonnull %16, i32 noundef 1000) #7
+  %59 = call fastcc ptr @cba_acco_add(ptr noundef nonnull %2, ptr noundef %16)
   %60 = load i32, ptr @hf_cba_acco_conn_qos_type, align 4
-  %61 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %58, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef nonnull %7) #7
+  %61 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %58, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef nonnull %7) #7
   %62 = load i32, ptr @hf_cba_acco_conn_qos_value, align 4
-  %63 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, ptr noundef nonnull %8) #7
+  %63 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %61, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, ptr noundef nonnull %8) #7
   %64 = load i32, ptr @hf_cba_acco_conn_state, align 4
-  %65 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, ptr noundef nonnull %9) #7
-  %66 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %12) #7
+  %65 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %63, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, ptr noundef nonnull %9) #7
+  %66 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %65, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %12) #7
   %67 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %67, 0
   br i1 %.not, label %.thread, label %68
@@ -5308,7 +5308,7 @@ define internal fastcc ptr @cba_acco_add(ptr noundef readonly captures(none) %0,
 cba_pdev_add.exit:                                ; preds = %.lr.ph.i, %._crit_edge.i
   %.016.i = phi ptr [ %18, %._crit_edge.i ], [ %14, %.lr.ph.i ]
   %26 = getelementptr i8, ptr %5, i64 1
-  %27 = call ptr @cba_ldev_add(ptr noundef %0, ptr noundef %.016.i, ptr noundef %26)
+  %27 = call ptr @cba_ldev_add(ptr noundef %0, ptr noundef nonnull %.016.i, ptr noundef %26)
   call void @g_free(ptr noundef nonnull %4) #7
   br label %28
 
@@ -5526,14 +5526,14 @@ define internal i32 @dissect_ICBAAccoServerSRT_ConnectCR_rqst(ptr noundef %0, i3
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @address_to_str(ptr noundef %34, ptr noundef nonnull %18) #7
-  %36 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %35) #7
+  %36 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %35) #7
   br label %cba_ldev_find.exit
 
 37:                                               ; preds = %6
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @address_to_str(ptr noundef %39, ptr noundef nonnull %18) #7
-  %41 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %40) #7
+  %41 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %40) #7
   br label %cba_ldev_find.exit
 
 cba_ldev_find.exit:                               ; preds = %23, %27, %32, %37
@@ -5560,15 +5560,15 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr @proto_ICBAAccoMgt, align 4
-  tail call void @p_add_proto_data(ptr noundef %52, ptr noundef %2, i32 noundef %53, i32 noundef 0, ptr noundef nonnull inttoptr (i64 4 to ptr)) #7
+  tail call void @p_add_proto_data(ptr noundef %52, ptr noundef nonnull %2, i32 noundef %53, i32 noundef 0, ptr noundef nonnull inttoptr (i64 4 to ptr)) #7
   %54 = load i32, ptr @hf_cba_acco_conn_consumer, align 4
-  %55 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %7, i32 noundef 1000) #7
-  %56 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef %7)
+  %55 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %7, i32 noundef 1000) #7
+  %56 = call fastcc ptr @cba_acco_add(ptr noundef nonnull %2, ptr noundef %7)
   %57 = load i32, ptr @hf_cba_acco_conn_qos_type, align 4
-  %58 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef nonnull %8) #7
+  %58 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %55, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef nonnull %8) #7
   %59 = load i32, ptr @hf_cba_acco_conn_qos_value, align 4
-  %60 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %58, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, ptr noundef nonnull %9) #7
-  %61 = call i32 @dissect_dcom_PMInterfacePointer(ptr noundef %0, i32 noundef %60, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, ptr noundef nonnull %16) #7
+  %60 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %58, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, ptr noundef nonnull %9) #7
+  %61 = call i32 @dissect_dcom_PMInterfacePointer(ptr noundef %0, i32 noundef %60, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, ptr noundef nonnull %16) #7
   %62 = load ptr, ptr %16, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %66
@@ -5952,7 +5952,7 @@ proto_item_set_generated.exit:                    ; preds = %21, %24, %27
 .loopexit:                                        ; preds = %67, %42, %proto_item_set_generated.exit
   %.088 = phi i32 [ 1, %proto_item_set_generated.exit ], [ 1, %42 ], [ %72, %67 ]
   %.0 = phi i32 [ %40, %proto_item_set_generated.exit ], [ %43, %42 ], [ %54, %67 ]
-  %75 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %10) #7
+  %75 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %10) #7
   %.pre = load i32, ptr %10, align 4
   br i1 %18, label %.critedge, label %.lr.ph103
 
@@ -6022,14 +6022,14 @@ define internal i32 @dissect_ICBAAccoServerSRT_DisconnectCR_rqst(ptr noundef %0,
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @address_to_str(ptr noundef %27, ptr noundef nonnull %11) #7
-  %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %28) #7
+  %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %28) #7
   br label %cba_ldev_find.exit
 
 30:                                               ; preds = %6
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @address_to_str(ptr noundef %32, ptr noundef nonnull %11) #7
-  %34 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %33) #7
+  %34 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %33) #7
   br label %cba_ldev_find.exit
 
 cba_ldev_find.exit:                               ; preds = %16, %20, %25, %30
@@ -6056,10 +6056,10 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr @proto_ICBAAccoMgt, align 4
-  tail call void @p_add_proto_data(ptr noundef %45, ptr noundef %2, i32 noundef %46, i32 noundef 0, ptr noundef nonnull inttoptr (i64 4 to ptr)) #7
+  tail call void @p_add_proto_data(ptr noundef %45, ptr noundef nonnull %2, i32 noundef %46, i32 noundef 0, ptr noundef nonnull inttoptr (i64 4 to ptr)) #7
   %47 = load i32, ptr @hf_cba_acco_count, align 4
-  %48 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, ptr noundef nonnull %7) #7
-  %49 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %8) #7
+  %48 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, ptr noundef nonnull %7) #7
+  %49 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %48, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %8) #7
   %.not = icmp eq ptr %.1.i, null
   br i1 %.not, label %.thread, label %50
 
@@ -6094,7 +6094,7 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   %.04958.us = phi i32 [ %66, %.lr.ph.split.us ], [ %49, %.thread ]
   %.05057.us = phi i32 [ %67, %.lr.ph.split.us ], [ 1, %.thread ]
   %65 = load i32, ptr @hf_cba_acco_prov_crid, align 4
-  %66 = call i32 @dissect_dcom_indexed_DWORD(ptr noundef %0, i32 noundef %.04958.us, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, ptr noundef nonnull %9, i32 noundef %.05057.us) #7
+  %66 = call i32 @dissect_dcom_indexed_DWORD(ptr noundef %0, i32 noundef %.04958.us, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, ptr noundef nonnull %9, i32 noundef %.05057.us) #7
   %67 = add i32 %.05057.us, 1
   %68 = load i32, ptr %8, align 4
   %69 = add i32 %68, -1
@@ -6111,7 +6111,7 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   %.04958 = phi i32 [ %73, %cba_frame_find_by_provcrid.exit ], [ %49, %.preheader.i.preheader ]
   %.05057 = phi i32 [ %102, %cba_frame_find_by_provcrid.exit ], [ 1, %.preheader.i.preheader ]
   %72 = load i32, ptr @hf_cba_acco_prov_crid, align 4
-  %73 = call i32 @dissect_dcom_indexed_DWORD(ptr noundef %0, i32 noundef %.04958, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, ptr noundef nonnull %9, i32 noundef %.05057) #7
+  %73 = call i32 @dissect_dcom_indexed_DWORD(ptr noundef %0, i32 noundef %.04958, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, ptr noundef nonnull %9, i32 noundef %.05057) #7
   %74 = load i32, ptr %9, align 4
   %.01420.i = load ptr, ptr %.1.i, align 8
   %.not21.i = icmp eq ptr %.01420.i, null
@@ -6163,7 +6163,7 @@ cba_packet_in_range.exit.thread.i:                ; preds = %cba_packet_in_range
   br i1 %.not.i54, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %cba_packet_in_range.exit.thread.i, %.preheader.i
-  %95 = call ptr @expert_add_info(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_prov_crid) #7
+  %95 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_prov_crid) #7
   br label %cba_frame_find_by_provcrid.exit
 
 cba_frame_find_by_provcrid.exit:                  ; preds = %cba_packet_in_range.exit.i, %._crit_edge.i
@@ -6301,7 +6301,7 @@ cba_frame_disconnect.exit:                        ; preds = %55, %54, %.thread.i
 
 .loopexit:                                        ; preds = %cba_frame_disconnect.exit, %cba_frame_disconnect.exit.us, %29, %proto_item_set_generated.exit
   %.0 = phi i32 [ %27, %proto_item_set_generated.exit ], [ %30, %29 ], [ %36, %cba_frame_disconnect.exit.us ], [ %41, %cba_frame_disconnect.exit ]
-  %58 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %7) #7
+  %58 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %7) #7
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %7, align 4
@@ -6351,14 +6351,14 @@ define internal i32 @dissect_ICBAAccoServerSRT_Connect_rqst(ptr noundef %0, i32 
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @address_to_str(ptr noundef %36, ptr noundef nonnull %20) #7
-  %38 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %37) #7
+  %38 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %37) #7
   br label %cba_ldev_find.exit
 
 39:                                               ; preds = %6
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @address_to_str(ptr noundef %41, ptr noundef nonnull %20) #7
-  %43 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %42) #7
+  %43 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %42) #7
   br label %cba_ldev_find.exit
 
 cba_ldev_find.exit:                               ; preds = %25, %29, %34, %39
@@ -6385,9 +6385,9 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr @proto_ICBAAccoMgt, align 4
-  tail call void @p_add_proto_data(ptr noundef %54, ptr noundef %2, i32 noundef %55, i32 noundef 0, ptr noundef nonnull inttoptr (i64 4 to ptr)) #7
+  tail call void @p_add_proto_data(ptr noundef %54, ptr noundef nonnull %2, i32 noundef %55, i32 noundef 0, ptr noundef nonnull inttoptr (i64 4 to ptr)) #7
   %56 = load i32, ptr @hf_cba_acco_prov_crid, align 4
-  %57 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, ptr noundef nonnull %7) #7
+  %57 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, ptr noundef nonnull %7) #7
   %58 = load i32, ptr %7, align 4
   %59 = icmp eq ptr %.1.i, null
   br i1 %59, label %cba_frame_find_by_provcrid.exit.thread, label %.preheader.i
@@ -6447,7 +6447,7 @@ cba_packet_in_range.exit.thread.i:                ; preds = %cba_packet_in_range
   br i1 %.not.i172, label %._crit_edge.i, label %61, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %cba_packet_in_range.exit.thread.i, %.preheader.i
-  %82 = call ptr @expert_add_info(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_prov_crid) #7
+  %82 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_prov_crid) #7
   br label %cba_frame_find_by_provcrid.exit.thread
 
 cba_frame_find_by_provcrid.exit:                  ; preds = %cba_packet_in_range.exit.i
@@ -6458,12 +6458,12 @@ cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_gene
   %.not176 = phi i1 [ false, %cba_frame_find_by_provcrid.exit ], [ true, %._crit_edge.i ], [ true, %proto_item_set_generated.exit ]
   %.0.i175 = phi ptr [ %62, %cba_frame_find_by_provcrid.exit ], [ null, %._crit_edge.i ], [ null, %proto_item_set_generated.exit ]
   %83 = load i32, ptr @hf_cba_acco_conn_state, align 4
-  %84 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %83, ptr noundef nonnull %8) #7
+  %84 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %57, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %83, ptr noundef nonnull %8) #7
   %85 = load i32, ptr @hf_cba_acco_serversrt_last_connect, align 4
-  %86 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %84, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %85, ptr noundef nonnull %9) #7
+  %86 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %84, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %85, ptr noundef nonnull %9) #7
   %87 = load i32, ptr @hf_cba_acco_count, align 4
-  %88 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %86, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %87, ptr noundef nonnull %10) #7
-  %89 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %88, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %11) #7
+  %88 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %86, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %87, ptr noundef nonnull %10) #7
+  %89 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %88, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %11) #7
   br i1 %.not176, label %102, label %90
 
 90:                                               ; preds = %cba_frame_find_by_provcrid.exit.thread
@@ -6513,27 +6513,27 @@ cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_gene
   %113 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %112, ptr noundef %0, i32 noundef %.0190, i32 noundef 0, i32 noundef 0) #7
   %114 = load i32, ptr @ett_cba_connectin, align 4
   %115 = call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #7
-  %116 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.0190, ptr noundef %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %12) #7
+  %116 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.0190, ptr noundef nonnull %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %12) #7
   %117 = load i32, ptr %12, align 4
   %.not166 = icmp eq i32 %117, 0
   br i1 %.not166, label %121, label %118
 
 118:                                              ; preds = %111
   %119 = load i32, ptr @hf_cba_acco_conn_provider_item, align 4
-  %120 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %.0148189, ptr noundef %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %119, ptr noundef nonnull %13, i32 noundef 1000) #7
+  %120 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %.0148189, ptr noundef nonnull %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %119, ptr noundef nonnull %13, i32 noundef 1000) #7
   br label %121
 
 121:                                              ; preds = %118, %111
   %.1 = phi i32 [ %120, %118 ], [ %.0148189, %111 ]
   %122 = load i32, ptr @hf_cba_type_desc_len, align 4
-  %123 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %116, ptr noundef %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %122, ptr noundef nonnull %14) #7
-  %124 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %123, ptr noundef %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %12) #7
+  %123 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %116, ptr noundef nonnull %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %122, ptr noundef nonnull %14) #7
+  %124 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %123, ptr noundef nonnull %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %12) #7
   %125 = load i32, ptr %12, align 4
   %.not167 = icmp eq i32 %125, 0
   br i1 %.not167, label %.loopexit, label %126
 
 126:                                              ; preds = %121
-  %127 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %15) #7
+  %127 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %15) #7
   %128 = call ptr @wmem_file_scope() #7
   %129 = load i32, ptr %15, align 4
   %130 = shl i32 %129, 1
@@ -6554,7 +6554,7 @@ cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_gene
   %.3182 = phi i32 [ %127, %.lr.ph ], [ %138, %143 ]
   %.0156181 = phi i32 [ 1, %.lr.ph ], [ %145, %143 ]
   %.2159180 = phi i16 [ %.0157185, %.lr.ph ], [ %spec.select, %143 ]
-  %138 = call i32 @dissect_dcom_VARTYPE(ptr noundef %0, i32 noundef %.3182, ptr noundef %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %16) #7
+  %138 = call i32 @dissect_dcom_VARTYPE(ptr noundef %0, i32 noundef %.3182, ptr noundef nonnull %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %16) #7
   %.not170 = icmp ugt i32 %.0156181, %136
   %.pre = load i16, ptr %16, align 2
   br i1 %.not170, label %143, label %139
@@ -6582,9 +6582,9 @@ cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_gene
   %.1152 = phi ptr [ %.0151188, %121 ], [ %132, %126 ], [ %132, %143 ]
   %.2 = phi i32 [ %.1, %121 ], [ %127, %126 ], [ %138, %143 ]
   %147 = load i32, ptr @hf_cba_acco_conn_cons_id, align 4
-  %148 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %124, ptr noundef %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %147, ptr noundef nonnull %17) #7
+  %148 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %124, ptr noundef nonnull %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %147, ptr noundef nonnull %17) #7
   %149 = load i32, ptr @hf_cba_acco_serversrt_record_length, align 4
-  %150 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %148, ptr noundef %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %149, ptr noundef nonnull %18) #7
+  %150 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %148, ptr noundef nonnull %2, ptr noundef %115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %149, ptr noundef nonnull %18) #7
   br i1 %.not176, label %159, label %151
 
 151:                                              ; preds = %.loopexit
@@ -6594,7 +6594,7 @@ cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_gene
   %155 = load i16, ptr %109, align 2
   %156 = load i32, ptr %17, align 4
   %157 = load i16, ptr %18, align 2
-  %158 = call fastcc ptr @cba_connection_connect(ptr noundef %2, ptr noundef %152, ptr noundef %153, ptr noundef nonnull %.0.i175, i16 noundef zeroext %154, i16 noundef zeroext %155, ptr noundef %13, i32 noundef %156, i16 noundef zeroext %157, ptr noundef %.1152, i16 noundef zeroext %.1154)
+  %158 = call fastcc ptr @cba_connection_connect(ptr noundef nonnull %2, ptr noundef %152, ptr noundef %153, ptr noundef nonnull %.0.i175, i16 noundef zeroext %154, i16 noundef zeroext %155, ptr noundef %13, i32 noundef %156, i16 noundef zeroext %157, ptr noundef %.1152, i16 noundef zeroext %.1154)
   call fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %115, ptr noundef %158)
   br label %159
 
@@ -6761,7 +6761,7 @@ proto_item_set_generated.exit:                    ; preds = %19, %22, %25
 .loopexit:                                        ; preds = %64, %39, %37
   %.084 = phi i32 [ 1, %37 ], [ 1, %39 ], [ %69, %64 ]
   %.0 = phi i32 [ %32, %37 ], [ %40, %39 ], [ %51, %64 ]
-  %72 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %10) #7
+  %72 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %10) #7
   %.pre = load i32, ptr %10, align 4
   br i1 %16, label %.critedge, label %.lr.ph100
 
@@ -6909,7 +6909,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %proto_item_set_generated.exit
   %.0 = phi i32 [ %23, %proto_item_set_generated.exit ], [ %26, %25 ], [ %29, %.lr.ph ]
-  %31 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #7
+  %31 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #7
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %9, align 4
@@ -6948,14 +6948,14 @@ define internal i32 @dissect_ICBAAccoServerSRT_DisconnectMe_rqst(ptr noundef %0,
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @address_to_str(ptr noundef %25, ptr noundef nonnull %9) #7
-  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %26) #7
+  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ldev_unknown, ptr noundef nonnull @.str.4, ptr noundef %26) #7
   br label %cba_ldev_find.exit
 
 28:                                               ; preds = %6
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @address_to_str(ptr noundef %30, ptr noundef nonnull %9) #7
-  %32 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %31) #7
+  %32 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_ipid_unknown, ptr noundef nonnull @.str.5, ptr noundef %31) #7
   br label %cba_ldev_find.exit
 
 cba_ldev_find.exit:                               ; preds = %14, %18, %23, %28
@@ -6982,10 +6982,10 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr @proto_ICBAAccoMgt, align 4
-  tail call void @p_add_proto_data(ptr noundef %43, ptr noundef %2, i32 noundef %44, i32 noundef 0, ptr noundef nonnull inttoptr (i64 4 to ptr)) #7
+  tail call void @p_add_proto_data(ptr noundef %43, ptr noundef nonnull %2, i32 noundef %44, i32 noundef 0, ptr noundef nonnull inttoptr (i64 4 to ptr)) #7
   %45 = load i32, ptr @hf_cba_acco_conn_consumer, align 4
-  %46 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, ptr noundef nonnull %7, i32 noundef 1000) #7
-  %47 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef %7)
+  %46 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, ptr noundef nonnull %7, i32 noundef 1000) #7
+  %47 = call fastcc ptr @cba_acco_add(ptr noundef nonnull %2, ptr noundef %7)
   %48 = icmp ne ptr %.1.i, null
   %49 = icmp ne ptr %47, null
   %or.cond = select i1 %48, i1 %49, i1 false
@@ -7245,7 +7245,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %proto_item_set_generated.exit
   %.0 = phi i32 [ %23, %proto_item_set_generated.exit ], [ %26, %25 ], [ %29, %.lr.ph ]
-  %31 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #7
+  %31 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #7
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %9, align 4

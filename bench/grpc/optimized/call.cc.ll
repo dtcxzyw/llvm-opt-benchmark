@@ -1998,11 +1998,11 @@ entry:
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(112) %this) #30
   %3 = load atomic i64, ptr %1 monotonic, align 8
   invoke void @_ZN9grpc_core7Channel22UpdateCallSizeEstimateEm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %3)
-          to label %invoke.cont4 unwind label %lpad
+          to label %invoke.cont4 unwind label %if.then.i3
 
 invoke.cont4:                                     ; preds = %entry
   invoke void @_ZN9grpc_core5Arena7DestroyEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
-          to label %if.then.i unwind label %lpad
+          to label %if.then.i unwind label %if.then.i3
 
 if.then.i:                                        ; preds = %invoke.cont4
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2020,13 +2020,9 @@ if.then.i.i:                                      ; preds = %if.then.i
 _ZN9grpc_core13RefCountedPtrINS_7ChannelEED2Ev.exit: ; preds = %if.then.i, %if.then.i.i
   ret void
 
-lpad:                                             ; preds = %invoke.cont4, %entry
+if.then.i3:                                       ; preds = %entry, %invoke.cont4
   %6 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i2 = icmp eq ptr %0, null
-  br i1 %cmp.not.i2, label %_ZN9grpc_core13RefCountedPtrINS_7ChannelEED2Ev.exit9, label %if.then.i3
-
-if.then.i3:                                       ; preds = %lpad
   %refs_.i.i4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = atomicrmw sub ptr %refs_.i.i4, i64 1 acq_rel, align 8
   %cmp.i.i.i5 = icmp eq i64 %7, 1
@@ -2039,7 +2035,7 @@ if.then.i.i6:                                     ; preds = %if.then.i3
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(176) %0) #30
   br label %_ZN9grpc_core13RefCountedPtrINS_7ChannelEED2Ev.exit9
 
-_ZN9grpc_core13RefCountedPtrINS_7ChannelEED2Ev.exit9: ; preds = %lpad, %if.then.i3, %if.then.i.i6
+_ZN9grpc_core13RefCountedPtrINS_7ChannelEED2Ev.exit9: ; preds = %if.then.i3, %if.then.i.i6
   resume { ptr, i32 } %6
 }
 
@@ -3971,11 +3967,11 @@ entry:
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(112) %call) #30
   %4 = load atomic i64, ptr %2 monotonic, align 8
   invoke void @_ZN9grpc_core7Channel22UpdateCallSizeEstimateEm(ptr noundef nonnull align 8 dereferenceable(176) %1, i64 noundef %4)
-          to label %invoke.cont4.i unwind label %lpad.i
+          to label %invoke.cont4.i unwind label %if.then.i3.i
 
 invoke.cont4.i:                                   ; preds = %entry
   invoke void @_ZN9grpc_core5Arena7DestroyEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
-          to label %if.then.i.i unwind label %lpad.i
+          to label %if.then.i.i unwind label %if.then.i3.i
 
 if.then.i.i:                                      ; preds = %invoke.cont4.i
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3990,13 +3986,9 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(176) %1) #30
   br label %_ZN9grpc_core4Call10DeleteThisEv.exit
 
-lpad.i:                                           ; preds = %invoke.cont4.i, %entry
+if.then.i3.i:                                     ; preds = %invoke.cont4.i, %entry
   %7 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i2.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i2.i, label %_ZN9grpc_core13RefCountedPtrINS_7ChannelEED2Ev.exit9.i, label %if.then.i3.i
-
-if.then.i3.i:                                     ; preds = %lpad.i
   %refs_.i.i4.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = atomicrmw sub ptr %refs_.i.i4.i, i64 1 acq_rel, align 8
   %cmp.i.i.i5.i = icmp eq i64 %8, 1
@@ -4009,7 +4001,7 @@ if.then.i.i6.i:                                   ; preds = %if.then.i3.i
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(176) %1) #30
   br label %_ZN9grpc_core13RefCountedPtrINS_7ChannelEED2Ev.exit9.i
 
-_ZN9grpc_core13RefCountedPtrINS_7ChannelEED2Ev.exit9.i: ; preds = %if.then.i.i6.i, %if.then.i3.i, %lpad.i
+_ZN9grpc_core13RefCountedPtrINS_7ChannelEED2Ev.exit9.i: ; preds = %if.then.i.i6.i, %if.then.i3.i
   resume { ptr, i32 } %7
 
 _ZN9grpc_core4Call10DeleteThisEv.exit:            ; preds = %if.then.i.i, %if.then.i.i.i
@@ -5786,12 +5778,11 @@ for.body:                                         ; preds = %land.lhs.true.i.i.i
   %second = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119PublishToAppEncoder6AppendE10grpc_sliceS2_(ptr noundef nonnull readonly align 8 dereferenceable(17) %encoder, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %arrayidx.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %second)
   %inc.i = add i64 %__begin3.sroa.5.012, 1
-  %cmp.not1.i = icmp eq ptr %__begin3.sroa.0.011, null
-  br i1 %cmp.not1.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit, label %land.rhs.i
+  br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body, %while.body.i
-  %__begin3.sroa.0.1 = phi ptr [ %8, %while.body.i ], [ %__begin3.sroa.0.011, %for.body ]
-  %__begin3.sroa.5.1 = phi i64 [ 0, %while.body.i ], [ %inc.i, %for.body ]
+  %__begin3.sroa.0.1 = phi ptr [ %__begin3.sroa.0.011, %for.body ], [ %8, %while.body.i ]
+  %__begin3.sroa.5.1 = phi i64 [ %inc.i, %for.body ], [ 0, %while.body.i ]
   %count.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.1, i64 8
   %7 = load i64, ptr %count.i, align 8
   %cmp4.i = icmp eq i64 %__begin3.sroa.5.1, %7
@@ -5802,9 +5793,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit, label %land.rhs.i, !llvm.loop !76
 
-_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit: ; preds = %land.rhs.i, %while.body.i, %for.body
-  %__begin3.sroa.0.2 = phi ptr [ null, %for.body ], [ %__begin3.sroa.0.1, %land.rhs.i ], [ null, %while.body.i ]
-  %__begin3.sroa.5.2 = phi i64 [ %inc.i, %for.body ], [ %__begin3.sroa.5.1, %land.rhs.i ], [ 0, %while.body.i ]
+_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit: ; preds = %land.rhs.i, %while.body.i
+  %__begin3.sroa.0.2 = phi ptr [ null, %while.body.i ], [ %__begin3.sroa.0.1, %land.rhs.i ]
+  %__begin3.sroa.5.2 = phi i64 [ 0, %while.body.i ], [ %__begin3.sroa.5.1, %land.rhs.i ]
   %cmp.i.i = icmp ne ptr %__begin3.sroa.0.2, null
   %cmp4.i.i = icmp ne i64 %__begin3.sroa.5.2, 0
   %.not.i = or i1 %cmp.i.i, %cmp4.i.i
@@ -18728,8 +18719,8 @@ lpad.i:                                           ; preds = %_ZN9grpc_core8Activ
   call void @_ZTHN9grpc_core8Activity19g_current_activity_E() #30
   br label %_ZN9grpc_core8Activity14ScopedActivityD2Ev.exit.i
 
-common.resume:                                    ; preds = %lpad.i15, %if.then.i3.i, %if.then.i.i6.i, %ehcleanup, %_ZN9grpc_core8Activity14ScopedActivityD2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %7, %_ZN9grpc_core8Activity14ScopedActivityD2Ev.exit.i ], [ %.pn, %ehcleanup ], [ %57, %if.then.i.i6.i ], [ %57, %if.then.i3.i ], [ %57, %lpad.i15 ]
+common.resume:                                    ; preds = %if.then.i3.i, %if.then.i.i6.i, %ehcleanup, %_ZN9grpc_core8Activity14ScopedActivityD2Ev.exit.i
+  %common.resume.op = phi { ptr, i32 } [ %7, %_ZN9grpc_core8Activity14ScopedActivityD2Ev.exit.i ], [ %.pn, %ehcleanup ], [ %57, %if.then.i.i6.i ], [ %57, %if.then.i3.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9grpc_core8Activity14ScopedActivityD2Ev.exit.i: ; preds = %9, %lpad.i
@@ -18809,7 +18800,7 @@ call.i.noexc:                                     ; preds = %if.then
 .noexc:                                           ; preds = %call.i.noexc
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKhEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %cond.i, ptr noundef nonnull %add.ptr.i6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKhEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %cond.i, ptr noundef nonnull %add.ptr.i6)
           to label %invoke.cont11 unwind label %lpad.i7
 
 lpad.i7:                                          ; preds = %.noexc
@@ -18927,32 +18918,28 @@ _ZN9grpc_core16PromiseBasedCall13ScopedContextD2Ev.exit: ; preds = %_ZN9grpc_cor
   call void %53(ptr noundef nonnull align 8 dereferenceable(112) %this) #30
   %54 = load atomic i64, ptr %52 monotonic, align 8
   invoke void @_ZN9grpc_core7Channel22UpdateCallSizeEstimateEm(ptr noundef nonnull align 8 dereferenceable(176) %51, i64 noundef %54)
-          to label %invoke.cont4.i unwind label %lpad.i15
+          to label %invoke.cont4.i unwind label %if.then.i3.i
 
 invoke.cont4.i:                                   ; preds = %_ZN9grpc_core16PromiseBasedCall13ScopedContextD2Ev.exit
   invoke void @_ZN9grpc_core5Arena7DestroyEv(ptr noundef nonnull align 8 dereferenceable(48) %52)
-          to label %if.then.i.i16 unwind label %lpad.i15
+          to label %if.then.i.i15 unwind label %if.then.i3.i
 
-if.then.i.i16:                                    ; preds = %invoke.cont4.i
+if.then.i.i15:                                    ; preds = %invoke.cont4.i
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %55 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %55, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core4Call10DeleteThisEv.exit
 
-if.then.i.i.i:                                    ; preds = %if.then.i.i16
+if.then.i.i.i:                                    ; preds = %if.then.i.i15
   %vtable.i.i.i.i = load ptr, ptr %51, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %56 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %56(ptr noundef nonnull align 8 dereferenceable(176) %51) #30
   br label %_ZN9grpc_core4Call10DeleteThisEv.exit
 
-lpad.i15:                                         ; preds = %invoke.cont4.i, %_ZN9grpc_core16PromiseBasedCall13ScopedContextD2Ev.exit
+if.then.i3.i:                                     ; preds = %invoke.cont4.i, %_ZN9grpc_core16PromiseBasedCall13ScopedContextD2Ev.exit
   %57 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i2.i = icmp eq ptr %51, null
-  br i1 %cmp.not.i2.i, label %common.resume, label %if.then.i3.i
-
-if.then.i3.i:                                     ; preds = %lpad.i15
   %refs_.i.i4.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %58 = atomicrmw sub ptr %refs_.i.i4.i, i64 1 acq_rel, align 8
   %cmp.i.i.i5.i = icmp eq i64 %58, 1
@@ -18965,7 +18952,7 @@ if.then.i.i6.i:                                   ; preds = %if.then.i3.i
   call void %59(ptr noundef nonnull align 8 dereferenceable(176) %51) #30
   br label %common.resume
 
-_ZN9grpc_core4Call10DeleteThisEv.exit:            ; preds = %if.then.i.i16, %if.then.i.i.i
+_ZN9grpc_core4Call10DeleteThisEv.exit:            ; preds = %if.then.i.i15, %if.then.i.i.i
   ret void
 
 ehcleanup:                                        ; preds = %lpad10.body, %lpad

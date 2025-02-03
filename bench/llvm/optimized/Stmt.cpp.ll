@@ -14588,24 +14588,24 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread74: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
   %.not.i15 = icmp eq i64 %.sroa.10.0.copyload, 4
-  br i1 %.not.i15, label %_ZNK4llvm9StringRef11starts_withES0_.exit23.thread77, label %_ZNK4llvm9StringRef11starts_withES0_.exit17
+  br i1 %.not.i15, label %.sink.split, label %_ZNK4llvm9StringRef11starts_withES0_.exit17
 
 _ZNK4llvm9StringRef11starts_withES0_.exit17:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread74
   %bcmp.i16 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.055.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.21, i64 5)
   %45 = icmp eq i32 %bcmp.i16, 0
-  br i1 %45, label %_ZNK4llvm9StringRef11starts_withES0_.exit17.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit20
+  br i1 %45, label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit35, label %_ZNK4llvm9StringRef11starts_withES0_.exit20
 
 _ZNK4llvm9StringRef11starts_withES0_.exit20:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit17
   %bcmp.i19 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.055.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.22, i64 5)
   %46 = icmp eq i32 %bcmp.i19, 0
-  br i1 %46, label %_ZNK4llvm9StringRef11starts_withES0_.exit17.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit23
+  br i1 %46, label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit35, label %_ZNK4llvm9StringRef11starts_withES0_.exit23
 
 _ZNK4llvm9StringRef11starts_withES0_.exit23:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit20
   %bcmp.i22 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.055.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.23, i64 5)
   %47 = icmp eq i32 %bcmp.i22, 0
-  br i1 %47, label %_ZNK4llvm9StringRef11starts_withES0_.exit17.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit23.thread77
+  br i1 %47, label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit35, label %.sink.split
 
-_ZNK4llvm9StringRef11starts_withES0_.exit17.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit23, %_ZNK4llvm9StringRef11starts_withES0_.exit20, %_ZNK4llvm9StringRef11starts_withES0_.exit17
+_ZNK4llvm9StringRef3strB5cxx11Ev.exit35:          ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit23, %_ZNK4llvm9StringRef11starts_withES0_.exit20, %_ZNK4llvm9StringRef11starts_withES0_.exit17
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #31, !noalias !936
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull %.sroa.055.0.copyload, i64 noundef 4, ptr noundef nonnull align 1 dereferenceable(1) %6) #31
@@ -14629,7 +14629,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit17.thread: ; preds = %_ZNK4llvm9StringR
   %56 = icmp ugt i64 %54, %55
   br i1 %56, label %57, label %61
 
-57:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit17.thread
+57:                                               ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit35
   %58 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #31, !noalias !948
   %.not.i37 = icmp ugt i64 %54, %58
   br i1 %.not.i37, label %61, label %59
@@ -14638,7 +14638,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit17.thread: ; preds = %_ZNK4llvm9StringR
   %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %16) #31, !noalias !948
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit38
 
-61:                                               ; preds = %57, %_ZNK4llvm9StringRef11starts_withES0_.exit17.thread
+61:                                               ; preds = %57, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit35
   %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %19) #31, !noalias !948
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit38
 
@@ -14652,7 +14652,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #31
   br label %67
 
-_ZNK4llvm9StringRef11starts_withES0_.exit23.thread77: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread74, %25, %_ZNK4llvm9StringRef11starts_withES0_.exit23
+_ZNK4llvm9StringRef11starts_withES0_.exit23.thread77: ; preds = %25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %.not.i39 = icmp eq ptr %.sroa.055.0.copyload, null
   br i1 %.not.i39, label %64, label %65
@@ -14661,7 +14661,11 @@ _ZNK4llvm9StringRef11starts_withES0_.exit23.thread77: ; preds = %_ZNK4llvm9Strin
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #31
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit40
 
-65:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit23.thread77
+.sink.split:                                      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit23, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread74
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  br label %65
+
+65:                                               ; preds = %.sink.split, %_ZNK4llvm9StringRef11starts_withES0_.exit23.thread77
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #31, !noalias !951
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull %.sroa.055.0.copyload, i64 noundef %.sroa.10.0.copyload, ptr noundef nonnull align 1 dereferenceable(1) %4) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #31

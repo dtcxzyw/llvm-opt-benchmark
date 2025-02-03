@@ -129,13 +129,13 @@ do.end31.i:                                       ; preds = %do.end22.i
   %add.ptr32.i = getelementptr inbounds i8, ptr %add.ptr26, i64 %call25.i
   %10 = load i32, ptr %maxSymbolValue.i, align 4
   %scratchBuffer.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 236
-  %call39.i = call i64 @FSE_buildCTable_wksp(ptr noundef %add.ptr.i.i, ptr noundef nonnull %norm.i, i32 noundef %10, i32 noundef %call13.i, ptr noundef nonnull %scratchBuffer.i, i64 noundef 164) #14
+  %call39.i = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %norm.i, i32 noundef %10, i32 noundef %call13.i, ptr noundef nonnull %scratchBuffer.i, i64 noundef 164) #14
   %cmp.i36.i = icmp ult i64 %call39.i, -119
   br i1 %cmp.i36.i, label %do.end46.i, label %HUF_compressWeights.exit.thread
 
 do.end46.i:                                       ; preds = %do.end31.i
   %gepdiff.i = sub nsw i64 %sub27, %call25.i
-  %call52.i = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %add.ptr32.i, i64 noundef %gepdiff.i, ptr noundef nonnull %huffWeight28, i64 noundef range(i64 0, 256) %conv29, ptr noundef %add.ptr.i.i) #14
+  %call52.i = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %add.ptr32.i, i64 noundef %gepdiff.i, ptr noundef nonnull %huffWeight28, i64 noundef range(i64 0, 256) %conv29, ptr noundef nonnull %add.ptr.i.i) #14
   %cmp.i38.i = icmp ult i64 %call52.i, -119
   br i1 %cmp.i38.i, label %do.end58.i, label %HUF_compressWeights.exit.thread
 
@@ -3059,7 +3059,7 @@ land.lhs.true82:                                  ; preds = %do.end80
 
 land.lhs.true85:                                  ; preds = %land.lhs.true82
   %5 = load i32, ptr %maxSymbolValue.addr, align 4
-  %call88 = call i32 @HUF_validateCTable(ptr noundef %oldHufTable, ptr noundef %retval.0.i, i32 noundef %5)
+  %call88 = call i32 @HUF_validateCTable(ptr noundef %oldHufTable, ptr noundef nonnull %retval.0.i, i32 noundef %5)
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %if.then90, label %if.end91.thread
 
@@ -3083,9 +3083,9 @@ if.then99:                                        ; preds = %if.end91, %if.end91
 if.end101:                                        ; preds = %if.end91.thread, %do.end80, %if.end91
   %7 = load i32, ptr %maxSymbolValue.addr, align 4
   %CTable = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 1024
-  %call106 = call i32 @HUF_optimalTableLog(i32 noundef %spec.store.select, i64 noundef %srcSize, i32 noundef %7, ptr noundef nonnull %wksps, i64 noundef 4864, ptr noundef nonnull %CTable, ptr noundef %retval.0.i, i32 noundef %flags)
+  %call106 = call i32 @HUF_optimalTableLog(i32 noundef %spec.store.select, i64 noundef %srcSize, i32 noundef %7, ptr noundef nonnull %wksps, i64 noundef 4864, ptr noundef nonnull %CTable, ptr noundef nonnull %retval.0.i, i32 noundef %flags)
   %8 = load i32, ptr %maxSymbolValue.addr, align 4
-  %call112 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %CTable, ptr noundef %retval.0.i, i32 noundef %8, i32 noundef %call106, ptr noundef nonnull %wksps, i64 noundef 4864)
+  %call112 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %CTable, ptr noundef nonnull %retval.0.i, i32 noundef %8, i32 noundef %call106, ptr noundef nonnull %wksps, i64 noundef 4864)
   %cmp.i104 = icmp ult i64 %call112, -119
   br i1 %cmp.i104, label %do.end120, label %return
 

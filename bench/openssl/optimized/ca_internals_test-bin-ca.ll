@@ -1916,7 +1916,7 @@ land.lhs.true891:                                 ; preds = %if.end885
   br i1 %tobool893.not, label %if.then1233, label %if.end895
 
 if.end895:                                        ; preds = %land.lhs.true891, %if.end885
-  %call896 = call i32 @save_index(ptr noundef nonnull %call369, ptr noundef nonnull @.str.171, ptr noundef %call374) #12
+  %call896 = call i32 @save_index(ptr noundef nonnull %call369, ptr noundef nonnull @.str.171, ptr noundef nonnull %call374) #12
   %tobool897.not = icmp eq i32 %call896, 0
   br i1 %tobool897.not, label %if.then1233, label %if.end900
 
@@ -2390,7 +2390,7 @@ if.end1211:                                       ; preds = %if.else1206
 
 if.end1220:                                       ; preds = %if.end1211
   call void @X509_free(ptr noundef nonnull %call1207) #12
-  %call1221 = call i32 @save_index(ptr noundef nonnull %call369, ptr noundef nonnull @.str.171, ptr noundef %call374) #12
+  %call1221 = call i32 @save_index(ptr noundef nonnull %call369, ptr noundef nonnull @.str.171, ptr noundef nonnull %call374) #12
   %tobool1222.not = icmp eq i32 %call1221, 0
   br i1 %tobool1222.not, label %if.then1233, label %if.end1224
 

@@ -76,7 +76,7 @@ define noundef ptr @mca_common_monitoring_coll_new(ptr noundef %0) local_unnamed
 
 7:                                                ; preds = %6, %1
   %.not9.i = icmp eq ptr %3, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %8
+  br i1 %.not9.i, label %opal_obj_new.exit, label %8
 
 8:                                                ; preds = %7
   store ptr @mca_monitoring_coll_data_t_class, ptr %3, align 8
@@ -85,7 +85,7 @@ define noundef ptr @mca_common_monitoring_coll_new(ptr noundef %0) local_unnamed
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_monitoring_coll_data_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i.i = icmp eq ptr %11, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread18, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit18, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
   %12 = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %8 ]
@@ -94,16 +94,16 @@ define noundef ptr @mca_common_monitoring_coll_new(ptr noundef %0) local_unnamed
   %13 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread18, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit18, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread18:                       ; preds = %.lr.ph.i.i, %8
+.loopexit18:                                      ; preds = %.lr.ph.i.i, %8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %0, ptr %15, align 8
   %16 = load ptr, ptr @comm_data, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %33
 
-18:                                               ; preds = %opal_obj_new.exit.thread18
+18:                                               ; preds = %.loopexit18
   %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 56), align 8
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #15
   %21 = load i32, ptr @opal_class_init_epoch, align 4
@@ -117,11 +117,7 @@ opal_obj_new.exit.thread18:                       ; preds = %.lr.ph.i.i, %8
 
 24:                                               ; preds = %23, %18
   %.not9.i12 = icmp eq ptr %20, null
-  br i1 %.not9.i12, label %opal_obj_new.exit17.thread, label %25
-
-opal_obj_new.exit17.thread:                       ; preds = %24
-  store ptr null, ptr @comm_data, align 8
-  br label %opal_obj_new.exit.thread
+  br i1 %.not9.i12, label %opal_obj_new.exit17, label %25
 
 25:                                               ; preds = %24
   store ptr @opal_hash_table_t_class, ptr %20, align 8
@@ -130,7 +126,7 @@ opal_obj_new.exit17.thread:                       ; preds = %24
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i.i13 = icmp eq ptr %28, null
-  br i1 %.not6.i.i13, label %opal_obj_new.exit17.thread19, label %.lr.ph.i.i14
+  br i1 %.not6.i.i13, label %.loopexit, label %.lr.ph.i.i14
 
 .lr.ph.i.i14:                                     ; preds = %25, %.lr.ph.i.i14
   %29 = phi ptr [ %31, %.lr.ph.i.i14 ], [ %28, %25 ]
@@ -139,22 +135,26 @@ opal_obj_new.exit17.thread:                       ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %.07.i.i15, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i.i16 = icmp eq ptr %31, null
-  br i1 %.not.i.i16, label %opal_obj_new.exit17.thread19, label %.lr.ph.i.i14, !llvm.loop !4
+  br i1 %.not.i.i16, label %.loopexit, label %.lr.ph.i.i14, !llvm.loop !4
 
-opal_obj_new.exit17.thread19:                     ; preds = %.lr.ph.i.i14, %25
+opal_obj_new.exit17:                              ; preds = %24
+  store ptr null, ptr @comm_data, align 8
+  br label %opal_obj_new.exit
+
+.loopexit:                                        ; preds = %.lr.ph.i.i14, %25
   store ptr %20, ptr @comm_data, align 8
   %32 = tail call i32 @opal_hash_table_init(ptr noundef nonnull %20, i64 noundef 2048) #14
   %.pre = load ptr, ptr @comm_data, align 8
   br label %33
 
-33:                                               ; preds = %opal_obj_new.exit17.thread19, %opal_obj_new.exit.thread18
-  %34 = phi ptr [ %.pre, %opal_obj_new.exit17.thread19 ], [ %16, %opal_obj_new.exit.thread18 ]
+33:                                               ; preds = %.loopexit, %.loopexit18
+  %34 = phi ptr [ %.pre, %.loopexit ], [ %16, %.loopexit18 ]
   %35 = ptrtoint ptr %0 to i64
   %36 = tail call i32 @opal_hash_table_set_value_uint64(ptr noundef %34, i64 noundef %35, ptr noundef nonnull %3) #14
   tail call fastcc void @mca_common_monitoring_coll_cache(ptr noundef nonnull %3)
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %7, %opal_obj_new.exit17.thread, %33
+opal_obj_new.exit:                                ; preds = %opal_obj_new.exit17, %7, %33
   ret ptr %3
 }
 
@@ -672,7 +672,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %16, %19
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %24
-  tail call void @free(ptr noundef %0) #14
+  tail call void @free(ptr noundef nonnull %0) #14
   br label %32
 
 32:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %1

@@ -153,7 +153,7 @@ if.end6:                                          ; preds = %entry
 eh.resume:                                        ; preds = %lpad4, %lpad
   %exception2.sink = phi ptr [ %exception2, %lpad4 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %2, %lpad4 ], [ %1, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception2.sink) #15
+  tail call void @__cxa_free_exception(ptr nonnull %exception2.sink) #15
   resume { ptr, i32 } %.pn
 }
 

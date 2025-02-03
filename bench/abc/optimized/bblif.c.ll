@@ -1111,7 +1111,7 @@ define i32 @Bbl_ManSaveSop(ptr noundef captures(none) %0, ptr noundef %1, i32 no
   %27 = icmp sgt i32 %25, %26
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.pre.i = load ptr, ptr %28, align 8
-  br i1 %27, label %.lr.ph.i, label %Vec_StrFetch.exit
+  br i1 %27, label %.lr.ph.i, label %.thread
 
 .lr.ph.i:                                         ; preds = %17, %38
   %29 = phi i32 [ %39, %38 ], [ %13, %17 ]
@@ -1141,9 +1141,9 @@ define i32 @Bbl_ManSaveSop(ptr noundef captures(none) %0, ptr noundef %1, i32 no
   store i32 %.pre-phi.i, ptr %14, align 8
   %41 = add nsw i32 %39, %24
   %42 = icmp sgt i32 %41, %.pre-phi.i
-  br i1 %42, label %.lr.ph.i, label %Vec_StrFetch.exit, !llvm.loop !4
+  br i1 %42, label %.lr.ph.i, label %.thread, !llvm.loop !4
 
-Vec_StrFetch.exit:                                ; preds = %38, %17
+.thread:                                          ; preds = %38, %17
   %43 = phi ptr [ %.pre.i, %17 ], [ %40, %38 ]
   %.lcssa.i = phi i32 [ %25, %17 ], [ %41, %38 ]
   store i32 %.lcssa.i, ptr %15, align 4
@@ -1159,13 +1159,13 @@ Vec_StrFetch.exit:                                ; preds = %38, %17
   store i32 0, ptr %52, align 4
   store i32 %22, ptr %48, align 4
   %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %7) #25
-  br label %54
+  br label %55
 
-54:                                               ; preds = %Vec_StrFetch.exit, %3
+54:                                               ; preds = %3
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %56, label %55
 
-55:                                               ; preds = %54
+55:                                               ; preds = %.thread, %54
   tail call void @free(ptr noundef nonnull %7) #25
   br label %56
 

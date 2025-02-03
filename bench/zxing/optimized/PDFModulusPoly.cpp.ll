@@ -349,7 +349,7 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly3addERKS1_(ptr dead_on_unwind noalias
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #15
+  tail call void @__cxa_free_exception(ptr nonnull %8) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 12:                                               ; preds = %3
@@ -619,7 +619,7 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly8subtractERKS1_(ptr dead_on_unwind no
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #15
+  tail call void @__cxa_free_exception(ptr nonnull %8) #15
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit8
 
 12:                                               ; preds = %3
@@ -839,7 +839,7 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly8multiplyERKS1_(ptr dead_on_unwind no
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #15
+  tail call void @__cxa_free_exception(ptr nonnull %8) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 12:                                               ; preds = %3
@@ -1318,7 +1318,7 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly18multiplyByMonomialEii(ptr dead_on_u
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #15
+  tail call void @__cxa_free_exception(ptr nonnull %8) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 12:                                               ; preds = %4
@@ -1518,7 +1518,7 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly6divideERKS1_RS1_S4_(ptr noundef nonn
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #15
+  tail call void @__cxa_free_exception(ptr nonnull %12) #15
   br label %common.resume
 
 16:                                               ; preds = %4
@@ -1550,7 +1550,7 @@ _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit:     ; preds = %16
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #15
+  tail call void @__cxa_free_exception(ptr nonnull %25) #15
   br label %common.resume
 
 29:                                               ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit
@@ -1603,7 +1603,7 @@ common.resume:                                    ; preds = %14, %27, %_ZN5ZXing
 54:                                               ; preds = %51
   %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %52) #15
+  tail call void @__cxa_free_exception(ptr nonnull %52) #15
   br label %common.resume
 
 _ZNK5ZXing6Pdf4179ModulusGF7inverseEi.exit:       ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit

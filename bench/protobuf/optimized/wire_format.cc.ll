@@ -6229,7 +6229,7 @@ land.lhs.true69:                                  ; preds = %invoke.cont67
   br i1 %tobool.i772, label %if.then72, label %if.end76
 
 if.then72:                                        ; preds = %land.lhs.true69
-  invoke void @_ZN6google8protobuf16DynamicMapSorter4SortERKNS0_7MessageEiPKNS0_10ReflectionEPKNS0_15FieldDescriptorE(ptr nonnull sret(%"class.std::vector.59") align 8 %ref.tmp73, ptr noundef nonnull align 8 dereferenceable(16) %message, i32 noundef %call52, ptr noundef %1, ptr noundef nonnull %field)
+  invoke void @_ZN6google8protobuf16DynamicMapSorter4SortERKNS0_7MessageEiPKNS0_10ReflectionEPKNS0_15FieldDescriptorE(ptr nonnull sret(%"class.std::vector.59") align 8 %ref.tmp73, ptr noundef nonnull align 8 dereferenceable(16) %message, i32 noundef %call52, ptr noundef nonnull %1, ptr noundef nonnull %field)
           to label %_ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EEaSEOS6_.exit unwind label %lpad66.loopexit.split-lp
 
 _ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EEaSEOS6_.exit: ; preds = %if.then72
@@ -14984,7 +14984,7 @@ while.body:                                       ; preds = %_ZN6google8protobuf
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
-  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS3_8internal12MapKeySorter16MapKeyComparatorEEEEvT_T0_SH_T1_T2_(ptr %__first.coerce, i64 noundef %__parent.0, i64 noundef %sub.ptr.div.i, ptr noundef nonnull %agg.tmp6)
+  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS3_8internal12MapKeySorter16MapKeyComparatorEEEEvT_T0_SH_T1_T2_(ptr nonnull %__first.coerce, i64 noundef %__parent.0, i64 noundef %sub.ptr.div.i, ptr noundef nonnull %agg.tmp6)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont

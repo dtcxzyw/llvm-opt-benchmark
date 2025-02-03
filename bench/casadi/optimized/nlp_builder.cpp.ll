@@ -514,7 +514,7 @@ define void @_ZN6casadi10NlImporterC2ERNS_10NlpBuilderERKNSt7__cxx1112basic_stri
 _ZNK6casadi11GenericTypecvbEv.exit:               ; preds = %115
   %118 = zext i1 %117 to i8
   store i8 %118, ptr %108, align 8
-  %119 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0474.0538) #23
+  %119 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0474.0538) #23
   %.not = icmp eq ptr %119, %111
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

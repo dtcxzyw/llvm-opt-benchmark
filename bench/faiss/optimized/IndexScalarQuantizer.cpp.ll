@@ -211,7 +211,7 @@ define void @_ZNK5faiss20IndexScalarQuantizer6searchElPKflPfPlPKNS_16SearchParam
 36:                                               ; preds = %29
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %32) #12
+  call void @__cxa_free_exception(ptr nonnull %32) #12
   br label %76
 
 38:                                               ; preds = %20
@@ -251,7 +251,7 @@ define void @_ZNK5faiss20IndexScalarQuantizer6searchElPKflPfPlPKNS_16SearchParam
 55:                                               ; preds = %48
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %51) #12
+  call void @__cxa_free_exception(ptr nonnull %51) #12
   br label %76
 
 57:                                               ; preds = %38
@@ -291,7 +291,7 @@ define void @_ZNK5faiss20IndexScalarQuantizer6searchElPKflPfPlPKNS_16SearchParam
 73:                                               ; preds = %66
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %69) #12
+  call void @__cxa_free_exception(ptr nonnull %69) #12
   br label %76
 
 75:                                               ; preds = %57
@@ -378,7 +378,7 @@ define void @_ZNK5faiss20IndexScalarQuantizer9sa_encodeElPKfPh(ptr noundef nonnu
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #12
+  call void @__cxa_free_exception(ptr nonnull %18) #12
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -434,7 +434,7 @@ define void @_ZNK5faiss20IndexScalarQuantizer9sa_decodeElPKhPf(ptr noundef nonnu
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #12
+  call void @__cxa_free_exception(ptr nonnull %18) #12
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -664,7 +664,7 @@ define void @_ZN5faiss23IndexIVFScalarQuantizer8add_coreElPKfPKlS4_Pv(ptr nounde
 31:                                               ; preds = %24
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #12
+  call void @__cxa_free_exception(ptr nonnull %27) #12
   br label %33
 
 33:                                               ; preds = %31, %29

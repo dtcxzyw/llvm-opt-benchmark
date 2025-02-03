@@ -1525,7 +1525,7 @@ terminate.lpad.i588:                              ; preds = %if.then13.i.i587
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont111, %if.then.i.i581, %if.then13.i.i587
-  %call.i589 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin4.sroa.0.01446) #23
+  %call.i589 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin4.sroa.0.01446) #23
   %cmp.i538.not = icmp eq ptr %call.i589, %21
   br i1 %cmp.i538.not, label %for.end115, label %for.body103
 

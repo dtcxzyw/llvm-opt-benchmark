@@ -15676,7 +15676,7 @@ define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJEE8validateEv(ptr noun
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #36
+  tail call void @__cxa_free_exception(ptr nonnull %15) #36
   br label %82
 
 19:                                               ; preds = %10
@@ -18848,7 +18848,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4crow12CookieParser6CookieESaI
   %44 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZN4crow12CookieParser6CookieD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %28) #36
-  br label %107
+  br label %106
 
 45:                                               ; preds = %38
   %46 = icmp eq ptr %7, %1
@@ -18889,7 +18889,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4crow12CookieParser6CookieESaI
   %62 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %104 unwind label %63
+          to label %.thread unwind label %63
 
 63:                                               ; preds = %61
   %64 = landingpad { ptr, i32 }
@@ -18943,7 +18943,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4crow12CookieParser6CookieESaI
   %86 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %107 unwind label %87
+          to label %106 unwind label %87
 
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
@@ -18987,56 +18987,56 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4crow12CookieParser6CookieESaI
   store ptr %103, ptr %102, align 8, !tbaa !408
   ret void
 
-104:                                              ; preds = %61
-  %105 = extractvalue { ptr, i32 } %62, 0
-  %106 = tail call ptr @__cxa_begin_catch(ptr %105) #36
+.thread:                                          ; preds = %61
+  %104 = extractvalue { ptr, i32 } %62, 0
+  %105 = tail call ptr @__cxa_begin_catch(ptr %104) #36
   tail call void @_ZN4crow12CookieParser6CookieD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %28) #36
-  br label %.loopexit10
+  br label %118
 
-107:                                              ; preds = %85, %43
-  %108 = phi ptr [ %68, %85 ], [ %27, %43 ]
-  %109 = phi { ptr, i32 } [ %86, %85 ], [ %44, %43 ]
-  %110 = extractvalue { ptr, i32 } %109, 0
-  %111 = tail call ptr @__cxa_begin_catch(ptr %110) #36
-  %112 = icmp eq ptr %27, %108
-  br i1 %112, label %.loopexit10, label %.preheader9
+106:                                              ; preds = %85, %43
+  %107 = phi ptr [ %68, %85 ], [ %27, %43 ]
+  %108 = phi { ptr, i32 } [ %86, %85 ], [ %44, %43 ]
+  %109 = extractvalue { ptr, i32 } %108, 0
+  %110 = tail call ptr @__cxa_begin_catch(ptr %109) #36
+  %111 = icmp eq ptr %27, %107
+  br i1 %111, label %.loopexit10, label %.preheader9
 
-.preheader9:                                      ; preds = %107, %.preheader9
-  %113 = phi ptr [ %114, %.preheader9 ], [ %27, %107 ]
-  tail call void @_ZN4crow12CookieParser6CookieD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %113) #36
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 160
-  %115 = icmp eq ptr %114, %108
-  br i1 %115, label %.loopexit10, label %.preheader9, !llvm.loop !412
+.preheader9:                                      ; preds = %106, %.preheader9
+  %112 = phi ptr [ %113, %.preheader9 ], [ %27, %106 ]
+  tail call void @_ZN4crow12CookieParser6CookieD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %112) #36
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 160
+  %114 = icmp eq ptr %113, %107
+  br i1 %114, label %.loopexit10, label %.preheader9, !llvm.loop !412
 
-116:                                              ; preds = %120
-  %117 = landingpad { ptr, i32 }
+115:                                              ; preds = %119
+  %116 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %121 unwind label %122
+          to label %120 unwind label %121
 
-.loopexit10:                                      ; preds = %.preheader9, %107, %104
-  %118 = icmp eq ptr %27, null
-  br i1 %118, label %120, label %119
+.loopexit10:                                      ; preds = %.preheader9, %106
+  %117 = icmp eq ptr %27, null
+  br i1 %117, label %119, label %118
 
-119:                                              ; preds = %.loopexit10
+118:                                              ; preds = %.thread, %.loopexit10
   tail call void @_ZdlPv(ptr noundef nonnull %27) #37
-  br label %120
+  br label %119
 
-120:                                              ; preds = %119, %.loopexit10
+119:                                              ; preds = %118, %.loopexit10
   invoke void @__cxa_rethrow() #40
-          to label %125 unwind label %116
+          to label %124 unwind label %115
 
-121:                                              ; preds = %116
-  resume { ptr, i32 } %117
+120:                                              ; preds = %115
+  resume { ptr, i32 } %116
 
-122:                                              ; preds = %116
-  %123 = landingpad { ptr, i32 }
+121:                                              ; preds = %115
+  %122 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  tail call void @__clang_call_terminate(ptr %124) #38
+  %123 = extractvalue { ptr, i32 } %122, 0
+  tail call void @__clang_call_terminate(ptr %123) #38
   unreachable
 
-125:                                              ; preds = %120
+124:                                              ; preds = %119
   unreachable
 }
 
@@ -22830,7 +22830,7 @@ define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJNSt7__cxx1112basic_str
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #36
+  tail call void @__cxa_free_exception(ptr nonnull %15) #36
   br label %82
 
 19:                                               ; preds = %10
@@ -29389,7 +29389,7 @@ define linkonce_odr dso_local void @_ZN4crow4Trie8validateEv(ptr noundef nonnull
 33:                                               ; preds = %30
   %34 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %31) #36
+  tail call void @__cxa_free_exception(ptr nonnull %31) #36
   resume { ptr, i32 } %34
 
 35:                                               ; preds = %24, %22
@@ -50536,7 +50536,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail28reactive_socket_service_bas
   %20 = load ptr, ptr %0, align 8, !tbaa !209
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !156
-  tail call void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %22, ptr noundef %2, i1 noundef zeroext %3)
+  tail call void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %22, ptr noundef nonnull %2, i1 noundef zeroext %3)
   br label %37
 
 23:                                               ; preds = %5
@@ -83838,7 +83838,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_upgradeIRNS_13Socket
 295:                                              ; preds = %292
   %296 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %293) #36
+  call void @__cxa_free_exception(ptr nonnull %293) #36
   br label %759
 
 297:                                              ; preds = %282
@@ -85624,7 +85624,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router6handleINS_4CrowIJNS_12Cookie
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %35) #36
+  tail call void @__cxa_free_exception(ptr nonnull %35) #36
   br label %502
 
 39:                                               ; preds = %4

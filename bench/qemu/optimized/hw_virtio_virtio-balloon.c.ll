@@ -1756,7 +1756,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   call void %2(ptr noundef nonnull %free_page_lock, ptr noundef nonnull @.str.10, i32 noundef 561) #13
   call void @virtio_queue_set_notification(ptr noundef %0, i32 noundef 0) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %id.i)
-  %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #13
+  %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #13
   %3 = load ptr, ptr %free_page_vq, align 8
   %4 = load i8, ptr %block_iothread.i, align 8
   %tobool29.i = trunc i8 %4 to i1

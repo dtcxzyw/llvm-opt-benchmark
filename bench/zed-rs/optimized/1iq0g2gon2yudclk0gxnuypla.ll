@@ -40914,7 +40914,7 @@ _ZN4repl11repl_editor14jupytext_cells17hea6f00ba0f48fd5bE.exit.i: ; preds = %_ZN
   %405 = extractvalue { ptr, i64 } %401, 0
   %406 = extractvalue { ptr, i64 } %401, 1
   %407 = getelementptr inbounds ptr, ptr %405, i64 %406
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h86a27a4a74b05628E.llvm.16247273651722951349"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noundef nonnull %405, ptr noundef %407)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h86a27a4a74b05628E.llvm.16247273651722951349"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noundef nonnull %405, ptr noundef nonnull %407)
           to label %_ZN4repl11repl_editor20markdown_code_blocks17h0aa70a8a68e4a9e8E.exit.i unwind label %402
 
 408:                                              ; preds = %402
@@ -41390,7 +41390,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h12d4cf53f373fde9E.exit162: ; preds = %
   %542 = extractvalue { ptr, ptr } %541, 0
   %543 = extractvalue { ptr, ptr } %541, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !9646
-  %544 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %18, ptr noalias noundef readonly align 8 dereferenceable(48) %542)
+  %544 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %542)
           to label %550 unwind label %548
 
 "_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hc5007a3c030749d2E.exit.i.i": ; preds = %573, %.body.i.i, %548

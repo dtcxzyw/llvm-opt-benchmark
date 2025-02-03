@@ -808,7 +808,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
 
 375:                                              ; preds = %369
   call void @free(ptr noundef %341) #11
-  call void @free(ptr noundef %364) #11
+  call void @free(ptr noundef nonnull %364) #11
   br label %953
 
 376:                                              ; preds = %368
@@ -818,7 +818,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
   br i1 %.not928, label %.lr.ph1151, label %379
 
 379:                                              ; preds = %376
-  call void @free(ptr noundef %364) #11
+  call void @free(ptr noundef nonnull %364) #11
   br label %953
 
 .lr.ph1151:                                       ; preds = %376, %.lr.ph1151
@@ -1017,7 +1017,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
 
 456:                                              ; preds = %.lr.ph1175
   call void @free(ptr noundef %.0799) #11
-  call void @free(ptr noundef %429) #11
+  call void @free(ptr noundef nonnull %429) #11
   br label %953
 
 ._crit_edge1176:                                  ; preds = %450
@@ -1030,7 +1030,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %160, %166
 
 461:                                              ; preds = %._crit_edge1176
   call void @free(ptr noundef %.0799) #11
-  call void @free(ptr noundef %429) #11
+  call void @free(ptr noundef nonnull %429) #11
   br label %953
 
 462:                                              ; preds = %._crit_edge1176

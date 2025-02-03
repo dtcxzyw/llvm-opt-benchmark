@@ -2355,7 +2355,7 @@ is_inter_block.exit.thread:                       ; preds = %get_txb_ctx.exit, %
   %220 = load i8, ptr %219, align 1
   %221 = and i8 %220, 1
   %222 = zext nneg i8 %221 to i32
-  %223 = tail call fastcc zeroext i8 @av1_get_tx_type(ptr noundef %1, i8 noundef zeroext %218, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i32 noundef %222)
+  %223 = tail call fastcc zeroext i8 @av1_get_tx_type(ptr noundef nonnull %1, i8 noundef zeroext %218, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i32 noundef %222)
   br i1 %62, label %224, label %.loopexit
 
 224:                                              ; preds = %is_inter_block.exit.thread

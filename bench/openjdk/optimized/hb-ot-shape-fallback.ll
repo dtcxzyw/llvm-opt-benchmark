@@ -925,7 +925,7 @@ define hidden void @_Z26_hb_ot_shape_fallback_kernPK18hb_ot_shape_plan_tP9hb_fon
   br i1 %17, label %18, label %74
 
 18:                                               ; preds = %16, %14
-  %19 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.2)
+  %19 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef nonnull %1, ptr noundef nonnull @.str.2)
   br i1 %19, label %20, label %74
 
 20:                                               ; preds = %18
@@ -1008,7 +1008,7 @@ _ZN11hb_buffer_t7reverseEv.exit:                  ; preds = %.lr.ph.i10.i.i, %_Z
   store i8 0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %50 = load i32, ptr %49, align 8
-  call void @_ZNK2OT17hb_kern_machine_tI34hb_ot_shape_fallback_kern_driver_tE4kernEP9hb_font_tP11hb_buffer_tjb(ptr noundef nonnull align 8 dereferenceable(9) %9, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %50, i1 noundef zeroext false)
+  call void @_ZNK2OT17hb_kern_machine_tI34hb_ot_shape_fallback_kern_driver_tE4kernEP9hb_font_tP11hb_buffer_tjb(ptr noundef nonnull align 8 dereferenceable(9) %9, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %50, i1 noundef zeroext false)
   %51 = load i32, ptr %25, align 8
   %52 = load ptr, ptr %27, align 8
   %or.cond.i.i.i16 = icmp ugt i32 %51, 1
@@ -1078,11 +1078,11 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i17: ; preds = %.lr.ph.i.i.
   store i8 0, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %72 = load i32, ptr %71, align 8
-  call void @_ZNK2OT17hb_kern_machine_tI34hb_ot_shape_fallback_kern_driver_tE4kernEP9hb_font_tP11hb_buffer_tjb(ptr noundef nonnull align 8 dereferenceable(9) %9, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %72, i1 noundef zeroext false)
+  call void @_ZNK2OT17hb_kern_machine_tI34hb_ot_shape_fallback_kern_driver_tE4kernEP9hb_font_tP11hb_buffer_tjb(ptr noundef nonnull align 8 dereferenceable(9) %9, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %72, i1 noundef zeroext false)
   br label %_ZN11hb_buffer_t7reverseEv.exit34
 
 _ZN11hb_buffer_t7reverseEv.exit34:                ; preds = %.lr.ph.i10.i.i22, %60, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i17, %.critedge
-  %73 = call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.3)
+  %73 = call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef nonnull %1, ptr noundef nonnull @.str.3)
   br label %74
 
 74:                                               ; preds = %18, %14, %16, %_ZN11hb_buffer_t7reverseEv.exit34

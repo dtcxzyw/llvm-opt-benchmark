@@ -2524,7 +2524,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %9, %11
 20:                                               ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #21
+  tail call void @__cxa_free_exception(ptr nonnull %6) #21
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %3
@@ -2607,7 +2607,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %10, %12
 21:                                               ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #21
+  tail call void @__cxa_free_exception(ptr nonnull %7) #21
   resume { ptr, i32 } %22
 
 23:                                               ; preds = %4
@@ -2683,7 +2683,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %11, %13
 22:                                               ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #21
+  tail call void @__cxa_free_exception(ptr nonnull %8) #21
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %5

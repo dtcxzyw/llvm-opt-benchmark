@@ -2133,7 +2133,7 @@ invoke.cont12:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
   %14 = load ptr, ptr %vfn, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %retval.0.i, ptr noundef %add.ptr, ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end15 unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont12, %invoke.cont
@@ -3897,7 +3897,7 @@ invoke.cont14:                                    ; preds = %invoke.cont10
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %15 = load ptr, ptr %vfn, align 8
-  invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %retval.0.i, ptr noundef %add.ptr, i8 noundef signext %doNormalize, ptr noundef nonnull align 8 dereferenceable(64) %safeMiddle, ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %add.ptr, i8 noundef signext %doNormalize, ptr noundef nonnull align 8 dereferenceable(64) %safeMiddle, ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end17 unwind label %lpad7
 
 lpad:                                             ; preds = %invoke.cont21

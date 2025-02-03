@@ -82,27 +82,27 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -46, 1) i32 @pmix_help_check_dups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @time(ptr noundef null) #18
-  %.021.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 240), align 8
-  %.not22.i = icmp eq ptr %.021.i, getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 120)
-  br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
+  %.020.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 240), align 8
+  %.not21.i = icmp eq ptr %.020.i, getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 120)
+  br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %13
-  %.023.i = phi ptr [ %.0.i, %13 ], [ %.021.i, %2 ]
-  %4 = getelementptr inbounds nuw i8, ptr %.023.i, i64 144
+  %.022.i = phi ptr [ %.0.i, %13 ], [ %.020.i, %2 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.022.i, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc i32 @match(ptr noundef %5, ptr noundef %0)
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds nuw i8, ptr %.023.i, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %.022.i, i64 152
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc i32 @match(ptr noundef %10, ptr noundef %1)
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %32, label %13
 
 13:                                               ; preds = %8, %.lr.ph.i
-  %14 = getelementptr inbounds nuw i8, ptr %.023.i, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %.022.i, i64 120
   %.0.i = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %.0.i, getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 120)
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
@@ -148,7 +148,7 @@ define range(i32 -46, 1) i32 @pmix_help_check_dups(ptr noundef %0, ptr noundef %
   br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !6
 
 32:                                               ; preds = %8
-  %33 = getelementptr inbounds nuw i8, ptr %.023.i, i64 440
+  %33 = getelementptr inbounds nuw i8, ptr %.022.i, i64 440
   %34 = load i32, ptr %33, align 8
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %33, align 8
@@ -596,7 +596,7 @@ array2string.exit:                                ; preds = %._crit_edge.i
   br label %39
 
 36:                                               ; preds = %31, %34
-  call void @free(ptr noundef %20) #18
+  call void @free(ptr noundef nonnull %20) #18
   %37 = load ptr, ptr %6, align 8
   call void @PMIx_Argv_free(ptr noundef %37) #18
   %38 = load ptr, ptr %5, align 8

@@ -191,7 +191,7 @@ define i32 @mca_topo_base_cart_sub(ptr noundef %0, ptr noundef readonly captures
 
 83:                                               ; preds = %82, %.loopexit122
   %.not9.i = icmp eq ptr %79, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %84
+  br i1 %.not9.i, label %opal_obj_new.exit, label %84
 
 84:                                               ; preds = %83
   store ptr @mca_topo_base_comm_cart_2_2_0_t_class, ptr %79, align 8
@@ -200,7 +200,7 @@ define i32 @mca_topo_base_cart_sub(ptr noundef %0, ptr noundef readonly captures
   %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 40), align 8
   %87 = load ptr, ptr %86, align 8
   %.not6.i.i = icmp eq ptr %87, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread121, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit121, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %84, %.lr.ph.i.i
   %88 = phi ptr [ %90, %.lr.ph.i.i ], [ %87, %84 ]
@@ -209,18 +209,18 @@ define i32 @mca_topo_base_cart_sub(ptr noundef %0, ptr noundef readonly captures
   %89 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %90 = load ptr, ptr %89, align 8
   %.not.i.i = icmp eq ptr %90, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread121, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %.loopexit121, label %.lr.ph.i.i, !llvm.loop !7
 
-opal_obj_new.exit.thread:                         ; preds = %83
+opal_obj_new.exit:                                ; preds = %83
   %91 = call i32 @ompi_comm_free(ptr noundef nonnull %4) #4
   %.not117 = icmp eq ptr %.092, null
   br i1 %.not117, label %93, label %92
 
-92:                                               ; preds = %opal_obj_new.exit.thread
+92:                                               ; preds = %opal_obj_new.exit
   call void @free(ptr noundef nonnull %.092) #4
   br label %93
 
-93:                                               ; preds = %92, %opal_obj_new.exit.thread
+93:                                               ; preds = %92, %opal_obj_new.exit
   %.not118 = icmp eq ptr %.088, null
   br i1 %.not118, label %151, label %94
 
@@ -228,7 +228,7 @@ opal_obj_new.exit.thread:                         ; preds = %83
   call void @free(ptr noundef nonnull %.088) #4
   br label %151
 
-opal_obj_new.exit.thread121:                      ; preds = %.lr.ph.i.i, %84
+.loopexit121:                                     ; preds = %.lr.ph.i.i, %84
   %95 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store i32 %.099.lcssa157, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %79, i64 24
@@ -237,7 +237,7 @@ opal_obj_new.exit.thread121:                      ; preds = %.lr.ph.i.i, %84
   store ptr %.088, ptr %97, align 8
   br i1 %53, label %98, label %.loopexit
 
-98:                                               ; preds = %opal_obj_new.exit.thread121
+98:                                               ; preds = %.loopexit121
   %99 = zext nneg i32 %.099.lcssa157 to i64
   %100 = shl nuw nsw i64 %99, 2
   %101 = call noalias ptr @malloc(i64 noundef %100) #5
@@ -295,7 +295,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %109, %112
   br i1 %.not.i120, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !8
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %117
-  call void @free(ptr noundef %79) #4
+  call void @free(ptr noundef nonnull %79) #4
   br label %151
 
 .lr.ph144.preheader:                              ; preds = %98
@@ -325,7 +325,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %117
   %exitcond.not = icmp eq i64 %indvars.iv.next150, %99
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph144, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.lr.ph144, %opal_obj_new.exit.thread121
+.loopexit:                                        ; preds = %.lr.ph144, %.loopexit121
   %140 = load ptr, ptr %5, align 8
   %141 = load ptr, ptr %4, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 280

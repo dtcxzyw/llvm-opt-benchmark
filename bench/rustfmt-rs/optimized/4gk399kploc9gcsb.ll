@@ -5502,7 +5502,7 @@ _ZN15rustfmt_nightly5parse7session9ParseSess12reset_errors17h3f1c2553e8a7cdc0E.e
 33:                                               ; preds = %_ZN15rustfmt_nightly5parse7session9ParseSess12reset_errors17h3f1c2553e8a7cdc0E.exit.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !986)
   %34 = load ptr, ptr %2, align 8, !alias.scope !989, !noalias !976, !noundef !5
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$rustc_errors..diagnostic..Diagnostic$GT$17h82548530f73337b7E.llvm.17249484671449717553"(ptr noalias noundef align 8 dereferenceable(256) %34)
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$rustc_errors..diagnostic..Diagnostic$GT$17h82548530f73337b7E.llvm.17249484671449717553"(ptr noalias noundef nonnull align 8 dereferenceable(256) %34)
           to label %41 unwind label %35, !noalias !992
 
 35:                                               ; preds = %33

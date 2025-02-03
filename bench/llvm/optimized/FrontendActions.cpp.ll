@@ -15234,24 +15234,24 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8288:             ; preds = %3130, %3132
   %3135 = phi ptr [ %.pre9356, %3130 ], [ %3134, %3132 ]
   %3136 = load ptr, ptr %475, align 8
   %3137 = icmp eq ptr %3136, %3135
-  br i1 %3137, label %_ZN4llvm11raw_ostreamlsEPKc.exit8291, label %_ZN4llvm11raw_ostreamlsEPKc.exit8291.thread8625
+  br i1 %3137, label %3138, label %3140
 
-_ZN4llvm11raw_ostreamlsEPKc.exit8291:             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8288
-  %3138 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %469, ptr noundef nonnull @.str.240, i64 noundef 1) #21
+3138:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8288
+  %3139 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %469, ptr noundef nonnull @.str.240, i64 noundef 1) #21
   br label %_ZNKSt14default_deleteIN4llvm11raw_ostreamEEclEPS1_.exit.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit8291.thread8625:  ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8288
+3140:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8288
   store i8 125, ptr %3135, align 1
-  %3139 = load ptr, ptr %477, align 8
-  %3140 = getelementptr inbounds nuw i8, ptr %3139, i64 1
-  store ptr %3140, ptr %477, align 8
+  %3141 = load ptr, ptr %477, align 8
+  %3142 = getelementptr inbounds nuw i8, ptr %3141, i64 1
+  store ptr %3142, ptr %477, align 8
   br label %_ZNKSt14default_deleteIN4llvm11raw_ostreamEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4llvm11raw_ostreamEEclEPS1_.exit.i: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8291, %_ZN4llvm11raw_ostreamlsEPKc.exit8291.thread8625
-  %3141 = load ptr, ptr %469, align 8
-  %3142 = getelementptr inbounds nuw i8, ptr %3141, i64 8
-  %3143 = load ptr, ptr %3142, align 8
-  call void %3143(ptr noundef nonnull align 8 dereferenceable(48) %469) #21
+_ZNKSt14default_deleteIN4llvm11raw_ostreamEEclEPS1_.exit.i: ; preds = %3138, %3140
+  %3143 = load ptr, ptr %469, align 8
+  %3144 = getelementptr inbounds nuw i8, ptr %3143, i64 8
+  %3145 = load ptr, ptr %3144, align 8
+  call void %3145(ptr noundef nonnull align 8 dereferenceable(48) %469) #21
   br label %_ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm11raw_ostreamEEclEPS1_.exit.i

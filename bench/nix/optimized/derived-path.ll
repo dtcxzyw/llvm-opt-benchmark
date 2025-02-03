@@ -16451,7 +16451,7 @@ _ZSt10_ConstructIN2rc3gen6detail6Recipe10IngredientEJRKS4_EEvPT_DpOT0_.exit: ; p
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
   %20 = tail call ptr @__cxa_begin_catch(ptr %19) #25
-  invoke void @_ZSt8_DestroyIPN2rc3gen6detail6Recipe10IngredientEEvT_S6_(ptr noundef %2, ptr noundef %.014)
+  invoke void @_ZSt8_DestroyIPN2rc3gen6detail6Recipe10IngredientEEvT_S6_(ptr noundef %2, ptr noundef nonnull %.014)
           to label %21 unwind label %22
 
 21:                                               ; preds = %17
@@ -16833,7 +16833,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   %26 = tail call ptr @__cxa_begin_catch(ptr %25) #25
-  invoke void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_(ptr noundef %13, ptr noundef %.013.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_(ptr noundef %13, ptr noundef nonnull %.013.i.i.i.i)
           to label %27 unwind label %28
 
 27:                                               ; preds = %23

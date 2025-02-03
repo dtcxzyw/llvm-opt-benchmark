@@ -948,49 +948,49 @@ define dso_local ptr @Curl_copy_header_value(ptr noundef %0) local_unnamed_addr 
 .critedge2:                                       ; preds = %6, %8
   %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.038, i32 noundef 13) #13
   %.not48 = icmp eq ptr %11, null
-  br i1 %.not48, label %12, label %.preheader
+  br i1 %.not48, label %12, label %.thread
 
 12:                                               ; preds = %.critedge2
   %13 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.038, i32 noundef 10) #13
   %.not49 = icmp eq ptr %13, null
-  br i1 %.not49, label %.thread, label %.preheader
+  br i1 %.not49, label %14, label %.thread
 
-.thread:                                          ; preds = %12
+14:                                               ; preds = %12
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.038)
   %strchr = getelementptr inbounds i8, ptr %.038, i64 %strlen
-  br label %.preheader
+  br label %.thread
 
-.preheader:                                       ; preds = %.thread, %.critedge2, %12
-  %.159 = phi ptr [ %strchr, %.thread ], [ %11, %.critedge2 ], [ %13, %12 ]
-  %14 = icmp ugt ptr %.159, %.038
-  br i1 %14, label %.lr.ph, label %.critedge6
+.thread:                                          ; preds = %.critedge2, %14, %12
+  %.1 = phi ptr [ %13, %12 ], [ %strchr, %14 ], [ %11, %.critedge2 ]
+  %15 = icmp ugt ptr %.1, %.038
+  br i1 %15, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %.critedge8
-  %.254 = phi ptr [ %18, %.critedge8 ], [ %.159, %.preheader ]
-  %15 = load i8, ptr %.254, align 1
-  switch i8 %15, label %16 [
+.lr.ph:                                           ; preds = %.thread, %.critedge8
+  %.254 = phi ptr [ %19, %.critedge8 ], [ %.1, %.thread ]
+  %16 = load i8, ptr %.254, align 1
+  switch i8 %16, label %17 [
     i8 32, label %.critedge8
     i8 9, label %.critedge8
   ]
 
-16:                                               ; preds = %.lr.ph
-  %17 = add i8 %15, -10
-  %or.cond51 = icmp ult i8 %17, 4
-  br i1 %or.cond51, label %.critedge8, label %.critedge6
+17:                                               ; preds = %.lr.ph
+  %18 = add i8 %16, -10
+  %or.cond51 = icmp ult i8 %18, 4
+  br i1 %or.cond51, label %.critedge8, label %._crit_edge
 
-.critedge8:                                       ; preds = %16, %.lr.ph, %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.254, i64 -1
-  %19 = icmp ugt ptr %18, %.038
-  br i1 %19, label %.lr.ph, label %.critedge6, !llvm.loop !9
+.critedge8:                                       ; preds = %17, %.lr.ph, %.lr.ph
+  %19 = getelementptr inbounds i8, ptr %.254, i64 -1
+  %20 = icmp ugt ptr %19, %.038
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-.critedge6:                                       ; preds = %16, %.critedge8, %.preheader
-  %.2.lcssa = phi ptr [ %.159, %.preheader ], [ %18, %.critedge8 ], [ %.254, %16 ]
-  %20 = ptrtoint ptr %.2.lcssa to i64
-  %21 = ptrtoint ptr %.038 to i64
-  %reass.sub = sub i64 %20, %21
-  %22 = add i64 %reass.sub, 1
-  %23 = tail call ptr @Curl_memdup0(ptr noundef nonnull %.038, i64 noundef %22) #12
-  ret ptr %23
+._crit_edge:                                      ; preds = %.critedge8, %17, %.thread
+  %.2.lcssa = phi ptr [ %.1, %.thread ], [ %.254, %17 ], [ %19, %.critedge8 ]
+  %21 = ptrtoint ptr %.2.lcssa to i64
+  %22 = ptrtoint ptr %.038 to i64
+  %reass.sub = sub i64 %21, %22
+  %23 = add i64 %reass.sub, 1
+  %24 = tail call ptr @Curl_memdup0(ptr noundef nonnull %.038, i64 noundef %23) #12
+  ret ptr %24
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

@@ -420,7 +420,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
-  tail call void @malloc_mutex_lock_slow(ptr noundef %add.ptr.i166) #13
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %add.ptr.i166) #13
   %locked.i = getelementptr inbounds nuw i8, ptr %add.ptr.i166, i64 104
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
@@ -626,7 +626,7 @@ if.then132.i:                                     ; preds = %entry, %for.end128.
   br i1 %cmp.i.not.i187, label %if.end.i190, label %if.then.i188
 
 if.then.i188:                                     ; preds = %if.then132.i
-  tail call void @malloc_mutex_lock_slow(ptr noundef %call133.i) #13
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %call133.i) #13
   %locked.i189 = getelementptr inbounds nuw i8, ptr %call133.i, i64 104
   store atomic i8 1, ptr %locked.i189 monotonic, align 1
   br label %if.end.i190
@@ -1078,7 +1078,7 @@ if.then19.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then19.i
-  tail call void @malloc_mutex_lock_slow(ptr noundef %add.ptr.i186) #13
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %add.ptr.i186) #13
   %locked.i = getelementptr inbounds nuw i8, ptr %add.ptr.i186, i64 104
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
@@ -1438,7 +1438,7 @@ if.then132.i:                                     ; preds = %if.then130.i
   br i1 %cmp.i.not.i234, label %if.end.i237, label %if.then.i235
 
 if.then.i235:                                     ; preds = %if.then132.i
-  tail call void @malloc_mutex_lock_slow(ptr noundef %call133.i) #13
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %call133.i) #13
   %locked.i236 = getelementptr inbounds nuw i8, ptr %call133.i, i64 104
   store atomic i8 1, ptr %locked.i236 monotonic, align 1
   br label %if.end.i237
@@ -2479,7 +2479,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  tail call void @malloc_mutex_lock_slow(ptr noundef %call) #13
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %call) #13
   %locked.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i

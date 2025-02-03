@@ -4241,12 +4241,12 @@ define range(i32 -1, 1) i32 @H5LT_set_attribute_string(i64 noundef %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define i32 @H5LTpath_valid(i64 noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %.thread, label %5
+  br i1 %4, label %41, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i32 @H5Iget_type(i64 noundef %0) #20
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %41, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
@@ -4255,24 +4255,24 @@ define i32 @H5LTpath_valid(i64 noundef %0, ptr noundef %1, i1 noundef zeroext %2
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  br i1 %2, label %13, label %.thread
+  br i1 %2, label %13, label %41
 
 13:                                               ; preds = %12
   %14 = tail call i32 @H5Oexists_by_name(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #20
-  br label %.thread
+  br label %41
 
 15:                                               ; preds = %8
   %16 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #20
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread, label %sub_0
+  br i1 %17, label %41, label %sub_0
 
 sub_0:                                            ; preds = %15
   %lhsc = load i8, ptr %1, align 1
   %18 = icmp eq i8 %lhsc, 47
   %spec.select.idx = zext i1 %18 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %16, i64 %spec.select.idx
-  %.not55 = icmp eq i8 %lhsc, 46
-  br i1 %.not55, label %sub_1, label %.tail
+  %.not57 = icmp eq i8 %lhsc, 46
+  br i1 %.not57, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -4285,8 +4285,8 @@ sub_1:                                            ; preds = %sub_0
   %.1.idx = phi i64 [ 0, %sub_0 ], [ %22, %sub_1 ]
   %.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %.1.idx
   %23 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 47) #21
-  %.not53 = icmp eq ptr %23, null
-  br i1 %.not53, label %._crit_edge, label %.lr.ph
+  %.not55 = icmp eq ptr %23, null
+  br i1 %.not55, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.tail, %32
   %24 = phi ptr [ %34, %32 ], [ %23, %.tail ]
@@ -4331,13 +4331,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %28, %37, %._crit_edge, %39
-  %.0 = phi i32 [ %35, %37 ], [ -1, %._crit_edge ], [ %., %39 ], [ -1, %28 ], [ 0, %27 ], [ -1, %.lr.ph ]
+  %.0.ph = phi i32 [ %., %39 ], [ -1, %._crit_edge ], [ %35, %37 ], [ -1, %.lr.ph ], [ 0, %27 ], [ -1, %28 ]
   tail call void @free(ptr noundef nonnull %16) #20
-  br label %.thread
+  br label %41
 
-.thread:                                          ; preds = %15, %12, %5, %3, %13, %.loopexit
-  %.052 = phi i32 [ %.0, %.loopexit ], [ -1, %15 ], [ 1, %12 ], [ -1, %5 ], [ -1, %3 ], [ %14, %13 ]
-  ret i32 %.052
+41:                                               ; preds = %13, %3, %5, %12, %15, %.loopexit
+  %.054 = phi i32 [ %.0.ph, %.loopexit ], [ %14, %13 ], [ -1, %3 ], [ -1, %5 ], [ 1, %12 ], [ -1, %15 ]
+  ret i32 %.054
 }
 
 declare i32 @H5Iget_type(i64 noundef) local_unnamed_addr #1

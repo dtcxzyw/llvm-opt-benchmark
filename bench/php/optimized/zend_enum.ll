@@ -407,7 +407,7 @@ zend_verify_enum_properties.exit:                 ; preds = %.critedge.i, %1
 
 zend_verify_enum_magic_methods.exit:              ; preds = %128
   %138 = load ptr, ptr @zend_ce_serializable, align 8
-  %139 = tail call zeroext i1 @zend_class_implements_interface(ptr noundef %0, ptr noundef %138) #12
+  %139 = tail call zeroext i1 @zend_class_implements_interface(ptr noundef nonnull %0, ptr noundef %138) #12
   br i1 %139, label %140, label %zend_verify_enum_interfaces.exit
 
 140:                                              ; preds = %zend_verify_enum_magic_methods.exit

@@ -2458,27 +2458,27 @@ if.end:                                           ; preds = %entry
 while.cond:                                       ; preds = %if.end, %while.body
   %call5 = call i64 @fread(ptr noundef nonnull %buf, i64 noundef 1, i64 noundef 100, ptr noundef nonnull %call)
   %cmp6.not = icmp eq i64 %call5, 0
-  br i1 %cmp6.not, label %if.then13, label %while.body
+  br i1 %cmp6.not, label %if.then17, label %while.body
 
 while.body:                                       ; preds = %while.cond
   %call8 = call i64 @fwrite(ptr noundef nonnull %buf, i64 noundef 1, i64 noundef %call5, ptr noundef nonnull %call1)
   %cmp9.not = icmp eq i64 %call8, %call5
-  br i1 %cmp9.not, label %while.cond, label %if.then13, !llvm.loop !7
+  br i1 %cmp9.not, label %while.cond, label %if.then17, !llvm.loop !7
 
-if.then13:                                        ; preds = %while.body, %while.cond
-  %ret.016 = phi i32 [ -1, %while.body ], [ 0, %while.cond ]
+if.then17:                                        ; preds = %while.cond, %while.body
+  %ret.01325 = phi i32 [ -1, %while.body ], [ 0, %while.cond ]
   %call14 = tail call i32 @fclose(ptr noundef nonnull %call)
   br label %if.end19.sink.split
 
-if.end19.sink.split:                              ; preds = %if.then13, %if.end
-  %call.sink = phi ptr [ %call, %if.end ], [ %call1, %if.then13 ]
-  %ret.01120.ph = phi i32 [ -1, %if.end ], [ %ret.016, %if.then13 ]
-  %call1423 = tail call i32 @fclose(ptr noundef nonnull %call.sink)
+if.end19.sink.split:                              ; preds = %if.end, %if.then17
+  %call.sink = phi ptr [ %call1, %if.then17 ], [ %call, %if.end ]
+  %ret.01320.ph = phi i32 [ %ret.01325, %if.then17 ], [ -1, %if.end ]
+  %call1435 = tail call i32 @fclose(ptr noundef nonnull %call.sink)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end19.sink.split, %entry
-  %ret.01120 = phi i32 [ -1, %entry ], [ %ret.01120.ph, %if.end19.sink.split ]
-  ret i32 %ret.01120
+  %ret.01320 = phi i32 [ -1, %entry ], [ %ret.01320.ph, %if.end19.sink.split ]
+  ret i32 %ret.01320
 }
 
 ; Function Attrs: nofree nounwind

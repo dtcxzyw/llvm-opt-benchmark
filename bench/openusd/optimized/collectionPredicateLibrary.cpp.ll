@@ -2248,7 +2248,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
 common.resume:                                    ; preds = %33, %12
   %.sink = phi ptr [ %31, %33 ], [ %10, %12 ]
   %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %13, %12 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #23
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #23
   resume { ptr, i32 } %common.resume.op
 
 12:                                               ; preds = %9
@@ -3107,7 +3107,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndD
   %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %8, %7 ]
   %13 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #23
-  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaults5ParamEEvT_S4_(ptr noundef %2, ptr noundef %.016)
+  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaults5ParamEEvT_S4_(ptr noundef %2, ptr noundef nonnull %.016)
           to label %15 unwind label %16
 
 15:                                               ; preds = %.body
@@ -5418,7 +5418,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7px
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #23
+  tail call void @__cxa_free_exception(ptr nonnull %15) #23
   resume { ptr, i32 } %18
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit: ; preds = %10
@@ -7991,7 +7991,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndD
   %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %8, %7 ]
   %13 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #23
-  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaults5ParamEEvT_S4_(ptr noundef %2, ptr noundef %.018)
+  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefaults5ParamEEvT_S4_(ptr noundef %2, ptr noundef nonnull %.018)
           to label %15 unwind label %16
 
 15:                                               ; preds = %.body

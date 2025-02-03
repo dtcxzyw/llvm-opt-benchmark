@@ -1205,7 +1205,7 @@ alpha_test_area_on_obj.exit:                      ; preds = %75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
   store i32 0, ptr %3, align 8, !tbaa !82
   store ptr %10, ptr %60, align 8, !tbaa !84
-  %80 = call i32 @lv_obj_send_event(ptr noundef %1, i32 noundef 26, ptr noundef nonnull %3) #9
+  %80 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 26, ptr noundef nonnull %3) #9
   %81 = load i32, ptr %3, align 8, !tbaa !82
   %.not72 = icmp eq i32 %81, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
@@ -1222,11 +1222,11 @@ alpha_test_area_on_obj.exit.thread:               ; preds = %75, %alpha_test_are
 85:                                               ; preds = %alpha_test_area_on_obj.exit.thread, %alpha_test_area_on_obj.exit
   %86 = phi i32 [ 18, %alpha_test_area_on_obj.exit ], [ 16, %alpha_test_area_on_obj.exit.thread ]
   %87 = call ptr @lv_draw_layer_create(ptr noundef %0, i32 noundef %86, ptr noundef nonnull %10) #9
-  call void @lv_obj_redraw(ptr noundef %87, ptr noundef %1)
-  %88 = call ptr @lv_obj_get_style_prop(ptr noundef %1, i32 noundef 0, i8 noundef zeroext 111) #9
+  call void @lv_obj_redraw(ptr noundef %87, ptr noundef nonnull %1)
+  %88 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %1, i32 noundef 0, i8 noundef zeroext 111) #9
   %89 = ptrtoint ptr %88 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %89 to i32
-  %90 = call ptr @lv_obj_get_style_prop(ptr noundef %1, i32 noundef 0, i8 noundef zeroext 112) #9
+  %90 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %1, i32 noundef 0, i8 noundef zeroext 112) #9
   %91 = ptrtoint ptr %90 to i64
   %.sroa.0.0.extract.trunc.i62 = trunc i64 %91 to i32
   %92 = and i32 %.sroa.0.0.extract.trunc.i, 1610612736
@@ -1284,7 +1284,7 @@ alpha_test_area_on_obj.exit.thread:               ; preds = %75, %alpha_test_are
   %124 = sub i32 %121, %123
   store i32 %124, ptr %64, align 4, !tbaa !91
   store i8 %16, ptr %65, align 4, !tbaa !92
-  %125 = call ptr @lv_obj_get_style_prop(ptr noundef %1, i32 noundef 0, i8 noundef zeroext 110) #9
+  %125 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %1, i32 noundef 0, i8 noundef zeroext 110) #9
   %126 = ptrtoint ptr %125 to i64
   %.sroa.0.0.extract.trunc.i63 = trunc i64 %126 to i32
   %127 = add i32 %.sroa.0.0.extract.trunc.i63, 3599
@@ -2085,7 +2085,7 @@ wait_for_flushing.exit:                           ; preds = %.preheader.i, %13
 
 38:                                               ; preds = %35
   %39 = tail call ptr @lv_display_get_layer_bottom(ptr noundef %.pre33) #9
-  tail call fastcc void @refr_obj_and_children(ptr noundef %0, ptr noundef %39)
+  tail call fastcc void @refr_obj_and_children(ptr noundef nonnull %0, ptr noundef %39)
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !20
   br label %40
 
@@ -2107,7 +2107,7 @@ wait_for_flushing.exit:                           ; preds = %.preheader.i, %13
 
 49:                                               ; preds = %46, %45
   %.022 = phi ptr [ %48, %46 ], [ %29, %45 ]
-  tail call fastcc void @refr_obj_and_children(ptr noundef %0, ptr noundef %.022)
+  tail call fastcc void @refr_obj_and_children(ptr noundef nonnull %0, ptr noundef %.022)
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !20
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 816
   %52 = load ptr, ptr %51, align 8, !tbaa !34
@@ -2126,7 +2126,7 @@ wait_for_flushing.exit:                           ; preds = %.preheader.i, %13
 
 57:                                               ; preds = %54
   %spec.select32 = select i1 %37, ptr %56, ptr %.0
-  tail call fastcc void @refr_obj_and_children(ptr noundef %0, ptr noundef nonnull %spec.select32)
+  tail call fastcc void @refr_obj_and_children(ptr noundef nonnull %0, ptr noundef nonnull %spec.select32)
   br label %58
 
 58:                                               ; preds = %57, %54
@@ -2140,16 +2140,16 @@ wait_for_flushing.exit:                           ; preds = %.preheader.i, %13
 
 .sink.split:                                      ; preds = %58, %59, %53
   %spec.select.sink = phi ptr [ %spec.select, %53 ], [ %62, %59 ], [ %29, %58 ]
-  tail call fastcc void @refr_obj_and_children(ptr noundef %0, ptr noundef %spec.select.sink)
+  tail call fastcc void @refr_obj_and_children(ptr noundef nonnull %0, ptr noundef %spec.select.sink)
   br label %63
 
 63:                                               ; preds = %.sink.split, %49
   %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !20
   %65 = tail call ptr @lv_display_get_layer_top(ptr noundef %64) #9
-  tail call fastcc void @refr_obj_and_children(ptr noundef %0, ptr noundef %65)
+  tail call fastcc void @refr_obj_and_children(ptr noundef nonnull %0, ptr noundef %65)
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !20
   %67 = tail call ptr @lv_display_get_layer_sys(ptr noundef %66) #9
-  tail call fastcc void @refr_obj_and_children(ptr noundef %0, ptr noundef %67)
+  tail call fastcc void @refr_obj_and_children(ptr noundef nonnull %0, ptr noundef %67)
   ret void
 }
 
@@ -2177,11 +2177,11 @@ define internal fastcc ptr @lv_refr_get_top_obj(ptr noundef %0, ptr noundef %1) 
   br i1 %5, label %6, label %34
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %1, i32 noundef 1) #9
+  %7 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %1, i32 noundef 1) #9
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @lv_obj_get_layer_type(ptr noundef %1) #9
+  %9 = tail call i32 @lv_obj_get_layer_type(ptr noundef nonnull %1) #9
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %34
 
@@ -2190,13 +2190,13 @@ define internal fastcc ptr @lv_refr_get_top_obj(ptr noundef %0, ptr noundef %1) 
   store i32 0, ptr %3, align 8, !tbaa !82
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %11, align 8, !tbaa !84
-  %12 = call i32 @lv_obj_send_event(ptr noundef %1, i32 noundef 26, ptr noundef nonnull %3) #9
+  %12 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 26, ptr noundef nonnull %3) #9
   %13 = load i32, ptr %3, align 8, !tbaa !82
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %33, label %15
 
 15:                                               ; preds = %10
-  %16 = call i32 @lv_obj_get_child_count(ptr noundef %1) #9
+  %16 = call i32 @lv_obj_get_child_count(ptr noundef nonnull %1) #9
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = zext i32 %16 to i64
   br label %19

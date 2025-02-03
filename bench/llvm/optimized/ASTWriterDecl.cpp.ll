@@ -1223,7 +1223,7 @@ define dso_local void @_ZN5clang15ASTRecordWriter21AddFunctionDefinitionEPKNS_12
 14:                                               ; preds = %11, %11, %11
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef i32 @_ZNK5clang10ASTContext24GetGVALinkageForFunctionEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %16, ptr noundef %1) #19
+  %17 = tail call noundef i32 @_ZNK5clang10ASTContext24GetGVALinkageForFunctionEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %16, ptr noundef nonnull %1) #19
   %18 = icmp sgt i32 %17, 2
   %19 = zext i1 %18 to i8
   %.pre = load ptr, ptr %3, align 8

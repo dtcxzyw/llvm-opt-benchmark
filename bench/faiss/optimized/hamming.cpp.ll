@@ -665,7 +665,7 @@ define void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh(i64 noundef %0, i64 noundef %
 37:                                               ; preds = %30
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %33) #4
+  call void @__cxa_free_exception(ptr nonnull %33) #4
   br label %39
 
 39:                                               ; preds = %37, %35
@@ -861,7 +861,7 @@ define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias noundef readonly capture
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #4
+  call void @__cxa_free_exception(ptr nonnull %19) #4
   br label %25
 
 25:                                               ; preds = %23, %21
@@ -25332,7 +25332,7 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %80
 108:                                              ; preds = %101
   %109 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %104) #4
+  call void @__cxa_free_exception(ptr nonnull %104) #4
   br label %110
 
 110:                                              ; preds = %108, %106
@@ -25591,7 +25591,7 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.i:         ; preds = %85
 112:                                              ; preds = %105
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %108) #4
+  call void @__cxa_free_exception(ptr nonnull %108) #4
   br label %114
 
 114:                                              ; preds = %112, %110
@@ -25924,7 +25924,7 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %96
 129:                                              ; preds = %122
   %130 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %125) #4
+  call void @__cxa_free_exception(ptr nonnull %125) #4
   br label %131
 
 131:                                              ; preds = %129, %127
@@ -26833,7 +26833,7 @@ define void @_ZN5faiss15pack_bitstringsEmmiPKiPhm(i64 noundef %0, i64 noundef %1
 33:                                               ; preds = %26
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #4
+  call void @__cxa_free_exception(ptr nonnull %29) #4
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -27050,7 +27050,7 @@ define void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm(i64 noundef %0, i64 noundef 
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %31) #4
+  call void @__cxa_free_exception(ptr nonnull %31) #4
   br label %37
 
 37:                                               ; preds = %35, %33
@@ -27256,7 +27256,7 @@ define void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi(i64 noundef %0, i64 noundef 
 33:                                               ; preds = %26
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #4
+  call void @__cxa_free_exception(ptr nonnull %29) #4
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -27499,7 +27499,7 @@ define void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi(i64 noundef %0, i64 nounde
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %31) #4
+  call void @__cxa_free_exception(ptr nonnull %31) #4
   br label %37
 
 37:                                               ; preds = %35, %33

@@ -1858,27 +1858,27 @@ return.sink.split.i:                              ; preds = %if.end6.i, %if.end.
 _ZNK6icu_7512RegexPattern7matcherER10UErrorCode.exit: ; preds = %new.notnull.i
   %.pre = load i32, ptr %status, align 4
   %4 = icmp sgt i32 %.pre, 0
-  br i1 %4, label %delete.notnull, label %if.then5
+  br i1 %4, label %delete.notnull, label %if.end8.thread
 
-if.then5:                                         ; preds = %_ZNK6icu_7512RegexPattern7matcherER10UErrorCode.exit
+if.end8.thread:                                   ; preds = %_ZNK6icu_7512RegexPattern7matcherER10UErrorCode.exit
   %call6 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEP5UText(ptr noundef nonnull align 8 dereferenceable(336) %call7.i, ptr noundef %input)
   %call7 = tail call noundef signext i8 @_ZN6icu_7512RegexMatcher7matchesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %call7.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %delete.notnull
 
-delete.notnull:                                   ; preds = %if.then5, %_ZNK6icu_7512RegexPattern7matcherER10UErrorCode.exit
-  %retVal.0.ph = phi i8 [ 0, %_ZNK6icu_7512RegexPattern7matcherER10UErrorCode.exit ], [ %call7, %if.then5 ]
+delete.notnull:                                   ; preds = %_ZNK6icu_7512RegexPattern7matcherER10UErrorCode.exit, %if.end8.thread
+  %retVal.012 = phi i8 [ %call7, %if.end8.thread ], [ 0, %_ZNK6icu_7512RegexPattern7matcherER10UErrorCode.exit ]
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %call7.i) #12
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call7.i) #12
   br label %delete.notnull10
 
-delete.notnull10:                                 ; preds = %return.sink.split.i, %if.end, %delete.notnull
-  %retVal.018 = phi i8 [ %retVal.0.ph, %delete.notnull ], [ 0, %if.end ], [ 0, %return.sink.split.i ]
+delete.notnull10:                                 ; preds = %if.end, %return.sink.split.i, %delete.notnull
+  %retVal.013 = phi i8 [ %retVal.012, %delete.notnull ], [ 0, %return.sink.split.i ], [ 0, %if.end ]
   tail call void @_ZN6icu_7512RegexPatternD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %call1) #12
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1) #12
   br label %return
 
 return:                                           ; preds = %entry, %delete.notnull10
-  %retval.0 = phi i8 [ %retVal.018, %delete.notnull10 ], [ 0, %entry ]
+  %retval.0 = phi i8 [ %retVal.013, %delete.notnull10 ], [ 0, %entry ]
   ret i8 %retval.0
 }
 

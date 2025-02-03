@@ -40,8 +40,6 @@ $_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESa
 
 $_ZSt14__relocate_a_1IPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES2_SaIS1_EET0_T_S5_S4_RT1_ = comdat any
 
-$_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescEEE7destroyIS1_EEvRS2_PT_ = comdat any
-
 $_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ = comdat any
 
 $_ZN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescC2ERKS0_ = comdat any
@@ -2517,18 +2515,6 @@ define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN32pxrInternal_v0_24__pxr
   ret ptr %.0.lcssa
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
-  ret void
-}
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(152) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2553,80 +2539,62 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESa
   %16 = select i1 %14, i64 60680079189834051, i64 %15
   %17 = ptrtoint ptr %1 to i64
   %18 = sub i64 %17, %8
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE11_M_allocateEm.exit, label %19
-
-19:                                               ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE12_M_check_lenEmPKc.exit
-  %20 = mul nuw nsw i64 %16, 152
-  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #20
-  br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE12_M_check_lenEmPKc.exit, %19
-  %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 %18
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %.not.i = icmp ne i64 %16, 0
+  tail call void @llvm.assume(i1 %.not.i)
+  %19 = mul nuw nsw i64 %16, 152
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #20
+  %21 = getelementptr inbounds i8, ptr %20, i64 %18
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %21, ptr noundef nonnull align 8 dereferenceable(152) %2)
           to label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit unwind label %33
 
-_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE11_M_allocateEm.exit
-  %24 = tail call noundef ptr @_ZSt14__relocate_a_1IPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %6, ptr noundef %1, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %0) #16
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 152
-  %26 = tail call noundef ptr @_ZSt14__relocate_a_1IPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %1, ptr noundef %5, ptr noundef nonnull %25, ptr noundef nonnull align 1 dereferenceable(1) %0) #16
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE12_M_check_lenEmPKc.exit
+  %22 = tail call noundef ptr @_ZSt14__relocate_a_1IPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %20, ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 152
+  %24 = tail call noundef ptr @_ZSt14__relocate_a_1IPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %1, ptr noundef %5, ptr noundef nonnull %23, ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i26 = icmp eq ptr %6, null
-  br i1 %.not.i26, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE13_M_deallocateEPS1_m.exit, label %28
+  br i1 %.not.i26, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE13_M_deallocateEPS1_m.exit, label %26
 
-28:                                               ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
-  %29 = load ptr, ptr %27, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = sub i64 %30, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %31) #17
+26:                                               ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
+  %27 = load ptr, ptr %25, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = sub i64 %28, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %29) #17
   br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, %28
-  store ptr %22, ptr %0, align 8
-  store ptr %26, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HgiShaderFunctionParamDesc", ptr %22, i64 %16
-  store ptr %32, ptr %27, align 8
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, %26
+  store ptr %20, ptr %0, align 8
+  store ptr %24, ptr %4, align 8
+  %30 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HgiShaderFunctionParamDesc", ptr %20, i64 %16
+  store ptr %30, ptr %25, align 8
   ret void
 
-33:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE11_M_allocateEm.exit
+31:                                               ; preds = %33
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %37 unwind label %38
+
+33:                                               ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE12_M_check_lenEmPKc.exit
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
   %36 = tail call ptr @__cxa_begin_catch(ptr %35) #16
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread, label %39
-
-.thread:                                          ; preds = %33
-  tail call void @_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %23) #16
-  br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE13_M_deallocateEPS1_m.exit28
-
-37:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE13_M_deallocateEPS1_m.exit28
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %41 unwind label %42
-
-39:                                               ; preds = %33
-  %40 = mul nuw nsw i64 %16, 152
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %40) #17
-  br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE13_M_deallocateEPS1_m.exit28
-
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE13_M_deallocateEPS1_m.exit28: ; preds = %39, %.thread
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #17
   invoke void @__cxa_rethrow() #19
-          to label %45 unwind label %37
+          to label %41 unwind label %31
 
-41:                                               ; preds = %37
-  resume { ptr, i32 } %38
+37:                                               ; preds = %31
+  resume { ptr, i32 } %32
 
-42:                                               ; preds = %37
-  %43 = landingpad { ptr, i32 }
+38:                                               ; preds = %31
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #18
+  %40 = extractvalue { ptr, i32 } %39, 0
+  tail call void @__clang_call_terminate(ptr %40) #18
   unreachable
 
-45:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EE13_M_deallocateEPS1_m.exit28
+41:                                               ; preds = %33
   unreachable
 }
 

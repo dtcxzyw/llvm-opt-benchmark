@@ -641,7 +641,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #17
+  call void @__cxa_free_exception(ptr nonnull %exception) #17
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
@@ -2705,7 +2705,7 @@ invoke.cont:                                      ; preds = %sw.default
 lpad:                                             ; preds = %sw.default
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #17
+  call void @__cxa_free_exception(ptr nonnull %exception) #17
   resume { ptr, i32 } %76
 
 sw.epilog:                                        ; preds = %for.body79, %for.body61, %for.body43, %for.body25, %for.body, %_ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIA_N3pmx20PmxMorphVertexOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit
@@ -3198,7 +3198,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #17
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #17
   resume { ptr, i32 } %2
 }
 
@@ -3618,7 +3618,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #17
+  call void @__cxa_free_exception(ptr nonnull %exception) #17
   br label %eh.resume
 
 if.end:                                           ; preds = %entry

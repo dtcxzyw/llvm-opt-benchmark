@@ -67,7 +67,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL12ReadBitsImplEiRKNS_9ByteArrayEiR
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #6
+  tail call void @__cxa_free_exception(ptr nonnull %9) #6
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %5

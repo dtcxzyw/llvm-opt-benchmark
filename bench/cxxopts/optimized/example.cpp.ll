@@ -13126,7 +13126,7 @@ invoke.cont.i:                                    ; preds = %sw.default
 lpad.i6:                                          ; preds = %sw.default
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %ehcleanup
 
 sw.epilog:                                        ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit, %invoke.cont9
@@ -13995,7 +13995,7 @@ invoke.cont.i:                                    ; preds = %if.then
 common.resume:                                    ; preds = %lpad.i5, %lpad.i
   %exception.i4.sink = phi ptr [ %exception.i4, %lpad.i5 ], [ %exception.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %11, %lpad.i5 ], [ %0, %lpad.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i4.sink) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i4.sink) #28
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
@@ -14139,7 +14139,7 @@ invoke.cont.i:                                    ; preds = %cond.end
 lpad.i4:                                          ; preds = %cond.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %lpad7.body
 
 lpad:                                             ; preds = %call.i.noexc, %cond.true, %invoke.cont4, %cond.false
@@ -14246,7 +14246,7 @@ invoke.cont.i:                                    ; preds = %cond.end
 lpad.i4:                                          ; preds = %cond.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %lpad7.body
 
 lpad:                                             ; preds = %call.i.noexc, %cond.true, %invoke.cont4, %cond.false
@@ -14353,7 +14353,7 @@ invoke.cont.i:                                    ; preds = %cond.end
 lpad.i4:                                          ; preds = %cond.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %lpad7.body
 
 lpad:                                             ; preds = %call.i.noexc, %cond.true, %invoke.cont4, %cond.false
@@ -14462,7 +14462,7 @@ invoke.cont.i:                                    ; preds = %cond.end
 lpad.i4:                                          ; preds = %cond.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %lpad7.body
 
 lpad:                                             ; preds = %call.i.noexc, %cond.true, %invoke.cont4, %cond.false
@@ -14571,7 +14571,7 @@ invoke.cont.i:                                    ; preds = %cond.end
 lpad.i4:                                          ; preds = %cond.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %lpad7.body
 
 lpad:                                             ; preds = %call.i.noexc, %cond.true, %invoke.cont4, %cond.false
@@ -14678,7 +14678,7 @@ invoke.cont.i:                                    ; preds = %cond.end
 lpad.i4:                                          ; preds = %cond.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %lpad7.body
 
 lpad:                                             ; preds = %call.i.noexc, %cond.true, %invoke.cont4, %cond.false
@@ -15282,7 +15282,7 @@ invoke.cont.i:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %if.then
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %common.resume
 
 lpad:                                             ; preds = %init
@@ -15536,7 +15536,7 @@ invoke.cont.i.i.cont:                             ; preds = %invoke.cont.i.i.inv
 lpad.i.i:                                         ; preds = %if.then.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #28
   br label %ehcleanup62
 
 lpad:                                             ; preds = %entry
@@ -15584,7 +15584,7 @@ if.then.i25:                                      ; preds = %call.i.i.i.noexc29
 lpad.i.i27:                                       ; preds = %if.then.i25
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i26) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i26) #28
   br label %ehcleanup62
 
 for.inc:                                          ; preds = %call.i.i.i.noexc29
@@ -17797,7 +17797,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #28
   resume { ptr, i32 } %0
 }
 
@@ -28859,7 +28859,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad ], [ %0, %lpad.i.i ]
   %2 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #28
-  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %__result, ptr noundef %__cur.012)
+  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %__result, ptr noundef nonnull %__cur.012)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %lpad.body
@@ -48377,12 +48377,12 @@ land.rhs.i.i.i:                                   ; preds = %for.body
   %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr14) #28
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #28
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %cleanup, label %invoke.cont
+  br i1 %cmp.i.i.i.i, label %if.then.i16, label %invoke.cont
 
 invoke.cont:                                      ; preds = %land.rhs.i.i.i
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %call2.i.i.i, ptr %call3.i.i.i, i64 %call4.i.i.i)
   %1 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %1, label %cleanup, label %for.inc
+  br i1 %1, label %if.then.i16, label %for.inc
 
 lpad:                                             ; preds = %if.then28, %if.end36
   %2 = landingpad { ptr, i32 }
@@ -48427,18 +48427,14 @@ call.i8.noexc:                                    ; preds = %if.then28
 invoke.cont29:                                    ; preds = %call.i8.noexc
   %7 = load ptr, ptr %call.i89, align 8
   %tobool.not = icmp eq ptr %7, null
-  br i1 %tobool.not, label %if.end36, label %cleanup
+  br i1 %tobool.not, label %if.end36, label %if.then.i16
 
 if.end36:                                         ; preds = %call.i8.noexc, %invoke.cont29, %invoke.cont23
-  %call39 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7cxxopts13OptionDetailsEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSE_10_Hash_nodeISC_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, i64 noundef %call.i2.i.i, ptr noundef %call.i, i64 noundef 1)
+  %call39 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7cxxopts13OptionDetailsEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSE_10_Hash_nodeISC_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, i64 noundef %call.i2.i.i, ptr noundef nonnull %call.i, i64 noundef 1)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7cxxopts13OptionDetailsEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
-cleanup:                                          ; preds = %invoke.cont, %land.rhs.i.i.i, %invoke.cont29
-  %retval.sroa.0.0.ph = phi ptr [ %7, %invoke.cont29 ], [ %__it.sroa.0.030, %land.rhs.i.i.i ], [ %__it.sroa.0.030, %invoke.cont ]
-  %tobool.not.i15 = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i15, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7cxxopts13OptionDetailsEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %if.then.i16
-
-if.then.i16:                                      ; preds = %cleanup
+if.then.i16:                                      ; preds = %land.rhs.i.i.i, %invoke.cont, %invoke.cont29
+  %retval.sroa.0.0.ph = phi ptr [ %7, %invoke.cont29 ], [ %__it.sroa.0.030, %invoke.cont ], [ %__it.sroa.0.030, %land.rhs.i.i.i ]
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %8 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -48517,9 +48513,9 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #31
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7cxxopts13OptionDetailsEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
-_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7cxxopts13OptionDetailsEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %if.end36, %cleanup, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7cxxopts13OptionDetailsEEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i
-  %retval.sroa.4.026 = phi i8 [ 0, %cleanup ], [ 0, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7cxxopts13OptionDetailsEEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i ], [ 1, %if.end36 ]
-  %retval.sroa.0.025 = phi ptr [ %retval.sroa.0.0.ph, %cleanup ], [ %retval.sroa.0.0.ph, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7cxxopts13OptionDetailsEEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i ], [ %call39, %if.end36 ]
+_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7cxxopts13OptionDetailsEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %if.end36, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7cxxopts13OptionDetailsEEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i
+  %retval.sroa.4.026 = phi i8 [ 0, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7cxxopts13OptionDetailsEEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i ], [ 1, %if.end36 ]
+  %retval.sroa.0.025 = phi ptr [ %retval.sroa.0.0.ph, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7cxxopts13OptionDetailsEEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i ], [ %call39, %if.end36 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.025, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.026, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -49267,7 +49263,7 @@ if.then18:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #32
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #32
   %_M_storage.i.i.i21 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %call.i.i22 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i21, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit25 unwind label %terminate.lpad.i.i23
@@ -49373,7 +49369,7 @@ if.then50:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #32
+  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #32
   %_M_storage.i.i.i75 = getelementptr inbounds nuw i8, ptr %call.i74, i64 32
   %call.i.i76 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i75)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit79 unwind label %terminate.lpad.i.i77
@@ -50257,7 +50253,7 @@ invoke.cont.i53:                                  ; preds = %invoke.cont23
 lpad.i52:                                         ; preds = %invoke.cont23
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %lpad24.body
 
 lpad.loopexit:                                    ; preds = %if.then.i199, %if.else.i203
@@ -50598,7 +50594,7 @@ invoke.cont.i95:                                  ; preds = %if.end84
 lpad.i94:                                         ; preds = %if.end84
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i93) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i93) #28
   br label %ehcleanup127
 
 if.end86:                                         ; preds = %land.rhs.i.i.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIN7cxxopts13OptionDetailsEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit.i, %invoke.cont57
@@ -50715,7 +50711,7 @@ invoke.cont.i102:                                 ; preds = %if.else120
 lpad.i101:                                        ; preds = %if.else120
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i100) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i100) #28
   br label %ehcleanup125
 
 cleanup.sink.split:                               ; preds = %invoke.cont116, %invoke.cont106
@@ -50871,7 +50867,7 @@ invoke.cont.i130:                                 ; preds = %if.end157
 lpad.i129:                                        ; preds = %if.end157
   %81 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i128) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i128) #28
   br label %ehcleanup178
 
 if.end159:                                        ; preds = %invoke.cont138
@@ -51869,7 +51865,7 @@ invoke.cont.i:                                    ; preds = %if.end33
 lpad.i:                                           ; preds = %if.end33
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %common.resume
 
 return:                                           ; preds = %if.end, %entry, %if.end30, %if.then25
@@ -51936,7 +51932,7 @@ common.resume:                                    ; preds = %lpad, %lpad21, %ehc
 lpad.i:                                           ; preds = %if.else
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %common.resume
 
 if.else9:                                         ; preds = %entry
@@ -55870,7 +55866,7 @@ if.else.i.i.i:                                    ; preds = %for.body
 
 invoke.cont:                                      ; preds = %if.then.i.i.i, %if.else.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04) #32
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04) #32
   %cmp.i.not = icmp eq ptr %call.i, %__last.coerce
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !386
 
@@ -57413,7 +57409,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad ], [ %0, %lpad.i.i ]
   %2 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #28
-  invoke void @_ZSt8_DestroyIPN7cxxopts8KeyValueEEvT_S3_(ptr noundef %__result, ptr noundef %__cur.012)
+  invoke void @_ZSt8_DestroyIPN7cxxopts8KeyValueEEvT_S3_(ptr noundef %__result, ptr noundef nonnull %__cur.012)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %lpad.body
@@ -57928,7 +57924,7 @@ invoke.cont.i.i.i:                                ; preds = %if.end3.i.i
 lpad.i.i.i:                                       ; preds = %if.end3.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #28
   resume { ptr, i32 } %1
 
 _ZN7cxxopts6values9add_valueIbEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit: ; preds = %entry, %if.end.i.i
@@ -57961,7 +57957,7 @@ invoke.cont.i.i:                                  ; preds = %if.end3.i
 lpad.i.i:                                         ; preds = %if.end3.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #28
   resume { ptr, i32 } %1
 
 _ZN7cxxopts6values11parse_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERb.exit: ; preds = %entry, %if.end.i
@@ -57995,7 +57991,7 @@ invoke.cont.i.i:                                  ; preds = %if.end3.i
 lpad.i.i:                                         ; preds = %if.end3.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #28
   resume { ptr, i32 } %1
 
 _ZN7cxxopts6values11parse_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERb.exit: ; preds = %entry, %if.end.i
@@ -59209,7 +59205,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i
 lpad.i.i:                                         ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #28
   resume { ptr, i32 } %1
 
 _ZN7cxxopts6values11parse_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERc.exit: ; preds = %entry
@@ -59241,7 +59237,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i
 lpad.i.i:                                         ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #28
   resume { ptr, i32 } %1
 
 _ZN7cxxopts6values11parse_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERc.exit: ; preds = %entry
@@ -60013,7 +60009,7 @@ if.else43:                                        ; preds = %if.else29, %for.bod
 lpad.i:                                           ; preds = %if.else43
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %lpad.body
 
 lpad:                                             ; preds = %invoke.cont.i25.invoke, %for.end
@@ -60049,7 +60045,7 @@ invoke.cont.i25.cont:                             ; preds = %invoke.cont.i25.inv
 lpad.i24:                                         ; preds = %if.then54
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i23) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i23) #28
   br label %lpad.body
 
 for.end:                                          ; preds = %for.cond, %for.cond.us, %entry
@@ -60140,7 +60136,7 @@ invoke.cont.i:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %if.then
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %ehcleanup
 
 lpad:                                             ; preds = %init
@@ -60517,7 +60513,7 @@ invoke.cont.i:                                    ; preds = %if.then3
 common.resume:                                    ; preds = %lpad.i4, %lpad.i
   %exception.i3.sink = phi ptr [ %exception.i3, %lpad.i4 ], [ %exception.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i4 ], [ %0, %lpad.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i3.sink) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i3.sink) #28
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then3
@@ -63398,7 +63394,7 @@ if.else40:                                        ; preds = %if.else27, %for.bod
 lpad.i:                                           ; preds = %if.else40
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %lpad.body
 
 lpad:                                             ; preds = %invoke.cont.i25.invoke, %for.end
@@ -63435,7 +63431,7 @@ invoke.cont.i25.cont:                             ; preds = %invoke.cont.i25.inv
 lpad.i24:                                         ; preds = %if.then46
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i23) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i23) #28
   br label %lpad.body
 
 for.end:                                          ; preds = %for.cond, %for.cond.us, %entry
@@ -63476,7 +63472,7 @@ invoke.cont.i:                                    ; preds = %if.then2
 common.resume:                                    ; preds = %lpad.i4, %lpad.i
   %exception.i3.sink = phi ptr [ %exception.i3, %lpad.i4 ], [ %exception.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i4 ], [ %0, %lpad.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i3.sink) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i3.sink) #28
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then2
@@ -64397,7 +64393,7 @@ invoke.cont.i:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %lpad.body
 
 lpad:                                             ; preds = %invoke.cont.i, %invoke.cont, %entry
@@ -65393,7 +65389,7 @@ invoke.cont.i:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %lpad.body
 
 lpad:                                             ; preds = %invoke.cont.i, %invoke.cont, %entry

@@ -13919,7 +13919,7 @@ _ZL21shouldHaveNullabilityN5clang8QualTypeE.exit1064: ; preds = %536
 
 555:                                              ; preds = %549
   %.sroa.0467.0.copyload = load i64, ptr %60, align 8
-  %556 = call fastcc noundef zeroext i1 @"_ZZL24GetFullTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateEN5clang8QualTypeEPNS2_14TypeSourceInfoEENK3$_4clES3_"(ptr %.val, i64 %.sroa.0467.0.copyload)
+  %556 = call fastcc noundef zeroext i1 @"_ZZL24GetFullTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateEN5clang8QualTypeEPNS2_14TypeSourceInfoEENK3$_4clES3_"(ptr nonnull %.val, i64 %.sroa.0467.0.copyload)
   br i1 %556, label %557, label %561
 
 557:                                              ; preds = %555
@@ -13996,7 +13996,7 @@ _ZL21shouldHaveNullabilityN5clang8QualTypeE.exit1064: ; preds = %536
 
 599:                                              ; preds = %596
   %.sroa.0458.0.copyload = load i64, ptr %60, align 8
-  %600 = call fastcc noundef zeroext i1 @"_ZZL24GetFullTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateEN5clang8QualTypeEPNS2_14TypeSourceInfoEENK3$_4clES3_"(ptr %.val, i64 %.sroa.0458.0.copyload)
+  %600 = call fastcc noundef zeroext i1 @"_ZZL24GetFullTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateEN5clang8QualTypeEPNS2_14TypeSourceInfoEENK3$_4clES3_"(ptr nonnull %.val, i64 %.sroa.0458.0.copyload)
   br i1 %600, label %.critedge4, label %601
 
 601:                                              ; preds = %599

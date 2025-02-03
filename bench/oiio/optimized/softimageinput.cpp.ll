@@ -752,7 +752,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i3.i.
 lpad:                                             ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN18OpenImageIO_v2_6_010ImageInputdlEPv(ptr noundef %call) #21
+  tail call void @_ZN18OpenImageIO_v2_6_010ImageInputdlEPv(ptr noundef nonnull %call) #21
   resume { ptr, i32 } %4
 }
 

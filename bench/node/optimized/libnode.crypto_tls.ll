@@ -10262,7 +10262,6 @@ _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit:  ; preds = %if.end17, %if.then.
   %29 = load ptr, ptr %isolate_.i, align 8
   %call38 = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %29) #24
   %call45 = tail call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %call38) #24
-  %cmp.i.i110 = icmp eq ptr %call45, null
   %isolate_data_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 96
   %30 = load ptr, ptr %isolate_data_.i.i, align 8
   %code_string_.i.i = getelementptr inbounds nuw i8, ptr %30, i64 488
@@ -10289,26 +10288,33 @@ if.then.i.i.i:                                    ; preds = %if.end.i
 _ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit: ; preds = %if.end.i, %if.then.i.i.i
   %call34.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call45, ptr %call2.i.i, ptr %31, ptr %call.i.i) #24
   %tobool.i.i = trunc i16 %call34.i to i1
-  br i1 %tobool.i.i, label %if.then71, label %if.end79
+  br i1 %tobool.i.i, label %if.then71.thread, label %if.end79
 
-if.then71:                                        ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit, %_ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit
+if.then71.thread:                                 ; preds = %_ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit
   %35 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %arrayidx.i21 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  br label %if.else.i
+
+if.then71:                                        ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit
+  %cmp.i.i110 = icmp eq ptr %call45, null
+  %36 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %cmp.i.i110, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then71
-  %arrayidx.i140 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %36 = load ptr, ptr %arrayidx.i140, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %add1.i.i = add i64 %37, 616
-  %38 = inttoptr i64 %add1.i.i to ptr
-  %39 = load i64, ptr %38, align 8
-  store i64 %39, ptr %arrayidx.i, align 8
+  %arrayidx.i140 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %37 = load ptr, ptr %arrayidx.i140, align 8
+  %38 = ptrtoint ptr %37 to i64
+  %add1.i.i = add i64 %38, 616
+  %39 = inttoptr i64 %add1.i.i to ptr
+  %40 = load i64, ptr %39, align 8
+  store i64 %40, ptr %arrayidx.i, align 8
   br label %if.end79
 
-if.else.i:                                        ; preds = %if.then71
-  %40 = load i64, ptr %call45, align 8
-  store i64 %40, ptr %arrayidx.i, align 8
+if.else.i:                                        ; preds = %if.then71.thread, %if.then71
+  %arrayidx.i22 = phi ptr [ %arrayidx.i21, %if.then71.thread ], [ %arrayidx.i, %if.then71 ]
+  %41 = load i64, ptr %call45, align 8
+  store i64 %41, ptr %arrayidx.i22, align 8
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then.i, %if.else.i, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit, %if.then14

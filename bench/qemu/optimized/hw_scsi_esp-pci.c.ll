@@ -176,7 +176,7 @@ if.end:                                           ; preds = %entry
   %chip_id = getelementptr inbounds nuw i8, ptr %call.i, i64 3128
   store i8 18, ptr %chip_id, align 8
   %io = getelementptr inbounds nuw i8, ptr %call.i, i64 2608
-  tail call void @memory_region_init_io(ptr noundef nonnull %io, ptr noundef %call.i, ptr noundef nonnull @esp_pci_io_ops, ptr noundef %call.i, ptr noundef nonnull @.str.9, i64 noundef 128) #5
+  tail call void @memory_region_init_io(ptr noundef nonnull %io, ptr noundef nonnull %call.i, ptr noundef nonnull @esp_pci_io_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.9, i64 noundef 128) #5
   tail call void @pci_register_bar(ptr noundef %dev, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %io) #5
   %call5 = tail call ptr @pci_allocate_irq(ptr noundef %dev) #5
   %irq = getelementptr inbounds nuw i8, ptr %call.i, i64 3112

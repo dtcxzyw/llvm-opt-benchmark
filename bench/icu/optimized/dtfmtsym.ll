@@ -1321,9 +1321,9 @@ cond.end:                                         ; preds = %land.lhs.true, %if.
 while.cond.preheader:                             ; preds = %cond.end
   %fUnion.i = getelementptr inbounds nuw i8, ptr %calendarType, i64 8
   %11 = load i16, ptr %fUnion.i, align 8
-  %conv2.i24542513 = and i16 %11, 1
-  %tobool18.not2514 = icmp eq i16 %conv2.i24542513, 0
-  br i1 %tobool18.not2514, label %while.body.lr.ph, label %while.end
+  %conv2.i24582517 = and i16 %11, 1
+  %tobool18.not2518 = icmp eq i16 %conv2.i24582517, 0
+  br i1 %tobool18.not2518, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %len.i = getelementptr inbounds nuw i8, ptr %calendarTypeBuffer, i64 56
@@ -1346,12 +1346,12 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   br i1 %cmp.i209, label %if.end27, label %cleanup882
 
 lpad15.loopexit:                                  ; preds = %while.body
-  %lpad.loopexit2509 = landingpad { ptr, i32 }
+  %lpad.loopexit2513 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup883
 
 lpad15.loopexit.split-lp:                         ; preds = %while.end
-  %lpad.loopexit.split-lp2510 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp2514 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup883
 
@@ -1446,8 +1446,8 @@ if.end56:                                         ; preds = %if.end52
 
 invoke.cont57:                                    ; preds = %if.end56
   %23 = load i16, ptr %fUnion.i, align 8
-  %conv2.i2202455 = and i16 %23, 1
-  %tobool61.not = icmp eq i16 %conv2.i2202455, 0
+  %conv2.i2202459 = and i16 %23, 1
+  %tobool61.not = icmp eq i16 %conv2.i2202459, 0
   br i1 %tobool61.not, label %cleanup, label %if.then62
 
 if.then62:                                        ; preds = %invoke.cont57
@@ -1487,8 +1487,8 @@ cleanup.thread:                                   ; preds = %invoke.cont47, %if.
 cleanup:                                          ; preds = %_ZN6icu_7512_GLOBAL__N_116CalendarDataSink17visitAllResourcesEv.exit226, %invoke.cont57, %invoke.cont42
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calendarTypeBuffer) #17
   %29 = load i16, ptr %fUnion.i, align 8
-  %conv2.i2454 = and i16 %29, 1
-  %tobool18.not = icmp eq i16 %conv2.i2454, 0
+  %conv2.i2458 = and i16 %29, 1
+  %tobool18.not = icmp eq i16 %conv2.i2458, 0
   br i1 %tobool18.not, label %while.body, label %while.end
 
 ehcleanup:                                        ; preds = %lpad65, %lpad39, %lpad20
@@ -1753,92 +1753,92 @@ lpad71.loopexit:                                  ; preds = %for.body.i1563
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit:                ; preds = %for.body.i1593
-  %lpad.loopexit2462 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup881
-
-lpad71.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i1511
   %lpad.loopexit2466 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
+lpad71.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i1511
+  %lpad.loopexit2470 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup881
+
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i1470
-  %lpad.loopexit2468 = landingpad { ptr, i32 }
+  %lpad.loopexit2472 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i1429
-  %lpad.loopexit2471 = landingpad { ptr, i32 }
+  %lpad.loopexit2475 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i1388
-  %lpad.loopexit2473 = landingpad { ptr, i32 }
+  %lpad.loopexit2477 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i1325
-  %lpad.loopexit2476 = landingpad { ptr, i32 }
+  %lpad.loopexit2480 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i1235
-  %lpad.loopexit2478 = landingpad { ptr, i32 }
+  %lpad.loopexit2482 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i1175
-  %lpad.loopexit2481 = landingpad { ptr, i32 }
+  %lpad.loopexit2485 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i1115
-  %lpad.loopexit2483 = landingpad { ptr, i32 }
+  %lpad.loopexit2487 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i1025
-  %lpad.loopexit2486 = landingpad { ptr, i32 }
+  %lpad.loopexit2490 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i871
-  %lpad.loopexit2488 = landingpad { ptr, i32 }
+  %lpad.loopexit2492 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i901
-  %lpad.loopexit2491 = landingpad { ptr, i32 }
+  %lpad.loopexit2495 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i781
-  %lpad.loopexit2494 = landingpad { ptr, i32 }
+  %lpad.loopexit2498 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i721
-  %lpad.loopexit2497 = landingpad { ptr, i32 }
+  %lpad.loopexit2501 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i601
-  %lpad.loopexit2499 = landingpad { ptr, i32 }
+  %lpad.loopexit2503 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i
-  %lpad.loopexit2502 = landingpad { ptr, i32 }
+  %lpad.loopexit2506 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then440, %if.then418, %if.then396, %if.then374, %if.then352
-  %lpad.loopexit2504 = landingpad { ptr, i32 }
+  %lpad.loopexit2508 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
 lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.cond192, %while.body196, %if.then206, %if.end237
-  %lpad.loopexit2507 = landingpad { ptr, i32 }
+  %lpad.loopexit2511 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup881
 
@@ -1861,11 +1861,11 @@ if.then127:                                       ; preds = %if.end121
           to label %if.then127.if.end134_crit_edge unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.then127.if.end134_crit_edge:                   ; preds = %if.then127
-  %.pre2524 = load ptr, ptr %fLeapMonthPatterns, align 8
+  %.pre2528 = load ptr, ptr %fLeapMonthPatterns, align 8
   br label %if.end134
 
 if.end134:                                        ; preds = %if.then127.if.end134_crit_edge, %if.end121
-  %50 = phi ptr [ %.pre2524, %if.then127.if.end134_crit_edge ], [ %48, %if.end121 ]
+  %50 = phi ptr [ %.pre2528, %if.then127.if.end134_crit_edge ], [ %48, %if.end121 ]
   %fUnion.i316 = getelementptr inbounds nuw i8, ptr %50, i64 200
   %51 = load i16, ptr %fUnion.i316, align 8
   %cmp.i317 = icmp ugt i16 %51, 31
@@ -1877,11 +1877,11 @@ if.then140:                                       ; preds = %if.end134
           to label %if.then140.if.end147_crit_edge unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.then140.if.end147_crit_edge:                   ; preds = %if.then140
-  %.pre2525 = load ptr, ptr %fLeapMonthPatterns, align 8
+  %.pre2529 = load ptr, ptr %fLeapMonthPatterns, align 8
   br label %if.end147
 
 if.end147:                                        ; preds = %if.then140.if.end147_crit_edge, %if.end134
-  %52 = phi ptr [ %.pre2525, %if.then140.if.end147_crit_edge ], [ %50, %if.end134 ]
+  %52 = phi ptr [ %.pre2529, %if.then140.if.end147_crit_edge ], [ %50, %if.end134 ]
   %fUnion.i322 = getelementptr inbounds nuw i8, ptr %52, i64 264
   %53 = load i16, ptr %fUnion.i322, align 8
   %cmp.i323 = icmp ugt i16 %53, 31
@@ -2139,13 +2139,13 @@ invoke.cont207:                                   ; preds = %if.then206
 
 land.rhs:                                         ; preds = %invoke.cont207, %while.body216
   %74 = phi ptr [ %75, %while.body216 ], [ @.str.1, %invoke.cont207 ]
-  %typeMapPtr.02515 = phi ptr [ %incdec.ptr, %while.body216 ], [ @_ZN6icu_75L19contextUsageTypeMapE, %invoke.cont207 ]
+  %typeMapPtr.02519 = phi ptr [ %incdec.ptr, %while.body216 ], [ @_ZN6icu_75L19contextUsageTypeMapE, %invoke.cont207 ]
   %call214 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call208, ptr noundef nonnull dereferenceable(1) %74) #20
   %cmp215 = icmp sgt i32 %call214, 0
   br i1 %cmp215, label %while.body216, label %while.end217
 
 while.body216:                                    ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %typeMapPtr.02515, i64 16
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %typeMapPtr.02519, i64 16
   %75 = load ptr, ptr %incdec.ptr, align 8
   %cmp212.not = icmp eq ptr %75, null
   br i1 %cmp212.not, label %if.end237, label %land.rhs, !llvm.loop !7
@@ -2157,7 +2157,7 @@ while.end217:                                     ; preds = %land.rhs
 if.then222:                                       ; preds = %while.end217
   %76 = load i32, ptr %call198, align 4
   %conv224 = trunc i32 %76 to i8
-  %usageTypeEnumValue = getelementptr inbounds nuw i8, ptr %typeMapPtr.02515, i64 8
+  %usageTypeEnumValue = getelementptr inbounds nuw i8, ptr %typeMapPtr.02519, i64 8
   %77 = load i32, ptr %usageTypeEnumValue, align 8
   %idxprom = zext i32 %77 to i64
   %arrayidx226 = getelementptr inbounds nuw [14 x [2 x i8]], ptr %fCapitalization, i64 0, i64 %idxprom
@@ -2202,7 +2202,7 @@ invoke.cont244:                                   ; preds = %invoke.cont242
 
 if.then249:                                       ; preds = %invoke.cont244
   %call251 = invoke ptr @ures_getByKeyWithFallback_75(ptr noundef %call181, ptr noundef nonnull @_ZN6icu_75L18gNumberElementsTagE, ptr noundef null, ptr noundef nonnull %tempStatus)
-          to label %invoke.cont252 unwind label %lpad245
+          to label %invoke.cont252 unwind label %ehcleanup287
 
 invoke.cont252:                                   ; preds = %if.then249
   store ptr %call251, ptr %numberElementsData, align 8
@@ -2281,28 +2281,23 @@ if.then278:                                       ; preds = %invoke.cont272
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %fTimeSeparator)
           to label %if.end281 unwind label %lpad269
 
-lpad245:                                          ; preds = %if.end285, %if.then249
+lpad253:                                          ; preds = %invoke.cont258, %invoke.cont252
   %87 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup287
-
-lpad253:                                          ; preds = %invoke.cont258, %invoke.cont252
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup284
+  br label %ehcleanup287.thread
 
 lpad263:                                          ; preds = %invoke.cont262
-  %89 = landingpad { ptr, i32 }
+  %88 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup283
 
 lpad269:                                          ; preds = %if.then278
-  %90 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
   br label %lpad269.body
 
 lpad269.body:                                     ; preds = %ehcleanup.i, %lpad269
-  %eh.lpad-body398 = phi { ptr, i32 } [ %90, %lpad269 ], [ %.pn.i, %ehcleanup.i ]
+  %eh.lpad-body398 = phi { ptr, i32 } [ %89, %lpad269 ], [ %.pn.i, %ehcleanup.i ]
   call void @_ZN6icu_7527LocalUResourceBundlePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %symbolsData) #17
   br label %ehcleanup283
 
@@ -2315,10 +2310,10 @@ if.then.i402:                                     ; preds = %if.end281
           to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i402
-  %91 = landingpad { ptr, i32 }
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #19
+  %91 = extractvalue { ptr, i32 } %90, 0
+  call void @__clang_call_terminate(ptr %91) #19
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %if.end281, %if.then.i402
@@ -2330,10 +2325,10 @@ if.then.i405:                                     ; preds = %_ZN6icu_7527LocalUR
           to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit408 unwind label %terminate.lpad.i406
 
 terminate.lpad.i406:                              ; preds = %if.then.i405
-  %93 = landingpad { ptr, i32 }
+  %92 = landingpad { ptr, i32 }
           catch ptr null
-  %94 = extractvalue { ptr, i32 } %93, 0
-  call void @__clang_call_terminate(ptr %94) #19
+  %93 = extractvalue { ptr, i32 } %92, 0
+  call void @__clang_call_terminate(ptr %93) #19
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit408: ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, %if.then.i405
@@ -2345,25 +2340,25 @@ if.then.i410:                                     ; preds = %_ZN6icu_7527LocalUR
           to label %if.end285 unwind label %terminate.lpad.i411
 
 terminate.lpad.i411:                              ; preds = %if.then.i410
-  %95 = landingpad { ptr, i32 }
+  %94 = landingpad { ptr, i32 }
           catch ptr null
-  %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #19
+  %95 = extractvalue { ptr, i32 } %94, 0
+  call void @__clang_call_terminate(ptr %95) #19
   unreachable
 
 ehcleanup283:                                     ; preds = %lpad269.body, %lpad263
-  %.pn198 = phi { ptr, i32 } [ %eh.lpad-body398, %lpad269.body ], [ %89, %lpad263 ]
+  %.pn198 = phi { ptr, i32 } [ %eh.lpad-body398, %lpad269.body ], [ %88, %lpad263 ]
   call void @_ZN6icu_7527LocalUResourceBundlePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %nsNameData) #17
-  br label %ehcleanup284
+  br label %ehcleanup287.thread
 
-ehcleanup284:                                     ; preds = %ehcleanup283, %lpad253
-  %.pn198.pn = phi { ptr, i32 } [ %.pn198, %ehcleanup283 ], [ %88, %lpad253 ]
+ehcleanup287.thread:                              ; preds = %lpad253, %ehcleanup283
+  %.pn198.pn = phi { ptr, i32 } [ %.pn198, %ehcleanup283 ], [ %87, %lpad253 ]
   call void @_ZN6icu_7527LocalUResourceBundlePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %numberElementsData) #17
-  br label %ehcleanup287
+  br label %delete.notnull.i415
 
 if.end285:                                        ; preds = %invoke.cont244.thread, %if.then.i410, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit408, %invoke.cont244
   invoke void @ures_close_75(ptr noundef %call181)
-          to label %invoke.cont286 unwind label %lpad245
+          to label %invoke.cont286 unwind label %ehcleanup287
 
 invoke.cont286:                                   ; preds = %if.end285
   %isnull.i = icmp eq ptr %call243, null
@@ -2372,16 +2367,18 @@ invoke.cont286:                                   ; preds = %if.end285
 delete.notnull.i:                                 ; preds = %invoke.cont286
   %vtable.i = load ptr, ptr %call243, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
-  %97 = load ptr, ptr %vfn.i, align 8
-  call void %97(ptr noundef nonnull align 8 dereferenceable(86) %call243) #17
+  %96 = load ptr, ptr %vfn.i, align 8
+  call void %96(ptr noundef nonnull align 8 dereferenceable(86) %call243) #17
   br label %if.end288
 
-ehcleanup287:                                     ; preds = %ehcleanup284, %lpad245
-  %.pn201 = phi { ptr, i32 } [ %87, %lpad245 ], [ %.pn198.pn, %ehcleanup284 ]
+ehcleanup287:                                     ; preds = %if.then249, %if.end285
+  %97 = landingpad { ptr, i32 }
+          cleanup
   %isnull.i414 = icmp eq ptr %call243, null
   br i1 %isnull.i414, label %ehcleanup881, label %delete.notnull.i415
 
-delete.notnull.i415:                              ; preds = %ehcleanup287
+delete.notnull.i415:                              ; preds = %ehcleanup287.thread, %ehcleanup287
+  %.pn2012400 = phi { ptr, i32 } [ %.pn198.pn, %ehcleanup287.thread ], [ %97, %ehcleanup287 ]
   %vtable.i416 = load ptr, ptr %call243, align 8
   %vfn.i417 = getelementptr inbounds nuw i8, ptr %vtable.i416, i64 8
   %98 = load ptr, ptr %vfn.i417, align 8
@@ -2391,8 +2388,8 @@ delete.notnull.i415:                              ; preds = %ehcleanup287
 if.end288:                                        ; preds = %delete.notnull.i, %invoke.cont286, %invoke.cont180
   %fUnion.i419 = getelementptr inbounds nuw i8, ptr %this, i64 320
   %99 = load i16, ptr %fUnion.i419, align 8
-  %conv2.i4202456 = and i16 %99, 1
-  %tobool292.not = icmp eq i16 %conv2.i4202456, 0
+  %conv2.i4202460 = and i16 %99, 1
+  %tobool292.not = icmp eq i16 %conv2.i4202460, 0
   br i1 %tobool292.not, label %if.end297, label %if.then293
 
 if.then293:                                       ; preds = %if.end288
@@ -2594,9 +2591,9 @@ invoke.cont331:                                   ; preds = %invoke.cont328
   %109 = load i32, ptr %status, align 4
   %cmp.i489 = icmp slt i32 %109, 1
   %110 = load i32, ptr %fAbbreviatedDayPeriodsCount, align 8
-  %cmp3392516 = icmp sgt i32 %110, 0
-  %or.cond2518 = select i1 %cmp.i489, i1 %cmp3392516, i1 false
-  br i1 %or.cond2518, label %for.body, label %if.end450
+  %cmp3392520 = icmp sgt i32 %110, 0
+  %or.cond2522 = select i1 %cmp.i489, i1 %cmp3392520, i1 false
+  br i1 %or.cond2522, label %for.body, label %if.end450
 
 for.body:                                         ; preds = %invoke.cont331, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %invoke.cont331 ]
@@ -2614,8 +2611,8 @@ land.lhs.true345:                                 ; preds = %land.lhs.true342
   %arrayidx348 = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %113, i64 %indvars.iv
   %fUnion.i491 = getelementptr inbounds nuw i8, ptr %arrayidx348, i64 8
   %114 = load i16, ptr %fUnion.i491, align 8
-  %conv2.i4922457 = and i16 %114, 1
-  %tobool351.not = icmp eq i16 %conv2.i4922457, 0
+  %conv2.i4922461 = and i16 %114, 1
+  %tobool351.not = icmp eq i16 %conv2.i4922461, 0
   br i1 %tobool351.not, label %if.end361, label %if.then352
 
 if.then352:                                       ; preds = %land.lhs.true345
@@ -2639,8 +2636,8 @@ land.lhs.true367:                                 ; preds = %land.lhs.true364
   %arrayidx370 = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %118, i64 %indvars.iv
   %fUnion.i493 = getelementptr inbounds nuw i8, ptr %arrayidx370, i64 8
   %119 = load i16, ptr %fUnion.i493, align 8
-  %conv2.i4942458 = and i16 %119, 1
-  %tobool373.not = icmp eq i16 %conv2.i4942458, 0
+  %conv2.i4942462 = and i16 %119, 1
+  %tobool373.not = icmp eq i16 %conv2.i4942462, 0
   br i1 %tobool373.not, label %if.end383, label %if.then374
 
 if.then374:                                       ; preds = %land.lhs.true367
@@ -2664,8 +2661,8 @@ land.lhs.true389:                                 ; preds = %land.lhs.true386
   %arrayidx392 = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %123, i64 %indvars.iv
   %fUnion.i495 = getelementptr inbounds nuw i8, ptr %arrayidx392, i64 8
   %124 = load i16, ptr %fUnion.i495, align 8
-  %conv2.i4962459 = and i16 %124, 1
-  %tobool395.not = icmp eq i16 %conv2.i4962459, 0
+  %conv2.i4962463 = and i16 %124, 1
+  %tobool395.not = icmp eq i16 %conv2.i4962463, 0
   br i1 %tobool395.not, label %if.end405, label %if.then396
 
 if.then396:                                       ; preds = %land.lhs.true389
@@ -2689,8 +2686,8 @@ land.lhs.true411:                                 ; preds = %land.lhs.true408
   %arrayidx414 = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %128, i64 %indvars.iv
   %fUnion.i497 = getelementptr inbounds nuw i8, ptr %arrayidx414, i64 8
   %129 = load i16, ptr %fUnion.i497, align 8
-  %conv2.i4982460 = and i16 %129, 1
-  %tobool417.not = icmp eq i16 %conv2.i4982460, 0
+  %conv2.i4982464 = and i16 %129, 1
+  %tobool417.not = icmp eq i16 %conv2.i4982464, 0
   br i1 %tobool417.not, label %if.end427, label %if.then418
 
 if.then418:                                       ; preds = %land.lhs.true411
@@ -2714,8 +2711,8 @@ land.lhs.true433:                                 ; preds = %land.lhs.true430
   %arrayidx436 = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %133, i64 %indvars.iv
   %fUnion.i499 = getelementptr inbounds nuw i8, ptr %arrayidx436, i64 8
   %134 = load i16, ptr %fUnion.i499, align 8
-  %conv2.i5002461 = and i16 %134, 1
-  %tobool439.not = icmp eq i16 %conv2.i5002461, 0
+  %conv2.i5002465 = and i16 %134, 1
+  %tobool439.not = icmp eq i16 %conv2.i5002465, 0
   br i1 %tobool439.not, label %for.inc, label %if.then440
 
 if.then440:                                       ; preds = %land.lhs.true433
@@ -2808,11 +2805,11 @@ if.else.i520:                                     ; preds = %invoke.cont.i512
 
 if.end.i519:                                      ; preds = %if.else.i520, %invoke.cont4.i517
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i506) #17
-  %.pre2526 = load i32, ptr %status, align 4
+  %.pre2530 = load i32, ptr %status, align 4
   br label %invoke.cont463
 
 invoke.cont463:                                   ; preds = %if.end.i519, %invoke.cont461
-  %144 = phi i32 [ %.pre2526, %if.end.i519 ], [ %139, %invoke.cont461 ]
+  %144 = phi i32 [ %.pre2530, %if.end.i519 ], [ %139, %invoke.cont461 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i506)
   store i32 0, ptr %len.i227, align 8
   %145 = load ptr, ptr %path, align 8
@@ -2873,11 +2870,11 @@ if.else.i546:                                     ; preds = %invoke.cont.i538
 
 if.end.i545:                                      ; preds = %if.else.i546, %invoke.cont4.i543
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i532) #17
-  %.pr2398 = load i32, ptr %status, align 4
+  %.pr2402 = load i32, ptr %status, align 4
   br label %invoke.cont469
 
 invoke.cont469:                                   ; preds = %if.end.i545, %invoke.cont467
-  %151 = phi i32 [ %.pr2398, %if.end.i545 ], [ %146, %invoke.cont467 ]
+  %151 = phi i32 [ %.pr2402, %if.end.i545 ], [ %146, %invoke.cont467 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i532)
   %cmp470 = icmp eq i32 %151, 2
   br i1 %cmp470, label %if.then471, label %if.end477
@@ -3009,11 +3006,11 @@ if.else.i577:                                     ; preds = %invoke.cont.i569
 
 if.end.i576:                                      ; preds = %if.else.i577, %invoke.cont4.i574
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i563) #17
-  %.pr2399 = load i32, ptr %status, align 4
+  %.pr2403 = load i32, ptr %status, align 4
   br label %invoke.cont482
 
 invoke.cont482:                                   ; preds = %if.end.i576, %invoke.cont480
-  %167 = phi i32 [ %.pr2399, %if.end.i576 ], [ %162, %invoke.cont480 ]
+  %167 = phi i32 [ %.pr2403, %if.end.i576 ], [ %162, %invoke.cont480 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i563)
   %cmp483 = icmp eq i32 %167, 2
   br i1 %cmp483, label %if.then484, label %if.end490
@@ -3294,11 +3291,11 @@ if.else.i697:                                     ; preds = %invoke.cont.i689
 
 if.end.i696:                                      ; preds = %if.else.i697, %invoke.cont4.i694
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i683) #17
-  %.pr2400 = load i32, ptr %status, align 4
+  %.pr2404 = load i32, ptr %status, align 4
   br label %invoke.cont505
 
 invoke.cont505:                                   ; preds = %if.end.i696, %invoke.cont503
-  %194 = phi i32 [ %.pr2400, %if.end.i696 ], [ %189, %invoke.cont503 ]
+  %194 = phi i32 [ %.pr2404, %if.end.i696 ], [ %189, %invoke.cont503 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i683)
   %cmp506 = icmp eq i32 %194, 2
   br i1 %cmp506, label %if.then507, label %if.end513
@@ -3437,11 +3434,11 @@ if.else.i757:                                     ; preds = %invoke.cont.i749
 
 if.end.i756:                                      ; preds = %if.else.i757, %invoke.cont4.i754
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i743) #17
-  %.pr2401 = load i32, ptr %status, align 4
+  %.pr2405 = load i32, ptr %status, align 4
   br label %invoke.cont518
 
 invoke.cont518:                                   ; preds = %if.end.i756, %invoke.cont516
-  %209 = phi i32 [ %.pr2401, %if.end.i756 ], [ %204, %invoke.cont516 ]
+  %209 = phi i32 [ %.pr2405, %if.end.i756 ], [ %204, %invoke.cont516 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i743)
   %cmp519 = icmp eq i32 %209, 2
   br i1 %cmp519, label %if.then520, label %if.end526
@@ -3872,8 +3869,8 @@ if.else.i928:                                     ; preds = %invoke.cont.i920
 
 invoke.cont578:                                   ; preds = %invoke.cont4.i925, %if.else.i928
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i914) #17
-  %.pre2527 = load i32, ptr %ampmStatus, align 4
-  %257 = icmp slt i32 %.pre2527, 1
+  %.pre2531 = load i32, ptr %ampmStatus, align 4
+  %257 = icmp slt i32 %.pre2531, 1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i914)
   br i1 %257, label %if.end588, label %if.then582
 
@@ -3992,8 +3989,8 @@ if.else.i976:                                     ; preds = %invoke.cont.i968
 
 invoke.cont593:                                   ; preds = %invoke.cont4.i973, %if.else.i976
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i962) #17
-  %.pre2528 = load i32, ptr %ampmStatus, align 4
-  %270 = icmp slt i32 %.pre2528, 1
+  %.pre2532 = load i32, ptr %ampmStatus, align 4
+  %270 = icmp slt i32 %.pre2532, 1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i962)
   br i1 %270, label %if.end603, label %if.then597
 
@@ -4265,11 +4262,11 @@ if.else.i1091:                                    ; preds = %invoke.cont.i1083
 
 if.end.i1090:                                     ; preds = %if.else.i1091, %invoke.cont4.i1088
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1077) #17
-  %.pr2402 = load i32, ptr %status, align 4
+  %.pr2406 = load i32, ptr %status, align 4
   br label %invoke.cont621
 
 invoke.cont621:                                   ; preds = %if.end.i1090, %invoke.cont619
-  %298 = phi i32 [ %.pr2402, %if.end.i1090 ], [ %293, %invoke.cont619 ]
+  %298 = phi i32 [ %.pr2406, %if.end.i1090 ], [ %293, %invoke.cont619 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i1077)
   %cmp622 = icmp eq i32 %298, 2
   br i1 %cmp622, label %if.then623, label %if.end629
@@ -4408,11 +4405,11 @@ if.else.i1151:                                    ; preds = %invoke.cont.i1143
 
 if.end.i1150:                                     ; preds = %if.else.i1151, %invoke.cont4.i1148
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1137) #17
-  %.pr2403 = load i32, ptr %status, align 4
+  %.pr2407 = load i32, ptr %status, align 4
   br label %invoke.cont634
 
 invoke.cont634:                                   ; preds = %if.end.i1150, %invoke.cont632
-  %313 = phi i32 [ %.pr2403, %if.end.i1150 ], [ %308, %invoke.cont632 ]
+  %313 = phi i32 [ %.pr2407, %if.end.i1150 ], [ %308, %invoke.cont632 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i1137)
   %cmp635 = icmp eq i32 %313, 2
   br i1 %cmp635, label %if.then636, label %if.end642
@@ -4551,11 +4548,11 @@ if.else.i1211:                                    ; preds = %invoke.cont.i1203
 
 if.end.i1210:                                     ; preds = %if.else.i1211, %invoke.cont4.i1208
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1197) #17
-  %.pr2404 = load i32, ptr %status, align 4
+  %.pr2408 = load i32, ptr %status, align 4
   br label %invoke.cont647
 
 invoke.cont647:                                   ; preds = %if.end.i1210, %invoke.cont645
-  %328 = phi i32 [ %.pr2404, %if.end.i1210 ], [ %323, %invoke.cont645 ]
+  %328 = phi i32 [ %.pr2408, %if.end.i1210 ], [ %323, %invoke.cont645 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i1197)
   %cmp648 = icmp eq i32 %328, 2
   br i1 %cmp648, label %if.then649, label %if.end655
@@ -4765,11 +4762,11 @@ if.else.i1301:                                    ; preds = %invoke.cont.i1293
 
 if.end.i1300:                                     ; preds = %if.else.i1301, %invoke.cont4.i1298
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString.i1287) #17
-  %.pr2405 = load i32, ptr %status, align 4
+  %.pr2409 = load i32, ptr %status, align 4
   br label %invoke.cont665
 
 invoke.cont665:                                   ; preds = %if.end.i1300, %invoke.cont663
-  %349 = phi i32 [ %.pr2405, %if.end.i1300 ], [ %344, %invoke.cont663 ]
+  %349 = phi i32 [ %.pr2409, %if.end.i1300 ], [ %344, %invoke.cont663 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyUString.i1287)
   %cmp666 = icmp eq i32 %349, 2
   br i1 %cmp666, label %if.then667, label %if.end673
@@ -5598,10 +5595,10 @@ invoke.cont797.thread:                            ; preds = %if.then.i1608
   br label %invoke.cont800.thread
 
 invoke.cont797:                                   ; preds = %invoke.cont.i1626, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1621
-  %.pr2406 = load i32, ptr %status, align 4
+  %.pr2410 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1606)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1632)
-  %cmp.i.i1633 = icmp sgt i32 %.pr2406, 0
+  %cmp.i.i1633 = icmp sgt i32 %.pr2410, 0
   br i1 %cmp.i.i1633, label %invoke.cont800.thread, label %if.then.i1634
 
 if.then.i1634:                                    ; preds = %invoke.cont797
@@ -5669,10 +5666,10 @@ invoke.cont800.thread:                            ; preds = %if.else.i1659, %inv
   br label %invoke.cont803
 
 invoke.cont800:                                   ; preds = %invoke.cont.i1656, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1647
-  %.pr2408 = load i32, ptr %status, align 4
+  %.pr2412 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1632)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1663)
-  %cmp.i.i1664 = icmp sgt i32 %.pr2408, 0
+  %cmp.i.i1664 = icmp sgt i32 %.pr2412, 0
   br i1 %cmp.i.i1664, label %invoke.cont803.thread, label %if.then.i1665
 
 if.then.i1665:                                    ; preds = %invoke.cont800
@@ -5740,10 +5737,10 @@ invoke.cont803.thread:                            ; preds = %if.else.i1690, %inv
   br label %invoke.cont806
 
 invoke.cont803:                                   ; preds = %invoke.cont.i1687, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1678, %invoke.cont800.thread
-  %.pr2410 = load i32, ptr %status, align 4
+  %.pr2414 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1663)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1694)
-  %cmp.i.i1695 = icmp sgt i32 %.pr2410, 0
+  %cmp.i.i1695 = icmp sgt i32 %.pr2414, 0
   br i1 %cmp.i.i1695, label %invoke.cont806.thread, label %if.then.i1696
 
 if.then.i1696:                                    ; preds = %invoke.cont803
@@ -5811,10 +5808,10 @@ invoke.cont806.thread:                            ; preds = %if.else.i1721, %inv
   br label %invoke.cont809
 
 invoke.cont806:                                   ; preds = %invoke.cont.i1718, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1709, %invoke.cont803.thread
-  %.pr2412 = load i32, ptr %status, align 4
+  %.pr2416 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1694)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1725)
-  %cmp.i.i1726 = icmp sgt i32 %.pr2412, 0
+  %cmp.i.i1726 = icmp sgt i32 %.pr2416, 0
   br i1 %cmp.i.i1726, label %invoke.cont809.thread, label %if.then.i1727
 
 if.then.i1727:                                    ; preds = %invoke.cont806
@@ -5882,10 +5879,10 @@ invoke.cont809.thread:                            ; preds = %if.else.i1752, %inv
   br label %invoke.cont812
 
 invoke.cont809:                                   ; preds = %invoke.cont.i1749, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1740, %invoke.cont806.thread
-  %.pr2414 = load i32, ptr %status, align 4
+  %.pr2418 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1725)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1756)
-  %cmp.i.i1757 = icmp sgt i32 %.pr2414, 0
+  %cmp.i.i1757 = icmp sgt i32 %.pr2418, 0
   br i1 %cmp.i.i1757, label %invoke.cont812.thread, label %if.then.i1758
 
 if.then.i1758:                                    ; preds = %invoke.cont809
@@ -5953,10 +5950,10 @@ invoke.cont812.thread:                            ; preds = %if.else.i1783, %inv
   br label %invoke.cont815
 
 invoke.cont812:                                   ; preds = %invoke.cont.i1780, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1771, %invoke.cont809.thread
-  %.pr2416 = load i32, ptr %status, align 4
+  %.pr2420 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1756)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1787)
-  %cmp.i.i1788 = icmp sgt i32 %.pr2416, 0
+  %cmp.i.i1788 = icmp sgt i32 %.pr2420, 0
   br i1 %cmp.i.i1788, label %invoke.cont815.thread, label %if.then.i1789
 
 if.then.i1789:                                    ; preds = %invoke.cont812
@@ -6024,10 +6021,10 @@ invoke.cont815.thread:                            ; preds = %if.else.i1814, %inv
   br label %invoke.cont818
 
 invoke.cont815:                                   ; preds = %invoke.cont.i1811, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1802, %invoke.cont812.thread
-  %.pr2418 = load i32, ptr %status, align 4
+  %.pr2422 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1787)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1818)
-  %cmp.i.i1819 = icmp sgt i32 %.pr2418, 0
+  %cmp.i.i1819 = icmp sgt i32 %.pr2422, 0
   br i1 %cmp.i.i1819, label %invoke.cont818.thread, label %if.then.i1820
 
 if.then.i1820:                                    ; preds = %invoke.cont815
@@ -6095,10 +6092,10 @@ invoke.cont818.thread:                            ; preds = %if.else.i1845, %inv
   br label %invoke.cont821
 
 invoke.cont818:                                   ; preds = %invoke.cont.i1842, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1833, %invoke.cont815.thread
-  %.pr2420 = load i32, ptr %status, align 4
+  %.pr2424 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1818)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1849)
-  %cmp.i.i1850 = icmp sgt i32 %.pr2420, 0
+  %cmp.i.i1850 = icmp sgt i32 %.pr2424, 0
   br i1 %cmp.i.i1850, label %invoke.cont821.thread, label %if.then.i1851
 
 if.then.i1851:                                    ; preds = %invoke.cont818
@@ -6166,10 +6163,10 @@ invoke.cont821.thread:                            ; preds = %if.else.i1876, %inv
   br label %invoke.cont824
 
 invoke.cont821:                                   ; preds = %invoke.cont.i1873, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1864, %invoke.cont818.thread
-  %.pr2422 = load i32, ptr %status, align 4
+  %.pr2426 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1849)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1880)
-  %cmp.i.i1881 = icmp sgt i32 %.pr2422, 0
+  %cmp.i.i1881 = icmp sgt i32 %.pr2426, 0
   br i1 %cmp.i.i1881, label %invoke.cont824.thread, label %if.then.i1882
 
 if.then.i1882:                                    ; preds = %invoke.cont821
@@ -6237,10 +6234,10 @@ invoke.cont824.thread:                            ; preds = %if.else.i1907, %inv
   br label %invoke.cont827
 
 invoke.cont824:                                   ; preds = %invoke.cont.i1904, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1895, %invoke.cont821.thread
-  %.pr2424 = load i32, ptr %status, align 4
+  %.pr2428 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1880)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1911)
-  %cmp.i.i1912 = icmp sgt i32 %.pr2424, 0
+  %cmp.i.i1912 = icmp sgt i32 %.pr2428, 0
   br i1 %cmp.i.i1912, label %invoke.cont827.thread, label %if.then.i1913
 
 if.then.i1913:                                    ; preds = %invoke.cont824
@@ -6308,10 +6305,10 @@ invoke.cont827.thread:                            ; preds = %if.else.i1938, %inv
   br label %invoke.cont830
 
 invoke.cont827:                                   ; preds = %invoke.cont.i1935, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1926, %invoke.cont824.thread
-  %.pr2426 = load i32, ptr %status, align 4
+  %.pr2430 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1911)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1942)
-  %cmp.i.i1943 = icmp sgt i32 %.pr2426, 0
+  %cmp.i.i1943 = icmp sgt i32 %.pr2430, 0
   br i1 %cmp.i.i1943, label %invoke.cont830.thread, label %if.then.i1944
 
 if.then.i1944:                                    ; preds = %invoke.cont827
@@ -6379,10 +6376,10 @@ invoke.cont830.thread:                            ; preds = %if.else.i1969, %inv
   br label %invoke.cont833
 
 invoke.cont830:                                   ; preds = %invoke.cont.i1966, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1957, %invoke.cont827.thread
-  %.pr2428 = load i32, ptr %status, align 4
+  %.pr2432 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1942)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i1973)
-  %cmp.i.i1974 = icmp sgt i32 %.pr2428, 0
+  %cmp.i.i1974 = icmp sgt i32 %.pr2432, 0
   br i1 %cmp.i.i1974, label %invoke.cont833.thread, label %if.then.i1975
 
 if.then.i1975:                                    ; preds = %invoke.cont830
@@ -6450,10 +6447,10 @@ invoke.cont833.thread:                            ; preds = %if.else.i2000, %inv
   br label %invoke.cont836
 
 invoke.cont833:                                   ; preds = %invoke.cont.i1997, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i1988, %invoke.cont830.thread
-  %.pr2430 = load i32, ptr %status, align 4
+  %.pr2434 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i1973)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2004)
-  %cmp.i.i2005 = icmp sgt i32 %.pr2430, 0
+  %cmp.i.i2005 = icmp sgt i32 %.pr2434, 0
   br i1 %cmp.i.i2005, label %invoke.cont836.thread, label %if.then.i2006
 
 if.then.i2006:                                    ; preds = %invoke.cont833
@@ -6521,10 +6518,10 @@ invoke.cont836.thread:                            ; preds = %if.else.i2031, %inv
   br label %invoke.cont839
 
 invoke.cont836:                                   ; preds = %invoke.cont.i2028, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i2019, %invoke.cont833.thread
-  %.pr2432 = load i32, ptr %status, align 4
+  %.pr2436 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i2004)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2035)
-  %cmp.i.i2036 = icmp sgt i32 %.pr2432, 0
+  %cmp.i.i2036 = icmp sgt i32 %.pr2436, 0
   br i1 %cmp.i.i2036, label %invoke.cont839.thread, label %if.then.i2037
 
 if.then.i2037:                                    ; preds = %invoke.cont836
@@ -6592,10 +6589,10 @@ invoke.cont839.thread:                            ; preds = %if.else.i2062, %inv
   br label %invoke.cont842
 
 invoke.cont839:                                   ; preds = %invoke.cont.i2059, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i2050, %invoke.cont836.thread
-  %.pr2434 = load i32, ptr %status, align 4
+  %.pr2438 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i2035)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2066)
-  %cmp.i.i2067 = icmp sgt i32 %.pr2434, 0
+  %cmp.i.i2067 = icmp sgt i32 %.pr2438, 0
   br i1 %cmp.i.i2067, label %invoke.cont842.thread, label %if.then.i2068
 
 if.then.i2068:                                    ; preds = %invoke.cont839
@@ -6663,10 +6660,10 @@ invoke.cont842.thread:                            ; preds = %if.else.i2093, %inv
   br label %invoke.cont845
 
 invoke.cont842:                                   ; preds = %invoke.cont.i2090, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i2081, %invoke.cont839.thread
-  %.pr2436 = load i32, ptr %status, align 4
+  %.pr2440 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i2066)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2097)
-  %cmp.i.i2098 = icmp sgt i32 %.pr2436, 0
+  %cmp.i.i2098 = icmp sgt i32 %.pr2440, 0
   br i1 %cmp.i.i2098, label %invoke.cont845.thread, label %if.then.i2099
 
 if.then.i2099:                                    ; preds = %invoke.cont842
@@ -6734,10 +6731,10 @@ invoke.cont845.thread:                            ; preds = %if.else.i2124, %inv
   br label %invoke.cont848
 
 invoke.cont845:                                   ; preds = %invoke.cont.i2121, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i2112, %invoke.cont842.thread
-  %.pr2438 = load i32, ptr %status, align 4
+  %.pr2442 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i2097)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2128)
-  %cmp.i.i2129 = icmp sgt i32 %.pr2438, 0
+  %cmp.i.i2129 = icmp sgt i32 %.pr2442, 0
   br i1 %cmp.i.i2129, label %invoke.cont848.thread, label %if.then.i2130
 
 if.then.i2130:                                    ; preds = %invoke.cont845
@@ -6805,10 +6802,10 @@ invoke.cont848.thread:                            ; preds = %if.else.i2155, %inv
   br label %invoke.cont851
 
 invoke.cont848:                                   ; preds = %invoke.cont.i2152, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i2143, %invoke.cont845.thread
-  %.pr2440 = load i32, ptr %status, align 4
+  %.pr2444 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i2128)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2159)
-  %cmp.i.i2160 = icmp sgt i32 %.pr2440, 0
+  %cmp.i.i2160 = icmp sgt i32 %.pr2444, 0
   br i1 %cmp.i.i2160, label %invoke.cont851.thread, label %if.then.i2161
 
 if.then.i2161:                                    ; preds = %invoke.cont848
@@ -6876,10 +6873,10 @@ invoke.cont851.thread:                            ; preds = %if.else.i2186, %inv
   br label %invoke.cont854
 
 invoke.cont851:                                   ; preds = %invoke.cont.i2183, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i2174, %invoke.cont848.thread
-  %.pr2442 = load i32, ptr %status, align 4
+  %.pr2446 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i2159)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2190)
-  %cmp.i.i2191 = icmp sgt i32 %.pr2442, 0
+  %cmp.i.i2191 = icmp sgt i32 %.pr2446, 0
   br i1 %cmp.i.i2191, label %invoke.cont854.thread, label %if.then.i2192
 
 if.then.i2192:                                    ; preds = %invoke.cont851
@@ -6947,10 +6944,10 @@ invoke.cont854.thread:                            ; preds = %if.else.i2217, %inv
   br label %invoke.cont857
 
 invoke.cont854:                                   ; preds = %invoke.cont.i2214, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i2205, %invoke.cont851.thread
-  %.pr2444 = load i32, ptr %status, align 4
+  %.pr2448 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i2190)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2221)
-  %cmp.i.i2222 = icmp sgt i32 %.pr2444, 0
+  %cmp.i.i2222 = icmp sgt i32 %.pr2448, 0
   br i1 %cmp.i.i2222, label %invoke.cont857.thread, label %if.then.i2223
 
 if.then.i2223:                                    ; preds = %invoke.cont854
@@ -7018,10 +7015,10 @@ invoke.cont857.thread:                            ; preds = %if.else.i2248, %inv
   br label %invoke.cont860
 
 invoke.cont857:                                   ; preds = %invoke.cont.i2245, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i2236, %invoke.cont854.thread
-  %.pr2446 = load i32, ptr %status, align 4
+  %.pr2450 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i2221)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2252)
-  %cmp.i.i2253 = icmp sgt i32 %.pr2446, 0
+  %cmp.i.i2253 = icmp sgt i32 %.pr2450, 0
   br i1 %cmp.i.i2253, label %invoke.cont860.thread, label %if.then.i2254
 
 if.then.i2254:                                    ; preds = %invoke.cont857
@@ -7089,10 +7086,10 @@ invoke.cont860.thread:                            ; preds = %if.else.i2279, %inv
   br label %invoke.cont863
 
 invoke.cont860:                                   ; preds = %invoke.cont.i2276, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i2267, %invoke.cont857.thread
-  %.pr2448 = load i32, ptr %status, align 4
+  %.pr2452 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i2252)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2283)
-  %cmp.i.i2284 = icmp sgt i32 %.pr2448, 0
+  %cmp.i.i2284 = icmp sgt i32 %.pr2452, 0
   br i1 %cmp.i.i2284, label %invoke.cont863.thread, label %if.then.i2285
 
 if.then.i2285:                                    ; preds = %invoke.cont860
@@ -7160,10 +7157,10 @@ invoke.cont863.thread:                            ; preds = %if.else.i2310, %inv
   br label %invoke.cont866
 
 invoke.cont863:                                   ; preds = %invoke.cont.i2307, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i2298, %invoke.cont860.thread
-  %.pr2450 = load i32, ptr %status, align 4
+  %.pr2454 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i2283)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2314)
-  %cmp.i.i2315 = icmp sgt i32 %.pr2450, 0
+  %cmp.i.i2315 = icmp sgt i32 %.pr2454, 0
   br i1 %cmp.i.i2315, label %invoke.cont866.thread, label %if.then.i2316
 
 if.then.i2316:                                    ; preds = %invoke.cont863
@@ -7231,10 +7228,10 @@ invoke.cont866.thread:                            ; preds = %if.else.i2341, %inv
   br label %invoke.cont869
 
 invoke.cont866:                                   ; preds = %invoke.cont.i2338, %_ZN6icu_75L21newUnicodeStringArrayEm.exit.i2329, %invoke.cont863.thread
-  %.pr2452 = load i32, ptr %status, align 4
+  %.pr2456 = load i32, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i2314)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i2345)
-  %cmp.i.i2346 = icmp sgt i32 %.pr2452, 0
+  %cmp.i.i2346 = icmp sgt i32 %.pr2456, 0
   br i1 %cmp.i.i2346, label %invoke.cont869, label %if.then.i2347
 
 if.then.i2347:                                    ; preds = %invoke.cont866
@@ -7336,12 +7333,12 @@ cleanup.cont886:                                  ; preds = %entry, %cleanup884
   ret void
 
 ehcleanup881:                                     ; preds = %lpad71.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad71.loopexit.split-lp.loopexit, %delete.notnull.i415, %ehcleanup287, %lpad.i340, %lpad.i511, %lpad.i568, %lpad.i658, %lpad.i748, %lpad.i838, %lpad.i944, %lpad.i992, %lpad.i1082, %lpad.i1202, %lpad.i1292, %lpad.i1655, %lpad.i1717, %lpad.i1779, %lpad.i1841, %lpad.i1903, %lpad.i1965, %lpad.i2027, %lpad.i2089, %lpad.i2151, %lpad.i2213, %lpad.i2275, %lpad.i2337, %lpad.i2368, %lpad.i2306, %lpad.i2244, %lpad.i2182, %lpad.i2120, %lpad.i2058, %lpad.i1996, %lpad.i1934, %lpad.i1872, %lpad.i1810, %lpad.i1748, %lpad.i1686, %lpad.i1625, %lpad.i1262, %lpad.i1142, %lpad.i1052, %lpad.i967, %lpad.i919, %lpad.i808, %lpad.i688, %lpad.i628, %lpad.i537, %lpad.i364, %lpad873, %lpad676
-  %.pn203 = phi { ptr, i32 } [ %606, %lpad873 ], [ %371, %lpad676 ], [ %62, %lpad.i340 ], [ %68, %lpad.i364 ], [ %143, %lpad.i511 ], [ %150, %lpad.i537 ], [ %166, %lpad.i568 ], [ %181, %lpad.i628 ], [ %187, %lpad.i658 ], [ %193, %lpad.i688 ], [ %208, %lpad.i748 ], [ %224, %lpad.i808 ], [ %229, %lpad.i838 ], [ %256, %lpad.i919 ], [ %263, %lpad.i944 ], [ %269, %lpad.i967 ], [ %276, %lpad.i992 ], [ %291, %lpad.i1052 ], [ %297, %lpad.i1082 ], [ %312, %lpad.i1142 ], [ %327, %lpad.i1202 ], [ %342, %lpad.i1262 ], [ %348, %lpad.i1292 ], [ %435, %lpad.i1625 ], [ %442, %lpad.i1655 ], [ %449, %lpad.i1686 ], [ %456, %lpad.i1717 ], [ %463, %lpad.i1748 ], [ %470, %lpad.i1779 ], [ %477, %lpad.i1810 ], [ %484, %lpad.i1841 ], [ %491, %lpad.i1872 ], [ %498, %lpad.i1903 ], [ %505, %lpad.i1934 ], [ %512, %lpad.i1965 ], [ %519, %lpad.i1996 ], [ %526, %lpad.i2027 ], [ %533, %lpad.i2058 ], [ %540, %lpad.i2089 ], [ %547, %lpad.i2120 ], [ %554, %lpad.i2151 ], [ %561, %lpad.i2182 ], [ %568, %lpad.i2213 ], [ %575, %lpad.i2244 ], [ %582, %lpad.i2275 ], [ %589, %lpad.i2306 ], [ %596, %lpad.i2337 ], [ %603, %lpad.i2368 ], [ %.pn201, %ehcleanup287 ], [ %.pn201, %delete.notnull.i415 ], [ %lpad.loopexit, %lpad71.loopexit ], [ %lpad.loopexit2462, %lpad71.loopexit.split-lp.loopexit ], [ %lpad.loopexit2466, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2468, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2471, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2473, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2476, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2478, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2481, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2483, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2486, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2488, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2491, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2494, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2497, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2499, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2502, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2504, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2507, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn203 = phi { ptr, i32 } [ %606, %lpad873 ], [ %371, %lpad676 ], [ %62, %lpad.i340 ], [ %68, %lpad.i364 ], [ %143, %lpad.i511 ], [ %150, %lpad.i537 ], [ %166, %lpad.i568 ], [ %181, %lpad.i628 ], [ %187, %lpad.i658 ], [ %193, %lpad.i688 ], [ %208, %lpad.i748 ], [ %224, %lpad.i808 ], [ %229, %lpad.i838 ], [ %256, %lpad.i919 ], [ %263, %lpad.i944 ], [ %269, %lpad.i967 ], [ %276, %lpad.i992 ], [ %291, %lpad.i1052 ], [ %297, %lpad.i1082 ], [ %312, %lpad.i1142 ], [ %327, %lpad.i1202 ], [ %342, %lpad.i1262 ], [ %348, %lpad.i1292 ], [ %435, %lpad.i1625 ], [ %442, %lpad.i1655 ], [ %449, %lpad.i1686 ], [ %456, %lpad.i1717 ], [ %463, %lpad.i1748 ], [ %470, %lpad.i1779 ], [ %477, %lpad.i1810 ], [ %484, %lpad.i1841 ], [ %491, %lpad.i1872 ], [ %498, %lpad.i1903 ], [ %505, %lpad.i1934 ], [ %512, %lpad.i1965 ], [ %519, %lpad.i1996 ], [ %526, %lpad.i2027 ], [ %533, %lpad.i2058 ], [ %540, %lpad.i2089 ], [ %547, %lpad.i2120 ], [ %554, %lpad.i2151 ], [ %561, %lpad.i2182 ], [ %568, %lpad.i2213 ], [ %575, %lpad.i2244 ], [ %582, %lpad.i2275 ], [ %589, %lpad.i2306 ], [ %596, %lpad.i2337 ], [ %603, %lpad.i2368 ], [ %97, %ehcleanup287 ], [ %.pn2012400, %delete.notnull.i415 ], [ %lpad.loopexit, %lpad71.loopexit ], [ %lpad.loopexit2466, %lpad71.loopexit.split-lp.loopexit ], [ %lpad.loopexit2470, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2472, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2475, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2477, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2480, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2482, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2485, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2487, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2490, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2492, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2495, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2498, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2501, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2503, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2506, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2508, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2511, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %path) #17
   br label %ehcleanup883
 
 ehcleanup883:                                     ; preds = %lpad15.loopexit, %lpad15.loopexit.split-lp, %ehcleanup881, %ehcleanup
-  %.pn203.pn = phi { ptr, i32 } [ %.pn203, %ehcleanup881 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit2509, %lpad15.loopexit ], [ %lpad.loopexit.split-lp2510, %lpad15.loopexit.split-lp ]
+  %.pn203.pn = phi { ptr, i32 } [ %.pn203, %ehcleanup881 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit2513, %lpad15.loopexit ], [ %lpad.loopexit.split-lp2514, %lpad15.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %calendarType) #17
   br label %ehcleanup887
 

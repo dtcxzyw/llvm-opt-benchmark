@@ -559,41 +559,35 @@ if.end19.i:                                       ; preds = %lor.lhs.false15.i
   %17 = load ptr, ptr %buf.i, align 8
   %18 = load i64, ptr %buf_len.i, align 8
   %cmp.i56 = icmp eq i64 %18, 8
-  br i1 %cmp.i56, label %if.then.i.i, label %land.end.i.thread
+  br i1 %cmp.i56, label %_ZL12TestCBBBasicv.exit, label %land.end.i
 
-land.end.i.thread:                                ; preds = %if.end19.i
-  %cmp.not.i.i63 = icmp eq ptr %17, null
-  br i1 %cmp.not.i.i63, label %_ZL12TestCBBBasicv.exit.thread64, label %if.then.i.i.thread
+land.end.i:                                       ; preds = %if.end19.i
+  %cmp.not.i.i = icmp eq ptr %17, null
+  br i1 %cmp.not.i.i, label %_ZL12TestCBBBasicv.exit.thread, label %_ZL12TestCBBBasicv.exit.thread62
 
-_ZL12TestCBBBasicv.exit.thread64:                 ; preds = %land.end.i.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_len.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
-  br label %return
-
-if.then.i.i.thread:                               ; preds = %land.end.i.thread
+_ZL12TestCBBBasicv.exit.thread62:                 ; preds = %land.end.i
   call void @free(ptr noundef nonnull %17) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_len.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
   br label %return
 
-if.then.i.i:                                      ; preds = %if.end19.i
-  %bcmp.i59 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %17, ptr noundef nonnull dereferenceable(8) @_ZZL12TestCBBBasicvE9kExpected, i64 8)
-  %cmp21.i = icmp eq i32 %bcmp.i59, 0
+_ZL12TestCBBBasicv.exit.thread:                   ; preds = %if.then18.i, %lor.lhs.false8, %if.end.i47, %land.end.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_len.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
+  br label %return
+
+_ZL12TestCBBBasicv.exit:                          ; preds = %if.end19.i
+  %bcmp.i58 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %17, ptr noundef nonnull dereferenceable(8) @_ZZL12TestCBBBasicvE9kExpected, i64 8)
+  %cmp21.i = icmp eq i32 %bcmp.i58, 0
   call void @free(ptr noundef nonnull %17) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_len.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
   br i1 %cmp21.i, label %lor.lhs.false10, label %return
 
-_ZL12TestCBBBasicv.exit.thread:                   ; preds = %if.then18.i, %lor.lhs.false8, %if.end.i47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_len.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
-  br label %return
-
-lor.lhs.false10:                                  ; preds = %if.then.i.i
+lor.lhs.false10:                                  ; preds = %_ZL12TestCBBBasicv.exit
   %call11 = call fastcc noundef zeroext i1 @_ZL12TestCBBFixedv()
   br i1 %call11, label %lor.lhs.false12, label %return
 
@@ -642,8 +636,8 @@ if.end:                                           ; preds = %lor.lhs.false30
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %return
 
-return:                                           ; preds = %_ZL12TestCBBBasicv.exit.thread64, %if.then.i.i.thread, %if.then.i.i, %_ZL12TestCBBBasicv.exit.thread, %_ZL11TestGetASN1v.exit.thread, %_ZL18TestGetPrefixedBadv.exit.thread, %_ZL15TestGetPrefixedv.exit.thread, %_ZL11TestGetUintv.exit.thread, %_ZL8TestSkipv.exit.thread, %_ZL8TestSkipv.exit, %_ZL11TestGetUintv.exit, %_ZL15TestGetPrefixedv.exit, %_ZL18TestGetPrefixedBadv.exit, %_ZL11TestGetASN1v.exit, %lor.lhs.false10, %lor.lhs.false12, %lor.lhs.false14, %lor.lhs.false16, %lor.lhs.false18, %lor.lhs.false20, %lor.lhs.false22, %lor.lhs.false24, %lor.lhs.false26, %lor.lhs.false28, %lor.lhs.false30, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %lor.lhs.false30 ], [ 1, %lor.lhs.false28 ], [ 1, %lor.lhs.false26 ], [ 1, %lor.lhs.false24 ], [ 1, %lor.lhs.false22 ], [ 1, %lor.lhs.false20 ], [ 1, %lor.lhs.false18 ], [ 1, %lor.lhs.false16 ], [ 1, %lor.lhs.false14 ], [ 1, %lor.lhs.false12 ], [ 1, %lor.lhs.false10 ], [ 1, %_ZL11TestGetASN1v.exit ], [ 1, %_ZL18TestGetPrefixedBadv.exit ], [ 1, %_ZL15TestGetPrefixedv.exit ], [ 1, %_ZL11TestGetUintv.exit ], [ 1, %_ZL8TestSkipv.exit ], [ 1, %_ZL8TestSkipv.exit.thread ], [ 1, %_ZL11TestGetUintv.exit.thread ], [ 1, %_ZL15TestGetPrefixedv.exit.thread ], [ 1, %_ZL18TestGetPrefixedBadv.exit.thread ], [ 1, %_ZL11TestGetASN1v.exit.thread ], [ 1, %_ZL12TestCBBBasicv.exit.thread ], [ 1, %if.then.i.i ], [ 1, %if.then.i.i.thread ], [ 1, %_ZL12TestCBBBasicv.exit.thread64 ]
+return:                                           ; preds = %_ZL12TestCBBBasicv.exit.thread62, %_ZL12TestCBBBasicv.exit.thread, %_ZL11TestGetASN1v.exit.thread, %_ZL18TestGetPrefixedBadv.exit.thread, %_ZL15TestGetPrefixedv.exit.thread, %_ZL11TestGetUintv.exit.thread, %_ZL8TestSkipv.exit.thread, %_ZL8TestSkipv.exit, %_ZL11TestGetUintv.exit, %_ZL15TestGetPrefixedv.exit, %_ZL18TestGetPrefixedBadv.exit, %_ZL11TestGetASN1v.exit, %_ZL12TestCBBBasicv.exit, %lor.lhs.false10, %lor.lhs.false12, %lor.lhs.false14, %lor.lhs.false16, %lor.lhs.false18, %lor.lhs.false20, %lor.lhs.false22, %lor.lhs.false24, %lor.lhs.false26, %lor.lhs.false28, %lor.lhs.false30, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %lor.lhs.false30 ], [ 1, %lor.lhs.false28 ], [ 1, %lor.lhs.false26 ], [ 1, %lor.lhs.false24 ], [ 1, %lor.lhs.false22 ], [ 1, %lor.lhs.false20 ], [ 1, %lor.lhs.false18 ], [ 1, %lor.lhs.false16 ], [ 1, %lor.lhs.false14 ], [ 1, %lor.lhs.false12 ], [ 1, %lor.lhs.false10 ], [ 1, %_ZL12TestCBBBasicv.exit ], [ 1, %_ZL11TestGetASN1v.exit ], [ 1, %_ZL18TestGetPrefixedBadv.exit ], [ 1, %_ZL15TestGetPrefixedv.exit ], [ 1, %_ZL11TestGetUintv.exit ], [ 1, %_ZL8TestSkipv.exit ], [ 1, %_ZL8TestSkipv.exit.thread ], [ 1, %_ZL11TestGetUintv.exit.thread ], [ 1, %_ZL15TestGetPrefixedv.exit.thread ], [ 1, %_ZL18TestGetPrefixedBadv.exit.thread ], [ 1, %_ZL11TestGetASN1v.exit.thread ], [ 1, %_ZL12TestCBBBasicv.exit.thread ], [ 1, %_ZL12TestCBBBasicv.exit.thread62 ]
   ret i32 %retval.0
 }
 
@@ -850,24 +844,24 @@ if.end36:                                         ; preds = %if.end32
   %2 = load ptr, ptr %buf, align 8
   %3 = load i64, ptr %buf_len, align 8
   %cmp.not = icmp eq i64 %3, 3
-  br i1 %cmp.not, label %lor.lhs.false37, label %cleanup
+  br i1 %cmp.not, label %cleanup.thread, label %cleanup
 
-lor.lhs.false37:                                  ; preds = %if.end36
+cleanup.thread:                                   ; preds = %if.end36
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %2, ptr noundef nonnull dereferenceable(3) @.str.6, i64 3)
   %cmp39.not = icmp eq i32 %bcmp, 0
-  br label %cleanup
+  br label %if.then.i
 
-cleanup:                                          ; preds = %lor.lhs.false37, %if.end36
-  %retval.1 = phi i1 [ false, %if.end36 ], [ %cmp39.not, %lor.lhs.false37 ]
+cleanup:                                          ; preds = %if.end36
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %return, label %if.then.i
 
-if.then.i:                                        ; preds = %cleanup
+if.then.i:                                        ; preds = %cleanup.thread, %cleanup
+  %retval.13 = phi i1 [ %cmp39.not, %cleanup.thread ], [ false, %cleanup ]
   call void @free(ptr noundef nonnull %2) #12
   br label %return
 
 return:                                           ; preds = %if.then.i, %cleanup, %entry, %if.then35, %if.then30, %if.then8
-  %retval.0 = phi i1 [ false, %if.then30 ], [ false, %if.then35 ], [ false, %if.then8 ], [ false, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i ]
+  %retval.0 = phi i1 [ false, %if.then30 ], [ false, %if.then35 ], [ false, %if.then8 ], [ false, %entry ], [ false, %cleanup ], [ %retval.13, %if.then.i ]
   ret i1 %retval.0
 }
 
@@ -977,24 +971,24 @@ if.end:                                           ; preds = %lor.lhs.false47
   %0 = load ptr, ptr %buf, align 8
   %1 = load i64, ptr %buf_len, align 8
   %cmp50 = icmp eq i64 %1, 19
-  br i1 %cmp50, label %land.rhs, label %land.end
+  br i1 %cmp50, label %land.end.thread, label %land.end
 
-land.rhs:                                         ; preds = %if.end
+land.end.thread:                                  ; preds = %if.end
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %0, ptr noundef nonnull dereferenceable(19) @_ZZL15TestCBBPrefixedvE9kExpected, i64 19)
   %cmp52 = icmp eq i32 %bcmp, 0
-  br label %land.end
+  br label %if.then.i
 
-land.end:                                         ; preds = %land.rhs, %if.end
-  %2 = phi i1 [ false, %if.end ], [ %cmp52, %land.rhs ]
+land.end:                                         ; preds = %if.end
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %return, label %if.then.i
 
-if.then.i:                                        ; preds = %land.end
+if.then.i:                                        ; preds = %land.end.thread, %land.end
+  %2 = phi i1 [ %cmp52, %land.end.thread ], [ false, %land.end ]
   call void @free(ptr noundef nonnull %0) #12
   br label %return
 
 return:                                           ; preds = %if.then.i, %land.end, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ %2, %land.end ], [ %2, %if.then.i ]
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %land.end ], [ %2, %if.then.i ]
   ret i1 %retval.0
 }
 
@@ -1163,24 +1157,24 @@ if.end81:                                         ; preds = %invoke.cont77
   %3 = load ptr, ptr %buf, align 8
   %4 = load i64, ptr %buf_len, align 8
   %cmp = icmp eq i64 %4, 16
-  br i1 %cmp, label %land.rhs, label %land.end
+  br i1 %cmp, label %land.end.thread, label %land.end
 
-land.rhs:                                         ; preds = %if.end81
+land.end.thread:                                  ; preds = %if.end81
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull dereferenceable(16) @_ZZL19TestCBBDiscardChildvE9kExpected, i64 16)
   %cmp83 = icmp eq i32 %bcmp, 0
-  br label %land.end
+  br label %if.then.i
 
-land.end:                                         ; preds = %land.rhs, %if.end81
-  %5 = phi i1 [ false, %if.end81 ], [ %cmp83, %land.rhs ]
+land.end:                                         ; preds = %if.end81
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %cleanup, label %if.then.i
 
-if.then.i:                                        ; preds = %land.end
+if.then.i:                                        ; preds = %land.end.thread, %land.end
+  %5 = phi i1 [ %cmp83, %land.end.thread ], [ false, %land.end ]
   call void @free(ptr noundef nonnull %3) #12
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i, %land.end, %invoke.cont77, %invoke.cont13, %invoke.cont19, %invoke.cont23, %invoke.cont29, %invoke.cont33, %invoke.cont39, %invoke.cont43, %invoke.cont49, %invoke.cont53, %invoke.cont57, %invoke.cont61, %invoke.cont65, %invoke.cont69, %invoke.cont1, %invoke.cont5
-  %retval.0 = phi i1 [ false, %invoke.cont5 ], [ false, %invoke.cont1 ], [ false, %invoke.cont69 ], [ false, %invoke.cont65 ], [ false, %invoke.cont61 ], [ false, %invoke.cont57 ], [ false, %invoke.cont53 ], [ false, %invoke.cont49 ], [ false, %invoke.cont43 ], [ false, %invoke.cont39 ], [ false, %invoke.cont33 ], [ false, %invoke.cont29 ], [ false, %invoke.cont23 ], [ false, %invoke.cont19 ], [ false, %invoke.cont13 ], [ false, %invoke.cont77 ], [ %5, %land.end ], [ %5, %if.then.i ]
+  %retval.0 = phi i1 [ false, %invoke.cont5 ], [ false, %invoke.cont1 ], [ false, %invoke.cont69 ], [ false, %invoke.cont65 ], [ false, %invoke.cont61 ], [ false, %invoke.cont57 ], [ false, %invoke.cont53 ], [ false, %invoke.cont49 ], [ false, %invoke.cont43 ], [ false, %invoke.cont39 ], [ false, %invoke.cont33 ], [ false, %invoke.cont29 ], [ false, %invoke.cont23 ], [ false, %invoke.cont19 ], [ false, %invoke.cont13 ], [ false, %invoke.cont77 ], [ false, %land.end ], [ %5, %if.then.i ]
   invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
           to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit2 unwind label %terminate.lpad.i1
 
@@ -1235,36 +1229,29 @@ if.end9:                                          ; preds = %lor.lhs.false5
 lor.lhs.false10:                                  ; preds = %if.end9
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @_ZZL11TestCBBASN1vE9kExpected, i64 5)
   %cmp12.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp12.not, label %if.end14, label %cleanup113
+  br i1 %cmp12.not, label %if.end14, label %if.then.i
 
 if.end14:                                         ; preds = %lor.lhs.false10
   %call5.i.i.i.i1.i.i8 = invoke noalias noundef nonnull dereferenceable(100000) ptr @_Znwm(i64 noundef 100000) #15
-          to label %invoke.cont unwind label %lpad
+          to label %invoke.cont unwind label %ehcleanup.thread
 
 invoke.cont:                                      ; preds = %if.end14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(100000) %call5.i.i.i.i1.i.i8, i8 66, i64 100000, i1 false)
   %call18 = invoke i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
-          to label %invoke.cont17 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont17 unwind label %ehcleanup.thread44
 
 invoke.cont17:                                    ; preds = %invoke.cont
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %_ZNSt6vectorIhSaIhEED2Ev.exit17, label %if.end21
 
-lpad:                                             ; preds = %if.end14
+ehcleanup.thread:                                 ; preds = %if.end14
   %2 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
-
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.then99, %lor.lhs.false95, %lor.lhs.false90, %lor.lhs.false86, %if.end82, %if.end77, %if.then64, %lor.lhs.false60, %lor.lhs.false55, %if.end51, %if.end46, %if.then34, %lor.lhs.false30, %lor.lhs.false25, %if.end21, %invoke.cont
-  %scoper.sroa.0.1 = phi ptr [ %0, %if.then34 ], [ %4, %if.then64 ], [ %7, %if.then99 ], [ %7, %lor.lhs.false95 ], [ %7, %lor.lhs.false90 ], [ %7, %lor.lhs.false86 ], [ %7, %if.end82 ], [ %7, %if.end77 ], [ %4, %lor.lhs.false60 ], [ %4, %lor.lhs.false55 ], [ %4, %if.end51 ], [ %4, %if.end46 ], [ %0, %lor.lhs.false30 ], [ %0, %lor.lhs.false25 ], [ %0, %if.end21 ], [ %0, %invoke.cont ]
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #16
-  br label %ehcleanup
+  br label %if.then.i19
 
 if.end21:                                         ; preds = %invoke.cont17
   %call23 = invoke i32 @CBB_add_asn1(ptr noundef nonnull %cbb, ptr noundef nonnull %contents, i8 noundef zeroext 48)
-          to label %invoke.cont22 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont22 unwind label %ehcleanup.thread44
 
 invoke.cont22:                                    ; preds = %if.end21
   %tobool24.not = icmp eq i32 %call23, 0
@@ -1272,7 +1259,7 @@ invoke.cont22:                                    ; preds = %if.end21
 
 lor.lhs.false25:                                  ; preds = %invoke.cont22
   %call28 = invoke i32 @CBB_add_bytes(ptr noundef nonnull %contents, ptr noundef nonnull %call5.i.i.i.i1.i.i8, i64 noundef 130)
-          to label %invoke.cont27 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont27 unwind label %ehcleanup.thread44
 
 invoke.cont27:                                    ; preds = %lor.lhs.false25
   %tobool29.not = icmp eq i32 %call28, 0
@@ -1280,7 +1267,7 @@ invoke.cont27:                                    ; preds = %lor.lhs.false25
 
 lor.lhs.false30:                                  ; preds = %invoke.cont27
   %call32 = invoke i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, ptr noundef nonnull %buf_len)
-          to label %invoke.cont31 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont31 unwind label %ehcleanup.thread44
 
 invoke.cont31:                                    ; preds = %lor.lhs.false30
   %tobool33.not = icmp eq i32 %call32, 0
@@ -1288,30 +1275,30 @@ invoke.cont31:                                    ; preds = %lor.lhs.false30
 
 if.then34:                                        ; preds = %invoke.cont31, %invoke.cont27, %invoke.cont22
   invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
-          to label %_ZNSt6vectorIhSaIhEED2Ev.exit17 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit17 unwind label %ehcleanup.thread44
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit: ; preds = %invoke.cont31
-  %4 = load ptr, ptr %buf, align 8
+  %3 = load ptr, ptr %buf, align 8
   call void @free(ptr noundef nonnull %0) #12
-  %5 = load i64, ptr %buf_len, align 8
-  %cmp37.not = icmp eq i64 %5, 133
+  %4 = load i64, ptr %buf_len, align 8
+  %cmp37.not = icmp eq i64 %4, 133
   br i1 %cmp37.not, label %lor.lhs.false38, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 lor.lhs.false38:                                  ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit
-  %6 = load ptr, ptr %buf, align 8
-  %bcmp1 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.8, i64 3)
+  %5 = load ptr, ptr %buf, align 8
+  %bcmp1 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %5, ptr noundef nonnull dereferenceable(3) @.str.8, i64 3)
   %cmp40.not = icmp eq i32 %bcmp1, 0
   br i1 %cmp40.not, label %lor.lhs.false41, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 lor.lhs.false41:                                  ; preds = %lor.lhs.false38
-  %add.ptr = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %5, i64 3
   %bcmp2 = call i32 @bcmp(ptr noundef nonnull dereferenceable(130) %add.ptr, ptr noundef nonnull dereferenceable(130) %call5.i.i.i.i1.i.i8, i64 130)
   %cmp44.not = icmp eq i32 %bcmp2, 0
   br i1 %cmp44.not, label %if.end46, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 if.end46:                                         ; preds = %lor.lhs.false41
   %call48 = invoke i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
-          to label %invoke.cont47 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont47 unwind label %ehcleanup
 
 invoke.cont47:                                    ; preds = %if.end46
   %tobool49.not = icmp eq i32 %call48, 0
@@ -1319,7 +1306,7 @@ invoke.cont47:                                    ; preds = %if.end46
 
 if.end51:                                         ; preds = %invoke.cont47
   %call53 = invoke i32 @CBB_add_asn1(ptr noundef nonnull %cbb, ptr noundef nonnull %contents, i8 noundef zeroext 48)
-          to label %invoke.cont52 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont52 unwind label %ehcleanup
 
 invoke.cont52:                                    ; preds = %if.end51
   %tobool54.not = icmp eq i32 %call53, 0
@@ -1327,7 +1314,7 @@ invoke.cont52:                                    ; preds = %if.end51
 
 lor.lhs.false55:                                  ; preds = %invoke.cont52
   %call58 = invoke i32 @CBB_add_bytes(ptr noundef nonnull %contents, ptr noundef nonnull %call5.i.i.i.i1.i.i8, i64 noundef 1000)
-          to label %invoke.cont57 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont57 unwind label %ehcleanup
 
 invoke.cont57:                                    ; preds = %lor.lhs.false55
   %tobool59.not = icmp eq i32 %call58, 0
@@ -1335,7 +1322,7 @@ invoke.cont57:                                    ; preds = %lor.lhs.false55
 
 lor.lhs.false60:                                  ; preds = %invoke.cont57
   %call62 = invoke i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, ptr noundef nonnull %buf_len)
-          to label %invoke.cont61 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont61 unwind label %ehcleanup
 
 invoke.cont61:                                    ; preds = %lor.lhs.false60
   %tobool63.not = icmp eq i32 %call62, 0
@@ -1343,37 +1330,37 @@ invoke.cont61:                                    ; preds = %lor.lhs.false60
 
 if.then64:                                        ; preds = %invoke.cont61, %invoke.cont57, %invoke.cont52
   invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
-          to label %_ZNSt6vectorIhSaIhEED2Ev.exit17 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit17 unwind label %ehcleanup
 
 if.end66:                                         ; preds = %invoke.cont61
-  %7 = load ptr, ptr %buf, align 8
-  %tobool.not.i.i9 = icmp eq ptr %4, null
+  %6 = load ptr, ptr %buf, align 8
+  %tobool.not.i.i9 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i9, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %if.end66
-  call void @free(ptr noundef nonnull %4) #12
+  call void @free(ptr noundef nonnull %3) #12
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11: ; preds = %if.end66, %if.then.i.i10
-  %8 = load i64, ptr %buf_len, align 8
-  %cmp67.not = icmp eq i64 %8, 1004
+  %7 = load i64, ptr %buf_len, align 8
+  %cmp67.not = icmp eq i64 %7, 1004
   br i1 %cmp67.not, label %lor.lhs.false68, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 lor.lhs.false68:                                  ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11
-  %9 = load ptr, ptr %buf, align 8
-  %bcmp3 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %9, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
+  %8 = load ptr, ptr %buf, align 8
+  %bcmp3 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %8, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
   %cmp70.not = icmp eq i32 %bcmp3, 0
   br i1 %cmp70.not, label %lor.lhs.false71, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 lor.lhs.false71:                                  ; preds = %lor.lhs.false68
-  %add.ptr72 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %add.ptr72 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %bcmp4 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1000) %add.ptr72, ptr noundef nonnull dereferenceable(1000) %call5.i.i.i.i1.i.i8, i64 1000)
   %tobool75.not = icmp eq i32 %bcmp4, 0
   br i1 %tobool75.not, label %if.end77, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 if.end77:                                         ; preds = %lor.lhs.false71
   %call79 = invoke i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
-          to label %invoke.cont78 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont78 unwind label %ehcleanup
 
 invoke.cont78:                                    ; preds = %if.end77
   %tobool80.not = icmp eq i32 %call79, 0
@@ -1381,7 +1368,7 @@ invoke.cont78:                                    ; preds = %if.end77
 
 if.end82:                                         ; preds = %invoke.cont78
   %call84 = invoke i32 @CBB_add_asn1(ptr noundef nonnull %cbb, ptr noundef nonnull %contents, i8 noundef zeroext 48)
-          to label %invoke.cont83 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont83 unwind label %ehcleanup
 
 invoke.cont83:                                    ; preds = %if.end82
   %tobool85.not = icmp eq i32 %call84, 0
@@ -1389,7 +1376,7 @@ invoke.cont83:                                    ; preds = %if.end82
 
 lor.lhs.false86:                                  ; preds = %invoke.cont83
   %call88 = invoke i32 @CBB_add_asn1(ptr noundef nonnull %contents, ptr noundef nonnull %inner_contents, i8 noundef zeroext 48)
-          to label %invoke.cont87 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont87 unwind label %ehcleanup
 
 invoke.cont87:                                    ; preds = %lor.lhs.false86
   %tobool89.not = icmp eq i32 %call88, 0
@@ -1397,7 +1384,7 @@ invoke.cont87:                                    ; preds = %lor.lhs.false86
 
 lor.lhs.false90:                                  ; preds = %invoke.cont87
   %call93 = invoke i32 @CBB_add_bytes(ptr noundef nonnull %inner_contents, ptr noundef nonnull %call5.i.i.i.i1.i.i8, i64 noundef 100000)
-          to label %invoke.cont92 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont92 unwind label %ehcleanup
 
 invoke.cont92:                                    ; preds = %lor.lhs.false90
   %tobool94.not = icmp eq i32 %call93, 0
@@ -1405,7 +1392,7 @@ invoke.cont92:                                    ; preds = %lor.lhs.false90
 
 lor.lhs.false95:                                  ; preds = %invoke.cont92
   %call97 = invoke i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %buf, ptr noundef nonnull %buf_len)
-          to label %invoke.cont96 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %invoke.cont96 unwind label %ehcleanup
 
 invoke.cont96:                                    ; preds = %lor.lhs.false95
   %tobool98.not = icmp eq i32 %call97, 0
@@ -1413,65 +1400,78 @@ invoke.cont96:                                    ; preds = %lor.lhs.false95
 
 if.then99:                                        ; preds = %invoke.cont96, %invoke.cont92, %invoke.cont87, %invoke.cont83
   invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
-          to label %_ZNSt6vectorIhSaIhEED2Ev.exit17 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit17 unwind label %ehcleanup
 
 if.end101:                                        ; preds = %invoke.cont96
-  %10 = load ptr, ptr %buf, align 8
-  %tobool.not.i.i12 = icmp eq ptr %7, null
+  %9 = load ptr, ptr %buf, align 8
+  %tobool.not.i.i12 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i12, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %if.end101
-  call void @free(ptr noundef nonnull %7) #12
+  call void @free(ptr noundef nonnull %6) #12
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14: ; preds = %if.end101, %if.then.i.i13
-  %11 = load i64, ptr %buf_len, align 8
-  %cmp102.not = icmp eq i64 %11, 100010
+  %10 = load i64, ptr %buf_len, align 8
+  %cmp102.not = icmp eq i64 %10, 100010
   br i1 %cmp102.not, label %lor.lhs.false103, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 lor.lhs.false103:                                 ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14
-  %12 = load ptr, ptr %buf, align 8
-  %bcmp6 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %12, ptr noundef nonnull dereferenceable(10) @.str.10, i64 10)
+  %11 = load ptr, ptr %buf, align 8
+  %bcmp6 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %11, ptr noundef nonnull dereferenceable(10) @.str.10, i64 10)
   %cmp105.not = icmp eq i32 %bcmp6, 0
   br i1 %cmp105.not, label %lor.lhs.false106, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 lor.lhs.false106:                                 ; preds = %lor.lhs.false103
-  %add.ptr107 = getelementptr inbounds nuw i8, ptr %12, i64 10
+  %add.ptr107 = getelementptr inbounds nuw i8, ptr %11, i64 10
   %bcmp7 = call i32 @bcmp(ptr noundef nonnull dereferenceable(100000) %add.ptr107, ptr noundef nonnull dereferenceable(100000) %call5.i.i.i.i1.i.i8, i64 100000)
   %tobool110.not = icmp eq i32 %bcmp7, 0
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 _ZNSt6vectorIhSaIhEED2Ev.exit17:                  ; preds = %lor.lhs.false106, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14, %lor.lhs.false103, %if.then99, %invoke.cont78, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11, %lor.lhs.false68, %lor.lhs.false71, %if.then64, %invoke.cont47, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit, %lor.lhs.false38, %lor.lhs.false41, %if.then34, %invoke.cont17
-  %scoper.sroa.0.2 = phi ptr [ %0, %invoke.cont17 ], [ %0, %if.then34 ], [ %4, %invoke.cont47 ], [ %4, %if.then64 ], [ %7, %invoke.cont78 ], [ %7, %if.then99 ], [ %10, %lor.lhs.false106 ], [ %10, %lor.lhs.false103 ], [ %10, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14 ], [ %7, %lor.lhs.false71 ], [ %7, %lor.lhs.false68 ], [ %7, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11 ], [ %4, %lor.lhs.false41 ], [ %4, %lor.lhs.false38 ], [ %4, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
+  %scoper.sroa.0.2 = phi ptr [ %0, %invoke.cont17 ], [ %0, %if.then34 ], [ %3, %invoke.cont47 ], [ %3, %if.then64 ], [ %6, %invoke.cont78 ], [ %6, %if.then99 ], [ %9, %lor.lhs.false106 ], [ %9, %lor.lhs.false103 ], [ %9, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14 ], [ %6, %lor.lhs.false71 ], [ %6, %lor.lhs.false68 ], [ %6, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11 ], [ %3, %lor.lhs.false41 ], [ %3, %lor.lhs.false38 ], [ %3, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
   %retval.2 = phi i1 [ false, %invoke.cont17 ], [ false, %if.then34 ], [ false, %invoke.cont47 ], [ false, %if.then64 ], [ false, %invoke.cont78 ], [ false, %if.then99 ], [ %tobool110.not, %lor.lhs.false106 ], [ false, %lor.lhs.false103 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14 ], [ false, %lor.lhs.false71 ], [ false, %lor.lhs.false68 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false38 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #16
   br label %cleanup113
 
-cleanup113:                                       ; preds = %if.end9, %lor.lhs.false10, %_ZNSt6vectorIhSaIhEED2Ev.exit17
-  %scoper.sroa.0.0 = phi ptr [ %scoper.sroa.0.2, %_ZNSt6vectorIhSaIhEED2Ev.exit17 ], [ %0, %lor.lhs.false10 ], [ %0, %if.end9 ]
-  %retval.1 = phi i1 [ %retval.2, %_ZNSt6vectorIhSaIhEED2Ev.exit17 ], [ false, %lor.lhs.false10 ], [ false, %if.end9 ]
+cleanup113:                                       ; preds = %if.end9, %_ZNSt6vectorIhSaIhEED2Ev.exit17
+  %scoper.sroa.0.0 = phi ptr [ %scoper.sroa.0.2, %_ZNSt6vectorIhSaIhEED2Ev.exit17 ], [ %0, %if.end9 ]
+  %retval.1 = phi i1 [ %retval.2, %_ZNSt6vectorIhSaIhEED2Ev.exit17 ], [ false, %if.end9 ]
   %cmp.not.i = icmp eq ptr %scoper.sroa.0.0, null
   br i1 %cmp.not.i, label %return, label %if.then.i
 
-if.then.i:                                        ; preds = %cleanup113
-  call void @free(ptr noundef nonnull %scoper.sroa.0.0) #12
+if.then.i:                                        ; preds = %lor.lhs.false10, %cleanup113
+  %retval.136 = phi i1 [ %retval.1, %cleanup113 ], [ false, %lor.lhs.false10 ]
+  %scoper.sroa.0.035 = phi ptr [ %scoper.sroa.0.0, %cleanup113 ], [ %0, %lor.lhs.false10 ]
+  call void @free(ptr noundef nonnull %scoper.sroa.0.035) #12
   br label %return
 
-ehcleanup:                                        ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %lpad
-  %scoper.sroa.0.3 = phi ptr [ %scoper.sroa.0.1, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %0, %lpad ]
-  %.pn = phi { ptr, i32 } [ %3, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %2, %lpad ]
-  %cmp.not.i18 = icmp eq ptr %scoper.sroa.0.3, null
+ehcleanup.thread44:                               ; preds = %if.then34, %lor.lhs.false30, %lor.lhs.false25, %if.end21, %invoke.cont
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #16
+  br label %if.then.i19
+
+ehcleanup:                                        ; preds = %if.end46, %if.end51, %lor.lhs.false55, %lor.lhs.false60, %if.then64, %if.end77, %if.end82, %lor.lhs.false86, %lor.lhs.false90, %lor.lhs.false95, %if.then99
+  %scoper.sroa.0.1.ph = phi ptr [ %3, %if.end46 ], [ %3, %if.end51 ], [ %3, %lor.lhs.false55 ], [ %3, %lor.lhs.false60 ], [ %6, %if.end77 ], [ %6, %if.end82 ], [ %6, %lor.lhs.false86 ], [ %6, %lor.lhs.false90 ], [ %6, %lor.lhs.false95 ], [ %6, %if.then99 ], [ %3, %if.then64 ]
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #16
+  %cmp.not.i18 = icmp eq ptr %scoper.sroa.0.1.ph, null
   br i1 %cmp.not.i18, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit20, label %if.then.i19
 
-if.then.i19:                                      ; preds = %ehcleanup
-  call void @free(ptr noundef nonnull %scoper.sroa.0.3) #12
+if.then.i19:                                      ; preds = %ehcleanup.thread44, %ehcleanup.thread, %ehcleanup
+  %.pn42 = phi { ptr, i32 } [ %2, %ehcleanup.thread ], [ %lpad.thr_comm.split-lp, %ehcleanup ], [ %lpad.thr_comm, %ehcleanup.thread44 ]
+  %scoper.sroa.0.341 = phi ptr [ %0, %ehcleanup.thread ], [ %scoper.sroa.0.1.ph, %ehcleanup ], [ %0, %ehcleanup.thread44 ]
+  call void @free(ptr noundef nonnull %scoper.sroa.0.341) #12
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit20
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit20:  ; preds = %ehcleanup, %if.then.i19
-  resume { ptr, i32 } %.pn
+  %.pn43 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %ehcleanup ], [ %.pn42, %if.then.i19 ]
+  resume { ptr, i32 } %.pn43
 
 return:                                           ; preds = %if.then.i, %cleanup113, %entry, %if.then8
-  %retval.0 = phi i1 [ false, %if.then8 ], [ false, %entry ], [ %retval.1, %cleanup113 ], [ %retval.1, %if.then.i ]
+  %retval.0 = phi i1 [ false, %if.then8 ], [ false, %entry ], [ %retval.1, %cleanup113 ], [ %retval.136, %if.then.i ]
   ret i1 %retval.0
 }
 

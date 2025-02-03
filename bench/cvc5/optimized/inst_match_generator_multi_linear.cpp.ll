@@ -711,7 +711,7 @@ lpad36:                                           ; preds = %call5.i.i.i.i.i.i.n
   br label %ehcleanup198
 
 for.inc43:                                        ; preds = %for.inc40, %for.body26
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin318.sroa.0.01076) #22
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin318.sroa.0.01076) #22
   %cmp.i94.not = icmp eq ptr %call.i, %6
   br i1 %cmp.i94.not, label %for.end45, label %for.body26
 

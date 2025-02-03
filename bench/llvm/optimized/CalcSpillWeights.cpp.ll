@@ -1690,7 +1690,7 @@ _ZN4llvm19MachineRegisterInfo15clearSimpleHintENS_8RegisterE.exit: ; preds = %53
   br label %.critedge
 
 .critedge:                                        ; preds = %551, %547, %.critedge2
-  %553 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0185.0284) #14
+  %553 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0185.0284) #14
   %.not230 = icmp eq ptr %553, %148
   br i1 %.not230, label %._crit_edge286.loopexit, label %547
 

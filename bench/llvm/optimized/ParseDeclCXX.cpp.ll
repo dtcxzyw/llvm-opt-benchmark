@@ -27128,28 +27128,21 @@ define dso_local void @_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingC
 15:                                               ; preds = %.lr.ph, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !261
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !261
 
-._crit_edge:                                      ; preds = %2
-  %16 = icmp eq ptr %1, null
-  br i1 %16, label %22, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %15, %2
+  %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %19 = icmp eq ptr %17, %18
+  br i1 %19, label %21, label %20
 
-._crit_edge.thread:                               ; preds = %15, %._crit_edge
-  %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = icmp eq ptr %18, %19
-  br i1 %20, label %_ZN5clang6Parser12ParsingClassD2Ev.exit, label %21
+20:                                               ; preds = %._crit_edge
+  tail call void @free(ptr noundef %17) #19
+  br label %21
 
-21:                                               ; preds = %._crit_edge.thread
-  tail call void @free(ptr noundef %18) #19
-  br label %_ZN5clang6Parser12ParsingClassD2Ev.exit
-
-_ZN5clang6Parser12ParsingClassD2Ev.exit:          ; preds = %._crit_edge.thread, %21
+21:                                               ; preds = %20, %._crit_edge
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 48) #20
-  br label %22
-
-22:                                               ; preds = %_ZN5clang6Parser12ParsingClassD2Ev.exit, %._crit_edge
   ret void
 }
 
@@ -27210,7 +27203,7 @@ _ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3popEv.exit: ; pr
   %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #19
   %36 = and i64 %35, 4294967295
   %.not8.i = icmp eq i64 %36, 0
-  br i1 %.not8.i, label %._crit_edge.thread.i, label %.lr.ph.i
+  br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34, %45
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %34 ]
@@ -27230,20 +27223,20 @@ _ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3popEv.exit: ; pr
 45:                                               ; preds = %41, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, %36
-  br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i, !llvm.loop !261
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !261
 
-._crit_edge.thread.i:                             ; preds = %45, %34
+._crit_edge.i:                                    ; preds = %45, %34
   %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %33) #19
   %47 = load ptr, ptr %33, align 8
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %49 = icmp eq ptr %47, %48
   br i1 %49, label %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit, label %50
 
-50:                                               ; preds = %._crit_edge.thread.i
+50:                                               ; preds = %._crit_edge.i
   tail call void @free(ptr noundef %47) #19
   br label %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit
 
-_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit: ; preds = %._crit_edge.thread.i, %50
+_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit: ; preds = %._crit_edge.i, %50
   tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef 48) #20
   br label %96
 
@@ -27255,7 +27248,7 @@ _ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit: ; preds = %
   %54 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #19
   %55 = and i64 %54, 4294967295
   %.not8.i7 = icmp eq i64 %55, 0
-  br i1 %.not8.i7, label %._crit_edge.thread.i13, label %.lr.ph.i9
+  br i1 %.not8.i7, label %._crit_edge.i13, label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %53, %64
   %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i11, %64 ], [ 0, %53 ]
@@ -27275,20 +27268,20 @@ _ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit: ; preds = %
 64:                                               ; preds = %60, %.lr.ph.i9
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %.not.i12 = icmp eq i64 %indvars.iv.next.i11, %55
-  br i1 %.not.i12, label %._crit_edge.thread.i13, label %.lr.ph.i9, !llvm.loop !261
+  br i1 %.not.i12, label %._crit_edge.i13, label %.lr.ph.i9, !llvm.loop !261
 
-._crit_edge.thread.i13:                           ; preds = %64, %53
+._crit_edge.i13:                                  ; preds = %64, %53
   %65 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %33) #19
   %66 = load ptr, ptr %33, align 8
   %67 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %68 = icmp eq ptr %66, %67
-  br i1 %68, label %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit16, label %69
+  br i1 %68, label %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit14, label %69
 
-69:                                               ; preds = %._crit_edge.thread.i13
+69:                                               ; preds = %._crit_edge.i13
   tail call void @free(ptr noundef %66) #19
-  br label %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit16
+  br label %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit14
 
-_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit16: ; preds = %._crit_edge.thread.i13, %69
+_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit14: ; preds = %._crit_edge.i13, %69
   tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef 48) #20
   br label %96
 
@@ -27296,7 +27289,7 @@ _ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit16: ; preds =
   %71 = load ptr, ptr %9, align 8, !noalias !265
   %72 = load ptr, ptr %11, align 8, !noalias !265
   %73 = icmp eq ptr %71, %72
-  br i1 %73, label %74, label %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit17
+  br i1 %73, label %74, label %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit15
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 2848
@@ -27304,9 +27297,9 @@ _ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit16: ; preds =
   %77 = getelementptr inbounds i8, ptr %76, i64 -8
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 512
-  br label %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit17
+  br label %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit15
 
-_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit17: ; preds = %70, %74
+_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit15: ; preds = %70, %74
   %80 = phi ptr [ %79, %74 ], [ %71, %70 ]
   %81 = getelementptr inbounds i8, ptr %80, i64 -8
   %82 = load ptr, ptr %81, align 8
@@ -27319,12 +27312,12 @@ _ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit17: ; 
   %.not.i.i.i = icmp ugt i64 %86, %87
   br i1 %.not.i.i.i, label %88, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6Parser21LateParsedDeclarationELb1EE9push_backES4_.exit
 
-88:                                               ; preds = %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit17
+88:                                               ; preds = %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit15
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull %89, i64 noundef %86, i64 noundef 8) #19
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6Parser21LateParsedDeclarationELb1EE9push_backES4_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang6Parser21LateParsedDeclarationELb1EE9push_backES4_.exit: ; preds = %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit17, %88
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang6Parser21LateParsedDeclarationELb1EE9push_backES4_.exit: ; preds = %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit15, %88
   %90 = load ptr, ptr %83, align 8
   %91 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #19
   %92 = getelementptr inbounds ptr, ptr %90, i64 %91
@@ -27335,7 +27328,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6Parser21LateParsedDeclarationELb1EE9p
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %83, i64 noundef %95) #19
   br label %96
 
-96:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6Parser21LateParsedDeclarationELb1EE9push_backES4_.exit, %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit16, %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit
+96:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6Parser21LateParsedDeclarationELb1EE9push_backES4_.exit, %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit14, %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit
   ret void
 }
 

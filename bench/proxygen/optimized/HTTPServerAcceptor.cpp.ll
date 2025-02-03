@@ -351,8 +351,6 @@ $_ZNSt6vectorIN6wangle16SSLContextConfig15CertificateInfoESaIS2_EE12emplace_back
 
 $_ZNSt6vectorIN6wangle16SSLContextConfig15CertificateInfoESaIS2_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
 
-$_ZNSt16allocator_traitsISaIN6wangle16SSLContextConfig15CertificateInfoEEE7destroyIS2_EEvRS3_PT_ = comdat any
-
 $_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_ = comdat any
 
 $_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_ = comdat any
@@ -5430,7 +5428,7 @@ lpad2.i.i.i:                                      ; preds = %invoke.cont.i.i.i
 ehcleanup.i.i.i:                                  ; preds = %lpad2.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %4, %lpad2.i.i.i ], [ %3, %lpad.i.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(97) %add.ptr) #23
-  br label %lpad.body
+  br label %invoke.cont23
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i.i
   %isBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 96
@@ -5514,35 +5512,24 @@ _ZNSt12_Vector_baseIN6wangle16SSLContextConfig15CertificateInfoESaIS2_EE13_M_dea
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN6wangle16SSLContextConfig15CertificateInfoESaIS2_EE11_M_allocateEm.exit
   %7 = landingpad { ptr, i32 }
           catch ptr null
-  br label %lpad.body
-
-lpad.body:                                        ; preds = %ehcleanup.i.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad ], [ %.pn.i.i.i, %ehcleanup.i.i.i ]
-  %8 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #23
-  %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i39
-
-if.end.thread:                                    ; preds = %lpad.body
-  tail call void @_ZNSt16allocator_traitsISaIN6wangle16SSLContextConfig15CertificateInfoEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #23
   br label %invoke.cont23
 
 lpad21:                                           ; preds = %invoke.cont23
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i39:                                      ; preds = %lpad.body
+invoke.cont23:                                    ; preds = %lpad, %ehcleanup.i.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad ], [ %.pn.i.i.i, %ehcleanup.i.i.i ]
+  %9 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #23
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #25
-  br label %invoke.cont23
-
-invoke.cont23:                                    ; preds = %if.then.i39, %if.end.thread
   invoke void @__cxa_rethrow() #26
           to label %unreachable unwind label %lpad21
 
 eh.resume:                                        ; preds = %lpad21
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %8
 
 terminate.lpad:                                   ; preds = %lpad21
   %11 = landingpad { ptr, i32 }
@@ -5553,17 +5540,6 @@ terminate.lpad:                                   ; preds = %lpad21
 
 unreachable:                                      ; preds = %invoke.cont23
   unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIN6wangle16SSLContextConfig15CertificateInfoEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) local_unnamed_addr #5 comdat align 2 {
-entry:
-  %passwordPath.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %passwordPath.i.i) #23
-  %keyPath.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %keyPath.i.i) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(97) %__p) #23
-  ret void
 }
 
 declare void @__cxa_rethrow() local_unnamed_addr
@@ -5996,7 +5972,7 @@ invoke.cont27:                                    ; preds = %if.then25
 lpad26:                                           ; preds = %if.then25
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #23
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #23
   resume { ptr, i32 } %1
 
 if.end28:                                         ; preds = %entry, %if.then
@@ -6882,7 +6858,7 @@ lpad.body:                                        ; preds = %ehcleanup.i.i, %lpa
   %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.i.i, %ehcleanup.i.i ]
   %4 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #23
-  invoke void @_ZSt8_DestroyIPN6wangle16SSLContextConfig15CertificateInfoEEvT_S4_(ptr noundef %__result, ptr noundef %__cur.015)
+  invoke void @_ZSt8_DestroyIPN6wangle16SSLContextConfig15CertificateInfoEEvT_S4_(ptr noundef %__result, ptr noundef nonnull %__cur.015)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %lpad.body
@@ -7597,7 +7573,7 @@ lpad.body:                                        ; preds = %ehcleanup.i.i, %lpa
   %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.i.i, %ehcleanup.i.i ]
   %4 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #23
-  invoke void @_ZSt8_DestroyIPN6wangle16SSLContextConfig15CertificateInfoEEvT_S4_(ptr noundef %__result, ptr noundef %__cur.015)
+  invoke void @_ZSt8_DestroyIPN6wangle16SSLContextConfig15CertificateInfoEEvT_S4_(ptr noundef %__result, ptr noundef nonnull %__cur.015)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %lpad.body

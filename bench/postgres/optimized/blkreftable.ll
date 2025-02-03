@@ -936,23 +936,23 @@ define dso_local noundef ptr @BlockRefTableGetEntry(ptr noundef readonly capture
   %.01114.i.i = phi i32 [ %.011.i.i, %21 ], [ %.01113.i.i, %4 ]
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %28, ptr noundef nonnull dereferenceable(16) %5, i64 16)
   %29 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %29, label %blockreftable_lookup.exit, label %21
+  br i1 %29, label %30, label %21
 
 blockreftable_lookup.exit.thread:                 ; preds = %21, %4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %32
+  br label %33
 
-blockreftable_lookup.exit:                        ; preds = %.lr.ph.i.i
+30:                                               ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %31 = load i32, ptr %30, align 8
-  store i32 %31, ptr %3, align 4
-  br label %32
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %32 = load i32, ptr %31, align 8
+  store i32 %32, ptr %3, align 4
+  br label %33
 
-32:                                               ; preds = %blockreftable_lookup.exit.thread, %blockreftable_lookup.exit
-  %.0.i.i9 = phi ptr [ null, %blockreftable_lookup.exit.thread ], [ %28, %blockreftable_lookup.exit ]
+33:                                               ; preds = %blockreftable_lookup.exit.thread, %30
+  %.0.i.i9 = phi ptr [ null, %blockreftable_lookup.exit.thread ], [ %28, %30 ]
   ret ptr %.0.i.i9
 }
 

@@ -461,13 +461,13 @@ lv_bidi_calculate_align.exit.i:                   ; preds = %156, %151
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %193, i64 16, i1 false), !tbaa.struct !48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %193, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !48
-  call void @lv_draw_label(ptr noundef %107, ptr noundef nonnull %4, ptr noundef nonnull %3) #7
+  call void @lv_draw_label(ptr noundef nonnull %107, ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %193, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %210
 
 209:                                              ; preds = %205
-  call void @lv_draw_label(ptr noundef %107, ptr noundef nonnull %4, ptr noundef nonnull %3) #7
+  call void @lv_draw_label(ptr noundef nonnull %107, ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   br label %210
 
 210:                                              ; preds = %209, %208

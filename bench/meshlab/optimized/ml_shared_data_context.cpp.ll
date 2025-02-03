@@ -2070,7 +2070,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
 247:                                              ; preds = %245
   %248 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %246) #24
+  tail call void @__cxa_free_exception(ptr nonnull %246) #24
   br label %.body
 
 _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %199, %242, %212, %201, %.thread
@@ -4642,7 +4642,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
 .body:                                            ; preds = %29
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %30) #24
+  tail call void @__cxa_free_exception(ptr nonnull %30) #24
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %28

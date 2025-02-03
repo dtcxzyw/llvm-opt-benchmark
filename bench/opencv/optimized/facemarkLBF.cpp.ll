@@ -18279,7 +18279,7 @@ _ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #26
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %2)
-          to label %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit35
+          to label %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit unwind label %32
 
 _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i.i = icmp eq ptr %6, %1
@@ -18328,32 +18328,32 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   store ptr %29, ptr %28, align 8
   ret void
 
-30:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit35
+30:                                               ; preds = %32
   %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %35 unwind label %36
+          to label %36 unwind label %37
 
-_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit35: ; preds = %_ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  %34 = tail call ptr @__cxa_begin_catch(ptr %33) #25
+  %34 = extractvalue { ptr, i32 } %33, 0
+  %35 = tail call ptr @__cxa_begin_catch(ptr %34) #25
   tail call void @_ZdlPv(ptr noundef nonnull %20) #27
   invoke void @__cxa_rethrow() #28
-          to label %39 unwind label %30
-
-35:                                               ; preds = %30
-  resume { ptr, i32 } %31
+          to label %40 unwind label %30
 
 36:                                               ; preds = %30
-  %37 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %31
+
+37:                                               ; preds = %30
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #29
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #29
   unreachable
 
-39:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit35
+40:                                               ; preds = %32
   unreachable
 }
 
@@ -19006,15 +19006,15 @@ _ZSt10_ConstructIN2cv4face15FacemarkLBFImpl10RandomTreeEJRKS3_EEvPT_DpOT0_.exit.
   %55 = tail call ptr @__cxa_begin_catch(ptr %54) #25
   %56 = getelementptr inbounds %"class.cv::face::FacemarkLBFImpl::RandomTree", ptr %33, i64 %1
   invoke void @_ZSt8_DestroyIPN2cv4face15FacemarkLBFImpl10RandomTreeES3_EvT_S5_RSaIT0_E(ptr noundef nonnull %33, ptr noundef nonnull %56, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseIN2cv4face15FacemarkLBFImpl10RandomTreeESaIS3_EE13_M_deallocateEPS3_m.exit unwind label %57
+          to label %.thread unwind label %57
 
-57:                                               ; preds = %_ZNSt12_Vector_baseIN2cv4face15FacemarkLBFImpl10RandomTreeESaIS3_EE13_M_deallocateEPS3_m.exit, %.body
+57:                                               ; preds = %.thread, %.body
   %58 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %74 unwind label %75
 
-_ZNSt12_Vector_baseIN2cv4face15FacemarkLBFImpl10RandomTreeESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %.body
+.thread:                                          ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %32) #27
   invoke void @__cxa_rethrow() #28
           to label %78 unwind label %57
@@ -19086,7 +19086,7 @@ _ZNSt12_Vector_baseIN2cv4face15FacemarkLBFImpl10RandomTreeESaIS3_EE13_M_dealloca
   tail call void @__clang_call_terminate(ptr %77) #29
   unreachable
 
-78:                                               ; preds = %_ZNSt12_Vector_baseIN2cv4face15FacemarkLBFImpl10RandomTreeESaIS3_EE13_M_deallocateEPS3_m.exit
+78:                                               ; preds = %.thread
   unreachable
 }
 
@@ -19403,15 +19403,15 @@ _ZSt10_ConstructIN2cv4face15FacemarkLBFImpl12RandomForestEJRKS3_EEvPT_DpOT0_.exi
   %47 = tail call ptr @__cxa_begin_catch(ptr %46) #25
   %48 = getelementptr inbounds %"class.cv::face::FacemarkLBFImpl::RandomForest", ptr %29, i64 %1
   invoke void @_ZSt8_DestroyIPN2cv4face15FacemarkLBFImpl12RandomForestES3_EvT_S5_RSaIT0_E(ptr noundef nonnull %29, ptr noundef nonnull %48, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseIN2cv4face15FacemarkLBFImpl12RandomForestESaIS3_EE13_M_deallocateEPS3_m.exit unwind label %49
+          to label %.thread unwind label %49
 
-49:                                               ; preds = %_ZNSt12_Vector_baseIN2cv4face15FacemarkLBFImpl12RandomForestESaIS3_EE13_M_deallocateEPS3_m.exit, %.body
+49:                                               ; preds = %.thread, %.body
   %50 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %63 unwind label %64
 
-_ZNSt12_Vector_baseIN2cv4face15FacemarkLBFImpl12RandomForestESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %.body
+.thread:                                          ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %28) #27
   invoke void @__cxa_rethrow() #28
           to label %67 unwind label %49
@@ -19473,7 +19473,7 @@ _ZNSt12_Vector_baseIN2cv4face15FacemarkLBFImpl12RandomForestESaIS3_EE13_M_deallo
   tail call void @__clang_call_terminate(ptr %66) #29
   unreachable
 
-67:                                               ; preds = %_ZNSt12_Vector_baseIN2cv4face15FacemarkLBFImpl12RandomForestESaIS3_EE13_M_deallocateEPS3_m.exit
+67:                                               ; preds = %.thread
   unreachable
 }
 
@@ -19662,7 +19662,7 @@ _ZSt10_ConstructISt6vectorIN2cv4face15FacemarkLBFImpl10RandomTreeESaIS4_EEJRKS6_
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #25
-  invoke void @_ZSt8_DestroyIPSt6vectorIN2cv4face15FacemarkLBFImpl10RandomTreeESaIS4_EEEvT_S8_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPSt6vectorIN2cv4face15FacemarkLBFImpl10RandomTreeESaIS4_EEEvT_S8_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22
@@ -19758,7 +19758,7 @@ _ZSt10_ConstructIN2cv4face15FacemarkLBFImpl10RandomTreeEJRKS3_EEvPT_DpOT0_.exit.
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #25
-  invoke void @_ZSt8_DestroyIPN2cv4face15FacemarkLBFImpl10RandomTreeEEvT_S5_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN2cv4face15FacemarkLBFImpl10RandomTreeEEvT_S5_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22

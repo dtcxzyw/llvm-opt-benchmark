@@ -1715,7 +1715,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #31
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit34
 
 lpad2:                                            ; preds = %invoke.cont
@@ -2078,7 +2078,7 @@ lpad:                                             ; preds = %invoke.cont14, %if.
 lpad13:                                           ; preds = %invoke.cont11
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #31
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit56
 
 if.end:                                           ; preds = %_ZNK3con14BufferedPacket9getSeqnumEv.exit.i
@@ -2996,7 +2996,7 @@ lpad163:                                          ; preds = %invoke.cont156
 lpad171:                                          ; preds = %invoke.cont169
   %101 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #31
+  call void @__cxa_free_exception(ptr nonnull %exception) #31
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad171, %lpad163, %lpad149, %lpad135
@@ -3818,7 +3818,7 @@ if.then.i43:                                      ; preds = %lor.rhs.i, %_ZNSt3m
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i) #31
   store ptr %ref.tmp, ptr %ref.tmp9.i, align 8, !tbaa !44, !alias.scope !118
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i) #31
-  %call12.i44 = invoke ptr @_ZNSt8_Rb_treeItSt4pairIKt12SharedBufferIhEESt10_Select1stIS4_ESt4lessItESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOtEESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %chunks, ptr %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  %call12.i44 = invoke ptr @_ZNSt8_Rb_treeItSt4pairIKt12SharedBufferIhEESt10_Select1stIS4_ESt4lessItESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOtEESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %chunks, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %call12.i.noexc unwind label %lpad
 
 call12.i.noexc:                                   ; preds = %if.then.i43
@@ -4808,7 +4808,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i16 %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !132
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store ptr null, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !122
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtPN3con19IncomingSplitPacketEESt10_Select1stIS5_ESt4lessItESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 2 dereferenceable(2) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtPN3con19IncomingSplitPacketEESt10_Select1stIS5_ESt4lessItESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 2 dereferenceable(2) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeItSt4pairIKtPN3con19IncomingSplitPacketEESt10_Select1stIS5_ESt4lessItESaIS5_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -13364,7 +13364,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i16 %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !426
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store ptr null, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !412
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 2 dereferenceable(2) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 2 dereferenceable(2) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -14406,7 +14406,7 @@ invoke.cont61:                                    ; preds = %sw.bb59
 lpad60:                                           ; preds = %sw.bb59
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #31
+  call void @__cxa_free_exception(ptr nonnull %exception) #31
   br label %ehcleanup63
 
 sw.epilog:                                        ; preds = %if.end
@@ -14675,7 +14675,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #31
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
@@ -14923,7 +14923,7 @@ lpad:                                             ; preds = %if.end, %invoke.con
 lpad2:                                            ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #31
+  call void @__cxa_free_exception(ptr nonnull %exception) #31
   br label %ehcleanup
 
 if.end:                                           ; preds = %entry
@@ -16723,7 +16723,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #31
+  call void @__cxa_free_exception(ptr nonnull %exception) #31
   br label %eh.resume
 
 if.end:                                           ; preds = %entry

@@ -1478,7 +1478,7 @@ ompi_mpi_instance_init_common.exit:               ; preds = %35, %46, %107, %144
 
 394:                                              ; preds = %393, %388
   %.not9.i = icmp eq ptr %390, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %395
+  br i1 %.not9.i, label %opal_obj_new.exit, label %395
 
 395:                                              ; preds = %394
   store ptr @ompi_instance_t_class, ptr %390, align 8
@@ -1487,7 +1487,7 @@ ompi_mpi_instance_init_common.exit:               ; preds = %35, %46, %107, %144
   %397 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_instance_t_class, i64 40), align 8
   %398 = load ptr, ptr %397, align 8
   %.not6.i.i24 = icmp eq ptr %398, null
-  br i1 %.not6.i.i24, label %opal_obj_new.exit.thread44, label %.lr.ph.i.i25
+  br i1 %.not6.i.i24, label %.loopexit, label %.lr.ph.i.i25
 
 .lr.ph.i.i25:                                     ; preds = %395, %.lr.ph.i.i25
   %399 = phi ptr [ %401, %.lr.ph.i.i25 ], [ %398, %395 ]
@@ -1496,18 +1496,18 @@ ompi_mpi_instance_init_common.exit:               ; preds = %35, %46, %107, %144
   %400 = getelementptr inbounds nuw i8, ptr %.07.i.i26, i64 8
   %401 = load ptr, ptr %400, align 8
   %.not.i.i27 = icmp eq ptr %401, null
-  br i1 %.not.i.i27, label %opal_obj_new.exit.thread44, label %.lr.ph.i.i25, !llvm.loop !4
+  br i1 %.not.i.i27, label %.loopexit, label %.lr.ph.i.i25, !llvm.loop !4
 
-opal_obj_new.exit.thread:                         ; preds = %394
+opal_obj_new.exit:                                ; preds = %394
   %402 = atomicrmw volatile add ptr @ompi_instance_count, i32 -1 monotonic, align 4
   %403 = icmp eq i32 %402, 1
   br i1 %403, label %404, label %433
 
-404:                                              ; preds = %opal_obj_new.exit.thread
+404:                                              ; preds = %opal_obj_new.exit
   %405 = call fastcc i32 @ompi_mpi_instance_finalize_common()
   br label %433
 
-opal_obj_new.exit.thread44:                       ; preds = %.lr.ph.i.i25, %395
+.loopexit:                                        ; preds = %.lr.ph.i.i25, %395
   %406 = getelementptr inbounds nuw i8, ptr %390, i64 248
   store ptr %2, ptr %406, align 8
   %407 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1515,11 +1515,11 @@ opal_obj_new.exit.thread44:                       ; preds = %.lr.ph.i.i25, %395
   %409 = trunc i8 %408 to i1
   br i1 %409, label %410, label %412
 
-410:                                              ; preds = %opal_obj_new.exit.thread44
+410:                                              ; preds = %.loopexit
   %411 = atomicrmw volatile add ptr %407, i32 1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit
 
-412:                                              ; preds = %opal_obj_new.exit.thread44
+412:                                              ; preds = %.loopexit
   %413 = load volatile i32, ptr %407, align 4
   %414 = add nsw i32 %413, 1
   store volatile i32 %414, ptr %407, align 4
@@ -1574,8 +1574,8 @@ opal_obj_new.exit36:                              ; preds = %.lr.ph.i.i32, %422,
   store ptr %390, ptr %3, align 8
   br label %433
 
-433:                                              ; preds = %opal_obj_new.exit.thread, %404, %ompi_mpi_instance_init_common.exit, %ompi_mpi_instance_init_common.exit.thread, %432
-  %.0 = phi i32 [ 0, %432 ], [ %.066.i.ph, %ompi_mpi_instance_init_common.exit.thread ], [ %.066.i, %ompi_mpi_instance_init_common.exit ], [ -2, %404 ], [ -2, %opal_obj_new.exit.thread ]
+433:                                              ; preds = %opal_obj_new.exit, %404, %ompi_mpi_instance_init_common.exit, %ompi_mpi_instance_init_common.exit.thread, %432
+  %.0 = phi i32 [ 0, %432 ], [ %.066.i.ph, %ompi_mpi_instance_init_common.exit.thread ], [ %.066.i, %ompi_mpi_instance_init_common.exit ], [ -2, %404 ], [ -2, %opal_obj_new.exit ]
   %434 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @instance_lock, i64 16)) #13
   ret i32 %.0
 }
@@ -1651,7 +1651,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %24, %27
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %32
-  tail call void @free(ptr noundef %14) #13
+  tail call void @free(ptr noundef nonnull %14) #13
   br label %40
 
 40:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
@@ -2668,7 +2668,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %52, %50, %39
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_group_t_class, i64 40), align 8
   %72 = load ptr, ptr %71, align 8
   %.not6.i.i.i = icmp eq ptr %72, null
-  br i1 %.not6.i.i.i, label %opal_obj_new.exit.thread10.i, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %69, %.lr.ph.i.i.i
   %73 = phi ptr [ %75, %.lr.ph.i.i.i ], [ %72, %69 ]
@@ -2677,9 +2677,9 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %52, %50, %39
   %74 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not.i.i.i = icmp eq ptr %75, null
-  br i1 %.not.i.i.i, label %opal_obj_new.exit.thread10.i, label %.lr.ph.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread10.i:                     ; preds = %.lr.ph.i.i.i, %69
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %69
   %76 = call ptr @ompi_proc_self(ptr noundef nonnull %15) #13
   %77 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store ptr %76, ptr %77, align 8
@@ -2698,8 +2698,8 @@ opal_obj_new.exit.thread10.i:                     ; preds = %.lr.ph.i.i.i, %69
   store ptr %64, ptr %2, align 8
   br label %ompi_instance_group_self.exit
 
-ompi_instance_group_self.exit:                    ; preds = %68, %opal_obj_new.exit.thread10.i
-  %.0.i19 = phi i32 [ 0, %opal_obj_new.exit.thread10.i ], [ -2, %68 ]
+ompi_instance_group_self.exit:                    ; preds = %68, %.loopexit.i
+  %.0.i19 = phi i32 [ 0, %.loopexit.i ], [ -2, %68 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   br label %ompi_instance_group_world.exit
 

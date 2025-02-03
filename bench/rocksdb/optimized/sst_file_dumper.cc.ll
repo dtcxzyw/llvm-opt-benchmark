@@ -5763,7 +5763,7 @@ if.then:                                          ; preds = %invoke.cont16
 lpad:                                             ; preds = %entry
   %15 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup111
+  br label %_ZNKSt14default_deleteIN7rocksdb3EnvEEclEPS1_.exit.i145
 
 lpad7:                                            ; preds = %call.i.noexc, %invoke.cont
   %16 = landingpad { ptr, i32 }
@@ -5780,7 +5780,7 @@ lpad12:                                           ; preds = %invoke.cont11
 ehcleanup14:                                      ; preds = %lpad7, %lpad.i, %lpad12
   %.pn.pn = phi { ptr, i32 } [ %17, %lpad12 ], [ %16, %lpad7 ], [ %2, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #25
-  br label %ehcleanup111
+  br label %_ZNKSt14default_deleteIN7rocksdb3EnvEEclEPS1_.exit.i145
 
 if.end:                                           ; preds = %invoke.cont16
   %cache_index_and_filter_blocks_with_high_priority.i = getelementptr inbounds nuw i8, ptr %table_options, i64 17
@@ -6215,7 +6215,7 @@ ehcleanup107:                                     ; preds = %_ZNSt10unique_ptrIN
   %.pn5.pn.pn = phi { ptr, i32 } [ %.pn5.pn, %_ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EED2Ev.exit129 ], [ %35, %lpad19 ]
   call void @_ZN7rocksdb22BlockBasedTableOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %table_options) #25
   %cmp.not.i.i141 = icmp eq ptr %s.sroa.55.0, null
-  br i1 %cmp.not.i.i141, label %ehcleanup111, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i142
+  br i1 %cmp.not.i.i141, label %_ZNKSt14default_deleteIN7rocksdb3EnvEEclEPS1_.exit.i145, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i142
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i132: ; preds = %_ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %s.sroa.55.2) #24
@@ -6241,23 +6241,16 @@ _ZNSt10unique_ptrIN7rocksdb3EnvESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i142: ; preds = %ehcleanup107
   call void @_ZdaPv(ptr noundef nonnull %s.sroa.55.0) #24
-  br label %ehcleanup111
+  br label %_ZNKSt14default_deleteIN7rocksdb3EnvEEclEPS1_.exit.i145
 
-ehcleanup111:                                     ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i142, %ehcleanup107, %ehcleanup14, %lpad
-  %.pn5.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup14 ], [ %15, %lpad ], [ %.pn5.pn.pn, %ehcleanup107 ], [ %.pn5.pn.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i142 ]
+_ZNKSt14default_deleteIN7rocksdb3EnvEEclEPS1_.exit.i145: ; preds = %ehcleanup107, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i142, %lpad, %ehcleanup14
+  %.pn5.pn.pn.pn.pn173 = phi { ptr, i32 } [ %15, %lpad ], [ %.pn.pn, %ehcleanup14 ], [ %.pn5.pn.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i142 ], [ %.pn5.pn.pn, %ehcleanup107 ]
   call void @_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %dest_writer) #25
-  %cmp.not.i144 = icmp eq ptr %call, null
-  br i1 %cmp.not.i144, label %_ZNSt10unique_ptrIN7rocksdb3EnvESt14default_deleteIS1_EED2Ev.exit149, label %_ZNKSt14default_deleteIN7rocksdb3EnvEEclEPS1_.exit.i145
-
-_ZNKSt14default_deleteIN7rocksdb3EnvEEclEPS1_.exit.i145: ; preds = %ehcleanup111
   %vtable.i.i146 = load ptr, ptr %call, align 8
   %vfn.i.i147 = getelementptr inbounds nuw i8, ptr %vtable.i.i146, i64 8
   %67 = load ptr, ptr %vfn.i.i147, align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(72) %call) #25
-  br label %_ZNSt10unique_ptrIN7rocksdb3EnvESt14default_deleteIS1_EED2Ev.exit149
-
-_ZNSt10unique_ptrIN7rocksdb3EnvESt14default_deleteIS1_EED2Ev.exit149: ; preds = %ehcleanup111, %_ZNKSt14default_deleteIN7rocksdb3EnvEEclEPS1_.exit.i145
-  resume { ptr, i32 } %.pn5.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn5.pn.pn.pn.pn173
 }
 
 declare noundef ptr @_ZN7rocksdb9NewMemEnvEPNS_3EnvE(ptr noundef) local_unnamed_addr #3

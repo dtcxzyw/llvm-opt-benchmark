@@ -2208,7 +2208,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryEEvT_S3_.exit.
   %33 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %60 unwind label %34
+          to label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES1_EvT_S3_RSaIT0_E.exit51.thread unwind label %34
 
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
@@ -2262,7 +2262,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryEEvT_S3_.exit.
   %45 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %63 unwind label %46
+          to label %62 unwind label %46
 
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
@@ -2275,11 +2275,11 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryEEvT_S3_.exit.
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit45.loopexit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i39
-  %.ptr65.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.014.i.i.i.i.i32.add
+  %.ptr62.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.014.i.i.i.i.i32.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit45
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit45: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit45.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %.0.lcssa.i.i.i.i.i41 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %.ptr65.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit45.loopexit ]
+  %.0.lcssa.i.i.i.i.i41 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %.ptr62.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit45.loopexit ]
   %.not4.i.i.i = icmp eq ptr %8, %7
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -2316,47 +2316,47 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE
   %59 = tail call ptr @__cxa_begin_catch(ptr %58) #19
   br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE13_M_deallocateEPS1_m.exit53
 
-60:                                               ; preds = %32
-  %61 = extractvalue { ptr, i32 } %33, 0
-  %62 = tail call ptr @__cxa_begin_catch(ptr %61) #19
+_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES1_EvT_S3_RSaIT0_E.exit51.thread: ; preds = %32
+  %60 = extractvalue { ptr, i32 } %33, 0
+  %61 = tail call ptr @__cxa_begin_catch(ptr %60) #19
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %23) #19
   br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE13_M_deallocateEPS1_m.exit53
 
-63:                                               ; preds = %44
-  %64 = extractvalue { ptr, i32 } %45, 0
-  %65 = tail call ptr @__cxa_begin_catch(ptr %64) #19
+62:                                               ; preds = %44
+  %63 = extractvalue { ptr, i32 } %45, 0
+  %64 = tail call ptr @__cxa_begin_catch(ptr %63) #19
   %.not4.i.i.i47 = icmp eq ptr %22, %.ptr
   br i1 %.not4.i.i.i47, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE13_M_deallocateEPS1_m.exit53, label %.lr.ph.i.i.i48
 
-.lr.ph.i.i.i48:                                   ; preds = %63, %.lr.ph.i.i.i48
-  %.05.i.i.i49 = phi ptr [ %66, %.lr.ph.i.i.i48 ], [ %22, %63 ]
+.lr.ph.i.i.i48:                                   ; preds = %62, %.lr.ph.i.i.i48
+  %.05.i.i.i49 = phi ptr [ %65, %.lr.ph.i.i.i48 ], [ %22, %62 ]
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i49) #19
-  %66 = getelementptr inbounds nuw i8, ptr %.05.i.i.i49, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %.05.i.i.i49, i64 64
   %.not.i.i.i50 = icmp eq ptr %.05.i.i.i49, %.0.lcssa.i.i.i.i.i
   br i1 %.not.i.i.i50, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE13_M_deallocateEPS1_m.exit53, label %.lr.ph.i.i.i48, !llvm.loop !4
 
-67:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE13_M_deallocateEPS1_m.exit53
-  %68 = landingpad { ptr, i32 }
+66:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE13_M_deallocateEPS1_m.exit53
+  %67 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %69 unwind label %70
+          to label %68 unwind label %69
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE13_M_deallocateEPS1_m.exit53: ; preds = %.lr.ph.i.i.i48, %.thread, %63, %60
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE13_M_deallocateEPS1_m.exit53: ; preds = %.lr.ph.i.i.i48, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES1_EvT_S3_RSaIT0_E.exit51.thread, %.thread, %62
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %21) #20
   invoke void @__cxa_rethrow() #21
-          to label %73 unwind label %67
+          to label %72 unwind label %66
 
-69:                                               ; preds = %67
-  resume { ptr, i32 } %68
+68:                                               ; preds = %66
+  resume { ptr, i32 } %67
 
-70:                                               ; preds = %67
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %66
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #18
+  %71 = extractvalue { ptr, i32 } %70, 0
+  tail call void @__clang_call_terminate(ptr %71) #18
   unreachable
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE13_M_deallocateEPS1_m.exit53
+72:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EE13_M_deallocateEPS1_m.exit53
   unreachable
 }
 
@@ -2514,7 +2514,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32p
           to label %16 unwind label %19
 
 16:                                               ; preds = %14
-  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr %0, i64 noundef %.010, i64 noundef %9, ptr noundef nonnull %5)
+  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nonnull %0, i64 noundef %.010, i64 noundef %9, ptr noundef nonnull %5)
           to label %17 unwind label %21
 
 17:                                               ; preds = %16

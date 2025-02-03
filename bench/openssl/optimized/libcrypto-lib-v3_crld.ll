@@ -98,8 +98,8 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp442 = icmp sgt i32 %call1, 0
-  br i1 %cmp442, label %for.body, label %return
+  %cmp439 = icmp sgt i32 %call1, 0
+  br i1 %cmp439, label %for.body, label %return
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #4
@@ -108,8 +108,8 @@ if.then:                                          ; preds = %entry
   br label %err
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.043 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef %nval, i32 noundef %i.043) #4
+  %i.040 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef %nval, i32 noundef %i.040) #4
   %value = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %0 = load ptr, ptr %value, align 8
   %cmp7 = icmp eq ptr %0, null
@@ -125,7 +125,7 @@ if.then8:                                         ; preds = %for.body
 if.end11:                                         ; preds = %if.then8
   %call1.i.i = tail call ptr @ASN1_item_new(ptr noundef nonnull @DIST_POINT_it.local_it) #4
   %cmp.i = icmp eq ptr %call1.i.i, null
-  br i1 %cmp.i, label %crldp_from_section.exit.thread, label %for.cond.preheader.i
+  br i1 %cmp.i, label %crldp_from_section.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end11
   %call216.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call9) #4
@@ -146,7 +146,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.end9.i:                                        ; preds = %for.body.i
   %cmp10.i = icmp slt i32 %call6.i, 0
-  br i1 %cmp10.i, label %crldp_from_section.exit.thread, label %if.end12.i
+  br i1 %cmp10.i, label %crldp_from_section.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end9.i
   %name.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 8
@@ -160,7 +160,7 @@ if.then15.i:                                      ; preds = %if.end12.i
   %3 = load ptr, ptr %value.i, align 8
   %call16.i = tail call fastcc i32 @set_reasons(ptr noundef %reasons.i, ptr noundef %3)
   %tobool.not.i = icmp eq i32 %call16.i, 0
-  br i1 %tobool.not.i, label %crldp_from_section.exit.thread, label %for.inc.i
+  br i1 %tobool.not.i, label %crldp_from_section.exit, label %for.inc.i
 
 if.else.i:                                        ; preds = %if.end12.i
   %call20.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @.str.6) #5
@@ -173,7 +173,7 @@ if.then22.i:                                      ; preds = %if.else.i
   %call24.i = tail call fastcc ptr @gnames_from_sectname(ptr noundef %ctx, ptr noundef %4)
   store ptr %call24.i, ptr %CRLissuer.i, align 8
   %cmp26.i = icmp eq ptr %call24.i, null
-  br i1 %cmp26.i, label %crldp_from_section.exit.thread, label %for.inc.i
+  br i1 %cmp26.i, label %crldp_from_section.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then22.i, %if.else.i, %if.then15.i, %for.body.i
   %inc.i = add nuw nsw i32 %i.018.i, 1
@@ -181,7 +181,7 @@ for.inc.i:                                        ; preds = %if.then22.i, %if.el
   %cmp3.i = icmp slt i32 %inc.i, %call2.i
   br i1 %cmp3.i, label %for.body.i, label %if.end15, !llvm.loop !4
 
-crldp_from_section.exit.thread:                   ; preds = %if.end11, %if.end9.i, %if.then15.i, %if.then22.i
+crldp_from_section.exit:                          ; preds = %if.end11, %if.end9.i, %if.then15.i, %if.then22.i
   tail call void @ASN1_item_free(ptr noundef %call1.i.i, ptr noundef nonnull @DIST_POINT_it.local_it) #4
   tail call void @X509V3_section_free(ptr noundef %ctx, ptr noundef nonnull %call9) #4
   br label %err
@@ -250,13 +250,13 @@ if.end43:                                         ; preds = %if.end36
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end15, %if.end43
-  %inc = add nuw nsw i32 %i.043, 1
+  %inc = add nuw nsw i32 %i.040, 1
   %exitcond.not = icmp eq i32 %inc, %call1
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
-err:                                              ; preds = %if.else, %if.then8, %crldp_from_section.exit.thread, %if.then42, %if.then35, %if.then31, %if.then25, %if.then
-  %gen.0 = phi ptr [ null, %if.then ], [ %call19, %if.then25 ], [ null, %if.then35 ], [ null, %if.then42 ], [ %call19, %if.then31 ], [ null, %crldp_from_section.exit.thread ], [ null, %if.then8 ], [ null, %if.else ]
-  %gens.0 = phi ptr [ null, %if.then ], [ null, %if.then25 ], [ %call23, %if.then35 ], [ %call23, %if.then42 ], [ %call23, %if.then31 ], [ null, %crldp_from_section.exit.thread ], [ null, %if.then8 ], [ null, %if.else ]
+err:                                              ; preds = %if.else, %if.then8, %crldp_from_section.exit, %if.then42, %if.then35, %if.then31, %if.then25, %if.then
+  %gen.0 = phi ptr [ null, %if.then ], [ null, %crldp_from_section.exit ], [ %call19, %if.then25 ], [ null, %if.then35 ], [ null, %if.then42 ], [ %call19, %if.then31 ], [ null, %if.then8 ], [ null, %if.else ]
+  %gens.0 = phi ptr [ null, %if.then ], [ null, %crldp_from_section.exit ], [ null, %if.then25 ], [ %call23, %if.then35 ], [ %call23, %if.then42 ], [ %call23, %if.then31 ], [ null, %if.then8 ], [ null, %if.else ]
   tail call void @GENERAL_NAME_free(ptr noundef %gen.0) #4
   tail call void @GENERAL_NAMES_free(ptr noundef %gens.0) #4
   tail call void @OPENSSL_sk_pop_free(ptr noundef %call3, ptr noundef nonnull @DIST_POINT_free) #4

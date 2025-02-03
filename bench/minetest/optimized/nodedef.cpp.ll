@@ -22644,7 +22644,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i44, %_
   br label %ehcleanup27
 
 if.end:                                           ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEtED2Ev.exit, %call.i.i.noexc
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.056) #40
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.056) #40
   %cmp.i.not = icmp eq ptr %call.i, %0
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 

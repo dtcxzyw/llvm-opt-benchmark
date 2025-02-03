@@ -5246,7 +5246,7 @@ sub_129:                                          ; preds = %sub_023
   store ptr @basic_request_dissector, ptr %4, align 8
   %171 = load ptr, ptr %6, align 8
   %172 = zext nneg i32 %.0.lcssa to i64
-  %173 = tail call noalias ptr @wmem_strndup(ptr noundef %171, ptr noundef %.01304951, i64 noundef %172) #14
+  %173 = tail call noalias ptr @wmem_strndup(ptr noundef %171, ptr noundef nonnull %.01304951, i64 noundef %172) #14
   %174 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %173, ptr %174, align 8
   br label %.thread15

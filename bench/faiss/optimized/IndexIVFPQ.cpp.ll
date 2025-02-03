@@ -1434,7 +1434,7 @@ define void @_ZN5faiss10IndexIVFPQ10add_core_oElPKfPKlPfS4_Pv(ptr noundef nonnul
 52:                                               ; preds = %45
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %48) #15
+  call void @__cxa_free_exception(ptr nonnull %48) #15
   br label %54
 
 54:                                               ; preds = %52, %50
@@ -2084,7 +2084,7 @@ define void @_ZN5faiss34initialize_IVFPQ_precomputed_tableERiPKNS_5IndexERKNS_16
 31:                                               ; preds = %24
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #15
+  call void @__cxa_free_exception(ptr nonnull %27) #15
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -2427,7 +2427,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 162:                                              ; preds = %155
   %163 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %158) #15
+  call void @__cxa_free_exception(ptr nonnull %158) #15
   br label %164
 
 164:                                              ; preds = %162, %160
@@ -2473,7 +2473,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 183:                                              ; preds = %176
   %184 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %179) #15
+  call void @__cxa_free_exception(ptr nonnull %179) #15
   br label %185
 
 185:                                              ; preds = %183, %181
@@ -10097,7 +10097,7 @@ define internal fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22prec
 141:                                              ; preds = %134
   %142 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %137) #15
+  call void @__cxa_free_exception(ptr nonnull %137) #15
   br label %143
 
 143:                                              ; preds = %141, %139
@@ -10435,7 +10435,7 @@ define internal fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30prec
 77:                                               ; preds = %70
   %78 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %73) #15
+  call void @__cxa_free_exception(ptr nonnull %73) #15
   br label %79
 
 79:                                               ; preds = %77, %75

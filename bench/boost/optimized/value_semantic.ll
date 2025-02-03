@@ -1734,7 +1734,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_15program_options
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -1906,7 +1906,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_15program_options
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -2868,7 +2868,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_15program_options
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -5301,7 +5301,7 @@ define void @_ZNK5boost15program_options22error_with_option_name27get_canonical_
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %20) #28
+  tail call void @__cxa_free_exception(ptr nonnull %20) #28
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %._crit_edge.i.i16, %._crit_edge.i.i12, %._crit_edge.i.i8, %._crit_edge.i.i4, %._crit_edge.i.i
@@ -5851,7 +5851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 158:                                              ; preds = %155
   %159 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %156) #28, !noalias !100
+  call void @__cxa_free_exception(ptr nonnull %156) #28, !noalias !100
   br label %.body
 
 _ZNK5boost15program_options22error_with_option_name27get_canonical_option_prefixB5cxx11Ev.exit: ; preds = %._crit_edge.i.i12.i, %._crit_edge.i.i8.i, %._crit_edge.i.i4.i, %._crit_edge.i.i.i
@@ -6065,7 +6065,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 227:                                              ; preds = %224
   %228 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %225) #28, !noalias !106
+  call void @__cxa_free_exception(ptr nonnull %225) #28, !noalias !106
   br label %.body175
 
 _ZNK5boost15program_options22error_with_option_name27get_canonical_option_prefixB5cxx11Ev.exit177: ; preds = %._crit_edge.i.i12.i170, %._crit_edge.i.i8.i171, %._crit_edge.i.i4.i172, %._crit_edge.i.i.i173
@@ -6701,7 +6701,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
 108:                                              ; preds = %105
   %109 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %106) #28, !noalias !119
+  call void @__cxa_free_exception(ptr nonnull %106) #28, !noalias !119
   br label %.body
 
 _ZNK5boost15program_options22error_with_option_name27get_canonical_option_prefixB5cxx11Ev.exit: ; preds = %._crit_edge.i.i16.i, %._crit_edge.i.i12.i, %._crit_edge.i.i8.i, %._crit_edge.i.i4.i, %._crit_edge.i.i.i
@@ -7119,7 +7119,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
   br label %.loopexit.split-lp101
 
 _ZNK5boost15program_options22error_with_option_name13replace_tokenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit: ; preds = %.noexc58, %.thread, %240
-  %267 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.084.0130) #32
+  %267 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.084.0130) #32
   %.not = icmp eq ptr %267, %168
   br i1 %.not, label %._crit_edge, label %214, !llvm.loop !122
 
@@ -7261,7 +7261,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #28
-  %322 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.079.0132) #32
+  %322 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.079.0132) #32
   %.not96 = icmp eq ptr %322, %13
   br i1 %.not96, label %._crit_edge135, label %272, !llvm.loop !126
 
@@ -11532,7 +11532,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_15program_options20mu
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -12676,7 +12676,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_15program_options15mu
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -14134,7 +14134,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_15program_options
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -14393,7 +14393,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_15program_options16va
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -14770,7 +14770,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_15program_options18in
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 

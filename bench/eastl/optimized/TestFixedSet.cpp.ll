@@ -13327,7 +13327,7 @@ for.body.i.i:                                     ; preds = %invoke.cont124, %ca
           to label %call7.i.noexc.i unwind label %lpad.i186
 
 call7.i.noexc.i:                                  ; preds = %for.body.i.i
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #18
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #18
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %7
   br i1 %cmp.i.not.i.i, label %invoke.cont135.loopexit, label %for.body.i.i, !llvm.loop !34
 
@@ -16440,7 +16440,7 @@ for.body.i.i:                                     ; preds = %invoke.cont128, %ca
           to label %call7.i.noexc.i unwind label %lpad.i
 
 call7.i.noexc.i:                                  ; preds = %for.body.i.i
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #18
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #18
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %7
   br i1 %cmp.i.not.i.i, label %invoke.cont139.loopexit, label %for.body.i.i, !llvm.loop !37
 
@@ -21228,7 +21228,7 @@ if.end16.i:                                       ; preds = %land.rhs.i764, %whi
 invoke.cont250:                                   ; preds = %if.end16.i, %land.rhs.i764
   %retval.sroa.0.0.i = phi ptr [ %call190, %if.end16.i ], [ %pRangeEnd.1.i, %land.rhs.i764 ]
   store i32 1, ptr %ref.tmp252, align 4
-  %call4.i765 = invoke ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIiPKiRSC_EEOi(ptr noundef nonnull align 8 dereferenceable(88) %call190, ptr %retval.sroa.0.0.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp252)
+  %call4.i765 = invoke ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIiPKiRSC_EEOi(ptr noundef nonnull align 8 dereferenceable(88) %call190, ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp252)
           to label %invoke.cont254 unwind label %lpad209.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont254:                                   ; preds = %invoke.cont250
@@ -21570,7 +21570,7 @@ if.end16.i883:                                    ; preds = %land.rhs.i879, %whi
 invoke.cont342:                                   ; preds = %if.end16.i883, %land.rhs.i879
   %retval.sroa.0.0.i882 = phi ptr [ %call190, %if.end16.i883 ], [ %pRangeEnd.1.i874, %land.rhs.i879 ]
   store i32 1, ptr %ref.tmp345, align 4
-  %call4.i885 = invoke ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIiPKiRSC_EEOi(ptr noundef nonnull align 8 dereferenceable(88) %call190, ptr %retval.sroa.0.0.i882, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp345)
+  %call4.i885 = invoke ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIiPKiRSC_EEOi(ptr noundef nonnull align 8 dereferenceable(88) %call190, ptr nonnull %retval.sroa.0.0.i882, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp345)
           to label %invoke.cont347 unwind label %lpad209.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont347:                                   ; preds = %invoke.cont342
@@ -21940,7 +21940,7 @@ if.end16.i1063:                                   ; preds = %land.rhs.i1059, %wh
 
 invoke.cont438:                                   ; preds = %if.end16.i1063, %land.rhs.i1059
   %retval.sroa.0.0.i1062 = phi ptr [ %call190, %if.end16.i1063 ], [ %pRangeEnd.1.i1054, %land.rhs.i1059 ]
-  %call.i1066 = invoke ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb1EE5eraseENS_15rbtree_iteratorIiPKiRSA_EESD_(ptr noundef nonnull align 8 dereferenceable(88) %call190, ptr %retval.sroa.0.0.i1040, ptr %retval.sroa.0.0.i1062)
+  %call.i1066 = invoke ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb1EE5eraseENS_15rbtree_iteratorIiPKiRSA_EESD_(ptr noundef nonnull align 8 dereferenceable(88) %call190, ptr %retval.sroa.0.0.i1040, ptr nonnull %retval.sroa.0.0.i1062)
           to label %invoke.cont445 unwind label %lpad209.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont445:                                   ; preds = %invoke.cont438
@@ -25542,7 +25542,7 @@ invoke.cont287:                                   ; preds = %if.end16.i, %land.r
   store i64 %inc4.i1026, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %mId.i1027 = getelementptr inbounds nuw i8, ptr %ref.tmp289, i64 8
   store i64 %inc3.i1025, ptr %mId.i1027, align 8
-  %call4.i1028 = invoke ptr @_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS1_PKS1_RSD_EEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %call213, ptr %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp289)
+  %call4.i1028 = invoke ptr @_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS1_PKS1_RSD_EEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %call213, ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp289)
           to label %invoke.cont293 unwind label %lpad292
 
 invoke.cont293:                                   ; preds = %invoke.cont287
@@ -26145,7 +26145,7 @@ invoke.cont419:                                   ; preds = %if.end16.i1329, %la
   store i64 %inc4.i1335, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %mId.i1336 = getelementptr inbounds nuw i8, ptr %ref.tmp422, i64 8
   store i64 %inc3.i1334, ptr %mId.i1336, align 8
-  %call4.i1337 = invoke ptr @_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS1_PKS1_RSD_EEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %call213, ptr %retval.sroa.0.0.i1328, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp422)
+  %call4.i1337 = invoke ptr @_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb1EE17DoInsertValueHintENS_17integral_constantIbLb1EEENS_15rbtree_iteratorIS1_PKS1_RSD_EEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %call213, ptr nonnull %retval.sroa.0.0.i1328, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp422)
           to label %invoke.cont426 unwind label %lpad425
 
 invoke.cont426:                                   ; preds = %invoke.cont419
@@ -26775,7 +26775,7 @@ _ZN10TestObjectD2Ev.exit1735:                     ; preds = %land.rhs.i1722, %if
   store i64 %628, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i1734 = add nsw i64 %633, 2
   store i64 %inc3.i1734, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %call.i1737 = invoke ptr @_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb1EE5eraseENS_15rbtree_iteratorIS1_PKS1_RSB_EESE_(ptr noundef nonnull align 8 dereferenceable(88) %call213, ptr %retval.sroa.0.0.i1689, ptr %retval.sroa.0.0.i1725)
+  %call.i1737 = invoke ptr @_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb1EE5eraseENS_15rbtree_iteratorIS1_PKS1_RSB_EESE_(ptr noundef nonnull align 8 dereferenceable(88) %call213, ptr %retval.sroa.0.0.i1689, ptr nonnull %retval.sroa.0.0.i1725)
           to label %invoke.cont566 unwind label %lpad232.loopexit.split-lp
 
 invoke.cont566:                                   ; preds = %_ZN10TestObjectD2Ev.exit1735
@@ -30678,7 +30678,7 @@ if.end16.i:                                       ; preds = %land.rhs.i801, %whi
 invoke.cont248:                                   ; preds = %if.end16.i, %land.rhs.i801
   %retval.sroa.0.0.i = phi ptr [ %call188, %if.end16.i ], [ %pRangeEnd.1.i, %land.rhs.i801 ]
   store i32 1, ptr %ref.tmp251, align 4
-  %call4.i802 = invoke ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIiPKiRSC_EEOi(ptr noundef nonnull align 8 dereferenceable(88) %call188, ptr %retval.sroa.0.0.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp251)
+  %call4.i802 = invoke ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIiPKiRSC_EEOi(ptr noundef nonnull align 8 dereferenceable(88) %call188, ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp251)
           to label %invoke.cont253 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont253:                                   ; preds = %invoke.cont248
@@ -30921,7 +30921,7 @@ if.end16.i894:                                    ; preds = %land.rhs.i890, %whi
 invoke.cont341:                                   ; preds = %if.end16.i894, %land.rhs.i890
   %retval.sroa.0.0.i893 = phi ptr [ %call188, %if.end16.i894 ], [ %pRangeEnd.1.i885, %land.rhs.i890 ]
   store i32 1, ptr %ref.tmp344, align 4
-  %call4.i896 = invoke ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIiPKiRSC_EEOi(ptr noundef nonnull align 8 dereferenceable(88) %call188, ptr %retval.sroa.0.0.i893, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp344)
+  %call4.i896 = invoke ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIiPKiRSC_EEOi(ptr noundef nonnull align 8 dereferenceable(88) %call188, ptr nonnull %retval.sroa.0.0.i893, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp344)
           to label %invoke.cont346 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont346:                                   ; preds = %invoke.cont341
@@ -31192,7 +31192,7 @@ if.end16.i1042:                                   ; preds = %land.rhs.i1038, %wh
 
 invoke.cont437:                                   ; preds = %if.end16.i1042, %land.rhs.i1038
   %retval.sroa.0.0.i1041 = phi ptr [ %call188, %if.end16.i1042 ], [ %pRangeEnd.1.i1033, %land.rhs.i1038 ]
-  %call.i1044 = invoke ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb0EE5eraseENS_15rbtree_iteratorIiPKiRSA_EESD_(ptr noundef nonnull align 8 dereferenceable(88) %call188, ptr %retval.sroa.0.0.i1019, ptr %retval.sroa.0.0.i1041)
+  %call.i1044 = invoke ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb0EE5eraseENS_15rbtree_iteratorIiPKiRSA_EESD_(ptr noundef nonnull align 8 dereferenceable(88) %call188, ptr %retval.sroa.0.0.i1019, ptr nonnull %retval.sroa.0.0.i1041)
           to label %invoke.cont444 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont444:                                   ; preds = %invoke.cont437
@@ -35067,7 +35067,7 @@ invoke.cont285:                                   ; preds = %if.end16.i, %land.r
   store i64 %inc4.i1058, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %mId.i1059 = getelementptr inbounds nuw i8, ptr %ref.tmp288, i64 8
   store i64 %inc3.i1057, ptr %mId.i1059, align 8
-  %call4.i1060 = invoke ptr @_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS1_PKS1_RSD_EEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %call211, ptr %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp288)
+  %call4.i1060 = invoke ptr @_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS1_PKS1_RSD_EEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %call211, ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp288)
           to label %invoke.cont292 unwind label %lpad291
 
 invoke.cont292:                                   ; preds = %invoke.cont285
@@ -35554,7 +35554,7 @@ invoke.cont418:                                   ; preds = %if.end16.i1318, %la
   store i64 %inc4.i1324, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %mId.i1325 = getelementptr inbounds nuw i8, ptr %ref.tmp421, i64 8
   store i64 %inc3.i1323, ptr %mId.i1325, align 8
-  %call4.i1326 = invoke ptr @_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS1_PKS1_RSD_EEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %call211, ptr %retval.sroa.0.0.i1317, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp421)
+  %call4.i1326 = invoke ptr @_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb0EE17DoInsertValueHintENS_17integral_constantIbLb0EEENS_15rbtree_iteratorIS1_PKS1_RSD_EEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %call211, ptr nonnull %retval.sroa.0.0.i1317, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp421)
           to label %invoke.cont425 unwind label %lpad424
 
 invoke.cont425:                                   ; preds = %invoke.cont418
@@ -36068,7 +36068,7 @@ _ZN10TestObjectD2Ev.exit1674:                     ; preds = %land.rhs.i1661, %if
   store i64 %628, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i1673 = add nsw i64 %633, 2
   store i64 %inc3.i1673, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %call.i1676 = invoke ptr @_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb0EE5eraseENS_15rbtree_iteratorIS1_PKS1_RSB_EESE_(ptr noundef nonnull align 8 dereferenceable(88) %call211, ptr %retval.sroa.0.0.i1628, ptr %retval.sroa.0.0.i1664)
+  %call.i1676 = invoke ptr @_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb0EE5eraseENS_15rbtree_iteratorIS1_PKS1_RSB_EESE_(ptr noundef nonnull align 8 dereferenceable(88) %call211, ptr %retval.sroa.0.0.i1628, ptr nonnull %retval.sroa.0.0.i1664)
           to label %invoke.cont565 unwind label %lpad230.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont565:                                   ; preds = %_ZN10TestObjectD2Ev.exit1674
@@ -51843,7 +51843,7 @@ for.body.i:                                       ; preds = %entry, %call.i.i.no
           to label %call4.i.noexc unwind label %lpad
 
 call4.i.noexc:                                    ; preds = %for.body.i
-  %call.i.i2 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef %first.sroa.0.04.i)
+  %call.i.i2 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %first.sroa.0.04.i)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %call4.i.noexc
@@ -51954,7 +51954,7 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIiiSt
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE17_M_insert_unique_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiESt23_Rb_tree_const_iteratorIiEOT_RT0_.exit.i: ; preds = %if.end12.i.i, %call5.i.i.i.i.i.i.i.i.noexc
   %.pr = phi i64 [ %.pr15, %if.end12.i.i ], [ %inc.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc ]
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i) #18
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i) #18
   %cmp.i.not.i = icmp eq ptr %call.i.i, %__last.coerce
   br i1 %cmp.i.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !190
 
@@ -54125,7 +54125,7 @@ for.body.i:                                       ; preds = %entry, %call.i.i.no
           to label %call4.i.noexc unwind label %lpad
 
 call4.i.noexc:                                    ; preds = %for.body.i
-  %call.i.i2 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef %first.sroa.0.04.i)
+  %call.i.i2 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %first.sroa.0.04.i)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %call4.i.noexc
@@ -55445,7 +55445,7 @@ _ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_I
   br label %_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE17_M_insert_unique_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_ESt23_Rb_tree_const_iteratorIS0_EOT_RT0_.exit
 
 _ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE17_M_insert_unique_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_ESt23_Rb_tree_const_iteratorIS0_EOT_RT0_.exit: ; preds = %for.body, %_ZNSt8_Rb_treeI10TestObjectS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04) #18
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04) #18
   %cmp.i.not = icmp eq ptr %call.i, %__last.coerce
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !203
 
@@ -58090,7 +58090,7 @@ for.body.i:                                       ; preds = %entry, %call.i.i.no
           to label %call4.i.noexc unwind label %lpad
 
 call4.i.noexc:                                    ; preds = %for.body.i
-  %call.i.i2 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef %first.sroa.0.04.i)
+  %call.i.i2 = invoke noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %first.sroa.0.04.i)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %call4.i.noexc

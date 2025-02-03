@@ -2086,13 +2086,13 @@ define internal fastcc void @check_send_notification(ptr noundef nonnull %0, ptr
 
 64:                                               ; preds = %60, %62
   %65 = load i64, ptr %6, align 8
-  call void @PMIx_Info_free(ptr noundef %52, i64 noundef %65) #10
+  call void @PMIx_Info_free(ptr noundef nonnull %52, i64 noundef %65) #10
   br label %.sink.split
 
 66:                                               ; preds = %60
   %67 = load i64, ptr %6, align 8
   %68 = trunc i64 %67 to i32
-  %69 = call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef nonnull %8, ptr noundef %52, i32 noundef %68, i16 noundef zeroext 24) #10
+  %69 = call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %52, i32 noundef %68, i16 noundef zeroext 24) #10
   switch i32 %69, label %70 [
     i32 0, label %74
     i32 -2, label %72
@@ -2105,12 +2105,12 @@ define internal fastcc void @check_send_notification(ptr noundef nonnull %0, ptr
 
 72:                                               ; preds = %66, %70
   %73 = load i64, ptr %6, align 8
-  call void @PMIx_Info_free(ptr noundef %52, i64 noundef %73) #10
+  call void @PMIx_Info_free(ptr noundef nonnull %52, i64 noundef %73) #10
   br label %.sink.split
 
 74:                                               ; preds = %66
   %75 = load i64, ptr %6, align 8
-  call void @PMIx_Info_free(ptr noundef %52, i64 noundef %75) #10
+  call void @PMIx_Info_free(ptr noundef nonnull %52, i64 noundef %75) #10
   %76 = load i32, ptr @pmix_class_init_epoch, align 4
   %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_grpcomm_signature_t_class, i64 32), align 8
   %.not51 = icmp eq i32 %76, %77

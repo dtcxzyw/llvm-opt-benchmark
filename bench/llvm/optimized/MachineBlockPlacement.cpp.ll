@@ -8013,20 +8013,20 @@ _ZN12_GLOBAL__N_121MachineBlockPlacement23canMoveBottomBlockToTopEPKN4llvm17Mach
 
 417:                                              ; preds = %_ZN12_GLOBAL__N_121MachineBlockPlacement23canMoveBottomBlockToTopEPKN4llvm17MachineBasicBlockES4_.exit.thread.i.i
   %418 = load ptr, ptr %226, align 8
-  %419 = call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %418, ptr noundef %305) #22
+  %419 = call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %418, ptr noundef nonnull %305) #22
   store i64 %419, ptr %31, align 8
   %420 = load ptr, ptr %236, align 8
-  %421 = call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %420, ptr noundef %305, ptr noundef nonnull %.025.i.i) #22
+  %421 = call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %420, ptr noundef nonnull %305, ptr noundef nonnull %.025.i.i) #22
   %422 = call i64 @_ZNK4llvm14BlockFrequencymlENS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 %421) #22
   br label %423
 
 423:                                              ; preds = %417, %_ZN12_GLOBAL__N_121MachineBlockPlacement23canMoveBottomBlockToTopEPKN4llvm17MachineBasicBlockES4_.exit.thread.i.i
   %.sroa.0148.0.i.i.i = phi i64 [ 0, %_ZN12_GLOBAL__N_121MachineBlockPlacement23canMoveBottomBlockToTopEPKN4llvm17MachineBasicBlockES4_.exit.thread.i.i ], [ %422, %417 ]
   %424 = load ptr, ptr %226, align 8
-  %425 = call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %424, ptr noundef %305) #22
+  %425 = call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %424, ptr noundef nonnull %305) #22
   store i64 %425, ptr %32, align 8
   %426 = load ptr, ptr %236, align 8
-  %427 = call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %426, ptr noundef %305, ptr noundef %240) #22
+  %427 = call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %426, ptr noundef nonnull %305, ptr noundef %240) #22
   %428 = call i64 @_ZNK4llvm14BlockFrequencymlENS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 %427) #22
   store ptr null, ptr %33, align 8
   %429 = load ptr, ptr %398, align 8

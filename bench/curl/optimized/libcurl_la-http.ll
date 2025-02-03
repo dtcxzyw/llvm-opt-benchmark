@@ -978,25 +978,25 @@ while.body24:                                     ; preds = %lor.rhs, %while.con
 while.end26:                                      ; preds = %while.cond5, %lor.rhs
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %start.0, i32 noundef 13) #13
   %tobool27.not = icmp eq ptr %call, null
-  br i1 %tobool27.not, label %if.end30, label %while.cond38.preheader
+  br i1 %tobool27.not, label %if.end30, label %if.end34
 
 if.end30:                                         ; preds = %while.end26
   %call29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %start.0, i32 noundef 10) #13
   %tobool31.not = icmp eq ptr %call29, null
-  br i1 %tobool31.not, label %if.end34, label %while.cond38.preheader
+  br i1 %tobool31.not, label %if.then32, label %if.end34
 
-if.end34:                                         ; preds = %if.end30
+if.then32:                                        ; preds = %if.end30
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %start.0)
   %strchr = getelementptr inbounds i8, ptr %start.0, i64 %strlen
-  br label %while.cond38.preheader
+  br label %if.end34
 
-while.cond38.preheader:                           ; preds = %if.end34, %while.end26, %if.end30
-  %end.134 = phi ptr [ %strchr, %if.end34 ], [ %call, %while.end26 ], [ %call29, %if.end30 ]
-  %cmp3929 = icmp ugt ptr %end.134, %start.0
-  br i1 %cmp3929, label %land.rhs41, label %while.end62
+if.end34:                                         ; preds = %while.end26, %if.then32, %if.end30
+  %end.1 = phi ptr [ %call29, %if.end30 ], [ %strchr, %if.then32 ], [ %call, %while.end26 ]
+  %cmp3929 = icmp ugt ptr %end.1, %start.0
+  br i1 %cmp3929, label %land.rhs41, label %return
 
-land.rhs41:                                       ; preds = %while.cond38.preheader, %while.body60
-  %end.230 = phi ptr [ %incdec.ptr61, %while.body60 ], [ %end.134, %while.cond38.preheader ]
+land.rhs41:                                       ; preds = %if.end34, %while.body60
+  %end.230 = phi ptr [ %incdec.ptr61, %while.body60 ], [ %end.1, %if.end34 ]
   %3 = load i8, ptr %end.230, align 1
   switch i8 %3, label %lor.rhs49 [
     i8 32, label %while.body60
@@ -1006,15 +1006,15 @@ land.rhs41:                                       ; preds = %while.cond38.prehea
 lor.rhs49:                                        ; preds = %land.rhs41
   %4 = add i8 %3, -10
   %or.cond26 = icmp ult i8 %4, 4
-  br i1 %or.cond26, label %while.body60, label %while.end62
+  br i1 %or.cond26, label %while.body60, label %return
 
 while.body60:                                     ; preds = %lor.rhs49, %land.rhs41, %land.rhs41
   %incdec.ptr61 = getelementptr inbounds i8, ptr %end.230, i64 -1
   %cmp39 = icmp ugt ptr %incdec.ptr61, %start.0
-  br i1 %cmp39, label %land.rhs41, label %while.end62, !llvm.loop !8
+  br i1 %cmp39, label %land.rhs41, label %return, !llvm.loop !8
 
-while.end62:                                      ; preds = %lor.rhs49, %while.body60, %while.cond38.preheader
-  %end.2.lcssa = phi ptr [ %end.134, %while.cond38.preheader ], [ %incdec.ptr61, %while.body60 ], [ %end.230, %lor.rhs49 ]
+return:                                           ; preds = %while.body60, %lor.rhs49, %if.end34
+  %end.2.lcssa = phi ptr [ %end.1, %if.end34 ], [ %end.230, %lor.rhs49 ], [ %incdec.ptr61, %while.body60 ]
   %sub.ptr.lhs.cast = ptrtoint ptr %end.2.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %start.0 to i64
   %reass.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast

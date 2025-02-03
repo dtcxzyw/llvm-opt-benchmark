@@ -297,7 +297,7 @@ define void @_ZN5faiss14pq4_pack_codesEPKhmmmmmPh(ptr noundef readonly captures(
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #14
+  call void @__cxa_free_exception(ptr nonnull %25) #14
   br label %120
 
 31:                                               ; preds = %7
@@ -336,7 +336,7 @@ define void @_ZN5faiss14pq4_pack_codesEPKhmmmmmPh(ptr noundef readonly captures(
 47:                                               ; preds = %40
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %43) #14
+  call void @__cxa_free_exception(ptr nonnull %43) #14
   br label %120
 
 49:                                               ; preds = %31
@@ -375,7 +375,7 @@ define void @_ZN5faiss14pq4_pack_codesEPKhmmmmmPh(ptr noundef readonly captures(
 65:                                               ; preds = %58
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %61) #14
+  call void @__cxa_free_exception(ptr nonnull %61) #14
   br label %120
 
 67:                                               ; preds = %49
@@ -842,7 +842,7 @@ define noundef i32 @_ZN5faiss16pq4_pack_LUT_qbsEiiPKhPh(i32 noundef %0, i32 noun
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #14
+  call void @__cxa_free_exception(ptr nonnull %17) #14
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -968,7 +968,7 @@ define noundef i32 @_ZN5faiss22pq4_pack_LUT_qbs_q_mapEiiPKhPKiPh(i32 noundef %0,
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #14
+  call void @__cxa_free_exception(ptr nonnull %18) #14
   br label %24
 
 24:                                               ; preds = %22, %20

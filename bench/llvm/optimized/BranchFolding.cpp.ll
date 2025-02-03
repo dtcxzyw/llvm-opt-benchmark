@@ -6074,7 +6074,7 @@ _ZL30salvageDebugInfoFromEmptyBlockPKN4llvm15TargetInstrInfoERNS_17MachineBasicB
   %198 = getelementptr inbounds ptr, ptr %196, i64 %197
   %199 = getelementptr inbounds i8, ptr %198, i64 -8
   %200 = load ptr, ptr %199, align 8
-  call void @_ZN4llvm17MachineBasicBlock22ReplaceUsesOfBlockWithEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(288) %200, ptr noundef %1, ptr noundef nonnull %73) #22
+  call void @_ZN4llvm17MachineBasicBlock22ReplaceUsesOfBlockWithEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(288) %200, ptr noundef nonnull %1, ptr noundef nonnull %73) #22
   %201 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #22
   br i1 %201, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 

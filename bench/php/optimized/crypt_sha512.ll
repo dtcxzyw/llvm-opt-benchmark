@@ -145,7 +145,7 @@ sub_2:                                            ; preds = %sub_1
   store i64 6620516959819538809, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
-  call fastcc void @sha512_process_bytes(ptr noundef %.0464, i64 noundef %36, ptr noundef %6)
+  call fastcc void @sha512_process_bytes(ptr noundef nonnull %.0464, i64 noundef %36, ptr noundef %6)
   call fastcc void @sha512_process_bytes(ptr noundef nonnull %.2, i64 noundef %spec.select533, ptr noundef %6)
   store i64 7640891576956012808, ptr %7, align 8
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -164,9 +164,9 @@ sub_2:                                            ; preds = %sub_1
   store i64 6620516959819538809, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
-  call fastcc void @sha512_process_bytes(ptr noundef %.0464, i64 noundef %36, ptr noundef %7)
+  call fastcc void @sha512_process_bytes(ptr noundef nonnull %.0464, i64 noundef %36, ptr noundef %7)
   call fastcc void @sha512_process_bytes(ptr noundef nonnull %.2, i64 noundef %spec.select533, ptr noundef %7)
-  call fastcc void @sha512_process_bytes(ptr noundef %.0464, i64 noundef %36, ptr noundef %7)
+  call fastcc void @sha512_process_bytes(ptr noundef nonnull %.0464, i64 noundef %36, ptr noundef %7)
   %78 = call fastcc ptr @sha512_finish_ctx(ptr noundef %7, ptr noundef %4)
   %79 = icmp ugt i64 %36, 64
   br i1 %79, label %.lr.ph, label %._crit_edge
@@ -195,7 +195,7 @@ sub_2:                                            ; preds = %sub_1
   br label %85
 
 84:                                               ; preds = %.lr.ph539
-  call fastcc void @sha512_process_bytes(ptr noundef %.0464, i64 noundef %36, ptr noundef %6)
+  call fastcc void @sha512_process_bytes(ptr noundef nonnull %.0464, i64 noundef %36, ptr noundef %6)
   br label %85
 
 85:                                               ; preds = %83, %84
@@ -233,7 +233,7 @@ sub_2:                                            ; preds = %sub_1
 
 .lr.ph543:                                        ; preds = %._crit_edge540, %.lr.ph543
   %.2478541 = phi i64 [ %91, %.lr.ph543 ], [ 0, %._crit_edge540 ]
-  call fastcc void @sha512_process_bytes(ptr noundef %.0464, i64 noundef %36, ptr noundef %7)
+  call fastcc void @sha512_process_bytes(ptr noundef nonnull %.0464, i64 noundef %36, ptr noundef %7)
   %91 = add nuw i64 %.2478541, 1
   %exitcond.not = icmp eq i64 %91, %36
   br i1 %exitcond.not, label %._crit_edge544, label %.lr.ph543

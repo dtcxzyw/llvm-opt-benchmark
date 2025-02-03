@@ -7030,7 +7030,7 @@ if.end:                                           ; preds = %entry
 
 for.cond.preheader:                               ; preds = %if.end
   %cmp16 = icmp sgt i64 %sub, 0
-  br i1 %cmp16, label %for.body, label %exit
+  br i1 %cmp16, label %for.body, label %if.then.i
 
 for.body:                                         ; preds = %for.cond.preheader, %_Py_NewRef.exit
   %i.017 = phi i64 [ %add, %_Py_NewRef.exit ], [ 0, %for.cond.preheader ]
@@ -7049,16 +7049,16 @@ if.end.i.i:                                       ; preds = %for.body
 _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i.i
   tail call fastcc void @PyTuple_SET_ITEM(ptr noundef %call1, i64 noundef %i.017, ptr noundef nonnull %1)
   %exitcond.not = icmp eq i64 %add, %sub
-  br i1 %exitcond.not, label %exit, label %for.body, !llvm.loop !47
+  br i1 %exitcond.not, label %if.then.i, label %for.body, !llvm.loop !47
 
-exit:                                             ; preds = %_Py_NewRef.exit, %for.cond.preheader
+if.then.i:                                        ; preds = %_Py_NewRef.exit, %for.cond.preheader
   %call.i = tail call ptr (i32, ...) @pack_arguments_newref(i32 noundef 2, ptr noundef %0, ptr noundef nonnull %call1)
   %3 = load i64, ptr %call1, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i2.not.i = icmp eq i64 %4, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i10, label %Py_XDECREF.exit
 
-if.end.i.i10:                                     ; preds = %exit
+if.end.i.i10:                                     ; preds = %if.then.i
   %dec.i.i = add i64 %3, -1
   store i64 %dec.i.i, ptr %call1, align 8
   %cmp.i.i11 = icmp eq i64 %dec.i.i, 0
@@ -7068,8 +7068,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i10
   tail call void @_Py_Dealloc(ptr noundef nonnull %call1) #9
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %entry, %if.end, %exit, %if.end.i.i10, %if.then1.i.i
-  %return_value.015 = phi ptr [ %call.i, %exit ], [ %call.i, %if.end.i.i10 ], [ %call.i, %if.then1.i.i ], [ null, %if.end ], [ null, %entry ]
+Py_XDECREF.exit:                                  ; preds = %entry, %if.end, %if.then.i, %if.end.i.i10, %if.then1.i.i
+  %return_value.015 = phi ptr [ %call.i, %if.then.i ], [ %call.i, %if.end.i.i10 ], [ %call.i, %if.then1.i.i ], [ null, %if.end ], [ null, %entry ]
   ret ptr %return_value.015
 }
 

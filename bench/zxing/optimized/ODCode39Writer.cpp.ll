@@ -73,7 +73,7 @@ define void @_ZNK5ZXing4OneD12Code39Writer6encodeERKNSt7__cxx1112basic_stringIwS
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %21) #9
+  tail call void @__cxa_free_exception(ptr nonnull %21) #9
   br label %262
 
 25:                                               ; preds = %5
@@ -92,7 +92,7 @@ define void @_ZNK5ZXing4OneD12Code39Writer6encodeERKNSt7__cxx1112basic_stringIwS
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #9
+  tail call void @__cxa_free_exception(ptr nonnull %28) #9
   br label %262
 
 32:                                               ; preds = %25

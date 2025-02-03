@@ -3810,65 +3810,65 @@ define internal fastcc void @_init_slurmd_nodehash() unnamed_addr #0 {
 42:                                               ; preds = %39
   %43 = call ptr @hostlist_create(ptr noundef nonnull %37) #18
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread40.i, label %47
+  br i1 %44, label %.thread37.i, label %45
 
-.thread40.i:                                      ; preds = %42
-  %45 = load ptr, ptr %36, align 8
-  %46 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.455, ptr noundef %45) #18
-  br label %_register_front_ends.exit
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %47 = load ptr, ptr %46, align 8
+  %48 = call ptr @hostlist_create(ptr noundef %47) #18
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %64, label %50
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %50 = call ptr @hostlist_create(ptr noundef %49) #18
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread.thread50.i, label %54
+50:                                               ; preds = %45
+  %51 = call i32 @hostlist_count(ptr noundef nonnull %48) #18
+  %52 = call i32 @hostlist_count(ptr noundef nonnull %43) #18
+  %.not.i17 = icmp eq i32 %51, %52
+  br i1 %.not.i17, label %.preheader.i, label %55
 
-.thread.thread50.i:                               ; preds = %47
-  %52 = load ptr, ptr %48, align 8
-  %53 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.456, ptr noundef %52) #18
-  call void @hostlist_destroy(ptr noundef nonnull %43) #18
-  br label %_register_front_ends.exit
-
-54:                                               ; preds = %47
-  %55 = call i32 @hostlist_count(ptr noundef nonnull %50) #18
-  %56 = call i32 @hostlist_count(ptr noundef nonnull %43) #18
-  %.not.i17 = icmp eq i32 %55, %56
-  br i1 %.not.i17, label %.preheader.i, label %59
-
-.preheader.i:                                     ; preds = %54
-  %57 = call ptr @hostlist_shift(ptr noundef nonnull %43) #18
-  %.not2844.i = icmp eq ptr %57, null
-  br i1 %.not2844.i, label %.thread.thread.i, label %.lr.ph.i
+.preheader.i:                                     ; preds = %50
+  %53 = call ptr @hostlist_shift(ptr noundef nonnull %43) #18
+  %.not2848.i = icmp eq ptr %53, null
+  br i1 %.not2848.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %58 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  br label %61
+  %54 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  br label %57
 
-59:                                               ; preds = %54
-  %60 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.457) #18
-  br label %.thread.thread.i
+55:                                               ; preds = %50
+  %56 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.457) #18
+  br label %.loopexit.i
 
-61:                                               ; preds = %61, %.lr.ph.i
-  %62 = phi ptr [ %57, %.lr.ph.i ], [ %65, %61 ]
-  %63 = call ptr @hostlist_shift(ptr noundef nonnull %50) #18
-  %64 = load i16, ptr %58, align 8
-  call fastcc void @_push_to_hashtbls(ptr noundef nonnull %62, ptr noundef nonnull %62, ptr noundef %63, ptr noundef null, i16 noundef zeroext %64, i1 noundef zeroext true, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)
-  call void @free(ptr noundef nonnull %62) #18
-  call void @free(ptr noundef %63) #18
-  %65 = call ptr @hostlist_shift(ptr noundef nonnull %43) #18
-  %.not28.i = icmp eq ptr %65, null
-  br i1 %.not28.i, label %.thread.thread.i, label %61, !llvm.loop !16
+57:                                               ; preds = %57, %.lr.ph.i
+  %58 = phi ptr [ %53, %.lr.ph.i ], [ %61, %57 ]
+  %59 = call ptr @hostlist_shift(ptr noundef nonnull %48) #18
+  %60 = load i16, ptr %54, align 8
+  call fastcc void @_push_to_hashtbls(ptr noundef nonnull %58, ptr noundef nonnull %58, ptr noundef %59, ptr noundef null, i16 noundef zeroext %60, i1 noundef zeroext true, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)
+  call void @free(ptr noundef nonnull %58) #18
+  call void @free(ptr noundef %59) #18
+  %61 = call ptr @hostlist_shift(ptr noundef nonnull %43) #18
+  %.not28.i = icmp eq ptr %61, null
+  br i1 %.not28.i, label %.loopexit.i, label %57, !llvm.loop !16
 
-.thread.thread.i:                                 ; preds = %61, %.preheader.i, %59
-  call void @hostlist_destroy(ptr noundef nonnull %43) #18
-  call void @hostlist_destroy(ptr noundef nonnull %50) #18
+.thread37.i:                                      ; preds = %42
+  %62 = load ptr, ptr %36, align 8
+  %63 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.455, ptr noundef %62) #18
   br label %_register_front_ends.exit
 
-_register_front_ends.exit:                        ; preds = %.lr.ph23, %39, %.thread40.i, %.thread.thread50.i, %.thread.thread.i
+64:                                               ; preds = %45
+  %65 = load ptr, ptr %46, align 8
+  %66 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.456, ptr noundef %65) #18
+  call void @hostlist_destroy(ptr noundef nonnull %43) #18
+  br label %_register_front_ends.exit
+
+.loopexit.i:                                      ; preds = %57, %55, %.preheader.i
+  call void @hostlist_destroy(ptr noundef nonnull %43) #18
+  call void @hostlist_destroy(ptr noundef nonnull %48) #18
+  br label %_register_front_ends.exit
+
+_register_front_ends.exit:                        ; preds = %.lr.ph23, %39, %.thread37.i, %64, %.loopexit.i
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %66 = icmp samesign ult i64 %indvars.iv.next26, %33
-  br i1 %66, label %.lr.ph23, label %.loopexit, !llvm.loop !17
+  %67 = icmp samesign ult i64 %indvars.iv.next26, %33
+  br i1 %67, label %.lr.ph23, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %_register_front_ends.exit, %._crit_edge, %0
   ret void
@@ -9657,15 +9657,20 @@ define range(i32 -1, 1) i32 @unpack_config_plugin_params(ptr noundef writeonly c
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = call i32 @unpack_key_pair_list(ptr noundef nonnull %9, i16 noundef zeroext %1, ptr noundef %2)
   %.not8 = icmp eq i32 %10, 0
-  br i1 %.not8, label %17, label %11
+  br i1 %.not8, label %17, label %.thread
 
-11:                                               ; preds = %8, %3
+.thread:                                          ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  store ptr %6, ptr %4, align 8
+  br label %12
+
+11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %destroy_config_plugin_params.exit, label %12
 
-12:                                               ; preds = %11
+12:                                               ; preds = %.thread, %11
   call void @slurm_xfree(ptr noundef nonnull %6) #18
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -9903,15 +9908,20 @@ define range(i32 -1, 1) i32 @unpack_config_key_pair(ptr noundef writeonly captur
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef %2) #18
   %.not8 = icmp eq i32 %10, 0
-  br i1 %.not8, label %14, label %11
+  br i1 %.not8, label %14, label %.thread
 
-11:                                               ; preds = %8, %3
+.thread:                                          ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  store ptr %6, ptr %4, align 8
+  br label %12
+
+11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %destroy_config_key_pair.exit, label %12
 
-12:                                               ; preds = %11
+12:                                               ; preds = %.thread, %11
   call void @slurm_xfree(ptr noundef nonnull %6) #18
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @slurm_xfree(ptr noundef nonnull %13) #18
@@ -10674,7 +10684,7 @@ define internal ptr @_unpack_frontend_conf_lite(ptr noundef %0) #0 {
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @slurm_xfree(ptr noundef nonnull %18) #18
   call void @slurm_xfree(ptr noundef nonnull %6) #18
-  call void @slurm_xfree(ptr noundef %5) #18
+  call void @slurm_xfree(ptr noundef nonnull %5) #18
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @slurm_xfree(ptr noundef nonnull %19) #18
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 104

@@ -345,7 +345,7 @@ _ZN5ZXing6QRCodeL19EmbedTimingPatternsERNS_6MatrixINS_4TritEEE.exit: ; preds = %
 165:                                              ; preds = %162
   %166 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %163) #17, !noalias !13
+  tail call void @__cxa_free_exception(ptr nonnull %163) #17, !noalias !13
   br label %common.resume
 
 167:                                              ; preds = %_ZN5ZXing6QRCodeL19EmbedTimingPatternsERNS_6MatrixINS_4TritEEE.exit
@@ -1331,7 +1331,7 @@ _ZNK5ZXing8BitArray3getEi.exit.i:                 ; preds = %497
 540:                                              ; preds = %537
   %541 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %538) #17
+  call void @__cxa_free_exception(ptr nonnull %538) #17
   br label %common.resume
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i:     ; preds = %530, %526, %522, %517, %513, %510, %506, %503

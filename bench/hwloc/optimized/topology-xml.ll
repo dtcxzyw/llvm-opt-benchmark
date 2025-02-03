@@ -6858,7 +6858,7 @@ hwloc__xml_verbose.exit303:                       ; preds = %120, %125
   %129 = load ptr, ptr %39, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 72
   %131 = load ptr, ptr %130, align 8
-  %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.152, ptr noundef %131, ptr noundef %72) #23
+  %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.152, ptr noundef %131, ptr noundef nonnull %72) #23
   br label %1262
 
 133:                                              ; preds = %117

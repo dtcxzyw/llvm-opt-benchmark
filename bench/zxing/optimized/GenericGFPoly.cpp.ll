@@ -1017,7 +1017,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN5ZXing13GenericGFPoly
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #17
+  tail call void @__cxa_free_exception(ptr nonnull %9) #17
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %3
@@ -1637,7 +1637,7 @@ define linkonce_odr noundef i32 @_ZNK5ZXing9GenericGF7inverseEi(ptr noundef nonn
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #17
+  tail call void @__cxa_free_exception(ptr nonnull %6) #17
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2

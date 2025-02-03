@@ -9506,7 +9506,7 @@ _ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit63: ; preds = %.critedge,
   br i1 %.not36, label %192, label %190
 
 190:                                              ; preds = %185
-  %191 = tail call noundef ptr @_ZN5clang5Lexer11LexUDSuffixERNS_5TokenEPKcb(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0, i1 noundef zeroext true)
+  %191 = tail call noundef ptr @_ZN5clang5Lexer11LexUDSuffixERNS_5TokenEPKcb(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull %.0, i1 noundef zeroext true)
   br label %192
 
 192:                                              ; preds = %190, %185
@@ -11364,7 +11364,7 @@ _ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit82: ; preds = %.critedge,
   br i1 %.not35, label %283, label %281
 
 281:                                              ; preds = %276
-  %282 = tail call noundef ptr @_ZN5clang5Lexer11LexUDSuffixERNS_5TokenEPKcb(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %.0, i1 noundef zeroext false)
+  %282 = tail call noundef ptr @_ZN5clang5Lexer11LexUDSuffixERNS_5TokenEPKcb(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull %.0, i1 noundef zeroext false)
   br label %283
 
 283:                                              ; preds = %281, %276

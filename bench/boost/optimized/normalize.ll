@@ -1226,7 +1226,7 @@ _ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit: ; preds = %_ZNSt11
 
 171:                                              ; preds = %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit
   %.sroa.speculated.i195 = tail call i64 @llvm.umin.i64(i64 %.sroa.31.2411, i64 %170)
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.2409, ptr readonly align 1 %.sroa.0294.2410, i64 %.sroa.speculated.i195, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.2409, ptr nonnull readonly align 1 %.sroa.0294.2410, i64 %.sroa.speculated.i195, i1 false)
   %172 = getelementptr inbounds nuw i8, ptr %.2409, i64 %.sroa.speculated.i195
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.0294.2410, i64 %170
   %174 = sub i64 %.sroa.31.2411, %170
@@ -2338,7 +2338,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt12out_of_rangeEEvR
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #23
+  tail call void @__cxa_free_exception(ptr nonnull %3) #23
   resume { ptr, i32 } %6
 }
 
@@ -2494,7 +2494,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt12out_of_rangeE7rethro
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #23
+  tail call void @__cxa_free_exception(ptr nonnull %2) #23
   resume { ptr, i32 } %5
 }
 

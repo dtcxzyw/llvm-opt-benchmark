@@ -1092,7 +1092,7 @@ define void @bb_load_config(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %18
 
 18:                                               ; preds = %14, %2
-  tail call void @bb_clear_config(ptr noundef %0, i1 noundef zeroext false)
+  tail call void @bb_clear_config(ptr noundef nonnull %0, i1 noundef zeroext false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load i32, ptr %19, align 8
   %21 = or i32 %20, 1

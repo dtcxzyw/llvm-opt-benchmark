@@ -26,16 +26,16 @@ if.end:                                           ; preds = %entry
   %call = tail call ptr @BIO_s_file() #4
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #4
   %cmp2 = icmp eq ptr %call1, null
-  br i1 %cmp2, label %if.then5, label %lor.lhs.false
+  br i1 %cmp2, label %if.end37.thread33, label %lor.lhs.false
+
+if.end37.thread33:                                ; preds = %if.end
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 134) #4
+  br label %return
 
 lor.lhs.false:                                    ; preds = %if.end
   %call3 = tail call i32 @BIO_read_filename(ptr noundef nonnull %call1, ptr noundef nonnull %file) #4
   %cmp4 = icmp slt i32 %call3, 1
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 134) #4
-  br label %if.end37
+  br i1 %cmp4, label %if.end37, label %if.end6
 
 if.end6:                                          ; preds = %lor.lhs.false
   switch i32 %type, label %if.else32 [
@@ -63,11 +63,11 @@ if.then11:                                        ; preds = %if.end19, %for.cond
 
 if.then15:                                        ; preds = %if.then11
   tail call void @ERR_clear_error() #4
-  br label %if.end37
+  br label %if.then39
 
 if.else:                                          ; preds = %if.then11
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 9, ptr noundef nonnull @.str, i32 noundef 147) #4
-  br label %if.end37
+  br label %if.then39
 
 if.end16:                                         ; preds = %if.end16.lr.ph, %if.end19
   %call930 = phi ptr [ %call927, %if.end16.lr.ph ], [ %call9, %if.end19 ]
@@ -75,7 +75,7 @@ if.end16:                                         ; preds = %if.end16.lr.ph, %if
   %0 = load ptr, ptr %store_ctx, align 8
   %call17 = tail call i32 @X509_STORE_add_cert(ptr noundef %0, ptr noundef nonnull %call930) #4
   %tobool.not = icmp eq i32 %call17, 0
-  br i1 %tobool.not, label %if.then36, label %if.end19
+  br i1 %tobool.not, label %if.end37.thread, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
   %inc = add nuw nsw i32 %count.029, 1
@@ -97,29 +97,29 @@ if.end26:                                         ; preds = %if.then22
   %store_ctx27 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %store_ctx27, align 8
   %call28 = tail call i32 @X509_STORE_add_cert(ptr noundef %1, ptr noundef nonnull %call23) #4
-  br label %if.then36
+  br label %if.end37.thread
 
 if.else32:                                        ; preds = %if.end6
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 102, ptr noundef nonnull @.str, i32 noundef 170) #4
   br label %if.then39
 
-if.then36:                                        ; preds = %if.end16, %if.end26
+if.end37.thread:                                  ; preds = %if.end16, %if.end26
   %ret.0 = phi i32 [ %call28, %if.end26 ], [ 0, %if.end16 ]
   %x.0 = phi ptr [ %call23, %if.end26 ], [ %call930, %if.end16 ]
   tail call void @X509_free(ptr noundef nonnull %x.0) #4
-  br label %if.end37
+  br label %if.then39
 
-if.end37:                                         ; preds = %if.else, %if.then15, %if.then5, %if.then36
-  %ret.022 = phi i32 [ %ret.0, %if.then36 ], [ 0, %if.else ], [ %count.0.lcssa, %if.then15 ], [ 0, %if.then5 ]
-  br i1 %cmp2, label %return, label %if.then39
+if.end37:                                         ; preds = %lor.lhs.false
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 134) #4
+  br label %if.then39
 
-if.then39:                                        ; preds = %if.then25, %if.else32, %if.end37
-  %ret.02224 = phi i32 [ %ret.022, %if.end37 ], [ 0, %if.else32 ], [ 0, %if.then25 ]
+if.then39:                                        ; preds = %if.end37, %if.end37.thread, %if.then15, %if.else, %if.then25, %if.else32
+  %ret.02224 = phi i32 [ 0, %if.end37 ], [ %count.0.lcssa, %if.then15 ], [ 0, %if.else ], [ 0, %if.then25 ], [ 0, %if.else32 ], [ %ret.0, %if.end37.thread ]
   %call40 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #4
   br label %return
 
-return:                                           ; preds = %if.end37, %if.then39, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ %ret.02224, %if.then39 ], [ %ret.022, %if.end37 ]
+return:                                           ; preds = %if.end37.thread33, %if.then39, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ %ret.02224, %if.then39 ], [ 0, %if.end37.thread33 ]
   ret i32 %retval.0
 }
 
@@ -155,16 +155,16 @@ if.end:                                           ; preds = %entry
   %call = tail call ptr @BIO_s_file() #4
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #4
   %cmp2 = icmp eq ptr %call1, null
-  br i1 %cmp2, label %if.then5, label %lor.lhs.false
+  br i1 %cmp2, label %if.end37.thread33, label %lor.lhs.false
+
+if.end37.thread33:                                ; preds = %if.end
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 193) #4
+  br label %return
 
 lor.lhs.false:                                    ; preds = %if.end
   %call3 = tail call i32 @BIO_read_filename(ptr noundef nonnull %call1, ptr noundef nonnull %file) #4
   %cmp4 = icmp slt i32 %call3, 1
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 193) #4
-  br label %if.end37
+  br i1 %cmp4, label %if.end37, label %if.end6
 
 if.end6:                                          ; preds = %lor.lhs.false
   switch i32 %type, label %if.else32 [
@@ -192,11 +192,11 @@ if.then11:                                        ; preds = %if.end19, %for.cond
 
 if.then15:                                        ; preds = %if.then11
   tail call void @ERR_clear_error() #4
-  br label %if.end37
+  br label %if.then39
 
 if.else:                                          ; preds = %if.then11
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 9, ptr noundef nonnull @.str, i32 noundef 206) #4
-  br label %if.end37
+  br label %if.then39
 
 if.end16:                                         ; preds = %if.end16.lr.ph, %if.end19
   %call930 = phi ptr [ %call927, %if.end16.lr.ph ], [ %call9, %if.end19 ]
@@ -204,7 +204,7 @@ if.end16:                                         ; preds = %if.end16.lr.ph, %if
   %0 = load ptr, ptr %store_ctx, align 8
   %call17 = tail call i32 @X509_STORE_add_crl(ptr noundef %0, ptr noundef nonnull %call930) #4
   %tobool.not = icmp eq i32 %call17, 0
-  br i1 %tobool.not, label %if.then36, label %if.end19
+  br i1 %tobool.not, label %if.end37.thread, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
   %inc = add nuw nsw i32 %count.029, 1
@@ -226,29 +226,29 @@ if.end26:                                         ; preds = %if.then22
   %store_ctx27 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %store_ctx27, align 8
   %call28 = tail call i32 @X509_STORE_add_crl(ptr noundef %1, ptr noundef nonnull %call23) #4
-  br label %if.then36
+  br label %if.end37.thread
 
 if.else32:                                        ; preds = %if.end6
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 102, ptr noundef nonnull @.str, i32 noundef 229) #4
   br label %if.then39
 
-if.then36:                                        ; preds = %if.end16, %if.end26
+if.end37.thread:                                  ; preds = %if.end16, %if.end26
   %ret.0 = phi i32 [ %call28, %if.end26 ], [ 0, %if.end16 ]
   %x.0 = phi ptr [ %call23, %if.end26 ], [ %call930, %if.end16 ]
   tail call void @X509_CRL_free(ptr noundef nonnull %x.0) #4
-  br label %if.end37
+  br label %if.then39
 
-if.end37:                                         ; preds = %if.else, %if.then15, %if.then5, %if.then36
-  %ret.022 = phi i32 [ %ret.0, %if.then36 ], [ 0, %if.else ], [ %count.0.lcssa, %if.then15 ], [ 0, %if.then5 ]
-  br i1 %cmp2, label %return, label %if.then39
+if.end37:                                         ; preds = %lor.lhs.false
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 193) #4
+  br label %if.then39
 
-if.then39:                                        ; preds = %if.then25, %if.else32, %if.end37
-  %ret.02224 = phi i32 [ %ret.022, %if.end37 ], [ 0, %if.else32 ], [ 0, %if.then25 ]
+if.then39:                                        ; preds = %if.end37, %if.end37.thread, %if.then15, %if.else, %if.then25, %if.else32
+  %ret.02224 = phi i32 [ 0, %if.end37 ], [ %count.0.lcssa, %if.then15 ], [ 0, %if.else ], [ 0, %if.then25 ], [ 0, %if.else32 ], [ %ret.0, %if.end37.thread ]
   %call40 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #4
   br label %return
 
-return:                                           ; preds = %if.end37, %if.then39, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ %ret.02224, %if.then39 ], [ %ret.022, %if.end37 ]
+return:                                           ; preds = %if.end37.thread33, %if.then39, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ %ret.02224, %if.then39 ], [ 0, %if.end37.thread33 ]
   ret i32 %retval.0
 }
 

@@ -1233,7 +1233,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
 57:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %58 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %55) #20
+  tail call void @__cxa_free_exception(ptr nonnull %55) #20
   resume { ptr, i32 } %58
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit: ; preds = %46
@@ -21512,7 +21512,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash
 57:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %58 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %55) #20
+  tail call void @__cxa_free_exception(ptr nonnull %55) #20
   resume { ptr, i32 } %58
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit: ; preds = %46
@@ -22695,7 +22695,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 22:                                               ; preds = %._crit_edge
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #20
+  call void @__cxa_free_exception(ptr nonnull %20) #20
   br label %24
 
 24:                                               ; preds = %22, %18
@@ -24783,7 +24783,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %99
 138:                                              ; preds = %._crit_edge.i
   %139 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %137) #20
+  call void @__cxa_free_exception(ptr nonnull %137) #20
   br label %.body
 
 .noexc54:                                         ; preds = %.lr.ph.i56
@@ -25052,7 +25052,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash
 284:                                              ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i
   %285 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %280) #20
+  call void @__cxa_free_exception(ptr nonnull %280) #20
   br label %.body
 
 286:                                              ; preds = %271

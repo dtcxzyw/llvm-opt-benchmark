@@ -5546,7 +5546,7 @@ ac_analyze_expr.exit:                             ; preds = %7, %15, %select.unf
   br i1 %.not75, label %70, label %71
 
 70:                                               ; preds = %.lr.ph.split
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef nonnull %5) #18
   br label %119
 
 71:                                               ; preds = %.lr.ph.split
@@ -5557,7 +5557,7 @@ ac_analyze_expr.exit:                             ; preds = %7, %15, %select.unf
   br i1 %.not76, label %.split.us, label %74
 
 .split.us:                                        ; preds = %71, %.lr.ph.split.us
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef nonnull %5) #18
   br label %119
 
 74:                                               ; preds = %71

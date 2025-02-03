@@ -3471,7 +3471,7 @@ get_bool_option.exit190.thread:                   ; preds = %.thread.i, %40, %35
   call void @dbuf_init2(ptr noundef nonnull %8, ptr noundef %68, ptr noundef nonnull @js_realloc_rt) #30
   %69 = call ptr @js_malloc(ptr noundef %0, i64 noundef 4096) #30
   %.not171 = icmp eq ptr %69, null
-  br i1 %.not171, label %.thread227, label %70
+  br i1 %.not171, label %153, label %70
 
 70:                                               ; preds = %66
   %71 = ptrtoint ptr %69 to i64
@@ -3517,8 +3517,8 @@ get_bool_option.exit190.thread:                   ; preds = %.thread.i, %40, %35
   br label %84, !llvm.loop !25
 
 .preheaderthread-pre-split.i:                     ; preds = %84, %.preheaderthread-pre-split.i
-  %.1.i260 = phi ptr [ %88, %.preheaderthread-pre-split.i ], [ %.0.i191, %84 ]
-  %88 = getelementptr i8, ptr %.1.i260, i64 1
+  %.1.i248 = phi ptr [ %88, %.preheaderthread-pre-split.i ], [ %.0.i191, %84 ]
+  %88 = getelementptr i8, ptr %.1.i248, i64 1
   %.pr.i = load i8, ptr %88, align 1
   %89 = icmp eq i8 %.pr.i, 32
   br i1 %89, label %.preheaderthread-pre-split.i, label %90, !llvm.loop !26
@@ -3571,13 +3571,13 @@ http_get_status.exit:                             ; preds = %84, %90
 sub_0:                                            ; preds = %._crit_edge.i
   store i8 0, ptr %.1.i193, align 1
   %106 = load i8, ptr %69, align 1
-  %.not261 = icmp eq i8 %106, 13
-  br i1 %.not261, label %sub_1, label %.split.i.backedge
+  %.not249 = icmp eq i8 %106, 13
+  br i1 %.not249, label %sub_1, label %.split.i.backedge
 
 sub_1:                                            ; preds = %sub_0
   %107 = load i8, ptr %93, align 1
-  %.not262 = icmp eq i8 %107, 10
-  br i1 %.not262, label %sub_2, label %.split.i.backedge
+  %.not250 = icmp eq i8 %107, 10
+  br i1 %.not250, label %sub_2, label %.split.i.backedge
 
 sub_2:                                            ; preds = %sub_1
   %108 = load i8, ptr %94, align 1
@@ -3588,7 +3588,7 @@ sub_2:                                            ; preds = %sub_1
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.val185 = load i32, ptr %111, align 8
   %.not174 = icmp eq i32 %.val185, 0
-  br i1 %.not174, label %112, label %.thread227
+  br i1 %.not174, label %112, label %153
 
 112:                                              ; preds = %110
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3610,7 +3610,7 @@ sub_2:                                            ; preds = %sub_1
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.val186 = load i32, ptr %122, align 8
   %.not175 = icmp eq i32 %.val186, 0
-  br i1 %.not175, label %123, label %.thread227
+  br i1 %.not175, label %123, label %153
 
 123:                                              ; preds = %._crit_edge
   %.not176 = icmp eq i32 %.0204, 0
@@ -3635,8 +3635,8 @@ sub_2:                                            ; preds = %sub_1
   %.sroa.033.sroa.0.2 = trunc i64 %.sroa.033.sroa.0.2.in to i32
   %.sroa.10.2 = extractvalue { i64, i64 } %.pn, 1
   %132 = and i64 %.sroa.10.2, 4294967295
-  %.not255 = icmp eq i64 %132, 6
-  br i1 %.not255, label %.thread227, label %http_get_header_line.exit.thread
+  %.not243 = icmp eq i64 %132, 6
+  br i1 %.not243, label %153, label %http_get_header_line.exit.thread
 
 http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.split.i, %http_get_status.exit, %131
   %.sroa.10.1 = phi i64 [ %.sroa.10.2, %131 ], [ 2, %http_get_status.exit ], [ 2, %.split.i ], [ 2, %.split.us.i ]
@@ -3654,8 +3654,12 @@ http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.spli
   %136 = extractvalue { i64, i64 } %135, 0
   %137 = extractvalue { i64, i64 } %135, 1
   %138 = and i64 %137, 4294967295
-  %.not256 = icmp eq i64 %138, 6
-  br i1 %.not256, label %154, label %139
+  %.not244 = icmp eq i64 %138, 6
+  br i1 %.not244, label %.thread233, label %139
+
+.thread233:                                       ; preds = %134
+  call void @js_free(ptr noundef %0, ptr noundef null) #30
+  br label %155
 
 139:                                              ; preds = %134
   %.sroa.033.sroa.9.0.insert.ext55 = zext i32 %.sroa.033.sroa.9.1 to i64
@@ -3664,8 +3668,8 @@ http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.spli
   %.sroa.033.sroa.0.0.insert.insert43 = or disjoint i64 %.sroa.033.sroa.9.0.insert.shift56, %.sroa.033.sroa.0.0.insert.ext41
   %140 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %136, i64 %137, ptr noundef nonnull @.str.80, i64 %.sroa.033.sroa.0.0.insert.insert43, i64 %.sroa.10.1, i32 noundef 7) #30
   %141 = and i64 %.sroa.10.1, 4294967295
-  %.not257 = icmp eq i64 %141, 2
-  br i1 %.not257, label %152, label %142
+  %.not245 = icmp eq i64 %141, 2
+  br i1 %.not245, label %152, label %142
 
 142:                                              ; preds = %139
   %143 = load ptr, ptr %8, align 8
@@ -3693,29 +3697,25 @@ http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.spli
   %.sroa.7143.0.extract.shift144 = and i64 %.sroa.023.0, -4294967296
   br label %JS_FreeValue.exit
 
-.thread227:                                       ; preds = %110, %._crit_edge, %131, %66
-  %.sroa.033.sroa.9.0238 = phi i32 [ 0, %66 ], [ %.sroa.033.sroa.9.2, %131 ], [ 0, %._crit_edge ], [ 0, %110 ]
-  %.sroa.033.sroa.0.0237 = phi i32 [ 0, %66 ], [ %.sroa.033.sroa.0.2, %131 ], [ 0, %._crit_edge ], [ 0, %110 ]
-  %.sroa.10.0236 = phi i64 [ 3, %66 ], [ %.sroa.10.2, %131 ], [ 3, %._crit_edge ], [ 3, %110 ]
-  %153 = call i32 @pclose(ptr noundef nonnull %61)
+153:                                              ; preds = %110, %._crit_edge, %131, %66
+  %.sroa.10.0.ph = phi i64 [ 3, %66 ], [ %.sroa.10.2, %131 ], [ 3, %._crit_edge ], [ 3, %110 ]
+  %.sroa.033.sroa.0.0.ph = phi i32 [ 0, %66 ], [ %.sroa.033.sroa.0.2, %131 ], [ 0, %._crit_edge ], [ 0, %110 ]
+  %.sroa.033.sroa.9.0.ph = phi i32 [ 0, %66 ], [ %.sroa.033.sroa.9.2, %131 ], [ 0, %._crit_edge ], [ 0, %110 ]
+  %154 = call i32 @pclose(ptr noundef nonnull %61)
   call void @js_free(ptr noundef %0, ptr noundef %69) #30
   call void @dbuf_free(ptr noundef nonnull %7) #30
   br label %155
 
-154:                                              ; preds = %134
-  call void @js_free(ptr noundef %0, ptr noundef null) #30
-  br label %155
-
-155:                                              ; preds = %154, %.thread227
-  %.sroa.10.0222254 = phi i64 [ %.sroa.10.1, %154 ], [ %.sroa.10.0236, %.thread227 ]
-  %.sroa.033.sroa.0.0223252 = phi i32 [ %.sroa.033.sroa.0.1, %154 ], [ %.sroa.033.sroa.0.0237, %.thread227 ]
-  %.sroa.033.sroa.9.0224250 = phi i32 [ %.sroa.033.sroa.9.1, %154 ], [ %.sroa.033.sroa.9.0238, %.thread227 ]
+155:                                              ; preds = %.thread233, %153
+  %.sroa.10.0224242 = phi i64 [ %.sroa.10.1, %.thread233 ], [ %.sroa.10.0.ph, %153 ]
+  %.sroa.033.sroa.0.0226241 = phi i32 [ %.sroa.033.sroa.0.1, %.thread233 ], [ %.sroa.033.sroa.0.0.ph, %153 ]
+  %.sroa.033.sroa.9.0228240 = phi i32 [ %.sroa.033.sroa.9.1, %.thread233 ], [ %.sroa.033.sroa.9.0.ph, %153 ]
   call void @dbuf_free(ptr noundef nonnull %8) #30
-  %.sroa.033.sroa.9.0.insert.ext63 = zext i32 %.sroa.033.sroa.9.0224250 to i64
+  %.sroa.033.sroa.9.0.insert.ext63 = zext i32 %.sroa.033.sroa.9.0228240 to i64
   %.sroa.033.sroa.9.0.insert.shift64 = shl nuw i64 %.sroa.033.sroa.9.0.insert.ext63, 32
-  %.sroa.033.sroa.0.0.insert.ext47 = zext i32 %.sroa.033.sroa.0.0223252 to i64
+  %.sroa.033.sroa.0.0.insert.ext47 = zext i32 %.sroa.033.sroa.0.0226241 to i64
   %.sroa.033.sroa.0.0.insert.insert49 = or disjoint i64 %.sroa.033.sroa.9.0.insert.shift64, %.sroa.033.sroa.0.0.insert.ext47
-  %156 = trunc i64 %.sroa.10.0222254 to i32
+  %156 = trunc i64 %.sroa.10.0224242 to i32
   %157 = icmp ugt i32 %156, -12
   br i1 %157, label %158, label %JS_FreeValue.exit
 
@@ -3728,7 +3728,7 @@ http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.spli
   br i1 %162, label %163, label %JS_FreeValue.exit
 
 163:                                              ; preds = %158
-  call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.033.sroa.0.0.insert.insert49, i64 %.sroa.10.0222254) #30
+  call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.033.sroa.0.0.insert.insert49, i64 %.sroa.10.0224242) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %163, %158, %155, %5, %152, %62, %58, %get_bool_option.exit

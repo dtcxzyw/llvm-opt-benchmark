@@ -17328,7 +17328,7 @@ _ZNK4Type16make_narrowklassEv.exit332:            ; preds = %387
   br i1 %447, label %448, label %452
 
 448:                                              ; preds = %446
-  %449 = tail call noundef ptr @_ZN11DivModINode4makeEP4Node(ptr noundef %1) #18
+  %449 = tail call noundef ptr @_ZN11DivModINode4makeEP4Node(ptr noundef nonnull %1) #18
   %450 = tail call noundef ptr @_ZNK9MultiNode16proj_out_or_nullEj(ptr noundef nonnull align 8 dereferenceable(52) %449, i32 noundef 0) #18
   tail call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %445, ptr noundef %450) #18
   tail call void @_ZN4Node17disconnect_inputsEP7Compile(ptr noundef nonnull align 8 dereferenceable(52) %445, ptr noundef nonnull %0) #18
@@ -17389,7 +17389,7 @@ _ZNK4Type16make_narrowklassEv.exit332:            ; preds = %387
   br i1 %477, label %478, label %482
 
 478:                                              ; preds = %476
-  %479 = tail call noundef ptr @_ZN11DivModLNode4makeEP4Node(ptr noundef %1) #18
+  %479 = tail call noundef ptr @_ZN11DivModLNode4makeEP4Node(ptr noundef nonnull %1) #18
   %480 = tail call noundef ptr @_ZNK9MultiNode16proj_out_or_nullEj(ptr noundef nonnull align 8 dereferenceable(52) %479, i32 noundef 0) #18
   tail call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %475, ptr noundef %480) #18
   tail call void @_ZN4Node17disconnect_inputsEP7Compile(ptr noundef nonnull align 8 dereferenceable(52) %475, ptr noundef nonnull %0) #18
@@ -17450,7 +17450,7 @@ _ZNK4Type16make_narrowklassEv.exit332:            ; preds = %387
   br i1 %507, label %508, label %512
 
 508:                                              ; preds = %506
-  %509 = tail call noundef ptr @_ZN12UDivModINode4makeEP4Node(ptr noundef %1) #18
+  %509 = tail call noundef ptr @_ZN12UDivModINode4makeEP4Node(ptr noundef nonnull %1) #18
   %510 = tail call noundef ptr @_ZNK9MultiNode16proj_out_or_nullEj(ptr noundef nonnull align 8 dereferenceable(52) %509, i32 noundef 0) #18
   tail call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %505, ptr noundef %510) #18
   tail call void @_ZN4Node17disconnect_inputsEP7Compile(ptr noundef nonnull align 8 dereferenceable(52) %505, ptr noundef nonnull %0) #18
@@ -17511,7 +17511,7 @@ _ZNK4Type16make_narrowklassEv.exit332:            ; preds = %387
   br i1 %537, label %538, label %542
 
 538:                                              ; preds = %536
-  %539 = tail call noundef ptr @_ZN12UDivModLNode4makeEP4Node(ptr noundef %1) #18
+  %539 = tail call noundef ptr @_ZN12UDivModLNode4makeEP4Node(ptr noundef nonnull %1) #18
   %540 = tail call noundef ptr @_ZNK9MultiNode16proj_out_or_nullEj(ptr noundef nonnull align 8 dereferenceable(52) %539, i32 noundef 0) #18
   tail call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %535, ptr noundef %540) #18
   tail call void @_ZN4Node17disconnect_inputsEP7Compile(ptr noundef nonnull align 8 dereferenceable(52) %535, ptr noundef nonnull %0) #18

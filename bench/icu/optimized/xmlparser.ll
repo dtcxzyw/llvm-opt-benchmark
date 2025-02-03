@@ -1344,7 +1344,7 @@ if.then59:                                        ; preds = %for.cond
   br i1 %cmp.i.not.i, label %if.else.i, label %if.then.i62
 
 if.then.i62:                                      ; preds = %if.then59
-  call void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fElementStack, ptr noundef %el.0.ph, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  call void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fElementStack, ptr noundef nonnull %el.0.ph, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %for.cond.outer.backedge
 
 for.cond.outer.backedge:                          ; preds = %if.then.i62, %if.else.i, %cleanup154.thread195
@@ -1352,7 +1352,7 @@ for.cond.outer.backedge:                          ; preds = %if.then.i62, %if.el
   br label %for.cond.outer, !llvm.loop !10
 
 if.else.i:                                        ; preds = %if.then59
-  call void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fElementStack, ptr noundef %el.0.ph, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  call void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fElementStack, ptr noundef nonnull %el.0.ph, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %for.cond.outer.backedge
 
 invoke.cont:                                      ; preds = %for.cond

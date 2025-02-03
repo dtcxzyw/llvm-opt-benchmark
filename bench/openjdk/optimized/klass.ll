@@ -4273,7 +4273,7 @@ define hidden noundef zeroext i1 @_ZN5Klass8is_validEPS_(ptr noundef %0) local_u
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %6
-  %10 = tail call noundef zeroext i1 @_ZN9Metaspace8containsEPKv(ptr noundef %0) #21
+  %10 = tail call noundef zeroext i1 @_ZN9Metaspace8containsEPKv(ptr noundef nonnull %0) #21
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %9

@@ -58,8 +58,6 @@ $_ZN7rocksdb15SstFileMetaDataC2ERKS0_ = comdat any
 
 $_ZN7rocksdb15FileStorageInfoC2ERKS0_ = comdat any
 
-$_ZNSt16allocator_traitsISaIN7rocksdb16LiveFileMetaDataEEE7destroyIS1_EEvRS2_PT_ = comdat any
-
 $_ZSt19__relocate_object_aIN7rocksdb16LiveFileMetaDataES1_SaIS1_EEvPT_PT0_RT1_ = comdat any
 
 $_ZN7rocksdb15SstFileMetaDataC2EOS0_ = comdat any
@@ -1887,7 +1885,7 @@ lpad.i.i.i:                                       ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZN7rocksdb15SstFileMetaDataD2Ev(ptr noundef nonnull align 8 dereferenceable(468) %add.ptr) #18
-  br label %lpad.body
+  br label %invoke.cont19
 
 invoke.cont:                                      ; preds = %.noexc
   %level.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 464
@@ -1941,35 +1939,24 @@ _ZNSt12_Vector_baseIN7rocksdb16LiveFileMetaDataESaIS1_EE13_M_deallocateEPS1_m.ex
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN7rocksdb16LiveFileMetaDataESaIS1_EE11_M_allocateEm.exit
   %5 = landingpad { ptr, i32 }
           catch ptr null
-  br label %lpad.body
-
-lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad ], [ %3, %lpad.i.i.i ]
-  %6 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #18
-  %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i30
-
-if.end.thread:                                    ; preds = %lpad.body
-  tail call void @_ZNSt16allocator_traitsISaIN7rocksdb16LiveFileMetaDataEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #18
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i30:                                      ; preds = %lpad.body
+invoke.cont19:                                    ; preds = %lpad.i.i.i, %lpad
+  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad ], [ %3, %lpad.i.i.i ]
+  %7 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #18
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #16
-  br label %invoke.cont19
-
-invoke.cont19:                                    ; preds = %if.then.i30, %if.end.thread
   invoke void @__cxa_rethrow() #20
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %6
 
 terminate.lpad:                                   ; preds = %lpad17
   %9 = landingpad { ptr, i32 }
@@ -2141,33 +2128,6 @@ ehcleanup11:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %1, %lpad ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
   resume { ptr, i32 } %.pn.pn
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIN7rocksdb16LiveFileMetaDataEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %column_family_name.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 432
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name.i.i) #18
-  %db_path.i.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 400
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %db_path.i.i.i) #18
-  %name.i.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 368
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i) #18
-  %largest.i.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 336
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %largest.i.i.i) #18
-  %smallest.i.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 304
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %smallest.i.i.i) #18
-  %largestkey.i.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 208
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %largestkey.i.i.i) #18
-  %smallestkey.i.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 176
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %smallestkey.i.i.i) #18
-  %file_checksum_func_name.i.i.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 128
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_checksum_func_name.i.i.i.i) #18
-  %file_checksum.i.i.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 96
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_checksum.i.i.i.i) #18
-  %directory.i.i.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %directory.i.i.i.i) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(468) %__p) #18
-  ret void
 }
 
 declare void @__cxa_rethrow() local_unnamed_addr

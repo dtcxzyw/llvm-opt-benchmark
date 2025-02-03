@@ -1318,8 +1318,8 @@ if.end.i3167:                                     ; preds = %_ZN4llvh9StringRefC
   br i1 %86, label %if.then142, label %if.end.i3176
 
 if.then142:                                       ; preds = %if.end.i3149.thread2109, %if.end.i3167, %if.end.i3158, %if.end.i3149
-  %call.i = tail call noundef i32 @_ZN4llvh3ARM12parseArchISAENS_9StringRefE(ptr %ArchName.coerce0, i64 %ArchName.coerce1) #13
-  %call2.i = tail call noundef i32 @_ZN4llvh3ARM15parseArchEndianENS_9StringRefE(ptr %ArchName.coerce0, i64 %ArchName.coerce1) #13
+  %call.i = tail call noundef i32 @_ZN4llvh3ARM12parseArchISAENS_9StringRefE(ptr nonnull %ArchName.coerce0, i64 %ArchName.coerce1) #13
+  %call2.i = tail call noundef i32 @_ZN4llvh3ARM15parseArchEndianENS_9StringRefE(ptr nonnull %ArchName.coerce0, i64 %ArchName.coerce1) #13
   switch i32 %call2.i, label %sw.epilog14.i [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb7.i
@@ -1349,7 +1349,7 @@ switch.lookup2115:                                ; preds = %sw.bb7.i
 
 sw.epilog14.i:                                    ; preds = %switch.lookup2115, %sw.bb7.i, %switch.lookup, %sw.bb.i, %if.then142
   %arch.0.i = phi i32 [ 0, %if.then142 ], [ 0, %sw.bb7.i ], [ 0, %sw.bb.i ], [ %switch.load, %switch.lookup ], [ %switch.load2118, %switch.lookup2115 ]
-  %call16.i = tail call { ptr, i64 } @_ZN4llvh3ARM20getCanonicalArchNameENS_9StringRefE(ptr %ArchName.coerce0, i64 %ArchName.coerce1) #13
+  %call16.i = tail call { ptr, i64 } @_ZN4llvh3ARM20getCanonicalArchNameENS_9StringRefE(ptr nonnull %ArchName.coerce0, i64 %ArchName.coerce1) #13
   %91 = extractvalue { ptr, i64 } %call16.i, 0
   %92 = extractvalue { ptr, i64 } %call16.i, 1
   %cmp.i63.i = icmp eq i64 %92, 0
@@ -1390,7 +1390,7 @@ if.end.i3176:                                     ; preds = %if.end.i3149.thread
   br i1 %95, label %if.then147, label %return
 
 if.then147:                                       ; preds = %if.end.i3176
-  %call149 = tail call fastcc noundef i32 @_ZL12parseBPFArchN4llvh9StringRefE(ptr %ArchName.coerce0, i64 %ArchName.coerce1)
+  %call149 = tail call fastcc noundef i32 @_ZL12parseBPFArchN4llvh9StringRefE(ptr nonnull %ArchName.coerce0, i64 %ArchName.coerce1)
   br label %return
 
 return:                                           ; preds = %if.end.i3185.thread, %_ZN4llvh12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit272, %if.end.i3140, %if.end.i3131, %if.end.i3122, %if.end.i3113, %if.end.i3104, %if.end.i3095, %if.end.i3086, %if.end.i3077, %if.end.i3068, %if.end.i3059, %if.end.i3050, %if.end.i3041, %if.end.i3032, %if.end.i3023, %if.end.i3014, %if.end.i3005, %if.end.i2996, %if.end.i2987, %if.end.i2978, %if.end.i2609, %if.end.i2600, %if.end.i2969, %if.end.i2960, %if.end.i2591, %if.end.i2582, %if.end.i2951, %if.end.i2942, %if.end.i2933, %if.end.i2924, %if.end.i2915, %if.end.i2906, %if.end.i2555, %if.end.i2546, %if.end.i2537, %if.end.i2528, %if.end.i2519, %if.end.i2465, %if.end.i2456, %if.end.i2447, %if.end.i2438, %if.end.i2429, %if.end.i2421, %if.end.i2645, %if.end.i2636, %if.end.i2762, %if.end.i2789, %if.end.i2510, %if.end.i2501, %if.end.i2492, %if.end.i2483, %if.end.i2474, %if.end.i2897, %if.end.i2888, %if.end.i2879, %if.end.i2870, %if.end.i2861, %if.end.i2852, %if.end.i2843, %if.end.i2834, %if.end.i2825, %if.end.i2816, %if.end.i2807, %if.end.i2798, %if.end.i2573, %if.end.i2564, %if.end.i2663, %if.end.i2654, %if.end.i2753, %if.end.i2681, %if.end.i2672, %if.end.i2744, %if.end.i2699, %if.end.i2690, %if.end.i2735, %if.end.i2717, %if.end.i2708, %if.end.i2726, %if.end.i2627, %if.end.i2618, %if.end.i2771, %if.end.i2780, %if.end.i3185, %if.then31.i, %if.end23.i, %if.end.i71.i, %if.end.i.i, %sw.epilog14.i, %if.end.i3176, %if.then147

@@ -248,7 +248,7 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %52, 
 
 89:                                               ; preds = %85
   %90 = tail call i32 @fclose(ptr noundef nonnull %83)
-  tail call void @free(ptr noundef %81) #18
+  tail call void @free(ptr noundef nonnull %81) #18
   br label %175
 
 91:                                               ; preds = %.lr.ph.i.i, %.backedge.i.i

@@ -302,7 +302,7 @@ define void @_ZN8nanobind6detail18raise_python_errorEv() local_unnamed_addr #12 
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #23
+  tail call void @__cxa_free_exception(ptr nonnull %4) #23
   resume { ptr, i32 } %7
 }
 
@@ -509,7 +509,7 @@ define noundef nonnull ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #23
+  tail call void @__cxa_free_exception(ptr nonnull %4) #23
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %1

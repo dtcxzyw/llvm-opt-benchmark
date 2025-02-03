@@ -821,7 +821,7 @@ sub_2:                                            ; preds = %sub_1
   %.str.31.sink = phi ptr [ @.str.29, %.loopexit ], [ @.str.31, %122 ], [ @.str.33, %125 ], [ @.str.35, %128 ]
   %131 = getelementptr inbounds nuw i8, ptr %90, i64 %.sink94
   %132 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull %.str.31.sink, ptr noundef nonnull %131) #17
-  call void @free(ptr noundef %90) #17
+  call void @free(ptr noundef nonnull %90) #17
   %133 = load ptr, ptr %5, align 8
   br label %134
 

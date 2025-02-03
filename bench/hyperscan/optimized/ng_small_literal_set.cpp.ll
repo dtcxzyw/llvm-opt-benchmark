@@ -1646,7 +1646,7 @@ for.body.i:                                       ; preds = %if.end20, %call10.i
 
 call10.i.noexc:                                   ; preds = %for.body.i
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %call10.i13, i64 %rv.09.i)
-  %call.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.08.i) #23
+  %call.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.08.i) #23
   %cmp.i.i.i.i.not.i = icmp eq ptr %call.i.i.i.i.i, %1
   br i1 %cmp.i.i.i.i.not.i, label %invoke.cont21, label %for.body.i
 
@@ -1682,7 +1682,7 @@ land.lhs.true.i:                                  ; preds = %call3.i.i.noexc
   br i1 %cmp.i, label %cleanup, label %for.inc.i18
 
 for.inc.i18:                                      ; preds = %land.lhs.true.i, %call3.i.i.noexc
-  %call.i.i.i.i.i19 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.06.i) #23
+  %call.i.i.i.i.i19 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.06.i) #23
   %cmp.i.i.i.i.not.i20 = icmp eq ptr %call.i.i.i.i.i19, %1
   br i1 %cmp.i.i.i.i.not.i20, label %do.end40.loopexit, label %for.body.i16
 
@@ -2203,7 +2203,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #20
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #20
   resume { ptr, i32 } %0
 }
 

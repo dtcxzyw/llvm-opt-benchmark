@@ -673,7 +673,7 @@ define internal void @"_ZN4core3ptr65drop_in_place$LT$anyhow..wrapper..MessageEr
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$wasmtime..runtime..component..values..Val$GT$$GT$17hd7eb4dbacd94f257E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !9
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$wasmtime..runtime..component..values..Val$GT$17h406b8c98a0e24ee9E.llvm.2711790923827917968"(ptr noalias noundef align 16 dereferenceable(48) %2)
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$wasmtime..runtime..component..values..Val$GT$17h406b8c98a0e24ee9E.llvm.2711790923827917968"(ptr noalias noundef nonnull align 16 dereferenceable(48) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1

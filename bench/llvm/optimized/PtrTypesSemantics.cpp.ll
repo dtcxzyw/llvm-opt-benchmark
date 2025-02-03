@@ -910,7 +910,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %1, %11
   %14 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -64
   %15 = select i1 %13, ptr null, ptr %14
   call void @_ZN5clang11safeGetNameINS_13CXXRecordDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef %15)
-  call void @_ZN5clang11safeGetNameINS_13CXXMethodDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef %0)
+  call void @_ZN5clang11safeGetNameINS_13CXXMethodDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull %0)
   %16 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.2) #10
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %18
@@ -999,85 +999,83 @@ _ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 127
-  %66 = icmp ne i32 %65, 34
-  %.not16 = icmp eq ptr %0, null
-  %.not = or i1 %.not16, %66
-  br i1 %.not, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread, label %67
+  %.not = icmp eq i32 %65, 34
+  br i1 %.not, label %66, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread
 
-67:                                               ; preds = %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8.thread
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.sroa.0.0.copyload.i.i = load i64, ptr %68, align 8
-  %69 = and i64 %.sroa.0.0.copyload.i.i, -16
-  %70 = inttoptr i64 %69 to ptr
-  %71 = load ptr, ptr %70, align 16
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %73 = load i8, ptr %72, align 16
-  %74 = add i8 %73, -27
-  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %74, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %75, label %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit
+66:                                               ; preds = %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8.thread
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.sroa.0.0.copyload.i.i = load i64, ptr %67, align 8
+  %68 = and i64 %.sroa.0.0.copyload.i.i, -16
+  %69 = inttoptr i64 %68 to ptr
+  %70 = load ptr, ptr %69, align 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %72 = load i8, ptr %71, align 16
+  %73 = add i8 %72, -27
+  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %73, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %74, label %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit
 
-75:                                               ; preds = %67
-  %76 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %71) #10
+74:                                               ; preds = %66
+  %75 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %70) #10
   br label %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit
 
-_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit: ; preds = %67, %75
-  %.0.i.i = phi ptr [ %76, %75 ], [ %71, %67 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %.sroa.0.0.copyload.i1.i = load i64, ptr %77, align 8
+_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit: ; preds = %66, %74
+  %.0.i.i = phi ptr [ %75, %74 ], [ %70, %66 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %.sroa.0.0.copyload.i1.i = load i64, ptr %76, align 8
   %.not.i.i.i = icmp ult i64 %.sroa.0.0.copyload.i1.i, 16
   br i1 %.not.i.i.i, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit
 
 _ZNK5clang8QualType16getTypePtrOrNullEv.exit:     ; preds = %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit
-  %78 = and i64 %.sroa.0.0.copyload.i1.i, -16
-  %79 = inttoptr i64 %78 to ptr
-  %80 = load ptr, ptr %79, align 16
-  %.not7 = icmp eq ptr %80, null
-  br i1 %.not7, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread, label %81
+  %77 = and i64 %.sroa.0.0.copyload.i1.i, -16
+  %78 = inttoptr i64 %77 to ptr
+  %79 = load ptr, ptr %78, align 16
+  %.not7 = icmp eq ptr %79, null
+  br i1 %.not7, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread, label %80
 
-81:                                               ; preds = %_ZNK5clang8QualType16getTypePtrOrNullEv.exit
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %82, align 8
-  %83 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
-  %84 = inttoptr i64 %83 to ptr
-  %85 = load ptr, ptr %84, align 16
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %87 = load i8, ptr %86, align 16
-  %.off.i = add i8 %87, -41
+80:                                               ; preds = %_ZNK5clang8QualType16getTypePtrOrNullEv.exit
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %81, align 8
+  %82 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
+  %83 = inttoptr i64 %82 to ptr
+  %84 = load ptr, ptr %83, align 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %86 = load i8, ptr %85, align 16
+  %.off.i = add i8 %86, -41
   %switch.i = icmp ult i8 %.off.i, 3
-  br i1 %switch.i, label %88, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread
+  br i1 %switch.i, label %87, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread
 
-88:                                               ; preds = %81
-  %89 = call noundef ptr @_ZNK5clang4Type23getPointeeCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %80) #10
-  %.not.i = icmp eq ptr %89, null
-  br i1 %.not.i, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread, label %90
+87:                                               ; preds = %80
+  %88 = call noundef ptr @_ZNK5clang4Type23getPointeeCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %79) #10
+  %.not.i = icmp eq ptr %88, null
+  br i1 %.not.i, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread, label %89
 
-90:                                               ; preds = %88
-  %91 = call noundef zeroext i1 @_ZN5clang12isRefCountedEPKNS_13CXXRecordDeclE(ptr noundef nonnull %89)
-  br i1 %91, label %_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i, label %92
+89:                                               ; preds = %87
+  %90 = call noundef zeroext i1 @_ZN5clang12isRefCountedEPKNS_13CXXRecordDeclE(ptr noundef nonnull %88)
+  br i1 %90, label %_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i, label %91
 
-92:                                               ; preds = %90
-  %93 = call i16 @_ZN5clang14isRefCountableEPKNS_13CXXRecordDeclE(ptr noundef nonnull %89)
-  %.not.i.i = icmp samesign ult i16 %93, 256
-  %94 = call i16 @llvm.umax.i16(i16 %93, i16 256)
-  %spec.select.i.i9 = and i16 %94, 1
+91:                                               ; preds = %89
+  %92 = call i16 @_ZN5clang14isRefCountableEPKNS_13CXXRecordDeclE(ptr noundef nonnull %88)
+  %.not.i.i = icmp samesign ult i16 %92, 256
+  %93 = call i16 @llvm.umax.i16(i16 %92, i16 256)
+  %spec.select.i.i9 = and i16 %93, 1
   %spec.select3.i.i = select i1 %.not.i.i, i16 0, i16 256
-  %95 = or disjoint i16 %spec.select3.i.i, %spec.select.i.i9
+  %94 = or disjoint i16 %spec.select3.i.i, %spec.select.i.i9
   br label %_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i
 
-_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i: ; preds = %92, %90
-  %.sroa.02.0.insert.insert.i.i = phi i16 [ 256, %90 ], [ %95, %92 ]
-  %96 = and i16 %.sroa.02.0.insert.insert.i.i, -256
-  %97 = and i16 %.sroa.02.0.insert.insert.i.i, 255
+_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i: ; preds = %91, %89
+  %.sroa.02.0.insert.insert.i.i = phi i16 [ 256, %89 ], [ %94, %91 ]
+  %95 = and i16 %.sroa.02.0.insert.insert.i.i, -256
+  %96 = and i16 %.sroa.02.0.insert.insert.i.i, 255
   br label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread
 
-_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread: ; preds = %_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i, %88, %81, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %28, %49, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8.thread
-  %.sroa.013.0 = phi i16 [ 0, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8.thread ], [ 0, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit ], [ 0, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8 ], [ 1, %49 ], [ 1, %28 ], [ 1, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ 0, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit ], [ %97, %_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i ], [ 0, %88 ], [ 0, %81 ]
-  %.sroa.4.0 = phi i16 [ 0, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8.thread ], [ 0, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit ], [ 0, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8 ], [ 256, %49 ], [ 256, %28 ], [ 256, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ 0, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit ], [ %96, %_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i ], [ 256, %88 ], [ 256, %81 ]
-  %switch = phi i1 [ true, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8.thread ], [ true, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit ], [ true, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8 ], [ false, %49 ], [ false, %28 ], [ false, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ true, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit ], [ false, %_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i ], [ false, %88 ], [ false, %81 ]
+_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread: ; preds = %_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i, %87, %80, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %28, %49, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8.thread
+  %.sroa.013.0 = phi i16 [ 0, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8.thread ], [ 0, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit ], [ 0, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8 ], [ 1, %49 ], [ 1, %28 ], [ 1, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ 0, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit ], [ %96, %_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i ], [ 0, %87 ], [ 0, %80 ]
+  %.sroa.4.0 = phi i16 [ 0, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8.thread ], [ 0, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit ], [ 0, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8 ], [ 256, %49 ], [ 256, %28 ], [ 256, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ 0, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit ], [ %95, %_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i ], [ 256, %87 ], [ 256, %80 ]
+  %switch = phi i1 [ true, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8.thread ], [ true, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit ], [ true, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit8 ], [ false, %49 ], [ false, %28 ], [ false, %_ZN5clang9isRefTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ true, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit ], [ false, %_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit.i ], [ false, %87 ], [ false, %80 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
-  %98 = or disjoint i16 %.sroa.4.0, %.sroa.013.0
-  %spec.select = select i1 %switch, i16 256, i16 %98
+  %97 = or disjoint i16 %.sroa.4.0, %.sroa.013.0
+  %spec.select = select i1 %switch, i16 256, i16 %97
   ret i16 %spec.select
 }
 

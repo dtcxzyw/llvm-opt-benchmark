@@ -3816,7 +3816,7 @@ invoke.cont28.cont:                               ; preds = %invoke.cont28.invok
 lpad27:                                           ; preds = %if.then24
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception25) #20
+  call void @__cxa_free_exception(ptr nonnull %exception25) #20
   br label %ehcleanup
 
 if.end29:                                         ; preds = %invoke.cont18
@@ -5992,11 +5992,11 @@ invoke.cont128:                                   ; preds = %lor.rhs.i.i.i, %if.
   %cmp131.not = icmp ult i32 %width.0, %89
   %or.cond = select i1 %lnot.i, i1 true, i1 %cmp131.not
   %.pr.pre = load ptr, ptr %conquer, align 8
+  %cmp.i187.not = icmp eq ptr %.pr.pre, null
   br i1 %or.cond, label %if.end143, label %land.lhs.true132
 
 land.lhs.true132:                                 ; preds = %invoke.cont128
-  %cmp.i172 = icmp eq ptr %.pr.pre, null
-  br i1 %cmp.i172, label %if.then135, label %if.end.i.i.i190
+  br i1 %cmp.i187.not, label %if.then135, label %if.end.i.i.i190
 
 if.then135:                                       ; preds = %land.lhs.true132
   %90 = load ptr, ptr %m_solver.i, align 8
@@ -6027,27 +6027,26 @@ if.then.i179:                                     ; preds = %invoke.cont136
 invoke.cont138:                                   ; preds = %invoke.cont136, %if.then.i179
   store ptr %call7.i177, ptr %conquer, align 8
   invoke void @_ZN15parallel_tactic12solver_state18set_conquer_paramsER6solver(ptr noundef nonnull align 8 dereferenceable(81) %s, ptr noundef nonnull align 8 dereferenceable(96) %call7.i177)
-          to label %if.end143 unwind label %lpad102.loopexit
+          to label %if.then146 unwind label %lpad102.loopexit
 
-if.end143:                                        ; preds = %invoke.cont138, %invoke.cont128
-  %.pr = phi ptr [ %call7.i177, %invoke.cont138 ], [ %.pr.pre, %invoke.cont128 ]
-  %cmp.i187.not = icmp eq ptr %.pr, null
+if.end143:                                        ; preds = %invoke.cont128
   br i1 %cmp.i187.not, label %sw.bb214, label %if.then146
 
-if.then146:                                       ; preds = %if.end143
+if.then146:                                       ; preds = %invoke.cont138, %if.end143
+  %.pr586 = phi ptr [ %.pr.pre, %if.end143 ], [ %call7.i177, %invoke.cont138 ]
   %.pre = load ptr, ptr %m_nodes.i143, align 8
   %cmp.i.i.i189 = icmp eq ptr %.pre, null
   br i1 %cmp.i.i.i189, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i192, label %if.end.i.i.i190
 
 if.end.i.i.i190:                                  ; preds = %land.lhs.true132, %if.then146
-  %94 = phi ptr [ %.pr, %if.then146 ], [ %.pr.pre, %land.lhs.true132 ]
+  %94 = phi ptr [ %.pr586, %if.then146 ], [ %.pr.pre, %land.lhs.true132 ]
   %95 = phi ptr [ %.pre, %if.then146 ], [ %72, %land.lhs.true132 ]
   %arrayidx.i.i.i191 = getelementptr inbounds i8, ptr %95, i64 -4
   %96 = load i32, ptr %arrayidx.i.i.i191, align 4
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i192
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i192: ; preds = %if.end.i.i.i190, %if.then146
-  %97 = phi ptr [ %94, %if.end.i.i.i190 ], [ %.pr, %if.then146 ]
+  %97 = phi ptr [ %94, %if.end.i.i.i190 ], [ %.pr586, %if.then146 ]
   %98 = phi ptr [ %95, %if.end.i.i.i190 ], [ null, %if.then146 ]
   %retval.0.i.i.i193 = phi i32 [ %96, %if.end.i.i.i190 ], [ 0, %if.then146 ]
   %call3.i194 = invoke noundef i32 @_ZN6solver9check_satEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(96) %97, i32 noundef %retval.0.i.i.i193, ptr noundef %98)

@@ -4215,7 +4215,7 @@ _ZSt11make_sharedIN10cmDebugger19cmDebuggerVariablesEJRKSt10shared_ptrINS0_26cmD
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i8, ptr %6, align 1
   %29 = trunc i8 %28 to i1
-  invoke void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP9cmFileSet(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %27, i1 noundef zeroext %29, ptr noundef %26)
+  invoke void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP9cmFileSet(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %27, i1 noundef zeroext %29, ptr noundef nonnull %26)
           to label %30 unwind label %68
 
 30:                                               ; preds = %24
@@ -14422,7 +14422,7 @@ _ZSt10_ConstructIN10cmDebugger23cmDebuggerVariableEntryEJRKS1_EEvPT_DpOT0_.exit:
   %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %.pn.i.i, %13 ]
   %18 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #21
-  invoke void @_ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryEEvT_S3_(ptr noundef %2, ptr noundef %.021)
+  invoke void @_ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryEEvT_S3_(ptr noundef %2, ptr noundef nonnull %.021)
           to label %20 unwind label %21
 
 20:                                               ; preds = %.body
@@ -14551,7 +14551,7 @@ _ZNSt12_Vector_baseIN10cmDebugger23cmDebuggerVariableEntryESaIS1_EE11_M_allocate
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %34 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN10cmDebugger23cmDebuggerVariableEntryEPS1_ET0_T_S6_S5_(ptr noundef %9, ptr noundef %1, ptr noundef %25)
+  %34 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN10cmDebugger23cmDebuggerVariableEntryEPS1_ET0_T_S6_S5_(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %25)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPN10cmDebugger23cmDebuggerVariableEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit unwind label %43
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN10cmDebugger23cmDebuggerVariableEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %33
@@ -14819,7 +14819,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
   %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
   %12 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #21
-  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %2, ptr noundef %.016)
+  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %2, ptr noundef nonnull %.016)
           to label %14 unwind label %15
 
 14:                                               ; preds = %.body
@@ -15176,7 +15176,7 @@ _ZNSt12_Vector_baseIN10cmDebugger23cmDebuggerVariableEntryESaIS1_EE11_M_allocate
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %34 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN10cmDebugger23cmDebuggerVariableEntryEPS1_ET0_T_S6_S5_(ptr noundef %9, ptr noundef %1, ptr noundef %25)
+  %34 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN10cmDebugger23cmDebuggerVariableEntryEPS1_ET0_T_S6_S5_(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %25)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPN10cmDebugger23cmDebuggerVariableEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit unwind label %43
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN10cmDebugger23cmDebuggerVariableEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %33
@@ -16080,7 +16080,7 @@ _ZNSt12_Vector_baseIN10cmDebugger23cmDebuggerVariableEntryESaIS1_EE11_M_allocate
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %34 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN10cmDebugger23cmDebuggerVariableEntryEPS1_ET0_T_S6_S5_(ptr noundef %9, ptr noundef %1, ptr noundef %25)
+  %34 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN10cmDebugger23cmDebuggerVariableEntryEPS1_ET0_T_S6_S5_(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %25)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPN10cmDebugger23cmDebuggerVariableEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit unwind label %43
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN10cmDebugger23cmDebuggerVariableEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %33
@@ -16223,7 +16223,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebu
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  %20 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.014.018.i.i.i) #25
+  %20 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.014.018.i.i.i) #25
   %.not.i.i.i = icmp eq ptr %20, %11
   br i1 %.not.i.i.i, label %"_ZSt10__invoke_rISt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EERZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKSt3setISG_St4lessISG_ESaISG_EEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EEST_E4typeEOSU_DpOSV_.exit", label %.lr.ph.i.i.i
 
@@ -16605,7 +16605,7 @@ _ZSt10_ConstructI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJRKS7_
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = tail call ptr @__cxa_begin_catch(ptr %22) #21
-  invoke void @_ZSt8_DestroyIP2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_(ptr noundef %2, ptr noundef %.014)
+  invoke void @_ZSt8_DestroyIP2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_(ptr noundef %2, ptr noundef nonnull %.014)
           to label %24 unwind label %25
 
 24:                                               ; preds = %20

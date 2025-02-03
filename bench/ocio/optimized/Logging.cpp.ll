@@ -581,7 +581,7 @@ invoke.cont25:                                    ; preds = %sw.bb23
 lpad24:                                           ; preds = %sw.bb23
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #19
   br label %eh.resume
 
 sw.epilog.sink.split:                             ; preds = %invoke.cont.i28, %if.end.i30, %invoke.cont.i16, %if.end.i18, %invoke.cont.i, %if.end.i

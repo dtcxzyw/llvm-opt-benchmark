@@ -701,7 +701,7 @@ terminate.lpad.i46:                               ; preds = %if.then13.i.i45
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit47: ; preds = %if.end29, %if.then.i.i39, %if.then13.i.i45
-  %call.i48 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.077) #21
+  %call.i48 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.077) #21
   %cmp.i.not = icmp eq ptr %call.i48, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 

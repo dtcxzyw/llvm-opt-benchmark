@@ -1630,7 +1630,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %54, %57
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %62
-  tail call void @free(ptr noundef %0) #17
+  tail call void @free(ptr noundef nonnull %0) #17
   br label %70
 
 70:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit

@@ -462,7 +462,7 @@ invoke.cont51:                                    ; preds = %land.rhs.i.i.i71
 if.then53:                                        ; preds = %invoke.cont51
   %49 = load ptr, ptr %m_util, align 8
   %50 = load ptr, ptr %49, align 8
-  %call.i80 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %50, i32 noundef 5, i32 noundef 2, ptr noundef %t1.0, ptr noundef nonnull %t2.0)
+  %call.i80 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %50, i32 noundef 5, i32 noundef 2, ptr noundef nonnull %t1.0, ptr noundef nonnull %t2.0)
           to label %invoke.cont55 unwind label %lpad45
 
 invoke.cont55:                                    ; preds = %if.then53
@@ -480,7 +480,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55, %_ZN
   store ptr %call.i80, ptr %le, align 8
   %52 = load ptr, ptr %m_util, align 8
   %53 = load ptr, ptr %52, align 8
-  %call.i95 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %53, i32 noundef 5, i32 noundef 3, ptr noundef %t1.0, ptr noundef nonnull %t2.0)
+  %call.i95 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %53, i32 noundef 5, i32 noundef 3, ptr noundef nonnull %t1.0, ptr noundef nonnull %t2.0)
           to label %invoke.cont60 unwind label %lpad45
 
 invoke.cont60:                                    ; preds = %invoke.cont57

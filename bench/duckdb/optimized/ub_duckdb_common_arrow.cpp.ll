@@ -11293,7 +11293,7 @@ lpad3:                                            ; preds = %invoke.cont4, %invo
 lpad7:                                            ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont8
@@ -26781,7 +26781,7 @@ if.then.i79:                                      ; preds = %lpad29
 lpad35:                                           ; preds = %if.then
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #22
+  call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %ehcleanup40
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIN6duckdb15ArrowAppendDataESt14default_deleteIS1_EED2Ev.exit71
@@ -27949,7 +27949,7 @@ if.then.i79:                                      ; preds = %lpad29
 lpad35:                                           ; preds = %if.then
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #22
+  call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %ehcleanup40
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIN6duckdb15ArrowAppendDataESt14default_deleteIS1_EED2Ev.exit71

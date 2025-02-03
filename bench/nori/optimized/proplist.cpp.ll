@@ -341,7 +341,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 36:                                               ; preds = %30, %22
   %.sink = phi ptr [ %28, %30 ], [ %20, %22 ]
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %23, %22 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #18
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -482,7 +482,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #18
+  tail call void @__cxa_free_exception(ptr nonnull %25) #18
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %21
@@ -656,7 +656,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 35:                                               ; preds = %30, %22
   %.sink = phi ptr [ %28, %30 ], [ %20, %22 ]
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %23, %22 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #18
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -729,7 +729,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #18
+  tail call void @__cxa_free_exception(ptr nonnull %25) #18
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %21
@@ -902,7 +902,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 35:                                               ; preds = %30, %22
   %.sink = phi ptr [ %28, %30 ], [ %20, %22 ]
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %23, %22 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #18
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -975,7 +975,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #18
+  tail call void @__cxa_free_exception(ptr nonnull %25) #18
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %21
@@ -1156,7 +1156,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 35:                                               ; preds = %31, %23
   %.sink = phi ptr [ %29, %31 ], [ %21, %23 ]
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %24, %23 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #18
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -1229,7 +1229,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %26) #18
+  tail call void @__cxa_free_exception(ptr nonnull %26) #18
   resume { ptr, i32 } %29
 
 30:                                               ; preds = %22
@@ -1410,7 +1410,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 35:                                               ; preds = %31, %23
   %.sink = phi ptr [ %29, %31 ], [ %21, %23 ]
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %24, %23 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #18
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -1483,7 +1483,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %26) #18
+  tail call void @__cxa_free_exception(ptr nonnull %26) #18
   resume { ptr, i32 } %29
 
 30:                                               ; preds = %22
@@ -1664,7 +1664,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 35:                                               ; preds = %31, %23
   %.sink = phi ptr [ %29, %31 ], [ %21, %23 ]
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %24, %23 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #18
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -1737,7 +1737,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %26) #18
+  tail call void @__cxa_free_exception(ptr nonnull %26) #18
   resume { ptr, i32 } %29
 
 30:                                               ; preds = %22
@@ -1911,7 +1911,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 35:                                               ; preds = %31, %23
   %.sink = phi ptr [ %29, %31 ], [ %21, %23 ]
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %24, %23 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #18
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -1986,7 +1986,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %26) #18
+  tail call void @__cxa_free_exception(ptr nonnull %26) #18
   resume { ptr, i32 } %29
 
 30:                                               ; preds = %22
@@ -2190,7 +2190,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 37:                                               ; preds = %31, %23
   %.sink = phi ptr [ %29, %31 ], [ %21, %23 ]
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %24, %23 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #18
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -2270,7 +2270,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4nori12PropertyL
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #18
+  tail call void @__cxa_free_exception(ptr nonnull %28) #18
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %24
@@ -2491,7 +2491,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %50, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4nori12PropertyList8PropertyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #22
+  %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #22
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit11 unwind label %55
@@ -2597,7 +2597,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %91, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4nori12PropertyList8PropertyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit, label %92
 
 92:                                               ; preds = %88
-  %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #22
+  %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #22
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %94)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit35 unwind label %96

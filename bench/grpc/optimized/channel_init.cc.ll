@@ -2568,7 +2568,7 @@ invoke.cont371:                                   ; preds = %invoke.cont368
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp358) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp363) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp366) #22
-  %call.i468 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2348.sroa.0.0799) #24
+  %call.i468 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2348.sroa.0.0799) #24
   %cmp.i459.not = icmp eq ptr %call.i468, %197
   br i1 %cmp.i459.not, label %for.end378, label %for.body356
 

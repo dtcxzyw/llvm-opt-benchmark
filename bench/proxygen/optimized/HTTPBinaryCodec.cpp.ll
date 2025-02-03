@@ -2596,7 +2596,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i4, %lp
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #29
   br label %common.resume
 
 _ZNK5folly10IOBufQueue11chainLengthEv.exit:       ; preds = %entry
@@ -2639,7 +2639,7 @@ invoke.cont.i5:                                   ; preds = %if.then.i2
 lpad.i4:                                          ; preds = %if.then.i2
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i3) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i3) #29
   br label %common.resume
 
 _ZNK5folly10IOBufQueue11chainLengthEv.exit13:     ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
@@ -2771,7 +2771,7 @@ common.resume:                                    ; preds = %sw.bb2.i.i.i257, %e
 lpad.i:                                           ; preds = %if.then.i
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #29
   br label %common.resume
 
 _ZNK5folly10IOBufQueue11chainLengthEv.exit:       ; preds = %_ZN5folly2io6CursorC2EPKNS_5IOBufE.exit
@@ -6574,7 +6574,7 @@ invoke.cont26:                                    ; preds = %if.then24
 lpad25:                                           ; preds = %if.then24
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #29
   resume { ptr, i32 } %1
 
 if.end27:                                         ; preds = %entry, %if.then
@@ -10430,7 +10430,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #29
   resume { ptr, i32 } %0
 }
 

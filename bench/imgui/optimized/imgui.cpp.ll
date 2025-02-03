@@ -9731,14 +9731,14 @@ if.then1:                                         ; preds = %if.end
   %conv9.i.i = fptosi float %13 to i32
   %shl10.i.i = shl i32 %conv9.i.i, 24
   %or11.i.i = or i32 %or7.i.i, %shl10.i.i
-  call void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 dereferenceable(196) %2, ptr noundef %3, float noundef %4, ptr noundef nonnull align 4 dereferenceable(8) %pos, i32 noundef %or11.i.i, ptr noundef %text, ptr noundef %text_end.addr.0, float noundef %wrap_width, ptr noundef null)
+  call void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 dereferenceable(196) %2, ptr noundef %3, float noundef %4, ptr noundef nonnull align 4 dereferenceable(8) %pos, i32 noundef %or11.i.i, ptr noundef %text, ptr noundef nonnull %text_end.addr.0, float noundef %wrap_width, ptr noundef null)
   %LogEnabled = getelementptr inbounds nuw i8, ptr %0, i64 24488
   %14 = load i8, ptr %LogEnabled, align 8
   %tobool3 = trunc i8 %14 to i1
   br i1 %tobool3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.then1
-  call void @_ZN5ImGui15LogRenderedTextEPK6ImVec2PKcS4_(ptr noundef nonnull %pos, ptr noundef %text, ptr noundef %text_end.addr.0)
+  call void @_ZN5ImGui15LogRenderedTextEPK6ImVec2PKcS4_(ptr noundef nonnull %pos, ptr noundef %text, ptr noundef nonnull %text_end.addr.0)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then1, %if.then4, %if.end
@@ -14493,7 +14493,7 @@ for.body.i:                                       ; preds = %_ZN8ImVectorIcE9pus
   %__begin1.025.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %6, %_ZN8ImVectorIcE9push_backERKc.exit.i ]
   %WriteAllFn.i = getelementptr inbounds nuw i8, ptr %__begin1.025.i, i64 56
   %8 = load ptr, ptr %WriteAllFn.i, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %__begin1.025.i, ptr noundef nonnull %SettingsIniData.i)
+  tail call void %8(ptr noundef nonnull %0, ptr noundef %__begin1.025.i, ptr noundef nonnull %SettingsIniData.i)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.025.i, i64 72
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %_ZN5ImGui23SaveIniSettingsToMemoryEPm.exit.loopexit, label %for.body.i
@@ -60428,7 +60428,7 @@ for.body:                                         ; preds = %_ZN8ImVectorIcE9pus
   %__begin1.025 = phi ptr [ %incdec.ptr, %for.body ], [ %6, %_ZN8ImVectorIcE9push_backERKc.exit ]
   %WriteAllFn = getelementptr inbounds nuw i8, ptr %__begin1.025, i64 56
   %8 = load ptr, ptr %WriteAllFn, align 8
-  tail call void %8(ptr noundef %0, ptr noundef %__begin1.025, ptr noundef nonnull %SettingsIniData)
+  tail call void %8(ptr noundef nonnull %0, ptr noundef %__begin1.025, ptr noundef nonnull %SettingsIniData)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.025, i64 72
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
@@ -64740,7 +64740,7 @@ for.body.i862:                                    ; preds = %_ZN8ImVectorIcE9pus
   %__begin1.025.i = phi ptr [ %incdec.ptr.i863, %for.body.i862 ], [ %379, %_ZN8ImVectorIcE9push_backERKc.exit.i ]
   %WriteAllFn.i = getelementptr inbounds nuw i8, ptr %__begin1.025.i, i64 56
   %381 = load ptr, ptr %WriteAllFn.i, align 8
-  call void %381(ptr noundef %373, ptr noundef %__begin1.025.i, ptr noundef nonnull %SettingsIniData.i854)
+  call void %381(ptr noundef nonnull %373, ptr noundef %__begin1.025.i, ptr noundef nonnull %SettingsIniData.i854)
   %incdec.ptr.i863 = getelementptr inbounds nuw i8, ptr %__begin1.025.i, i64 72
   %cmp.not.i864 = icmp eq ptr %incdec.ptr.i863, %add.ptr.i.i861
   br i1 %cmp.not.i864, label %if.end420, label %for.body.i862

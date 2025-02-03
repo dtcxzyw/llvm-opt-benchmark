@@ -4916,7 +4916,7 @@ define void @_ZN6gmxapi16SessionResources17getMdrunnerSignalENS_2md7signalsE(ptr
 24:                                               ; preds = %20, %7
   %.sink = phi ptr [ %18, %20 ], [ %5, %7 ]
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %8, %7 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #21
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #21
   resume { ptr, i32 } %.pn
 }
 

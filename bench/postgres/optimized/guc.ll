@@ -4836,7 +4836,7 @@ guc_strdup.exit:                                  ; preds = %18, %20, %guc_mallo
   br label %23
 
 23:                                               ; preds = %guc_strdup.exit, %7
-  call void @pfree(ptr noundef %3) #29
+  call void @pfree(ptr noundef nonnull %3) #29
   ret void
 }
 

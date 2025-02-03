@@ -1579,27 +1579,27 @@ define noundef ptr @_Z18VolNameToFirstNamePKwPwmb(ptr noundef %0, ptr noundef %1
   br i1 %13, label %.lr.ph, label %_Z6GetExtPKw.exit
 
 .lr.ph:                                           ; preds = %11, %21
-  %.02854 = phi ptr [ %22, %21 ], [ %12, %11 ]
-  %.02953 = phi i32 [ %.1, %21 ], [ 49, %11 ]
-  %14 = load i32, ptr %.02854, align 4
+  %.02853 = phi ptr [ %22, %21 ], [ %12, %11 ]
+  %.02952 = phi i32 [ %.1, %21 ], [ 49, %11 ]
+  %14 = load i32, ptr %.02853, align 4
   %15 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %14)
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %.lr.ph
-  store i32 %.02953, ptr %.02854, align 4
+  store i32 %.02952, ptr %.02853, align 4
   br label %21
 
 17:                                               ; preds = %.lr.ph
-  %18 = icmp eq i32 %.02953, 48
+  %18 = icmp eq i32 %.02952, 48
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %.02854, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02853, i64 4
   br label %_Z6GetExtPKw.exit
 
 21:                                               ; preds = %16, %17
   %.1 = phi i32 [ 48, %16 ], [ 49, %17 ]
-  %22 = getelementptr inbounds i8, ptr %.02854, i64 -4
+  %22 = getelementptr inbounds i8, ptr %.02853, i64 -4
   %23 = icmp ugt ptr %22, %1
   br i1 %23, label %.lr.ph, label %_Z6GetExtPKw.exit, !llvm.loop !23
 
@@ -1610,7 +1610,7 @@ define noundef ptr @_Z18VolNameToFirstNamePKwPwmb(ptr noundef %0, ptr noundef %1
 26:                                               ; preds = %24
   %27 = load i32, ptr %1, align 4
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %_Z6SetExtPwPKwm.exit.thread40, label %29
+  br i1 %28, label %46, label %29
 
 29:                                               ; preds = %26
   %30 = tail call i64 @wcslen(ptr noundef nonnull readonly %1) #18
@@ -1639,182 +1639,182 @@ _Z6GetExtPKw.exit.i:                              ; preds = %32, %40
   %.011.i.i.i = phi ptr [ %42, %40 ], [ %1, %32 ]
   %43 = tail call ptr @wcsrchr(ptr noundef %.011.i.i.i, i32 noundef signext 46) #18
   %.not.i = icmp eq ptr %43, null
-  br i1 %.not.i, label %_Z6SetExtPwPKwm.exit, label %44
+  br i1 %.not.i, label %45, label %44
 
 44:                                               ; preds = %_Z6GetExtPKw.exit.i
   store i32 0, ptr %43, align 4
-  br label %_Z6SetExtPwPKwm.exit
+  br label %45
 
-_Z6SetExtPwPKwm.exit:                             ; preds = %_Z6GetExtPKw.exit.i, %44
+45:                                               ; preds = %44, %_Z6GetExtPKw.exit.i
   tail call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %1, ptr noundef nonnull @.str, i64 noundef %2)
   tail call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, i64 noundef %2)
-  br label %_Z6SetExtPwPKwm.exit.thread40
+  br label %46
 
-_Z6SetExtPwPKwm.exit.thread40:                    ; preds = %_Z6SetExtPwPKwm.exit, %26
-  %45 = tail call i64 @wcslen(ptr noundef nonnull readonly %1) #18
-  %46 = and i64 %45, 4294967295
-  br label %47
+46:                                               ; preds = %26, %45
+  %47 = tail call i64 @wcslen(ptr noundef nonnull readonly %1) #18
+  %48 = and i64 %47, 4294967295
+  br label %49
 
-47:                                               ; preds = %50, %_Z6SetExtPwPKwm.exit.thread40
-  %indvars.iv.i.i = phi i64 [ %51, %50 ], [ %46, %_Z6SetExtPwPKwm.exit.thread40 ]
-  %48 = trunc nuw i64 %indvars.iv.i.i to i32
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %50, label %_Z11PointToNamePKw.exit.i
+49:                                               ; preds = %52, %46
+  %indvars.iv.i.i = phi i64 [ %53, %52 ], [ %48, %46 ]
+  %50 = trunc nuw i64 %indvars.iv.i.i to i32
+  %51 = icmp sgt i32 %50, 0
+  br i1 %51, label %52, label %_Z11PointToNamePKw.exit.i
 
-50:                                               ; preds = %47
-  %51 = add nsw i64 %indvars.iv.i.i, -1
-  %52 = getelementptr inbounds nuw i32, ptr %1, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp eq i32 %53, 47
-  br i1 %54, label %55, label %47, !llvm.loop !4
+52:                                               ; preds = %49
+  %53 = add nsw i64 %indvars.iv.i.i, -1
+  %54 = getelementptr inbounds nuw i32, ptr %1, i64 %53
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp eq i32 %55, 47
+  br i1 %56, label %57, label %49, !llvm.loop !4
 
-55:                                               ; preds = %50
-  %56 = and i64 %indvars.iv.i.i, 2147483647
-  %57 = getelementptr inbounds nuw i32, ptr %1, i64 %56
+57:                                               ; preds = %52
+  %58 = and i64 %indvars.iv.i.i, 2147483647
+  %59 = getelementptr inbounds nuw i32, ptr %1, i64 %58
   br label %_Z11PointToNamePKw.exit.i
 
-_Z11PointToNamePKw.exit.i:                        ; preds = %47, %55
-  %.011.i.i = phi ptr [ %57, %55 ], [ %1, %47 ]
-  %58 = tail call ptr @wcsrchr(ptr noundef %.011.i.i, i32 noundef signext 46) #18
+_Z11PointToNamePKw.exit.i:                        ; preds = %49, %57
+  %.011.i.i = phi ptr [ %59, %57 ], [ %1, %49 ]
+  %60 = tail call ptr @wcsrchr(ptr noundef %.011.i.i, i32 noundef signext 46) #18
   br label %_Z6GetExtPKw.exit
 
-_Z6GetExtPKw.exit:                                ; preds = %21, %11, %24, %_Z11PointToNamePKw.exit.i, %19
-  %.030 = phi ptr [ %20, %19 ], [ %58, %_Z11PointToNamePKw.exit.i ], [ null, %24 ], [ %1, %11 ], [ %1, %21 ]
-  %59 = tail call noundef zeroext i1 @_Z9FileExistPKw(ptr noundef %1)
-  br i1 %59, label %100, label %60
+_Z6GetExtPKw.exit:                                ; preds = %21, %11, %_Z11PointToNamePKw.exit.i, %24, %19
+  %.030 = phi ptr [ %20, %19 ], [ %60, %_Z11PointToNamePKw.exit.i ], [ null, %24 ], [ %1, %11 ], [ %1, %21 ]
+  %61 = tail call noundef zeroext i1 @_Z9FileExistPKw(ptr noundef %1)
+  br i1 %61, label %102, label %62
 
-60:                                               ; preds = %_Z6GetExtPKw.exit
+62:                                               ; preds = %_Z6GetExtPKw.exit
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 2048)
-  %61 = load i32, ptr %5, align 16
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %_Z6SetExtPwPKwm.exit39, label %63
+  %63 = load i32, ptr %5, align 16
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %_Z6SetExtPwPKwm.exit39, label %65
 
-63:                                               ; preds = %60
-  %64 = call i64 @wcslen(ptr noundef nonnull readonly %5) #18
-  %65 = and i64 %64, 4294967295
-  br label %66
+65:                                               ; preds = %62
+  %66 = call i64 @wcslen(ptr noundef nonnull readonly %5) #18
+  %67 = and i64 %66, 4294967295
+  br label %68
 
-66:                                               ; preds = %69, %63
-  %indvars.iv.i.i.i35 = phi i64 [ %70, %69 ], [ %65, %63 ]
-  %67 = trunc nuw i64 %indvars.iv.i.i.i35 to i32
-  %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %69, label %_Z6GetExtPKw.exit.i36
+68:                                               ; preds = %71, %65
+  %indvars.iv.i.i.i35 = phi i64 [ %72, %71 ], [ %67, %65 ]
+  %69 = trunc nuw i64 %indvars.iv.i.i.i35 to i32
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %71, label %_Z6GetExtPKw.exit.i36
 
-69:                                               ; preds = %66
-  %70 = add nsw i64 %indvars.iv.i.i.i35, -1
-  %71 = getelementptr inbounds nuw i32, ptr %5, i64 %70
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp eq i32 %72, 47
-  br i1 %73, label %74, label %66, !llvm.loop !4
+71:                                               ; preds = %68
+  %72 = add nsw i64 %indvars.iv.i.i.i35, -1
+  %73 = getelementptr inbounds nuw i32, ptr %5, i64 %72
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp eq i32 %74, 47
+  br i1 %75, label %76, label %68, !llvm.loop !4
 
-74:                                               ; preds = %69
-  %75 = and i64 %indvars.iv.i.i.i35, 2147483647
-  %76 = getelementptr inbounds nuw i32, ptr %5, i64 %75
+76:                                               ; preds = %71
+  %77 = and i64 %indvars.iv.i.i.i35, 2147483647
+  %78 = getelementptr inbounds nuw i32, ptr %5, i64 %77
   br label %_Z6GetExtPKw.exit.i36
 
-_Z6GetExtPKw.exit.i36:                            ; preds = %66, %74
-  %.011.i.i.i37 = phi ptr [ %76, %74 ], [ %5, %66 ]
-  %77 = call ptr @wcsrchr(ptr noundef nonnull %.011.i.i.i37, i32 noundef signext 46) #18
-  %.not.i38 = icmp eq ptr %77, null
-  br i1 %.not.i38, label %79, label %78
+_Z6GetExtPKw.exit.i36:                            ; preds = %68, %76
+  %.011.i.i.i37 = phi ptr [ %78, %76 ], [ %5, %68 ]
+  %79 = call ptr @wcsrchr(ptr noundef nonnull %.011.i.i.i37, i32 noundef signext 46) #18
+  %.not.i38 = icmp eq ptr %79, null
+  br i1 %.not.i38, label %81, label %80
 
-78:                                               ; preds = %_Z6GetExtPKw.exit.i36
-  store i32 0, ptr %77, align 4
-  br label %79
+80:                                               ; preds = %_Z6GetExtPKw.exit.i36
+  store i32 0, ptr %79, align 4
+  br label %81
 
-79:                                               ; preds = %78, %_Z6GetExtPKw.exit.i36
+81:                                               ; preds = %80, %_Z6GetExtPKw.exit.i36
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %5, ptr noundef nonnull @.str, i64 noundef 2048)
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %5, ptr noundef nonnull @.str.17, i64 noundef 2048)
   br label %_Z6SetExtPwPKwm.exit39
 
-_Z6SetExtPwPKwm.exit39:                           ; preds = %60, %79
+_Z6SetExtPwPKwm.exit39:                           ; preds = %62, %81
   call void @_ZN8FindFileC1Ev(ptr noundef nonnull align 8 dereferenceable(8208) %6)
   invoke void @_ZN8FindFile7SetMaskEPKw(ptr noundef nonnull align 8 dereferenceable(8208) %6, ptr noundef nonnull %5)
-          to label %80 unwind label %.loopexit.split-lp
+          to label %82 unwind label %.loopexit.split-lp
 
-80:                                               ; preds = %_Z6SetExtPwPKwm.exit39
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 8208
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
-  %82 = getelementptr inbounds nuw i8, ptr %8, i64 48849
-  br label %83
+82:                                               ; preds = %_Z6SetExtPwPKwm.exit39
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 8208
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 48849
+  br label %85
 
-83:                                               ; preds = %98, %80
-  %84 = invoke noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull align 8 dereferenceable(8208) %6, ptr noundef nonnull %7, i1 noundef zeroext false)
-          to label %85 unwind label %.loopexit
-
-85:                                               ; preds = %83
-  br i1 %84, label %86, label %.loopexit43
-
-86:                                               ; preds = %85
-  invoke void @_ZN7ArchiveC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(57108) %8, ptr noundef null)
+85:                                               ; preds = %100, %82
+  %86 = invoke noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull align 8 dereferenceable(8208) %6, ptr noundef nonnull %7, i1 noundef zeroext false)
           to label %87 unwind label %.loopexit
 
-87:                                               ; preds = %86
-  %88 = invoke noundef zeroext i1 @_ZN7Archive4OpenEPKwj(ptr noundef nonnull align 8 dereferenceable(57108) %8, ptr noundef nonnull %7, i32 noundef 0)
-          to label %89 unwind label %.loopexit44
+87:                                               ; preds = %85
+  br i1 %86, label %88, label %.loopexit42
 
-89:                                               ; preds = %87
-  br i1 %88, label %90, label %98
+88:                                               ; preds = %87
+  invoke void @_ZN7ArchiveC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(57108) %8, ptr noundef null)
+          to label %89 unwind label %.loopexit
 
-90:                                               ; preds = %89
-  %91 = invoke noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108) %8, i1 noundef zeroext true)
-          to label %92 unwind label %.loopexit44
+89:                                               ; preds = %88
+  %90 = invoke noundef zeroext i1 @_ZN7Archive4OpenEPKwj(ptr noundef nonnull align 8 dereferenceable(57108) %8, ptr noundef nonnull %7, i32 noundef 0)
+          to label %91 unwind label %.loopexit43
 
-92:                                               ; preds = %90
-  br i1 %91, label %93, label %98
+91:                                               ; preds = %89
+  br i1 %90, label %92, label %100
 
-93:                                               ; preds = %92
-  %94 = load i8, ptr %82, align 1
-  %95 = trunc i8 %94 to i1
-  br i1 %95, label %96, label %98
+92:                                               ; preds = %91
+  %93 = invoke noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108) %8, i1 noundef zeroext true)
+          to label %94 unwind label %.loopexit43
 
-96:                                               ; preds = %93
+94:                                               ; preds = %92
+  br i1 %93, label %95, label %100
+
+95:                                               ; preds = %94
+  %96 = load i8, ptr %84, align 1
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %100
+
+98:                                               ; preds = %95
   invoke void @_Z8wcsncpyzPwPKwm(ptr noundef %1, ptr noundef nonnull %7, i64 noundef %2)
-          to label %.thread unwind label %.loopexit.split-lp45
+          to label %.thread unwind label %.loopexit.split-lp44
 
-.thread:                                          ; preds = %96
+.thread:                                          ; preds = %98
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %8) #19
-  br label %.loopexit43
+  br label %.loopexit42
 
-.loopexit:                                        ; preds = %83, %86
+.loopexit:                                        ; preds = %85, %88
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %101
 
 .loopexit.split-lp:                               ; preds = %_Z6SetExtPwPKwm.exit39
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
+  br label %101
+
+.loopexit43:                                      ; preds = %89, %92
+  %lpad.loopexit45 = landingpad { ptr, i32 }
+          cleanup
   br label %99
 
-.loopexit44:                                      ; preds = %87, %90
-  %lpad.loopexit46 = landingpad { ptr, i32 }
+.loopexit.split-lp44:                             ; preds = %98
+  %lpad.loopexit.split-lp46 = landingpad { ptr, i32 }
           cleanup
-  br label %97
-
-.loopexit.split-lp45:                             ; preds = %96
-  %lpad.loopexit.split-lp47 = landingpad { ptr, i32 }
-          cleanup
-  br label %97
-
-97:                                               ; preds = %.loopexit.split-lp45, %.loopexit44
-  %lpad.phi48 = phi { ptr, i32 } [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ]
-  call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %8) #19
   br label %99
 
-98:                                               ; preds = %89, %92, %93
+99:                                               ; preds = %.loopexit.split-lp44, %.loopexit43
+  %lpad.phi47 = phi { ptr, i32 } [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ]
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %8) #19
-  br label %83
+  br label %101
 
-.loopexit43:                                      ; preds = %85, %.thread
+100:                                              ; preds = %91, %94, %95
+  call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %8) #19
+  br label %85
+
+.loopexit42:                                      ; preds = %87, %.thread
   call void @_ZN8FindFileD1Ev(ptr noundef nonnull align 8 dereferenceable(8208) %6) #19
-  br label %100
+  br label %102
 
-99:                                               ; preds = %.loopexit, %.loopexit.split-lp, %97
-  %.pn = phi { ptr, i32 } [ %lpad.phi48, %97 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+101:                                              ; preds = %.loopexit, %.loopexit.split-lp, %99
+  %.pn = phi { ptr, i32 } [ %lpad.phi47, %99 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN8FindFileD1Ev(ptr noundef nonnull align 8 dereferenceable(8208) %6) #19
   resume { ptr, i32 } %.pn
 
-100:                                              ; preds = %.loopexit43, %_Z6GetExtPKw.exit
+102:                                              ; preds = %.loopexit42, %_Z6GetExtPKw.exit
   ret ptr %.030
 }
 
@@ -2023,7 +2023,7 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, pt
 
 _Z6GetExtPKw.exit:                                ; preds = %69, %77
   %.011.i.i = phi ptr [ %79, %77 ], [ %0, %69 ]
-  %80 = call ptr @wcsrchr(ptr noundef %.011.i.i, i32 noundef signext 46) #18
+  %80 = call ptr @wcsrchr(ptr noundef nonnull %.011.i.i, i32 noundef signext 46) #18
   store i32 0, ptr %8, align 16
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.preheader, label %95
@@ -2389,7 +2389,7 @@ _Z11AddEndSlashPwm.exit:                          ; preds = %_Z11GetFilePathPKwP
 
 _Z11PointToNamePKw.exit145:                       ; preds = %279, %287
   %.011.i144 = phi ptr [ %289, %287 ], [ %0, %279 ]
-  call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %12, ptr noundef %.011.i144, i64 noundef 2048)
+  call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %12, ptr noundef nonnull %.011.i144, i64 noundef 2048)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef 2048)
   br label %291
 

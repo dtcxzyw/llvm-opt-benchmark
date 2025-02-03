@@ -11010,7 +11010,7 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit: ; preds = 
   %126 = and i8 %125, 1
   %.not56 = icmp eq i8 %126, 0
   %127 = select i1 %.not56, ptr %3, ptr %67
-  call void @_ZN5clang7CodeGen15CodeGenFunction17getVTablePointersENS_13BaseSubobjectEPKNS_13CXXRecordDeclENS_9CharUnitsEbS5_RN4llvm11SmallPtrSetIS5_Lj4EEERNS7_11SmallVectorINS1_4VPtrELj4EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %67, i64 %.sroa.047.0, ptr noundef %127, i64 %.sroa.046.0, i1 noundef zeroext %.039, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(176) %8)
+  call void @_ZN5clang7CodeGen15CodeGenFunction17getVTablePointersENS_13BaseSubobjectEPKNS_13CXXRecordDeclENS_9CharUnitsEbS5_RN4llvm11SmallPtrSetIS5_Lj4EEERNS7_11SmallVectorINS1_4VPtrELj4EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr nonnull %67, i64 %.sroa.047.0, ptr noundef %127, i64 %.sroa.046.0, i1 noundef zeroext %.039, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(176) %8)
   br label %.critedge62
 
 .critedge62:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit, %124

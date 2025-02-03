@@ -1964,7 +1964,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i666:           ; preds = %799
 838:                                              ; preds = %._crit_edge.i1764
   %839 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %836) #24
+  call void @__cxa_free_exception(ptr nonnull %836) #24
   br label %.body.i
 
 .noexc675:                                        ; preds = %.lr.ph.i1760
@@ -2269,7 +2269,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i650:           ; preds = %956
 995:                                              ; preds = %._crit_edge.i1719
   %996 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %993) #24
+  call void @__cxa_free_exception(ptr nonnull %993) #24
   br label %.body.i
 
 .noexc662:                                        ; preds = %.lr.ph.i1715
@@ -2901,7 +2901,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4045:          ; preds = %1225
   %1265 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %1262) #24
+  call void @__cxa_free_exception(ptr nonnull %1262) #24
   br label %.body4429
 
 .noexc4058:                                       ; preds = %.lr.ph.i4421
@@ -3486,7 +3486,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1615:          ; preds = %1478
 1517:                                             ; preds = %._crit_edge.i3139
   %1518 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1516) #24
+  call void @__cxa_free_exception(ptr nonnull %1516) #24
   br label %.body.i
 
 .noexc1627:                                       ; preds = %.lr.ph.i3135
@@ -4128,7 +4128,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4028:          ; preds = %1752
   %1792 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %1789) #24
+  call void @__cxa_free_exception(ptr nonnull %1789) #24
   br label %.body4383
 
 .noexc4041:                                       ; preds = %.lr.ph.i4375
@@ -5265,7 +5265,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %2193
 2232:                                             ; preds = %._crit_edge.i1534
   %2233 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2230) #24
+  call void @__cxa_free_exception(ptr nonnull %2230) #24
   br label %.loopexit.split-lp.i.i.i.i.i
 
 .noexc606:                                        ; preds = %.lr.ph.i1533
@@ -5941,7 +5941,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4011:          ; preds = %2474
   %2515 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %2512) #24
+  call void @__cxa_free_exception(ptr nonnull %2512) #24
   br label %.body4337
 
 .noexc4024:                                       ; preds = %.lr.ph.i4329
@@ -6919,7 +6919,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1431:          ; preds = %2863
 2903:                                             ; preds = %._crit_edge.i2973
   %2904 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2901) #24
+  call void @__cxa_free_exception(ptr nonnull %2901) #24
   br label %.body.i.i.i.i.i
 
 .noexc1443:                                       ; preds = %.lr.ph.i2969
@@ -7609,7 +7609,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3997:          ; preds = %3149
   %3190 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %3187) #24
+  call void @__cxa_free_exception(ptr nonnull %3187) #24
   br label %.body4291
 
 .noexc4008:                                       ; preds = %.lr.ph.i4283
@@ -9401,7 +9401,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2883:          ; preds = %3764
 3803:                                             ; preds = %._crit_edge.i3989
   %3804 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3802) #24
+  call void @__cxa_free_exception(ptr nonnull %3802) #24
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit138.i.i.i.i.i.i
 
 .noexc2895:                                       ; preds = %.lr.ph.i3985
@@ -9736,7 +9736,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1290:          ; preds = %3928
 3968:                                             ; preds = %._crit_edge.i2875
   %3969 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3966) #24
+  call void @__cxa_free_exception(ptr nonnull %3966) #24
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit138.i.i.i.i.i.i
 
 .noexc1302:                                       ; preds = %.lr.ph.i2871
@@ -11381,7 +11381,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i974:           ; preds = %4515
 4554:                                             ; preds = %._crit_edge.i2233
   %4555 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4552) #24
+  call void @__cxa_free_exception(ptr nonnull %4552) #24
   br label %.body.i27
 
 .noexc984:                                        ; preds = %.lr.ph.i2229
@@ -11686,7 +11686,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i958:           ; preds = %4672
 4711:                                             ; preds = %._crit_edge.i2188
   %4712 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4709) #24
+  call void @__cxa_free_exception(ptr nonnull %4709) #24
   br label %.body.i27
 
 .noexc970:                                        ; preds = %.lr.ph.i2184
@@ -12318,7 +12318,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4130:          ; preds = %4941
   %4981 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %4978) #24
+  call void @__cxa_free_exception(ptr nonnull %4978) #24
   br label %.body4659
 
 .noexc4143:                                       ; preds = %.lr.ph.i4651
@@ -12903,7 +12903,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2084:          ; preds = %5194
 5233:                                             ; preds = %._crit_edge.i3455
   %5234 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %5232) #24
+  call void @__cxa_free_exception(ptr nonnull %5232) #24
   br label %.body.i27
 
 .noexc2096:                                       ; preds = %.lr.ph.i3451
@@ -13547,7 +13547,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4113:          ; preds = %5468
   %5508 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %5505) #24
+  call void @__cxa_free_exception(ptr nonnull %5505) #24
   br label %.body4613
 
 .noexc4126:                                       ; preds = %.lr.ph.i4605
@@ -14897,7 +14897,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i888:           ; preds = %5986
 6025:                                             ; preds = %._crit_edge.i2003
   %6026 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %6023) #24
+  call void @__cxa_free_exception(ptr nonnull %6023) #24
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit175.i.i.i.i.i
 
 .noexc900:                                        ; preds = %.lr.ph.i1999
@@ -15727,7 +15727,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4096:          ; preds = %6323
   %6363 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %6360) #24
+  call void @__cxa_free_exception(ptr nonnull %6360) #24
   br label %.body4567
 
 .noexc4109:                                       ; preds = %.lr.ph.i4559
@@ -16677,7 +16677,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4079:          ; preds = %6704
   %6744 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %6741) #24
+  call void @__cxa_free_exception(ptr nonnull %6741) #24
   br label %.body4521
 
 .noexc4092:                                       ; preds = %.lr.ph.i4513
@@ -17816,7 +17816,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1821:          ; preds = %7133
 7173:                                             ; preds = %._crit_edge.i3243
   %7174 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %7171) #24
+  call void @__cxa_free_exception(ptr nonnull %7171) #24
   br label %.body.i.i.i.i.i136
 
 .noexc1833:                                       ; preds = %.lr.ph.i3239
@@ -18422,7 +18422,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4062:          ; preds = %7391
   %7431 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %7428) #24
+  call void @__cxa_free_exception(ptr nonnull %7428) #24
   br label %.body4475
 
 .noexc4075:                                       ; preds = %.lr.ph.i4467
@@ -20982,7 +20982,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1159:          ; preds = %8269
 8308:                                             ; preds = %._crit_edge.i2574
   %8309 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %8306) #24
+  call void @__cxa_free_exception(ptr nonnull %8306) #24
   br label %.body.i193
 
 .noexc1169:                                       ; preds = %.lr.ph.i2570
@@ -21287,7 +21287,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1143:          ; preds = %8426
 8465:                                             ; preds = %._crit_edge.i2529
   %8466 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %8463) #24
+  call void @__cxa_free_exception(ptr nonnull %8463) #24
   br label %.body.i193
 
 .noexc1155:                                       ; preds = %.lr.ph.i2525
@@ -21919,7 +21919,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4181:          ; preds = %8695
   %8735 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %8732) #24
+  call void @__cxa_free_exception(ptr nonnull %8732) #24
   br label %.body4797
 
 .noexc4194:                                       ; preds = %.lr.ph.i4789
@@ -22504,7 +22504,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2425:          ; preds = %8948
 8987:                                             ; preds = %._crit_edge.i3713
   %8988 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %8986) #24
+  call void @__cxa_free_exception(ptr nonnull %8986) #24
   br label %.body.i193
 
 .noexc2437:                                       ; preds = %.lr.ph.i3709
@@ -23254,7 +23254,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4164:          ; preds = %9273
   %9313 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %9310) #24
+  call void @__cxa_free_exception(ptr nonnull %9310) #24
   br label %.body4751
 
 .noexc4177:                                       ; preds = %.lr.ph.i4743
@@ -24174,7 +24174,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1082:          ; preds = %9637
 9676:                                             ; preds = %._crit_edge.i2344
   %9677 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %9674) #24
+  call void @__cxa_free_exception(ptr nonnull %9674) #24
   br label %.loopexit78.i.i.i.i.body
 
 .noexc1094:                                       ; preds = %.lr.ph.i2340
@@ -24837,7 +24837,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4147:          ; preds = %9910
   %9951 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %9948) #24
+  call void @__cxa_free_exception(ptr nonnull %9948) #24
   br label %.body4705
 
 .noexc4160:                                       ; preds = %.lr.ph.i4697
@@ -25420,7 +25420,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2240:          ; preds = %10164
 10203:                                            ; preds = %._crit_edge.i3547
   %10204 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %10202) #24
+  call void @__cxa_free_exception(ptr nonnull %10202) #24
   br label %.loopexit78.i.i.i.i.body
 
 .noexc2252:                                       ; preds = %.lr.ph.i3543
@@ -26434,7 +26434,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1276:          ; preds = %10594
 10633:                                            ; preds = %._crit_edge.i2830
   %10634 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %10631) #24
+  call void @__cxa_free_exception(ptr nonnull %10631) #24
   br label %.body.i326
 
 .noexc1286:                                       ; preds = %.lr.ph.i2826
@@ -26739,7 +26739,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1260:          ; preds = %10751
 10790:                                            ; preds = %._crit_edge.i2785
   %10791 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %10788) #24
+  call void @__cxa_free_exception(ptr nonnull %10788) #24
   br label %.body.i326
 
 .noexc1272:                                       ; preds = %.lr.ph.i2781
@@ -27069,7 +27069,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2731:          ; preds = %10915
 10954:                                            ; preds = %._crit_edge.i3943
   %10955 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %10953) #24
+  call void @__cxa_free_exception(ptr nonnull %10953) #24
   br label %.body.i326
 
 .noexc2743:                                       ; preds = %.lr.ph.i3939
@@ -27715,7 +27715,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4232:          ; preds = %11189
   %11229 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %11226) #24
+  call void @__cxa_free_exception(ptr nonnull %11226) #24
   br label %.body4935
 
 .noexc4245:                                       ; preds = %.lr.ph.i4927
@@ -28610,7 +28610,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4215:          ; preds = %11551
   %11591 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %11588) #24
+  call void @__cxa_free_exception(ptr nonnull %11588) #24
   br label %.body4889
 
 .noexc4228:                                       ; preds = %.lr.ph.i4881
@@ -29505,7 +29505,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4198:          ; preds = %11913
   %11953 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %11950) #24
+  call void @__cxa_free_exception(ptr nonnull %11950) #24
   br label %.body4843
 
 .noexc4211:                                       ; preds = %.lr.ph.i4835
@@ -32207,7 +32207,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %735
   %775 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %772) #24
+  call void @__cxa_free_exception(ptr nonnull %772) #24
   br label %.body1605
 
 .noexc1494:                                       ; preds = %.lr.ph.i1601
@@ -34110,7 +34110,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1497:          ; preds = %1513
   %1553 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %1550) #24
+  call void @__cxa_free_exception(ptr nonnull %1550) #24
   br label %.body1650
 
 .noexc1509:                                       ; preds = %.lr.ph.i1642
@@ -35707,7 +35707,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1513:          ; preds = %2186
   %2226 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %2223) #24
+  call void @__cxa_free_exception(ptr nonnull %2223) #24
   br label %.body1696
 
 .noexc1525:                                       ; preds = %.lr.ph.i1688
@@ -36615,7 +36615,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1529:          ; preds = %2554
   %2594 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %2591) #24
+  call void @__cxa_free_exception(ptr nonnull %2591) #24
   br label %.body1742
 
 .noexc1541:                                       ; preds = %.lr.ph.i1734
@@ -37576,7 +37576,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1545:          ; preds = %2947
   %2987 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %2984) #24
+  call void @__cxa_free_exception(ptr nonnull %2984) #24
   br label %.body1788
 
 .noexc1557:                                       ; preds = %.lr.ph.i1780
@@ -38405,7 +38405,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1561:          ; preds = %3288
   %3328 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %3325) #24
+  call void @__cxa_free_exception(ptr nonnull %3325) #24
   br label %.body1834
 
 .noexc1573:                                       ; preds = %.lr.ph.i1826
@@ -39232,7 +39232,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1577:          ; preds = %3629
   %3669 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt12out_of_range
-  call void @__cxa_free_exception(ptr %3666) #24
+  call void @__cxa_free_exception(ptr nonnull %3666) #24
   br label %.body1880
 
 .noexc1589:                                       ; preds = %.lr.ph.i1872
@@ -44084,7 +44084,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 22:                                               ; preds = %._crit_edge
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #24
+  call void @__cxa_free_exception(ptr nonnull %20) #24
   br label %24
 
 24:                                               ; preds = %22, %18

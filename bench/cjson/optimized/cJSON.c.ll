@@ -410,8 +410,8 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %exitcond.not.i, label %.critedge.thread.i.loopexit, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.lcssa81 = phi i64 [ %.0.i.sroa.gep.promoted, %.lr.ph.i.preheader ], [ %30, %.lr.ph.i ]
-  store i64 %.lcssa81, ptr %.0.i.sroa.gep, align 8
+  %.lcssa85 = phi i64 [ %.0.i.sroa.gep.promoted, %.lr.ph.i.preheader ], [ %30, %.lr.ph.i ]
+  store i64 %.lcssa85, ptr %.0.i.sroa.gep, align 8
   br label %buffer_skip_whitespace.exit
 
 .critedge.thread.i.loopexit:                      ; preds = %.lr.ph
@@ -423,7 +423,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 buffer_skip_whitespace.exit:                      ; preds = %.critedge.i, %20, %.critedge.thread.i.loopexit
   %32 = call fastcc i32 @parse_value(ptr noundef %10, ptr noundef nonnull %5)
   %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %55, label %33
+  br i1 %.not, label %.thread61, label %33
 
 33:                                               ; preds = %buffer_skip_whitespace.exit
   %.not27 = icmp eq i32 %3, 0
@@ -433,10 +433,10 @@ buffer_skip_whitespace.exit:                      ; preds = %.critedge.i, %20, %
   %35 = load ptr, ptr %5, align 8
   %36 = icmp ne ptr %35, null
   %.pre = load i64, ptr %.0.i.sroa.gep, align 8
-  %.pre69 = load i64, ptr %.0.i.sroa.gep48, align 8
-  %37 = icmp ult i64 %.pre, %.pre69
-  %or.cond77 = select i1 %36, i1 %37, i1 false
-  br i1 %or.cond77, label %.lr.ph.i38, label %buffer_skip_whitespace.exit42
+  %.pre73 = load i64, ptr %.0.i.sroa.gep48, align 8
+  %37 = icmp ult i64 %.pre, %.pre73
+  %or.cond81 = select i1 %36, i1 %37, i1 false
+  br i1 %or.cond81, label %.lr.ph.i38, label %buffer_skip_whitespace.exit42
 
 .lr.ph.i38:                                       ; preds = %34, %42
   %38 = phi i64 [ %43, %42 ], [ %.pre, %34 ]
@@ -448,73 +448,73 @@ buffer_skip_whitespace.exit:                      ; preds = %.critedge.i, %20, %
 42:                                               ; preds = %.lr.ph.i38
   %43 = add i64 %38, 1
   store i64 %43, ptr %.0.i.sroa.gep, align 8
-  %exitcond.not.i41 = icmp eq i64 %43, %.pre69
+  %exitcond.not.i41 = icmp eq i64 %43, %.pre73
   br i1 %exitcond.not.i41, label %.critedge.thread.i40, label %.lr.ph.i38
 
 .critedge.i39:                                    ; preds = %.lr.ph.i38
-  %44 = icmp eq i64 %38, %.pre69
+  %44 = icmp eq i64 %38, %.pre73
   br i1 %44, label %.critedge.thread.i40, label %buffer_skip_whitespace.exit42
 
 .critedge.thread.i40:                             ; preds = %42, %.critedge.i39
-  %45 = add i64 %.pre69, -1
+  %45 = add i64 %.pre73, -1
   store i64 %45, ptr %.0.i.sroa.gep, align 8
   br label %buffer_skip_whitespace.exit42
 
 buffer_skip_whitespace.exit42:                    ; preds = %34, %.critedge.i39, %.critedge.thread.i40
   %46 = phi i64 [ %.pre, %34 ], [ %38, %.critedge.i39 ], [ %45, %.critedge.thread.i40 ]
-  %.not28 = icmp ult i64 %46, %.pre69
-  br i1 %.not28, label %47, label %55
+  %.not28 = icmp ult i64 %46, %.pre73
+  br i1 %.not28, label %47, label %.thread61
 
 47:                                               ; preds = %buffer_skip_whitespace.exit42
   %48 = getelementptr inbounds i8, ptr %35, i64 %46
   %49 = load i8, ptr %48, align 1
   %.not29 = icmp eq i8 %49, 0
-  br i1 %.not29, label %50, label %55
+  br i1 %.not29, label %50, label %.thread61
 
 50:                                               ; preds = %47, %33
   %.not30 = icmp eq ptr %2, null
-  br i1 %.not30, label %62, label %51
+  br i1 %.not30, label %61, label %51
 
 51:                                               ; preds = %50
   %52 = load ptr, ptr %5, align 8
   %53 = load i64, ptr %.0.i.sroa.gep, align 8
   %54 = getelementptr inbounds i8, ptr %52, i64 %53
   store ptr %54, ptr %2, align 8
-  br label %62
+  br label %61
 
-55:                                               ; preds = %buffer_skip_whitespace.exit, %47, %buffer_skip_whitespace.exit42
+.thread61:                                        ; preds = %47, %buffer_skip_whitespace.exit42, %buffer_skip_whitespace.exit
   call void @cJSON_Delete(ptr noundef nonnull %10)
   br label %.thread
 
-.thread:                                          ; preds = %4, %55
-  br i1 %6, label %62, label %.thread..thread.thread_crit_edge
+.thread:                                          ; preds = %4, %.thread61
+  br i1 %6, label %61, label %.thread..thread.thread_crit_edge
 
 .thread..thread.thread_crit_edge:                 ; preds = %.thread
-  %.pre70 = load i64, ptr %.0.i.sroa.gep, align 8
-  %.pre71 = load i64, ptr %.0.i.sroa.gep48, align 8
+  %.pre74 = load i64, ptr %.0.i.sroa.gep, align 8
+  %.pre75 = load i64, ptr %.0.i.sroa.gep48, align 8
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread..thread.thread_crit_edge, %8
-  %56 = phi i64 [ %.pre71, %.thread..thread.thread_crit_edge ], [ %1, %8 ]
-  %57 = phi i64 [ %.pre70, %.thread..thread.thread_crit_edge ], [ 0, %8 ]
-  %58 = icmp ult i64 %57, %56
-  %spec.select = call i64 @llvm.usub.sat.i64(i64 %56, i64 1)
-  %.sroa.3.0 = select i1 %58, i64 %57, i64 %spec.select
+  %55 = phi i64 [ %.pre75, %.thread..thread.thread_crit_edge ], [ %1, %8 ]
+  %56 = phi i64 [ %.pre74, %.thread..thread.thread_crit_edge ], [ 0, %8 ]
+  %57 = icmp ult i64 %56, %55
+  %spec.select = call i64 @llvm.usub.sat.i64(i64 %55, i64 1)
+  %.sroa.3.0 = select i1 %57, i64 %56, i64 %spec.select
   %.not34 = icmp eq ptr %2, null
-  br i1 %.not34, label %61, label %59
+  br i1 %.not34, label %60, label %58
 
-59:                                               ; preds = %.thread.thread
-  %60 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0
-  store ptr %60, ptr %2, align 8
-  br label %61
+58:                                               ; preds = %.thread.thread
+  %59 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0
+  store ptr %59, ptr %2, align 8
+  br label %60
 
-61:                                               ; preds = %59, %.thread.thread
+60:                                               ; preds = %58, %.thread.thread
   store ptr %0, ptr @global_error.0, align 8
   store i64 %.sroa.3.0, ptr @global_error.1, align 8
-  br label %62
+  br label %61
 
-62:                                               ; preds = %.thread, %61, %50, %51
-  %.0 = phi ptr [ %10, %51 ], [ %10, %50 ], [ null, %61 ], [ null, %.thread ]
+61:                                               ; preds = %.thread, %60, %50, %51
+  %.0 = phi ptr [ %10, %51 ], [ %10, %50 ], [ null, %60 ], [ null, %.thread ]
   ret ptr %.0
 }
 

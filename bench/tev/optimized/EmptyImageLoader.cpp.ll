@@ -1178,7 +1178,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 123:                                              ; preds = %118
   %124 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %119) #22
+  call void @__cxa_free_exception(ptr nonnull %119) #22
   br label %198
 
 ._crit_edge:                                      ; preds = %_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit, %.preheader
@@ -1366,7 +1366,7 @@ _ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit: ; preds = %.thread68, %
   %185 = phi ptr [ %150, %_ZNSt3__16vectorIcNS_9allocatorIcEEE6resizeEmRKc.exit ], [ null, %138 ]
   %186 = landingpad { ptr, i32 }
           catch ptr null
-  br label %195
+  br label %194
 
 .thread71:                                        ; preds = %.lr.ph.preheader.i10.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1378,12 +1378,12 @@ _ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit: ; preds = %.thread68, %
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
   %.pre67 = load ptr, ptr %15, align 8
-  br label %195
+  br label %194
 
 187:                                              ; preds = %154
   %188 = landingpad { ptr, i32 }
           catch ptr null
-  br label %194
+  br label %.thread75
 
 189:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit
   %190 = landingpad { ptr, i32 }
@@ -1400,27 +1400,30 @@ _ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit: ; preds = %.thread68, %
   %.pn = phi { ptr, i32 } [ %192, %191 ], [ %190, %189 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18) #22
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #22
-  br label %194
+  br label %.thread75
 
-194:                                              ; preds = %193, %187
+.thread75:                                        ; preds = %187, %193
   %.pn.pn = phi { ptr, i32 } [ %.pn, %193 ], [ %188, %187 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #22
-  br label %195
-
-195:                                              ; preds = %.loopexit.split-lp, %194, %184
-  %196 = phi ptr [ %150, %194 ], [ %185, %184 ], [ %.pre67, %.loopexit.split-lp ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %194 ], [ %186, %184 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #22
-  %.not.i.i53 = icmp eq ptr %196, null
-  br i1 %.not.i.i53, label %_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit54, label %197
+  br label %196
 
-197:                                              ; preds = %195
-  store ptr %196, ptr %110, align 8
-  call void @_ZdlPv(ptr noundef nonnull %196) #23
+194:                                              ; preds = %.loopexit.split-lp, %184
+  %195 = phi ptr [ %185, %184 ], [ %.pre67, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %186, %184 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #22
+  %.not.i.i53 = icmp eq ptr %195, null
+  br i1 %.not.i.i53, label %_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit54, label %196
+
+196:                                              ; preds = %.thread75, %194
+  %.pn.pn.pn78 = phi { ptr, i32 } [ %.pn.pn, %.thread75 ], [ %.pn.pn.pn, %194 ]
+  %197 = phi ptr [ %150, %.thread75 ], [ %195, %194 ]
+  store ptr %197, ptr %110, align 8
+  call void @_ZdlPv(ptr noundef nonnull %197) #23
   br label %_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit54
 
-_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit54: ; preds = %.thread71, %195, %197
-  %.pn.pn.pn74 = phi { ptr, i32 } [ %lpad.loopexit, %.thread71 ], [ %.pn.pn.pn, %195 ], [ %.pn.pn.pn, %197 ]
+_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit54: ; preds = %.thread71, %194, %196
+  %.pn.pn.pn74 = phi { ptr, i32 } [ %lpad.loopexit, %.thread71 ], [ %.pn.pn.pn, %194 ], [ %.pn.pn.pn78, %196 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #22
   br label %198
 
@@ -2370,7 +2373,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #22
+  tail call void @__cxa_free_exception(ptr nonnull %2) #22
   resume { ptr, i32 } %5
 }
 
@@ -3909,7 +3912,7 @@ define linkonce_odr dso_local void @_ZN4tlog12timeToStringERKNSt3__112basic_stri
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #22
+  call void @__cxa_free_exception(ptr nonnull %16) #22
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %3
@@ -3993,7 +3996,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
 32:                                               ; preds = %29
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %30) #22
+  tail call void @__cxa_free_exception(ptr nonnull %30) #22
   br label %319
 
 34:                                               ; preds = %5
@@ -4012,7 +4015,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
 39:                                               ; preds = %36
   %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %37) #22
+  tail call void @__cxa_free_exception(ptr nonnull %37) #22
   br label %319
 
 41:                                               ; preds = %34
@@ -7402,7 +7405,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18throw_format_errorEPKc(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #22
+  tail call void @__cxa_free_exception(ptr nonnull %2) #22
   resume { ptr, i32 } %5
 }
 
@@ -23494,7 +23497,7 @@ _ZN3fmt2v96detail6bigintmLIiEERS2_T_.exit303:     ; preds = %_ZN3fmt2v96detail6b
 505:                                              ; preds = %502
   %506 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %503) #22
+  call void @__cxa_free_exception(ptr nonnull %503) #22
   br label %.body
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %497
@@ -38382,7 +38385,7 @@ _ZN3fmt2v96detail9normalizeILi0EyEENS1_8basic_fpIT0_EES5_.exit: ; preds = %.lr.p
 118:                                              ; preds = %115
   %119 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %116) #22
+  tail call void @__cxa_free_exception(ptr nonnull %116) #22
   resume { ptr, i32 } %119
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %110
@@ -40721,7 +40724,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_future_errorB8ne190000ENS_11
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #22
+  tail call void @__cxa_free_exception(ptr nonnull %2) #22
   resume { ptr, i32 } %6
 }
 
@@ -41020,7 +41023,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 100:                                              ; preds = %95
   %101 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %96) #22
+  call void @__cxa_free_exception(ptr nonnull %96) #22
   br label %175
 
 ._crit_edge:                                      ; preds = %_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit, %.preheader
@@ -41208,7 +41211,7 @@ _ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit: ; preds = %.thread56, %
   %162 = phi ptr [ %127, %_ZNSt3__16vectorIcNS_9allocatorIcEEE6resizeEmRKc.exit ], [ null, %115 ]
   %163 = landingpad { ptr, i32 }
           catch ptr null
-  br label %172
+  br label %171
 
 .thread59:                                        ; preds = %.lr.ph.preheader.i10.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -41220,12 +41223,12 @@ _ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit: ; preds = %.thread56, %
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
   %.pre55 = load ptr, ptr %7, align 8
-  br label %172
+  br label %171
 
 164:                                              ; preds = %131
   %165 = landingpad { ptr, i32 }
           catch ptr null
-  br label %171
+  br label %.thread63
 
 166:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit
   %167 = landingpad { ptr, i32 }
@@ -41242,27 +41245,30 @@ _ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit: ; preds = %.thread56, %
   %.pn = phi { ptr, i32 } [ %169, %168 ], [ %167, %166 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #22
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #22
-  br label %171
+  br label %.thread63
 
-171:                                              ; preds = %170, %164
+.thread63:                                        ; preds = %164, %170
   %.pn.pn = phi { ptr, i32 } [ %.pn, %170 ], [ %165, %164 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22
-  br label %172
-
-172:                                              ; preds = %.loopexit.split-lp, %171, %161
-  %173 = phi ptr [ %127, %171 ], [ %162, %161 ], [ %.pre55, %.loopexit.split-lp ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %171 ], [ %163, %161 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
-  %.not.i.i41 = icmp eq ptr %173, null
-  br i1 %.not.i.i41, label %_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit42, label %174
+  br label %173
 
-174:                                              ; preds = %172
-  store ptr %173, ptr %87, align 8
-  call void @_ZdlPv(ptr noundef nonnull %173) #23
+171:                                              ; preds = %.loopexit.split-lp, %161
+  %172 = phi ptr [ %162, %161 ], [ %.pre55, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %163, %161 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
+  %.not.i.i41 = icmp eq ptr %172, null
+  br i1 %.not.i.i41, label %_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit42, label %173
+
+173:                                              ; preds = %.thread63, %171
+  %.pn.pn.pn66 = phi { ptr, i32 } [ %.pn.pn, %.thread63 ], [ %.pn.pn.pn, %171 ]
+  %174 = phi ptr [ %127, %.thread63 ], [ %172, %171 ]
+  store ptr %174, ptr %87, align 8
+  call void @_ZdlPv(ptr noundef nonnull %174) #23
   br label %_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit42
 
-_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit42: ; preds = %.thread59, %172, %174
-  %.pn.pn.pn62 = phi { ptr, i32 } [ %lpad.loopexit, %.thread59 ], [ %.pn.pn.pn, %172 ], [ %.pn.pn.pn, %174 ]
+_ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit42: ; preds = %.thread59, %171, %173
+  %.pn.pn.pn62 = phi { ptr, i32 } [ %lpad.loopexit, %.thread59 ], [ %.pn.pn.pn, %171 ], [ %.pn.pn.pn66, %173 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #22
   br label %175
 

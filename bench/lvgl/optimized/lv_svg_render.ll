@@ -1353,7 +1353,7 @@ define internal void @_render_viewport(ptr noundef %0, ptr noundef %1, ptr readn
   %18 = load float, ptr %17, align 4, !tbaa !162
   %19 = fptosi float %18 to i32
   store i32 %19, ptr %16, align 4, !tbaa !163
-  call void @lv_vector_clear_area(ptr noundef %1, ptr noundef nonnull %4) #9
+  call void @lv_vector_clear_area(ptr noundef nonnull %1, ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   br label %20
 
@@ -4432,8 +4432,8 @@ define internal void @_render_image(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %97
 
 97:                                               ; preds = %92, %86, %83, %77, %70, %66, %63, %59, %58, %57, %19
-  call void @lv_vector_dsc_set_fill_transform(ptr noundef %1, ptr noundef nonnull %6) #9
-  call void @lv_vector_dsc_set_fill_image(ptr noundef %1, ptr noundef nonnull %12) #9
+  call void @lv_vector_dsc_set_fill_transform(ptr noundef nonnull %1, ptr noundef nonnull %6) #9
+  call void @lv_vector_dsc_set_fill_image(ptr noundef nonnull %1, ptr noundef nonnull %12) #9
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %100 = load ptr, ptr %99, align 8, !tbaa !125
@@ -4505,7 +4505,7 @@ define internal void @_render_image(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not29.i, label %_copy_draw_dsc_from_ref.exit, label %.lr.ph40.i, !llvm.loop !179
 
 _copy_draw_dsc_from_ref.exit:                     ; preds = %124, %.loopexit31.i, %114, %121
-  call void @lv_vector_dsc_add_path(ptr noundef %1, ptr noundef %20) #9
+  call void @lv_vector_dsc_add_path(ptr noundef nonnull %1, ptr noundef %20) #9
   call void @lv_vector_path_delete(ptr noundef %20) #9
   %125 = call ptr @lv_memcpy(ptr noundef nonnull %7, ptr noundef nonnull %4, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #9

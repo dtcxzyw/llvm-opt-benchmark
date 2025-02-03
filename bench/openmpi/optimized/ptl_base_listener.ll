@@ -496,18 +496,18 @@ define i32 @pmix_ptl_base_setup_listener(ptr noundef %0, i64 noundef %1) local_u
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %.lr.ph
-  %21 = tail call i32 @PMIx_Info_true(ptr noundef %17) #13
+  %21 = tail call i32 @PMIx_Info_true(ptr noundef nonnull %17) #13
   %22 = icmp eq i32 %21, 0
   %23 = zext i1 %22 to i8
   store i8 %23, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 1012), align 4
   br label %104
 
 24:                                               ; preds = %.lr.ph
-  %25 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %17, ptr noundef nonnull @.str.12) #13
+  %25 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %17, ptr noundef nonnull @.str.12) #13
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @PMIx_Info_true(ptr noundef %17) #13
+  %27 = tail call i32 @PMIx_Info_true(ptr noundef nonnull %17) #13
   %28 = icmp eq i32 %27, 0
   %29 = zext i1 %28 to i8
   store i8 %29, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 1011), align 1
@@ -519,25 +519,25 @@ define i32 @pmix_ptl_base_setup_listener(ptr noundef %0, i64 noundef %1) local_u
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %30
-  %34 = tail call i32 @PMIx_Info_true(ptr noundef %17) #13
+  %34 = tail call i32 @PMIx_Info_true(ptr noundef nonnull %17) #13
   %35 = icmp eq i32 %34, 0
   %36 = zext i1 %35 to i8
   store i8 %36, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 1013), align 1
   br label %104
 
 37:                                               ; preds = %30
-  %38 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %17, ptr noundef nonnull @.str.14) #13
+  %38 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %17, ptr noundef nonnull @.str.14) #13
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %37
-  %40 = tail call i32 @PMIx_Info_true(ptr noundef %17) #13
+  %40 = tail call i32 @PMIx_Info_true(ptr noundef nonnull %17) #13
   %41 = icmp eq i32 %40, 0
   %42 = zext i1 %41 to i8
   store i8 %42, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 1010), align 2
   br label %104
 
 43:                                               ; preds = %37
-  %44 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %17, ptr noundef nonnull @.str.15) #13
+  %44 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %17, ptr noundef nonnull @.str.15) #13
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %43
@@ -548,7 +548,7 @@ define i32 @pmix_ptl_base_setup_listener(ptr noundef %0, i64 noundef %1) local_u
   br label %104
 
 49:                                               ; preds = %43
-  %50 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %17, ptr noundef nonnull @.str.16) #13
+  %50 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %17, ptr noundef nonnull @.str.16) #13
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %49
@@ -559,7 +559,7 @@ define i32 @pmix_ptl_base_setup_listener(ptr noundef %0, i64 noundef %1) local_u
   br label %104
 
 55:                                               ; preds = %49
-  %56 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %17, ptr noundef nonnull @.str.17) #13
+  %56 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %17, ptr noundef nonnull @.str.17) #13
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %55
@@ -569,7 +569,7 @@ define i32 @pmix_ptl_base_setup_listener(ptr noundef %0, i64 noundef %1) local_u
   br label %104
 
 60:                                               ; preds = %55
-  %61 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %17, ptr noundef nonnull @.str.18) #13
+  %61 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %17, ptr noundef nonnull @.str.18) #13
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %60
@@ -579,29 +579,29 @@ define i32 @pmix_ptl_base_setup_listener(ptr noundef %0, i64 noundef %1) local_u
   br label %104
 
 65:                                               ; preds = %60
-  %66 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %17, ptr noundef nonnull @.str.19) #13
+  %66 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %17, ptr noundef nonnull @.str.19) #13
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %65
-  %68 = tail call i32 @PMIx_Info_true(ptr noundef %17) #13
+  %68 = tail call i32 @PMIx_Info_true(ptr noundef nonnull %17) #13
   %69 = icmp eq i32 %68, 0
   %70 = zext i1 %69 to i8
   store i8 %70, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 1036), align 4
   br label %104
 
 71:                                               ; preds = %65
-  %72 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %17, ptr noundef nonnull @.str.20) #13
+  %72 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %17, ptr noundef nonnull @.str.20) #13
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %71
-  %74 = tail call i32 @PMIx_Info_true(ptr noundef %17) #13
+  %74 = tail call i32 @PMIx_Info_true(ptr noundef nonnull %17) #13
   %75 = icmp eq i32 %74, 0
   %76 = zext i1 %75 to i8
   store i8 %76, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 1044), align 4
   br label %104
 
 77:                                               ; preds = %71
-  %78 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %17, ptr noundef nonnull @.str.21) #13
+  %78 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %17, ptr noundef nonnull @.str.21) #13
   br i1 %78, label %79, label %86
 
 79:                                               ; preds = %77
@@ -621,7 +621,7 @@ define i32 @pmix_ptl_base_setup_listener(ptr noundef %0, i64 noundef %1) local_u
   br label %104
 
 86:                                               ; preds = %77
-  %87 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %17, ptr noundef nonnull @.str.22) #13
+  %87 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %17, ptr noundef nonnull @.str.22) #13
   br i1 %87, label %88, label %95
 
 88:                                               ; preds = %86
@@ -641,7 +641,7 @@ define i32 @pmix_ptl_base_setup_listener(ptr noundef %0, i64 noundef %1) local_u
   br label %104
 
 95:                                               ; preds = %86
-  %96 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %17, ptr noundef nonnull @.str.23) #13
+  %96 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %17, ptr noundef nonnull @.str.23) #13
   br i1 %96, label %97, label %104
 
 97:                                               ; preds = %95

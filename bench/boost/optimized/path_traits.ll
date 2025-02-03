@@ -149,7 +149,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111convert_auxEPKcS1_PwS2_RNSt7__cx
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #17
+  call void @__cxa_free_exception(ptr nonnull %15) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
@@ -249,7 +249,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111convert_auxEPKwS1_PcS2_RNSt7__cx
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #17
+  call void @__cxa_free_exception(ptr nonnull %15) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17

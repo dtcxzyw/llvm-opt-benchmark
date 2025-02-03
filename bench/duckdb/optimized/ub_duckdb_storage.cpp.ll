@@ -17251,7 +17251,7 @@ lpad:                                             ; preds = %entry
 lpad1:                                            ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #37
+  call void @__cxa_free_exception(ptr nonnull %exception) #37
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont2
@@ -50325,7 +50325,7 @@ call6.i.noexc:                                    ; preds = %for.body.i
           to label %.noexc unwind label %lpad.loopexit
 
 .noexc:                                           ; preds = %call6.i.noexc
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.014.i) #42
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.014.i) #42
   %cmp.i.not.i = icmp eq ptr %call.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not.i, label %for.cond.cleanup.i, label %for.body.i
 
@@ -69346,7 +69346,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   %26 = tail call ptr @__cxa_begin_catch(ptr %25) #37
-  invoke void @_ZSt8_DestroyIPN6duckdb22FixedSizeAllocatorInfoEEvT_S3_(ptr noundef %22, ptr noundef %__cur.016.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb22FixedSizeAllocatorInfoEEvT_S3_(ptr noundef %22, ptr noundef nonnull %__cur.016.i.i.i.i)
           to label %invoke.cont3.i.i.i.i unwind label %lpad2.i.i.i.i
 
 invoke.cont3.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -69432,7 +69432,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #37
-  invoke void @_ZSt8_DestroyIPN6duckdb22FixedSizeAllocatorInfoEEvT_S3_(ptr noundef %cond.i, ptr noundef %__cur.018.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb22FixedSizeAllocatorInfoEEvT_S3_(ptr noundef %cond.i, ptr noundef nonnull %__cur.018.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -71225,7 +71225,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #37
-  invoke void @_ZSt8_DestroyIPN6duckdb16IndexStorageInfoEEvT_S3_(ptr noundef %26, ptr noundef %__cur.016.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb16IndexStorageInfoEEvT_S3_(ptr noundef %26, ptr noundef nonnull %__cur.016.i.i.i.i)
           to label %invoke.cont3.i.i.i.i unwind label %lpad2.i.i.i.i
 
 invoke.cont3.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -71311,7 +71311,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #37
-  invoke void @_ZSt8_DestroyIPN6duckdb16IndexStorageInfoEEvT_S3_(ptr noundef %cond.i, ptr noundef %__cur.018.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb16IndexStorageInfoEEvT_S3_(ptr noundef %cond.i, ptr noundef nonnull %__cur.018.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -71575,7 +71575,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #37
-  invoke void @_ZSt8_DestroyIPN6duckdb22FixedSizeAllocatorInfoEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef %__cur.018.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb22FixedSizeAllocatorInfoEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef nonnull %__cur.018.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i

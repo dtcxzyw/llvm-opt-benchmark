@@ -1379,7 +1379,7 @@ opal_obj_run_destructors.exit36:                  ; preds = %.lr.ph.i33, %opal_o
   br label %131
 
 131:                                              ; preds = %opal_obj_run_destructors.exit36, %129
-  call void @mca_rcache_base_module_fini(ptr noundef %0) #6
+  call void @mca_rcache_base_module_fini(ptr noundef nonnull %0) #6
   ret void
 }
 

@@ -453,7 +453,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %142, %145
           to label %149 unwind label %.loopexit.split-lp
 
 149:                                              ; preds = %147
-  %150 = invoke noundef ptr @_Z13gmx_sans_initPK10t_topologyP37gmx_neutron_atomic_structurefactors_t(ptr noundef %136, ptr noundef nonnull %131)
+  %150 = invoke noundef ptr @_Z13gmx_sans_initPK10t_topologyP37gmx_neutron_atomic_structurefactors_t(ptr noundef nonnull %136, ptr noundef nonnull %131)
           to label %151 unwind label %.loopexit.split-lp
 
 151:                                              ; preds = %149

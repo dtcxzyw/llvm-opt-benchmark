@@ -2463,7 +2463,7 @@ update_proconfig_value.exit:                      ; preds = %207, %.lr.ph.i
 
 223:                                              ; preds = %219, %222
   call void @table_close(ptr noundef %18, i32 noundef 0) #8
-  call void @heap_freetuple(ptr noundef %.0) #8
+  call void @heap_freetuple(ptr noundef nonnull %.0) #8
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   %.sroa.2.0.copyload = load i32, ptr %25, align 8
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload, 0

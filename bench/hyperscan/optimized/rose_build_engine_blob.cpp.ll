@@ -204,7 +204,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i25.i
 lpad78.thread:                                    ; preds = %if.then.i.i25.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %reach_idx) #20
   br label %if.then.i.i.i158
 
@@ -267,7 +267,7 @@ invoke.cont.i.i.i43:                              ; preds = %if.then.i.i25.i40
 lpad.i.i.i42:                                     ; preds = %if.then.i.i25.i40
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i41) #20
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i41) #20
   br label %lpad78
 
 call.i11.i.i.noexc:                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i35.thread, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i35
@@ -577,7 +577,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i25.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #20
   br label %ehcleanup.thread74.body
 
 ehcleanup.thread74:                               ; preds = %invoke.cont.i.i.i, %if.then.i.i3
@@ -648,7 +648,7 @@ invoke.cont.i.i.i27:                              ; preds = %if.then.i.i25.i24
 lpad.i.i.i26:                                     ; preds = %if.then.i.i25.i24
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i25) #20
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i25) #20
   br label %ehcleanup.thread70.body
 
 call.i11.i.i.noexc:                               ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19.thread, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i19
@@ -800,7 +800,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i25.i
 common.resume:                                    ; preds = %lpad.i.i.i26, %lpad.i.i.i
   %exception.i.i.i25.sink = phi ptr [ %exception.i.i.i25, %lpad.i.i.i26 ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i.i.i26 ], [ %7, %lpad.i.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i25.sink) #20
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i25.sink) #20
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i25.i

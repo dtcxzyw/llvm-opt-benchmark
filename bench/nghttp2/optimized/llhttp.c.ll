@@ -1162,7 +1162,7 @@ sw.default:                                       ; preds = %if.end
 
 s_n_llhttp__internal__n_invoke_llhttp__after_message_complete: ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete, %s_n_llhttp__internal__n_invoke_is_equal_upgrade, %entry
   %p.addr.1 = phi ptr [ %p.addr.30, %s_n_llhttp__internal__n_invoke_is_equal_upgrade ], [ %p.addr.36, %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete ], [ %p, %entry ]
-  %call = tail call i32 @llhttp__after_message_complete(ptr noundef %state, ptr noundef %p.addr.1, ptr noundef %endp) #8
+  %call = tail call i32 @llhttp__after_message_complete(ptr noundef nonnull %state, ptr noundef %p.addr.1, ptr noundef %endp) #8
   %cond15 = icmp eq i32 %call, 1
   br i1 %cond15, label %s_n_llhttp__internal__n_invoke_update_content_length, label %s_n_llhttp__internal__n_invoke_update_finish_1
 

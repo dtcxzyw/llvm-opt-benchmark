@@ -79,7 +79,7 @@ define void @_ZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIw
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #12
+  call void @__cxa_free_exception(ptr nonnull %20) #12
   br label %.body
 
 .loopexit145:                                     ; preds = %.lr.ph
@@ -192,7 +192,7 @@ switch.edge144:                                   ; preds = %switch.edge143, %sw
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %45) #12
+  call void @__cxa_free_exception(ptr nonnull %45) #12
   br label %.body
 
 48:                                               ; preds = %switch.edge144
@@ -209,7 +209,7 @@ switch.edge144:                                   ; preds = %switch.edge143, %sw
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %51) #12
+  call void @__cxa_free_exception(ptr nonnull %51) #12
   br label %.body
 
 54:                                               ; preds = %49
@@ -272,7 +272,7 @@ switch.edge144:                                   ; preds = %switch.edge143, %sw
 68:                                               ; preds = %66
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %67) #12
+  call void @__cxa_free_exception(ptr nonnull %67) #12
   br label %.body
 
 70:                                               ; preds = %65

@@ -10238,7 +10238,7 @@ if.then370:                                       ; preds = %if.end367, %land.lh
   br i1 %cmp373.not, label %if.end376, label %if.then375
 
 if.then375:                                       ; preds = %if.then370
-  call void @ma_device_uninit(ptr noundef %pDevice)
+  call void @ma_device_uninit(ptr noundef nonnull %pDevice)
   br label %return
 
 if.end376:                                        ; preds = %if.then370
@@ -75226,18 +75226,12 @@ ma_resource_manager_data_buffer_bst_unlock.exit:  ; preds = %ma_resource_manager
   ]
 
 if.then33:                                        ; preds = %ma_resource_manager_data_buffer_bst_unlock.exit
-  br i1 %or.cond, label %ma_resource_manager_get_log.exit, label %if.end40
-
-ma_resource_manager_get_log.exit:                 ; preds = %if.then33
-  %pLog.i = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 32
-  %58 = load ptr, ptr %pLog.i, align 8
-  %call39 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %58, i32 noundef 2, ptr noundef nonnull @.str.490)
-  br label %if.then79
+  br i1 %or.cond, label %if.then79, label %if.end40
 
 if.end40:                                         ; preds = %if.then33
   %isDataOwnedByResourceManager = getelementptr inbounds nuw i8, ptr %pDataBufferNode.0, i64 20
-  %59 = load i32, ptr %isDataOwnedByResourceManager, align 4
-  %tobool.not = icmp eq i32 %59, 0
+  %58 = load i32, ptr %isDataOwnedByResourceManager, align 4
+  %tobool.not = icmp eq i32 %58, 0
   br i1 %tobool.not, label %land.lhs.true86, label %if.then41
 
 if.then41:                                        ; preds = %if.end40
@@ -75253,41 +75247,41 @@ if.then44:                                        ; preds = %if.then41
 if.then47:                                        ; preds = %if.then44
   %call48 = call fastcc i32 @ma_resource_manager_data_buffer_node_init_supply_encoded(ptr noundef nonnull %pResourceManager, ptr noundef nonnull %pDataBufferNode.0, ptr noundef %pFilePath, ptr noundef %pFilePathW)
   %cmp49.not = icmp eq i32 %call48, 0
-  br i1 %cmp49.not, label %done.thread110, label %if.then79.thread
+  br i1 %cmp49.not, label %done.thread110, label %if.then2.i70.sink.split
 
 done.thread110:                                   ; preds = %if.then47
   %result66112 = getelementptr inbounds nuw i8, ptr %pDataBufferNode.0, i64 8
-  %60 = atomicrmw xchg ptr %result66112, i32 0 seq_cst, align 8
+  %59 = atomicrmw xchg ptr %result66112, i32 0 seq_cst, align 8
   br label %land.lhs.true86
 
 if.else52:                                        ; preds = %if.then44
   %call53 = call fastcc i32 @ma_resource_manager_data_buffer_node_init_supply_decoded(ptr noundef nonnull %pResourceManager, ptr noundef nonnull %pDataBufferNode.0, ptr noundef %pFilePath, ptr noundef %pFilePathW, i32 noundef %spec.select, ptr noundef %pDecoder)
   %cmp54.not = icmp eq i32 %call53, 0
-  br i1 %cmp54.not, label %for.cond, label %if.then79.thread
+  br i1 %cmp54.not, label %for.cond, label %if.then2.i70.sink.split
 
 for.cond:                                         ; preds = %if.else52, %for.cond
-  %61 = load ptr, ptr %pDecoder, align 8
-  %call57 = call fastcc i32 @ma_resource_manager_data_buffer_node_decode_next_page(ptr noundef nonnull %pResourceManager, ptr noundef nonnull %pDataBufferNode.0, ptr noundef %61)
+  %60 = load ptr, ptr %pDecoder, align 8
+  %call57 = call fastcc i32 @ma_resource_manager_data_buffer_node_decode_next_page(ptr noundef nonnull %pResourceManager, ptr noundef nonnull %pDataBufferNode.0, ptr noundef %60)
   %cmp58.not = icmp eq i32 %call57, 0
   br i1 %cmp58.not, label %for.cond, label %for.end
 
 for.end:                                          ; preds = %for.cond
   %cmp61 = icmp eq i32 %call57, -17
   %spec.store.select = select i1 %cmp61, i32 0, i32 %call57
-  %62 = load ptr, ptr %pDecoder, align 8
-  %call64 = call i32 @ma_decoder_uninit(ptr noundef %62)
-  %cmp.i64 = icmp eq ptr %62, null
+  %61 = load ptr, ptr %pDecoder, align 8
+  %call64 = call i32 @ma_decoder_uninit(ptr noundef %61)
+  %cmp.i64 = icmp eq ptr %61, null
   br i1 %cmp.i64, label %done, label %if.then2.i66
 
 if.then2.i66:                                     ; preds = %for.end
   %onFree.i = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 24
-  %63 = load ptr, ptr %onFree.i, align 8
-  %cmp3.not.i = icmp eq ptr %63, null
+  %62 = load ptr, ptr %onFree.i, align 8
+  %cmp3.not.i = icmp eq ptr %62, null
   br i1 %cmp3.not.i, label %done, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then2.i66
-  %64 = load ptr, ptr %pResourceManager, align 8
-  call void %63(ptr noundef nonnull %62, ptr noundef %64) #64
+  %63 = load ptr, ptr %pResourceManager, align 8
+  call void %62(ptr noundef nonnull %61, ptr noundef %63) #64
   br label %done
 
 if.else67:                                        ; preds = %if.then41
@@ -75301,22 +75295,24 @@ if.then70:                                        ; preds = %if.else67
 
 done:                                             ; preds = %for.end, %if.then2.i66, %if.then4.i
   %result66 = getelementptr inbounds nuw i8, ptr %pDataBufferNode.0, i64 8
-  %65 = atomicrmw xchg ptr %result66, i32 %spec.store.select seq_cst, align 8
-  br i1 %cmp61, label %land.lhs.true86, label %if.then79
+  %64 = atomicrmw xchg ptr %result66, i32 %spec.store.select seq_cst, align 8
+  br i1 %cmp61, label %land.lhs.true86, label %if.then2.i70.sink.split
 
-if.then79.thread:                                 ; preds = %if.else52, %if.then47
-  %result.1109.ph = phi i32 [ %call48, %if.then47 ], [ %call53, %if.else52 ]
-  call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %pResourceManager, ptr noundef nonnull %pDataBufferNode.0)
-  br label %if.then2.i70
-
-if.then79:                                        ; preds = %ma_resource_manager_get_log.exit, %done
-  %result.1109 = phi i32 [ %spec.store.select, %done ], [ -3, %ma_resource_manager_get_log.exit ]
+if.then79:                                        ; preds = %if.then33
+  %pLog.i = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 32
+  %65 = load ptr, ptr %pLog.i, align 8
+  %call39 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %65, i32 noundef 2, ptr noundef nonnull @.str.490)
   call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %pResourceManager, ptr noundef %pDataBufferNode.0)
   %cmp.i67 = icmp eq ptr %pDataBufferNode.0, null
   br i1 %cmp.i67, label %land.lhs.true86, label %if.then2.i70
 
-if.then2.i70:                                     ; preds = %if.then79.thread, %if.then79
-  %result.1109117 = phi i32 [ %result.1109.ph, %if.then79.thread ], [ %result.1109, %if.then79 ]
+if.then2.i70.sink.split:                          ; preds = %if.else52, %if.then47, %done
+  %result.1109117.ph = phi i32 [ %spec.store.select, %done ], [ %call48, %if.then47 ], [ %call53, %if.else52 ]
+  call fastcc void @ma_resource_manager_data_buffer_node_remove(ptr noundef %pResourceManager, ptr noundef nonnull %pDataBufferNode.0)
+  br label %if.then2.i70
+
+if.then2.i70:                                     ; preds = %if.then2.i70.sink.split, %if.then79
+  %result.1109117 = phi i32 [ -3, %if.then79 ], [ %result.1109117.ph, %if.then2.i70.sink.split ]
   %onFree.i71 = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 24
   %66 = load ptr, ptr %onFree.i71, align 8
   %cmp3.not.i72 = icmp eq ptr %66, null
@@ -75328,7 +75324,7 @@ if.then4.i73:                                     ; preds = %if.then2.i70
   br label %land.lhs.true86
 
 land.lhs.true86:                                  ; preds = %done.thread110, %done, %if.then70, %if.else67, %if.end40, %if.then79, %if.then2.i70, %if.then4.i73
-  %result.19295 = phi i32 [ %result.1109117, %if.then4.i73 ], [ %result.1109117, %if.then2.i70 ], [ %result.1109, %if.then79 ], [ 0, %if.end40 ], [ 0, %if.else67 ], [ 0, %if.then70 ], [ 0, %done ], [ 0, %done.thread110 ]
+  %result.19295 = phi i32 [ %result.1109117, %if.then4.i73 ], [ %result.1109117, %if.then2.i70 ], [ -3, %if.then79 ], [ 0, %if.end40 ], [ 0, %if.else67 ], [ 0, %if.then70 ], [ 0, %done ], [ 0, %done.thread110 ]
   %isDataOwnedByResourceManager87 = getelementptr inbounds nuw i8, ptr %pDataBufferNode.0, i64 20
   %68 = load i32, ptr %isDataOwnedByResourceManager87, align 4
   %tobool88.not = icmp eq i32 %68, 0
@@ -101560,12 +101556,12 @@ ma_dr_flac__malloc_from_callbacks.exit:           ; preds = %if.then2.i, %if.the
 while.cond.preheader:                             ; preds = %ma_dr_flac__malloc_from_callbacks.exit
   %channels = getelementptr inbounds nuw i8, ptr %pFlac, i64 52
   %5 = load i8, ptr %channels, align 4
-  %div.rhs.trunc107 = zext i8 %5 to i16
-  %div102108 = udiv i16 4096, %div.rhs.trunc107
-  %div.zext109 = zext nneg i16 %div102108 to i64
-  %call4110 = call i64 @ma_dr_flac_read_pcm_frames_s32(ptr noundef nonnull %pFlac, i64 noundef %div.zext109, ptr noundef nonnull %buffer)
-  %cmp5.not111 = icmp eq i64 %call4110, 0
-  br i1 %cmp5.not111, label %while.end, label %while.body.lr.ph
+  %div.rhs.trunc113 = zext i8 %5 to i16
+  %div103114 = udiv i16 4096, %div.rhs.trunc113
+  %div.zext115 = zext nneg i16 %div103114 to i64
+  %call4116 = call i64 @ma_dr_flac_read_pcm_frames_s32(ptr noundef nonnull %pFlac, i64 noundef %div.zext115, ptr noundef nonnull %buffer)
+  %cmp5.not117 = icmp eq i64 %call4116, 0
+  br i1 %cmp5.not117, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %onRealloc.i45 = getelementptr inbounds nuw i8, ptr %pFlac, i64 32
@@ -101573,20 +101569,20 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end21
-  %call4115 = phi i64 [ %call4110, %while.body.lr.ph ], [ %call4, %if.end21 ]
-  %pSampleData.0114 = phi ptr [ %retval.0.i, %while.body.lr.ph ], [ %pSampleData.1, %if.end21 ]
-  %totalPCMFrameCount.0113 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end21 ]
-  %sampleDataBufferSize.0112 = phi i64 [ 16384, %while.body.lr.ph ], [ %sampleDataBufferSize.1, %if.end21 ]
-  %add = add i64 %call4115, %totalPCMFrameCount.0113
+  %call4121 = phi i64 [ %call4116, %while.body.lr.ph ], [ %call4, %if.end21 ]
+  %pSampleData.0120 = phi ptr [ %retval.0.i, %while.body.lr.ph ], [ %pSampleData.1, %if.end21 ]
+  %totalPCMFrameCount.0119 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end21 ]
+  %sampleDataBufferSize.0118 = phi i64 [ 16384, %while.body.lr.ph ], [ %sampleDataBufferSize.1, %if.end21 ]
+  %add = add i64 %call4121, %totalPCMFrameCount.0119
   %6 = load i8, ptr %channels, align 4
   %conv8 = zext i8 %6 to i64
   %mul = shl i64 %add, 2
   %mul9 = mul i64 %mul, %conv8
-  %cmp10 = icmp ugt i64 %mul9, %sampleDataBufferSize.0112
+  %cmp10 = icmp ugt i64 %mul9, %sampleDataBufferSize.0118
   br i1 %cmp10, label %if.then12, label %if.end21
 
 if.then12:                                        ; preds = %while.body
-  %mul13 = shl i64 %sampleDataBufferSize.0112, 1
+  %mul13 = shl i64 %sampleDataBufferSize.0118, 1
   %7 = load ptr, ptr %onRealloc.i45, align 8
   %cmp1.not.i46 = icmp eq ptr %7, null
   br i1 %cmp1.not.i46, label %if.end4.i50, label %ma_dr_flac__realloc_from_callbacks.exit
@@ -101608,46 +101604,46 @@ if.then7.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp11.i, label %if.then18, label %ma_dr_flac__realloc_from_callbacks.exit.thread97
 
 ma_dr_flac__realloc_from_callbacks.exit.thread97: ; preds = %if.then7.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call10.i, ptr nonnull align 1 %pSampleData.0114, i64 %sampleDataBufferSize.0112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call10.i, ptr nonnull align 1 %pSampleData.0120, i64 %sampleDataBufferSize.0118, i1 false)
   %11 = load ptr, ptr %onFree.i, align 8
   %12 = load ptr, ptr %allocationCallbacks, align 8
-  call void %11(ptr noundef nonnull %pSampleData.0114, ptr noundef %12) #64
+  call void %11(ptr noundef nonnull %pSampleData.0120, ptr noundef %12) #64
   br label %if.end21
 
 ma_dr_flac__realloc_from_callbacks.exit:          ; preds = %if.then12
   %13 = load ptr, ptr %allocationCallbacks, align 8
-  %call.i48 = call ptr %7(ptr noundef nonnull %pSampleData.0114, i64 noundef %mul13, ptr noundef %13) #64
+  %call.i48 = call ptr %7(ptr noundef nonnull %pSampleData.0120, i64 noundef %mul13, ptr noundef %13) #64
   %cmp16 = icmp eq ptr %call.i48, null
-  br i1 %cmp16, label %if.then18, label %if.end21
+  br i1 %cmp16, label %if.end.i, label %if.end21
 
-if.then18:                                        ; preds = %if.end4.i50, %land.lhs.true.i, %if.then7.i, %ma_dr_flac__realloc_from_callbacks.exit
-  %cmp.i = icmp eq ptr %pSampleData.0114, null
+if.then18:                                        ; preds = %if.then7.i, %land.lhs.true.i, %if.end4.i50
+  %cmp.i = icmp eq ptr %pSampleData.0120, null
   br i1 %cmp.i, label %on_error, label %if.end.i
 
-if.end.i:                                         ; preds = %if.then18
+if.end.i:                                         ; preds = %ma_dr_flac__realloc_from_callbacks.exit, %if.then18
   %14 = load ptr, ptr %onFree.i, align 8
   %cmp2.not.i = icmp eq ptr %14, null
   br i1 %cmp2.not.i, label %on_error, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %15 = load ptr, ptr %allocationCallbacks, align 8
-  call void %14(ptr noundef nonnull %pSampleData.0114, ptr noundef %15) #64
+  call void %14(ptr noundef nonnull %pSampleData.0120, ptr noundef %15) #64
   br label %on_error
 
 if.end21:                                         ; preds = %ma_dr_flac__realloc_from_callbacks.exit.thread97, %ma_dr_flac__realloc_from_callbacks.exit, %while.body
-  %sampleDataBufferSize.1 = phi i64 [ %sampleDataBufferSize.0112, %while.body ], [ %mul13, %ma_dr_flac__realloc_from_callbacks.exit ], [ %mul13, %ma_dr_flac__realloc_from_callbacks.exit.thread97 ]
-  %pSampleData.1 = phi ptr [ %pSampleData.0114, %while.body ], [ %call.i48, %ma_dr_flac__realloc_from_callbacks.exit ], [ %call10.i, %ma_dr_flac__realloc_from_callbacks.exit.thread97 ]
+  %sampleDataBufferSize.1 = phi i64 [ %sampleDataBufferSize.0118, %while.body ], [ %mul13, %ma_dr_flac__realloc_from_callbacks.exit ], [ %mul13, %ma_dr_flac__realloc_from_callbacks.exit.thread97 ]
+  %pSampleData.1 = phi ptr [ %pSampleData.0120, %while.body ], [ %call.i48, %ma_dr_flac__realloc_from_callbacks.exit ], [ %call10.i, %ma_dr_flac__realloc_from_callbacks.exit.thread97 ]
   %16 = load i8, ptr %channels, align 4
   %conv23 = zext i8 %16 to i64
-  %mul24 = mul i64 %totalPCMFrameCount.0113, %conv23
+  %mul24 = mul i64 %totalPCMFrameCount.0119, %conv23
   %add.ptr = getelementptr inbounds i32, ptr %pSampleData.1, i64 %mul24
-  %mul28 = shl i64 %call4115, 2
+  %mul28 = shl i64 %call4121, 2
   %mul29 = mul i64 %mul28, %conv23
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr, ptr nonnull align 16 %buffer, i64 %mul29, i1 false)
   %17 = load i8, ptr %channels, align 4
   %div.rhs.trunc = zext i8 %17 to i16
-  %div102 = udiv i16 4096, %div.rhs.trunc
-  %div.zext = zext nneg i16 %div102 to i64
+  %div103 = udiv i16 4096, %div.rhs.trunc
+  %div.zext = zext nneg i16 %div103 to i64
   %call4 = call i64 @ma_dr_flac_read_pcm_frames_s32(ptr noundef nonnull %pFlac, i64 noundef %div.zext, ptr noundef nonnull %buffer)
   %cmp5.not = icmp eq i64 %call4, 0
   br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !812
@@ -101813,11 +101809,11 @@ if.end.i.i78:                                     ; preds = %if.then9.i86, %if.t
   br i1 %cmp2.not.i.i80, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end.i.i78, %if.end.i.i
-  %.sink123 = phi ptr [ %33, %if.end.i.i ], [ %40, %if.end.i.i78 ]
+  %.sink135 = phi ptr [ %33, %if.end.i.i ], [ %40, %if.end.i.i78 ]
   %retval.0.ph = phi ptr [ %pSampleData.2, %if.end.i.i ], [ null, %if.end.i.i78 ]
   %allocationCallbacks.i82 = getelementptr inbounds nuw i8, ptr %pFlac, i64 16
   %41 = load ptr, ptr %allocationCallbacks.i82, align 8
-  call void %.sink123(ptr noundef nonnull %pFlac, ptr noundef %41) #64
+  call void %.sink135(ptr noundef nonnull %pFlac, ptr noundef %41) #64
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.i.i78, %if.end.i.i
@@ -101905,12 +101901,12 @@ ma_dr_flac__malloc_from_callbacks.exit:           ; preds = %if.then2.i, %if.the
 while.cond.preheader:                             ; preds = %ma_dr_flac__malloc_from_callbacks.exit
   %channels = getelementptr inbounds nuw i8, ptr %pFlac, i64 52
   %5 = load i8, ptr %channels, align 4
-  %div.rhs.trunc107 = zext i8 %5 to i16
-  %div102108 = udiv i16 4096, %div.rhs.trunc107
-  %div.zext109 = zext nneg i16 %div102108 to i64
-  %call4110 = call i64 @ma_dr_flac_read_pcm_frames_s16(ptr noundef nonnull %pFlac, i64 noundef %div.zext109, ptr noundef nonnull %buffer)
-  %cmp5.not111 = icmp eq i64 %call4110, 0
-  br i1 %cmp5.not111, label %while.end, label %while.body.lr.ph
+  %div.rhs.trunc113 = zext i8 %5 to i16
+  %div103114 = udiv i16 4096, %div.rhs.trunc113
+  %div.zext115 = zext nneg i16 %div103114 to i64
+  %call4116 = call i64 @ma_dr_flac_read_pcm_frames_s16(ptr noundef nonnull %pFlac, i64 noundef %div.zext115, ptr noundef nonnull %buffer)
+  %cmp5.not117 = icmp eq i64 %call4116, 0
+  br i1 %cmp5.not117, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %onRealloc.i45 = getelementptr inbounds nuw i8, ptr %pFlac, i64 32
@@ -101918,20 +101914,20 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end21
-  %call4115 = phi i64 [ %call4110, %while.body.lr.ph ], [ %call4, %if.end21 ]
-  %pSampleData.0114 = phi ptr [ %retval.0.i, %while.body.lr.ph ], [ %pSampleData.1, %if.end21 ]
-  %totalPCMFrameCount.0113 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end21 ]
-  %sampleDataBufferSize.0112 = phi i64 [ 8192, %while.body.lr.ph ], [ %sampleDataBufferSize.1, %if.end21 ]
-  %add = add i64 %call4115, %totalPCMFrameCount.0113
+  %call4121 = phi i64 [ %call4116, %while.body.lr.ph ], [ %call4, %if.end21 ]
+  %pSampleData.0120 = phi ptr [ %retval.0.i, %while.body.lr.ph ], [ %pSampleData.1, %if.end21 ]
+  %totalPCMFrameCount.0119 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end21 ]
+  %sampleDataBufferSize.0118 = phi i64 [ 8192, %while.body.lr.ph ], [ %sampleDataBufferSize.1, %if.end21 ]
+  %add = add i64 %call4121, %totalPCMFrameCount.0119
   %6 = load i8, ptr %channels, align 4
   %conv8 = zext i8 %6 to i64
   %mul = shl i64 %add, 1
   %mul9 = mul i64 %mul, %conv8
-  %cmp10 = icmp ugt i64 %mul9, %sampleDataBufferSize.0112
+  %cmp10 = icmp ugt i64 %mul9, %sampleDataBufferSize.0118
   br i1 %cmp10, label %if.then12, label %if.end21
 
 if.then12:                                        ; preds = %while.body
-  %mul13 = shl i64 %sampleDataBufferSize.0112, 1
+  %mul13 = shl i64 %sampleDataBufferSize.0118, 1
   %7 = load ptr, ptr %onRealloc.i45, align 8
   %cmp1.not.i46 = icmp eq ptr %7, null
   br i1 %cmp1.not.i46, label %if.end4.i50, label %ma_dr_flac__realloc_from_callbacks.exit
@@ -101953,46 +101949,46 @@ if.then7.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp11.i, label %if.then18, label %ma_dr_flac__realloc_from_callbacks.exit.thread97
 
 ma_dr_flac__realloc_from_callbacks.exit.thread97: ; preds = %if.then7.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call10.i, ptr nonnull align 1 %pSampleData.0114, i64 %sampleDataBufferSize.0112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call10.i, ptr nonnull align 1 %pSampleData.0120, i64 %sampleDataBufferSize.0118, i1 false)
   %11 = load ptr, ptr %onFree.i, align 8
   %12 = load ptr, ptr %allocationCallbacks, align 8
-  call void %11(ptr noundef nonnull %pSampleData.0114, ptr noundef %12) #64
+  call void %11(ptr noundef nonnull %pSampleData.0120, ptr noundef %12) #64
   br label %if.end21
 
 ma_dr_flac__realloc_from_callbacks.exit:          ; preds = %if.then12
   %13 = load ptr, ptr %allocationCallbacks, align 8
-  %call.i48 = call ptr %7(ptr noundef nonnull %pSampleData.0114, i64 noundef %mul13, ptr noundef %13) #64
+  %call.i48 = call ptr %7(ptr noundef nonnull %pSampleData.0120, i64 noundef %mul13, ptr noundef %13) #64
   %cmp16 = icmp eq ptr %call.i48, null
-  br i1 %cmp16, label %if.then18, label %if.end21
+  br i1 %cmp16, label %if.end.i, label %if.end21
 
-if.then18:                                        ; preds = %if.end4.i50, %land.lhs.true.i, %if.then7.i, %ma_dr_flac__realloc_from_callbacks.exit
-  %cmp.i = icmp eq ptr %pSampleData.0114, null
+if.then18:                                        ; preds = %if.then7.i, %land.lhs.true.i, %if.end4.i50
+  %cmp.i = icmp eq ptr %pSampleData.0120, null
   br i1 %cmp.i, label %on_error, label %if.end.i
 
-if.end.i:                                         ; preds = %if.then18
+if.end.i:                                         ; preds = %ma_dr_flac__realloc_from_callbacks.exit, %if.then18
   %14 = load ptr, ptr %onFree.i, align 8
   %cmp2.not.i = icmp eq ptr %14, null
   br i1 %cmp2.not.i, label %on_error, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %15 = load ptr, ptr %allocationCallbacks, align 8
-  call void %14(ptr noundef nonnull %pSampleData.0114, ptr noundef %15) #64
+  call void %14(ptr noundef nonnull %pSampleData.0120, ptr noundef %15) #64
   br label %on_error
 
 if.end21:                                         ; preds = %ma_dr_flac__realloc_from_callbacks.exit.thread97, %ma_dr_flac__realloc_from_callbacks.exit, %while.body
-  %sampleDataBufferSize.1 = phi i64 [ %sampleDataBufferSize.0112, %while.body ], [ %mul13, %ma_dr_flac__realloc_from_callbacks.exit ], [ %mul13, %ma_dr_flac__realloc_from_callbacks.exit.thread97 ]
-  %pSampleData.1 = phi ptr [ %pSampleData.0114, %while.body ], [ %call.i48, %ma_dr_flac__realloc_from_callbacks.exit ], [ %call10.i, %ma_dr_flac__realloc_from_callbacks.exit.thread97 ]
+  %sampleDataBufferSize.1 = phi i64 [ %sampleDataBufferSize.0118, %while.body ], [ %mul13, %ma_dr_flac__realloc_from_callbacks.exit ], [ %mul13, %ma_dr_flac__realloc_from_callbacks.exit.thread97 ]
+  %pSampleData.1 = phi ptr [ %pSampleData.0120, %while.body ], [ %call.i48, %ma_dr_flac__realloc_from_callbacks.exit ], [ %call10.i, %ma_dr_flac__realloc_from_callbacks.exit.thread97 ]
   %16 = load i8, ptr %channels, align 4
   %conv23 = zext i8 %16 to i64
-  %mul24 = mul i64 %totalPCMFrameCount.0113, %conv23
+  %mul24 = mul i64 %totalPCMFrameCount.0119, %conv23
   %add.ptr = getelementptr inbounds i16, ptr %pSampleData.1, i64 %mul24
-  %mul28 = shl i64 %call4115, 1
+  %mul28 = shl i64 %call4121, 1
   %mul29 = mul i64 %mul28, %conv23
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr, ptr nonnull align 16 %buffer, i64 %mul29, i1 false)
   %17 = load i8, ptr %channels, align 4
   %div.rhs.trunc = zext i8 %17 to i16
-  %div102 = udiv i16 4096, %div.rhs.trunc
-  %div.zext = zext nneg i16 %div102 to i64
+  %div103 = udiv i16 4096, %div.rhs.trunc
+  %div.zext = zext nneg i16 %div103 to i64
   %call4 = call i64 @ma_dr_flac_read_pcm_frames_s16(ptr noundef nonnull %pFlac, i64 noundef %div.zext, ptr noundef nonnull %buffer)
   %cmp5.not = icmp eq i64 %call4, 0
   br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !813
@@ -102158,11 +102154,11 @@ if.end.i.i78:                                     ; preds = %if.then9.i86, %if.t
   br i1 %cmp2.not.i.i80, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end.i.i78, %if.end.i.i
-  %.sink123 = phi ptr [ %33, %if.end.i.i ], [ %40, %if.end.i.i78 ]
+  %.sink135 = phi ptr [ %33, %if.end.i.i ], [ %40, %if.end.i.i78 ]
   %retval.0.ph = phi ptr [ %pSampleData.2, %if.end.i.i ], [ null, %if.end.i.i78 ]
   %allocationCallbacks.i82 = getelementptr inbounds nuw i8, ptr %pFlac, i64 16
   %41 = load ptr, ptr %allocationCallbacks.i82, align 8
-  call void %.sink123(ptr noundef nonnull %pFlac, ptr noundef %41) #64
+  call void %.sink135(ptr noundef nonnull %pFlac, ptr noundef %41) #64
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.i.i78, %if.end.i.i
@@ -102250,12 +102246,12 @@ ma_dr_flac__malloc_from_callbacks.exit:           ; preds = %if.then2.i, %if.the
 while.cond.preheader:                             ; preds = %ma_dr_flac__malloc_from_callbacks.exit
   %channels = getelementptr inbounds nuw i8, ptr %pFlac, i64 52
   %5 = load i8, ptr %channels, align 4
-  %div.rhs.trunc107 = zext i8 %5 to i16
-  %div102108 = udiv i16 4096, %div.rhs.trunc107
-  %div.zext109 = zext nneg i16 %div102108 to i64
-  %call4110 = call i64 @ma_dr_flac_read_pcm_frames_f32(ptr noundef nonnull %pFlac, i64 noundef %div.zext109, ptr noundef nonnull %buffer)
-  %cmp5.not111 = icmp eq i64 %call4110, 0
-  br i1 %cmp5.not111, label %while.end, label %while.body.lr.ph
+  %div.rhs.trunc113 = zext i8 %5 to i16
+  %div103114 = udiv i16 4096, %div.rhs.trunc113
+  %div.zext115 = zext nneg i16 %div103114 to i64
+  %call4116 = call i64 @ma_dr_flac_read_pcm_frames_f32(ptr noundef nonnull %pFlac, i64 noundef %div.zext115, ptr noundef nonnull %buffer)
+  %cmp5.not117 = icmp eq i64 %call4116, 0
+  br i1 %cmp5.not117, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %onRealloc.i45 = getelementptr inbounds nuw i8, ptr %pFlac, i64 32
@@ -102263,20 +102259,20 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end21
-  %call4115 = phi i64 [ %call4110, %while.body.lr.ph ], [ %call4, %if.end21 ]
-  %pSampleData.0114 = phi ptr [ %retval.0.i, %while.body.lr.ph ], [ %pSampleData.1, %if.end21 ]
-  %totalPCMFrameCount.0113 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end21 ]
-  %sampleDataBufferSize.0112 = phi i64 [ 16384, %while.body.lr.ph ], [ %sampleDataBufferSize.1, %if.end21 ]
-  %add = add i64 %call4115, %totalPCMFrameCount.0113
+  %call4121 = phi i64 [ %call4116, %while.body.lr.ph ], [ %call4, %if.end21 ]
+  %pSampleData.0120 = phi ptr [ %retval.0.i, %while.body.lr.ph ], [ %pSampleData.1, %if.end21 ]
+  %totalPCMFrameCount.0119 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end21 ]
+  %sampleDataBufferSize.0118 = phi i64 [ 16384, %while.body.lr.ph ], [ %sampleDataBufferSize.1, %if.end21 ]
+  %add = add i64 %call4121, %totalPCMFrameCount.0119
   %6 = load i8, ptr %channels, align 4
   %conv8 = zext i8 %6 to i64
   %mul = shl i64 %add, 2
   %mul9 = mul i64 %mul, %conv8
-  %cmp10 = icmp ugt i64 %mul9, %sampleDataBufferSize.0112
+  %cmp10 = icmp ugt i64 %mul9, %sampleDataBufferSize.0118
   br i1 %cmp10, label %if.then12, label %if.end21
 
 if.then12:                                        ; preds = %while.body
-  %mul13 = shl i64 %sampleDataBufferSize.0112, 1
+  %mul13 = shl i64 %sampleDataBufferSize.0118, 1
   %7 = load ptr, ptr %onRealloc.i45, align 8
   %cmp1.not.i46 = icmp eq ptr %7, null
   br i1 %cmp1.not.i46, label %if.end4.i50, label %ma_dr_flac__realloc_from_callbacks.exit
@@ -102298,46 +102294,46 @@ if.then7.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp11.i, label %if.then18, label %ma_dr_flac__realloc_from_callbacks.exit.thread97
 
 ma_dr_flac__realloc_from_callbacks.exit.thread97: ; preds = %if.then7.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call10.i, ptr nonnull align 1 %pSampleData.0114, i64 %sampleDataBufferSize.0112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call10.i, ptr nonnull align 1 %pSampleData.0120, i64 %sampleDataBufferSize.0118, i1 false)
   %11 = load ptr, ptr %onFree.i, align 8
   %12 = load ptr, ptr %allocationCallbacks, align 8
-  call void %11(ptr noundef nonnull %pSampleData.0114, ptr noundef %12) #64
+  call void %11(ptr noundef nonnull %pSampleData.0120, ptr noundef %12) #64
   br label %if.end21
 
 ma_dr_flac__realloc_from_callbacks.exit:          ; preds = %if.then12
   %13 = load ptr, ptr %allocationCallbacks, align 8
-  %call.i48 = call ptr %7(ptr noundef nonnull %pSampleData.0114, i64 noundef %mul13, ptr noundef %13) #64
+  %call.i48 = call ptr %7(ptr noundef nonnull %pSampleData.0120, i64 noundef %mul13, ptr noundef %13) #64
   %cmp16 = icmp eq ptr %call.i48, null
-  br i1 %cmp16, label %if.then18, label %if.end21
+  br i1 %cmp16, label %if.end.i, label %if.end21
 
-if.then18:                                        ; preds = %if.end4.i50, %land.lhs.true.i, %if.then7.i, %ma_dr_flac__realloc_from_callbacks.exit
-  %cmp.i = icmp eq ptr %pSampleData.0114, null
+if.then18:                                        ; preds = %if.then7.i, %land.lhs.true.i, %if.end4.i50
+  %cmp.i = icmp eq ptr %pSampleData.0120, null
   br i1 %cmp.i, label %on_error, label %if.end.i
 
-if.end.i:                                         ; preds = %if.then18
+if.end.i:                                         ; preds = %ma_dr_flac__realloc_from_callbacks.exit, %if.then18
   %14 = load ptr, ptr %onFree.i, align 8
   %cmp2.not.i = icmp eq ptr %14, null
   br i1 %cmp2.not.i, label %on_error, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %15 = load ptr, ptr %allocationCallbacks, align 8
-  call void %14(ptr noundef nonnull %pSampleData.0114, ptr noundef %15) #64
+  call void %14(ptr noundef nonnull %pSampleData.0120, ptr noundef %15) #64
   br label %on_error
 
 if.end21:                                         ; preds = %ma_dr_flac__realloc_from_callbacks.exit.thread97, %ma_dr_flac__realloc_from_callbacks.exit, %while.body
-  %sampleDataBufferSize.1 = phi i64 [ %sampleDataBufferSize.0112, %while.body ], [ %mul13, %ma_dr_flac__realloc_from_callbacks.exit ], [ %mul13, %ma_dr_flac__realloc_from_callbacks.exit.thread97 ]
-  %pSampleData.1 = phi ptr [ %pSampleData.0114, %while.body ], [ %call.i48, %ma_dr_flac__realloc_from_callbacks.exit ], [ %call10.i, %ma_dr_flac__realloc_from_callbacks.exit.thread97 ]
+  %sampleDataBufferSize.1 = phi i64 [ %sampleDataBufferSize.0118, %while.body ], [ %mul13, %ma_dr_flac__realloc_from_callbacks.exit ], [ %mul13, %ma_dr_flac__realloc_from_callbacks.exit.thread97 ]
+  %pSampleData.1 = phi ptr [ %pSampleData.0120, %while.body ], [ %call.i48, %ma_dr_flac__realloc_from_callbacks.exit ], [ %call10.i, %ma_dr_flac__realloc_from_callbacks.exit.thread97 ]
   %16 = load i8, ptr %channels, align 4
   %conv23 = zext i8 %16 to i64
-  %mul24 = mul i64 %totalPCMFrameCount.0113, %conv23
+  %mul24 = mul i64 %totalPCMFrameCount.0119, %conv23
   %add.ptr = getelementptr inbounds float, ptr %pSampleData.1, i64 %mul24
-  %mul28 = shl i64 %call4115, 2
+  %mul28 = shl i64 %call4121, 2
   %mul29 = mul i64 %mul28, %conv23
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr, ptr nonnull align 16 %buffer, i64 %mul29, i1 false)
   %17 = load i8, ptr %channels, align 4
   %div.rhs.trunc = zext i8 %17 to i16
-  %div102 = udiv i16 4096, %div.rhs.trunc
-  %div.zext = zext nneg i16 %div102 to i64
+  %div103 = udiv i16 4096, %div.rhs.trunc
+  %div.zext = zext nneg i16 %div103 to i64
   %call4 = call i64 @ma_dr_flac_read_pcm_frames_f32(ptr noundef nonnull %pFlac, i64 noundef %div.zext, ptr noundef nonnull %buffer)
   %cmp5.not = icmp eq i64 %call4, 0
   br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !814
@@ -102503,11 +102499,11 @@ if.end.i.i78:                                     ; preds = %if.then9.i86, %if.t
   br i1 %cmp2.not.i.i80, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end.i.i78, %if.end.i.i
-  %.sink123 = phi ptr [ %33, %if.end.i.i ], [ %40, %if.end.i.i78 ]
+  %.sink135 = phi ptr [ %33, %if.end.i.i ], [ %40, %if.end.i.i78 ]
   %retval.0.ph = phi ptr [ %pSampleData.2, %if.end.i.i ], [ null, %if.end.i.i78 ]
   %allocationCallbacks.i82 = getelementptr inbounds nuw i8, ptr %pFlac, i64 16
   %41 = load ptr, ptr %allocationCallbacks.i82, align 8
-  call void %.sink123(ptr noundef nonnull %pFlac, ptr noundef %41) #64
+  call void %.sink135(ptr noundef nonnull %pFlac, ptr noundef %41) #64
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.i.i78, %if.end.i.i

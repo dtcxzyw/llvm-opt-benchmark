@@ -60,7 +60,7 @@ define ptr @Cudd_addMatrixMultiply(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %27, label %24, label %28, !llvm.loop !6
 
 28:                                               ; preds = %24
-  tail call void @free(ptr noundef %10) #7
+  tail call void @free(ptr noundef nonnull %10) #7
   br label %29
 
 29:                                               ; preds = %28, %15
@@ -668,7 +668,7 @@ define ptr @Cudd_addTriangle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %49
 
 49:                                               ; preds = %40, %.critedge
-  tail call void @free(ptr noundef %10) #7
+  tail call void @free(ptr noundef nonnull %10) #7
   br label %50
 
 50:                                               ; preds = %49, %26, %15

@@ -1432,7 +1432,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #28
   resume { ptr, i32 } %0
 }
 
@@ -1814,7 +1814,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 lpad2:                                            ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #28
+  call void @__cxa_free_exception(ptr nonnull %exception) #28
   br label %ehcleanup
 
 lpad4.loopexit:                                   ; preds = %cond.true.i.i.i63
@@ -2304,7 +2304,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 ehcleanup44.thread32:                             ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #28
+  call void @__cxa_free_exception(ptr nonnull %exception) #28
   br label %eh.resume
 
 lpad9.thread:                                     ; preds = %invoke.cont40.invoke, %if.end42, %invoke.cont13, %if.end
@@ -2348,7 +2348,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
 lpad23:                                           ; preds = %delete.end
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception22) #28
+  call void @__cxa_free_exception(ptr nonnull %exception22) #28
   br label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i22
 
 if.end26:                                         ; preds = %invoke.cont17
@@ -2412,7 +2412,7 @@ ehcleanup36:                                      ; preds = %lpad30, %lpad.i14, 
 lpad39:                                           ; preds = %if.then37
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception38) #28
+  call void @__cxa_free_exception(ptr nonnull %exception38) #28
   br label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i22
 
 if.end42:                                         ; preds = %invoke.cont33
@@ -2849,7 +2849,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 lpad5:                                            ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #28
+  call void @__cxa_free_exception(ptr nonnull %exception) #28
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont4
@@ -4150,7 +4150,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 lpad5:                                            ; preds = %if.then
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #28
+  call void @__cxa_free_exception(ptr nonnull %exception) #28
   br label %ehcleanup
 
 lpad7:                                            ; preds = %if.end88, %if.else85, %if.then16, %invoke.cont8, %if.end, %invoke.cont6

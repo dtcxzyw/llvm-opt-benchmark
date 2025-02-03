@@ -2419,57 +2419,64 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %14, %_ZN3tbb6de
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %4
   %18 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %25, label %19
+  br i1 %.not, label %28, label %19
 
 19:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIPKN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseESt4pairIKS4_NSt7__cxx114listIPNS1_8TfNotice14_DelivererBaseESaISB_EEEESaISE_ENS_10_Select1stESt8equal_toIS4_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapIPKNS_10TfWeakBaseENSt7__cxx114listIPNS_8TfNotice14_DelivererBaseESaIS8_EEENS_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_SA_EEEixERSF_.exit unwind label %22
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapIPKNS_10TfWeakBaseENSt7__cxx114listIPNS_8TfNotice14_DelivererBaseESaIS8_EEENS_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_SA_EEEixERSF_.exit unwind label %.thread
 
-22:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapIPKNS_10TfWeakBaseENSt7__cxx114listIPNS_8TfNotice14_DelivererBaseESaIS8_EEENS_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_SA_EEEixERSF_.exit, %19
-  %23 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %19
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  br label %25
+
+23:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapIPKNS_10TfWeakBaseENSt7__cxx114listIPNS_8TfNotice14_DelivererBaseESaIS8_EEENS_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_SA_EEEixERSF_.exit
+  %24 = landingpad { ptr, i32 }
           cleanup
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit, label %24
+  br i1 %.not.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit, label %25
 
-24:                                               ; preds = %22
+25:                                               ; preds = %.thread, %23
+  %26 = phi { ptr, i32 } [ %22, %.thread ], [ %24, %23 ]
   store atomic i8 0, ptr %1 release, align 1
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %22, %24
-  resume { ptr, i32 } %23
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %23, %25
+  %27 = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ]
+  resume { ptr, i32 } %27
 
-25:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+28:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapIPKNS_10TfWeakBaseENSt7__cxx114listIPNS_8TfNotice14_DelivererBaseESaIS8_EEENS_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_SA_EEEixERSF_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapIPKNS_10TfWeakBaseENSt7__cxx114listIPNS_8TfNotice14_DelivererBaseESaIS8_EEENS_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_SA_EEEixERSF_.exit: ; preds = %19, %25
-  %.0 = phi ptr [ %26, %25 ], [ %21, %19 ]
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.0, ptr %27, align 8
-  %28 = load ptr, ptr %.0, align 8
-  %29 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-          to label %30 unwind label %22
+_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapIPKNS_10TfWeakBaseENSt7__cxx114listIPNS_8TfNotice14_DelivererBaseESaIS8_EEENS_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_SA_EEEixERSF_.exit: ; preds = %19, %28
+  %.0 = phi ptr [ %29, %28 ], [ %21, %19 ]
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.0, ptr %30, align 8
+  %31 = load ptr, ptr %.0, align 8
+  %32 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
+          to label %33 unwind label %23
 
-30:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapIPKNS_10TfWeakBaseENSt7__cxx114listIPNS_8TfNotice14_DelivererBaseESaIS8_EEENS_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_SA_EEEixERSF_.exit
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %3, ptr %31, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef %28) #11
-  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %32, align 8
-  %35 = load ptr, ptr %.0, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %35, ptr %36, align 8
+33:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapIPKNS_10TfWeakBaseENSt7__cxx114listIPNS_8TfNotice14_DelivererBaseESaIS8_EEENS_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_SA_EEEixERSF_.exit
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store ptr %3, ptr %34, align 8
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %31) #11
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %36 = load i64, ptr %35, align 8
+  %37 = add i64 %36, 1
+  store i64 %37, ptr %35, align 8
+  %38 = load ptr, ptr %.0, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %38, ptr %39, align 8
   %.not.i6 = icmp eq ptr %1, null
-  br i1 %.not.i6, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7, label %37
+  br i1 %.not.i6, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7, label %40
 
-37:                                               ; preds = %30
+40:                                               ; preds = %33
   store atomic i8 0, ptr %1 release, align 1
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7: ; preds = %30, %37
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7: ; preds = %33, %40
   ret void
 }
 

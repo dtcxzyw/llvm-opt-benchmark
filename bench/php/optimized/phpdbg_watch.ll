@@ -2091,7 +2091,7 @@ define hidden void @phpdbg_remove_watch_element_recursively(ptr noundef %0) loca
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  tail call void @phpdbg_unwatch_parent_ht(ptr noundef %0)
+  tail call void @phpdbg_unwatch_parent_ht(ptr noundef nonnull %0)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @zend_hash_del(ptr noundef nonnull %31, ptr noundef %33) #17

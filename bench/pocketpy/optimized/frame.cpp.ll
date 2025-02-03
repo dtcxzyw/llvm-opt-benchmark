@@ -873,7 +873,7 @@ _ZN4pkpy5Frame11_exit_blockEPNS_10ValueStackEi.exit19: ; preds = %48, %56
 69:                                               ; preds = %66
   %70 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %67) #23
+  tail call void @__cxa_free_exception(ptr nonnull %67) #23
   resume { ptr, i32 } %70
 
 .loopexit:                                        ; preds = %_ZN4pkpy5Frame11_exit_blockEPNS_10ValueStackEi.exit, %.preheader, %._crit_edge

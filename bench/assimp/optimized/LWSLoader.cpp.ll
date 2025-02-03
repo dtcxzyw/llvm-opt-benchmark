@@ -2907,7 +2907,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 lpad6:                                            ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #22
+  call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont4
@@ -2988,7 +2988,7 @@ if.then30:                                        ; preds = %invoke.cont16
 lpad32:                                           ; preds = %if.then30
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception31) #22
+  call void @__cxa_free_exception(ptr nonnull %exception31) #22
   br label %ehcleanup896
 
 if.end35:                                         ; preds = %invoke.cont16
@@ -5055,7 +5055,7 @@ invoke.cont780.cont:                              ; preds = %invoke.cont780.invo
 lpad779:                                          ; preds = %if.then777
   %230 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception778) #22
+  call void @__cxa_free_exception(ptr nonnull %exception778) #22
   br label %ehcleanup896
 
 if.end782:                                        ; preds = %for.end775

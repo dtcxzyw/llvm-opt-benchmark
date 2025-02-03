@@ -2374,8 +2374,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit627:     ; preds = %_ZNK4llvm9StringRef
   br i1 %257, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit634
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit627, %_ZNK4llvm9StringRef11starts_withES0_.exit624, %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %258 = call noundef i32 @_ZN4llvm3ARM12parseArchISAENS_9StringRefE(ptr %0, i64 %1) #15
-  %259 = call noundef i32 @_ZN4llvm3ARM15parseArchEndianENS_9StringRefE(ptr %0, i64 %1) #15
+  %258 = call noundef i32 @_ZN4llvm3ARM12parseArchISAENS_9StringRefE(ptr nonnull %0, i64 %1) #15
+  %259 = call noundef i32 @_ZN4llvm3ARM15parseArchEndianENS_9StringRefE(ptr nonnull %0, i64 %1) #15
   switch i32 %259, label %266 [
     i32 1, label %260
     i32 2, label %262
@@ -2405,7 +2405,7 @@ switch.lookup1327:                                ; preds = %262
 
 266:                                              ; preds = %switch.lookup1327, %262, %switch.lookup, %260, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
   %.020.i = phi i32 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ 0, %262 ], [ 0, %260 ], [ %switch.load, %switch.lookup ], [ %switch.load1330, %switch.lookup1327 ]
-  %267 = call { ptr, i64 } @_ZN4llvm3ARM20getCanonicalArchNameENS_9StringRefE(ptr %0, i64 %1) #15
+  %267 = call { ptr, i64 } @_ZN4llvm3ARM20getCanonicalArchNameENS_9StringRefE(ptr nonnull %0, i64 %1) #15
   %268 = extractvalue { ptr, i64 } %267, 0
   %269 = extractvalue { ptr, i64 } %267, 1
   %270 = icmp eq i64 %269, 0
@@ -2446,7 +2446,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit634:     ; preds = %_ZNK4llvm9StringRef
   br i1 %281, label %_ZNK4llvm9StringRef11starts_withES0_.exit634.thread, label %_ZL12parseARMArchN4llvm9StringRefE.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit634.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit634
-  %282 = call fastcc noundef i32 @_ZL12parseBPFArchN4llvm9StringRefE(ptr %0, i64 %1)
+  %282 = call fastcc noundef i32 @_ZL12parseBPFArchN4llvm9StringRefE(ptr nonnull %0, i64 %1)
   br label %_ZL12parseARMArchN4llvm9StringRefE.exit
 
 _ZL12parseARMArchN4llvm9StringRefE.exit:          ; preds = %254, %279, %_ZNK4llvm9StringRef11starts_withES0_.exit23.thread35.i, %_ZNK4llvm9StringRef11starts_withES0_.exit23.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i628, %266, %_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit621, %_ZNK4llvm9StringRef11starts_withES0_.exit634, %_ZNK4llvm9StringRef11starts_withES0_.exit634.thread

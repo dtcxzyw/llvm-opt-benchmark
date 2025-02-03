@@ -15739,7 +15739,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %20) #30
+  tail call void @__cxa_free_exception(ptr nonnull %20) #30
   resume { ptr, i32 } %23
 }
 

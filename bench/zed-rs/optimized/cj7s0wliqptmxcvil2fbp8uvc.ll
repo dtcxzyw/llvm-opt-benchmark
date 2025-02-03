@@ -37007,7 +37007,7 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit.i: ; preds = %846
 1052:                                             ; preds = %1040
   %1053 = extractvalue { ptr, ptr } %1049, 0
   %1054 = extractvalue { ptr, ptr } %1049, 1
-  invoke void @_ZN8async_io6driver8block_on17he434a172389efbe4E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %28, ptr noundef nonnull align 1 %1053, ptr noalias noundef readonly align 8 dereferenceable(32) %1054)
+  invoke void @_ZN8async_io6driver8block_on17he434a172389efbe4E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %28, ptr noundef nonnull align 1 %1053, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1054)
           to label %1055 unwind label %1050
 
 1055:                                             ; preds = %1052

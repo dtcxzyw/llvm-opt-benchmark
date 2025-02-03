@@ -507,8 +507,8 @@ _ZNK3gmx4Bias20forceCorrelationGridEv.exit:       ; preds = %35
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %73
 
-73:                                               ; preds = %.lr.ph56, %189
-  %.sroa.035.054 = phi ptr [ %.pre, %.lr.ph56 ], [ %190, %189 ]
+73:                                               ; preds = %.lr.ph56, %190
+  %.sroa.035.054 = phi ptr [ %.pre, %.lr.ph56 ], [ %191, %190 ]
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.035.054, i64 32
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %75, 0
@@ -615,7 +615,7 @@ _ZNSt8_Rb_treeIN3gmx18AwhOutputEntryTypeESt4pairIKS1_iESt10_Select1stIS4_ESt4les
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv, %118
-  br i1 %119, label %120, label %189
+  br i1 %119, label %120, label %190
 
 120:                                              ; preds = %115
   switch i32 %75, label %_ZN3gmx12_GLOBAL__N_121getNormalizationValueENS_18AwhOutputEntryTypeERKNS_4BiasEi.exit [
@@ -705,7 +705,7 @@ _ZNKSt6vectorIN3gmx14AwhEnergyBlockESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds 
   %163 = getelementptr inbounds i8, ptr %162, i64 %153
   %164 = load i32, ptr %86, align 4
   invoke void @_ZN3gmx14AwhEnergyBlockC1EiNS_13NormalizationEf(ptr noundef nonnull align 8 dereferenceable(32) %163, i32 noundef %storemerge, i32 noundef %164, float noundef %.0.i)
-          to label %_ZNSt16allocator_traitsISaIN3gmx14AwhEnergyBlockEEE9constructIS1_JRiRKNS0_13NormalizationEfEEEvRS2_PT_DpOT0_.exit.i unwind label %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39.i
+          to label %_ZNSt16allocator_traitsISaIN3gmx14AwhEnergyBlockEEE9constructIS1_JRiRKNS0_13NormalizationEfEEEvRS2_PT_DpOT0_.exit.i unwind label %181
 
 _ZNSt16allocator_traitsISaIN3gmx14AwhEnergyBlockEEE9constructIS1_JRiRKNS0_13NormalizationEfEEEvRS2_PT_DpOT0_.exit.i: ; preds = %.noexc28
   %.not10.i.i.i.i23 = icmp eq ptr %150, %143
@@ -746,57 +746,57 @@ _ZNSt6vectorIN3gmx14AwhEnergyBlockESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i
   call void @_ZdlPv(ptr noundef nonnull %150) #24
   br label %.noexc21
 
-179:                                              ; preds = %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39.i
+179:                                              ; preds = %181
   %180 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body unwind label %184
+          to label %.body unwind label %185
 
-_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39.i: ; preds = %.noexc28
-  %181 = landingpad { ptr, i32 }
+181:                                              ; preds = %.noexc28
+  %182 = landingpad { ptr, i32 }
           catch ptr null
-  %182 = extractvalue { ptr, i32 } %181, 0
-  %183 = call ptr @__cxa_begin_catch(ptr %182) #22
+  %183 = extractvalue { ptr, i32 } %182, 0
+  %184 = call ptr @__cxa_begin_catch(ptr %183) #22
   call void @_ZdlPv(ptr noundef nonnull %162) #24
   invoke void @__cxa_rethrow() #25
-          to label %187 unwind label %179
+          to label %188 unwind label %179
 
-184:                                              ; preds = %179
-  %185 = landingpad { ptr, i32 }
+185:                                              ; preds = %179
+  %186 = landingpad { ptr, i32 }
           catch ptr null
-  %186 = extractvalue { ptr, i32 } %185, 0
-  call void @__clang_call_terminate(ptr %186) #23
+  %187 = extractvalue { ptr, i32 } %186, 0
+  call void @__clang_call_terminate(ptr %187) #23
   unreachable
 
-187:                                              ; preds = %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39.i
+188:                                              ; preds = %181
   unreachable
 
 .noexc21:                                         ; preds = %178, %_ZNSt6vectorIN3gmx14AwhEnergyBlockESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i
   store ptr %162, ptr %0, align 8
   store ptr %177, ptr %71, align 8
-  %188 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %162, i64 %160
-  store ptr %188, ptr %72, align 8
+  %189 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %162, i64 %160
+  store ptr %189, ptr %72, align 8
   br label %_ZNSt6vectorIN3gmx14AwhEnergyBlockESaIS1_EE12emplace_backIJRiRKNS0_13NormalizationEfEEERS1_DpOT_.exit
 
 _ZNSt6vectorIN3gmx14AwhEnergyBlockESaIS1_EE12emplace_backIJRiRKNS0_13NormalizationEfEEERS1_DpOT_.exit: ; preds = %.noexc21, %.noexc20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %87, !llvm.loop !16
 
-189:                                              ; preds = %115
-  %190 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.035.054) #20
-  %.not42 = icmp eq ptr %190, getelementptr inbounds nuw (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 8)
+190:                                              ; preds = %115
+  %191 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.035.054) #20
+  %.not42 = icmp eq ptr %191, getelementptr inbounds nuw (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 8)
   br i1 %.not42, label %._crit_edge57, label %73
 
-._crit_edge57:                                    ; preds = %189, %2, %._crit_edge
-  %191 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt8_Rb_treeIN3gmx18AwhOutputEntryTypeESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %191)
-          to label %_ZNSt3mapIN3gmx18AwhOutputEntryTypeEiSt4lessIS1_ESaISt4pairIKS1_iEEED2Ev.exit unwind label %192
+._crit_edge57:                                    ; preds = %190, %2, %._crit_edge
+  %192 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt8_Rb_treeIN3gmx18AwhOutputEntryTypeESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %192)
+          to label %_ZNSt3mapIN3gmx18AwhOutputEntryTypeEiSt4lessIS1_ESaISt4pairIKS1_iEEED2Ev.exit unwind label %193
 
-192:                                              ; preds = %._crit_edge57
-  %193 = landingpad { ptr, i32 }
+193:                                              ; preds = %._crit_edge57
+  %194 = landingpad { ptr, i32 }
           catch ptr null
-  %194 = extractvalue { ptr, i32 } %193, 0
-  call void @__clang_call_terminate(ptr %194) #23
+  %195 = extractvalue { ptr, i32 } %194, 0
+  call void @__clang_call_terminate(ptr %195) #23
   unreachable
 
 _ZNSt3mapIN3gmx18AwhOutputEntryTypeEiSt4lessIS1_ESaISt4pairIKS1_iEEED2Ev.exit: ; preds = %._crit_edge57

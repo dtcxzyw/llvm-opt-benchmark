@@ -344,7 +344,7 @@ if.end151:                                        ; preds = %sw.bb147
   %spec.store.select173 = select i1 %tobool159.not, i32 %spec.store.select170, i32 4608
   store i32 %spec.store.select173, ptr %state8, align 4
   store i32 0, ptr %init_num275, align 8
-  %call164 = call i32 @tls1_change_cipher_state(ptr noundef %ssl, i32 noundef 18) #11
+  %call164 = call i32 @tls1_change_cipher_state(ptr noundef nonnull %ssl, i32 noundef 18) #11
   %tobool165.not = icmp eq i32 %call164, 0
   br i1 %tobool165.not, label %end, label %sw.epilog
 
@@ -592,7 +592,7 @@ end:                                              ; preds = %if.end253, %if.end1
 
 if.then336:                                       ; preds = %end.thread188, %end
   %ret.0192 = phi i32 [ 1, %end.thread188 ], [ %ret.0, %end ]
-  call void %cb.0(ptr noundef %ssl, i32 noundef 4098, i32 noundef %ret.0192) #11
+  call void %cb.0(ptr noundef nonnull %ssl, i32 noundef 4098, i32 noundef %ret.0192) #11
   br label %if.end337
 
 if.end337:                                        ; preds = %end.thread, %if.then336, %end

@@ -44,7 +44,7 @@ define hidden void @_ZN8tstrings13unsafe_formatB5cxx11EPKcz(ptr dead_on_unwind n
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %5) #15
+  tail call void @__cxa_free_exception(ptr nonnull %5) #15
   br label %22
 
 9:                                                ; preds = %2

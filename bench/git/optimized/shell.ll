@@ -212,7 +212,7 @@ if.end59:                                         ; preds = %if.then53, %if.then
   unreachable
 
 if.else61:                                        ; preds = %for.end
-  call void @free(ptr noundef %call17) #13
+  call void @free(ptr noundef nonnull %call17) #13
   %30 = load ptr, ptr %arrayidx16, align 8
   %call63 = call ptr @split_cmdline_strerror(i32 noundef %call46) #13
   call void (ptr, ...) @die(ptr noundef nonnull @.str.8, ptr noundef %30, ptr noundef %call63) #14
@@ -363,7 +363,7 @@ if.then43:                                        ; preds = %if.end38
 do.body.backedge:                                 ; preds = %if.then43, %do.body.critedge
   %call39.sink = phi ptr [ %call39, %if.then43 ], [ %0, %do.body.critedge ]
   call void @free(ptr noundef %call39.sink) #13
-  call void @free(ptr noundef %call12) #13
+  call void @free(ptr noundef nonnull %call12) #13
   br label %do.body
 
 if.end46:                                         ; preds = %if.end38

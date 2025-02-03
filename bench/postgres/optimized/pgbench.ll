@@ -8970,7 +8970,7 @@ pg_time_now_lazy.exit:                            ; preds = %23, %26
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %57
-  call fastcc void @doLog(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i1 noundef zeroext %3, double noundef %.0, double noundef %.031)
+  call fastcc void @doLog(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %4, i1 noundef zeroext %3, double noundef %.0, double noundef %.031)
   br label %64
 
 64:                                               ; preds = %63, %57

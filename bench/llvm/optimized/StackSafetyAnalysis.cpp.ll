@@ -1942,7 +1942,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %151, %153
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit61
 
 _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %163, %165
-  %168 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.094.099) #29
+  %168 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.094.099) #29
   %.not96 = icmp eq ptr %168, %99
   br i1 %.not96, label %._crit_edge, label %107
 
@@ -2732,7 +2732,7 @@ _ZNSt3mapIPKN4llvm11GlobalValueEN12_GLOBAL__N_112FunctionInfoIS1_EESt4lessIS3_ES
   br label %192
 
 192:                                              ; preds = %186, %.lr.ph.i
-  %193 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0131.0147.i) #29
+  %193 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0131.0147.i) #29
   %.not138.i = icmp eq ptr %193, %183
   br i1 %.not138.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -3800,7 +3800,7 @@ _ZN12_GLOBAL__N_112FunctionInfoIN4llvm11GlobalValueEEaSEOS3_.exit.i: ; preds = %
   store i32 %603, ptr %604, align 8
   %.val1.i.i = load ptr, ptr %379, align 8, !noalias !33
   call fastcc void @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %.val1.i.i)
-  %605 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0128.0167.i) #29
+  %605 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0128.0167.i) #29
   %.not134.i = icmp eq ptr %605, %234
   br i1 %.not134.i, label %._crit_edge169.i, label %402
 
@@ -4132,7 +4132,7 @@ _ZNSt8_Rb_treeIPKN4llvm11InstructionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_
 
 _ZNSt8_Rb_treeIPKN4llvm11InstructionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE17_M_insert_unique_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EOT_RT0_.exit.i.i: ; preds = %_ZNSt8_Rb_treeIPKN4llvm11InstructionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i.i, %734
   %747 = phi i64 [ %719, %734 ], [ %746, %_ZNSt8_Rb_treeIPKN4llvm11InstructionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i.i ]
-  %748 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.04.08.i.i) #29
+  %748 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.08.i.i) #29
   %.not.i.i59 = icmp eq ptr %748, %711
   br i1 %.not.i.i59, label %_ZNSt3setIPKN4llvm11InstructionESt4lessIS3_ESaIS3_EE6insertISt23_Rb_tree_const_iteratorIS3_EEEvT_SB_.exit, label %718, !llvm.loop !50
 
@@ -5302,7 +5302,7 @@ _ZNSt16allocator_traitsISaIN4llvm15FunctionSummary11ParamAccess4CallEEE9construc
   br label %_ZNSt6vectorIN4llvm15FunctionSummary11ParamAccess4CallESaIS3_EE12emplace_backIJRKmNS0_9ValueInfoERKNS0_13ConstantRangeEEEERS3_DpOT_.exit
 
 _ZNSt6vectorIN4llvm15FunctionSummary11ParamAccess4CallESaIS3_EE12emplace_backIJRKmNS0_9ValueInfoERKNS0_13ConstantRangeEEEERS3_DpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4llvm15FunctionSummary11ParamAccess4CallEEE9constructIS3_JRKmNS0_9ValueInfoERKNS0_13ConstantRangeEEEEvRS4_PT_DpOT0_.exit.i, %141
-  %142 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.043.054) #29
+  %142 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.043.054) #29
   %.not52 = icmp eq ptr %142, %50
   br i1 %.not52, label %.loopexit, label %53
 
@@ -9010,7 +9010,7 @@ _ZN4llvm5APIntaSERKS0_.exit.i205:                 ; preds = %914, %911
   br label %_ZN4llvm13ConstantRangeaSERKS0_.exit206
 
 _ZN4llvm13ConstantRangeaSERKS0_.exit206:          ; preds = %927, %924, %.lr.ph364
-  %928 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0271.0362) #29
+  %928 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0271.0362) #29
   %.not306 = icmp eq ptr %928, %886
   br i1 %.not306, label %._crit_edge365.loopexit, label %.lr.ph364
 
@@ -16426,7 +16426,7 @@ _ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneU
   %.0.lcssa.i.us = phi i1 [ false, %.lr.ph.split.us ], [ %.1.us.i.us, %_ZN4llvm13ConstantRangeD2Ev.exit.us.i.us ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %70 = or i1 %.035.us, %.0.lcssa.i.us
-  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.027.034.us) #29
+  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.027.034.us) #29
   %.not28.us = icmp eq ptr %71, %10
   br i1 %.not28.us, label %._crit_edge, label %.lr.ph.split.us
 
@@ -16625,7 +16625,7 @@ _ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneU
   %.0.lcssa.i = phi i1 [ false, %.lr.ph.split ], [ %.1.i, %_ZN4llvm13ConstantRangeD2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %146 = or i1 %.035, %.0.lcssa.i
-  %147 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.027.034) #29
+  %147 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.027.034) #29
   %.not28 = icmp eq ptr %147, %10
   br i1 %.not28, label %._crit_edge, label %.lr.ph.split
 
@@ -21610,7 +21610,7 @@ _ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm15FunctionSummaryEE12update
   %.0.lcssa.i = phi i1 [ false, %29 ], [ %.1.i, %_ZN4llvm13ConstantRangeD2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %196 = or i1 %.029, %.0.lcssa.i
-  %197 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.022.028) #29
+  %197 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.022.028) #29
   %.not23 = icmp eq ptr %197, %13
   br i1 %.not23, label %._crit_edge, label %29
 

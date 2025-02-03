@@ -731,26 +731,31 @@ if.then.i:                                        ; preds = %_ZN4node13OneByteSt
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit, %if.then.i
-  %call.i13 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.017) #26
+  %call.i13 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.017) #26
   %cmp.i12.not = icmp eq ptr %call.i13, %add.ptr.i.i
-  br i1 %cmp.i12.not, label %for.end, label %for.body
+  br i1 %cmp.i12.not, label %for.end.thread, label %for.body
 
-for.end:                                          ; preds = %for.inc, %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit
+for.end.thread:                                   ; preds = %for.inc
   %18 = load ptr, ptr %info, align 8
+  br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit
+
+for.end:                                          ; preds = %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit
+  %19 = load ptr, ptr %info, align 8
   %cmp.i = icmp eq ptr %call8, null
   br i1 %cmp.i, label %if.then.i74, label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit
 
 if.then.i74:                                      ; preds = %for.end
-  %arrayidx.i96 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %19 = load ptr, ptr %arrayidx.i96, align 8
-  %20 = ptrtoint ptr %19 to i64
-  %add1.i.i = add i64 %20, 616
-  %21 = inttoptr i64 %add1.i.i to ptr
+  %arrayidx.i96 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %20 = load ptr, ptr %arrayidx.i96, align 8
+  %21 = ptrtoint ptr %20 to i64
+  %add1.i.i = add i64 %21, 616
+  %22 = inttoptr i64 %add1.i.i to ptr
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit
 
-_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit: ; preds = %for.end, %if.then.i74
-  %storemerge.in = phi ptr [ %21, %if.then.i74 ], [ %call8, %for.end ]
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %18, i64 32
+_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit: ; preds = %for.end.thread, %for.end, %if.then.i74
+  %23 = phi ptr [ %19, %if.then.i74 ], [ %19, %for.end ], [ %18, %for.end.thread ]
+  %storemerge.in = phi ptr [ %22, %if.then.i74 ], [ %call8, %for.end ], [ %call8, %for.end.thread ]
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %23, i64 32
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %arrayidx.i, align 8
   tail call void @uv_rwlock_rdunlock(ptr noundef nonnull %15) #23
@@ -847,7 +852,7 @@ if.else.i:                                        ; preds = %for.body
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEEEERS3_DpOT_.exit
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcS2_SaIcEEEEEERS3_DpOT_.exit: ; preds = %if.then.i4, %if.else.i
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.010) #26
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.010) #26
   %cmp.i3.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i3.not, label %for.end, label %for.body
 
@@ -1148,7 +1153,7 @@ if.then70:                                        ; preds = %for.body62, %_ZNKSt
   br label %for.inc75
 
 for.inc75:                                        ; preds = %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE5countERKS5_.exit59, %if.then70
-  %call.i63 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin254.sroa.0.097) #26
+  %call.i63 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin254.sroa.0.097) #26
   %cmp.i33.not = icmp eq ptr %call.i63, %add.ptr.i.i32
   br i1 %cmp.i33.not, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit, label %for.body62
 
@@ -3469,7 +3474,7 @@ if.end27.us:                                      ; preds = %_ZN4node9ToV8ValueE
   br i1 %cmp.i.i92.us, label %cleanup, label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end27.us
-  %call.i.us = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin0.sroa.0.012.us) #26
+  %call.i.us = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin0.sroa.0.012.us) #26
   %cmp.i.not.us = icmp eq ptr %call.i.us, %add.ptr.i.i
   br i1 %cmp.i.not.us, label %cleanup, label %for.body.us
 
@@ -3499,7 +3504,7 @@ if.end27:                                         ; preds = %_ZN4node9ToV8ValueE
   br i1 %cmp.i.i92, label %cleanup, label %for.inc
 
 for.inc:                                          ; preds = %if.end27
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin0.sroa.0.012) #26
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin0.sroa.0.012) #26
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %cleanup, label %for.body
 
@@ -6083,7 +6088,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i, i64 32
   %call.i.i4.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #23
   %cmp.i.i5.i = icmp slt i32 %call.i.i4.i, 0
-  br i1 %cmp.i.i5.i, label %if.then, label %cleanup
+  br i1 %cmp.i.i5.i, label %if.then, label %if.then.i8
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa25.i, %if.then.i ], [ %__y.0.lcssa26.i, %if.end12.i ]
@@ -6105,18 +6110,14 @@ cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.th
   store i64 %inc.i.i, ptr %_M_node_count.i.i, align 8
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4node10UnionBytesEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_Auto_nodeD2Ev.exit
 
-cleanup:                                          ; preds = %if.end12.i
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4node10UnionBytesEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_Auto_nodeD2Ev.exit, label %if.then.i8
-
-if.then.i8:                                       ; preds = %cleanup
+if.then.i8:                                       ; preds = %if.end12.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #27
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4node10UnionBytesEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_Auto_nodeD2Ev.exit
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4node10UnionBytesEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %cleanup, %if.then.i8
-  %retval.sroa.3.024 = phi i8 [ 1, %cleanup.thread ], [ 0, %cleanup ], [ 0, %if.then.i8 ]
-  %retval.sroa.0.023 = phi ptr [ %call.i, %cleanup.thread ], [ %__j.sroa.0.0.i, %cleanup ], [ %__j.sroa.0.0.i, %if.then.i8 ]
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4node10UnionBytesEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %if.then.i8
+  %retval.sroa.3.024 = phi i8 [ 1, %cleanup.thread ], [ 0, %if.then.i8 ]
+  %retval.sroa.0.023 = phi ptr [ %call.i, %cleanup.thread ], [ %__j.sroa.0.0.i, %if.then.i8 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.023, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.024, 1
   ret { ptr, i8 } %.fca.1.insert

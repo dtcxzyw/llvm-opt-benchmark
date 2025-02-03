@@ -773,7 +773,7 @@ define void @_ZN5osgeo4proj8metadata21GeographicBoundingBox6createEdddd(ptr dead
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #30
+  tail call void @__cxa_free_exception(ptr nonnull %12) #30
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %5
@@ -1280,7 +1280,7 @@ define hidden void @_ZNK5osgeo4proj8metadata21GeographicBoundingBox12intersectio
 32:                                               ; preds = %29
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %30) #30, !noalias !28
+  tail call void @__cxa_free_exception(ptr nonnull %30) #30, !noalias !28
   br label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit
 
 34:                                               ; preds = %20
@@ -4006,7 +4006,7 @@ common.resume:                                    ; preds = %.body, %20
 20:                                               ; preds = %17
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %18) #30, !noalias !74
+  tail call void @__cxa_free_exception(ptr nonnull %18) #30, !noalias !74
   br label %common.resume
 
 _ZN5osgeo4proj8metadata21GeographicBoundingBox6createEdddd.exit: ; preds = %6

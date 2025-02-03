@@ -125,7 +125,7 @@ define void @_Z14LoadDictionaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 16:                                               ; preds = %11
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %12) #12
+  call void @__cxa_free_exception(ptr nonnull %12) #12
   br label %18
 
 common.resume:                                    ; preds = %36, %18
@@ -175,7 +175,7 @@ common.resume:                                    ; preds = %36, %18
 34:                                               ; preds = %29
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %30) #12
+  call void @__cxa_free_exception(ptr nonnull %30) #12
   br label %36
 
 36:                                               ; preds = %34, %32

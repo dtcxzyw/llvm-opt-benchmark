@@ -652,11 +652,11 @@ define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr noundef readonly captu
   store i32 4, ptr %44, align 8
   call void @stat_tap_init_table_row(ptr noundef nonnull %16, i32 noundef %.081.lcssa, i32 noundef 6, ptr noundef nonnull %6) #13
   %45 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.081.lcssa, i32 noundef 0) #13
-  call fastcc void @mtp3_addr_to_str_buf(ptr noundef %3, ptr noundef nonnull %7, i32 noundef 256)
+  call fastcc void @mtp3_addr_to_str_buf(ptr noundef nonnull %3, ptr noundef nonnull %7, i32 noundef 256)
   %46 = call noalias ptr @g_strdup(ptr noundef nonnull %7) #13
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %46, ptr %47, align 8
-  %48 = call dereferenceable_or_null(28) ptr @g_memdup2(ptr noundef %3, i64 noundef 28) #15
+  %48 = call dereferenceable_or_null(28) ptr @g_memdup2(ptr noundef nonnull %3, i64 noundef 28) #15
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %48, ptr %49, align 8
   call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.081.lcssa, i32 noundef 0, ptr noundef %45) #13

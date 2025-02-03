@@ -2046,10 +2046,10 @@ if.end:                                           ; preds = %entry
   %conv = zext nneg i8 %1 to i32
   %shl = shl i32 8, %conv
   %conv3 = sext i32 %shl to i64
-  tail call void @memory_region_init_io(ptr noundef nonnull %io, ptr noundef %dev, ptr noundef %arrayidx, ptr noundef %call.i, ptr noundef nonnull @.str, i64 noundef %conv3) #10
-  %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #10
+  tail call void @memory_region_init_io(ptr noundef nonnull %io, ptr noundef %dev, ptr noundef %arrayidx, ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i64 noundef %conv3) #10
+  %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #10
   tail call void @sysbus_init_mmio(ptr noundef %call.i11, ptr noundef nonnull %io) #10
-  %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #10
+  %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #10
   %irq = getelementptr inbounds nuw i8, ptr %call.i, i64 1000
   tail call void @sysbus_init_irq(ptr noundef %call.i12, ptr noundef nonnull %irq) #10
   br label %return

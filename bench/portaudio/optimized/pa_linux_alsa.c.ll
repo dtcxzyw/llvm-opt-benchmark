@@ -587,7 +587,7 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 
 97:                                               ; preds = %90
   %98 = zext i1 %84 to i32
-  %99 = tail call fastcc i32 @PaAlsaStreamComponent_Initialize(ptr noundef %95, ptr noundef %0, ptr noundef readonly %2, i32 noundef 0, i32 noundef %98)
+  %99 = tail call fastcc i32 @PaAlsaStreamComponent_Initialize(ptr noundef %95, ptr noundef nonnull %0, ptr noundef readonly %2, i32 noundef 0, i32 noundef %98)
   store i32 %99, ptr @paUtilErr_, align 4
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %PaAlsaStream_Initialize.exit, label %101
@@ -597,7 +597,7 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 
 102:                                              ; preds = %101
   %103 = zext i1 %84 to i32
-  %104 = tail call fastcc i32 @PaAlsaStreamComponent_Initialize(ptr noundef %96, ptr noundef %0, ptr noundef readonly %3, i32 noundef 1, i32 noundef %103)
+  %104 = tail call fastcc i32 @PaAlsaStreamComponent_Initialize(ptr noundef %96, ptr noundef nonnull %0, ptr noundef readonly %3, i32 noundef 1, i32 noundef %103)
   store i32 %104, ptr @paUtilErr_, align 4
   %105 = icmp slt i32 %104, 0
   br i1 %105, label %PaAlsaStream_Initialize.exit, label %106
@@ -5364,7 +5364,7 @@ define internal noundef ptr @CallbackThreadFunc(ptr noundef %0) #17 {
   br i1 %.not77, label %89, label %.loopexit90
 
 89:                                               ; preds = %81, %87
-  %90 = call fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr noundef %5, ptr noundef %7)
+  %90 = call fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %7)
   store i32 %90, ptr @paUtilErr_, align 4
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %92, label %94
@@ -5510,7 +5510,7 @@ define internal noundef ptr @CallbackThreadFunc(ptr noundef %0) #17 {
   store volatile i32 1, ptr %141, align 4
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %143 = load volatile i32, ptr %142, align 8
-  %144 = call fastcc i32 @AlsaStop(ptr noundef %0)
+  %144 = call fastcc i32 @AlsaStop(ptr noundef nonnull %0)
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %146 = load ptr, ptr %145, align 8
   %.not.i = icmp eq ptr %146, null

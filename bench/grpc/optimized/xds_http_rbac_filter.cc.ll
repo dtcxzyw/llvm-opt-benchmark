@@ -636,7 +636,7 @@ if.then6:                                         ; preds = %invoke.cont3
   %call.i = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_(ptr noundef nonnull align 8 dereferenceable(49) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #23
   %4 = load ptr, ptr %_M_parent.i.i.i.i.i29, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %4)
-          to label %cleanup unwind label %terminate.lpad.i.i
+          to label %if.then.i207 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then6
   %5 = landingpad { ptr, i32 }
@@ -1819,13 +1819,13 @@ sw.epilog:                                        ; preds = %if.then.i115, %_ZN9
   %165 = load i64, ptr %add.ptr.i.i.i119, align 1
   %166 = inttoptr i64 %165 to ptr
   %tobool.not.i120 = icmp eq i64 %165, 0
-  br i1 %tobool.not.i120, label %if.end108, label %invoke.cont97
+  br i1 %tobool.not.i120, label %if.then.i189, label %invoke.cont97
 
 invoke.cont97:                                    ; preds = %sw.epilog
   %size3.i = getelementptr inbounds nuw i8, ptr %166, i64 8
   %167 = load i64, ptr %size3.i, align 8
   %cmp99.not = icmp eq i64 %167, 0
-  br i1 %cmp99.not, label %if.end108, label %envoy_config_rbac_v3_RBAC_AuditLoggingOptions_logger_configs.exit.i
+  br i1 %cmp99.not, label %if.then.i189, label %envoy_config_rbac_v3_RBAC_AuditLoggingOptions_logger_configs.exit.i
 
 envoy_config_rbac_v3_RBAC_AuditLoggingOptions_logger_configs.exit.i: ; preds = %invoke.cont97
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
@@ -2074,7 +2074,7 @@ invoke.cont104:                                   ; preds = %invoke.cont102
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i181)
   %199 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i160, align 8
   %cmp.i.i.i.not.i.i183 = icmp eq i8 %199, -1
-  br i1 %cmp.i.i.i.not.i.i183, label %_ZN9grpc_core12experimental4JsonD2Ev.exit187, label %if.end.i.i.i.i184
+  br i1 %cmp.i.i.i.not.i.i183, label %if.end108, label %if.end.i.i.i.i184
 
 if.end.i.i.i.i184:                                ; preds = %invoke.cont104
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i181, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp101)
@@ -2082,7 +2082,7 @@ if.end.i.i.i.i184:                                ; preds = %invoke.cont104
 
 .noexc.i.i.i186:                                  ; preds = %if.end.i.i.i.i184
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i160, align 8
-  br label %_ZN9grpc_core12experimental4JsonD2Ev.exit187
+  br label %if.end108
 
 terminate.lpad.i.i.i.i185:                        ; preds = %if.end.i.i.i.i184
   %200 = landingpad { ptr, i32 }
@@ -2090,11 +2090,6 @@ terminate.lpad.i.i.i.i185:                        ; preds = %if.end.i.i.i.i184
   %201 = extractvalue { ptr, i32 } %200, 0
   call void @__clang_call_terminate(ptr %201) #22
   unreachable
-
-_ZN9grpc_core12experimental4JsonD2Ev.exit187:     ; preds = %invoke.cont104, %.noexc.i.i.i186
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i181)
-  %.pre20 = load ptr, ptr %field75, align 8
-  br label %if.end108
 
 lpad94:                                           ; preds = %invoke.cont92
   %202 = landingpad { ptr, i32 }
@@ -2108,12 +2103,14 @@ lpad103:                                          ; preds = %invoke.cont102
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp101) #23
   br label %ehcleanup109
 
-if.end108:                                        ; preds = %sw.epilog, %_ZN9grpc_core12experimental4JsonD2Ev.exit187, %invoke.cont97
-  %204 = phi ptr [ %errors, %sw.epilog ], [ %.pre20, %_ZN9grpc_core12experimental4JsonD2Ev.exit187 ], [ %errors, %invoke.cont97 ]
-  %cmp.not.i188 = icmp eq ptr %204, null
+if.end108:                                        ; preds = %.noexc.i.i.i186, %invoke.cont104
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i181)
+  %.pre20 = load ptr, ptr %field75, align 8
+  %cmp.not.i188 = icmp eq ptr %.pre20, null
   br i1 %cmp.not.i188, label %if.end110, label %if.then.i189
 
-if.then.i189:                                     ; preds = %if.end108
+if.then.i189:                                     ; preds = %invoke.cont97, %sw.epilog, %if.end108
+  %204 = phi ptr [ %.pre20, %if.end108 ], [ %errors, %sw.epilog ], [ %errors, %invoke.cont97 ]
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %204)
           to label %if.end110 unwind label %terminate.lpad.i190
 
@@ -2161,11 +2158,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit202:     ; preds = %invoke.cont114, %.n
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i196)
   %210 = load ptr, ptr %_M_parent.i.i.i.i.i33, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %inner_rbac_json, ptr noundef %210)
-          to label %_ZN9grpc_core12experimental4JsonD2Ev.exit202.cleanup_crit_edge unwind label %terminate.lpad.i.i204
-
-_ZN9grpc_core12experimental4JsonD2Ev.exit202.cleanup_crit_edge: ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit202
-  %.pre21 = load ptr, ptr %field, align 8
-  br label %cleanup
+          to label %cleanup unwind label %terminate.lpad.i.i204
 
 terminate.lpad.i.i204:                            ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit202
   %211 = landingpad { ptr, i32 }
@@ -2174,12 +2167,13 @@ terminate.lpad.i.i204:                            ; preds = %_ZN9grpc_core12expe
   call void @__clang_call_terminate(ptr %212) #22
   unreachable
 
-cleanup:                                          ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit202.cleanup_crit_edge, %if.then6
-  %213 = phi ptr [ %.pre21, %_ZN9grpc_core12experimental4JsonD2Ev.exit202.cleanup_crit_edge ], [ %errors, %if.then6 ]
-  %cmp.not.i206 = icmp eq ptr %213, null
+cleanup:                                          ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit202
+  %.pre21 = load ptr, ptr %field, align 8
+  %cmp.not.i206 = icmp eq ptr %.pre21, null
   br i1 %cmp.not.i206, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit210, label %if.then.i207
 
-if.then.i207:                                     ; preds = %cleanup
+if.then.i207:                                     ; preds = %if.then6, %cleanup
+  %213 = phi ptr [ %.pre21, %cleanup ], [ %errors, %if.then6 ]
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %213)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit210 unwind label %terminate.lpad.i208
 
@@ -7518,7 +7512,7 @@ if.then18:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #27
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #27
   %_M_storage.i.i.i21 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %call.i.i22 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i21, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit25 unwind label %terminate.lpad.i.i23
@@ -7624,7 +7618,7 @@ if.then50:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #27
+  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #27
   %_M_storage.i.i.i75 = getelementptr inbounds nuw i8, ptr %call.i74, i64 32
   %call.i.i76 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i75)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit79 unwind label %terminate.lpad.i.i77
@@ -8347,7 +8341,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #23
-  invoke void @_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_(ptr noundef %cond.i.i.i, ptr noundef %__cur.0.i15)
+  invoke void @_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_(ptr noundef %cond.i.i.i, ptr noundef nonnull %__cur.0.i15)
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %lpad.i

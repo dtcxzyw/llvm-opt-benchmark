@@ -302,45 +302,45 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 define range(i32 0, 2) i32 @Cudd_DumpBlifBody(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #9
   %cond = icmp eq ptr %8, null
-  br i1 %cond, label %49, label %.preheader46
+  br i1 %cond, label %49, label %.preheader47
 
-.preheader46:                                     ; preds = %7
+.preheader47:                                     ; preds = %7
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %.lr.ph.preheader, label %.sink.split
 
-.lr.ph.preheader:                                 ; preds = %.preheader46
+.lr.ph.preheader:                                 ; preds = %.preheader47
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph50, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.lr.ph51, label %.lr.ph, !llvm.loop !8
 
-.lr.ph50:                                         ; preds = %10
+.lr.ph51:                                         ; preds = %10
   %11 = icmp eq ptr %4, null
   %.not44 = icmp eq i32 %6, 0
   %12 = select i1 %.not44, ptr @.str.12, ptr @.str.11
-  %wide.trip.count63 = zext nneg i32 %1 to i64
-  br i1 %11, label %.lr.ph50.split.us, label %.lr.ph50.split
+  %wide.trip.count64 = zext nneg i32 %1 to i64
+  br i1 %11, label %.lr.ph51.split.us, label %.lr.ph51.split
 
-.lr.ph50.split.us:                                ; preds = %.lr.ph50, %20
-  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %20 ], [ 0, %.lr.ph50 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv60
+.lr.ph51.split.us:                                ; preds = %.lr.ph51, %20
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %20 ], [ 0, %.lr.ph51 ]
+  %13 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv61
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = udiv i64 %15, 40
-  %17 = trunc nuw nsw i64 %indvars.iv60 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv61 to i32
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, i64 noundef %16, i32 noundef %17) #9
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %.sink.split, label %21
 
 20:                                               ; preds = %21
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
-  br i1 %exitcond64.not, label %.sink.split, label %.lr.ph50.split.us, !llvm.loop !9
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
+  br i1 %exitcond65.not, label %.sink.split, label %.lr.ph51.split.us, !llvm.loop !9
 
-21:                                               ; preds = %.lr.ph50.split.us
+21:                                               ; preds = %.lr.ph51.split.us
   %22 = load ptr, ptr %13, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -362,34 +362,34 @@ define range(i32 0, 2) i32 @Cudd_DumpBlifBody(ptr noundef %0, i32 noundef %1, pt
   br i1 %33, label %.sink.split, label %10
 
 34:                                               ; preds = %43
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count63
-  br i1 %exitcond59.not, label %.sink.split, label %.lr.ph50.split, !llvm.loop !9
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count64
+  br i1 %exitcond60.not, label %.sink.split, label %.lr.ph51.split, !llvm.loop !9
 
-.lr.ph50.split:                                   ; preds = %.lr.ph50, %34
-  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %34 ], [ 0, %.lr.ph50 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv55
+.lr.ph51.split:                                   ; preds = %.lr.ph51, %34
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %34 ], [ 0, %.lr.ph51 ]
+  %35 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv56
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = udiv i64 %37, 40
-  %39 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv55
+  %39 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv56
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.9, i64 noundef %38, ptr noundef %40) #9
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %.sink.split, label %43
 
-43:                                               ; preds = %.lr.ph50.split
+43:                                               ; preds = %.lr.ph51.split
   %44 = load ptr, ptr %35, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, 1
   %.not = icmp eq i64 %46, 0
-  %.str.13..str.1069 = select i1 %.not, ptr @.str.13, ptr @.str.10
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %.str.13..str.1069, ptr noundef nonnull %12) #9
+  %.str.13..str.1070 = select i1 %.not, ptr @.str.13, ptr @.str.10
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %.str.13..str.1070, ptr noundef nonnull %12) #9
   %48 = icmp eq i32 %47, -1
   br i1 %48, label %.sink.split, label %34
 
-.sink.split:                                      ; preds = %.lr.ph, %.lr.ph50.split, %43, %34, %.lr.ph50.split.us, %21, %20, %.preheader46
-  %.038.ph = phi i32 [ 1, %.preheader46 ], [ 1, %20 ], [ 0, %21 ], [ 0, %.lr.ph50.split.us ], [ 1, %34 ], [ 0, %43 ], [ 0, %.lr.ph50.split ], [ 0, %.lr.ph ]
+.sink.split:                                      ; preds = %.lr.ph, %.lr.ph51.split, %43, %34, %.lr.ph51.split.us, %21, %20, %.preheader47
+  %.038.ph = phi i32 [ 1, %.preheader47 ], [ 1, %20 ], [ 0, %21 ], [ 0, %.lr.ph51.split.us ], [ 1, %34 ], [ 0, %43 ], [ 0, %.lr.ph51.split ], [ 0, %.lr.ph ]
   tail call void @st__free_table(ptr noundef nonnull %8) #9
   br label %49
 
@@ -545,7 +545,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader288
   %18 = tail call ptr @Cudd_VectorSupport(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1) #9
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.thread.thread, label %20
+  br i1 %19, label %.thread.thread417, label %20
 
 20:                                               ; preds = %._crit_edge
   %21 = ptrtoint ptr %18 to i64
@@ -577,7 +577,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %18) #9
   %34 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #9
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread.thread, label %.preheader286
+  br i1 %35, label %.thread.thread417, label %.preheader286
 
 .preheader286:                                    ; preds = %._crit_edge294
   %36 = icmp sgt i32 %1, 0
@@ -601,7 +601,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %42 = inttoptr i64 %41 to ptr
   %43 = tail call i32 @cuddCollectNodes(ptr noundef %42, ptr noundef nonnull %34) #9
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.thread, label %37
+  br i1 %44, label %.thread.thread, label %37
 
 ._crit_edge297:                                   ; preds = %37, %.preheader286
   %45 = load ptr, ptr %2, align 8
@@ -609,7 +609,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %47 = and i64 %46, -2
   %48 = tail call ptr @st__init_gen(ptr noundef nonnull %34) #9
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread, label %.preheader285
+  br i1 %49, label %.thread.thread, label %.preheader285
 
 .preheader285:                                    ; preds = %._crit_edge297
   %50 = call i32 @st__gen(ptr noundef nonnull %48, ptr noundef nonnull %7, ptr noundef null) #9
@@ -655,17 +655,17 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 67:                                               ; preds = %64
   %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.16) #9
   %69 = icmp eq i32 %68, -1
-  br i1 %69, label %.thread, label %70
+  br i1 %69, label %.thread.thread, label %70
 
 70:                                               ; preds = %67
   %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.17) #9
   %72 = icmp eq i32 %71, -1
-  br i1 %72, label %.thread, label %73
+  br i1 %72, label %.thread.thread, label %73
 
 73:                                               ; preds = %70
   %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.18) #9
   %75 = icmp eq i32 %74, -1
-  br i1 %75, label %.thread, label %.preheader283
+  br i1 %75, label %.thread.thread, label %.preheader283
 
 .preheader283:                                    ; preds = %73
   br i1 %14, label %.lr.ph304, label %._crit_edge305
@@ -707,7 +707,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 94:                                               ; preds = %92, %90
   %.0216 = phi i32 [ %91, %90 ], [ %93, %92 ]
   %95 = icmp eq i32 %.0216, -1
-  br i1 %95, label %.thread, label %96
+  br i1 %95, label %.thread.thread, label %96
 
 96:                                               ; preds = %78, %94
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
@@ -717,12 +717,12 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 ._crit_edge305:                                   ; preds = %96, %.preheader283
   %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.21) #9
   %98 = icmp eq i32 %97, -1
-  br i1 %98, label %.thread, label %99
+  br i1 %98, label %.thread.thread, label %99
 
 99:                                               ; preds = %._crit_edge305
   %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.22) #9
   %101 = icmp eq i32 %100, -1
-  br i1 %101, label %.thread, label %.preheader281
+  br i1 %101, label %.thread.thread, label %.preheader281
 
 .preheader281:                                    ; preds = %99
   br i1 %36, label %.lr.ph307, label %.preheader279
@@ -767,14 +767,14 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 117:                                              ; preds = %113, %110
   %.1217 = phi i32 [ %112, %110 ], [ %116, %113 ]
   %118 = icmp eq i32 %.1217, -1
-  br i1 %118, label %.thread, label %119
+  br i1 %118, label %.thread.thread, label %119
 
 119:                                              ; preds = %117
   %120 = icmp eq i64 %indvars.iv371, %104
   %.str.25..str.26 = select i1 %120, ptr @.str.25, ptr @.str.26
   %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %.str.25..str.26) #9
   %122 = icmp eq i32 %121, -1
-  br i1 %122, label %.thread, label %105
+  br i1 %122, label %.thread.thread, label %105
 
 123:                                              ; preds = %.lr.ph319, %165
   %indvars.iv381 = phi i64 [ 0, %.lr.ph319 ], [ %indvars.iv.next382, %165 ]
@@ -790,7 +790,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 130:                                              ; preds = %123
   %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.27) #9
   %132 = icmp eq i32 %131, -1
-  br i1 %132, label %.thread, label %133
+  br i1 %132, label %.thread.thread, label %133
 
 133:                                              ; preds = %130
   %.pre = load ptr, ptr %106, align 8
@@ -816,7 +816,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 142:                                              ; preds = %140, %._crit_edge411
   %.3219 = phi i32 [ %139, %._crit_edge411 ], [ %141, %140 ]
   %143 = icmp eq i32 %.3219, -1
-  br i1 %143, label %.thread, label %144
+  br i1 %143, label %.thread.thread, label %144
 
 144:                                              ; preds = %142
   %145 = load ptr, ptr %108, align 8
@@ -852,7 +852,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %157 = udiv i64 %156, 40
   %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.30, i64 noundef %157) #9
   %159 = icmp eq i32 %158, -1
-  br i1 %159, label %.thread, label %160
+  br i1 %159, label %.thread.thread, label %160
 
 160:                                              ; preds = %153, %.lr.ph312
   %161 = load ptr, ptr %7, align 8
@@ -870,7 +870,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 ._crit_edge317:                                   ; preds = %._crit_edge313, %144
   %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.31) #9
   %164 = icmp eq i32 %163, -1
-  br i1 %164, label %.thread, label %165
+  br i1 %164, label %.thread.thread, label %165
 
 165:                                              ; preds = %123, %._crit_edge317
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
@@ -880,7 +880,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 ._crit_edge320:                                   ; preds = %165, %.preheader279
   %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.32) #9
   %167 = icmp eq i32 %166, -1
-  br i1 %167, label %.thread, label %168
+  br i1 %167, label %.thread.thread, label %168
 
 168:                                              ; preds = %._crit_edge320
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -915,7 +915,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %180 = udiv i64 %179, 40
   %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.30, i64 noundef %180) #9
   %182 = icmp eq i32 %181, -1
-  br i1 %182, label %.thread, label %183
+  br i1 %182, label %.thread.thread, label %183
 
 183:                                              ; preds = %176, %.lr.ph325
   %184 = load ptr, ptr %7, align 8
@@ -933,7 +933,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 ._crit_edge330:                                   ; preds = %._crit_edge326, %168
   %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.33) #9
   %187 = icmp eq i32 %186, -1
-  br i1 %187, label %.thread, label %.preheader275
+  br i1 %187, label %.thread.thread, label %.preheader275
 
 .preheader275:                                    ; preds = %._crit_edge330
   br i1 %36, label %.lr.ph332, label %.preheader
@@ -975,7 +975,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 200:                                              ; preds = %196, %193
   %.4220 = phi i32 [ %195, %193 ], [ %199, %196 ]
   %201 = icmp eq i32 %.4220, -1
-  br i1 %201, label %.thread, label %202
+  br i1 %201, label %.thread.thread, label %202
 
 202:                                              ; preds = %200
   %203 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv391
@@ -988,7 +988,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %.str.35..str.34 = select i1 %.not255, ptr @.str.35, ptr @.str.34
   %209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %.str.35..str.34, i64 noundef %208) #9
   %210 = icmp eq i32 %209, -1
-  br i1 %210, label %.thread, label %189
+  br i1 %210, label %.thread.thread, label %189
 
 211:                                              ; preds = %.lr.ph343, %.loopexit
   %indvars.iv401 = phi i64 [ 0, %.lr.ph343 ], [ %indvars.iv.next402, %.loopexit ]
@@ -1040,7 +1040,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %236 = udiv i64 %235, 40
   %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.36, i64 noundef %231, i64 noundef %236) #9
   %238 = icmp eq i32 %237, -1
-  br i1 %238, label %.thread, label %239
+  br i1 %238, label %.thread.thread, label %239
 
 239:                                              ; preds = %227
   %240 = load ptr, ptr %7, align 8
@@ -1057,7 +1057,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %.str.38..str.37 = select i1 %.not254, ptr @.str.38, ptr @.str.37
   %250 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %.str.38..str.37, i64 noundef %247, i64 noundef %249) #9
   %251 = icmp eq i32 %250, -1
-  br i1 %251, label %.thread, label %252
+  br i1 %251, label %.thread.thread, label %252
 
 252:                                              ; preds = %239, %.lr.ph337
   %253 = load ptr, ptr %7, align 8
@@ -1110,7 +1110,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   %266 = load double, ptr %265, align 8
   %267 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.39, i64 noundef %264, double noundef %266) #9
   %268 = icmp eq i32 %267, -1
-  br i1 %268, label %.thread, label %269
+  br i1 %268, label %.thread.thread, label %269
 
 269:                                              ; preds = %260, %.lr.ph349
   %270 = load ptr, ptr %7, align 8
@@ -1128,24 +1128,24 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 ._crit_edge354:                                   ; preds = %._crit_edge350, %._crit_edge344
   %272 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.31) #9
   %273 = icmp eq i32 %272, -1
-  br i1 %273, label %.thread, label %274
+  br i1 %273, label %.thread.thread, label %274
 
 274:                                              ; preds = %._crit_edge354
   call void @st__free_table(ptr noundef nonnull %34) #9
   call void @free(ptr noundef %12) #9
   br label %275
 
-.thread.thread:                                   ; preds = %._crit_edge294, %._crit_edge
+.thread.thread417:                                ; preds = %._crit_edge294, %._crit_edge
   tail call void @free(ptr noundef nonnull %12) #9
   br label %275
 
-.thread:                                          ; preds = %.lr.ph296, %94, %117, %119, %._crit_edge317, %130, %142, %153, %176, %200, %202, %227, %239, %260, %._crit_edge297, %67, %70, %73, %._crit_edge305, %99, %._crit_edge320, %._crit_edge330, %._crit_edge354
+.thread.thread:                                   ; preds = %.lr.ph296, %94, %119, %117, %142, %130, %._crit_edge317, %153, %176, %202, %200, %227, %239, %260, %._crit_edge354, %._crit_edge330, %._crit_edge320, %99, %._crit_edge305, %73, %70, %67, %._crit_edge297
   call void @free(ptr noundef nonnull %12) #9
   call void @st__free_table(ptr noundef nonnull %34) #9
   br label %275
 
-275:                                              ; preds = %.thread.thread, %.thread271, %.thread, %64, %61, %274
-  %.0209 = phi i32 [ 1, %274 ], [ 0, %61 ], [ 0, %64 ], [ 0, %.thread ], [ 0, %.thread271 ], [ 0, %.thread.thread ]
+275:                                              ; preds = %.thread.thread417, %.thread271, %.thread.thread, %64, %61, %274
+  %.0209 = phi i32 [ 1, %274 ], [ 0, %61 ], [ 0, %64 ], [ 0, %.thread.thread ], [ 0, %.thread271 ], [ 0, %.thread.thread417 ]
   ret i32 %.0209
 }
 
@@ -1164,13 +1164,13 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr noundef readnone captures(none)
   %7 = alloca ptr, align 8
   %8 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #9
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.thread, label %.preheader83
+  br i1 %9, label %.thread81, label %.preheader84
 
-.preheader83:                                     ; preds = %6
+.preheader84:                                     ; preds = %6
   %10 = icmp sgt i32 %1, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader83
+.lr.ph.preheader:                                 ; preds = %.preheader84
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
@@ -1188,40 +1188,40 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr noundef readnone captures(none)
   %16 = inttoptr i64 %15 to ptr
   %17 = tail call i32 @cuddCollectNodes(ptr noundef %16, ptr noundef nonnull %8) #9
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.thread.sink.split, label %11
+  br i1 %18, label %.thread81.sink.split, label %11
 
-._crit_edge:                                      ; preds = %11, %.preheader83
+._crit_edge:                                      ; preds = %11, %.preheader84
   %19 = load ptr, ptr %2, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -2
   %22 = tail call ptr @st__init_gen(ptr noundef nonnull %8) #9
   %23 = call i32 @st__gen(ptr noundef %22, ptr noundef nonnull %7, ptr noundef null) #9
-  %.not86 = icmp eq i32 %23, 0
-  br i1 %.not86, label %._crit_edge90, label %.lr.ph89
+  %.not87 = icmp eq i32 %23, 0
+  br i1 %.not87, label %._crit_edge91, label %.lr.ph90
 
-.lr.ph89:                                         ; preds = %._crit_edge, %.lr.ph89
-  %.06087 = phi i64 [ %27, %.lr.ph89 ], [ 0, %._crit_edge ]
+.lr.ph90:                                         ; preds = %._crit_edge, %.lr.ph90
+  %.06088 = phi i64 [ %27, %.lr.ph90 ], [ 0, %._crit_edge ]
   %24 = load ptr, ptr %7, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = xor i64 %21, %25
-  %27 = or i64 %26, %.06087
+  %27 = or i64 %26, %.06088
   %28 = call i32 @st__gen(ptr noundef %22, ptr noundef nonnull %7, ptr noundef null) #9
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %._crit_edge90, label %.lr.ph89, !llvm.loop !28
+  br i1 %.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !28
 
-._crit_edge90:                                    ; preds = %.lr.ph89, %._crit_edge
-  %.060.lcssa = phi i64 [ 0, %._crit_edge ], [ %27, %.lr.ph89 ]
+._crit_edge91:                                    ; preds = %.lr.ph90, %._crit_edge
+  %.060.lcssa = phi i64 [ 0, %._crit_edge ], [ %27, %.lr.ph90 ]
   call void @st__free_gen(ptr noundef %22) #9
   br label %29
 
-29:                                               ; preds = %29, %._crit_edge90
-  %.16491 = phi i32 [ 0, %._crit_edge90 ], [ %32, %29 ]
-  %notmask = shl nsw i32 -1, %.16491
+29:                                               ; preds = %29, %._crit_edge91
+  %.16492 = phi i32 [ 0, %._crit_edge91 ], [ %32, %29 ]
+  %notmask = shl nsw i32 -1, %.16492
   %30 = xor i32 %notmask, -1
   %31 = zext nneg i32 %30 to i64
   %.not74 = icmp ugt i64 %.060.lcssa, %31
-  %32 = add nuw nsw i32 %.16491, 4
-  %33 = icmp samesign ult i32 %.16491, 60
+  %32 = add nuw nsw i32 %.16492, 4
+  %33 = icmp samesign ult i32 %.16492, 60
   %or.cond = select i1 %.not74, i1 %33, i1 false
   br i1 %or.cond, label %29, label %34, !llvm.loop !29
 
@@ -1229,39 +1229,39 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr noundef readnone captures(none)
   call void @st__free_table(ptr noundef nonnull %8) #9
   %35 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #9
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.thread, label %37
+  br i1 %36, label %.thread81, label %37
 
 37:                                               ; preds = %34
   %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.40) #9
   %39 = icmp eq i32 %38, -1
-  br i1 %39, label %.thread.sink.split, label %.preheader
+  br i1 %39, label %.thread81.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %37
-  br i1 %10, label %.lr.ph93, label %._crit_edge94
+  br i1 %10, label %.lr.ph94, label %._crit_edge95
 
-.lr.ph93:                                         ; preds = %.preheader
+.lr.ph94:                                         ; preds = %.preheader
   %40 = icmp eq ptr %4, null
   %41 = add nsw i32 %1, -1
   %42 = zext nneg i32 %41 to i64
-  %wide.trip.count101 = zext nneg i32 %1 to i64
+  %wide.trip.count102 = zext nneg i32 %1 to i64
   br label %44
 
 43:                                               ; preds = %69
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
-  br i1 %exitcond102.not, label %._crit_edge94, label %44, !llvm.loop !30
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
+  br i1 %exitcond103.not, label %._crit_edge95, label %44, !llvm.loop !30
 
-44:                                               ; preds = %.lr.ph93, %43
-  %indvars.iv98 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next99, %43 ]
+44:                                               ; preds = %.lr.ph94, %43
+  %indvars.iv99 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next100, %43 ]
   br i1 %40, label %45, label %48
 
 45:                                               ; preds = %44
-  %46 = trunc nuw nsw i64 %indvars.iv98 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv99 to i32
   %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.41, i32 noundef %46, i32 noundef %46) #9
   br label %52
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv98
+  %49 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv99
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.42, ptr noundef %50, ptr noundef %50) #9
   br label %52
@@ -1269,10 +1269,10 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr noundef readnone captures(none)
 52:                                               ; preds = %48, %45
   %.065 = phi i32 [ %47, %45 ], [ %51, %48 ]
   %53 = icmp eq i32 %.065, -1
-  br i1 %53, label %.thread.sink.split, label %54
+  br i1 %53, label %.thread81.sink.split, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv98
+  %55 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv99
   %56 = load ptr, ptr %55, align 8
   %57 = ptrtoint ptr %56 to i64
   %58 = and i64 %57, 1
@@ -1280,7 +1280,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr noundef readnone captures(none)
   %59 = select i1 %.not75, ptr @.str.45, ptr @.str.44
   %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.43, ptr noundef nonnull %59) #9
   %61 = icmp eq i32 %60, -1
-  br i1 %61, label %.thread.sink.split, label %62
+  br i1 %61, label %.thread81.sink.split, label %62
 
 62:                                               ; preds = %54
   %63 = load ptr, ptr %55, align 8
@@ -1289,29 +1289,29 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr noundef readnone captures(none)
   %66 = inttoptr i64 %65 to ptr
   %67 = call fastcc i32 @ddDoDumpDaVinci(ptr noundef %66, ptr noundef %5, ptr noundef %35, ptr noundef %3, i64 noundef %31)
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.thread.sink.split, label %69
+  br i1 %68, label %.thread81.sink.split, label %69
 
 69:                                               ; preds = %62
-  %70 = icmp eq i64 %indvars.iv98, %42
+  %70 = icmp eq i64 %indvars.iv99, %42
   %71 = select i1 %70, ptr @.str.12, ptr @.str.47
   %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.46, ptr noundef nonnull %71) #9
   %73 = icmp eq i32 %72, -1
-  br i1 %73, label %.thread.sink.split, label %43
+  br i1 %73, label %.thread81.sink.split, label %43
 
-._crit_edge94:                                    ; preds = %43, %.preheader
+._crit_edge95:                                    ; preds = %43, %.preheader
   %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.48) #9
   %75 = icmp ne i32 %74, -1
   %spec.select = zext i1 %75 to i32
-  br label %.thread.sink.split
+  br label %.thread81.sink.split
 
-.thread.sink.split:                               ; preds = %.lr.ph, %52, %54, %62, %69, %._crit_edge94, %37
-  %.06282.sink = phi ptr [ %35, %37 ], [ %35, %._crit_edge94 ], [ %35, %69 ], [ %35, %62 ], [ %35, %54 ], [ %35, %52 ], [ %8, %.lr.ph ]
-  %.061.ph = phi i32 [ 0, %37 ], [ %spec.select, %._crit_edge94 ], [ 0, %69 ], [ 0, %62 ], [ 0, %54 ], [ 0, %52 ], [ 0, %.lr.ph ]
-  call void @st__free_table(ptr noundef nonnull %.06282.sink) #9
-  br label %.thread
+.thread81.sink.split:                             ; preds = %.lr.ph, %52, %62, %69, %54, %._crit_edge95, %37
+  %.06279.sink = phi ptr [ %35, %37 ], [ %35, %._crit_edge95 ], [ %35, %54 ], [ %35, %69 ], [ %35, %62 ], [ %35, %52 ], [ %8, %.lr.ph ]
+  %.061.ph = phi i32 [ 0, %37 ], [ %spec.select, %._crit_edge95 ], [ 0, %54 ], [ 0, %69 ], [ 0, %62 ], [ 0, %52 ], [ 0, %.lr.ph ]
+  call void @st__free_table(ptr noundef nonnull %.06279.sink) #9
+  br label %.thread81
 
-.thread:                                          ; preds = %.thread.sink.split, %34, %6
-  %.061 = phi i32 [ 0, %6 ], [ 0, %34 ], [ %.061.ph, %.thread.sink.split ]
+.thread81:                                        ; preds = %.thread81.sink.split, %34, %6
+  %.061 = phi i32 [ 0, %6 ], [ 0, %34 ], [ %.061.ph, %.thread81.sink.split ]
   ret i32 %.061
 }
 
@@ -1421,13 +1421,13 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   %9 = load i32, ptr %8, align 8
   %10 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #9
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.thread159, label %.preheader169
+  br i1 %11, label %.thread159, label %.preheader174
 
-.preheader169:                                    ; preds = %6
+.preheader174:                                    ; preds = %6
   %12 = icmp sgt i32 %1, 0
   br i1 %12, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader169
+.lr.ph.preheader:                                 ; preds = %.preheader174
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
@@ -1445,40 +1445,40 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call i32 @cuddCollectNodes(ptr noundef %18, ptr noundef nonnull %10) #9
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.loopexit, label %13
+  br i1 %20, label %.thread163, label %13
 
-._crit_edge:                                      ; preds = %13, %.preheader169
+._crit_edge:                                      ; preds = %13, %.preheader174
   %21 = load ptr, ptr %2, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, -2
   %24 = tail call ptr @st__init_gen(ptr noundef nonnull %10) #9
   %25 = call i32 @st__gen(ptr noundef %24, ptr noundef nonnull %7, ptr noundef null) #9
-  %.not172 = icmp eq i32 %25, 0
-  br i1 %.not172, label %._crit_edge176, label %.lr.ph175
+  %.not177 = icmp eq i32 %25, 0
+  br i1 %.not177, label %._crit_edge181, label %.lr.ph180
 
-.lr.ph175:                                        ; preds = %._crit_edge, %.lr.ph175
-  %.0116173 = phi i64 [ %29, %.lr.ph175 ], [ 0, %._crit_edge ]
+.lr.ph180:                                        ; preds = %._crit_edge, %.lr.ph180
+  %.0116178 = phi i64 [ %29, %.lr.ph180 ], [ 0, %._crit_edge ]
   %26 = load ptr, ptr %7, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = xor i64 %23, %27
-  %29 = or i64 %28, %.0116173
+  %29 = or i64 %28, %.0116178
   %30 = call i32 @st__gen(ptr noundef %24, ptr noundef nonnull %7, ptr noundef null) #9
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %._crit_edge176, label %.lr.ph175, !llvm.loop !32
+  br i1 %.not, label %._crit_edge181, label %.lr.ph180, !llvm.loop !32
 
-._crit_edge176:                                   ; preds = %.lr.ph175, %._crit_edge
-  %.0116.lcssa = phi i64 [ 0, %._crit_edge ], [ %29, %.lr.ph175 ]
+._crit_edge181:                                   ; preds = %.lr.ph180, %._crit_edge
+  %.0116.lcssa = phi i64 [ 0, %._crit_edge ], [ %29, %.lr.ph180 ]
   call void @st__free_gen(ptr noundef %24) #9
   br label %31
 
-31:                                               ; preds = %31, %._crit_edge176
-  %.1120177 = phi i32 [ 0, %._crit_edge176 ], [ %34, %31 ]
-  %notmask = shl nsw i32 -1, %.1120177
+31:                                               ; preds = %31, %._crit_edge181
+  %.1120182 = phi i32 [ 0, %._crit_edge181 ], [ %34, %31 ]
+  %notmask = shl nsw i32 -1, %.1120182
   %32 = xor i32 %notmask, -1
   %33 = zext nneg i32 %32 to i64
   %.not141 = icmp ugt i64 %.0116.lcssa, %33
-  %34 = add nuw nsw i32 %.1120177, 4
-  %35 = icmp samesign ult i32 %.1120177, 60
+  %34 = add nuw nsw i32 %.1120182, 4
+  %35 = icmp samesign ult i32 %.1120182, 60
   %or.cond = select i1 %.not141, i1 %35, i1 false
   br i1 %or.cond, label %31, label %36, !llvm.loop !33
 
@@ -1488,29 +1488,29 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   %38 = shl nsw i64 %37, 2
   %39 = call noalias ptr @malloc(i64 noundef %38) #8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %44, label %.preheader168
+  br i1 %40, label %44, label %.preheader173
 
-.preheader168:                                    ; preds = %36
+.preheader173:                                    ; preds = %36
   %41 = icmp sgt i32 %9, 0
-  br i1 %41, label %.lr.ph179.preheader, label %._crit_edge180
+  br i1 %41, label %.lr.ph184.preheader, label %._crit_edge185
 
-.lr.ph179.preheader:                              ; preds = %.preheader168
+.lr.ph184.preheader:                              ; preds = %.preheader173
   %42 = zext nneg i32 %9 to i64
   %43 = shl nuw nsw i64 %42, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %39, i8 0, i64 %43, i1 false)
-  br label %._crit_edge180
+  br label %._crit_edge185
 
 44:                                               ; preds = %36
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %45, align 8
   br label %.thread159
 
-._crit_edge180:                                   ; preds = %.lr.ph179.preheader, %.preheader168
+._crit_edge185:                                   ; preds = %.lr.ph184.preheader, %.preheader173
   %46 = call ptr @Cudd_VectorSupport(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %1) #9
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.thread152, label %48
 
-48:                                               ; preds = %._crit_edge180
+48:                                               ; preds = %._crit_edge185
   %49 = ptrtoint ptr %46 to i64
   %50 = and i64 %49, -2
   %51 = inttoptr i64 %50 to ptr
@@ -1520,43 +1520,43 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   store i32 %54, ptr %52, align 4
   store ptr %46, ptr %7, align 8
   %55 = load i32, ptr %46, align 8
-  %.not142181 = icmp eq i32 %55, 2147483647
-  br i1 %.not142181, label %._crit_edge185, label %.lr.ph184
+  %.not142186 = icmp eq i32 %55, 2147483647
+  br i1 %.not142186, label %._crit_edge190, label %.lr.ph189
 
-.lr.ph184:                                        ; preds = %48, %.lr.ph184
-  %56 = phi i32 [ %61, %.lr.ph184 ], [ %55, %48 ]
-  %storemerge182 = phi ptr [ %60, %.lr.ph184 ], [ %46, %48 ]
+.lr.ph189:                                        ; preds = %48, %.lr.ph189
+  %56 = phi i32 [ %61, %.lr.ph189 ], [ %55, %48 ]
+  %storemerge187 = phi ptr [ %60, %.lr.ph189 ], [ %46, %48 ]
   %57 = zext i32 %56 to i64
   %58 = getelementptr inbounds nuw i32, ptr %39, i64 %57
   store i32 1, ptr %58, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %storemerge182, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %storemerge187, i64 16
   %60 = load ptr, ptr %59, align 8
   store ptr %60, ptr %7, align 8
   %61 = load i32, ptr %60, align 8
   %.not142 = icmp eq i32 %61, 2147483647
-  br i1 %.not142, label %._crit_edge185, label %.lr.ph184, !llvm.loop !34
+  br i1 %.not142, label %._crit_edge190, label %.lr.ph189, !llvm.loop !34
 
-._crit_edge185:                                   ; preds = %.lr.ph184, %48
+._crit_edge190:                                   ; preds = %.lr.ph189, %48
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %46) #9
-  br i1 %41, label %.lr.ph188, label %._crit_edge189
+  br i1 %41, label %.lr.ph193, label %._crit_edge194
 
-.lr.ph188:                                        ; preds = %._crit_edge185
+.lr.ph193:                                        ; preds = %._crit_edge190
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %63 = icmp eq ptr %3, null
   %64 = add nsw i32 %9, -1
   %65 = zext nneg i32 %64 to i64
-  %wide.trip.count208 = zext nneg i32 %9 to i64
+  %wide.trip.count213 = zext nneg i32 %9 to i64
   br label %67
 
 66:                                               ; preds = %85
-  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
-  br i1 %exitcond209.not, label %._crit_edge189, label %67, !llvm.loop !35
+  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
+  %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
+  br i1 %exitcond214.not, label %._crit_edge194, label %67, !llvm.loop !35
 
-67:                                               ; preds = %.lr.ph188, %66
-  %indvars.iv205 = phi i64 [ 0, %.lr.ph188 ], [ %indvars.iv.next206, %66 ]
+67:                                               ; preds = %.lr.ph193, %66
+  %indvars.iv210 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next211, %66 ]
   %68 = load ptr, ptr %62, align 8
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv205
+  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv210
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i32, ptr %39, i64 %71
@@ -1587,52 +1587,52 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %84, label %.thread152, label %85
 
 85:                                               ; preds = %83, %67
-  %86 = icmp eq i64 %indvars.iv205, %65
+  %86 = icmp eq i64 %indvars.iv210, %65
   %87 = select i1 %86, ptr @.str.6, ptr @.str.51
   %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.50, ptr noundef nonnull %87) #9
   %89 = icmp eq i32 %88, -1
   br i1 %89, label %.thread152, label %66
 
-._crit_edge189:                                   ; preds = %66, %._crit_edge185
+._crit_edge194:                                   ; preds = %66, %._crit_edge190
   call void @free(ptr noundef nonnull %39) #9
   %90 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #9
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread159, label %.preheader166
+  br i1 %91, label %.thread159, label %.preheader171
 
-.preheader166:                                    ; preds = %._crit_edge189
-  br i1 %12, label %.lr.ph191, label %._crit_edge192.thread
+.preheader171:                                    ; preds = %._crit_edge194
+  br i1 %12, label %.lr.ph196, label %._crit_edge197.thread
 
-.lr.ph191:                                        ; preds = %.preheader166
+.lr.ph196:                                        ; preds = %.preheader171
   %92 = icmp eq ptr %4, null
-  %wide.trip.count213 = zext nneg i32 %1 to i64
+  %wide.trip.count218 = zext nneg i32 %1 to i64
   br label %94
 
 93:                                               ; preds = %112
-  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
-  br i1 %exitcond214.not, label %._crit_edge192, label %94, !llvm.loop !36
+  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
+  %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
+  br i1 %exitcond219.not, label %._crit_edge197, label %94, !llvm.loop !36
 
-94:                                               ; preds = %.lr.ph191, %93
-  %indvars.iv210 = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next211, %93 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv210
+94:                                               ; preds = %.lr.ph196, %93
+  %indvars.iv215 = phi i64 [ 0, %.lr.ph196 ], [ %indvars.iv.next216, %93 ]
+  %95 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv215
   %96 = load ptr, ptr %95, align 8
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %97, -2
   %99 = inttoptr i64 %98 to ptr
   %100 = call fastcc i32 @ddDoDumpDDcal(ptr noundef %0, ptr noundef %99, ptr noundef %5, ptr noundef %90, ptr noundef %3, i64 noundef %33)
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %.loopexit, label %102
+  br i1 %101, label %.thread163, label %102
 
 102:                                              ; preds = %94
   br i1 %92, label %103, label %106
 
 103:                                              ; preds = %102
-  %104 = trunc nuw nsw i64 %indvars.iv210 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv215 to i32
   %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.52, i32 noundef %104) #9
   br label %110
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv210
+  %107 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv215
   %108 = load ptr, ptr %107, align 8
   %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.53, ptr noundef %108) #9
   br label %110
@@ -1640,7 +1640,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
 110:                                              ; preds = %106, %103
   %.1122 = phi i32 [ %105, %103 ], [ %109, %106 ]
   %111 = icmp eq i32 %.1122, -1
-  br i1 %111, label %.loopexit, label %112
+  br i1 %111, label %.thread163, label %112
 
 112:                                              ; preds = %110
   %113 = load ptr, ptr %95, align 8
@@ -1653,78 +1653,78 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   %119 = select i1 %.not143, ptr @.str.12, ptr @.str.55
   %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.54, ptr noundef %117, ptr noundef nonnull %119) #9
   %121 = icmp eq i32 %120, -1
-  br i1 %121, label %.loopexit, label %93
+  br i1 %121, label %.thread163, label %93
 
-._crit_edge192:                                   ; preds = %93
+._crit_edge197:                                   ; preds = %93
   %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.40) #9
   %123 = icmp eq i32 %122, -1
-  br i1 %123, label %.loopexit, label %.lr.ph194
+  br i1 %123, label %.thread163, label %.lr.ph199
 
-._crit_edge192.thread:                            ; preds = %.preheader166
+._crit_edge197.thread:                            ; preds = %.preheader171
   %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.40) #9
   %125 = icmp eq i32 %124, -1
-  br i1 %125, label %.loopexit, label %._crit_edge195
+  br i1 %125, label %.thread163, label %._crit_edge200
 
-.lr.ph194:                                        ; preds = %._crit_edge192
+.lr.ph199:                                        ; preds = %._crit_edge197
   %126 = icmp eq ptr %4, null
   %127 = add nsw i32 %1, -1
-  br i1 %126, label %.lr.ph194.split.us, label %.lr.ph194.split.preheader
+  br i1 %126, label %.lr.ph199.split.us, label %.lr.ph199.split.preheader
 
-.lr.ph194.split.preheader:                        ; preds = %.lr.ph194
+.lr.ph199.split.preheader:                        ; preds = %.lr.ph199
   %128 = zext nneg i32 %127 to i64
-  %wide.trip.count218 = zext nneg i32 %1 to i64
-  br label %.lr.ph194.split
+  %wide.trip.count223 = zext nneg i32 %1 to i64
+  br label %.lr.ph199.split
 
-.lr.ph194.split.us:                               ; preds = %.lr.ph194, %134
-  %.5193.us = phi i32 [ %135, %134 ], [ 0, %.lr.ph194 ]
-  %129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.56, i32 noundef %.5193.us) #9
-  %130 = icmp eq i32 %.5193.us, %127
+.lr.ph199.split.us:                               ; preds = %.lr.ph199, %134
+  %.5198.us = phi i32 [ %135, %134 ], [ 0, %.lr.ph199 ]
+  %129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.56, i32 noundef %.5198.us) #9
+  %130 = icmp eq i32 %.5198.us, %127
   %131 = select i1 %130, ptr @.str.12, ptr @.str.57
   %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.50, ptr noundef nonnull %131) #9
   %133 = icmp eq i32 %132, -1
-  br i1 %133, label %.loopexit, label %134
+  br i1 %133, label %.thread163, label %134
 
-134:                                              ; preds = %.lr.ph194.split.us
-  %135 = add nuw nsw i32 %.5193.us, 1
-  %exitcond220.not = icmp eq i32 %135, %1
-  br i1 %exitcond220.not, label %._crit_edge195, label %.lr.ph194.split.us, !llvm.loop !37
+134:                                              ; preds = %.lr.ph199.split.us
+  %135 = add nuw nsw i32 %.5198.us, 1
+  %exitcond225.not = icmp eq i32 %135, %1
+  br i1 %exitcond225.not, label %._crit_edge200, label %.lr.ph199.split.us, !llvm.loop !37
 
-136:                                              ; preds = %.lr.ph194.split
-  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
-  br i1 %exitcond219.not, label %._crit_edge195, label %.lr.ph194.split, !llvm.loop !37
+136:                                              ; preds = %.lr.ph199.split
+  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
+  %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
+  br i1 %exitcond224.not, label %._crit_edge200, label %.lr.ph199.split, !llvm.loop !37
 
-.lr.ph194.split:                                  ; preds = %.lr.ph194.split.preheader, %136
-  %indvars.iv215 = phi i64 [ 0, %.lr.ph194.split.preheader ], [ %indvars.iv.next216, %136 ]
-  %137 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv215
+.lr.ph199.split:                                  ; preds = %.lr.ph199.split.preheader, %136
+  %indvars.iv220 = phi i64 [ 0, %.lr.ph199.split.preheader ], [ %indvars.iv.next221, %136 ]
+  %137 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv220
   %138 = load ptr, ptr %137, align 8
   %fputs = call i32 @fputs(ptr %138, ptr %5)
-  %139 = icmp eq i64 %indvars.iv215, %128
+  %139 = icmp eq i64 %indvars.iv220, %128
   %140 = select i1 %139, ptr @.str.12, ptr @.str.57
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.50, ptr noundef nonnull %140) #9
   %142 = icmp eq i32 %141, -1
-  br i1 %142, label %.loopexit, label %136
+  br i1 %142, label %.thread163, label %136
 
-._crit_edge195:                                   ; preds = %136, %134, %._crit_edge192.thread
+._crit_edge200:                                   ; preds = %136, %134, %._crit_edge197.thread
   %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.48) #9
   %144 = icmp eq i32 %143, -1
-  br i1 %144, label %.loopexit, label %145
+  br i1 %144, label %.thread163, label %145
 
-145:                                              ; preds = %._crit_edge195
+145:                                              ; preds = %._crit_edge200
   call void @st__free_table(ptr noundef nonnull %90) #9
   br label %.thread159
 
-.thread152:                                       ; preds = %85, %83, %._crit_edge180
+.thread152:                                       ; preds = %85, %83, %._crit_edge185
   call void @free(ptr noundef nonnull %39) #9
   br label %.thread159
 
-.loopexit:                                        ; preds = %.lr.ph, %112, %110, %94, %.lr.ph194.split, %.lr.ph194.split.us, %._crit_edge192.thread, %._crit_edge195, %._crit_edge192
-  %.0123.ph = phi ptr [ %90, %._crit_edge195 ], [ %90, %._crit_edge192 ], [ %90, %._crit_edge192.thread ], [ %90, %.lr.ph194.split.us ], [ %90, %.lr.ph194.split ], [ %90, %94 ], [ %90, %110 ], [ %90, %112 ], [ %10, %.lr.ph ]
-  call void @st__free_table(ptr noundef nonnull %.0123.ph) #9
+.thread163:                                       ; preds = %.lr.ph, %94, %110, %112, %.lr.ph199.split, %.lr.ph199.split.us, %._crit_edge197.thread, %._crit_edge200, %._crit_edge197
+  %.0123.ph166 = phi ptr [ %90, %._crit_edge197 ], [ %90, %._crit_edge200 ], [ %90, %._crit_edge197.thread ], [ %90, %.lr.ph199.split.us ], [ %90, %.lr.ph199.split ], [ %90, %112 ], [ %90, %110 ], [ %90, %94 ], [ %10, %.lr.ph ]
+  call void @st__free_table(ptr noundef nonnull %.0123.ph166) #9
   br label %.thread159
 
-.thread159:                                       ; preds = %6, %44, %._crit_edge189, %.thread152, %.loopexit, %145
-  %.0117 = phi i32 [ 1, %145 ], [ 0, %.loopexit ], [ 0, %.thread152 ], [ 0, %._crit_edge189 ], [ 0, %44 ], [ 0, %6 ]
+.thread159:                                       ; preds = %6, %44, %._crit_edge194, %.thread152, %.thread163, %145
+  %.0117 = phi i32 [ 1, %145 ], [ 0, %.thread163 ], [ 0, %.thread152 ], [ 0, %._crit_edge194 ], [ 0, %44 ], [ 0, %6 ]
   ret i32 %.0117
 }
 

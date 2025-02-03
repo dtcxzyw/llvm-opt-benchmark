@@ -47,7 +47,7 @@ define void @Rtl_NtkCleanFile(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %0)
-  br label %24
+  br label %23
 
 6:                                                ; preds = %1
   %7 = tail call noalias ptr @fopen(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3)
@@ -57,7 +57,7 @@ define void @Rtl_NtkCleanFile(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %6
   %10 = tail call i32 @fclose(ptr noundef nonnull %2)
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull @.str)
-  br label %24
+  br label %23
 
 12:                                               ; preds = %6
   %13 = tail call noalias dereferenceable_or_null(1000000) ptr @malloc(i64 noundef 1000000) #10
@@ -77,22 +77,22 @@ define void @Rtl_NtkCleanFile(ptr noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %16, %.lr.ph
   %19 = tail call ptr @fgets(ptr noundef nonnull %13, i32 noundef 1000000, ptr noundef nonnull %2)
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %18, %12
+._crit_edge:                                      ; preds = %12
   %.not18 = icmp eq ptr %13, null
-  br i1 %.not18, label %21, label %20
+  br i1 %.not18, label %20, label %._crit_edge.thread
 
-20:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %18, %._crit_edge
   tail call void @free(ptr noundef nonnull %13) #12
-  br label %21
+  br label %20
 
-21:                                               ; preds = %._crit_edge, %20
-  %22 = tail call i32 @fclose(ptr noundef nonnull %2)
-  %23 = tail call i32 @fclose(ptr noundef nonnull %7)
-  br label %24
+20:                                               ; preds = %._crit_edge, %._crit_edge.thread
+  %21 = tail call i32 @fclose(ptr noundef nonnull %2)
+  %22 = tail call i32 @fclose(ptr noundef nonnull %7)
+  br label %23
 
-24:                                               ; preds = %21, %9, %4
+23:                                               ; preds = %20, %9, %4
   ret void
 }
 
@@ -128,7 +128,7 @@ define void @Rtl_NtkCleanFile2(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %0)
-  br label %24
+  br label %23
 
 6:                                                ; preds = %1
   %7 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3)
@@ -138,7 +138,7 @@ define void @Rtl_NtkCleanFile2(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %6
   %10 = tail call i32 @fclose(ptr noundef nonnull %2)
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull @.str.6)
-  br label %24
+  br label %23
 
 12:                                               ; preds = %6
   %13 = tail call noalias dereferenceable_or_null(1000000) ptr @malloc(i64 noundef 1000000) #10
@@ -158,22 +158,22 @@ define void @Rtl_NtkCleanFile2(ptr noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %16, %.lr.ph
   %19 = tail call ptr @fgets(ptr noundef nonnull %13, i32 noundef 1000000, ptr noundef nonnull %2)
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %18, %12
+._crit_edge:                                      ; preds = %12
   %.not18 = icmp eq ptr %13, null
-  br i1 %.not18, label %21, label %20
+  br i1 %.not18, label %20, label %._crit_edge.thread
 
-20:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %18, %._crit_edge
   tail call void @free(ptr noundef nonnull %13) #12
-  br label %21
+  br label %20
 
-21:                                               ; preds = %._crit_edge, %20
-  %22 = tail call i32 @fclose(ptr noundef nonnull %2)
-  %23 = tail call i32 @fclose(ptr noundef nonnull %7)
-  br label %24
+20:                                               ; preds = %._crit_edge, %._crit_edge.thread
+  %21 = tail call i32 @fclose(ptr noundef nonnull %2)
+  %22 = tail call i32 @fclose(ptr noundef nonnull %7)
+  br label %23
 
-24:                                               ; preds = %21, %9, %4
+23:                                               ; preds = %20, %9, %4
   ret void
 }
 

@@ -3351,7 +3351,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit42.i:       ; preds = %161
   br i1 %166, label %167, label %.critedge6thread-pre-split.i
 
 167:                                              ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit42.i
-  %168 = call { ptr, i64 } @_ZN4llvm3sys4path4stemENS_9StringRefENS1_5StyleE(ptr %.sroa.07.0.copyload.pre38.i, i64 %157, i32 noundef 0) #19
+  %168 = call { ptr, i64 } @_ZN4llvm3sys4path4stemENS_9StringRefENS1_5StyleE(ptr nonnull %.sroa.07.0.copyload.pre38.i, i64 %157, i32 noundef 0) #19
   %169 = extractvalue { ptr, i64 } %168, 0
   %170 = extractvalue { ptr, i64 } %168, 1
   %.sroa.011.0.copyload.i = load ptr, ptr %58, align 8
@@ -9803,12 +9803,12 @@ _ZN5clang17DiagnosticsEngine6ReportEj.exit.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i:   ; preds = %37, %_ZN5clang17DiagnosticsEngine6ReportEj.exit.i.i
   %42 = load ptr, ptr %4, align 8, !noalias !198
   %.not.i.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i.i, label %"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_16ExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit", label %43
+  br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit, label %43
 
 43:                                               ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i
   %44 = load ptr, ptr %18, align 8, !noalias !198
   %.not.i.i.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_16ExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit", label %45
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit, label %45
 
 45:                                               ; preds = %43
   %46 = icmp uge ptr %42, %44
@@ -9825,31 +9825,27 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i:   ; preds = %37, %_ZN5clang17Dia
   %53 = zext i32 %51 to i64
   %54 = getelementptr inbounds nuw [16 x ptr], ptr %47, i64 0, i64 %53
   store ptr %42, ptr %54, align 8, !noalias !198
-  br label %"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_16ExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit"
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
 55:                                               ; preds = %45
   call void @_ZN5clang17DiagnosticStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %42) #19, !noalias !198
   call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef 928) #21, !noalias !198
-  br label %"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_16ExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit"
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
-"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_16ExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit": ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i, %43, %49, %55
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i, %43, %49, %55
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !198
   store ptr null, ptr %0, align 8, !alias.scope !198
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_16ExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit"
   %56 = load ptr, ptr %11, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
+  br label %59
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit4: ; preds = %3
   store ptr %11, ptr %0, align 8, !alias.scope !210
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
+  br label %59
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i, %"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_16ExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit", %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit4
+59:                                               ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit4, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
   ret void
 }
 
@@ -98898,7 +98894,7 @@ _ZNSt4pairIN4llvm11SmallStringILj32EEEbEC2IS2_RbTnNSt9enable_ifIXaaclsr5_PCCPE22
   %14 = load i8, ptr %2, align 1
   %15 = and i8 %14, 1
   store i8 %15, ptr %13, align 8
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_11SmallStringILj32EEEbELb0EE19moveElementsForGrowEPS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %6)
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_11SmallStringILj32EEEbELb0EE19moveElementsForGrowEPS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6)
   %16 = load i64, ptr %4, align 8
   %17 = load ptr, ptr %0, align 8
   %18 = icmp eq ptr %17, %5
@@ -99186,12 +99182,12 @@ _ZN5clang17DiagnosticsEngine6ReportEj.exit.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i:   ; preds = %37, %_ZN5clang17DiagnosticsEngine6ReportEj.exit.i.i
   %42 = load ptr, ptr %4, align 8, !noalias !695
   %.not.i.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i.i, label %"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_24WrappingExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit", label %43
+  br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit, label %43
 
 43:                                               ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i
   %44 = load ptr, ptr %18, align 8, !noalias !695
   %.not.i.i.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_24WrappingExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit", label %45
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit, label %45
 
 45:                                               ; preds = %43
   %46 = icmp uge ptr %42, %44
@@ -99208,31 +99204,27 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i:   ; preds = %37, %_ZN5clang17Dia
   %53 = zext i32 %51 to i64
   %54 = getelementptr inbounds nuw [16 x ptr], ptr %47, i64 0, i64 %53
   store ptr %42, ptr %54, align 8, !noalias !695
-  br label %"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_24WrappingExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit"
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
 55:                                               ; preds = %45
   call void @_ZN5clang17DiagnosticStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %42) #19, !noalias !695
   call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef 928) #21, !noalias !695
-  br label %"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_24WrappingExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit"
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
-"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_24WrappingExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit": ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i, %43, %49, %55
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i, %43, %49, %55
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !695
   store ptr null, ptr %0, align 8, !alias.scope !695
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_24WrappingExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit"
   %56 = load ptr, ptr %11, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
+  br label %59
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit4: ; preds = %3
   store ptr %11, ptr %0, align 8, !alias.scope !706
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
+  br label %59
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i, %"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang10extractapi19IgnoresFileNotFoundEEE5applyIZNS1_24WrappingExtractAPIAction17CreateASTConsumerERNS1_16CompilerInstanceENS_9StringRefEE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISI_EE.exit", %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit4
+59:                                               ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit4, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
   ret void
 }
 

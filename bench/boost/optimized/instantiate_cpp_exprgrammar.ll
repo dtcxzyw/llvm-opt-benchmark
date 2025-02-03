@@ -2395,7 +2395,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_4wave20preprocess
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #27
+  tail call void @__cxa_free_exception(ptr nonnull %2) #27
   resume { ptr, i32 } %5
 }
 
@@ -3567,7 +3567,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_21thread_resource
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #27
+  tail call void @__cxa_free_exception(ptr nonnull %2) #27
   resume { ptr, i32 } %5
 }
 
@@ -3749,7 +3749,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_21thread_resource_err
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #27
+  tail call void @__cxa_free_exception(ptr nonnull %2) #27
   resume { ptr, i32 } %5
 }
 
@@ -5485,7 +5485,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_10lock_errorEEEvR
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #27
+  tail call void @__cxa_free_exception(ptr nonnull %2) #27
   resume { ptr, i32 } %5
 }
 
@@ -5660,7 +5660,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_10lock_errorEE7rethro
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #27
+  tail call void @__cxa_free_exception(ptr nonnull %2) #27
   resume { ptr, i32 } %5
 }
 
@@ -5970,7 +5970,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorImSaImE
   br i1 %13, label %_ZNSt6vectorImSaImEED2Ev.exit.i, label %_ZN5boost6spirit7classic4impl26object_with_id_base_supplyImED2Ev.exit, !llvm.loop !93
 
 _ZN5boost6spirit7classic4impl26object_with_id_base_supplyImED2Ev.exit: ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i
-  tail call void @_ZdlPvm(ptr noundef %0, i64 noundef 72) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #31
   br label %14
 
 14:                                               ; preds = %_ZN5boost6spirit7classic4impl26object_with_id_base_supplyImED2Ev.exit, %1
@@ -6014,7 +6014,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %_ZNSt6vectorImSaImE
   br i1 %15, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i, label %_ZN5boost6spirit7classic4impl26object_with_id_base_supplyImED2Ev.exit.i, !llvm.loop !93
 
 _ZN5boost6spirit7classic4impl26object_with_id_base_supplyImED2Ev.exit.i: ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i.i
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef 72) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #31
   br label %_ZN5boost14checked_deleteINS_6spirit7classic4impl26object_with_id_base_supplyImEEEEvPT_.exit
 
 _ZN5boost14checked_deleteINS_6spirit7classic4impl26object_with_id_base_supplyImEEEEvPT_.exit: ; preds = %1, %_ZN5boost6spirit7classic4impl26object_with_id_base_supplyImED2Ev.exit.i
@@ -24312,7 +24312,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_4wave20preprocess_exc
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #27
+  tail call void @__cxa_free_exception(ptr nonnull %2) #27
   resume { ptr, i32 } %5
 }
 

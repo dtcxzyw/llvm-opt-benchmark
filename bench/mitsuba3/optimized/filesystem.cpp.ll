@@ -1998,7 +1998,7 @@ define void @_ZNK7mitsuba10filesystem4pathdvERKS1_(ptr dead_on_unwind noalias wr
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #20
+  tail call void @__cxa_free_exception(ptr nonnull %8) #20
   br label %52
 
 12:                                               ; preds = %3
@@ -2759,7 +2759,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #20
+  tail call void @__cxa_free_exception(ptr nonnull %2) #20
   resume { ptr, i32 } %5
 }
 

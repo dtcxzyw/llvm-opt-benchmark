@@ -673,7 +673,7 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
 
 54:                                               ; preds = %51, %agxbclear.exit.thread.i
   %55 = phi ptr [ %53, %51 ], [ %3, %agxbclear.exit.thread.i ]
-  %56 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %55, ptr noundef nonnull @.str.17, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
+  %56 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %55, ptr noundef nonnull @.str.17, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
   %.val10.pre = load i8, ptr %10, align 1
   %57 = icmp eq i8 %.val10.pre, -1
   br i1 %57, label %58, label %agxbfree.exit

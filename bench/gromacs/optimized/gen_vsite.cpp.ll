@@ -104,8 +104,6 @@ $_ZN19VirtualSiteTopologyD2Ev = comdat any
 
 $_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_ = comdat any
 
-$_ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE7destroyIS0_EEvRS1_PT_ = comdat any
-
 $__clang_call_terminate = comdat any
 
 $_ZNSt6vectorI19VirtualSiteTopologySaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_ = comdat any
@@ -113,8 +111,6 @@ $_ZNSt6vectorI19VirtualSiteTopologySaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_c
 $_ZNSt6vectorIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_dEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ = comdat any
 
 $_ZNSt6vectorIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_dEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ = comdat any
-
-$_ZNSt16allocator_traitsISaIN19VirtualSiteTopology16VirtualSiteAngleEEE7destroyIS1_EEvRS2_PT_ = comdat any
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
 
@@ -17030,7 +17026,7 @@ _ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE11_M_allocateEm.exit: ; pr
   %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorI24VirtualSiteConfigurationSaIS0_EE12_M_check_lenEmPKc.exit ]
   %23 = getelementptr inbounds i8, ptr %22, i64 %18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(104) %23, ptr noundef nonnull align 8 dereferenceable(104) %2)
-          to label %.noexc unwind label %.body
+          to label %.noexc unwind label %59
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE11_M_allocateEm.exit
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -17051,12 +17047,17 @@ _ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE11_M_allocateEm.exit: ; pr
 32:                                               ; preds = %.noexc
   %33 = landingpad { ptr, i32 }
           catch ptr null
-  br label %63
+  br label %36
 
 34:                                               ; preds = %29
   %35 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #23
+  br label %36
+
+36:                                               ; preds = %34, %32
+  %.pn.i.i.i = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %23) #23
   br label %63
 
 _ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit: ; preds = %29
@@ -17064,106 +17065,92 @@ _ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE9constructIS0_JRKS0_EEEvR
   br i1 %.not10.i.i.i, label %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i ], [ %22, %_ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ]
-  %.0911.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ]
+  %.012.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i ], [ %22, %_ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ]
+  %.0911.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(104) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %.0911.i.i.i) #23
-  %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  %38 = load i64, ptr %37, align 8, !alias.scope !81, !noalias !78
-  store i64 %38, ptr %36, align 8, !alias.scope !78, !noalias !81
-  %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
-  %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40) #23
-  %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
-  %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %42) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #23
+  %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
+  %39 = load i64, ptr %38, align 8, !alias.scope !81, !noalias !78
+  store i64 %39, ptr %37, align 8, !alias.scope !78, !noalias !81
+  %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %41) #23
+  %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %43) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %.0911.i.i.i) #23
-  %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 104
-  %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 104
-  %.not.i.i.i = icmp eq ptr %43, %1
+  %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 104
+  %.not.i.i.i = icmp eq ptr %44, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !83
 
 _ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ], [ %44, %.lr.ph.i.i.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 104
+  %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ], [ %45, %.lr.ph.i.i.i ]
+  %46 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 104
   %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i27
-  %.012.i.i.i28 = phi ptr [ %54, %.lr.ph.i.i.i27 ], [ %45, %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
-  %.0911.i.i.i29 = phi ptr [ %53, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
+  %.012.i.i.i28 = phi ptr [ %55, %.lr.ph.i.i.i27 ], [ %46, %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
+  %.0911.i.i.i29 = phi ptr [ %54, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(104) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(104) %.0911.i.i.i29) #23
-  %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
-  %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
-  %48 = load i64, ptr %47, align 8, !alias.scope !87, !noalias !84
-  store i64 %48, ptr %46, align 8, !alias.scope !84, !noalias !87
-  %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 40
-  %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %50) #23
-  %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 72
-  %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 72
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %52) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #23
+  %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
+  %49 = load i64, ptr %48, align 8, !alias.scope !87, !noalias !84
+  store i64 %49, ptr %47, align 8, !alias.scope !84, !noalias !87
+  %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 40
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %51) #23
+  %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 72
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %53) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %.0911.i.i.i29) #23
-  %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 104
-  %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 104
-  %.not.i.i.i30 = icmp eq ptr %53, %5
+  %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 104
+  %.not.i.i.i30 = icmp eq ptr %54, %5
   br i1 %.not.i.i.i30, label %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !83
 
 _ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
-  %.0.lcssa.i.i.i31 = phi ptr [ %45, %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ], [ %54, %.lr.ph.i.i.i27 ]
+  %.0.lcssa.i.i.i31 = phi ptr [ %46, %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ], [ %55, %.lr.ph.i.i.i27 ]
   %.not.i33 = icmp eq ptr %6, null
-  br i1 %.not.i33, label %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit, label %55
+  br i1 %.not.i33, label %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit, label %56
 
-55:                                               ; preds = %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32
+56:                                               ; preds = %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32
   tail call void @_ZdlPv(ptr noundef nonnull %6) #27
   br label %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit
 
-_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, %55
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
+_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI24VirtualSiteConfigurationSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, %56
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %57 = getelementptr inbounds nuw %struct.VirtualSiteConfiguration, ptr %22, i64 %16
-  store ptr %57, ptr %56, align 8
+  %58 = getelementptr inbounds nuw %struct.VirtualSiteConfiguration, ptr %22, i64 %16
+  store ptr %58, ptr %57, align 8
   ret void
 
-.body:                                            ; preds = %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE11_M_allocateEm.exit
-  %58 = landingpad { ptr, i32 }
+59:                                               ; preds = %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE11_M_allocateEm.exit
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  %60 = tail call ptr @__cxa_begin_catch(ptr %59) #23
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread, label %.thread46
+  br label %63
 
-.thread:                                          ; preds = %.body
-  tail call void @_ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE7destroyIS0_EEvRS1_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %23) #23
-  br label %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit37
-
-61:                                               ; preds = %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit37
+61:                                               ; preds = %63
   %62 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %66 unwind label %67
 
-63:                                               ; preds = %32, %34
-  %.pn.i.i.i = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %23) #23
-  %64 = extractvalue { ptr, i32 } %.pn.i.i.i, 0
+63:                                               ; preds = %59, %36
+  %eh.lpad-body = phi { ptr, i32 } [ %60, %59 ], [ %.pn.i.i.i, %36 ]
+  %64 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %65 = tail call ptr @__cxa_begin_catch(ptr %64) #23
-  br label %.thread46
-
-.thread46:                                        ; preds = %.body, %63
   tail call void @_ZdlPv(ptr noundef nonnull %22) #27
-  br label %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit37
-
-_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %.thread46, %.thread
   invoke void @__cxa_rethrow() #25
           to label %70 unwind label %61
 
@@ -17177,21 +17164,11 @@ _ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit
   tail call void @__clang_call_terminate(ptr %69) #26
   unreachable
 
-70:                                               ; preds = %_ZNSt12_Vector_baseI24VirtualSiteConfigurationSaIS0_EE13_M_deallocateEPS0_m.exit37
+70:                                               ; preds = %63
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaI24VirtualSiteConfigurationEE7destroyIS0_EEvRS1_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #7 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %1) #23
-  ret void
-}
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -17429,7 +17406,7 @@ _ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE11_M_allocat
   %29 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %25) #23
-  br label %.body
+  br label %55
 
 30:                                               ; preds = %.noexc
   %31 = fptrunc double %26 to float
@@ -17504,46 +17481,33 @@ _ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_dealloc
 51:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE11_M_allocateEm.exit
   %52 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  br label %55
 
-.body:                                            ; preds = %28, %51
-  %eh.lpad-body = phi { ptr, i32 } [ %52, %51 ], [ %29, %28 ]
-  %53 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %54 = tail call ptr @__cxa_begin_catch(ptr %53) #23
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %.thread, label %58
-
-.thread:                                          ; preds = %.body
-  %55 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %25) #23
-  br label %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit39
-
-56:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit39
-  %57 = landingpad { ptr, i32 }
+53:                                               ; preds = %55
+  %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %59 unwind label %60
+          to label %58 unwind label %59
 
-58:                                               ; preds = %.body
+55:                                               ; preds = %51, %28
+  %eh.lpad-body = phi { ptr, i32 } [ %52, %51 ], [ %29, %28 ]
+  %56 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %57 = tail call ptr @__cxa_begin_catch(ptr %56) #23
   tail call void @_ZdlPv(ptr noundef nonnull %24) #27
-  br label %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit39
-
-_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit39: ; preds = %58, %.thread
   invoke void @__cxa_rethrow() #25
-          to label %63 unwind label %56
+          to label %62 unwind label %53
 
-59:                                               ; preds = %56
-  resume { ptr, i32 } %57
+58:                                               ; preds = %53
+  resume { ptr, i32 } %54
 
-60:                                               ; preds = %56
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %53
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  tail call void @__clang_call_terminate(ptr %62) #26
+  %61 = extractvalue { ptr, i32 } %60, 0
+  tail call void @__clang_call_terminate(ptr %61) #26
   unreachable
 
-63:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology15VirtualSiteBondESaIS1_EE13_M_deallocateEPS1_m.exit39
+62:                                               ; preds = %55
   unreachable
 }
 
@@ -17610,7 +17574,7 @@ _ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE11_M_alloca
 35:                                               ; preds = %33, %31
   %.pn.i.i.i = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(100) %26) #23
-  br label %.body
+  br label %65
 
 36:                                               ; preds = %29
   %37 = fptrunc double %27 to float
@@ -17693,55 +17657,34 @@ _ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallo
 61:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE11_M_allocateEm.exit
   %62 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  br label %65
 
-.body:                                            ; preds = %35, %61
-  %eh.lpad-body = phi { ptr, i32 } [ %62, %61 ], [ %.pn.i.i.i, %35 ]
-  %63 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %64 = tail call ptr @__cxa_begin_catch(ptr %63) #23
-  %.not = icmp eq ptr %25, null
-  br i1 %.not, label %.thread, label %67
-
-.thread:                                          ; preds = %.body
-  tail call void @_ZNSt16allocator_traitsISaIN19VirtualSiteTopology16VirtualSiteAngleEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %26) #23
-  br label %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit40
-
-65:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit40
-  %66 = landingpad { ptr, i32 }
+63:                                               ; preds = %65
+  %64 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %68 unwind label %69
 
-67:                                               ; preds = %.body
+65:                                               ; preds = %61, %35
+  %eh.lpad-body = phi { ptr, i32 } [ %62, %61 ], [ %.pn.i.i.i, %35 ]
+  %66 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #23
   tail call void @_ZdlPv(ptr noundef nonnull %25) #27
-  br label %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit40
-
-_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit40: ; preds = %67, %.thread
   invoke void @__cxa_rethrow() #25
-          to label %72 unwind label %65
+          to label %72 unwind label %63
 
-68:                                               ; preds = %65
-  resume { ptr, i32 } %66
+68:                                               ; preds = %63
+  resume { ptr, i32 } %64
 
-69:                                               ; preds = %65
+69:                                               ; preds = %63
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
   tail call void @__clang_call_terminate(ptr %71) #26
   unreachable
 
-72:                                               ; preds = %_ZNSt12_Vector_baseIN19VirtualSiteTopology16VirtualSiteAngleESaIS1_EE13_M_deallocateEPS1_m.exit40
+72:                                               ; preds = %65
   unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIN19VirtualSiteTopology16VirtualSiteAngleEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #7 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(100) %1) #23
-  ret void
 }
 
 ; Function Attrs: nofree nounwind

@@ -959,7 +959,7 @@ if.end200:                                        ; preds = %land.lhs.true196, %
 
 end:                                              ; preds = %if.then104
   tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.0) #5
-  %call108 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %group, ptr noundef %r, ptr noundef %a, ptr noundef nonnull %ctx.addr.0) #5
+  %call108 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %group, ptr noundef %r, ptr noundef nonnull %a, ptr noundef nonnull %ctx.addr.0) #5
   br label %if.end208
 
 if.then207:                                       ; preds = %if.end19, %if.else109, %land.lhs.true196, %lor.lhs.false189, %if.end186, %lor.lhs.false182, %if.end179, %lor.lhs.false175, %if.end171, %lor.lhs.false166, %lor.lhs.false163, %lor.lhs.false160, %if.end157, %if.then121, %if.end151, %if.then129, %if.then137, %if.else143, %lor.lhs.false114, %if.end111, %lor.lhs.false97, %if.end94, %lor.lhs.false69, %if.then65, %lor.lhs.false88, %if.end84, %lor.lhs.false79, %if.else75, %lor.lhs.false, %if.then33, %lor.lhs.false52, %if.end48, %lor.lhs.false43, %if.else, %if.end200
@@ -1595,7 +1595,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %group, ptr noundef %point) #5
+  %call1 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef nonnull %group, ptr noundef nonnull %point) #5
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -1618,12 +1618,12 @@ if.end8:                                          ; preds = %if.then3, %if.end
   br i1 %cmp11, label %err, label %if.end13
 
 if.end13:                                         ; preds = %if.end8
-  %call14 = tail call i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %call9, ptr noundef nonnull %call10, ptr noundef nonnull %ctx.addr.0) #5
+  %call14 = tail call i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %call9, ptr noundef nonnull %call10, ptr noundef nonnull %ctx.addr.0) #5
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %err, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %if.end13
-  %call17 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %call9, ptr noundef nonnull %call10, ptr noundef nonnull %ctx.addr.0) #5
+  %call17 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %call9, ptr noundef nonnull %call10, ptr noundef nonnull %ctx.addr.0) #5
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %err, label %if.end20
 

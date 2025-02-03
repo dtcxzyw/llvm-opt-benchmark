@@ -762,7 +762,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i229: ; preds = %if.then.i.i
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i233:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i229, %if.then2.i.i.i237
   %.sink.i.i.i234 = phi i64 [ %65, %if.then2.i.i.i237 ], [ %add.i.i.i.i232, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i229 ]
   store i64 %.sink.i.i.i234, ptr %stopwatch2, align 8
-  invoke void @_ZN5eastl9make_heapIP10TestObjectEEvT_S3_(ptr noundef %63, ptr noundef nonnull %add.ptr94)
+  invoke void @_ZN5eastl9make_heapIP10TestObjectEEvT_S3_(ptr noundef nonnull %63, ptr noundef nonnull %add.ptr94)
           to label %.noexc238 unwind label %lpad30.loopexit
 
 .noexc238:                                        ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i233

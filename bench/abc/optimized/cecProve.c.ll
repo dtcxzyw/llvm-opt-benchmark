@@ -83,7 +83,7 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   store i32 %2, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 1, ptr %25, align 8
-  %26 = call i32 @Ssw_RarSimulateGia(ptr noundef %0, ptr noundef nonnull %7) #12
+  %26 = call i32 @Ssw_RarSimulateGia(ptr noundef nonnull %0, ptr noundef nonnull %7) #12
   br label %63
 
 27:                                               ; preds = %21
@@ -92,7 +92,7 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   store i32 %2, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store i32 1, ptr %29, align 8
-  %30 = call ptr @Gia_ManToAigSimple(ptr noundef %0) #12
+  %30 = call ptr @Gia_ManToAigSimple(ptr noundef nonnull %0) #12
   %31 = call i32 @Saig_ManBmcScalable(ptr noundef %30, ptr noundef nonnull %8) #12
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 408
   %33 = load ptr, ptr %32, align 8
@@ -107,7 +107,7 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   store i32 %2, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store i32 1, ptr %36, align 8
-  %37 = call ptr @Gia_ManToAigSimple(ptr noundef %0) #12
+  %37 = call ptr @Gia_ManToAigSimple(ptr noundef nonnull %0) #12
   %38 = call i32 @Pdr_ManSolve(ptr noundef %37, ptr noundef nonnull %9) #12
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -124,7 +124,7 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   store i32 %2, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 104
   store i32 1, ptr %44, align 8
-  %45 = call ptr @Gia_ManToAigSimple(ptr noundef %0) #12
+  %45 = call ptr @Gia_ManToAigSimple(ptr noundef nonnull %0) #12
   %46 = call i32 @Saig_ManBmcScalable(ptr noundef %45, ptr noundef nonnull %10) #12
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 408
   %48 = load ptr, ptr %47, align 8
@@ -141,7 +141,7 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   store i32 %2, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 112
   store i32 1, ptr %52, align 8
-  %53 = call ptr @Gia_ManToAigSimple(ptr noundef %0) #12
+  %53 = call ptr @Gia_ManToAigSimple(ptr noundef nonnull %0) #12
   %54 = call i32 @Pdr_ManSolve(ptr noundef %53, ptr noundef nonnull %11) #12
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 408
   %56 = load ptr, ptr %55, align 8
@@ -160,7 +160,7 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   store i32 1, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %2, ptr %61, align 8
-  %62 = call i32 @Bmcg_ManPerform(ptr noundef %0, ptr noundef nonnull %12) #12
+  %62 = call i32 @Bmcg_ManPerform(ptr noundef nonnull %0, ptr noundef nonnull %12) #12
   br label %63
 
 63:                                               ; preds = %21, %27, %41, %57, %49, %34, %23

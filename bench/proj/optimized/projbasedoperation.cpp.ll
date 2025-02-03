@@ -4852,7 +4852,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit23: ; preds = %_ZNSt10shared_pt
 100:                                              ; preds = %97
   %101 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %98) #16
+  call void @__cxa_free_exception(ptr nonnull %98) #16
   br label %123
 
 102:                                              ; preds = %94
@@ -6537,7 +6537,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit26: ; preds = %54, 
 
 133:                                              ; preds = %131
   call void @_ZN5osgeo4proj9operation15GridDescriptionD1Ev(ptr noundef nonnull align 8 dereferenceable(131) %11) #16
-  %134 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.030.035) #21
+  %134 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.030.035) #21
   %.not = icmp eq ptr %134, %104
   br i1 %.not, label %._crit_edge, label %111
 

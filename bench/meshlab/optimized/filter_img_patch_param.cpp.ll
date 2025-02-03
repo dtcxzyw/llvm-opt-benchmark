@@ -8398,7 +8398,7 @@ _ZN5QHashIP11RasterModel7QVectorI5PatchEE3endEv.exit198: ; preds = %_ZN5QHashIP1
           to label %364 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 364:                                              ; preds = %362
-  %365 = invoke noundef ptr @_ZN9QHashData8nextNodeEPNS_4NodeE(ptr noundef %.sroa.0292.0)
+  %365 = invoke noundef ptr @_ZN9QHashData8nextNodeEPNS_4NodeE(ptr noundef nonnull %.sroa.0292.0)
           to label %_ZN5QHashIP11RasterModel7QVectorI5PatchEE8iteratorppEv.exit200 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 366:                                              ; preds = %_ZN5QHashIP11RasterModel7QVectorI5PatchEE3endEv.exit198

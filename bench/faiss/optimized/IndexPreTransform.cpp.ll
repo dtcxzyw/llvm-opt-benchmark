@@ -313,7 +313,7 @@ define void @_ZN5faiss17IndexPreTransform3addElPKf(ptr noundef nonnull align 8 c
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #18
+  call void @__cxa_free_exception(ptr nonnull %17) #18
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -454,7 +454,7 @@ define void @_ZN5faiss17IndexPreTransform12add_with_idsElPKfPKl(ptr noundef nonn
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #18
+  call void @__cxa_free_exception(ptr nonnull %18) #18
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -594,7 +594,7 @@ define void @_ZNK5faiss17IndexPreTransform6searchElPKflPfPlPKNS_16SearchParamete
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #18
+  call void @__cxa_free_exception(ptr nonnull %20) #18
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -639,7 +639,7 @@ define void @_ZNK5faiss17IndexPreTransform6searchElPKflPfPlPKNS_16SearchParamete
 44:                                               ; preds = %37
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %40) #18
+  call void @__cxa_free_exception(ptr nonnull %40) #18
   br label %46
 
 46:                                               ; preds = %44, %42
@@ -789,7 +789,7 @@ define void @_ZNK5faiss17IndexPreTransform12range_searchElPKffPNS_17RangeSearchR
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #18
+  call void @__cxa_free_exception(ptr nonnull %20) #18
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -1093,7 +1093,7 @@ define void @_ZNK5faiss17IndexPreTransform22search_and_reconstructElPKflPfPlS3_P
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #18
+  call void @__cxa_free_exception(ptr nonnull %21) #18
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -1138,7 +1138,7 @@ define void @_ZNK5faiss17IndexPreTransform22search_and_reconstructElPKflPfPlS3_P
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #18
+  call void @__cxa_free_exception(ptr nonnull %41) #18
   br label %47
 
 47:                                               ; preds = %45, %43
@@ -1568,7 +1568,7 @@ define void @_ZNK5faiss17IndexPreTransform26check_compatible_for_mergeERKNS_5Ind
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #18
+  call void @__cxa_free_exception(ptr nonnull %15) #18
   br label %75
 
 21:                                               ; preds = %2
@@ -1624,7 +1624,7 @@ define void @_ZNK5faiss17IndexPreTransform26check_compatible_for_mergeERKNS_5Ind
 50:                                               ; preds = %43
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #18
+  call void @__cxa_free_exception(ptr nonnull %46) #18
   br label %75
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -1822,7 +1822,7 @@ define void @_ZN5faiss17IndexPreTransform17prepend_transformEPNS_15VectorTransfo
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #18
+  call void @__cxa_free_exception(ptr nonnull %19) #18
   br label %25
 
 25:                                               ; preds = %23, %21

@@ -1024,7 +1024,7 @@ for.inc92:                                        ; preds = %_ZNSt16allocator_tr
   br i1 %cmp.i265.not, label %for.inc108, label %cond.true67
 
 for.inc108:                                       ; preds = %for.inc92, %cond.true42
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin329.sroa.0.01493) #23
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin329.sroa.0.01493) #23
   %cmp.i160.not = icmp eq ptr %call.i, %5
   br i1 %cmp.i160.not, label %for.end110, label %cond.true42
 

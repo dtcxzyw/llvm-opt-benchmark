@@ -4413,7 +4413,7 @@ define internal void @dissect_r3_cmd_downloadfirmware(ptr noundef %0, i32 nounde
   %34 = call ptr @proto_tree_add_item(ptr noundef nonnull %.062, i32 noundef %33, ptr noundef %11, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648) #5
   %35 = load i32, ptr @hf_r3_firmwaredownload_nvram, align 4
   %36 = call ptr @proto_tree_add_item(ptr noundef nonnull %.062, i32 noundef %35, ptr noundef %11, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %62
+  br label %.thread
 
 37:                                               ; preds = %28
   %cond76 = icmp eq ptr %.062, null
@@ -4433,7 +4433,7 @@ define internal void @dissect_r3_cmd_downloadfirmware(ptr noundef %0, i32 nounde
   %48 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef 9) #5
   %49 = zext i8 %48 to i32
   %50 = call ptr @proto_tree_add_item(ptr noundef nonnull %.062, i32 noundef %47, ptr noundef %11, i32 noundef 10, i32 noundef %49, i32 noundef 0) #5
-  br label %62
+  br label %.thread
 
 51:                                               ; preds = %28
   %cond77 = icmp eq ptr %.062, null
@@ -4442,7 +4442,7 @@ define internal void @dissect_r3_cmd_downloadfirmware(ptr noundef %0, i32 nounde
 52:                                               ; preds = %51
   %53 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef nonnull @.str.2159) #5
-  br label %62
+  br label %.thread
 
 54:                                               ; preds = %28
   %cond78 = icmp eq ptr %.062, null
@@ -4451,7 +4451,7 @@ define internal void @dissect_r3_cmd_downloadfirmware(ptr noundef %0, i32 nounde
 55:                                               ; preds = %54
   %56 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %56, ptr noundef nonnull @.str.2160) #5
-  br label %62
+  br label %.thread
 
 57:                                               ; preds = %28
   %cond79 = icmp eq ptr %.062, null
@@ -4460,48 +4460,48 @@ define internal void @dissect_r3_cmd_downloadfirmware(ptr noundef %0, i32 nounde
 58:                                               ; preds = %57
   %59 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %59, ptr noundef nonnull @.str.2161) #5
-  br label %62
+  br label %.thread
 
 60:                                               ; preds = %28
   %61 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %.0, ptr noundef nonnull @ei_r3_firmwaredownload_action) #5
   br label %proto_item_set_generated.exit
 
-62:                                               ; preds = %31, %38, %52, %55, %58
-  %63 = add nsw i32 %9, -4
-  %64 = call zeroext i16 @tvb_get_letohs(ptr noundef %11, i32 noundef %63) #5
-  %65 = zext i16 %64 to i32
-  %66 = call zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef %11, i32 noundef 0, i32 noundef %63) #5
-  %67 = icmp eq i16 %66, %64
-  br i1 %67, label %68, label %71
+.thread:                                          ; preds = %52, %55, %58, %31, %38
+  %62 = add nsw i32 %9, -4
+  %63 = call zeroext i16 @tvb_get_letohs(ptr noundef %11, i32 noundef %62) #5
+  %64 = zext i16 %63 to i32
+  %65 = call zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef %11, i32 noundef 0, i32 noundef %62) #5
+  %66 = icmp eq i16 %65, %63
+  br i1 %66, label %67, label %70
 
-68:                                               ; preds = %62
-  %69 = load i32, ptr @hf_r3_firmwaredownload_crc, align 4
-  %70 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.062, i32 noundef %69, ptr noundef %11, i32 noundef %63, i32 noundef 2, i32 noundef %65, ptr noundef nonnull @.str.1817, i32 noundef %65) #5
+67:                                               ; preds = %.thread
+  %68 = load i32, ptr @hf_r3_firmwaredownload_crc, align 4
+  %69 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.062, i32 noundef %68, ptr noundef %11, i32 noundef %62, i32 noundef 2, i32 noundef %64, ptr noundef nonnull @.str.1817, i32 noundef %64) #5
   br label %proto_item_set_generated.exit
 
-71:                                               ; preds = %62
-  %72 = zext i16 %66 to i32
-  %73 = load i32, ptr @hf_r3_firmwaredownload_crc, align 4
-  %74 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.062, i32 noundef %73, ptr noundef %11, i32 noundef %63, i32 noundef 2, i32 noundef %65, ptr noundef nonnull @.str.1818, i32 noundef %72, i32 noundef %65) #5
-  %75 = load i32, ptr @hf_r3_firmwaredownload_crc_bad, align 4
-  %76 = call ptr @proto_tree_add_boolean(ptr noundef nonnull %.062, i32 noundef %75, ptr noundef %11, i32 noundef %63, i32 noundef 2, i64 noundef 1) #5
-  %.not.i = icmp eq ptr %76, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %77
+70:                                               ; preds = %.thread
+  %71 = zext i16 %65 to i32
+  %72 = load i32, ptr @hf_r3_firmwaredownload_crc, align 4
+  %73 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.062, i32 noundef %72, ptr noundef %11, i32 noundef %62, i32 noundef 2, i32 noundef %64, ptr noundef nonnull @.str.1818, i32 noundef %71, i32 noundef %64) #5
+  %74 = load i32, ptr @hf_r3_firmwaredownload_crc_bad, align 4
+  %75 = call ptr @proto_tree_add_boolean(ptr noundef nonnull %.062, i32 noundef %74, ptr noundef %11, i32 noundef %62, i32 noundef 2, i64 noundef 1) #5
+  %.not.i = icmp eq ptr %75, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %76
 
-77:                                               ; preds = %71
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %79 = load ptr, ptr %78, align 8
-  %.not5.i = icmp eq ptr %79, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %80
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  %78 = load ptr, ptr %77, align 8
+  %.not5.i = icmp eq ptr %78, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %79
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 28
-  %82 = load i32, ptr %81, align 4
-  %83 = or i32 %82, 2
-  store i32 %83, ptr %81, align 4
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 28
+  %81 = load i32, ptr %80, align 4
+  %82 = or i32 %81, 2
+  store i32 %82, ptr %80, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %80, %77, %71, %57, %54, %51, %37, %30, %68, %60
+proto_item_set_generated.exit:                    ; preds = %79, %76, %70, %57, %54, %51, %37, %30, %67, %60
   ret void
 }
 

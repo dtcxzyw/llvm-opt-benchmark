@@ -4623,7 +4623,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %2721 = fpext float %2720 to double
   %2722 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %2685, ptr noundef %2681, double noundef %2687, double noundef %2689, double noundef %2691, double noundef %2693, double noundef %2694, double noundef %2696, double noundef %2698, ptr noundef %2566, double noundef %2700, double noundef %2702, double noundef %2704, double noundef %2706, double noundef %2708, double noundef %2710, double noundef %2712, double noundef %2714, double noundef %2716, double noundef %2719, double noundef %2721) #28, !noalias !88
   store ptr %2722, ptr %2683, align 8, !tbaa !179, !noalias !88
-  call void @free(ptr noundef %130) #28, !noalias !88
+  call void @free(ptr noundef nonnull %130) #28, !noalias !88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #28, !noalias !88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #28, !noalias !88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #28, !noalias !88

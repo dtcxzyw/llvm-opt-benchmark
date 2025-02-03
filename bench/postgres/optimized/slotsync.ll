@@ -1281,12 +1281,12 @@ get_local_synced_slots.exit.i:                    ; preds = %174
   br i1 %201, label %.split.i.i, label %195
 
 .split.i.i:                                       ; preds = %196
-  %202 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %189, i8 1, ptr elementtype(i8) %189) #15, !srcloc !5
+  %202 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %189, i8 1, ptr nonnull elementtype(i8) %189) #15, !srcloc !5
   %.not19.i.i = icmp eq i8 %202, 0
   br i1 %.not19.i.i, label %205, label %203
 
 203:                                              ; preds = %.split.i.i
-  %204 = call i32 @s_lock(ptr noundef %189, ptr noundef nonnull @.str.2, i32 noundef 255, ptr noundef nonnull @__func__.local_sync_slot_required) #15
+  %204 = call i32 @s_lock(ptr noundef nonnull %189, ptr noundef nonnull @.str.2, i32 noundef 255, ptr noundef nonnull @__func__.local_sync_slot_required) #15
   br label %205
 
 205:                                              ; preds = %203, %.split.i.i

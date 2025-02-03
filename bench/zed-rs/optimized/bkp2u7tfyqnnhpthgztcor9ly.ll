@@ -9660,7 +9660,7 @@ _ZN4core3ops8function6FnOnce9call_once17h37fb45b56787581dE.exit.i.i: ; preds = %
           to label %.sink.split unwind label %113
 
 103:                                              ; preds = %94
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h69c2a44a94e22944E"(ptr noalias noundef align 8 dereferenceable(24) %92)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h69c2a44a94e22944E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %92)
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17h2d93bc638c26e707E.llvm.14582701375544310392.exit.i" unwind label %104, !noalias !2424
 
 104:                                              ; preds = %103
@@ -9719,7 +9719,7 @@ _ZN4core3ops8function6FnOnce9call_once17h37fb45b56787581dE.exit.i.i: ; preds = %
 118:                                              ; preds = %115
   call void @llvm.experimental.noalias.scope.decl(metadata !2435)
   %119 = load ptr, ptr %91, align 8, !alias.scope !2438, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h69c2a44a94e22944E"(ptr noalias noundef align 8 dereferenceable(24) %119)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h69c2a44a94e22944E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %119)
           to label %.sink.split51.sink.split unwind label %120, !noalias !2439
 
 120:                                              ; preds = %118
@@ -9815,7 +9815,7 @@ _ZN4core3ops8function6FnOnce9call_once17h37fb45b56787581dE.exit.i.i: ; preds = %
           to label %.sink.split52 unwind label %161
 
 151:                                              ; preds = %142
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h69c2a44a94e22944E"(ptr noalias noundef align 8 dereferenceable(24) %140)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h69c2a44a94e22944E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %140)
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17h2d93bc638c26e707E.llvm.14582701375544310392.exit.i23" unwind label %152, !noalias !2447
 
 152:                                              ; preds = %151
@@ -9874,7 +9874,7 @@ _ZN4core3ops8function6FnOnce9call_once17h37fb45b56787581dE.exit.i.i: ; preds = %
 166:                                              ; preds = %163
   call void @llvm.experimental.noalias.scope.decl(metadata !2458)
   %167 = load ptr, ptr %139, align 8, !alias.scope !2461, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h69c2a44a94e22944E"(ptr noalias noundef align 8 dereferenceable(24) %167)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h69c2a44a94e22944E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %167)
           to label %.sink.split51.sink.split unwind label %168, !noalias !2462
 
 168:                                              ; preds = %166

@@ -8557,7 +8557,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_2io14InputSplitBase5ChunkEE4
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #12
+  call void @__cxa_free_exception(ptr nonnull %68) #12
   br label %74
 
 72:                                               ; preds = %69

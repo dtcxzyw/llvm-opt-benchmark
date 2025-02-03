@@ -603,7 +603,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.24, ptr noundef nonnull %15) #16
   %174 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.25, i32 noundef 5) #16
   call void (ptr, ...) @dt_control_log(ptr noundef %174, ptr noundef nonnull %15) #16
-  call void @free(ptr noundef %103) #16
+  call void @free(ptr noundef nonnull %103) #16
   call void @g_free(ptr noundef %157) #16
   call void @g_free(ptr noundef %158) #16
   br label %211

@@ -34435,15 +34435,15 @@ _ZSt10_ConstructIN7xgboost6common15WQuantileSketchIffEEJRKS3_EEvPT_DpOT0_.exit.i
   %43 = tail call ptr @__cxa_begin_catch(ptr %42) #13
   %44 = getelementptr inbounds %"class.xgboost::common::WQuantileSketch", ptr %27, i64 %1
   invoke void @_ZSt8_DestroyIPN7xgboost6common15WQuantileSketchIffEES3_EvT_S5_RSaIT0_E(ptr noundef nonnull %27, ptr noundef nonnull %44, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseIN7xgboost6common15WQuantileSketchIffEESaIS3_EE13_M_deallocateEPS3_m.exit unwind label %45
+          to label %.thread unwind label %45
 
-45:                                               ; preds = %_ZNSt12_Vector_baseIN7xgboost6common15WQuantileSketchIffEESaIS3_EE13_M_deallocateEPS3_m.exit, %.body
+45:                                               ; preds = %.thread, %.body
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %86 unwind label %87
 
-_ZNSt12_Vector_baseIN7xgboost6common15WQuantileSketchIffEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %.body
+.thread:                                          ; preds = %.body
   tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %25) #31
   invoke void @__cxa_rethrow() #29
           to label %90 unwind label %45
@@ -34545,7 +34545,7 @@ _ZNSt12_Vector_baseIN7xgboost6common15WQuantileSketchIffEESaIS3_EE13_M_deallocat
   tail call void @__clang_call_terminate(ptr %89) #32
   unreachable
 
-90:                                               ; preds = %_ZNSt12_Vector_baseIN7xgboost6common15WQuantileSketchIffEESaIS3_EE13_M_deallocateEPS3_m.exit
+90:                                               ; preds = %.thread
   unreachable
 }
 
@@ -41293,15 +41293,15 @@ _ZSt10_ConstructIN7xgboost6common16WXQuantileSketchIffEEJRKS3_EEvPT_DpOT0_.exit.
   %43 = tail call ptr @__cxa_begin_catch(ptr %42) #13
   %44 = getelementptr inbounds %"class.xgboost::common::WXQuantileSketch", ptr %27, i64 %1
   invoke void @_ZSt8_DestroyIPN7xgboost6common16WXQuantileSketchIffEES3_EvT_S5_RSaIT0_E(ptr noundef nonnull %27, ptr noundef nonnull %44, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseIN7xgboost6common16WXQuantileSketchIffEESaIS3_EE13_M_deallocateEPS3_m.exit unwind label %45
+          to label %.thread unwind label %45
 
-45:                                               ; preds = %_ZNSt12_Vector_baseIN7xgboost6common16WXQuantileSketchIffEESaIS3_EE13_M_deallocateEPS3_m.exit, %.body
+45:                                               ; preds = %.thread, %.body
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %86 unwind label %87
 
-_ZNSt12_Vector_baseIN7xgboost6common16WXQuantileSketchIffEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %.body
+.thread:                                          ; preds = %.body
   tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %25) #31
   invoke void @__cxa_rethrow() #29
           to label %90 unwind label %45
@@ -41403,7 +41403,7 @@ _ZNSt12_Vector_baseIN7xgboost6common16WXQuantileSketchIffEESaIS3_EE13_M_dealloca
   tail call void @__clang_call_terminate(ptr %89) #32
   unreachable
 
-90:                                               ; preds = %_ZNSt12_Vector_baseIN7xgboost6common16WXQuantileSketchIffEESaIS3_EE13_M_deallocateEPS3_m.exit
+90:                                               ; preds = %.thread
   unreachable
 }
 

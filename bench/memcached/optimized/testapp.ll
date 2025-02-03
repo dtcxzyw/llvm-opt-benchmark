@@ -886,7 +886,7 @@ if.else5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   call void @stats_prefix_record_set(ptr noundef nonnull @.str.80, i64 noundef 7) #20
-  call void @free(ptr noundef %call1) #20
+  call void @free(ptr noundef nonnull %call1) #20
   %call7 = call ptr @stats_prefix_dump(ptr noundef nonnull %length) #20
   %call8 = call i32 @strcmp(ptr noundef nonnull dereferenceable(42) @.str.96, ptr noundef nonnull dereferenceable(1) %call7) #23
   %cmp9 = icmp eq i32 %call8, 0
@@ -907,7 +907,7 @@ if.else17:                                        ; preds = %if.end12
 
 if.end18:                                         ; preds = %if.end12
   call void @stats_prefix_record_get(ptr noundef nonnull @.str.80, i64 noundef 7, i1 noundef zeroext false) #20
-  call void @free(ptr noundef %call7) #20
+  call void @free(ptr noundef nonnull %call7) #20
   %call19 = call ptr @stats_prefix_dump(ptr noundef nonnull %length) #20
   %call20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(42) @.str.99, ptr noundef nonnull dereferenceable(1) %call19) #23
   %cmp21 = icmp eq i32 %call20, 0
@@ -928,7 +928,7 @@ if.else31:                                        ; preds = %if.end25
 
 if.end32:                                         ; preds = %if.end25
   call void @stats_prefix_record_get(ptr noundef nonnull @.str.80, i64 noundef 7, i1 noundef zeroext true) #20
-  call void @free(ptr noundef %call19) #20
+  call void @free(ptr noundef nonnull %call19) #20
   %call33 = call ptr @stats_prefix_dump(ptr noundef nonnull %length) #20
   %call34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(42) @.str.100, ptr noundef nonnull dereferenceable(1) %call33) #23
   %cmp35 = icmp eq i32 %call34, 0
@@ -949,7 +949,7 @@ if.else45:                                        ; preds = %if.end39
 
 if.end46:                                         ; preds = %if.end39
   call void @stats_prefix_record_delete(ptr noundef nonnull @.str.80, i64 noundef 7) #20
-  call void @free(ptr noundef %call33) #20
+  call void @free(ptr noundef nonnull %call33) #20
   %call47 = call ptr @stats_prefix_dump(ptr noundef nonnull %length) #20
   %call48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(42) @.str.101, ptr noundef nonnull dereferenceable(1) %call47) #23
   %cmp49 = icmp eq i32 %call48, 0
@@ -970,7 +970,7 @@ if.else59:                                        ; preds = %if.end53
 
 if.end60:                                         ; preds = %if.end53
   call void @stats_prefix_record_delete(ptr noundef nonnull @.str.102, i64 noundef 7) #20
-  call void @free(ptr noundef %call47) #20
+  call void @free(ptr noundef nonnull %call47) #20
   %call61 = call ptr @stats_prefix_dump(ptr noundef nonnull %length) #20
   %call62 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call61, ptr noundef nonnull dereferenceable(1) @.str.103) #23
   %cmp63.not = icmp eq ptr %call62, null
@@ -999,7 +999,7 @@ if.else78:                                        ; preds = %if.end73
   unreachable
 
 if.end79:                                         ; preds = %if.end73
-  call void @free(ptr noundef %call61) #20
+  call void @free(ptr noundef nonnull %call61) #20
   br label %for.body
 
 for.body:                                         ; preds = %if.end79, %for.inc
@@ -1064,7 +1064,7 @@ if.else124:                                       ; preds = %if.end116
   unreachable
 
 if.end125:                                        ; preds = %if.end116
-  call void @free(ptr noundef %call98) #20
+  call void @free(ptr noundef nonnull %call98) #20
   call void @stats_prefix_clear() #20
   ret i32 1
 }

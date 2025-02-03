@@ -62,12 +62,12 @@ mca_base_component_parse_requested.exit.thread:   ; preds = %8, %12, %18, %4
   %.043 = phi ptr [ null, %4 ], [ %21, %18 ], [ null, %12 ], [ null, %8 ]
   %.042 = phi i1 [ true, %4 ], [ %20, %18 ], [ true, %12 ], [ true, %8 ]
   %.not31 = icmp eq ptr %7, null
-  br i1 %.not31, label %.loopexit, label %.preheader
+  br i1 %.not31, label %.loopexit49, label %.preheader
 
 .preheader:                                       ; preds = %mca_base_component_parse_requested.exit.thread
   %24 = load ptr, ptr %7, align 8
   %.not3250 = icmp eq ptr %24, null
-  br i1 %.not3250, label %.loopexit, label %.lr.ph
+  br i1 %.not3250, label %.loopexit49, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -97,7 +97,7 @@ mca_base_component_parse_requested.exit.thread:   ; preds = %8, %12, %18, %4
 
 39:                                               ; preds = %38, %33
   %.not9.i = icmp eq ptr %35, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %40
+  br i1 %.not9.i, label %opal_obj_new.exit, label %40
 
 40:                                               ; preds = %39
   store ptr @mca_base_component_list_item_t_class, ptr %35, align 8
@@ -106,7 +106,7 @@ mca_base_component_parse_requested.exit.thread:   ; preds = %8, %12, %18, %4
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_base_component_list_item_t_class, i64 40), align 8
   %43 = load ptr, ptr %42, align 8
   %.not6.i.i = icmp eq ptr %43, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread49, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %40, %.lr.ph.i.i
   %44 = phi ptr [ %46, %.lr.ph.i.i ], [ %43, %40 ]
@@ -115,9 +115,9 @@ mca_base_component_parse_requested.exit.thread:   ; preds = %8, %12, %18, %4
   %45 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread49, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread49:                       ; preds = %.lr.ph.i.i, %40
+.loopexit:                                        ; preds = %.lr.ph.i.i, %40
   %47 = load ptr, ptr %30, align 8
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store ptr %47, ptr %48, align 8
@@ -135,17 +135,17 @@ opal_obj_new.exit.thread49:                       ; preds = %.lr.ph.i.i, %40
   store volatile i64 %55, ptr %27, align 8
   br label %56
 
-56:                                               ; preds = %28, %opal_obj_new.exit.thread49
+56:                                               ; preds = %28, %.loopexit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next
   %58 = load ptr, ptr %57, align 8
   %.not32 = icmp eq ptr %58, null
-  br i1 %.not32, label %.loopexit, label %28, !llvm.loop !6
+  br i1 %.not32, label %.loopexit49, label %28, !llvm.loop !6
 
-.loopexit:                                        ; preds = %56, %.preheader, %mca_base_component_parse_requested.exit.thread
+.loopexit49:                                      ; preds = %56, %.preheader, %mca_base_component_parse_requested.exit.thread
   br i1 %3, label %59, label %79
 
-59:                                               ; preds = %.loopexit
+59:                                               ; preds = %.loopexit49
   %60 = load i8, ptr @mca_base_component_disable_dlopen, align 1
   %61 = trunc i8 %60 to i1
   br i1 %61, label %79, label %62
@@ -180,7 +180,7 @@ opal_obj_new.exit.thread49:                       ; preds = %.lr.ph.i.i, %40
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %.lr.ph.i
-  %74 = call i32 @mca_base_component_repository_open(ptr noundef %1, ptr noundef %.018.i) #8
+  %74 = call i32 @mca_base_component_repository_open(ptr noundef %1, ptr noundef nonnull %.018.i) #8
   br label %75
 
 75:                                               ; preds = %73, %.lr.ph.i
@@ -195,7 +195,7 @@ find_dyn_components.exit:                         ; preds = %75, %63, %65, %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %84
 
-79:                                               ; preds = %.loopexit, %59
+79:                                               ; preds = %.loopexit49, %59
   %80 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef 0) #8
   br i1 %80, label %81, label %84
 
@@ -206,23 +206,23 @@ find_dyn_components.exit:                         ; preds = %75, %63, %65, %67
   br label %84
 
 84:                                               ; preds = %81, %79, %find_dyn_components.exit
-  br i1 %.042, label %85, label %opal_obj_new.exit.thread
+  br i1 %.042, label %85, label %opal_obj_new.exit
 
 85:                                               ; preds = %84
   %86 = call fastcc i32 @component_find_check(ptr noundef %1, ptr noundef %.043)
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %39, %84, %85
+opal_obj_new.exit:                                ; preds = %39, %84, %85
   %.024 = phi i32 [ %86, %85 ], [ 0, %84 ], [ -2, %39 ]
   %.not33 = icmp eq ptr %.043, null
   br i1 %.not33, label %88, label %87
 
-87:                                               ; preds = %opal_obj_new.exit.thread
+87:                                               ; preds = %opal_obj_new.exit
   call void @opal_argv_free(ptr noundef nonnull %.043) #8
   br label %88
 
-88:                                               ; preds = %mca_base_component_parse_requested.exit, %opal_obj_new.exit.thread, %87
-  %.025 = phi i32 [ -1, %mca_base_component_parse_requested.exit ], [ %.024, %87 ], [ %.024, %opal_obj_new.exit.thread ]
+88:                                               ; preds = %mca_base_component_parse_requested.exit, %opal_obj_new.exit, %87
+  %.025 = phi i32 [ -1, %mca_base_component_parse_requested.exit ], [ %.024, %87 ], [ %.024, %opal_obj_new.exit ]
   ret i32 %.025
 }
 
@@ -570,7 +570,7 @@ mca_base_component_parse_requested.exit:          ; preds = %12
   %51 = add i64 %50, -1
   store volatile i64 %51, ptr %27, align 8
   %52 = load volatile ptr, ptr %44, align 8
-  tail call void @mca_base_component_unload(ptr noundef %30, i32 noundef %4) #8
+  tail call void @mca_base_component_unload(ptr noundef nonnull %30, i32 noundef %4) #8
   %53 = getelementptr inbounds nuw i8, ptr %.04474, i64 8
   %54 = load i8, ptr @opal_uses_threads, align 1
   %55 = trunc i8 %54 to i1
@@ -611,7 +611,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %56, %59
   br i1 %.not.i58, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !13
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %64
-  tail call void @free(ptr noundef %.04474) #8
+  tail call void @free(ptr noundef nonnull %.04474) #8
   br label %77
 
 72:                                               ; preds = %33

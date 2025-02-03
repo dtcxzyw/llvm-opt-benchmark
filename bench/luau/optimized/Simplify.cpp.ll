@@ -5703,7 +5703,7 @@ define dso_local noundef ptr @_ZN4Luau14TypeSimplifier9intersectEPKNS_4TypeES3_(
 26:                                               ; preds = %23
   %27 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %24) #19
+  tail call void @__cxa_free_exception(ptr nonnull %24) #19
   br label %common.resume
 
 28:                                               ; preds = %25
@@ -10082,7 +10082,7 @@ define dso_local noundef ptr @_ZN4Luau14TypeSimplifier6union_EPKNS_4TypeES3_(ptr
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %20) #19
+  tail call void @__cxa_free_exception(ptr nonnull %20) #19
   br label %common.resume
 
 24:                                               ; preds = %21
@@ -10878,7 +10878,7 @@ define dso_local noundef ptr @_ZN4Luau14TypeSimplifier8simplifyEPKNS_4TypeERNS_1
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #19
+  tail call void @__cxa_free_exception(ptr nonnull %10) #19
   br label %common.resume
 
 14:                                               ; preds = %11

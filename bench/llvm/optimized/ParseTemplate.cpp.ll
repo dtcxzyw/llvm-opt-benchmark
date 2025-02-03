@@ -7204,7 +7204,7 @@ _ZN5clang11DeclContext16getLexicalParentEv.exit32: ; preds = %_ZN5clang4Sema14re
   %178 = load ptr, ptr %15, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 608
   %180 = load ptr, ptr %179, align 8
-  %181 = call noundef ptr @_ZN5clang4Sema23ActOnStartOfFunctionDefEPNS_5ScopeEPNS_4DeclEPNS_12SkipBodyInfoENS0_10FnBodyKindE(ptr noundef nonnull align 8 dereferenceable(17560) %178, ptr noundef %180, ptr noundef %13, ptr noundef null, i32 noundef 0) #16
+  %181 = call noundef ptr @_ZN5clang4Sema23ActOnStartOfFunctionDefEPNS_5ScopeEPNS_4DeclEPNS_12SkipBodyInfoENS0_10FnBodyKindE(ptr noundef nonnull align 8 dereferenceable(17560) %178, ptr noundef %180, ptr noundef nonnull %13, ptr noundef null, i32 noundef 0) #16
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %183 = load i16, ptr %182, align 8
   switch i16 %183, label %189 [
@@ -7237,7 +7237,7 @@ _ZN5clang11DeclContext16getLexicalParentEv.exit32: ; preds = %_ZN5clang4Sema14re
   %196 = load ptr, ptr %10, align 8
   %197 = call noundef ptr @_ZN5clang6Parser26ParseFunctionStatementBodyEPNS_4DeclERNS0_10ParseScopeE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef %196, ptr noundef nonnull align 8 dereferenceable(8) %9) #16
   %198 = load ptr, ptr %15, align 8
-  call void @_ZN5clang4Sema26UnmarkAsLateParsedTemplateEPNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %198, ptr noundef %13) #16
+  call void @_ZN5clang4Sema26UnmarkAsLateParsedTemplateEPNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %198, ptr noundef nonnull %13) #16
   br label %203
 
 199:                                              ; preds = %192

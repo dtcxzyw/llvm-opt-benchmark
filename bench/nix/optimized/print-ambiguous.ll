@@ -804,7 +804,7 @@ _ZNSt10shared_ptrIN3nix13InputAccessorEEC2ERKS2_.exit.i: ; preds = %34, %31, %_Z
 40:                                               ; preds = %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %38) #21
+  tail call void @__cxa_free_exception(ptr nonnull %38) #21
   br label %44
 
 42:                                               ; preds = %39

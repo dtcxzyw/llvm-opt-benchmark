@@ -1872,7 +1872,7 @@ if.then.i582:                                     ; preds = %lor.rhs.i577, %_ZNS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i559) #25
   store ptr %report, ptr %ref.tmp9.i559, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i560) #25
-  %call12.i585 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIPKN3ue28raw_puffESt4lessIS6_ESaIS6_EEESt10_Select1stISB_ES7_IjESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESL_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %puff_map, ptr %__y.addr.0.lcssa.i.i.i24.i583, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i559, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i560)
+  %call12.i585 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIPKN3ue28raw_puffESt4lessIS6_ESaIS6_EEESt10_Select1stISB_ES7_IjESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESL_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %puff_map, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i583, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i559, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i560)
           to label %call12.i.noexc584 unwind label %lpad241
 
 call12.i.noexc584:                                ; preds = %if.then.i582
@@ -2008,7 +2008,7 @@ if.then.i657:                                     ; preds = %lor.rhs.i652, %_ZNS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i633) #25
   store ptr %report276, ptr %ref.tmp9.i633, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i634) #25
-  %call12.i660 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIPKN3ue28raw_puffESt4lessIS6_ESaIS6_EEESt10_Select1stISB_ES7_IjESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESL_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %puff_map, ptr %__y.addr.0.lcssa.i.i.i24.i658, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i633, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i634)
+  %call12.i660 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIPKN3ue28raw_puffESt4lessIS6_ESaIS6_EEESt10_Select1stISB_ES7_IjESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESL_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %puff_map, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i658, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i633, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i634)
           to label %call12.i.noexc659 unwind label %lpad277
 
 call12.i.noexc659:                                ; preds = %if.then.i657
@@ -2156,7 +2156,7 @@ for.body.i.i.i.i718:                              ; preds = %_ZNSt3setIjSt4lessI
           to label %call3.i.i.i.i.i.noexc720 unwind label %lpad333.loopexit.split-lp.loopexit.split-lp
 
 call3.i.i.i.i.i.noexc720:                         ; preds = %for.body.i.i.i.i718
-  %call.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.010.i.i.i.i) #26
+  %call.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.010.i.i.i.i) #26
   %cmp.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, %add.ptr.i.i.i717
   br i1 %cmp.i.not.i.i.i.i, label %invoke.cont334.loopexit, label %for.body.i.i.i.i718, !llvm.loop !28
 
@@ -2175,7 +2175,7 @@ for.body314:                                      ; preds = %invoke.cont304, %in
 
 invoke.cont319:                                   ; preds = %for.body314
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i723) #25
-  %call.i726 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1305.sroa.0.0801) #26
+  %call.i726 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1305.sroa.0.0801) #26
   %cmp.i712.not = icmp eq ptr %call.i726, %add.ptr.i.i711
   br i1 %cmp.i712.not, label %for.cond.cleanup313, label %for.body314
 
@@ -2210,7 +2210,7 @@ for.body.i.i.i.i731:                              ; preds = %invoke.cont334, %ca
           to label %call3.i.i.i.i.i.noexc736 unwind label %lpad333.loopexit.split-lp.loopexit
 
 call3.i.i.i.i.i.noexc736:                         ; preds = %for.body.i.i.i.i731
-  %call.i.i.i.i.i734 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.010.i.i.i.i732) #26
+  %call.i.i.i.i.i734 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.010.i.i.i.i732) #26
   %cmp.i.not.i.i.i.i735 = icmp eq ptr %call.i.i.i.i.i734, %add.ptr.i.i.i729
   br i1 %cmp.i.not.i.i.i.i735, label %invoke.cont338.loopexit, label %for.body.i.i.i.i731, !llvm.loop !28
 
@@ -2238,7 +2238,7 @@ for.body.i.i.i.i743:                              ; preds = %invoke.cont338, %ca
           to label %call3.i.i.i.i.i.noexc748 unwind label %lpad333.loopexit
 
 call3.i.i.i.i.i.noexc748:                         ; preds = %for.body.i.i.i.i743
-  %call.i.i.i.i.i746 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.010.i.i.i.i744) #26
+  %call.i.i.i.i.i746 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.010.i.i.i.i744) #26
   %cmp.i.not.i.i.i.i747 = icmp eq ptr %call.i.i.i.i.i746, %add.ptr.i.i.i741
   br i1 %cmp.i.not.i.i.i.i747, label %do.end, label %for.body.i.i.i.i743, !llvm.loop !28
 
@@ -3002,7 +3002,7 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIN3ue
   br label %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE17_M_insert_unique_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EOT_RT0_.exit.i
 
 _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE17_M_insert_unique_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EOT_RT0_.exit.i: ; preds = %call5.i.i.i.i.i.i.i.i.noexc, %call3.i.i.noexc
-  %call.i.i49 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.013.i) #26
+  %call.i.i49 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.013.i) #26
   %cmp.i.not.i50 = icmp eq ptr %call.i.i49, %add.ptr.i.i.i607
   br i1 %cmp.i.not.i50, label %if.end51, label %for.body.i, !llvm.loop !60
 
@@ -3093,7 +3093,7 @@ for.body.i.i.i656:                                ; preds = %invoke.cont56, %cal
           to label %call7.i.i.i.noexc unwind label %lpad41.loopexit
 
 call7.i.i.i.noexc:                                ; preds = %for.body.i.i.i656
-  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.013.i.i.i) #26
+  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.013.i.i.i) #26
   %cmp.i.not.i.i.i657 = icmp eq ptr %call.i.i.i.i, %add.ptr.i.i.i654
   br i1 %cmp.i.not.i.i.i657, label %_ZN3ue26insertISt3setINS_9suffix_idESt4lessIS2_ESaIS2_EES6_EEvPT_RKT0_.exit, label %for.body.i.i.i656, !llvm.loop !62
 
@@ -5432,7 +5432,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   resume { ptr, i32 } %0
 }
 

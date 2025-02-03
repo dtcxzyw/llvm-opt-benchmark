@@ -409,7 +409,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %83, %86
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %91
-  call void @free(ptr noundef %2) #17
+  call void @free(ptr noundef nonnull %2) #17
   br label %99
 
 99:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
@@ -2156,7 +2156,7 @@ opal_pointer_array_get_item.exit54:               ; preds = %51, %57
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %.lr.ph60.split
-  call void @opal_info_show_mca_version(ptr noundef %79, ptr noundef %4, ptr noundef %5)
+  call void @opal_info_show_mca_version(ptr noundef nonnull %79, ptr noundef %4, ptr noundef %5)
   %.pre78 = load ptr, ptr %67, align 8
   br label %84
 

@@ -2575,7 +2575,7 @@ _ZN12clap_builder7mkeymap7MKeyMap3get17h7e95d0fa05320e69E.exit.thread.i: ; preds
   br label %.critedge.thread
 
 745:                                              ; preds = %.noexc3126, %.noexc3124
-  %.0.i3123 = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc3124 ], [ %738, %.noexc3126 ]
+  %.0.i3123 = phi ptr [ %738, %.noexc3126 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc3124 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35), !noalias !509
   store ptr %727, ptr %224, align 8, !alias.scope !506, !noalias !520
   %746 = getelementptr inbounds nuw i8, ptr %224, i64 8
@@ -2757,7 +2757,7 @@ _ZN12clap_builder7mkeymap7MKeyMap3get17h7e95d0fa05320e69E.exit.thread.i: ; preds
   br label %.thread843
 
 800:                                              ; preds = %.noexc3141, %.noexc3139
-  %.0.i3138 = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc3139 ], [ %793, %.noexc3141 ]
+  %.0.i3138 = phi ptr [ %793, %.noexc3141 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc3139 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33), !noalias !538
   store ptr %782, ptr %235, align 8, !alias.scope !535, !noalias !549
   %801 = getelementptr inbounds nuw i8, ptr %235, i64 8
@@ -3249,7 +3249,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i3169: ; preds = %"_ZN91_$LT$core.
   br label %.critedge.i3167
 
 952:                                              ; preds = %.noexc78.i, %.noexc76.i
-  %.0.i75.i3171 = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc76.i ], [ %945, %.noexc78.i ]
+  %.0.i75.i3171 = phi ptr [ %945, %.noexc78.i ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc76.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !681
   store ptr %833, ptr %20, align 8, !alias.scope !695, !noalias !699
   %.sroa.491.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -5717,7 +5717,7 @@ _ZN12clap_builder6parser6parser6Parser10is_new_arg17hd64cc1decfadfc95E.exit.thre
   br label %.critedge329
 
 1730:                                             ; preds = %.noexc552, %.noexc550
-  %.0.i549 = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc550 ], [ %1723, %.noexc552 ]
+  %.0.i549 = phi ptr [ %1723, %.noexc552 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc550 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %104), !noalias !1503
   store ptr %1712, ptr %198, align 8, !alias.scope !1500, !noalias !1514
   %1731 = getelementptr inbounds nuw i8, ptr %198, i64 8
@@ -6500,7 +6500,7 @@ _ZN12clap_builder7builder12value_parser11ValueParser9parse_ref17he6c26e3c7a41b22
   unreachable
 
 1992:                                             ; preds = %.noexc620, %.noexc618
-  %.0.i617 = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc618 ], [ %1986, %.noexc620 ]
+  %.0.i617 = phi ptr [ %1986, %.noexc620 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc618 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %99), !noalias !1680
   store ptr %1975, ptr %188, align 8, !alias.scope !1677, !noalias !1691
   %1993 = getelementptr inbounds nuw i8, ptr %188, i64 8
@@ -6719,7 +6719,7 @@ _ZN12clap_builder7builder12value_parser11ValueParser9parse_ref17he6c26e3c7a41b22
   br label %2026
 
 2053:                                             ; preds = %.noexc68.i, %.noexc.i648
-  %.0.i.i650 = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc.i648 ], [ %2046, %.noexc68.i ]
+  %.0.i.i650 = phi ptr [ %2046, %.noexc68.i ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc.i648 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68), !noalias !1714
   store ptr %2035, ptr %93, align 8, !alias.scope !1711, !noalias !1725
   %2054 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -7159,7 +7159,7 @@ _ZN12clap_builder7builder12value_parser11ValueParser9parse_ref17he6c26e3c7a41b22
   br label %.critedge66.i
 
 2204:                                             ; preds = %.noexc122.i, %.noexc120.i
-  %.0.i119.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc120.i ], [ %2197, %.noexc122.i ]
+  %.0.i119.i = phi ptr [ %2197, %.noexc122.i ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc120.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60), !noalias !1831
   store ptr %2186, ptr %69, align 8, !alias.scope !1828, !noalias !1842
   %2205 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -7297,7 +7297,7 @@ _ZN12clap_builder7builder12value_parser11ValueParser9parse_ref17he6c26e3c7a41b22
   br label %2221
 
 2248:                                             ; preds = %.noexc142.i, %.noexc140.i
-  %.0.i139.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc140.i ], [ %2241, %.noexc142.i ]
+  %.0.i139.i = phi ptr [ %2241, %.noexc142.i ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc140.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58), !noalias !1861
   store ptr %2230, ptr %74, align 8, !alias.scope !1858, !noalias !1872
   %2249 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -7459,7 +7459,7 @@ _ZN12clap_builder7builder12value_parser11ValueParser9parse_ref17he6c26e3c7a41b22
   unreachable
 
 2302:                                             ; preds = %.noexc168.i, %.noexc166.i
-  %.0.i165.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc166.i ], [ %2296, %.noexc168.i ]
+  %.0.i165.i = phi ptr [ %2296, %.noexc168.i ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc166.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56), !noalias !1894
   store ptr %2285, ptr %78, align 8, !alias.scope !1891, !noalias !1905
   %2303 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -7642,7 +7642,7 @@ _ZN12clap_builder7builder12value_parser11ValueParser9parse_ref17he6c26e3c7a41b22
   br label %2319
 
 2352:                                             ; preds = %.noexc185.i, %.noexc183.i
-  %.0.i182.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc183.i ], [ %2345, %.noexc185.i ]
+  %.0.i182.i = phi ptr [ %2345, %.noexc185.i ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc183.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54), !noalias !1924
   store ptr %2332, ptr %87, align 8, !alias.scope !1921, !noalias !1935
   %2353 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -8186,7 +8186,7 @@ _ZN12clap_builder6parser11arg_matcher10ArgMatcher10into_inner17hde2b4d1d09ef83dd
   br label %.critedge315
 
 2534:                                             ; preds = %.noexc715, %.noexc713
-  %.0.i712 = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc713 ], [ %2527, %.noexc715 ]
+  %.0.i712 = phi ptr [ %2527, %.noexc715 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc713 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40), !noalias !2069
   store ptr %2395, ptr %171, align 8, !alias.scope !2066, !noalias !2080
   %2535 = getelementptr inbounds nuw i8, ptr %171, i64 8
@@ -9643,7 +9643,7 @@ _ZN12clap_builder6parser9validator23get_possible_values_cli17hb5607d7066c15412E.
   unreachable
 
 234:                                              ; preds = %.noexc50.i, %.noexc.i
-  %.0.i48.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc.i ], [ %228, %.noexc50.i ]
+  %.0.i48.i = phi ptr [ %228, %.noexc50.i ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32), !noalias !2323
   store ptr %217, ptr %49, align 8, !alias.scope !2320, !noalias !2335
   %235 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -9863,7 +9863,7 @@ _ZN12clap_builder6parser9validator23get_possible_values_cli17hb5607d7066c15412E.
   unreachable
 
 306:                                              ; preds = %.noexc67.i, %.noexc65.i
-  %.0.i64.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc65.i ], [ %300, %.noexc67.i ]
+  %.0.i64.i = phi ptr [ %300, %.noexc67.i ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc65.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27), !noalias !2362
   store ptr %289, ptr %41, align 8, !alias.scope !2359, !noalias !2374
   %307 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -9944,7 +9944,7 @@ _ZN12clap_builder6parser9validator23get_possible_values_cli17hb5607d7066c15412E.
   unreachable
 
 331:                                              ; preds = %.noexc74.i, %.noexc72.i
-  %.0.i71.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc72.i ], [ %325, %.noexc74.i ]
+  %.0.i71.i = phi ptr [ %325, %.noexc74.i ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc72.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !2379
   store ptr %314, ptr %46, align 8, !alias.scope !2376, !noalias !2391
   %332 = getelementptr inbounds nuw i8, ptr %46, i64 8

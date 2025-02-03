@@ -1365,22 +1365,20 @@ define internal fastcc void @"_ZN4core3ptr260drop_in_place$LT$core..option..Opti
 22:                                               ; preds = %12
   %23 = landingpad { ptr, i32 }
           cleanup
-  %24 = icmp ne ptr %.val.i, null
-  tail call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 8
-  %26 = load i64, ptr %25, align 8, !range !37, !invariant.load !4, !noalias !147
-  %27 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 16
-  %28 = load i64, ptr %27, align 8, !range !38, !invariant.load !4, !noalias !147
-  %29 = icmp ult i64 %28, -9223372036854775807
-  tail call void @llvm.assume(i1 %29)
-  %30 = icmp eq i64 %26, 0
-  br i1 %30, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5644224e94013e51E.exit4.i.i", label %31
+  %24 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 8
+  %25 = load i64, ptr %24, align 8, !range !37, !invariant.load !4, !noalias !147
+  %26 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 16
+  %27 = load i64, ptr %26, align 8, !range !38, !invariant.load !4, !noalias !147
+  %28 = icmp ult i64 %27, -9223372036854775807
+  tail call void @llvm.assume(i1 %28)
+  %29 = icmp eq i64 %25, 0
+  br i1 %29, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5644224e94013e51E.exit4.i.i", label %30
 
-31:                                               ; preds = %22
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, -9223372036854775808) %26, i64 noundef range(i64 1, -9223372036854775807) %28) #26, !noalias !147
+30:                                               ; preds = %22
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, -9223372036854775808) %25, i64 noundef range(i64 1, -9223372036854775807) %27) #26, !noalias !147
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5644224e94013e51E.exit4.i.i"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5644224e94013e51E.exit4.i.i": ; preds = %31, %22
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5644224e94013e51E.exit4.i.i": ; preds = %30, %22
   resume { ptr, i32 } %23
 }
 

@@ -1021,7 +1021,7 @@ define dso_local void @_ZN4llvm4json6toJSONERKSt3mapImNS_17PGOCtxProfContextESt4
 
 _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit:  ; preds = %14, %17
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #20
-  %18 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.010) #24
+  %18 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.010) #24
   %.not = icmp eq ptr %18, %7
   br i1 %.not, label %._crit_edge.loopexit, label %10
 
@@ -2242,7 +2242,7 @@ _ZN4llvm16DenseMapIteratorImNS_20PGOContextualProfile12FunctionInfoENS_12DenseMa
 
 _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.i: ; preds = %154, %151
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %10) #20, !noalias !53
-  %155 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.010.i) #24, !noalias !53
+  %155 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.010.i) #24, !noalias !53
   %.not.i = icmp eq ptr %155, %144
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %147
 

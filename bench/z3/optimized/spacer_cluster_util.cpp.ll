@@ -5564,7 +5564,7 @@ if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   br i1 %cmp1.not.i.i.i.i, label %if.then3.i.i, label %while.body.i.i.i.i, !llvm.loop !17
 
 if.then3.i.i:                                     ; preds = %if.end4.i.i.i.i
-  invoke void @_ZSt21__inplace_stable_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer19arith_add_less_procEEEEvT_S9_T0_(ptr noundef %.pre138, ptr noundef nonnull %add.ptr, ptr %agg.tmp.sroa.0.0.copyload)
+  invoke void @_ZSt21__inplace_stable_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer19arith_add_less_procEEEEvT_S9_T0_(ptr noundef nonnull %.pre138, ptr noundef nonnull %add.ptr, ptr %agg.tmp.sroa.0.0.copyload)
           to label %if.end15.i.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.else.i.i, %if.then3.i.i
@@ -5574,7 +5574,7 @@ lpad.i.i:                                         ; preds = %if.else.i.i, %if.th
   br label %eh.resume
 
 if.else.i.i:                                      ; preds = %while.body.i.i.i.i
-  invoke void @_ZSt22__stable_sort_adaptiveIPP4exprS2_lN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer19arith_add_less_procEEEEvT_S9_T0_T1_T2_(ptr noundef %.pre138, ptr noundef nonnull %add.ptr, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i, ptr %agg.tmp.sroa.0.0.copyload)
+  invoke void @_ZSt22__stable_sort_adaptiveIPP4exprS2_lN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer19arith_add_less_procEEEEvT_S9_T0_T1_T2_(ptr noundef nonnull %.pre138, ptr noundef nonnull %add.ptr, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i, ptr %agg.tmp.sroa.0.0.copyload)
           to label %if.end15.i.i unwind label %lpad.i.i
 
 if.end15.i.i:                                     ; preds = %if.else.i.i, %if.then3.i.i
@@ -5781,7 +5781,7 @@ if.end4.i.i.i.i94:                                ; preds = %while.body.i.i.i.i8
   br i1 %cmp1.not.i.i.i.i95, label %if.then2.i.i, label %while.body.i.i.i.i86, !llvm.loop !17
 
 if.then2.i.i:                                     ; preds = %if.end4.i.i.i.i94
-  invoke void @_ZSt21__inplace_stable_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer18bool_and_less_procEEEEvT_S9_T0_(ptr noundef %.pre, ptr noundef nonnull %add.ptr27, ptr %agg.tmp28.sroa.0.0.copyload, ptr %agg.tmp28.sroa.2.0.copyload)
+  invoke void @_ZSt21__inplace_stable_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer18bool_and_less_procEEEEvT_S9_T0_(ptr noundef nonnull %.pre, ptr noundef nonnull %add.ptr27, ptr %agg.tmp28.sroa.0.0.copyload, ptr %agg.tmp28.sroa.2.0.copyload)
           to label %if.end7.i.i unwind label %lpad.i.i83
 
 lpad.i.i83:                                       ; preds = %if.else.i.i93, %if.then2.i.i
@@ -5791,7 +5791,7 @@ lpad.i.i83:                                       ; preds = %if.else.i.i93, %if.
   br label %eh.resume
 
 if.else.i.i93:                                    ; preds = %while.body.i.i.i.i86
-  invoke void @_ZSt22__stable_sort_adaptiveIPP4exprS2_lN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer18bool_and_less_procEEEEvT_S9_T0_T1_T2_(ptr noundef %.pre, ptr noundef nonnull %add.ptr27, ptr noundef nonnull %call.i.i.i.i91, i64 noundef %storemerge27.i.i.i.i89, ptr %agg.tmp28.sroa.0.0.copyload, ptr %agg.tmp28.sroa.2.0.copyload)
+  invoke void @_ZSt22__stable_sort_adaptiveIPP4exprS2_lN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer18bool_and_less_procEEEEvT_S9_T0_T1_T2_(ptr noundef nonnull %.pre, ptr noundef nonnull %add.ptr27, ptr noundef nonnull %call.i.i.i.i91, i64 noundef %storemerge27.i.i.i.i89, ptr %agg.tmp28.sroa.0.0.copyload, ptr %agg.tmp28.sroa.2.0.copyload)
           to label %if.end7.i.i unwind label %lpad.i.i83
 
 if.end7.i.i:                                      ; preds = %if.else.i.i93, %if.then2.i.i

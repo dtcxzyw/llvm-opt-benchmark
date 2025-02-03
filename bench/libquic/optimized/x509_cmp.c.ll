@@ -164,7 +164,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool5.not, label %err, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  call void @free(ptr noundef %call) #8
+  call void @free(ptr noundef nonnull %call) #8
   %2 = load ptr, ptr %a, align 8
   %serialNumber = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %serialNumber, align 8

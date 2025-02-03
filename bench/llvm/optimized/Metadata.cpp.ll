@@ -5497,7 +5497,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseM
   %35 = zext i32 %11 to i64
   %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.405", ptr %9, i64 %35
   %37 = icmp eq ptr %.0.i.pn.i, %36
-  br i1 %37, label %146, label %38
+  br i1 %37, label %144, label %38
 
 38:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5546,7 +5546,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseM
 
 _ZN4llvm15ValueAsMetadataD2Ev.exit:               ; preds = %55, %61
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef 136) #25
-  br label %146
+  br label %144
 
 68:                                               ; preds = %53
   %69 = tail call fastcc noundef ptr @_ZL24getLocalFunctionMetadataPN4llvm5ValueE(ptr noundef nonnull %0)
@@ -5569,7 +5569,7 @@ _ZN4llvm15ValueAsMetadataD2Ev.exit:               ; preds = %55, %61
   tail call void @_ZN4llvm23ReplaceableMetadataImpl18replaceAllUsesWithEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(120) %76, ptr noundef null)
   tail call void @_ZN4llvm15ValueAsMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %43) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef 136) #25
-  br label %146
+  br label %144
 
 77:                                               ; preds = %38
   %78 = icmp ult i8 %52, 22
@@ -5596,7 +5596,7 @@ _ZN4llvm15ValueAsMetadataD2Ev.exit:               ; preds = %55, %61
 
 _ZN4llvm15ValueAsMetadataD2Ev.exit25:             ; preds = %79, %84
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef 136) #25
-  br label %146
+  br label %144
 
 91:                                               ; preds = %77, %68, %70, %72
   %92 = load ptr, ptr %8, align 8
@@ -5661,47 +5661,43 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseM
   %124 = getelementptr inbounds nuw i8, ptr %.0.i.i26, i64 8
   %125 = load ptr, ptr %124, align 8
   %.not23 = icmp eq ptr %125, null
-  br i1 %.not23, label %140, label %126
+  br i1 %.not23, label %138, label %126
 
 126:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit
   %127 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @_ZN4llvm23ReplaceableMetadataImpl18replaceAllUsesWithEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(120) %127, ptr noundef nonnull %125)
-  %128 = icmp eq ptr %43, null
-  br i1 %128, label %146, label %129
+  %128 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %129 = load i32, ptr %128, align 8
+  %130 = and i32 %129, 1
+  %.not.i.i.i.i28 = icmp eq i32 %130, 0
+  br i1 %.not.i.i.i.i28, label %131, label %_ZN4llvm15ValueAsMetadataD2Ev.exit29
 
-129:                                              ; preds = %126
-  %130 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %131 = load i32, ptr %130, align 8
-  %132 = and i32 %131, 1
-  %.not.i.i.i.i28 = icmp eq i32 %132, 0
-  br i1 %.not.i.i.i.i28, label %133, label %_ZN4llvm15ValueAsMetadataD2Ev.exit29
-
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %137 = load i32, ptr %136, align 8
-  %138 = zext i32 %137 to i64
-  %139 = mul nuw nsw i64 %138, 24
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %135, i64 noundef %139, i64 noundef 8) #23
+131:                                              ; preds = %126
+  %132 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %135 = load i32, ptr %134, align 8
+  %136 = zext i32 %135 to i64
+  %137 = mul nuw nsw i64 %136, 24
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %133, i64 noundef %137, i64 noundef 8) #23
   br label %_ZN4llvm15ValueAsMetadataD2Ev.exit29
 
-_ZN4llvm15ValueAsMetadataD2Ev.exit29:             ; preds = %129, %133
+_ZN4llvm15ValueAsMetadataD2Ev.exit29:             ; preds = %126, %131
   call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef 136) #25
-  br label %146
+  br label %144
 
-140:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit
-  %141 = getelementptr inbounds nuw i8, ptr %123, i64 4
-  %142 = load i32, ptr %141, align 4
-  %143 = or i32 %142, 134217728
-  store i32 %143, ptr %141, align 4
-  %144 = load ptr, ptr %3, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %43, i64 128
-  store ptr %144, ptr %145, align 8
+138:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit
+  %139 = getelementptr inbounds nuw i8, ptr %123, i64 4
+  %140 = load i32, ptr %139, align 4
+  %141 = or i32 %140, 134217728
+  store i32 %141, ptr %139, align 4
+  %142 = load ptr, ptr %3, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %43, i64 128
+  store ptr %142, ptr %143, align 8
   store ptr %43, ptr %124, align 8
-  br label %146
+  br label %144
 
-146:                                              ; preds = %126, %_ZN4llvm15ValueAsMetadataD2Ev.exit29, %_ZN4llvm15ValueAsMetadataD2Ev.exit25, %75, %_ZN4llvm15ValueAsMetadataD2Ev.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit, %140
+144:                                              ; preds = %_ZN4llvm15ValueAsMetadataD2Ev.exit29, %_ZN4llvm15ValueAsMetadataD2Ev.exit25, %75, %_ZN4llvm15ValueAsMetadataD2Ev.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit, %138
   ret void
 }
 

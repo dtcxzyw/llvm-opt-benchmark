@@ -1583,7 +1583,7 @@ define internal fastcc void @scale_draw_indicator(ptr noundef %0, ptr noundef %1
   br label %89
 
 86:                                               ; preds = %82
-  %87 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 131072, i8 noundef zeroext 88) #9
+  %87 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 131072, i8 noundef zeroext 88) #9
   %88 = ptrtoint ptr %87 to i64
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %88 to i24
   store i24 %.sroa.0.0.extract.trunc.i.i, ptr %39, align 8
@@ -1600,7 +1600,7 @@ define internal fastcc void @scale_draw_indicator(ptr noundef %0, ptr noundef %1
   br label %99
 
 95:                                               ; preds = %89
-  %96 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 131072, i8 noundef zeroext 89) #9
+  %96 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 131072, i8 noundef zeroext 89) #9
   %97 = ptrtoint ptr %96 to i64
   %98 = trunc i64 %97 to i8
   br label %99
@@ -1617,7 +1617,7 @@ define internal fastcc void @scale_draw_indicator(ptr noundef %0, ptr noundef %1
   br label %107
 
 104:                                              ; preds = %99
-  %105 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 131072, i8 noundef zeroext 91) #9
+  %105 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 131072, i8 noundef zeroext 91) #9
   %106 = ptrtoint ptr %105 to i64
   %.sroa.0.0.extract.trunc.i29.i = trunc i64 %106 to i32
   br label %107
@@ -1634,7 +1634,7 @@ define internal fastcc void @scale_draw_indicator(ptr noundef %0, ptr noundef %1
   br label %114
 
 112:                                              ; preds = %107
-  %113 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 131072, i8 noundef zeroext 90) #9
+  %113 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 131072, i8 noundef zeroext 90) #9
   br label %114
 
 114:                                              ; preds = %112, %110
@@ -1644,37 +1644,37 @@ define internal fastcc void @scale_draw_indicator(ptr noundef %0, ptr noundef %1
   br label %scale_set_indicator_label_properties.exit
 
 115:                                              ; preds = %79
-  %116 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 131072, i8 noundef zeroext 88) #9
+  %116 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 131072, i8 noundef zeroext 88) #9
   %117 = ptrtoint ptr %116 to i64
   %.sroa.0.0.extract.trunc.i30.i = trunc i64 %117 to i24
   store i24 %.sroa.0.0.extract.trunc.i30.i, ptr %39, align 8
-  %118 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 131072, i8 noundef zeroext 89) #9
+  %118 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 131072, i8 noundef zeroext 89) #9
   %119 = ptrtoint ptr %118 to i64
   %120 = trunc i64 %119 to i8
   store i8 %120, ptr %40, align 4, !tbaa !81
-  %121 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 131072, i8 noundef zeroext 91) #9
+  %121 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 131072, i8 noundef zeroext 91) #9
   %122 = ptrtoint ptr %121 to i64
   %.sroa.0.0.extract.trunc.i31.i = trunc i64 %122 to i32
   store i32 %.sroa.0.0.extract.trunc.i31.i, ptr %41, align 8, !tbaa !82
-  %123 = call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 131072, i8 noundef zeroext 90) #9
+  %123 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 131072, i8 noundef zeroext 90) #9
   store ptr %123, ptr %42, align 8, !tbaa !83
   br label %scale_set_indicator_label_properties.exit
 
 scale_set_indicator_label_properties.exit:        ; preds = %114, %115
   %124 = load ptr, ptr %80, align 8, !tbaa !37
-  call fastcc void @scale_set_line_properties(ptr noundef %0, ptr noundef %12, ptr noundef %124, i32 noundef 131072)
+  call fastcc void @scale_set_line_properties(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %124, i32 noundef 131072)
   br label %.loopexit
 
 125:                                              ; preds = %78
   %126 = getelementptr inbounds nuw i8, ptr %.05872, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !38
-  call fastcc void @scale_set_line_properties(ptr noundef %0, ptr noundef %13, ptr noundef %127, i32 noundef 327680)
+  call fastcc void @scale_set_line_properties(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %127, i32 noundef 327680)
   br label %.loopexit
 
 128:                                              ; preds = %75, %.lr.ph
-  call void @lv_obj_init_draw_label_dsc(ptr noundef %0, i32 noundef 131072, ptr noundef nonnull %11) #9
-  call void @lv_obj_init_draw_line_dsc(ptr noundef %0, i32 noundef 131072, ptr noundef nonnull %12) #9
-  call void @lv_obj_init_draw_line_dsc(ptr noundef %0, i32 noundef 327680, ptr noundef nonnull %13) #9
+  call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %0, i32 noundef 131072, ptr noundef nonnull %11) #9
+  call void @lv_obj_init_draw_line_dsc(ptr noundef nonnull %0, i32 noundef 131072, ptr noundef nonnull %12) #9
+  call void @lv_obj_init_draw_line_dsc(ptr noundef nonnull %0, i32 noundef 327680, ptr noundef nonnull %13) #9
   %129 = call ptr @lv_ll_get_prev(ptr noundef nonnull %38, ptr noundef nonnull %.05872) #9
   %.not = icmp eq ptr %129, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !84
@@ -1682,7 +1682,7 @@ scale_set_indicator_label_properties.exit:        ; preds = %114, %115
 .loopexit:                                        ; preds = %128, %61, %scale_set_indicator_label_properties.exit, %125
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #9
-  call fastcc void @scale_get_tick_points(ptr noundef %0, i32 noundef %.074, i1 noundef zeroext %67, ptr noundef %15, ptr noundef %16)
+  call fastcc void @scale_get_tick_points(ptr noundef nonnull %0, i32 noundef %.074, i1 noundef zeroext %67, ptr noundef %15, ptr noundef %16)
   %130 = load i64, ptr %18, align 4
   %131 = and i64 %130, 1073741824
   %.not64 = icmp ne i64 %131, 0

@@ -753,7 +753,7 @@ evrpc_request_done_closure.exit:                  ; preds = %if.end24, %if.then2
   br label %return
 
 error:                                            ; preds = %for.body.i, %sw.bb15, %if.end, %entry
-  tail call void @evrpc_reqstate_free_(ptr noundef %rpc_state)
+  tail call void @evrpc_reqstate_free_(ptr noundef nonnull %rpc_state)
   tail call void @evhttp_send_error(ptr noundef %0, i32 noundef 503, ptr noundef null) #11
   br label %return
 

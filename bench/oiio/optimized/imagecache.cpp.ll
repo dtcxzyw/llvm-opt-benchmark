@@ -20616,7 +20616,7 @@ if.then116:                                       ; preds = %if.then109
   br label %if.then364
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i302: ; preds = %land.lhs.true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %bcmp.i303 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.173, i64 %1)
+  %bcmp.i303 = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull @.str.173, i64 %1)
   %cmp5.not.i.i304 = icmp eq i32 %bcmp.i303, 0
   br i1 %cmp5.not.i.i304, label %land.lhs.true125, label %return
 
@@ -24287,7 +24287,7 @@ if.then67:                                        ; preds = %land.lhs.true65
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i261: ; preds = %land.lhs.true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %bcmp.i262 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.175, i64 %1)
+  %bcmp.i262 = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull @.str.175, i64 %1)
   %cmp5.not.i.i263 = icmp eq i32 %bcmp.i262, 0
   br i1 %cmp5.not.i.i263, label %land.lhs.true74, label %if.end246
 
@@ -30795,7 +30795,7 @@ if.then:                                          ; preds = %_ZN18OpenImageIO_v2
 
 if.then.i.i:                                      ; preds = %if.then
   invoke void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #38
-          to label %.noexc unwind label %lpad
+          to label %.noexc unwind label %ehcleanup79.thread
 
 .noexc:                                           ; preds = %if.then.i.i
   unreachable
@@ -30829,10 +30829,10 @@ land.rhs:                                         ; preds = %_ZNK18OpenImageIO_v
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %if.end, label %cleanup76.thread
 
-lpad:                                             ; preds = %if.then.i.i
+ehcleanup79.thread:                               ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup79
+  br label %if.then.i85
 
 if.end:                                           ; preds = %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit, %land.rhs
   %call1.i.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_input_mutex) #35
@@ -30865,8 +30865,8 @@ for.cond:                                         ; preds = %for.cond.preheader,
 
 _ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit29: ; preds = %for.cond
   store ptr null, ptr %tci, align 8
-  %cmp.i66.not120 = icmp eq ptr %tiles_to_delete.sroa.0.1, %tiles_to_delete.sroa.6.0
-  br i1 %cmp.i66.not120, label %for.end61, label %for.body55
+  %cmp.i66.not123 = icmp eq ptr %tiles_to_delete.sroa.0.1, %tiles_to_delete.sroa.6.0
+  br i1 %cmp.i66.not123, label %for.end61, label %for.body55
 
 lpad19.loopexit:                                  ; preds = %for.body55
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -30880,18 +30880,18 @@ ehcleanup75.thread:                               ; preds = %if.end18
 
 _ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43.loopexit: ; preds = %_ZNKSt6vectorIN18OpenImageIO_v2_6_03pvt6TileIDESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %for.inc
   %tiles_to_delete.sroa.0.2.ph = phi ptr [ %tiles_to_delete.sroa.0.1, %_ZNKSt6vectorIN18OpenImageIO_v2_6_03pvt6TileIDESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %tiles_to_delete.sroa.0.4, %for.inc ]
-  %lpad.loopexit112 = landingpad { ptr, i32 }
+  %lpad.loopexit115 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43
 
 _ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43.loopexit.split-lp: ; preds = %if.then.i.i.i49
-  %lpad.loopexit.split-lp113 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp116 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43
 
 _ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43: ; preds = %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43.loopexit.split-lp, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43.loopexit
   %tiles_to_delete.sroa.0.2 = phi ptr [ %tiles_to_delete.sroa.0.2.ph, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43.loopexit ], [ %tiles_to_delete.sroa.0.1, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43.loopexit.split-lp ]
-  %lpad.phi114 = phi { ptr, i32 } [ %lpad.loopexit112, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43.loopexit ], [ %lpad.loopexit.split-lp113, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43.loopexit.split-lp ]
+  %lpad.phi117 = phi { ptr, i32 } [ %lpad.loopexit115, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43.loopexit ], [ %lpad.loopexit.split-lp116, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43.loopexit.split-lp ]
   %8 = load ptr, ptr %tci, align 8
   %tobool.not.i.i52 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i52, label %ehcleanup75, label %if.then.i.i53
@@ -31006,12 +31006,12 @@ _ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_
   br label %ehcleanup75
 
 for.body55:                                       ; preds = %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit29, %for.inc59
-  %__begin2.sroa.0.0121 = phi ptr [ %incdec.ptr.i67, %for.inc59 ], [ %tiles_to_delete.sroa.0.1, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit29 ]
-  invoke void @_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE5eraseERKS2_b(ptr noundef nonnull align 64 dereferenceable(16448) %m_tilecache, ptr noundef nonnull align 8 dereferenceable(40) %__begin2.sroa.0.0121, i1 noundef zeroext true)
+  %__begin2.sroa.0.0124 = phi ptr [ %incdec.ptr.i67, %for.inc59 ], [ %tiles_to_delete.sroa.0.1, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit29 ]
+  invoke void @_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE5eraseERKS2_b(ptr noundef nonnull align 64 dereferenceable(16448) %m_tilecache, ptr noundef nonnull align 8 dereferenceable(40) %__begin2.sroa.0.0124, i1 noundef zeroext true)
           to label %for.inc59 unwind label %lpad19.loopexit
 
 for.inc59:                                        ; preds = %for.body55
-  %incdec.ptr.i67 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0121, i64 40
+  %incdec.ptr.i67 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0124, i64 40
   %cmp.i66.not = icmp eq ptr %incdec.ptr.i67, %tiles_to_delete.sroa.6.0
   br i1 %cmp.i66.not, label %for.end61, label %for.body55
 
@@ -31240,7 +31240,7 @@ lpad65:                                           ; preds = %for.end61
 
 ehcleanup75:                                      ; preds = %lpad19.loopexit, %lpad65, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.i56, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43
   %tiles_to_delete.sroa.0.3 = phi ptr [ %tiles_to_delete.sroa.0.2, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43 ], [ %tiles_to_delete.sroa.0.2, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.i56 ], [ %tiles_to_delete.sroa.0.1, %lpad65 ], [ %tiles_to_delete.sroa.0.1, %lpad19.loopexit ]
-  %.pn3.pn = phi { ptr, i32 } [ %lpad.phi114, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43 ], [ %lpad.phi114, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.i56 ], [ %36, %lpad65 ], [ %lpad.loopexit, %lpad19.loopexit ]
+  %.pn3.pn = phi { ptr, i32 } [ %lpad.phi117, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iteratorD2Ev.exit43 ], [ %lpad.phi117, %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentINS_3pvt6TileIDENS_13intrusive_ptrINS1_14ImageCacheTileEEENS2_6HasherESt8equal_toIS2_ELm128EN3tsl9robin_mapIS2_S5_S6_S8_SaISt4pairIS2_S5_EELb0ENS9_2rh26power_of_two_growth_policyILm2EEEEEE8iterator5unbinEv.exit.i.i56 ], [ %36, %lpad65 ], [ %lpad.loopexit, %lpad19.loopexit ]
   %tobool.not.i.i.i81 = icmp eq ptr %tiles_to_delete.sroa.0.3, null
   br i1 %tobool.not.i.i.i81, label %ehcleanup79, label %if.then.i.i.i82
 
@@ -31248,11 +31248,12 @@ if.then.i.i.i82:                                  ; preds = %ehcleanup75
   call void @_ZdlPv(ptr noundef nonnull %tiles_to_delete.sroa.0.3) #36
   br label %ehcleanup79
 
-ehcleanup79:                                      ; preds = %ehcleanup75.thread, %if.then.i.i.i82, %ehcleanup75, %lpad
-  %.pn3.pn.pn = phi { ptr, i32 } [ %5, %lpad ], [ %.pn3.pn, %ehcleanup75 ], [ %.pn3.pn, %if.then.i.i.i82 ], [ %lpad.loopexit.split-lp, %ehcleanup75.thread ]
+ehcleanup79:                                      ; preds = %ehcleanup75.thread, %if.then.i.i.i82, %ehcleanup75
+  %.pn3.pn133 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %ehcleanup75.thread ], [ %.pn3.pn, %if.then.i.i.i82 ], [ %.pn3.pn, %ehcleanup75 ]
   br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_013intrusive_ptrINS_3pvt14ImageCacheFileEED2Ev.exit88, label %if.then.i85
 
-if.then.i85:                                      ; preds = %ehcleanup79
+if.then.i85:                                      ; preds = %ehcleanup79.thread, %ehcleanup79
+  %.pn3.pn.pn113 = phi { ptr, i32 } [ %5, %ehcleanup79.thread ], [ %.pn3.pn133, %ehcleanup79 ]
   %37 = atomicrmw sub ptr %handle, i32 1 seq_cst, align 4
   %cmp.i.i.i86 = icmp eq i32 %37, 1
   br i1 %cmp.i.i.i86, label %delete.notnull.i.i87, label %_ZN18OpenImageIO_v2_6_013intrusive_ptrINS_3pvt14ImageCacheFileEED2Ev.exit88
@@ -31263,7 +31264,8 @@ delete.notnull.i.i87:                             ; preds = %if.then.i85
   br label %_ZN18OpenImageIO_v2_6_013intrusive_ptrINS_3pvt14ImageCacheFileEED2Ev.exit88
 
 _ZN18OpenImageIO_v2_6_013intrusive_ptrINS_3pvt14ImageCacheFileEED2Ev.exit88: ; preds = %ehcleanup79, %if.then.i85, %delete.notnull.i.i87
-  resume { ptr, i32 } %.pn3.pn.pn
+  %.pn3.pn.pn114 = phi { ptr, i32 } [ %.pn3.pn133, %ehcleanup79 ], [ %.pn3.pn.pn113, %if.then.i85 ], [ %.pn3.pn.pn113, %delete.notnull.i.i87 ]
+  resume { ptr, i32 } %.pn3.pn.pn114
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -66095,7 +66097,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #35
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #35
   resume { ptr, i32 } %5
 
 _ZNK3tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit: ; preds = %if.then
@@ -66453,7 +66455,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 common.resume:                                    ; preds = %lpad.i6, %lpad.i
   %exception.i5.sink = phi ptr [ %exception.i5, %lpad.i6 ], [ %exception.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i6 ], [ %0, %lpad.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i5.sink) #35
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i5.sink) #35
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i
@@ -67801,7 +67803,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %6 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %if.then unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.end.thread unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
@@ -67906,7 +67908,7 @@ if.else.thread:                                   ; preds = %_ZNKSt6vectorIN18Op
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #35
   br label %invoke.cont21
 
-if.then:                                          ; preds = %lpad2.i.i.i.i.i
+if.end.thread:                                    ; preds = %lpad2.i.i.i.i.i
   %18 = extractvalue { ptr, i32 } %6, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #35
   tail call void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile9LevelInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %add.ptr) #35
@@ -67931,7 +67933,7 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-invoke.cont21:                                    ; preds = %for.body.i.i.i46, %if.else.thread, %if.else, %if.then
+invoke.cont21:                                    ; preds = %for.body.i.i.i46, %if.end.thread, %if.else.thread, %if.else
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i) #36
   invoke void @__cxa_rethrow() #38
           to label %unreachable unwind label %lpad19
@@ -70109,7 +70111,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #35
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #35
   resume { ptr, i32 } %5
 
 _ZNK3tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit: ; preds = %if.then
@@ -70457,7 +70459,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 common.resume:                                    ; preds = %lpad.i6, %lpad.i
   %exception.i5.sink = phi ptr [ %exception.i5, %lpad.i6 ], [ %exception.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i6 ], [ %0, %lpad.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i5.sink) #35
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i5.sink) #35
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i
@@ -71076,7 +71078,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 common.resume:                                    ; preds = %lpad.i6, %lpad.i
   %exception.i5.sink = phi ptr [ %exception.i5, %lpad.i6 ], [ %exception.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i6 ], [ %0, %lpad.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i5.sink) #35
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i5.sink) #35
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i
@@ -73562,7 +73564,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #35
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #35
   resume { ptr, i32 } %5
 
 _ZNK3tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit: ; preds = %if.then
@@ -76046,7 +76048,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #35
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #35
   resume { ptr, i32 } %0
 }
 
@@ -86946,7 +86948,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad ], [ %0, %lpad.i.i ]
   %2 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #35
-  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %__result, ptr noundef %__cur.012)
+  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %__result, ptr noundef nonnull %__cur.012)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %lpad.body

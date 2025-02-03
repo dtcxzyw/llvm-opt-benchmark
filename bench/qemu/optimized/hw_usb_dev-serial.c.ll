@@ -187,7 +187,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %cs, ptr noundef nonnull @usb_serial_can_read, ptr noundef nonnull @usb_serial_read, ptr noundef nonnull @usb_serial_event, ptr noundef null, ptr noundef %call.i, ptr noundef null, i1 noundef zeroext true) #7
+  call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %cs, ptr noundef nonnull @usb_serial_can_read, ptr noundef nonnull @usb_serial_read, ptr noundef nonnull @usb_serial_event, ptr noundef null, ptr noundef nonnull %call.i, ptr noundef null, i1 noundef zeroext true) #7
   call void @usb_serial_handle_reset(ptr noundef nonnull %dev)
   %always_plugged = getelementptr inbounds nuw i8, ptr %call.i, i64 6375
   %1 = load i8, ptr %always_plugged, align 1

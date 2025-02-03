@@ -172,7 +172,7 @@ define range(i32 -14, 1) i32 @opal_setenv(ptr noundef %0, ptr noundef %1, i1 nou
   br label %.sink.split
 
 51:                                               ; preds = %44
-  call void @free(ptr noundef %31) #8
+  call void @free(ptr noundef nonnull %31) #8
   br label %.sink.split
 
 ._crit_edge:                                      ; preds = %37, %33

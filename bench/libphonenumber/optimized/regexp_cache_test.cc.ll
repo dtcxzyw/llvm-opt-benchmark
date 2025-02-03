@@ -1509,7 +1509,7 @@ define linkonce_odr dso_local void @_ZN5boost15throw_exceptionINS_10lock_errorEE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #21
+  tail call void @__cxa_free_exception(ptr nonnull %2) #21
   resume { ptr, i32 } %5
 }
 
@@ -1694,7 +1694,7 @@ define linkonce_odr dso_local void @_ZNK5boost10wrapexceptINS_10lock_errorEE7ret
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #21
+  tail call void @__cxa_free_exception(ptr nonnull %2) #21
   resume { ptr, i32 } %5
 }
 

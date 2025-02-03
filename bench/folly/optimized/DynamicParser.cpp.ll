@@ -261,7 +261,7 @@ common.resume:                                    ; preds = %cleanup.action46, %
 lpad.i.i:                                         ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #26
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #26
   br label %common.resume
 
 _ZNK5folly13DynamicParser5valueEv.exit:           ; preds = %if.then
@@ -388,7 +388,7 @@ invoke.cont.i.i95:                                ; preds = %if.then.i.i92
 lpad.i.i94:                                       ; preds = %if.then.i.i92
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i93) #26
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i93) #26
   br label %common.resume
 
 _ZNK5folly13DynamicParser5valueEv.exit96:         ; preds = %if.else
@@ -836,7 +836,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #26
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #26
   resume { ptr, i32 } %1
 
 _ZNK5folly13DynamicParser11ParserStack5valueEv.exit: ; preds = %entry
@@ -4081,7 +4081,7 @@ cleanup.action:                                   ; preds = %if.then
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp6) #26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp) #26
-  call void @__cxa_free_exception(ptr %exception) #26
+  call void @__cxa_free_exception(ptr nonnull %exception) #26
   resume { ptr, i32 } %10
 
 if.end:                                           ; preds = %lor.lhs.false2
@@ -4164,7 +4164,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #26
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #26
   br label %eh.resume
 
 if.end:                                           ; preds = %entry

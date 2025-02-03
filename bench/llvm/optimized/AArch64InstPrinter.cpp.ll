@@ -4527,11 +4527,11 @@ default.unreachable2290:                          ; preds = %481
   br label %1091
 
 1079:                                             ; preds = %1074, %1074, %1074, %1074, %1074
-  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl90ELl0EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl90ELl0EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef nonnull %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %1091
 
 1080:                                             ; preds = %1074
-  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl180ELl90EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl180ELl90EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %1091
 
 1081:                                             ; preds = %1074, %1074, %1074, %1074, %1074, %1074, %1074, %1074, %1074, %1074, %1074, %1074
@@ -4559,11 +4559,11 @@ default.unreachable2290:                          ; preds = %481
   unreachable
 
 1089:                                             ; preds = %1085, %1085
-  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl180ELl90EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl180ELl90EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %1091
 
 1090:                                             ; preds = %1085, %1085, %1085, %1085, %1085
-  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl90ELl0EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl90ELl0EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef nonnull %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %1091
 
 1091:                                             ; preds = %1089, %1090, %1077, %1079, %1080, %1081, %1083, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1071, %1005, %841, %708, %481, %331, %194, %5, %1070, %1068, %1066, %1064, %1062, %1060, %1058, %1056, %1054, %1052, %1050, %1048, %1046, %1044, %1039, %1037, %1035, %1033, %1031, %1030, %1029, %1028, %1025, %1024, %1023, %1022, %1021, %1018, %1017, %1016, %1014, %1010, %1009, %1002, %1000, %998, %997, %996, %995, %994, %990, %988, %986, %982, %980, %978, %976, %974, %972, %970, %968, %966, %964, %962, %960, %958, %956, %954, %952, %950, %948, %946, %944, %941, %939, %937, %935, %933, %930, %928, %926, %924, %922, %920, %918, %916, %914, %913, %912, %908, %907, %905, %903, %902, %898, %887, %885, %884, %883, %881, %880, %874, %872, %869, %865, %864, %863, %861, %859, %857, %855, %853, %851, %849, %847, %840, %839, %836, %832, %831, %830, %829, %827, %825, %824, %823, %822, %821, %819, %817, %815, %813, %812, %810, %808, %806, %804, %802, %800, %798, %795, %790, %788, %786, %785, %784, %783, %782, %781, %779, %777, %775, %773, %772, %771, %770, %769, %767, %765, %764, %763, %761, %759, %757, %755, %753, %751, %749, %747, %745, %743, %741, %739, %737, %735, %733, %731, %730, %729, %728, %727, %726, %725, %707, %706, %705, %704, %702, %700, %698, %696, %694, %692, %690, %688, %685, %683, %681, %679, %677, %675, %673, %671, %669, %667, %665, %663, %661, %659, %657, %655, %653, %651, %649, %647, %645, %643, %641, %639, %637, %635, %633, %631, %628, %627, %622, %621, %620, %616, %614, %605, %604, %602, %601, %594, %592, %590, %588, %586, %584, %582, %578, %577, %573, %569, %560, %559, %557, %556, %555, %553, %551, %549, %547, %545, %543, %541, %539, %537, %534, %525, %521, %499, %497, %495, %493, %491, %489, %487, %486, %485, %479, %475, %468, %467, %466, %465, %464, %463, %462, %461, %460, %459, %458, %453, %452, %449, %446, %445, %444, %442, %440, %438, %434, %430, %428, %426, %424, %422, %420, %415, %412, %411, %410, %409, %400, %399, %397, %391, %387, %386, %385, %384, %383, %382, %380, %378, %376, %374, %372, %370, %364, %363, %360, %359, %357, %338, %329, %328, %323, %320, %316, %313, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %250, %248, %245, %243, %240, %237, %235, %233, %193, %190, %187, %183, %173, %171, %167, %161, %156, %129, %123, %117, %111, %105, %99, %93, %87, %81, %76, %75, %71, %67, %63, %62, %57, %56, %43
@@ -6625,12 +6625,12 @@ define dso_local void @_ZN4llvm18AArch64InstPrinter22printMRSSystemRegisterEPKNS
   %52 = load i64, ptr %9, align 8
   %53 = and i64 %52, 64
   %.not.i.i.i = icmp eq i64 %53, 0
-  br i1 %.not.i.i.i, label %54, label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread25
+  br i1 %.not.i.i.i, label %54, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread8.i
 
-_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread25: ; preds = %50
+_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread8.i: ; preds = %50
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  br label %68
+  br label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -6655,120 +6655,116 @@ _ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i
   %.not7.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  br i1 %.not7.i.i.i.i.i.i.i.i, label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i
+  br i1 %.not7.i.i.i.i.i.i.i.i, label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i
 
 _ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i: ; preds = %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i, %48
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not.i7.i = icmp eq ptr %63, null
-  br i1 %.not.i7.i, label %_ZN4llvm9StringRefC2EPKc.exit.i, label %64
+  br i1 %.not.i7.i, label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit, label %64
 
 64:                                               ; preds = %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i
   %65 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #22
-  br label %_ZN4llvm9StringRefC2EPKc.exit.i
-
-_ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %64, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i
-  %66 = phi i64 [ %65, %64 ], [ 0, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i ]
-  %67 = tail call noundef ptr @_ZN4llvm13AArch64SysReg18lookupSysRegByNameENS_9StringRefE(ptr %63, i64 %66) #22
   br label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit
 
-_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit: ; preds = %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i, %_ZN4llvm9StringRefC2EPKc.exit.i
-  %.0.i = phi ptr [ %47, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i ], [ %67, %_ZN4llvm9StringRefC2EPKc.exit.i ]
-  %.not.i16 = icmp eq ptr %.0.i, null
-  br i1 %.not.i16, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread, label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._crit_edge
+_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit: ; preds = %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i, %64
+  %66 = phi i64 [ %65, %64 ], [ 0, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i ]
+  %67 = tail call noundef ptr @_ZN4llvm13AArch64SysReg18lookupSysRegByNameENS_9StringRefE(ptr %63, i64 %66) #22
+  %.not.i16 = icmp eq ptr %67, null
+  br i1 %.not.i16, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread, label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread_crit_edge
 
-_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._crit_edge: ; preds = %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit
-  %.in.in.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
+_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread_crit_edge: ; preds = %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit
+  %.in.in.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %67, i64 20
   %.in.i.pre = load i8, ptr %.in.in.i.phi.trans.insert, align 1
-  br label %68
+  br label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread
 
-68:                                               ; preds = %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._crit_edge, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread25
-  %.in.i = phi i8 [ %.in.i.i, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread25 ], [ %.in.i.pre, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._crit_edge ]
-  %.0.i28 = phi ptr [ %47, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread25 ], [ %.0.i, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._crit_edge ]
-  %69 = trunc i8 %.in.i to i1
-  br i1 %69, label %70, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread
+_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread: ; preds = %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread_crit_edge, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread8.i, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i
+  %.in.i = phi i8 [ %.in.i.pre, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread_crit_edge ], [ %.in.i.i, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i ], [ %.in.i.i, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread8.i ]
+  %.0.i24 = phi ptr [ %67, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread_crit_edge ], [ %47, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i ], [ %47, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread8.i ]
+  %68 = trunc i8 %.in.i to i1
+  br i1 %68, label %69, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread
 
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 216
+69:                                               ; preds = %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 216
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %71, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %70, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  %72 = load i64, ptr %7, align 8
-  %73 = and i64 %72, 64
-  %.not.i.i = icmp eq i64 %73, 0
-  br i1 %.not.i.i, label %74, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread30
+  %71 = load i64, ptr %7, align 8
+  %72 = and i64 %71, 64
+  %.not.i.i = icmp eq i64 %72, 0
+  br i1 %.not.i.i, label %73, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread30
 
-_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread30: ; preds = %70
+_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread30: ; preds = %69
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %82
+  br label %81
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 24
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull readonly align 8 dereferenceable(40) %75, i64 40, i1 false)
-  br label %76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull readonly align 8 dereferenceable(40) %74, i64 40, i1 false)
+  br label %75
 
-76:                                               ; preds = %76, %74
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %74 ], [ %indvars.iv.next.i.i.i.i, %76 ]
-  %77 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i
-  %78 = load i64, ptr %77, align 8, !noalias !111
-  %79 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i
-  %80 = load i64, ptr %79, align 8, !alias.scope !111
-  %81 = and i64 %80, %78
-  store i64 %81, ptr %79, align 8, !alias.scope !111
+75:                                               ; preds = %75, %73
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %73 ], [ %indvars.iv.next.i.i.i.i, %75 ]
+  %76 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i
+  %77 = load i64, ptr %76, align 8, !noalias !111
+  %78 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i
+  %79 = load i64, ptr %78, align 8, !alias.scope !111
+  %80 = and i64 %79, %77
+  store i64 %80, ptr %78, align 8, !alias.scope !111
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 5
-  br i1 %.not.i.i.i.i, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit, label %76, !llvm.loop !110
+  br i1 %.not.i.i.i.i, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit, label %75, !llvm.loop !110
 
-_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit: ; preds = %76
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull readonly align 8 dereferenceable(40) %75, i64 40)
+_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit: ; preds = %75
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull readonly align 8 dereferenceable(40) %74, i64 40)
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br i1 %.not7.i.i.i.i.i.i.i, label %82, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread
+  br i1 %.not7.i.i.i.i.i.i.i, label %81, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread
 
-82:                                               ; preds = %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread30, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit
-  %83 = load ptr, ptr %.0.i28, align 8
-  %.not.i.i17 = icmp eq ptr %83, null
+81:                                               ; preds = %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread30, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit
+  %82 = load ptr, ptr %.0.i24, align 8
+  %.not.i.i17 = icmp eq ptr %82, null
   br i1 %.not.i.i17, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i18
 
-_ZN4llvm9StringRefC2EPKc.exit.i18:                ; preds = %82
-  %84 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #22
-  %85 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %88 = load ptr, ptr %87, align 8
-  %89 = ptrtoint ptr %86 to i64
-  %90 = ptrtoint ptr %88 to i64
-  %91 = sub i64 %89, %90
-  %92 = icmp ugt i64 %84, %91
-  br i1 %92, label %93, label %95
+_ZN4llvm9StringRefC2EPKc.exit.i18:                ; preds = %81
+  %83 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #22
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %87 = load ptr, ptr %86, align 8
+  %88 = ptrtoint ptr %85 to i64
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %88, %89
+  %91 = icmp ugt i64 %83, %90
+  br i1 %91, label %92, label %94
 
-93:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i18
-  %94 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %83, i64 noundef %84) #22
+92:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i18
+  %93 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %82, i64 noundef %83) #22
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-95:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i18
-  %.not.i2.i19 = icmp eq i64 %84, 0
-  br i1 %.not.i2.i19, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %96
+94:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i18
+  %.not.i2.i19 = icmp eq i64 %83, 0
+  br i1 %.not.i2.i19, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %95
 
-96:                                               ; preds = %95
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr nonnull align 1 %83, i64 %84, i1 false)
-  %97 = load ptr, ptr %87, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 %84
-  store ptr %98, ptr %87, align 8
+95:                                               ; preds = %94
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr nonnull align 1 %82, i64 %83, i1 false)
+  %96 = load ptr, ptr %86, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 %83
+  store ptr %97, ptr %86, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread: ; preds = %45, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit, %68, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit
+_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread: ; preds = %45, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit
   call void @_ZN4llvm13AArch64SysReg21genericRegisterStringB5cxx11Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, i32 noundef %16) #22
-  %99 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
-  %100 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
-  %101 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %99, i64 noundef %100) #22
+  %98 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
+  %99 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
+  %100 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %98, i64 noundef %99) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %96, %95, %93, %82, %42, %40, %28, %26, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %95, %94, %92, %81, %42, %40, %28, %26, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread
   ret void
 }
 
@@ -6854,12 +6850,12 @@ define dso_local void @_ZN4llvm18AArch64InstPrinter22printMSRSystemRegisterEPKNS
   %52 = load i64, ptr %9, align 8
   %53 = and i64 %52, 64
   %.not.i.i.i = icmp eq i64 %53, 0
-  br i1 %.not.i.i.i, label %54, label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread25
+  br i1 %.not.i.i.i, label %54, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread8.i
 
-_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread25: ; preds = %50
+_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread8.i: ; preds = %50
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  br label %68
+  br label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -6884,120 +6880,116 @@ _ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i
   %.not7.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  br i1 %.not7.i.i.i.i.i.i.i.i, label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i
+  br i1 %.not7.i.i.i.i.i.i.i.i, label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i
 
 _ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i: ; preds = %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i, %48
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not.i7.i = icmp eq ptr %63, null
-  br i1 %.not.i7.i, label %_ZN4llvm9StringRefC2EPKc.exit.i, label %64
+  br i1 %.not.i7.i, label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit, label %64
 
 64:                                               ; preds = %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i
   %65 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #22
-  br label %_ZN4llvm9StringRefC2EPKc.exit.i
-
-_ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %64, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i
-  %66 = phi i64 [ %65, %64 ], [ 0, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i ]
-  %67 = tail call noundef ptr @_ZN4llvm13AArch64SysReg18lookupSysRegByNameENS_9StringRefE(ptr %63, i64 %66) #22
   br label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit
 
-_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit: ; preds = %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i, %_ZN4llvm9StringRefC2EPKc.exit.i
-  %.0.i = phi ptr [ %47, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i ], [ %67, %_ZN4llvm9StringRefC2EPKc.exit.i ]
-  %.not.i16 = icmp eq ptr %.0.i, null
-  br i1 %.not.i16, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread, label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._crit_edge
+_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit: ; preds = %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i, %64
+  %66 = phi i64 [ %65, %64 ], [ 0, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread.i ]
+  %67 = tail call noundef ptr @_ZN4llvm13AArch64SysReg18lookupSysRegByNameENS_9StringRefE(ptr %63, i64 %66) #22
+  %.not.i16 = icmp eq ptr %67, null
+  br i1 %.not.i16, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread, label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread_crit_edge
 
-_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._crit_edge: ; preds = %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit
-  %.in.in.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.i, i64 21
+_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread_crit_edge: ; preds = %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit
+  %.in.in.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %67, i64 21
   %.in.i.pre = load i8, ptr %.in.in.i.phi.trans.insert, align 1
-  br label %68
+  br label %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread
 
-68:                                               ; preds = %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._crit_edge, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread25
-  %.in.i = phi i8 [ %.in.i.i, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread25 ], [ %.in.i.pre, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._crit_edge ]
-  %.0.i28 = phi ptr [ %47, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread25 ], [ %.0.i, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._crit_edge ]
-  %69 = trunc i8 %.in.i to i1
-  br i1 %69, label %70, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread
+_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread: ; preds = %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread_crit_edge, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread8.i, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i
+  %.in.i = phi i8 [ %.in.i.pre, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread_crit_edge ], [ %.in.i.i, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i ], [ %.in.i.i, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread8.i ]
+  %.0.i24 = phi ptr [ %67, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit._ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread_crit_edge ], [ %47, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.i ], [ %47, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread8.i ]
+  %68 = trunc i8 %.in.i to i1
+  br i1 %68, label %69, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread
 
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 216
+69:                                               ; preds = %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 216
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %71, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %70, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  %72 = load i64, ptr %7, align 8
-  %73 = and i64 %72, 64
-  %.not.i.i = icmp eq i64 %73, 0
-  br i1 %.not.i.i, label %74, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread30
+  %71 = load i64, ptr %7, align 8
+  %72 = and i64 %71, 64
+  %.not.i.i = icmp eq i64 %72, 0
+  br i1 %.not.i.i, label %73, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread30
 
-_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread30: ; preds = %70
+_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread30: ; preds = %69
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %82
+  br label %81
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 24
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull readonly align 8 dereferenceable(40) %75, i64 40, i1 false)
-  br label %76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull readonly align 8 dereferenceable(40) %74, i64 40, i1 false)
+  br label %75
 
-76:                                               ; preds = %76, %74
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %74 ], [ %indvars.iv.next.i.i.i.i, %76 ]
-  %77 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i
-  %78 = load i64, ptr %77, align 8, !noalias !117
-  %79 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i
-  %80 = load i64, ptr %79, align 8, !alias.scope !117
-  %81 = and i64 %80, %78
-  store i64 %81, ptr %79, align 8, !alias.scope !117
+75:                                               ; preds = %75, %73
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %73 ], [ %indvars.iv.next.i.i.i.i, %75 ]
+  %76 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i
+  %77 = load i64, ptr %76, align 8, !noalias !117
+  %78 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i
+  %79 = load i64, ptr %78, align 8, !alias.scope !117
+  %80 = and i64 %79, %77
+  store i64 %80, ptr %78, align 8, !alias.scope !117
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 5
-  br i1 %.not.i.i.i.i, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit, label %76, !llvm.loop !110
+  br i1 %.not.i.i.i.i, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit, label %75, !llvm.loop !110
 
-_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit: ; preds = %76
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull readonly align 8 dereferenceable(40) %75, i64 40)
+_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit: ; preds = %75
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull readonly align 8 dereferenceable(40) %74, i64 40)
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br i1 %.not7.i.i.i.i.i.i.i, label %82, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread
+  br i1 %.not7.i.i.i.i.i.i.i, label %81, label %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread
 
-82:                                               ; preds = %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread30, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit
-  %83 = load ptr, ptr %.0.i28, align 8
-  %.not.i.i17 = icmp eq ptr %83, null
+81:                                               ; preds = %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread30, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit
+  %82 = load ptr, ptr %.0.i24, align 8
+  %.not.i.i17 = icmp eq ptr %82, null
   br i1 %.not.i.i17, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i18
 
-_ZN4llvm9StringRefC2EPKc.exit.i18:                ; preds = %82
-  %84 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #22
-  %85 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %88 = load ptr, ptr %87, align 8
-  %89 = ptrtoint ptr %86 to i64
-  %90 = ptrtoint ptr %88 to i64
-  %91 = sub i64 %89, %90
-  %92 = icmp ugt i64 %84, %91
-  br i1 %92, label %93, label %95
+_ZN4llvm9StringRefC2EPKc.exit.i18:                ; preds = %81
+  %83 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #22
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %87 = load ptr, ptr %86, align 8
+  %88 = ptrtoint ptr %85 to i64
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %88, %89
+  %91 = icmp ugt i64 %83, %90
+  br i1 %91, label %92, label %94
 
-93:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i18
-  %94 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %83, i64 noundef %84) #22
+92:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i18
+  %93 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %82, i64 noundef %83) #22
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-95:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i18
-  %.not.i2.i19 = icmp eq i64 %84, 0
-  br i1 %.not.i2.i19, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %96
+94:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i18
+  %.not.i2.i19 = icmp eq i64 %83, 0
+  br i1 %.not.i2.i19, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %95
 
-96:                                               ; preds = %95
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr nonnull align 1 %83, i64 %84, i1 false)
-  %97 = load ptr, ptr %87, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 %84
-  store ptr %98, ptr %87, align 8
+95:                                               ; preds = %94
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr nonnull align 1 %82, i64 %83, i1 false)
+  %96 = load ptr, ptr %86, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 %83
+  store ptr %97, ptr %86, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread: ; preds = %45, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit, %68, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit
+_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread: ; preds = %45, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit, %_ZL12lookupSysRegjbRKN4llvm15MCSubtargetInfoE.exit.thread, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit
   call void @_ZN4llvm13AArch64SysReg21genericRegisterStringB5cxx11Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, i32 noundef %16) #22
-  %99 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
-  %100 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
-  %101 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %99, i64 noundef %100) #22
+  %98 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
+  %99 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
+  %100 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %98, i64 noundef %99) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %96, %95, %93, %82, %42, %40, %28, %26, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %95, %94, %92, %81, %42, %40, %28, %26, %_ZL13isValidSysRegPKN4llvm13AArch64SysReg6SysRegEbRKNS_15MCSubtargetInfoE.exit.thread
   ret void
 }
 
@@ -19539,11 +19531,11 @@ define dso_local void @_ZN4llvm23AArch64AppleInstPrinter16printInstructionEPKNS_
   unreachable
 
 962:                                              ; preds = %959, %959, %959, %959, %959, %959, %959, %959
-  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl90ELl0EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl90ELl0EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef nonnull %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %972
 
 963:                                              ; preds = %959
-  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl180ELl90EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl180ELl90EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %972
 
 964:                                              ; preds = %959, %959, %959, %959, %959, %959, %959, %959, %959, %959, %959, %959
@@ -19564,11 +19556,11 @@ define dso_local void @_ZN4llvm23AArch64AppleInstPrinter16printInstructionEPKNS_
   unreachable
 
 970:                                              ; preds = %966, %966
-  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl180ELl90EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl180ELl90EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %972
 
 971:                                              ; preds = %966, %966
-  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl90ELl0EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  tail call void @_ZN4llvm18AArch64InstPrinter22printComplexRotationOpILl90ELl0EEEvPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef nonnull %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %972
 
 972:                                              ; preds = %970, %971, %962, %963, %964, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %956, %892, %770, %642, %461, %317, %194, %5, %955, %953, %951, %949, %947, %945, %943, %941, %939, %937, %935, %933, %931, %929, %924, %922, %920, %918, %916, %915, %914, %911, %910, %909, %908, %907, %904, %903, %902, %901, %900, %897, %896, %889, %887, %885, %884, %883, %882, %881, %877, %875, %873, %869, %867, %865, %863, %861, %859, %857, %855, %853, %851, %849, %847, %845, %843, %841, %839, %837, %835, %833, %831, %828, %826, %824, %822, %820, %817, %815, %813, %811, %809, %807, %805, %803, %801, %800, %799, %798, %797, %795, %794, %793, %792, %790, %789, %786, %784, %780, %779, %778, %776, %769, %768, %765, %761, %760, %759, %758, %756, %754, %753, %752, %751, %750, %748, %746, %744, %742, %741, %739, %737, %735, %733, %731, %729, %727, %724, %719, %717, %715, %714, %713, %712, %711, %710, %708, %706, %705, %704, %703, %701, %699, %698, %697, %695, %693, %691, %689, %687, %685, %683, %681, %679, %677, %675, %673, %671, %669, %667, %665, %664, %663, %662, %661, %660, %659, %641, %639, %637, %636, %635, %634, %632, %630, %628, %626, %624, %621, %619, %617, %615, %613, %611, %609, %607, %605, %603, %601, %599, %597, %595, %593, %591, %589, %587, %585, %583, %581, %579, %577, %575, %573, %571, %569, %567, %564, %563, %558, %557, %556, %552, %550, %541, %540, %538, %537, %531, %528, %525, %522, %520, %518, %516, %514, %513, %511, %508, %504, %500, %499, %498, %496, %495, %494, %492, %490, %487, %478, %474, %467, %466, %459, %455, %448, %447, %446, %445, %444, %443, %442, %441, %440, %439, %438, %433, %432, %431, %430, %428, %426, %424, %420, %416, %414, %412, %410, %408, %406, %401, %399, %398, %397, %396, %395, %386, %385, %383, %377, %373, %372, %371, %370, %369, %368, %366, %364, %362, %360, %358, %356, %350, %349, %346, %345, %343, %324, %315, %314, %309, %308, %306, %305, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %252, %250, %246, %243, %239, %237, %234, %231, %229, %227, %193, %190, %187, %183, %173, %171, %167, %161, %156, %129, %123, %117, %111, %105, %99, %93, %87, %81, %76, %75, %71, %67, %63, %62, %57, %56, %43

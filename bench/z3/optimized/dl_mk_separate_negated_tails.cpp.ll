@@ -1688,13 +1688,13 @@ entry:
   %m_nodes.i.i = getelementptr inbounds nuw i8, ptr %src, i64 24
   %1 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.i.i, label %cleanup, label %_ZNK7datalog8rule_set13get_num_rulesEv.exit
+  br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZNK7datalog8rule_set13get_num_rulesEv.exit
 
 _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp50.not = icmp eq i32 %2, 0
-  br i1 %cmp50.not, label %cleanup, label %invoke.cont3.lr.ph
+  br i1 %cmp50.not, label %if.end.i.i, label %invoke.cont3.lr.ph
 
 invoke.cont3.lr.ph:                               ; preds = %_ZNK7datalog8rule_set13get_num_rulesEv.exit
   %m_vars.i12 = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1974,7 +1974,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZN6vectorIP4exprL
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit: ; preds = %if.then17
-  %lpad.loopexit70 = landingpad { ptr, i32 }
+  %lpad.loopexit74 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
@@ -1989,7 +1989,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; 
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %ehcleanup.i, %cleanup.action.i
-  %eh.lpad-body = phi { ptr, i32 } [ %31, %ehcleanup.i ], [ %32, %cleanup.action.i ], [ %lpad.loopexit32, %lpad.loopexit ], [ %lpad.loopexit34, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit37, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp41, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit70, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %31, %ehcleanup.i ], [ %32, %cleanup.action.i ], [ %lpad.loopexit32, %lpad.loopexit ], [ %lpad.loopexit34, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit37, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp41, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit74, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
   call void @_ZN10scoped_ptrIN7datalog8rule_setEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %result) #14
   resume { ptr, i32 } %eh.lpad-body
 
@@ -2030,14 +2030,14 @@ if.else:                                          ; preds = %for.end24.thread, %
   invoke void @_ZN7datalog8rule_set18inherit_predicatesERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %.pr.pre69, ptr noundef nonnull align 8 dereferenceable(248) %src)
           to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-cleanup:                                          ; preds = %entry, %_ZNK7datalog8rule_set13get_num_rulesEv.exit, %for.end24
-  %.pr = phi ptr [ %call, %_ZNK7datalog8rule_set13get_num_rulesEv.exit ], [ %.pr.pre, %for.end24 ], [ %call, %entry ]
-  %cmp.i.i11 = icmp eq ptr %.pr, null
+cleanup:                                          ; preds = %for.end24
+  %cmp.i.i11 = icmp eq ptr %.pr.pre, null
   br i1 %cmp.i.i11, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %cleanup
-  tail call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %.pr) #14
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.pr)
+if.end.i.i:                                       ; preds = %entry, %_ZNK7datalog8rule_set13get_num_rulesEv.exit, %cleanup
+  %.pr73 = phi ptr [ %.pr.pre, %cleanup ], [ %call, %_ZNK7datalog8rule_set13get_num_rulesEv.exit ], [ %call, %entry ]
+  tail call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %.pr73) #14
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.pr73)
           to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.end.i.i

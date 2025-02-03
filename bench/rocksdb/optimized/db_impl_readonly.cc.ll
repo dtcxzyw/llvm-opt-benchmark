@@ -3269,7 +3269,7 @@ invoke.cont131:                                   ; preds = %invoke.cont122
 invoke.cont137:                                   ; preds = %invoke.cont131
   %read_options_.i = getelementptr inbounds nuw i8, ptr %call132, i64 2360
   %64 = load i64, ptr %read_seq, align 8
-  %call140 = invoke noundef ptr @_ZN7rocksdb6DBImpl19NewInternalIteratorERKNS_11ReadOptionsEPNS_16ColumnFamilyDataEPNS_12SuperVersionEPNS_5ArenaEmbPNS_18ArenaWrappedDBIterE(ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_options_.i, ptr noundef %.sroa.3.0.copyload, ptr noundef nonnull %.sroa.0.0.copyload, ptr noundef %call138, i64 noundef %64, i1 noundef zeroext true, ptr noundef nonnull %call132)
+  %call140 = invoke noundef ptr @_ZN7rocksdb6DBImpl19NewInternalIteratorERKNS_11ReadOptionsEPNS_16ColumnFamilyDataEPNS_12SuperVersionEPNS_5ArenaEmbPNS_18ArenaWrappedDBIterE(ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_options_.i, ptr noundef nonnull %.sroa.3.0.copyload, ptr noundef nonnull %.sroa.0.0.copyload, ptr noundef %call138, i64 noundef %64, i1 noundef zeroext true, ptr noundef nonnull %call132)
           to label %invoke.cont139 unwind label %lpad117.loopexit
 
 invoke.cont139:                                   ; preds = %invoke.cont137

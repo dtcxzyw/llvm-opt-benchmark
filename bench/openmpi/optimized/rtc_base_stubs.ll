@@ -192,7 +192,7 @@ define internal fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef nonnull %
 
 43:                                               ; preds = %41, %38, %36, %31, %23
   %.030 = phi i32 [ %27, %23 ], [ %32, %31 ], [ %37, %36 ], [ %42, %41 ], [ 0, %38 ]
-  tail call void @free(ptr noundef %9) #7
+  tail call void @free(ptr noundef nonnull %9) #7
   br label %44
 
 44:                                               ; preds = %5, %43, %21, %14

@@ -4024,7 +4024,7 @@ lpad208:                                          ; preds = %if.then207
           cleanup
           catch ptr @_ZTISt16invalid_argument
           catch ptr @_ZTISt12system_error
-  call void @__cxa_free_exception(ptr %exception) #27
+  call void @__cxa_free_exception(ptr nonnull %exception) #27
   br label %ehcleanup281
 
 if.end211:                                        ; preds = %land.lhs.true, %invoke.cont203
@@ -4089,7 +4089,7 @@ lpad231:                                          ; preds = %if.then228
           cleanup
           catch ptr @_ZTISt16invalid_argument
           catch ptr @_ZTISt12system_error
-  call void @__cxa_free_exception(ptr %exception229) #27
+  call void @__cxa_free_exception(ptr nonnull %exception229) #27
   br label %ehcleanup251
 
 lpad234:                                          ; preds = %if.then.i.i134, %invoke.cont245, %if.then.i.i117, %_ZNSt8functionIFSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigEEED2Ev.exit, %invoke.cont232

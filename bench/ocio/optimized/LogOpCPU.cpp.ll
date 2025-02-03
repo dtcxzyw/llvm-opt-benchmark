@@ -775,7 +775,7 @@ invoke.cont:                                      ; preds = %if.end65
 lpad:                                             ; preds = %if.end65
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15Log2LinRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18Log2LinRendererSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15Lin2LogRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18Lin2LogRendererSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21CameraLog2LinRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24CameraLog2LinRendererSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21CameraLin2LogRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24CameraLin2LogRendererSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15AntiLogRendererEED2Ev.exit305, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18AntiLogRendererSSEEED2Ev.exit265, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11LogRendererEED2Ev.exit225, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14LogRendererSSEEED2Ev.exit185, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15AntiLogRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18AntiLogRendererSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11LogRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14LogRendererSSEEED2Ev.exit

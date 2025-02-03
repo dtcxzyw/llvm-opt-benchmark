@@ -58944,7 +58944,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionarynwEm.exit: ; preds = %_ZN32px
 15:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionarynwEm.exit
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @free(ptr noundef %13) #29
+  tail call void @free(ptr noundef nonnull %13) #29
   resume { ptr, i32 } %16
 }
 

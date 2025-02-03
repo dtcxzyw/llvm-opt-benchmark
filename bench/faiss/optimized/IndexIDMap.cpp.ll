@@ -842,7 +842,7 @@ define weak_odr void @_ZNK5faiss18IndexIDMapTemplateINS_5IndexEE26check_compatib
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #14
+  call void @__cxa_free_exception(ptr nonnull %14) #14
   br label %20
 
 20:                                               ; preds = %18, %16
@@ -1456,7 +1456,7 @@ define weak_odr void @_ZNK5faiss18IndexIDMapTemplateINS_11IndexBinaryEE26check_c
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #14
+  call void @__cxa_free_exception(ptr nonnull %14) #14
   br label %20
 
 20:                                               ; preds = %18, %16
@@ -1693,7 +1693,7 @@ define weak_odr void @_ZNK5faiss19IndexIDMap2TemplateINS_5IndexEE11reconstructEl
 61:                                               ; preds = %54
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %57) #14
+  call void @__cxa_free_exception(ptr nonnull %57) #14
   br label %63
 
 63:                                               ; preds = %61, %59
@@ -2035,7 +2035,7 @@ define weak_odr void @_ZNK5faiss19IndexIDMap2TemplateINS_11IndexBinaryEE11recons
 61:                                               ; preds = %54
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %57) #14
+  call void @__cxa_free_exception(ptr nonnull %57) #14
   br label %63
 
 63:                                               ; preds = %61, %59
@@ -2221,7 +2221,7 @@ define weak_odr void @_ZN5faiss18IndexIDMapTemplateINS_5IndexEEC2EPS1_(ptr nound
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #14
+  call void @__cxa_free_exception(ptr nonnull %25) #14
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -2827,7 +2827,7 @@ define weak_odr void @_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEC2EPS1_(pt
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #14
+  call void @__cxa_free_exception(ptr nonnull %20) #14
   br label %.body
 
 26:                                               ; preds = %2
@@ -2885,7 +2885,7 @@ define weak_odr void @_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEC2EPS1_(pt
 56:                                               ; preds = %49
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %52) #14
+  call void @__cxa_free_exception(ptr nonnull %52) #14
   br label %.body
 
 58:                                               ; preds = %53
@@ -3468,7 +3468,7 @@ define weak_odr void @_ZNK5faiss19IndexIDMap2TemplateINS_5IndexEE17check_consist
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #14
+  call void @__cxa_free_exception(ptr nonnull %26) #14
   br label %92
 
 32:                                               ; preds = %1
@@ -3518,7 +3518,7 @@ define weak_odr void @_ZNK5faiss19IndexIDMap2TemplateINS_5IndexEE17check_consist
 52:                                               ; preds = %45
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %48) #14
+  call void @__cxa_free_exception(ptr nonnull %48) #14
   br label %92
 
 54:                                               ; preds = %_ZNKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE2atERS5_.exit
@@ -3602,7 +3602,7 @@ _ZNKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE2atERS5_.exit: 
 90:                                               ; preds = %83
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %86) #14
+  call void @__cxa_free_exception(ptr nonnull %86) #14
   br label %92
 
 ._crit_edge:                                      ; preds = %54, %.preheader.split
@@ -3883,7 +3883,7 @@ define weak_odr void @_ZNK5faiss19IndexIDMap2TemplateINS_11IndexBinaryEE17check_
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #14
+  call void @__cxa_free_exception(ptr nonnull %26) #14
   br label %92
 
 32:                                               ; preds = %1
@@ -3933,7 +3933,7 @@ define weak_odr void @_ZNK5faiss19IndexIDMap2TemplateINS_11IndexBinaryEE17check_
 52:                                               ; preds = %45
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %48) #14
+  call void @__cxa_free_exception(ptr nonnull %48) #14
   br label %92
 
 54:                                               ; preds = %_ZNKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE2atERS5_.exit
@@ -4017,7 +4017,7 @@ _ZNKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE2atERS5_.exit: 
 90:                                               ; preds = %83
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %86) #14
+  call void @__cxa_free_exception(ptr nonnull %86) #14
   br label %92
 
 ._crit_edge:                                      ; preds = %54, %.preheader.split

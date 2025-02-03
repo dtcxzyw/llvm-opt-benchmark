@@ -2028,7 +2028,7 @@ for.end129:                                       ; preds = %for.inc127, %BuildA
   %208 = load ptr, ptr %bits_.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %208) #12
   store ptr null, ptr %bits_.i, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call4) #12
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %call4) #12
   br i1 %tobool.not.i, label %if.end132, label %if.then131
 
 if.then131:                                       ; preds = %for.end129
@@ -4079,7 +4079,7 @@ BuildHistograms.exit:                             ; preds = %for.inc17.i
   br label %if.end
 
 if.end:                                           ; preds = %BuildHistograms.exit, %for.end21
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call) #12
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %call) #12
   br i1 %tobool.not.i, label %if.end73, label %if.then72
 
 if.then72:                                        ; preds = %if.end

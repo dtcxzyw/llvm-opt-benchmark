@@ -18519,7 +18519,7 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr n
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #26
+  tail call void @__cxa_free_exception(ptr nonnull %2) #26
   resume { ptr, i32 } %5
 }
 
@@ -33751,7 +33751,7 @@ _ZN3fmt2v96detail6bigintmLIiEERS2_T_.exit303:     ; preds = %_ZN3fmt2v96detail6b
 503:                                              ; preds = %500
   %504 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %501) #26
+  call void @__cxa_free_exception(ptr nonnull %501) #26
   br label %.body
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %495
@@ -48183,7 +48183,7 @@ _ZN3fmt2v96detail9normalizeILi0EyEENS1_8basic_fpIT0_EES5_.exit: ; preds = %.lr.p
 118:                                              ; preds = %115
   %119 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %116) #26
+  tail call void @__cxa_free_exception(ptr nonnull %116) #26
   resume { ptr, i32 } %119
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %110
@@ -52115,7 +52115,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i:
 .body.thread65:                                   ; preds = %48
   %50 = extractvalue { ptr, i32 } %49, 0
   %51 = call ptr @__cxa_begin_catch(ptr %50) #26
-  br label %81
+  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55.thread
 
 52:                                               ; preds = %48
   %53 = landingpad { ptr, i32 }
@@ -52186,11 +52186,11 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i4
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit49.loopexit: ; preds = %_ZSt10_ConstructIN4LIEF5MachO7details19binding_instructionEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i43
-  %.ptr69.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i36.add
+  %.ptr70.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i36.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit49
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit49: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit49.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.lcssa.i.i.i.i.i45 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr69.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit49.loopexit ]
+  %.0.lcssa.i.i.i.i.i45 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr70.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit49.loopexit ]
   %.not4.i.i.i = icmp eq ptr %10, %9
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -52223,7 +52223,7 @@ _ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deall
   %eh.lpad-body.ph = phi { ptr, i32 } [ %66, %65 ], [ %36, %35 ]
   %76 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
   %77 = call ptr @__cxa_begin_catch(ptr %76) #26
-  br label %83
+  br label %82
 
 .body:                                            ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE11_M_allocateEm.exit
   %78 = landingpad { ptr, i32 }
@@ -52231,55 +52231,55 @@ _ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deall
   %79 = extractvalue { ptr, i32 } %78, 0
   %80 = call ptr @__cxa_begin_catch(ptr %79) #26
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %81, label %83
+  br i1 %.not, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55.thread, label %82
 
-81:                                               ; preds = %.body.thread65, %.body
-  %82 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #26
-  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55.thread: ; preds = %.body, %.body.thread65
+  %81 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #26
+  br label %87
 
-83:                                               ; preds = %.body.thread, %.body
+82:                                               ; preds = %.body.thread, %.body
   %.0.lpad-body64 = phi ptr [ %.0.lpad-body.ph, %.body.thread ], [ %26, %.body ]
   %.not4.i.i.i51 = icmp eq ptr %26, %.0.lpad-body64
   br i1 %.not4.i.i.i51, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55, label %.lr.ph.i.i.i52
 
-.lr.ph.i.i.i52:                                   ; preds = %83, %.lr.ph.i.i.i52
-  %.05.i.i.i53 = phi ptr [ %85, %.lr.ph.i.i.i52 ], [ %26, %83 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i53, i64 24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #26
-  %85 = getelementptr inbounds nuw i8, ptr %.05.i.i.i53, i64 56
-  %.not.i.i.i54 = icmp eq ptr %85, %.0.lpad-body64
+.lr.ph.i.i.i52:                                   ; preds = %82, %.lr.ph.i.i.i52
+  %.05.i.i.i53 = phi ptr [ %84, %.lr.ph.i.i.i52 ], [ %26, %82 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.05.i.i.i53, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #26
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i53, i64 56
+  %.not.i.i.i54 = icmp eq ptr %84, %.0.lpad-body64
   br i1 %.not.i.i.i54, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55, label %.lr.ph.i.i.i52, !llvm.loop !73
 
-86:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit57
-  %87 = landingpad { ptr, i32 }
+85:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit57
+  %86 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %89 unwind label %90
+          to label %88 unwind label %89
 
-_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55: ; preds = %.lr.ph.i.i.i52, %83, %81
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55: ; preds = %.lr.ph.i.i.i52, %82
   %.not.i56 = icmp eq ptr %26, null
-  br i1 %.not.i56, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit57, label %88
+  br i1 %.not.i56, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit57, label %87
 
-88:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55
+87:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55.thread, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55
   call void @_ZdlPv(ptr noundef nonnull %26) #27
   br label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit57
 
-_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit57: ; preds = %88, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55
+_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit57: ; preds = %87, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit55
   invoke void @__cxa_rethrow() #30
-          to label %93 unwind label %86
+          to label %92 unwind label %85
 
-89:                                               ; preds = %86
-  resume { ptr, i32 } %87
+88:                                               ; preds = %85
+  resume { ptr, i32 } %86
 
-90:                                               ; preds = %86
-  %91 = landingpad { ptr, i32 }
+89:                                               ; preds = %85
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #31
+  %91 = extractvalue { ptr, i32 } %90, 0
+  call void @__clang_call_terminate(ptr %91) #31
   unreachable
 
-93:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit57
+92:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit57
   unreachable
 }
 
@@ -52369,7 +52369,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i:
 .body.thread:                                     ; preds = %35
   %37 = extractvalue { ptr, i32 } %36, 0
   %38 = tail call ptr @__cxa_begin_catch(ptr %37) #26
-  br label %68
+  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread
 
 39:                                               ; preds = %35
   %40 = landingpad { ptr, i32 }
@@ -52432,7 +52432,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
 .body.thread59:                                   ; preds = %52
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = tail call ptr @__cxa_begin_catch(ptr %54) #26
-  br label %70
+  br label %69
 
 56:                                               ; preds = %52
   %57 = landingpad { ptr, i32 }
@@ -52445,11 +52445,11 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit: ; preds = %_ZSt10_ConstructIN4LIEF5MachO7details19binding_instructionEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i38
-  %.ptr64.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
+  %.ptr65.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr64.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
+  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr65.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
   %.not4.i.i.i = icmp eq ptr %7, %6
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -52483,55 +52483,55 @@ _ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deall
   %66 = extractvalue { ptr, i32 } %65, 0
   %67 = tail call ptr @__cxa_begin_catch(ptr %66) #26
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %68, label %70
+  br i1 %.not, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, label %69
 
-68:                                               ; preds = %.body.thread, %.body
-  %69 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #26
-  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread: ; preds = %.body, %.body.thread
+  %68 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #26
+  br label %74
 
-70:                                               ; preds = %.body.thread59, %.body
+69:                                               ; preds = %.body.thread59, %.body
   %.0.lpad-body63 = phi ptr [ %.ptr, %.body.thread59 ], [ %23, %.body ]
   %.not4.i.i.i46 = icmp eq ptr %23, %.0.lpad-body63
   br i1 %.not4.i.i.i46, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47
 
-.lr.ph.i.i.i47:                                   ; preds = %70, %.lr.ph.i.i.i47
-  %.05.i.i.i48 = phi ptr [ %72, %.lr.ph.i.i.i47 ], [ %23, %70 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #26
-  %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
-  %.not.i.i.i49 = icmp eq ptr %72, %.0.lpad-body63
+.lr.ph.i.i.i47:                                   ; preds = %69, %.lr.ph.i.i.i47
+  %.05.i.i.i48 = phi ptr [ %71, %.lr.ph.i.i.i47 ], [ %23, %69 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #26
+  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
+  %.not.i.i.i49 = icmp eq ptr %71, %.0.lpad-body63
   br i1 %.not.i.i.i49, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47, !llvm.loop !73
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+  %73 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %76 unwind label %77
+          to label %75 unwind label %76
 
-_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %70, %68
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %69
   %.not.i51 = icmp eq ptr %23, null
-  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %75
+  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %74
 
-75:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+74:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   tail call void @_ZdlPv(ptr noundef nonnull %23) #27
   br label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
 
-_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %75, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %74, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   invoke void @__cxa_rethrow() #30
-          to label %80 unwind label %73
+          to label %79 unwind label %72
 
-76:                                               ; preds = %73
-  resume { ptr, i32 } %74
+75:                                               ; preds = %72
+  resume { ptr, i32 } %73
 
-77:                                               ; preds = %73
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %72
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #31
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #31
   unreachable
 
-80:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+79:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
   unreachable
 }
 
@@ -52678,7 +52678,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i:
 .body.thread:                                     ; preds = %36
   %38 = extractvalue { ptr, i32 } %37, 0
   %39 = tail call ptr @__cxa_begin_catch(ptr %38) #26
-  br label %69
+  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51.thread
 
 40:                                               ; preds = %36
   %41 = landingpad { ptr, i32 }
@@ -52741,7 +52741,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
 .body.thread60:                                   ; preds = %53
   %55 = extractvalue { ptr, i32 } %54, 0
   %56 = tail call ptr @__cxa_begin_catch(ptr %55) #26
-  br label %71
+  br label %70
 
 57:                                               ; preds = %53
   %58 = landingpad { ptr, i32 }
@@ -52754,11 +52754,11 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit45.loopexit: ; preds = %_ZSt10_ConstructIN4LIEF5MachO7details19binding_instructionEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i39
-  %.ptr65.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i32.add
+  %.ptr66.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i32.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit45
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit45: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit45.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.lcssa.i.i.i.i.i41 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr65.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit45.loopexit ]
+  %.0.lcssa.i.i.i.i.i41 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr66.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit45.loopexit ]
   %.not4.i.i.i = icmp eq ptr %8, %7
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -52792,55 +52792,55 @@ _ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deall
   %67 = extractvalue { ptr, i32 } %66, 0
   %68 = tail call ptr @__cxa_begin_catch(ptr %67) #26
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %69, label %71
+  br i1 %.not, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51.thread, label %70
 
-69:                                               ; preds = %.body.thread, %.body
-  %70 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #26
-  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51.thread: ; preds = %.body, %.body.thread
+  %69 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #26
+  br label %75
 
-71:                                               ; preds = %.body.thread60, %.body
+70:                                               ; preds = %.body.thread60, %.body
   %.0.lpad-body64 = phi ptr [ %.ptr, %.body.thread60 ], [ %24, %.body ]
   %.not4.i.i.i47 = icmp eq ptr %24, %.0.lpad-body64
   br i1 %.not4.i.i.i47, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51, label %.lr.ph.i.i.i48
 
-.lr.ph.i.i.i48:                                   ; preds = %71, %.lr.ph.i.i.i48
-  %.05.i.i.i49 = phi ptr [ %73, %.lr.ph.i.i.i48 ], [ %24, %71 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i49, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #26
-  %73 = getelementptr inbounds nuw i8, ptr %.05.i.i.i49, i64 56
-  %.not.i.i.i50 = icmp eq ptr %73, %.0.lpad-body64
+.lr.ph.i.i.i48:                                   ; preds = %70, %.lr.ph.i.i.i48
+  %.05.i.i.i49 = phi ptr [ %72, %.lr.ph.i.i.i48 ], [ %24, %70 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i49, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #26
+  %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i49, i64 56
+  %.not.i.i.i50 = icmp eq ptr %72, %.0.lpad-body64
   br i1 %.not.i.i.i50, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51, label %.lr.ph.i.i.i48, !llvm.loop !73
 
-74:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53
-  %75 = landingpad { ptr, i32 }
+73:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53
+  %74 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %77 unwind label %78
+          to label %76 unwind label %77
 
-_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51: ; preds = %.lr.ph.i.i.i48, %71, %69
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51: ; preds = %.lr.ph.i.i.i48, %70
   %.not.i52 = icmp eq ptr %24, null
-  br i1 %.not.i52, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53, label %76
+  br i1 %.not.i52, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53, label %75
 
-76:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51
+75:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51.thread, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51
   tail call void @_ZdlPv(ptr noundef nonnull %24) #27
   br label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53
 
-_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53: ; preds = %76, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51
+_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53: ; preds = %75, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51
   invoke void @__cxa_rethrow() #30
-          to label %81 unwind label %74
+          to label %80 unwind label %73
 
-77:                                               ; preds = %74
-  resume { ptr, i32 } %75
+76:                                               ; preds = %73
+  resume { ptr, i32 } %74
 
-78:                                               ; preds = %74
-  %79 = landingpad { ptr, i32 }
+77:                                               ; preds = %73
+  %78 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  tail call void @__clang_call_terminate(ptr %80) #31
+  %79 = extractvalue { ptr, i32 } %78, 0
+  tail call void @__clang_call_terminate(ptr %79) #31
   unreachable
 
-81:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53
+80:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53
   unreachable
 }
 
@@ -52988,7 +52988,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i:
 .body.thread:                                     ; preds = %35
   %37 = extractvalue { ptr, i32 } %36, 0
   %38 = tail call ptr @__cxa_begin_catch(ptr %37) #26
-  br label %68
+  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread
 
 39:                                               ; preds = %35
   %40 = landingpad { ptr, i32 }
@@ -53051,7 +53051,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
 .body.thread59:                                   ; preds = %52
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = tail call ptr @__cxa_begin_catch(ptr %54) #26
-  br label %70
+  br label %69
 
 56:                                               ; preds = %52
   %57 = landingpad { ptr, i32 }
@@ -53064,11 +53064,11 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit: ; preds = %_ZSt10_ConstructIN4LIEF5MachO7details19binding_instructionEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i38
-  %.ptr64.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
+  %.ptr65.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr64.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
+  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr65.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
   %.not4.i.i.i = icmp eq ptr %7, %6
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -53102,55 +53102,55 @@ _ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deall
   %66 = extractvalue { ptr, i32 } %65, 0
   %67 = tail call ptr @__cxa_begin_catch(ptr %66) #26
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %68, label %70
+  br i1 %.not, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, label %69
 
-68:                                               ; preds = %.body.thread, %.body
-  %69 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #26
-  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread: ; preds = %.body, %.body.thread
+  %68 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #26
+  br label %74
 
-70:                                               ; preds = %.body.thread59, %.body
+69:                                               ; preds = %.body.thread59, %.body
   %.0.lpad-body63 = phi ptr [ %.ptr, %.body.thread59 ], [ %23, %.body ]
   %.not4.i.i.i46 = icmp eq ptr %23, %.0.lpad-body63
   br i1 %.not4.i.i.i46, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47
 
-.lr.ph.i.i.i47:                                   ; preds = %70, %.lr.ph.i.i.i47
-  %.05.i.i.i48 = phi ptr [ %72, %.lr.ph.i.i.i47 ], [ %23, %70 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #26
-  %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
-  %.not.i.i.i49 = icmp eq ptr %72, %.0.lpad-body63
+.lr.ph.i.i.i47:                                   ; preds = %69, %.lr.ph.i.i.i47
+  %.05.i.i.i48 = phi ptr [ %71, %.lr.ph.i.i.i47 ], [ %23, %69 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #26
+  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
+  %.not.i.i.i49 = icmp eq ptr %71, %.0.lpad-body63
   br i1 %.not.i.i.i49, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47, !llvm.loop !73
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+  %73 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %76 unwind label %77
+          to label %75 unwind label %76
 
-_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %70, %68
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %69
   %.not.i51 = icmp eq ptr %23, null
-  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %75
+  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %74
 
-75:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+74:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   tail call void @_ZdlPv(ptr noundef nonnull %23) #27
   br label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
 
-_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %75, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %74, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   invoke void @__cxa_rethrow() #30
-          to label %80 unwind label %73
+          to label %79 unwind label %72
 
-76:                                               ; preds = %73
-  resume { ptr, i32 } %74
+75:                                               ; preds = %72
+  resume { ptr, i32 } %73
 
-77:                                               ; preds = %73
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %72
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #31
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #31
   unreachable
 
-80:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+79:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
   unreachable
 }
 
@@ -53296,7 +53296,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i:
 .body.thread:                                     ; preds = %35
   %37 = extractvalue { ptr, i32 } %36, 0
   %38 = tail call ptr @__cxa_begin_catch(ptr %37) #26
-  br label %68
+  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread
 
 39:                                               ; preds = %35
   %40 = landingpad { ptr, i32 }
@@ -53359,7 +53359,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
 .body.thread59:                                   ; preds = %52
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = tail call ptr @__cxa_begin_catch(ptr %54) #26
-  br label %70
+  br label %69
 
 56:                                               ; preds = %52
   %57 = landingpad { ptr, i32 }
@@ -53372,11 +53372,11 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit: ; preds = %_ZSt10_ConstructIN4LIEF5MachO7details19binding_instructionEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i38
-  %.ptr64.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
+  %.ptr65.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr64.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
+  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr65.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
   %.not4.i.i.i = icmp eq ptr %7, %6
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -53410,55 +53410,55 @@ _ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deall
   %66 = extractvalue { ptr, i32 } %65, 0
   %67 = tail call ptr @__cxa_begin_catch(ptr %66) #26
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %68, label %70
+  br i1 %.not, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, label %69
 
-68:                                               ; preds = %.body.thread, %.body
-  %69 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #26
-  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread: ; preds = %.body, %.body.thread
+  %68 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #26
+  br label %74
 
-70:                                               ; preds = %.body.thread59, %.body
+69:                                               ; preds = %.body.thread59, %.body
   %.0.lpad-body63 = phi ptr [ %.ptr, %.body.thread59 ], [ %23, %.body ]
   %.not4.i.i.i46 = icmp eq ptr %23, %.0.lpad-body63
   br i1 %.not4.i.i.i46, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47
 
-.lr.ph.i.i.i47:                                   ; preds = %70, %.lr.ph.i.i.i47
-  %.05.i.i.i48 = phi ptr [ %72, %.lr.ph.i.i.i47 ], [ %23, %70 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #26
-  %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
-  %.not.i.i.i49 = icmp eq ptr %72, %.0.lpad-body63
+.lr.ph.i.i.i47:                                   ; preds = %69, %.lr.ph.i.i.i47
+  %.05.i.i.i48 = phi ptr [ %71, %.lr.ph.i.i.i47 ], [ %23, %69 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #26
+  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
+  %.not.i.i.i49 = icmp eq ptr %71, %.0.lpad-body63
   br i1 %.not.i.i.i49, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47, !llvm.loop !73
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+  %73 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %76 unwind label %77
+          to label %75 unwind label %76
 
-_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %70, %68
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %69
   %.not.i51 = icmp eq ptr %23, null
-  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %75
+  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %74
 
-75:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+74:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   tail call void @_ZdlPv(ptr noundef nonnull %23) #27
   br label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
 
-_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %75, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %74, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   invoke void @__cxa_rethrow() #30
-          to label %80 unwind label %73
+          to label %79 unwind label %72
 
-76:                                               ; preds = %73
-  resume { ptr, i32 } %74
+75:                                               ; preds = %72
+  resume { ptr, i32 } %73
 
-77:                                               ; preds = %73
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %72
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #31
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #31
   unreachable
 
-80:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+79:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
   unreachable
 }
 
@@ -53604,7 +53604,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i:
 .body.thread:                                     ; preds = %35
   %37 = extractvalue { ptr, i32 } %36, 0
   %38 = tail call ptr @__cxa_begin_catch(ptr %37) #26
-  br label %68
+  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread
 
 39:                                               ; preds = %35
   %40 = landingpad { ptr, i32 }
@@ -53667,7 +53667,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
 .body.thread59:                                   ; preds = %52
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = tail call ptr @__cxa_begin_catch(ptr %54) #26
-  br label %70
+  br label %69
 
 56:                                               ; preds = %52
   %57 = landingpad { ptr, i32 }
@@ -53680,11 +53680,11 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit: ; preds = %_ZSt10_ConstructIN4LIEF5MachO7details19binding_instructionEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i38
-  %.ptr64.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
+  %.ptr65.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr64.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
+  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr65.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
   %.not4.i.i.i = icmp eq ptr %7, %6
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -53718,55 +53718,55 @@ _ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deall
   %66 = extractvalue { ptr, i32 } %65, 0
   %67 = tail call ptr @__cxa_begin_catch(ptr %66) #26
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %68, label %70
+  br i1 %.not, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, label %69
 
-68:                                               ; preds = %.body.thread, %.body
-  %69 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #26
-  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread: ; preds = %.body, %.body.thread
+  %68 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #26
+  br label %74
 
-70:                                               ; preds = %.body.thread59, %.body
+69:                                               ; preds = %.body.thread59, %.body
   %.0.lpad-body63 = phi ptr [ %.ptr, %.body.thread59 ], [ %23, %.body ]
   %.not4.i.i.i46 = icmp eq ptr %23, %.0.lpad-body63
   br i1 %.not4.i.i.i46, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47
 
-.lr.ph.i.i.i47:                                   ; preds = %70, %.lr.ph.i.i.i47
-  %.05.i.i.i48 = phi ptr [ %72, %.lr.ph.i.i.i47 ], [ %23, %70 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #26
-  %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
-  %.not.i.i.i49 = icmp eq ptr %72, %.0.lpad-body63
+.lr.ph.i.i.i47:                                   ; preds = %69, %.lr.ph.i.i.i47
+  %.05.i.i.i48 = phi ptr [ %71, %.lr.ph.i.i.i47 ], [ %23, %69 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #26
+  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
+  %.not.i.i.i49 = icmp eq ptr %71, %.0.lpad-body63
   br i1 %.not.i.i.i49, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47, !llvm.loop !73
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+  %73 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %76 unwind label %77
+          to label %75 unwind label %76
 
-_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %70, %68
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %69
   %.not.i51 = icmp eq ptr %23, null
-  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %75
+  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %74
 
-75:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+74:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   tail call void @_ZdlPv(ptr noundef nonnull %23) #27
   br label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
 
-_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %75, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %74, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   invoke void @__cxa_rethrow() #30
-          to label %80 unwind label %73
+          to label %79 unwind label %72
 
-76:                                               ; preds = %73
-  resume { ptr, i32 } %74
+75:                                               ; preds = %72
+  resume { ptr, i32 } %73
 
-77:                                               ; preds = %73
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %72
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #31
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #31
   unreachable
 
-80:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+79:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
   unreachable
 }
 
@@ -54034,7 +54034,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i:
 .body.thread:                                     ; preds = %35
   %37 = extractvalue { ptr, i32 } %36, 0
   %38 = tail call ptr @__cxa_begin_catch(ptr %37) #26
-  br label %68
+  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread
 
 39:                                               ; preds = %35
   %40 = landingpad { ptr, i32 }
@@ -54097,7 +54097,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
 .body.thread59:                                   ; preds = %52
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = tail call ptr @__cxa_begin_catch(ptr %54) #26
-  br label %70
+  br label %69
 
 56:                                               ; preds = %52
   %57 = landingpad { ptr, i32 }
@@ -54110,11 +54110,11 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit: ; preds = %_ZSt10_ConstructIN4LIEF5MachO7details19binding_instructionEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i38
-  %.ptr64.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
+  %.ptr65.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr64.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
+  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr65.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
   %.not4.i.i.i = icmp eq ptr %7, %6
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -54148,55 +54148,55 @@ _ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deall
   %66 = extractvalue { ptr, i32 } %65, 0
   %67 = tail call ptr @__cxa_begin_catch(ptr %66) #26
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %68, label %70
+  br i1 %.not, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, label %69
 
-68:                                               ; preds = %.body.thread, %.body
-  %69 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #26
-  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread: ; preds = %.body, %.body.thread
+  %68 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #26
+  br label %74
 
-70:                                               ; preds = %.body.thread59, %.body
+69:                                               ; preds = %.body.thread59, %.body
   %.0.lpad-body63 = phi ptr [ %.ptr, %.body.thread59 ], [ %23, %.body ]
   %.not4.i.i.i46 = icmp eq ptr %23, %.0.lpad-body63
   br i1 %.not4.i.i.i46, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47
 
-.lr.ph.i.i.i47:                                   ; preds = %70, %.lr.ph.i.i.i47
-  %.05.i.i.i48 = phi ptr [ %72, %.lr.ph.i.i.i47 ], [ %23, %70 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #26
-  %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
-  %.not.i.i.i49 = icmp eq ptr %72, %.0.lpad-body63
+.lr.ph.i.i.i47:                                   ; preds = %69, %.lr.ph.i.i.i47
+  %.05.i.i.i48 = phi ptr [ %71, %.lr.ph.i.i.i47 ], [ %23, %69 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #26
+  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
+  %.not.i.i.i49 = icmp eq ptr %71, %.0.lpad-body63
   br i1 %.not.i.i.i49, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47, !llvm.loop !73
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+  %73 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %76 unwind label %77
+          to label %75 unwind label %76
 
-_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %70, %68
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %69
   %.not.i51 = icmp eq ptr %23, null
-  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %75
+  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %74
 
-75:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+74:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   tail call void @_ZdlPv(ptr noundef nonnull %23) #27
   br label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
 
-_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %75, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %74, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   invoke void @__cxa_rethrow() #30
-          to label %80 unwind label %73
+          to label %79 unwind label %72
 
-76:                                               ; preds = %73
-  resume { ptr, i32 } %74
+75:                                               ; preds = %72
+  resume { ptr, i32 } %73
 
-77:                                               ; preds = %73
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %72
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #31
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #31
   unreachable
 
-80:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+79:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
   unreachable
 }
 
@@ -54343,7 +54343,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i:
 .body.thread:                                     ; preds = %35
   %37 = extractvalue { ptr, i32 } %36, 0
   %38 = tail call ptr @__cxa_begin_catch(ptr %37) #26
-  br label %68
+  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread
 
 39:                                               ; preds = %35
   %40 = landingpad { ptr, i32 }
@@ -54406,7 +54406,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
 .body.thread59:                                   ; preds = %52
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = tail call ptr @__cxa_begin_catch(ptr %54) #26
-  br label %70
+  br label %69
 
 56:                                               ; preds = %52
   %57 = landingpad { ptr, i32 }
@@ -54419,11 +54419,11 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit: ; preds = %_ZSt10_ConstructIN4LIEF5MachO7details19binding_instructionEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i38
-  %.ptr64.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
+  %.ptr65.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr64.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
+  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr65.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
   %.not4.i.i.i = icmp eq ptr %7, %6
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -54457,55 +54457,55 @@ _ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deall
   %66 = extractvalue { ptr, i32 } %65, 0
   %67 = tail call ptr @__cxa_begin_catch(ptr %66) #26
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %68, label %70
+  br i1 %.not, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, label %69
 
-68:                                               ; preds = %.body.thread, %.body
-  %69 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #26
-  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread: ; preds = %.body, %.body.thread
+  %68 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #26
+  br label %74
 
-70:                                               ; preds = %.body.thread59, %.body
+69:                                               ; preds = %.body.thread59, %.body
   %.0.lpad-body63 = phi ptr [ %.ptr, %.body.thread59 ], [ %23, %.body ]
   %.not4.i.i.i46 = icmp eq ptr %23, %.0.lpad-body63
   br i1 %.not4.i.i.i46, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47
 
-.lr.ph.i.i.i47:                                   ; preds = %70, %.lr.ph.i.i.i47
-  %.05.i.i.i48 = phi ptr [ %72, %.lr.ph.i.i.i47 ], [ %23, %70 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #26
-  %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
-  %.not.i.i.i49 = icmp eq ptr %72, %.0.lpad-body63
+.lr.ph.i.i.i47:                                   ; preds = %69, %.lr.ph.i.i.i47
+  %.05.i.i.i48 = phi ptr [ %71, %.lr.ph.i.i.i47 ], [ %23, %69 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #26
+  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
+  %.not.i.i.i49 = icmp eq ptr %71, %.0.lpad-body63
   br i1 %.not.i.i.i49, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47, !llvm.loop !73
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+  %73 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %76 unwind label %77
+          to label %75 unwind label %76
 
-_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %70, %68
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %69
   %.not.i51 = icmp eq ptr %23, null
-  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %75
+  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %74
 
-75:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+74:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   tail call void @_ZdlPv(ptr noundef nonnull %23) #27
   br label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
 
-_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %75, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %74, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   invoke void @__cxa_rethrow() #30
-          to label %80 unwind label %73
+          to label %79 unwind label %72
 
-76:                                               ; preds = %73
-  resume { ptr, i32 } %74
+75:                                               ; preds = %72
+  resume { ptr, i32 } %73
 
-77:                                               ; preds = %73
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %72
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #31
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #31
   unreachable
 
-80:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+79:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
   unreachable
 }
 
@@ -55610,7 +55610,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i:
 .body.thread:                                     ; preds = %36
   %38 = extractvalue { ptr, i32 } %37, 0
   %39 = tail call ptr @__cxa_begin_catch(ptr %38) #26
-  br label %69
+  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51.thread
 
 40:                                               ; preds = %36
   %41 = landingpad { ptr, i32 }
@@ -55673,7 +55673,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
 .body.thread60:                                   ; preds = %53
   %55 = extractvalue { ptr, i32 } %54, 0
   %56 = tail call ptr @__cxa_begin_catch(ptr %55) #26
-  br label %71
+  br label %70
 
 57:                                               ; preds = %53
   %58 = landingpad { ptr, i32 }
@@ -55686,11 +55686,11 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit45.loopexit: ; preds = %_ZSt10_ConstructIN4LIEF5MachO7details19binding_instructionEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i39
-  %.ptr65.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i32.add
+  %.ptr66.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i32.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit45
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit45: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit45.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.lcssa.i.i.i.i.i41 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr65.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit45.loopexit ]
+  %.0.lcssa.i.i.i.i.i41 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr66.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit45.loopexit ]
   %.not4.i.i.i = icmp eq ptr %8, %7
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -55724,55 +55724,55 @@ _ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deall
   %67 = extractvalue { ptr, i32 } %66, 0
   %68 = tail call ptr @__cxa_begin_catch(ptr %67) #26
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %69, label %71
+  br i1 %.not, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51.thread, label %70
 
-69:                                               ; preds = %.body.thread, %.body
-  %70 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #26
-  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51.thread: ; preds = %.body, %.body.thread
+  %69 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #26
+  br label %75
 
-71:                                               ; preds = %.body.thread60, %.body
+70:                                               ; preds = %.body.thread60, %.body
   %.0.lpad-body64 = phi ptr [ %.ptr, %.body.thread60 ], [ %24, %.body ]
   %.not4.i.i.i47 = icmp eq ptr %24, %.0.lpad-body64
   br i1 %.not4.i.i.i47, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51, label %.lr.ph.i.i.i48
 
-.lr.ph.i.i.i48:                                   ; preds = %71, %.lr.ph.i.i.i48
-  %.05.i.i.i49 = phi ptr [ %73, %.lr.ph.i.i.i48 ], [ %24, %71 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i49, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #26
-  %73 = getelementptr inbounds nuw i8, ptr %.05.i.i.i49, i64 56
-  %.not.i.i.i50 = icmp eq ptr %73, %.0.lpad-body64
+.lr.ph.i.i.i48:                                   ; preds = %70, %.lr.ph.i.i.i48
+  %.05.i.i.i49 = phi ptr [ %72, %.lr.ph.i.i.i48 ], [ %24, %70 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i49, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #26
+  %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i49, i64 56
+  %.not.i.i.i50 = icmp eq ptr %72, %.0.lpad-body64
   br i1 %.not.i.i.i50, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51, label %.lr.ph.i.i.i48, !llvm.loop !73
 
-74:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53
-  %75 = landingpad { ptr, i32 }
+73:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53
+  %74 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %77 unwind label %78
+          to label %76 unwind label %77
 
-_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51: ; preds = %.lr.ph.i.i.i48, %71, %69
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51: ; preds = %.lr.ph.i.i.i48, %70
   %.not.i52 = icmp eq ptr %24, null
-  br i1 %.not.i52, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53, label %76
+  br i1 %.not.i52, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53, label %75
 
-76:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51
+75:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51.thread, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51
   tail call void @_ZdlPv(ptr noundef nonnull %24) #27
   br label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53
 
-_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53: ; preds = %76, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51
+_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53: ; preds = %75, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit51
   invoke void @__cxa_rethrow() #30
-          to label %81 unwind label %74
+          to label %80 unwind label %73
 
-77:                                               ; preds = %74
-  resume { ptr, i32 } %75
+76:                                               ; preds = %73
+  resume { ptr, i32 } %74
 
-78:                                               ; preds = %74
-  %79 = landingpad { ptr, i32 }
+77:                                               ; preds = %73
+  %78 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  tail call void @__clang_call_terminate(ptr %80) #31
+  %79 = extractvalue { ptr, i32 } %78, 0
+  tail call void @__clang_call_terminate(ptr %79) #31
   unreachable
 
-81:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53
+80:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit53
   unreachable
 }
 
@@ -55919,7 +55919,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i:
 .body.thread:                                     ; preds = %35
   %37 = extractvalue { ptr, i32 } %36, 0
   %38 = tail call ptr @__cxa_begin_catch(ptr %37) #26
-  br label %68
+  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread
 
 39:                                               ; preds = %35
   %40 = landingpad { ptr, i32 }
@@ -55982,7 +55982,7 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
 .body.thread59:                                   ; preds = %52
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = tail call ptr @__cxa_begin_catch(ptr %54) #26
-  br label %70
+  br label %69
 
 56:                                               ; preds = %52
   %57 = landingpad { ptr, i32 }
@@ -55995,11 +55995,11 @@ _ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionEEvT_S5_.exit.i.i.i.i.i3
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit: ; preds = %_ZSt10_ConstructIN4LIEF5MachO7details19binding_instructionEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i38
-  %.ptr64.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
+  %.ptr65.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i31.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr64.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
+  %.0.lcssa.i.i.i.i.i40 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %.ptr65.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF5MachO7details19binding_instructionES4_SaIS3_EET0_T_S7_S6_RT1_.exit44.loopexit ]
   %.not4.i.i.i = icmp eq ptr %7, %6
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -56033,55 +56033,55 @@ _ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deall
   %66 = extractvalue { ptr, i32 } %65, 0
   %67 = tail call ptr @__cxa_begin_catch(ptr %66) #26
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %68, label %70
+  br i1 %.not, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, label %69
 
-68:                                               ; preds = %.body.thread, %.body
-  %69 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #26
-  br label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread: ; preds = %.body, %.body.thread
+  %68 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #26
+  br label %74
 
-70:                                               ; preds = %.body.thread59, %.body
+69:                                               ; preds = %.body.thread59, %.body
   %.0.lpad-body63 = phi ptr [ %.ptr, %.body.thread59 ], [ %23, %.body ]
   %.not4.i.i.i46 = icmp eq ptr %23, %.0.lpad-body63
   br i1 %.not4.i.i.i46, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47
 
-.lr.ph.i.i.i47:                                   ; preds = %70, %.lr.ph.i.i.i47
-  %.05.i.i.i48 = phi ptr [ %72, %.lr.ph.i.i.i47 ], [ %23, %70 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #26
-  %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
-  %.not.i.i.i49 = icmp eq ptr %72, %.0.lpad-body63
+.lr.ph.i.i.i47:                                   ; preds = %69, %.lr.ph.i.i.i47
+  %.05.i.i.i48 = phi ptr [ %71, %.lr.ph.i.i.i47 ], [ %23, %69 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #26
+  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 56
+  %.not.i.i.i49 = icmp eq ptr %71, %.0.lpad-body63
   br i1 %.not.i.i.i49, label %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50, label %.lr.ph.i.i.i47, !llvm.loop !73
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+  %73 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %76 unwind label %77
+          to label %75 unwind label %76
 
-_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %70, %68
+_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50: ; preds = %.lr.ph.i.i.i47, %69
   %.not.i51 = icmp eq ptr %23, null
-  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %75
+  br i1 %.not.i51, label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52, label %74
 
-75:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+74:                                               ; preds = %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50.thread, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   tail call void @_ZdlPv(ptr noundef nonnull %23) #27
   br label %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
 
-_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %75, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
+_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52: ; preds = %74, %_ZSt8_DestroyIPN4LIEF5MachO7details19binding_instructionES3_EvT_S5_RSaIT0_E.exit50
   invoke void @__cxa_rethrow() #30
-          to label %80 unwind label %73
+          to label %79 unwind label %72
 
-76:                                               ; preds = %73
-  resume { ptr, i32 } %74
+75:                                               ; preds = %72
+  resume { ptr, i32 } %73
 
-77:                                               ; preds = %73
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %72
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #31
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #31
   unreachable
 
-80:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
+79:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO7details19binding_instructionESaIS3_EE13_M_deallocateEPS3_m.exit52
   unreachable
 }
 

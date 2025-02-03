@@ -576,7 +576,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #10
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #10
   resume { ptr, i32 } %1
 
 switch.lookup:                                    ; preds = %entry
@@ -660,7 +660,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #10
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #10
   resume { ptr, i32 } %1
 
 switch.lookup:                                    ; preds = %entry

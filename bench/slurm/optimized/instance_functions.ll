@@ -122,7 +122,7 @@ define dso_local i32 @sacctmgr_list_instance(i32 noundef %0, ptr noundef %1) loc
   %.0128.i = phi i32 [ %42, %.thread.i ], [ -2, %50 ]
   %54 = tail call i32 @llvm.smax.i32(i32 %.0128.i, i32 5)
   %55 = zext nneg i32 %54 to i64
-  %56 = tail call i32 @xstrncasecmp(ptr noundef %53, ptr noundef nonnull @.str.7, i64 noundef %55) #9
+  %56 = tail call i32 @xstrncasecmp(ptr noundef nonnull %53, ptr noundef nonnull @.str.7, i64 noundef %55) #9
   %.not102.i = icmp eq i32 %56, 0
   br i1 %.not102.i, label %145, label %..thread130_crit_edge.i
 

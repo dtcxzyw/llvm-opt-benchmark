@@ -242,17 +242,17 @@ cond.true.i.i102:                                 ; preds = %bdrv_filter_or_cow_
 
 bdrv_filter_or_cow_bs.exit104:                    ; preds = %bdrv_filter_or_cow_bs.exit, %cond.true.i.i102
   %cond.i.i103 = phi ptr [ %7, %cond.true.i.i102 ], [ null, %bdrv_filter_or_cow_bs.exit ]
-  %cmp77.not141 = icmp eq ptr %cond.i.i103, %cond.i.i99
-  br i1 %cmp77.not141, label %for.end, label %for.body
+  %cmp77.not132 = icmp eq ptr %cond.i.i103, %cond.i.i99
+  br i1 %cmp77.not132, label %for.end, label %for.body
 
 for.body:                                         ; preds = %bdrv_filter_or_cow_bs.exit104, %bdrv_filter_or_cow_bs.exit109
-  %iter.0142 = phi ptr [ %cond.i.i108, %bdrv_filter_or_cow_bs.exit109 ], [ %cond.i.i103, %bdrv_filter_or_cow_bs.exit104 ]
-  %call81 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call58, ptr noundef nonnull @.str.12, ptr noundef %iter.0142, i64 noundef 0, i64 noundef 5, ptr noundef %errp) #5
+  %iter.0133 = phi ptr [ %cond.i.i108, %bdrv_filter_or_cow_bs.exit109 ], [ %cond.i.i103, %bdrv_filter_or_cow_bs.exit104 ]
+  %call81 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call58, ptr noundef nonnull @.str.12, ptr noundef %iter.0133, i64 noundef 0, i64 noundef 5, ptr noundef %errp) #5
   %cmp82 = icmp slt i32 %call81, 0
   br i1 %cmp82, label %if.then103.sink.split.sink.split, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %call.i105 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %iter.0142) #5
+  %call.i105 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %iter.0133) #5
   %tobool.not.i.i106 = icmp eq ptr %call.i105, null
   br i1 %tobool.not.i.i106, label %bdrv_filter_or_cow_bs.exit109, label %cond.true.i.i107
 

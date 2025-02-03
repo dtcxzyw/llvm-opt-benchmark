@@ -2988,7 +2988,7 @@ if.then81:                                        ; preds = %if.else78
 if.end85:                                         ; preds = %if.then55, %while.cond50.preheader, %if.then65, %if.else78, %if.then81, %if.then70, %while.end, %if.else56
   %lnot = phi i1 [ true, %if.else56 ], [ true, %while.end ], [ false, %if.then65 ], [ true, %if.then70 ], [ true, %if.then81 ], [ true, %if.else78 ], [ true, %while.cond50.preheader ], [ true, %if.then55 ]
   %useurl.2 = phi ptr [ %useurl.1.lcssa, %if.else56 ], [ %useurl.1.lcssa, %while.end ], [ %arrayidx66, %if.then65 ], [ %relurl, %if.then70 ], [ %relurl, %if.then81 ], [ %relurl, %if.else78 ], [ %useurl.1.lcssa, %while.cond50.preheader ], [ %useurl.1.lcssa, %if.then55 ]
-  %protsep.2 = phi ptr [ %add.ptr20, %if.else56 ], [ null, %while.end ], [ %protsep.0, %if.then65 ], [ %protsep.0, %if.then70 ], [ %protsep.0, %if.then81 ], [ %protsep.0, %if.else78 ], [ %add.ptr20, %while.cond50.preheader ], [ %protsep.1, %if.then55 ]
+  %protsep.2 = phi ptr [ %add.ptr20, %if.else56 ], [ null, %while.end ], [ %protsep.0, %if.then65 ], [ %protsep.0, %if.then70 ], [ %protsep.0, %if.then81 ], [ %protsep.0, %if.else78 ], [ %add.ptr20, %while.cond50.preheader ], [ %add.ptr20, %if.then55 ]
   call void @Curl_dyn_init(ptr noundef nonnull %newest, i64 noundef 8000000) #10
   %call86 = call i32 @Curl_dyn_add(ptr noundef nonnull %newest, ptr noundef nonnull %base) #10
   %tobool87.not = icmp eq i32 %call86, 0

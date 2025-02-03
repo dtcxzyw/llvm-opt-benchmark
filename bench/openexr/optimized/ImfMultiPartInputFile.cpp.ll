@@ -346,7 +346,7 @@ lpad:                                             ; preds = %invoke.cont15, %inv
 lpad14:                                           ; preds = %invoke.cont12
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #24
+  call void @__cxa_free_exception(ptr nonnull %exception) #24
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad14, %lpad
@@ -1124,7 +1124,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #24
   br label %eh.resume
 
 while.body:                                       ; preds = %while.body.preheader
@@ -1205,7 +1205,7 @@ invoke.cont32:                                    ; preds = %if.then29
 lpad31:                                           ; preds = %if.then29
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception30) #24
+  call void @__cxa_free_exception(ptr nonnull %exception30) #24
   br label %eh.resume
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end84
@@ -1230,7 +1230,7 @@ invoke.cont49:                                    ; preds = %if.then46
 lpad48:                                           ; preds = %if.then46
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception47) #24
+  call void @__cxa_free_exception(ptr nonnull %exception47) #24
   br label %eh.resume
 
 if.end50:                                         ; preds = %if.then44
@@ -1277,7 +1277,7 @@ invoke.cont82:                                    ; preds = %if.then79
 lpad81:                                           ; preds = %if.then79
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception80) #24
+  call void @__cxa_free_exception(ptr nonnull %exception80) #24
   br label %eh.resume
 
 if.end84:                                         ; preds = %if.end70
@@ -2242,7 +2242,7 @@ lpad:                                             ; preds = %invoke.cont16, %inv
 lpad15:                                           ; preds = %invoke.cont13
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #24
+  call void @__cxa_free_exception(ptr nonnull %exception) #24
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad15, %lpad
@@ -3391,7 +3391,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #24
   br label %eh.resume
 
 if.end:                                           ; preds = %land.lhs.true, %for.body
@@ -3606,7 +3606,7 @@ invoke.cont64:                                    ; preds = %sw.default
 lpad63:                                           ; preds = %sw.default
   %27 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception62) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception62) #24
   br label %if.then.i.i.i273
 
 for.inc67:                                        ; preds = %invoke.cont47, %sw.bb60, %sw.bb58, %sw.bb56, %sw.bb
@@ -3680,7 +3680,7 @@ invoke.cont88.cont:                               ; preds = %invoke.cont88.invok
 lpad87:                                           ; preds = %if.then85
   %36 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception86) #24
+  call void @__cxa_free_exception(ptr nonnull %exception86) #24
   br label %catch
 
 if.end90:                                         ; preds = %lor.lhs.false82
@@ -3751,7 +3751,7 @@ if.then106:                                       ; preds = %invoke.cont103
 lpad108:                                          ; preds = %if.then106
   %47 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception107) #24
+  call void @__cxa_free_exception(ptr nonnull %exception107) #24
   br label %catch
 
 if.end111:                                        ; preds = %invoke.cont103
@@ -3769,7 +3769,7 @@ if.then116:                                       ; preds = %invoke.cont114
 lpad118:                                          ; preds = %if.then116
   %48 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception117) #24
+  call void @__cxa_free_exception(ptr nonnull %exception117) #24
   br label %catch
 
 if.end121:                                        ; preds = %invoke.cont114
@@ -3838,7 +3838,7 @@ if.then137:                                       ; preds = %lor.lhs.false133, %
 lpad139:                                          ; preds = %if.then137
   %55 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception138) #24
+  call void @__cxa_free_exception(ptr nonnull %exception138) #24
   br label %catch
 
 if.end142:                                        ; preds = %lor.lhs.false133
@@ -3867,7 +3867,7 @@ if.then148:                                       ; preds = %invoke.cont146
 lpad150:                                          ; preds = %if.then148
   %58 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception149) #24
+  call void @__cxa_free_exception(ptr nonnull %exception149) #24
   br label %catch
 
 if.end153:                                        ; preds = %invoke.cont146
@@ -3913,7 +3913,7 @@ if.then167:                                       ; preds = %invoke.cont163, %in
 lpad169:                                          ; preds = %if.then167
   %63 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception168) #24
+  call void @__cxa_free_exception(ptr nonnull %exception168) #24
   br label %catch
 
 if.end172:                                        ; preds = %invoke.cont163
@@ -3954,7 +3954,7 @@ if.then188:                                       ; preds = %lor.lhs.false181, %
 lpad190:                                          ; preds = %if.then188
   %70 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception189) #24
+  call void @__cxa_free_exception(ptr nonnull %exception189) #24
   br label %catch
 
 if.end193:                                        ; preds = %lor.lhs.false181
@@ -4020,7 +4020,7 @@ if.then217:                                       ; preds = %lor.lhs.false213, %
 lpad219:                                          ; preds = %if.then217
   %76 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception218) #24
+  call void @__cxa_free_exception(ptr nonnull %exception218) #24
   br label %catch
 
 if.end222:                                        ; preds = %lor.lhs.false213
@@ -4049,7 +4049,7 @@ if.then229:                                       ; preds = %invoke.cont227
 lpad231:                                          ; preds = %if.then229
   %79 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception230) #24
+  call void @__cxa_free_exception(ptr nonnull %exception230) #24
   br label %catch
 
 if.end234:                                        ; preds = %invoke.cont227
@@ -4076,7 +4076,7 @@ if.then247:                                       ; preds = %if.end238
 lpad249:                                          ; preds = %if.then247
   %83 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception248) #24
+  call void @__cxa_free_exception(ptr nonnull %exception248) #24
   br label %catch
 
 catch:                                            ; preds = %lpad75.loopexit, %lpad75.loopexit.split-lp, %lpad249, %lpad231, %lpad219, %lpad190, %lpad169, %lpad150, %lpad139, %lpad118, %lpad108, %lpad87
@@ -4553,7 +4553,7 @@ lpad:                                             ; preds = %invoke.cont16, %inv
 lpad15:                                           ; preds = %invoke.cont13
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #24
+  call void @__cxa_free_exception(ptr nonnull %exception) #24
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad15, %lpad
@@ -5143,7 +5143,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %6 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %if.then unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.end.thread unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
@@ -5248,7 +5248,7 @@ if.else.thread:                                   ; preds = %_ZNKSt6vectorIN7Imf
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #24
   br label %invoke.cont21
 
-if.then:                                          ; preds = %lpad2.i.i.i.i.i
+if.end.thread:                                    ; preds = %lpad2.i.i.i.i.i
   %18 = extractvalue { ptr, i32 } %6, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #24
   tail call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr) #24
@@ -5273,7 +5273,7 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-invoke.cont21:                                    ; preds = %for.body.i.i.i46, %if.else.thread, %if.else, %if.then
+invoke.cont21:                                    ; preds = %for.body.i.i.i46, %if.end.thread, %if.else.thread, %if.else
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i) #27
   invoke void @__cxa_rethrow() #25
           to label %unreachable unwind label %lpad19

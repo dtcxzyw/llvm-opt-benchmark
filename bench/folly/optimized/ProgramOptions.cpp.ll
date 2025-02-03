@@ -9881,7 +9881,7 @@ lpad.i:                                           ; preds = %if.end.i
 lpad5.i:                                          ; preds = %if.then4.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #32
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #32
   br label %ehcleanup.i
 
 lpad7.i:                                          ; preds = %invoke.cont6.i
@@ -11712,7 +11712,7 @@ lpad.i:                                           ; preds = %_ZN5folly2toINSt7__
 lpad5.i:                                          ; preds = %if.then4.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #32
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #32
   br label %ehcleanup.i
 
 lpad7.i:                                          ; preds = %invoke.cont6.i
@@ -12780,7 +12780,7 @@ lpad.i:                                           ; preds = %_ZN5folly2toINSt7__
 lpad5.i:                                          ; preds = %if.then4.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #32
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #32
   br label %ehcleanup.i
 
 lpad7.i:                                          ; preds = %invoke.cont6.i
@@ -13885,7 +13885,7 @@ lpad.i:                                           ; preds = %if.end.i
 lpad5.i:                                          ; preds = %if.then4.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #32
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #32
   br label %ehcleanup.i
 
 lpad7.i:                                          ; preds = %invoke.cont6.i
@@ -14917,7 +14917,7 @@ lpad.i:                                           ; preds = %if.end.i
 lpad5.i:                                          ; preds = %if.then4.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #32
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #32
   br label %ehcleanup.i
 
 lpad7.i:                                          ; preds = %invoke.cont6.i
@@ -16138,7 +16138,7 @@ lpad.i:                                           ; preds = %_ZN5folly2toINSt7__
 lpad5.i:                                          ; preds = %if.then4.i
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #32
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #32
   br label %ehcleanup.i
 
 lpad7.i:                                          ; preds = %invoke.cont6.i
@@ -17371,7 +17371,7 @@ lpad.i:                                           ; preds = %_ZN5folly2toINSt7__
 lpad5.i:                                          ; preds = %if.then4.i
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #32
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #32
   br label %ehcleanup.i
 
 lpad7.i:                                          ; preds = %invoke.cont6.i
@@ -21570,7 +21570,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %add.ptr.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i.i.i, i64 %sub.ptr.div.i.i.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !486
-  %call.i.i.i.i5.i = invoke noundef ptr @_ZSt16__do_uninit_copyIPKPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_T_SC_SB_(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr3, ptr noundef %cond.i.i.i)
+  %call.i.i.i.i5.i = invoke noundef ptr @_ZSt16__do_uninit_copyIPKPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_T_SC_SB_(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr3, ptr noundef %cond.i.i.i)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i
@@ -22283,7 +22283,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #32
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5boost15program_options12basic_optionIcEEEEvT_S7_(ptr noundef %cond.i.i.i, ptr noundef %__cur.018.i.i.i.i)
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5boost15program_options12basic_optionIcEEEEvT_S7_(ptr noundef %cond.i.i.i, ptr noundef nonnull %__cur.018.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i

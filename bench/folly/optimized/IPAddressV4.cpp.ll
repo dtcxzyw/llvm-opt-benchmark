@@ -8074,7 +8074,7 @@ invoke.cont.i:                                    ; preds = %if.then.i33
 lpad.i:                                           ; preds = %if.then.i33
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #31
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #31
   br label %common.resume
 
 _ZN5folly11IPAddressV49fetchMaskEm.exit:          ; preds = %_ZNK5folly9IPAddress4asV4Ev.exit
@@ -8175,7 +8175,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #31
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

@@ -468,7 +468,7 @@ invoke.cont:                                      ; preds = %for.end
 lpad:                                             ; preds = %for.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   resume { ptr, i32 } %1
 
 return:                                           ; preds = %for.body
@@ -1262,7 +1262,7 @@ lpad.i:                                           ; preds = %for.end.i
   %14 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI14UnknownKeycode
-  tail call void @__cxa_free_exception(ptr %exception.i) #25, !noalias !30
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #25, !noalias !30
   br label %lpad30.body
 
 invoke.cont31:                                    ; preds = %for.body.i
@@ -2190,7 +2190,7 @@ invoke.cont.i:                                    ; preds = %for.end.i
 lpad.i:                                           ; preds = %for.end.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #25, !noalias !68
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #25, !noalias !68
   resume { ptr, i32 } %1
 
 _Z14lookup_keynamePKc.exit:                       ; preds = %for.body.i

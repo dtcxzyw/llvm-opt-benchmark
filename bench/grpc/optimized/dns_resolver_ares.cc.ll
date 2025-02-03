@@ -4132,7 +4132,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #24
-  invoke void @_ZSt8_DestroyIPN9grpc_core17EndpointAddressesEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef %__cur.010.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN9grpc_core17EndpointAddressesEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef nonnull %__cur.010.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -7026,7 +7026,7 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %mu_ = getelementptr inbounds nuw i8, ptr %arg, i64 80
   invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-          to label %invoke.cont unwind label %ehcleanup
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %pollset_set_ = getelementptr inbounds nuw i8, ptr %arg, i64 160
@@ -7042,17 +7042,22 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %cleanup7.critedge, label %if.end
 
-lpad1:                                            ; preds = %invoke.cont
+lpad:                                             ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
+  br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit20
+
+lpad1:                                            ; preds = %invoke.cont
+  %4 = landingpad { ptr, i32 }
+          cleanup
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-          to label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i17 unwind label %terminate.lpad.i
+          to label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit20 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad1
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #26
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #26
   unreachable
 
 if.end:                                           ; preds = %invoke.cont2
@@ -7061,47 +7066,47 @@ if.end:                                           ; preds = %invoke.cont2
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit9 unwind label %terminate.lpad.i8
 
 terminate.lpad.i8:                                ; preds = %if.end
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #26
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit9:       ; preds = %if.end
-  %8 = load i64, ptr %error, align 8
-  store i64 %8, ptr %agg.tmp, align 8
-  %and.i.i.i = and i64 %8, 1
+  %9 = load i64, ptr %error, align 8
+  store i64 %9, ptr %agg.tmp, align 8
+  %and.i.i.i = and i64 %9, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %invoke.cont4, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit9
-  %sub.i.i.i = add nsw i64 %8, -1
-  %9 = inttoptr i64 %sub.i.i.i to ptr
-  %10 = atomicrmw add ptr %9, i32 1 monotonic, align 4
+  %sub.i.i.i = add nsw i64 %9, -1
+  %10 = inttoptr i64 %sub.i.i.i to ptr
+  %11 = atomicrmw add ptr %10, i32 1 monotonic, align 4
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %if.then.i.i, %_ZN4absl12lts_202308029MutexLockD2Ev.exit9
   %vtable = load ptr, ptr %arg, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
-  %11 = load ptr, ptr %vfn, align 8
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(168) %arg, ptr noundef nonnull %agg.tmp)
+  %12 = load ptr, ptr %vfn, align 8
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(168) %arg, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %12 = load i64, ptr %agg.tmp, align 8
-  %and.i.i.i10 = and i64 %12, 1
+  %13 = load i64, ptr %agg.tmp, align 8
+  %and.i.i.i10 = and i64 %13, 1
   %cmp.i.i.i11 = icmp eq i64 %and.i.i.i10, 0
   br i1 %cmp.i.i.i11, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit, label %if.then.i.i12
 
 if.then.i.i12:                                    ; preds = %invoke.cont6
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %12)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %13)
           to label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit unwind label %terminate.lpad.i13
 
 terminate.lpad.i13:                               ; preds = %if.then.i.i12
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #26
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #26
   unreachable
 
 cleanup7.critedge:                                ; preds = %invoke.cont2
@@ -7109,42 +7114,32 @@ cleanup7.critedge:                                ; preds = %invoke.cont2
           to label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit unwind label %terminate.lpad.i14
 
 terminate.lpad.i14:                               ; preds = %cleanup7.critedge
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #26
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #26
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit: ; preds = %cleanup7.critedge, %if.then.i.i12, %invoke.cont6
   %vtable.i.i = load ptr, ptr %arg, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %17 = load ptr, ptr %vfn.i.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(168) %arg) #24
+  %18 = load ptr, ptr %vfn.i.i, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(168) %arg) #24
   ret void
 
 lpad5:                                            ; preds = %invoke.cont4
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #24
-  br label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i17
-
-ehcleanup:                                        ; preds = %entry
   %19 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i16 = icmp eq ptr %arg, null
-  br i1 %cmp.not.i16, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit20, label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i17
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #24
+  br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit20
 
-_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i17: ; preds = %lpad5, %lpad1, %ehcleanup
-  %.pn26 = phi { ptr, i32 } [ %19, %ehcleanup ], [ %3, %lpad1 ], [ %18, %lpad5 ]
+_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit20: ; preds = %lpad1, %lpad5, %lpad
+  %.pn = phi { ptr, i32 } [ %19, %lpad5 ], [ %3, %lpad ], [ %4, %lpad1 ]
   %vtable.i.i18 = load ptr, ptr %arg, align 8
   %vfn.i.i19 = getelementptr inbounds nuw i8, ptr %vtable.i.i18, i64 8
   %20 = load ptr, ptr %vfn.i.i19, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(168) %arg) #24
-  br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit20
-
-_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14default_deleteIS3_EED2Ev.exit20: ; preds = %ehcleanup, %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i17
-  %.pn27 = phi { ptr, i32 } [ %19, %ehcleanup ], [ %.pn26, %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i17 ]
-  resume { ptr, i32 } %.pn27
+  resume { ptr, i32 } %.pn
 }
 
 declare void @_Z32grpc_pollset_set_add_pollset_setP16grpc_pollset_setS0_(ptr noundef, ptr noundef) local_unnamed_addr #0

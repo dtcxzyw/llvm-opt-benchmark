@@ -15795,7 +15795,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #18
-  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef %cond.i.i.i, ptr noundef %__cur.010.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef %cond.i.i.i, ptr noundef nonnull %__cur.010.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -15867,7 +15867,7 @@ _ZNKSt6vectorIN4cvc58internal7IntegerESaIS2_EE12_M_check_lenEmPKc.exit: ; preds 
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %__args)
-          to label %invoke.cont unwind label %lpad.body
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt6vectorIN4cvc58internal7IntegerESaIS2_EE12_M_check_lenEmPKc.exit
   %cmp.not8.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -15997,7 +15997,7 @@ _ZNSt12_Vector_baseIN4cvc58internal7IntegerESaIS2_EE13_M_deallocateEPS2_m.exit: 
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 
-lpad.body:                                        ; preds = %_ZNKSt6vectorIN4cvc58internal7IntegerESaIS2_EE12_M_check_lenEmPKc.exit
+lpad:                                             ; preds = %_ZNKSt6vectorIN4cvc58internal7IntegerESaIS2_EE12_M_check_lenEmPKc.exit
   %17 = landingpad { ptr, i32 }
           catch ptr null
   br label %if.else
@@ -16015,12 +16015,12 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then
   tail call void @__clang_call_terminate(ptr %21) #17
   unreachable
 
-if.else:                                          ; preds = %lpad2.i.i.i.i.i25, %lpad.body
-  %.sink59 = phi { ptr, i32 } [ %17, %lpad.body ], [ %12, %lpad2.i.i.i.i.i25 ]
-  %__new_finish.0.lpad-body52 = phi ptr [ %call5.i.i.i, %lpad.body ], [ %incdec.ptr, %lpad2.i.i.i.i.i25 ]
-  %22 = extractvalue { ptr, i32 } %.sink59, 0
+if.else:                                          ; preds = %lpad, %lpad2.i.i.i.i.i25
+  %__new_finish.0.lpad-body.ph = phi ptr [ %incdec.ptr, %lpad2.i.i.i.i.i25 ], [ %call5.i.i.i, %lpad ]
+  %eh.lpad-body.ph = phi { ptr, i32 } [ %12, %lpad2.i.i.i.i.i25 ], [ %17, %lpad ]
+  %22 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
   %23 = tail call ptr @__cxa_begin_catch(ptr %22) #18
-  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerES2_EvT_S4_RSaIT0_E(ptr noundef nonnull %call5.i.i.i, ptr noundef nonnull %__new_finish.0.lpad-body52, ptr noundef nonnull align 1 dereferenceable(1) %this)
+  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerES2_EvT_S4_RSaIT0_E(ptr noundef nonnull %call5.i.i.i, ptr noundef nonnull %__new_finish.0.lpad-body.ph, ptr noundef nonnull align 1 dereferenceable(1) %this)
           to label %invoke.cont21 unwind label %lpad19
 
 lpad19:                                           ; preds = %invoke.cont21, %if.else
@@ -17485,7 +17485,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = call ptr @__cxa_begin_catch(ptr %4) #18
-  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef %2, ptr noundef %__cur.010.i.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef %2, ptr noundef nonnull %__cur.010.i.i.i.i.i)
           to label %invoke.cont8.i.i.i.i.i unwind label %lpad7.i.i.i.i.i
 
 invoke.cont8.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i
@@ -17547,22 +17547,22 @@ call.i.i.i.noexc:                                 ; preds = %for.body.i.i.i
   br i1 %cmp.not.i.i.i, label %if.end, label %for.body.i.i.i, !llvm.loop !186
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i
-  %lpad.loopexit153 = landingpad { ptr, i32 }
+  %lpad.loopexit159 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %for.body.i.i.i.i.i49
-  %lpad.loopexit155 = landingpad { ptr, i32 }
+  %lpad.loopexit161 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %for.body.i.i.i75
-  %lpad.loopexit.split-lp156 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp162 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad7.i.i.i.i.i61, %lpad1.i.i.i.i, %lpad7.i.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad7.i.i.i.i.i ], [ %15, %lpad1.i.i.i.i ], [ %22, %lpad7.i.i.i.i.i61 ], [ %lpad.loopexit153, %lpad.loopexit ], [ %lpad.loopexit155, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp156, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad7.i.i.i.i.i ], [ %15, %lpad1.i.i.i.i ], [ %22, %lpad7.i.i.i.i.i61 ], [ %lpad.loopexit159, %lpad.loopexit ], [ %lpad.loopexit161, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp162, %lpad.loopexit.split-lp.loopexit.split-lp ]
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i)
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i53
 
@@ -17595,7 +17595,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = call ptr @__cxa_begin_catch(ptr %13) #18
-  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef %2, ptr noundef %__cur.09.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef %2, ptr noundef nonnull %__cur.09.i.i.i.i)
           to label %invoke.cont2.i.i.i.i unwind label %lpad1.i.i.i.i
 
 invoke.cont2.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -17646,7 +17646,7 @@ lpad.i.i.i.i.i60:                                 ; preds = %for.body.i.i.i.i.i5
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = call ptr @__cxa_begin_catch(ptr %20) #18
-  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef %18, ptr noundef %__cur.010.i.i.i.i.i58)
+  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef %18, ptr noundef nonnull %__cur.010.i.i.i.i.i58)
           to label %invoke.cont8.i.i.i.i.i64 unwind label %lpad7.i.i.i.i.i61
 
 invoke.cont8.i.i.i.i.i64:                         ; preds = %lpad.i.i.i.i.i60
@@ -17747,7 +17747,7 @@ lpad.i.i.i.i90:                                   ; preds = %for.body.i.i.i.i87
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = tail call ptr @__cxa_begin_catch(ptr %31) #18
-  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef %add.ptr54, ptr noundef %__cur.09.i.i.i.i88)
+  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef %add.ptr54, ptr noundef nonnull %__cur.09.i.i.i.i88)
           to label %invoke.cont2.i.i.i.i94 unwind label %lpad1.i.i.i.i91
 
 invoke.cont2.i.i.i.i94:                           ; preds = %lpad.i.i.i.i90
@@ -17791,7 +17791,7 @@ lpad.i.i.i.i.i105:                                ; preds = %for.body.i.i.i.i.i1
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
   %38 = tail call ptr @__cxa_begin_catch(ptr %37) #18
-  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef %cond.i85, ptr noundef %__cur.010.i.i.i.i.i104)
+  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef %cond.i85, ptr noundef nonnull %__cur.010.i.i.i.i.i104)
           to label %invoke.cont3.i.i.i.i.i unwind label %lpad2.i.i.i.i.i
 
 invoke.cont3.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i105
@@ -17842,7 +17842,7 @@ lpad.i.i.i.i.i120:                                ; preds = %for.body.i.i.i.i.i1
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = tail call ptr @__cxa_begin_catch(ptr %45) #18
-  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef nonnull %add.ptr62, ptr noundef %__cur.010.i.i.i.i.i118)
+  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerEEvT_S4_(ptr noundef nonnull %add.ptr62, ptr noundef nonnull %__cur.010.i.i.i.i.i118)
           to label %invoke.cont3.i.i.i.i.i124 unwind label %lpad2.i.i.i.i.i121
 
 invoke.cont3.i.i.i.i.i124:                        ; preds = %lpad.i.i.i.i.i120
@@ -17853,13 +17853,18 @@ lpad2.i.i.i.i.i121:                               ; preds = %invoke.cont3.i.i.i.
   %47 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %lpad56.body unwind label %terminate.lpad.i.i.i.i.i122
+          to label %lpad56.body.thread153 unwind label %terminate.lpad.i.i.i.i.i122
+
+lpad56.body.thread153:                            ; preds = %lpad2.i.i.i.i.i121
+  %48 = extractvalue { ptr, i32 } %47, 0
+  %49 = tail call ptr @__cxa_begin_catch(ptr %48) #18
+  br label %if.else73
 
 terminate.lpad.i.i.i.i.i122:                      ; preds = %lpad2.i.i.i.i.i121
-  %48 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #17
+  %51 = extractvalue { ptr, i32 } %50, 0
+  tail call void @__clang_call_terminate(ptr %51) #17
   unreachable
 
 unreachable.i.i.i.i.i125:                         ; preds = %invoke.cont3.i.i.i.i.i124
@@ -17876,10 +17881,10 @@ for.body.i.i.i135:                                ; preds = %invoke.cont64, %_ZS
           to label %_ZSt8_DestroyIN4cvc58internal7IntegerEEvPT_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i135
-  %50 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #17
+  %53 = extractvalue { ptr, i32 } %52, 0
+  tail call void @__clang_call_terminate(ptr %53) #17
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal7IntegerEEvPT_.exit.i.i.i: ; preds = %for.body.i.i.i135
@@ -17902,35 +17907,33 @@ _ZNSt12_Vector_baseIN4cvc58internal7IntegerESaIS2_EE13_M_deallocateEPS2_m.exit: 
   store ptr %add.ptr90, ptr %_M_end_of_storage, align 8
   br label %if.end94
 
-lpad56.body:                                      ; preds = %lpad2.i.i.i.i.i121, %lpad1.i.i.i.i91
-  %__new_finish.0.lpad-body = phi ptr [ %cond.i85, %lpad1.i.i.i.i91 ], [ %add.ptr62, %lpad2.i.i.i.i.i121 ]
-  %eh.lpad-body101 = phi { ptr, i32 } [ %33, %lpad1.i.i.i.i91 ], [ %47, %lpad2.i.i.i.i.i121 ]
-  %52 = extractvalue { ptr, i32 } %eh.lpad-body101, 0
-  %53 = tail call ptr @__cxa_begin_catch(ptr %52) #18
-  %tobool.not = icmp eq ptr %__new_finish.0.lpad-body, null
-  br i1 %tobool.not, label %if.then66, label %if.else73.invoke
+lpad56.body:                                      ; preds = %lpad1.i.i.i.i91
+  %54 = extractvalue { ptr, i32 } %33, 0
+  %55 = tail call ptr @__cxa_begin_catch(ptr %54) #18
+  %tobool.not = icmp eq ptr %cond.i85, null
+  br i1 %tobool.not, label %if.then66, label %if.else73
 
 if.then66:                                        ; preds = %lpad56.body.thread, %lpad56.body
   %add.ptr69 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %add.ptr54, i64 %__n
-  br label %if.else73.invoke
+  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerES2_EvT_S4_RSaIT0_E(ptr noundef nonnull %add.ptr54, ptr noundef nonnull %add.ptr69, ptr noundef nonnull align 1 dereferenceable(1) %this)
+          to label %if.then.i141 unwind label %lpad71
 
-lpad71:                                           ; preds = %if.else73.invoke, %invoke.cont77
-  %54 = landingpad { ptr, i32 }
+lpad71:                                           ; preds = %invoke.cont77, %if.else73, %if.then66
+  %56 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.else73.invoke:                                 ; preds = %lpad56.body, %if.then66
-  %55 = phi ptr [ %add.ptr54, %if.then66 ], [ %cond.i85, %lpad56.body ]
-  %56 = phi ptr [ %add.ptr69, %if.then66 ], [ %__new_finish.0.lpad-body, %lpad56.body ]
-  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerES2_EvT_S4_RSaIT0_E(ptr noundef %55, ptr noundef nonnull %56, ptr noundef nonnull align 1 dereferenceable(1) %this)
+if.else73:                                        ; preds = %lpad56.body.thread153, %lpad56.body
+  %__new_finish.0.lpad-body157 = phi ptr [ %add.ptr62, %lpad56.body.thread153 ], [ %cond.i85, %lpad56.body ]
+  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerES2_EvT_S4_RSaIT0_E(ptr noundef %cond.i85, ptr noundef nonnull %__new_finish.0.lpad-body157, ptr noundef nonnull align 1 dereferenceable(1) %this)
           to label %if.end76 unwind label %lpad71
 
-if.end76:                                         ; preds = %if.else73.invoke
+if.end76:                                         ; preds = %if.else73
   %tobool.not.i140 = icmp eq ptr %cond.i85, null
   br i1 %tobool.not.i140, label %invoke.cont77, label %if.then.i141
 
-if.then.i141:                                     ; preds = %if.end76
+if.then.i141:                                     ; preds = %if.then66, %if.end76
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i85) #19
   br label %invoke.cont77
 
@@ -17942,7 +17945,7 @@ if.end94:                                         ; preds = %if.end, %_ZNSt12_Ve
   ret void
 
 eh.resume:                                        ; preds = %lpad.body, %lpad71
-  %.pn = phi { ptr, i32 } [ %54, %lpad71 ], [ %eh.lpad-body, %lpad.body ]
+  %.pn = phi { ptr, i32 } [ %56, %lpad71 ], [ %eh.lpad-body, %lpad.body ]
   resume { ptr, i32 } %.pn
 
 terminate.lpad:                                   ; preds = %lpad71
@@ -17987,7 +17990,7 @@ _ZNKSt6vectorIN4cvc58internal7IntegerESaIS2_EE12_M_check_lenEmPKc.exit: ; preds 
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %__args)
-          to label %invoke.cont unwind label %lpad.body
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt6vectorIN4cvc58internal7IntegerESaIS2_EE12_M_check_lenEmPKc.exit
   %cmp.not8.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -18117,7 +18120,7 @@ _ZNSt12_Vector_baseIN4cvc58internal7IntegerESaIS2_EE13_M_deallocateEPS2_m.exit: 
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 
-lpad.body:                                        ; preds = %_ZNKSt6vectorIN4cvc58internal7IntegerESaIS2_EE12_M_check_lenEmPKc.exit
+lpad:                                             ; preds = %_ZNKSt6vectorIN4cvc58internal7IntegerESaIS2_EE12_M_check_lenEmPKc.exit
   %17 = landingpad { ptr, i32 }
           catch ptr null
   br label %if.else
@@ -18135,12 +18138,12 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then
   tail call void @__clang_call_terminate(ptr %21) #17
   unreachable
 
-if.else:                                          ; preds = %lpad2.i.i.i.i.i25, %lpad.body
-  %.sink59 = phi { ptr, i32 } [ %17, %lpad.body ], [ %12, %lpad2.i.i.i.i.i25 ]
-  %__new_finish.0.lpad-body52 = phi ptr [ %call5.i.i.i, %lpad.body ], [ %incdec.ptr, %lpad2.i.i.i.i.i25 ]
-  %22 = extractvalue { ptr, i32 } %.sink59, 0
+if.else:                                          ; preds = %lpad, %lpad2.i.i.i.i.i25
+  %__new_finish.0.lpad-body.ph = phi ptr [ %incdec.ptr, %lpad2.i.i.i.i.i25 ], [ %call5.i.i.i, %lpad ]
+  %eh.lpad-body.ph = phi { ptr, i32 } [ %12, %lpad2.i.i.i.i.i25 ], [ %17, %lpad ]
+  %22 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
   %23 = tail call ptr @__cxa_begin_catch(ptr %22) #18
-  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerES2_EvT_S4_RSaIT0_E(ptr noundef nonnull %call5.i.i.i, ptr noundef nonnull %__new_finish.0.lpad-body52, ptr noundef nonnull align 1 dereferenceable(1) %this)
+  invoke void @_ZSt8_DestroyIPN4cvc58internal7IntegerES2_EvT_S4_RSaIT0_E(ptr noundef nonnull %call5.i.i.i, ptr noundef nonnull %__new_finish.0.lpad-body.ph, ptr noundef nonnull align 1 dereferenceable(1) %this)
           to label %invoke.cont21 unwind label %lpad19
 
 lpad19:                                           ; preds = %invoke.cont21, %if.else

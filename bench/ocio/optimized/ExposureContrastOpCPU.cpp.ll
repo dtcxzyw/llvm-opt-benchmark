@@ -343,7 +343,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #24
   br label %common.resume
 
 return:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRendererEED2Ev.exit
@@ -1637,7 +1637,7 @@ return:                                           ; preds = %if.else.i.i.i.i.i24
 eh.resume:                                        ; preds = %lpad18, %lpad
   %exception17.sink = phi ptr [ %exception17, %lpad18 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %19, %lpad18 ], [ %18, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception17.sink) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception17.sink) #24
   resume { ptr, i32 } %.pn
 }
 

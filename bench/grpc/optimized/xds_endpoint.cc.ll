@@ -810,7 +810,7 @@ if.else.i:                                        ; preds = %invoke.cont8
 
 invoke.cont10:                                    ; preds = %if.else.i, %if.then.i5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.021) #22
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.021) #22
   %cmp.i4.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i4.not, label %invoke.cont14.loopexit, label %for.body
 

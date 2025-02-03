@@ -647,14 +647,14 @@ thread-pre-split:                                 ; preds = %18
 
 76:                                               ; preds = %74
   %77 = and i64 %.034.i, -64
-  %78 = call fastcc ptr @body(ptr noundef nonnull %7, ptr noundef %.0.i, i64 noundef %77)
+  %78 = call fastcc ptr @body(ptr noundef nonnull %7, ptr noundef nonnull %.0.i, i64 noundef %77)
   %79 = and i64 %.034.i, 63
   br label %80
 
 80:                                               ; preds = %76, %74
   %.135.i = phi i64 [ %79, %76 ], [ %.034.i, %74 ]
   %.1.i = phi ptr [ %78, %76 ], [ %.0.i, %74 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %48, ptr align 1 %.1.i, i64 %.135.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %48, ptr nonnull align 1 %.1.i, i64 %.135.i, i1 false)
   br label %PHP_MD5Update.exit
 
 PHP_MD5Update.exit:                               ; preds = %69, %80

@@ -2878,7 +2878,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i84: 
 
 1152:                                             ; preds = %1150, %1144
   %.325.i = phi i1 [ %.224.i, %1144 ], [ false, %1150 ]
-  call void @_ZdaPv(ptr noundef %1143) #21
+  call void @_ZdaPv(ptr noundef nonnull %1143) #21
   %1153 = invoke noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_S2_(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106)
           to label %1154 unwind label %1110
 
@@ -2901,7 +2901,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i84: 
 
 1162:                                             ; preds = %1160, %1154
   %.426.i = phi i1 [ %.325.i, %1154 ], [ false, %1160 ]
-  call void @_ZdaPv(ptr noundef %1153) #21
+  call void @_ZdaPv(ptr noundef nonnull %1153) #21
   %1163 = invoke noundef i64 @_ZN5cmsys11SystemTools9CountCharEPKcc(ptr noundef nonnull @.str.94, i8 noundef signext 97)
           to label %1164 unwind label %1110
 
@@ -2945,7 +2945,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i84: 
 
 1181:                                             ; preds = %1179, %1173
   %.6.i87 = phi i1 [ %.5.i86, %1173 ], [ false, %1179 ]
-  call void @_ZdaPv(ptr noundef %1172) #21
+  call void @_ZdaPv(ptr noundef nonnull %1172) #21
   %1182 = invoke noundef ptr @_ZN5cmsys11SystemTools22RemoveCharsButUpperHexEPKc(ptr noundef nonnull @.str.94)
           to label %sub_0.i unwind label %1110
 
@@ -2998,7 +2998,7 @@ sub_0.i:                                          ; preds = %1181
 
 1203:                                             ; preds = %1201, %1195
   %.8.i89 = phi i1 [ %.7.i88, %1195 ], [ false, %1201 ]
-  call void @free(ptr noundef %1193) #19
+  call void @free(ptr noundef nonnull %1193) #19
   %1204 = invoke noundef zeroext i1 @_ZN5cmsys11SystemTools16StringStartsWithEPKcS2_(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.117)
           to label %1205 unwind label %1110
 
@@ -3061,7 +3061,7 @@ sub_0.i:                                          ; preds = %1181
 
 1231:                                             ; preds = %1229, %1223
   %.11.i92 = phi i1 [ %.10.i91, %1223 ], [ false, %1229 ]
-  call void @_ZdaPv(ptr noundef %1222) #21
+  call void @_ZdaPv(ptr noundef nonnull %1222) #21
   %1232 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %277, ptr noundef nonnull @.str.94)
           to label %1233 unwind label %1110
 

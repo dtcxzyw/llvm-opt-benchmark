@@ -21436,7 +21436,7 @@ default.unreachable121:                           ; preds = %5
   %102 = extractvalue { ptr, ptr } %59, 0
   %103 = extractvalue { ptr, ptr } %59, 1
   %104 = load i32, ptr %100, align 4, !noundef !11
-  invoke void @_ZN7hir_def4body4Body17pretty_print_expr17h4dafe22ab55bfda4E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %101, ptr noundef nonnull align 1 %102, ptr noalias noundef readonly align 8 dereferenceable(24) %103, i32 noundef %51, i32 noundef %53, i32 noundef %104)
+  invoke void @_ZN7hir_def4body4Body17pretty_print_expr17h4dafe22ab55bfda4E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %101, ptr noundef nonnull align 1 %102, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %103, i32 noundef %51, i32 noundef %53, i32 noundef %104)
           to label %107 unwind label %97
 
 105:                                              ; preds = %107
@@ -21678,7 +21678,7 @@ default.unreachable121:                           ; preds = %5
   %spec.select = select i1 %193, ptr %15, ptr %184
   %194 = extractvalue { ptr, ptr } %189, 0
   %195 = extractvalue { ptr, ptr } %189, 1
-  %196 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %spec.select, ptr noundef nonnull align 1 %194, ptr noalias noundef readonly align 8 dereferenceable(24) %195)
+  %196 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %spec.select, ptr noundef nonnull align 1 %194, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %195)
           to label %197 unwind label %190
 
 197:                                              ; preds = %192

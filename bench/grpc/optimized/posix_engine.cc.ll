@@ -6688,7 +6688,7 @@ delete.notnull:                                   ; preds = %invoke.cont6
   %manager_.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %manager_.i.i.i.i, align 16
   call void %16(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %cb.i, ptr noundef nonnull align 16 dereferenceable(32) %cb.i) #28
-  call void @_ZdlPv(ptr noundef %14) #30
+  call void @_ZdlPv(ptr noundef nonnull %14) #30
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end.i.i.i.i, %invoke.cont6, %delete.notnull

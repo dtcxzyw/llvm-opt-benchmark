@@ -627,7 +627,7 @@ define internal fastcc noundef i32 @_ZN7nanoguiL17compile_gl_shaderEjRKNSt7__cxx
 51:                                               ; preds = %31
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %32) #15
+  call void @__cxa_free_exception(ptr nonnull %32) #15
   br label %55
 
 53:                                               ; preds = %33
@@ -974,7 +974,7 @@ define internal fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx
 87:                                               ; preds = %75, %18, %10
   %.sink = phi ptr [ %73, %75 ], [ %16, %18 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %76, %75 ], [ %19, %18 ], [ %11, %10 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #15
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #15
   resume { ptr, i32 } %.pn
 }
 
@@ -1772,7 +1772,7 @@ define hidden void @_ZN7nanogui6Shader5beginEv(ptr noundef nonnull align 8 deref
 63:                                               ; preds = %60
   %64 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %61) #15
+  tail call void @__cxa_free_exception(ptr nonnull %61) #15
   br label %385
 
 switch.hole_check:                                ; preds = %54
@@ -2830,7 +2830,7 @@ define hidden void @_ZN7nanogui6Shader10draw_arrayENS0_13PrimitiveTypeEmmb(ptr n
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #15
+  tail call void @__cxa_free_exception(ptr nonnull %8) #15
   resume { ptr, i32 } %11
 
 switch.lookup:                                    ; preds = %5

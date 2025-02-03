@@ -13072,7 +13072,7 @@ define hidden void @"_ZN4core3ptr159drop_in_place$LT$core..result..Result$LT$all
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1274)
   %6 = load ptr, ptr %5, align 8, !alias.scope !1274, !noundef !5
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$rust_analyzer..tracing..hprof..Data$GT$17h4402fe64f54e3fc8E"(ptr noalias noundef align 8 dereferenceable(64) %6)
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$rust_analyzer..tracing..hprof..Data$GT$17h4402fe64f54e3fc8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
           to label %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$rust_analyzer..tracing..hprof..Data$GT$$GT$17h04a6f5c874504fc8E.llvm.17769526770162137697.exit" unwind label %7, !noalias !1274
 
 common.resume:                                    ; preds = %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.17769526770162137697.exit.i.i", %7
@@ -13978,7 +13978,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$rust_analyzer..tracing..hprof..Data$GT$$GT$17h04a6f5c874504fc8E.llvm.17769526770162137697"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$rust_analyzer..tracing..hprof..Data$GT$17h4402fe64f54e3fc8E"(ptr noalias noundef align 8 dereferenceable(64) %2)
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$rust_analyzer..tracing..hprof..Data$GT$17h4402fe64f54e3fc8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1

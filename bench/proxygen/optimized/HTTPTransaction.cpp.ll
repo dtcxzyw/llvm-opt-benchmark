@@ -7424,7 +7424,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i.i.i, 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #29
   br label %common.resume
 
 _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit: ; preds = %cleanup.done
@@ -9329,7 +9329,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #29
   br label %lpad.body
 
 invoke.cont12:                                    ; preds = %land.lhs.true
@@ -11879,7 +11879,7 @@ common.resume:                                    ; preds = %lpad, %lpad24, %lpa
 lpad.i.i:                                         ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #29
   br label %common.resume
 
 _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit: ; preds = %cond.end5
@@ -11993,7 +11993,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #29
   br label %common.resume
 
 _ZNK5folly10IOBufQueue11chainLengthEv.exit:       ; preds = %if.then17
@@ -12085,7 +12085,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #29
   br label %lpad29.body
 
 _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit.i: ; preds = %land.rhs.i
@@ -12374,7 +12374,7 @@ invoke.cont.i.i.i69:                              ; preds = %if.then.i.i.i66
 lpad.i.i.i68:                                     ; preds = %if.then.i.i.i66
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i67) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i67) #29
   br label %common.resume
 
 if.end134:                                        ; preds = %land.rhs.i63
@@ -13136,7 +13136,7 @@ common.resume:                                    ; preds = %lpad, %lpad12, %lpa
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #29
   br label %common.resume
 
 _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit.i: ; preds = %land.rhs.i
@@ -13904,7 +13904,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #29
   br label %ehcleanup177
 
 invoke.cont34:                                    ; preds = %if.end33
@@ -14119,7 +14119,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #29
   br label %lpad64.body
 
 invoke.cont116:                                   ; preds = %invoke.cont114
@@ -15485,12 +15485,12 @@ _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ;
   store ptr null, ptr %partialMsg_.i, align 8
   %52 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %52, null
-  br i1 %cmp.not.i1.i, label %cleanup, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
+  br i1 %cmp.not.i1.i, label %cleanup246, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %52) #29
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %52) #29
-  br label %cleanup
+  br label %cleanup246
 
 lpad213.loopexit:                                 ; preds = %sw.bb210, %invoke.cont214
   %lpad.loopexit119 = landingpad { ptr, i32 }
@@ -15517,25 +15517,14 @@ if.end224:                                        ; preds = %invoke.cont217
 invoke.cont227:                                   ; preds = %if.end224
   %54 = load ptr, ptr %agg.tmp225, align 8
   %cmp.not.i94 = icmp eq ptr %54, null
-  br i1 %cmp.not.i94, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
+  br i1 %cmp.not.i94, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97.thread, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %invoke.cont227
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %54) #29
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %54) #29
-  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97
+  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97.thread
 
-cleanup:                                          ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i
-  store ptr null, ptr %currentIngressBuf_.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %agg.tmp220, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #29
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %agg.tmp220) #29
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.cast) #29
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.cast) #29
-  store ptr null, ptr %data, align 8
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev"(i8 0, ptr nonnull %this) #29
-  br label %cleanup250, !llvm.loop !102
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97: ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i, %invoke.cont227
+_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97.thread: ; preds = %invoke.cont227, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp225, align 8
   br label %if.then.i.sink.split
 
@@ -15561,11 +15550,11 @@ sw.bb232:                                         ; preds = %cleanup.done190
           to label %if.then.i unwind label %lpad196.loopexit
 
 sw.bb234:                                         ; preds = %cleanup.done190
-  call void @llvm.experimental.noalias.scope.decl(metadata !103)
+  call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %trailers_.i = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %57 = load i64, ptr %trailers_.i, align 8, !noalias !103
-  store i64 %57, ptr %agg.tmp235, align 8, !alias.scope !103
-  store ptr null, ptr %trailers_.i, align 8, !noalias !103
+  %57 = load i64, ptr %trailers_.i, align 8, !noalias !102
+  store i64 %57, ptr %agg.tmp235, align 8, !alias.scope !102
+  store ptr null, ptr %trailers_.i, align 8, !noalias !102
   invoke void @_ZN8proxygen15HTTPTransaction22processIngressTrailersESt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull %agg.tmp235)
           to label %invoke.cont238 unwind label %lpad237
 
@@ -15637,8 +15626,8 @@ terminate.lpad.i.i:                               ; preds = %if.then6.i.i
   call void @__clang_call_terminate(ptr %69) #31
   unreachable
 
-if.then.i.sink.split:                             ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i, %invoke.cont238, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i, %invoke.cont209, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97
-  %data.sink = phi ptr [ %data, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97 ], [ %agg.tmp, %invoke.cont209 ], [ %agg.tmp, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i ], [ %agg.tmp235, %invoke.cont238 ], [ %agg.tmp235, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i ]
+if.then.i.sink.split:                             ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i, %invoke.cont238, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i, %invoke.cont209, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97.thread
+  %data.sink = phi ptr [ %data, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97.thread ], [ %agg.tmp, %invoke.cont209 ], [ %agg.tmp, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i ], [ %agg.tmp235, %invoke.cont238 ], [ %agg.tmp235, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i ]
   store ptr null, ptr %data.sink, align 8
   br label %if.then.i
 
@@ -15686,12 +15675,23 @@ _ZNSt5queueIN8proxygen9HTTPEventESt5dequeIS1_SaIS1_EEE3popEv.exit.i.i.i: ; preds
   %bf.cast142 = trunc i32 %bf.load140 to i1
   br i1 %bf.cast142, label %cleanup250, label %land.lhs.true143
 
+cleanup246:                                       ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
+  store ptr null, ptr %currentIngressBuf_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %agg.tmp220, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #29
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %agg.tmp220) #29
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.cast) #29
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.cast) #29
+  store ptr null, ptr %data, align 8
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev"(i8 0, ptr nonnull %this) #29
+  br label %cleanup250, !llvm.loop !105
+
 ehcleanup249:                                     ; preds = %lpad196.loopexit, %lpad196.loopexit.split-lp, %lpad237, %ehcleanup, %lpad208
   %.pn19 = phi { ptr, i32 } [ %59, %lpad237 ], [ %.pn, %ehcleanup ], [ %49, %lpad208 ], [ %lpad.loopexit, %lpad196.loopexit ], [ %lpad.loopexit.split-lp, %lpad196.loopexit.split-lp ]
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev"(i8 0, ptr nonnull %this) #29
   br label %ehcleanup251
 
-cleanup250:                                       ; preds = %land.lhs.true143, %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.exit", %land.rhs, %if.end138, %cleanup
+cleanup250:                                       ; preds = %land.lhs.true143, %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.exit", %land.rhs, %if.end138, %cleanup246
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EED2Ev"(i8 0, ptr nonnull %this) #29
   br label %if.then.i105
 
@@ -16145,7 +16145,7 @@ common.resume:                                    ; preds = %lpad, %lpad42, %lpa
 lpad.i.i:                                         ; preds = %if.then.i.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #29
   br label %common.resume
 
 _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit: ; preds = %if.end
@@ -16264,7 +16264,7 @@ invoke.cont.i.i37:                                ; preds = %if.then.i.i34
 lpad.i.i36:                                       ; preds = %if.then.i.i34
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i35) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i35) #29
   br label %common.resume
 
 _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit47: ; preds = %if.end61
@@ -17864,7 +17864,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #29
   resume { ptr, i32 } %3
 
 _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit: ; preds = %land.lhs.true2
@@ -18894,7 +18894,7 @@ invoke.cont.i13:                                  ; preds = %if.then.i
 lpad.i12:                                         ; preds = %if.then.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #29
   br label %lpad64.body
 
 invoke.cont70:                                    ; preds = %invoke.cont67
@@ -18941,7 +18941,7 @@ common.resume:                                    ; preds = %lpad.i, %lpad, %lpa
 lpad.i18:                                         ; preds = %if.then.i16
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i17) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i17) #29
   br label %common.resume
 
 _ZNK5folly10IOBufQueue11chainLengthEv.exit27:     ; preds = %lor.rhs
@@ -19572,7 +19572,7 @@ common.resume:                                    ; preds = %lpad45.body, %ehcle
 lpad.i28:                                         ; preds = %if.then.i
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #29
   br label %common.resume
 
 _ZNK5folly10IOBufQueue11chainLengthEv.exit:       ; preds = %if.else31
@@ -27064,10 +27064,10 @@ attributes #35 = { cold noreturn nounwind }
 !99 = !{!100}
 !100 = distinct !{!100, !101, !"_ZN8proxygen9HTTPEvent7getBodyEv: %agg.result"}
 !101 = distinct !{!101, !"_ZN8proxygen9HTTPEvent7getBodyEv"}
-!102 = distinct !{!102, !5}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZN8proxygen9HTTPEvent11getTrailersEv: %agg.result"}
-!105 = distinct !{!105, !"_ZN8proxygen9HTTPEvent11getTrailersEv"}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"_ZN8proxygen9HTTPEvent11getTrailersEv: %agg.result"}
+!104 = distinct !{!104, !"_ZN8proxygen9HTTPEvent11getTrailersEv"}
+!105 = distinct !{!105, !5}
 !106 = distinct !{!106, !5}
 !107 = !{!108}
 !108 = distinct !{!108, !109, !"_ZNK8proxygen15HTTPTransaction16getControlStreamEv: %agg.result"}

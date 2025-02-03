@@ -5343,7 +5343,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1046)
   %6 = load ptr, ptr %5, align 8, !alias.scope !1046, !noundef !5
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.10002545943538650143"(ptr noalias noundef align 8 dereferenceable(64) %6)
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.10002545943538650143"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
           to label %"_ZN4core3ptr71drop_in_place$LT$alloc..boxed..Box$LT$wiggle..error..GuestError$GT$$GT$17h82673ea8364d9116E.llvm.10002545943538650143.exit" unwind label %7, !noalias !1046
 
 7:                                                ; preds = %4
@@ -5665,7 +5665,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$wasmtime_wasi..filesystem..D
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr71drop_in_place$LT$alloc..boxed..Box$LT$wiggle..error..GuestError$GT$$GT$17h82673ea8364d9116E.llvm.10002545943538650143"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.10002545943538650143"(ptr noalias noundef align 8 dereferenceable(64) %2)
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E.llvm.10002545943538650143"(ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
@@ -17035,7 +17035,7 @@ common.ret:                                       ; preds = %368, %361, %228
   store ptr %.sroa.5.0.copyload.i.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8, !noalias !2584
   %switch.i.i.i.i = icmp eq i32 %285, 0
   %.sroa.2.0..sroa_idx..sroa.74.0.i.i.i.i = select i1 %switch.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i, ptr %.sroa.5.0.copyload.i.i.i.i
-  %290 = invoke noundef ptr @_ZN14cap_primitives6rustix2fs5times28set_times_nofollow_unchecked17h08df2bb8eb73622aE(ptr noalias noundef readonly align 4 dereferenceable(4) %.sroa.2.0..sroa_idx..sroa.74.0.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.6.0.copyload.i.i.i.i, i64 noundef %.sroa.713.0.copyload.i.i.i.i, i64 %.sroa.0.0.i.i87, i32 noundef range(i32 0, 1000000002) %269, i64 %.sroa.03.0.i.i88, i32 noundef range(i32 0, 1000000002) %275)
+  %290 = invoke noundef ptr @_ZN14cap_primitives6rustix2fs5times28set_times_nofollow_unchecked17h08df2bb8eb73622aE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.sroa.2.0..sroa_idx..sroa.74.0.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.6.0.copyload.i.i.i.i, i64 noundef %.sroa.713.0.copyload.i.i.i.i, i64 %.sroa.0.0.i.i87, i32 noundef range(i32 0, 1000000002) %269, i64 %.sroa.03.0.i.i88, i32 noundef range(i32 0, 1000000002) %275)
           to label %295 unwind label %291, !noalias !2589
 
 291:                                              ; preds = %289

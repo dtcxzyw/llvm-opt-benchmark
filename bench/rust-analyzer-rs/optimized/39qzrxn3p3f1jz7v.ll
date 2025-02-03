@@ -9795,7 +9795,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3483)
   %20 = load ptr, ptr %19, align 8, !alias.scope !3483, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17h467f7d9f0aad347dE.llvm.836043833466553463"(ptr noalias noundef align 8 dereferenceable(64) %20)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17h467f7d9f0aad347dE.llvm.836043833466553463"(ptr noalias noundef nonnull align 8 dereferenceable(64) %20)
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$hir..term_search..expr..Expr$GT$$GT$17hee4c69294b315d96E.exit" unwind label %21, !noalias !3483
 
 common.resume.sink.split:                         ; preds = %21, %26
@@ -9821,7 +9821,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3486)
   %25 = load ptr, ptr %24, align 8, !alias.scope !3486, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17h467f7d9f0aad347dE.llvm.836043833466553463"(ptr noalias noundef align 8 dereferenceable(64) %25)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17h467f7d9f0aad347dE.llvm.836043833466553463"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$hir..term_search..expr..Expr$GT$$GT$17hee4c69294b315d96E.exit6" unwind label %26, !noalias !3486
 
 26:                                               ; preds = %23
@@ -9862,7 +9862,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3489)
   %40 = load ptr, ptr %39, align 8, !alias.scope !3489, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17h467f7d9f0aad347dE.llvm.836043833466553463"(ptr noalias noundef align 8 dereferenceable(64) %40)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17h467f7d9f0aad347dE.llvm.836043833466553463"(ptr noalias noundef nonnull align 8 dereferenceable(64) %40)
           to label %44 unwind label %41, !noalias !3489
 
 41:                                               ; preds = %38
@@ -10075,7 +10075,7 @@ define hidden void @"_ZN4core3ptr715drop_in_place$LT$core..iter..adapters..map..
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$hir..term_search..expr..Expr$GT$$GT$17hee4c69294b315d96E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17h467f7d9f0aad347dE.llvm.836043833466553463"(ptr noalias noundef align 8 dereferenceable(64) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17h467f7d9f0aad347dE.llvm.836043833466553463"(ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
@@ -12078,7 +12078,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h9a2a1433ea1120
 29:                                               ; preds = %.noexc
   %30 = extractvalue { ptr, ptr } %27, 1
   %31 = extractvalue { ptr, ptr } %27, 0
-  %32 = invoke { i32, i32 } @_ZN3hir9semantics22macro_call_to_macro_id17h3d810614ee9d96ffE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 1 %31, ptr noalias noundef readonly align 8 dereferenceable(24) %30, i32 noundef %21)
+  %32 = invoke { i32, i32 } @_ZN3hir9semantics22macro_call_to_macro_id17h3d810614ee9d96ffE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 1 %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30, i32 noundef %21)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %29
@@ -16112,7 +16112,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4386b593eb
 45:                                               ; preds = %32
   %46 = extractvalue { ptr, ptr } %41, 0
   %47 = extractvalue { ptr, ptr } %41, 1
-  %48 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 %46, ptr noalias noundef readonly align 8 dereferenceable(24) %47)
+  %48 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %47)
           to label %49 unwind label %43
 
 49:                                               ; preds = %45
@@ -16766,7 +16766,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5d03205573
 45:                                               ; preds = %32
   %46 = extractvalue { ptr, ptr } %41, 0
   %47 = extractvalue { ptr, ptr } %41, 1
-  %48 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 %46, ptr noalias noundef readonly align 8 dereferenceable(24) %47)
+  %48 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %47)
           to label %49 unwind label %43
 
 49:                                               ; preds = %45
@@ -22916,7 +22916,7 @@ _ZN10hir_expand8mod_path7ModPath13from_segments17h3f1cd8dd7021f553E.exit.i.i: ; 
 .noexc.i.i:                                       ; preds = %.noexc19
   %75 = extractvalue { ptr, ptr } %74, 0
   %76 = extractvalue { ptr, ptr } %74, 1
-  invoke void @_ZN7hir_def8resolver8Resolver30resolve_path_in_value_ns_fully17h09a782d961032b7dE(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %37, ptr noundef nonnull align 1 %75, ptr noalias noundef readonly align 8 dereferenceable(24) %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %11)
+  invoke void @_ZN7hir_def8resolver8Resolver30resolve_path_in_value_ns_fully17h09a782d961032b7dE(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %37, ptr noundef nonnull align 1 %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %11)
           to label %.noexc2.i.i unwind label %81
 
 .noexc2.i.i:                                      ; preds = %.noexc.i.i
@@ -23657,7 +23657,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 .noexc17.i.i.i.i.i.i.i:                           ; preds = %.noexc.i.i.i.i.i.i.i
   %65 = extractvalue { ptr, ptr } %64, 0
   %66 = extractvalue { ptr, ptr } %64, 1
-  %67 = invoke { ptr, i32 } @"_ZN64_$LT$span..MacroFileId$u20$as$u20$hir_expand..MacroFileIdExt$GT$9call_node17hf7d3aac813efdcd8E"(i32 noundef %63, ptr noundef nonnull align 1 %65, ptr noalias noundef readonly align 8 dereferenceable(24) %66)
+  %67 = invoke { ptr, i32 } @"_ZN64_$LT$span..MacroFileId$u20$as$u20$hir_expand..MacroFileIdExt$GT$9call_node17hf7d3aac813efdcd8E"(i32 noundef %63, ptr noundef nonnull align 1 %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %66)
           to label %75 unwind label %68
 
 68:                                               ; preds = %.noexc17.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i, %61
@@ -24197,7 +24197,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 .noexc21:                                         ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h586ece08cb7f488fE.exit.i.i"
   %41 = extractvalue { ptr, ptr } %40, 0
   %42 = extractvalue { ptr, ptr } %40, 1
-  %43 = invoke noundef nonnull ptr @"_ZN69_$LT$span..HirFileId$u20$as$u20$hir_expand..files..FileIdToSyntax$GT$11file_syntax17h0a298df0f8612c4cE"(i32 noundef %.sroa.0.0.copyload1.i.i, ptr noundef nonnull align 1 %41, ptr noalias noundef readonly align 8 dereferenceable(24) %42)
+  %43 = invoke noundef nonnull ptr @"_ZN69_$LT$span..HirFileId$u20$as$u20$hir_expand..files..FileIdToSyntax$GT$11file_syntax17h0a298df0f8612c4cE"(i32 noundef %.sroa.0.0.copyload1.i.i, ptr noundef nonnull align 1 %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42)
           to label %.noexc22 unwind label %.loopexit
 
 .noexc22:                                         ; preds = %.noexc21
@@ -25982,7 +25982,7 @@ define hidden void @_ZN9itertools9Itertools4join17h93d928d913b7c0f5E(ptr noalias
 .noexc19:                                         ; preds = %56
   %62 = extractvalue { ptr, ptr } %61, 0
   %63 = extractvalue { ptr, ptr } %61, 1
-  %64 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %57, ptr noundef nonnull align 1 %62, ptr noalias noundef readonly align 8 dereferenceable(24) %63)
+  %64 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %57, ptr noundef nonnull align 1 %62, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63)
           to label %.noexc20 unwind label %.loopexit
 
 .noexc20:                                         ; preds = %.noexc19

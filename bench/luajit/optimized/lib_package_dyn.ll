@@ -447,29 +447,25 @@ while.body.i:                                     ; preds = %while.cond.i
   br label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %while.body.i, %if.end9
-  %path.addr.0.i.be = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %l.0.i23, %if.end9 ]
+  %path.addr.0.i.be = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %l.0.i, %if.end9 ]
   br label %while.cond.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %while.cond.i
   %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %path.addr.0.i, i32 noundef 59) #8
   %cmp7.i = icmp eq ptr %call.i, null
-  br i1 %cmp7.i, label %pushnexttemplate.exit, label %pushnexttemplate.exit.thread17
+  br i1 %cmp7.i, label %if.then9.i, label %while.body
 
-pushnexttemplate.exit.thread17:                   ; preds = %if.end.i
-  %sub.ptr.lhs.cast.i19 = ptrtoint ptr %call.i to i64
-  %sub.ptr.rhs.cast.i20 = ptrtoint ptr %path.addr.0.i to i64
-  %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i20
-  br label %while.body
-
-pushnexttemplate.exit:                            ; preds = %if.end.i
+if.then9.i:                                       ; preds = %if.end.i
   %call10.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path.addr.0.i) #8
   %add.ptr.i = getelementptr inbounds i8, ptr %path.addr.0.i, i64 %call10.i
   br label %while.body
 
-while.body:                                       ; preds = %pushnexttemplate.exit, %pushnexttemplate.exit.thread17
-  %call10.i.sink = phi i64 [ %call10.i, %pushnexttemplate.exit ], [ %sub.ptr.sub.i21, %pushnexttemplate.exit.thread17 ]
-  %l.0.i23 = phi ptr [ %add.ptr.i, %pushnexttemplate.exit ], [ %call.i, %pushnexttemplate.exit.thread17 ]
-  call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull %path.addr.0.i, i64 noundef %call10.i.sink) #7
+while.body:                                       ; preds = %if.then9.i, %if.end.i
+  %l.0.i = phi ptr [ %add.ptr.i, %if.then9.i ], [ %call.i, %if.end.i ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %l.0.i to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %path.addr.0.i to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull %path.addr.0.i, i64 noundef %sub.ptr.sub.i) #7
   %call5 = call ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef null) #7
   %call6 = call ptr @luaL_gsub(ptr noundef %L, ptr noundef %call5, ptr noundef nonnull @.str.30, ptr noundef %name.addr.0) #7
   call void @lua_remove(ptr noundef %L, i32 noundef -2) #7

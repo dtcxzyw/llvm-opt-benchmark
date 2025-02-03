@@ -601,7 +601,7 @@ range_set_append_unsafe.exit.i.i:                 ; preds = %if.then.i.i.i.i, %e
   %51 = load i32, ptr %nr.i.i.i.i, align 4
   %inc.i.i.i = add i32 %51, 1
   store i32 %inc.i.i.i, ptr %nr.i.i.i.i, align 4
-  call void @free(ptr noundef %call14.i) #16
+  call void @free(ptr noundef nonnull %call14.i) #16
   br label %line_log_data_insert.exit.i
 
 if.end.i.i:                                       ; preds = %if.end5.i.i.i, %if.end56.i
@@ -1480,13 +1480,13 @@ if.end.i26:                                       ; preds = %if.then11.thread, %
   %parent.0.i = phi ptr [ %14, %if.then.i ], [ null, %if.then11.thread ]
   %diffopt.i = getelementptr inbounds nuw i8, ptr %rev, i64 1472
   call fastcc void @queue_diffs(ptr noundef nonnull %call.i, ptr noundef nonnull %diffopt.i, ptr noundef nonnull %queue.i, ptr noundef nonnull %commit, ptr noundef %parent.0.i)
-  %call.i27 = call fastcc i32 @process_all_files(ptr noundef nonnull %parent_range.i, ptr noundef %rev, ptr noundef nonnull %queue.i, ptr noundef nonnull %call.i)
+  %call.i27 = call fastcc i32 @process_all_files(ptr noundef nonnull %parent_range.i, ptr noundef nonnull %rev, ptr noundef nonnull %queue.i, ptr noundef nonnull %call.i)
   %tobool2.not.i28 = icmp eq ptr %parent.0.i, null
   %.pr.i = load ptr, ptr %parent_range.i, align 8
   br i1 %tobool2.not.i28, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i26
-  call fastcc void @add_line_range(ptr noundef %rev, ptr noundef nonnull %parent.0.i, ptr noundef %.pr.i)
+  call fastcc void @add_line_range(ptr noundef nonnull %rev, ptr noundef nonnull %parent.0.i, ptr noundef %.pr.i)
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i26

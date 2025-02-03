@@ -728,7 +728,7 @@ define void @_ZN5ZXing6QRCode13ReadCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS
 265:                                              ; preds = %262
   %266 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %263) #14, !noalias !54
+  call void @__cxa_free_exception(ptr nonnull %263) #14, !noalias !54
   br label %.body
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit:       ; preds = %229, %255, %251, %247, %242, %238, %235, %231
@@ -1044,7 +1044,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit:       ; preds = %229, %255, %251, %2
 433:                                              ; preds = %430
   %434 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %431) #14, !noalias !60
+  call void @__cxa_free_exception(ptr nonnull %431) #14, !noalias !60
   br label %.body46
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit48:     ; preds = %423, %419, %415, %409, %405, %402, %399, %395
@@ -1221,7 +1221,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit48:     ; preds = %423, %419, %415, %4
 523:                                              ; preds = %520
   %524 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %521) #14, !noalias !60
+  call void @__cxa_free_exception(ptr nonnull %521) #14, !noalias !60
   br label %.body50
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit52:     ; preds = %513, %509, %505, %499, %495, %492, %489, %485
@@ -1406,7 +1406,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit52:     ; preds = %513, %509, %505, %4
 621:                                              ; preds = %618
   %622 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %619) #14, !noalias !60
+  call void @__cxa_free_exception(ptr nonnull %619) #14, !noalias !60
   br label %.body54
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit56:     ; preds = %611, %607, %603, %597, %593, %590, %587, %583
@@ -1678,7 +1678,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit56:     ; preds = %611, %607, %603, %5
 767:                                              ; preds = %764
   %768 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %765) #14, !noalias !71
+  call void @__cxa_free_exception(ptr nonnull %765) #14, !noalias !71
   br label %.body58
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit60:     ; preds = %731, %757, %753, %749, %744, %740, %737, %733
@@ -2010,7 +2010,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode14GetDataMaskBitEiiib(i3
 61:                                               ; preds = %57, %11
   %62 = phi ptr [ %55, %57 ], [ %9, %11 ]
   %63 = phi { ptr, i32 } [ %58, %57 ], [ %12, %11 ]
-  tail call void @__cxa_free_exception(ptr %62) #14
+  tail call void @__cxa_free_exception(ptr nonnull %62) #14
   resume { ptr, i32 } %63
 }
 

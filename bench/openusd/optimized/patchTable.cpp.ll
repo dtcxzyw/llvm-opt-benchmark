@@ -1137,7 +1137,7 @@ _ZSt10_ConstructIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEJRKS4_EE
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #23
-  invoke void @_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvT_S6_(ptr noundef %13, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvT_S6_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
           to label %25 unwind label %26
 
 25:                                               ; preds = %21
@@ -3053,15 +3053,15 @@ _ZSt10_ConstructIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEJRKS4_EE
   %43 = tail call ptr @__cxa_begin_catch(ptr %42) #23
   %44 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %27, i64 %1
   invoke void @_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E(ptr noundef nonnull %27, ptr noundef nonnull %44, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESaIS4_EE13_M_deallocateEPS4_m.exit unwind label %45
+          to label %.thread unwind label %45
 
-45:                                               ; preds = %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESaIS4_EE13_M_deallocateEPS4_m.exit, %.body
+45:                                               ; preds = %.thread, %.body
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %71 unwind label %72
 
-_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %.body
+.thread:                                          ; preds = %.body
   tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %25) #27
   invoke void @__cxa_rethrow() #25
           to label %75 unwind label %45
@@ -3134,7 +3134,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESaIS4
   tail call void @__clang_call_terminate(ptr %74) #24
   unreachable
 
-75:                                               ; preds = %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESaIS4_EE13_M_deallocateEPS4_m.exit
+75:                                               ; preds = %.thread
   unreachable
 }
 

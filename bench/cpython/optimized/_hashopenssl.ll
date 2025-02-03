@@ -3414,7 +3414,7 @@ entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %call.i2 = tail call ptr @_Py_hashtable_new_full(ptr noundef nonnull @py_hashentry_t_hash_name, ptr noundef nonnull @py_hashentry_t_compare_name, ptr noundef null, ptr noundef nonnull @py_hashentry_t_destroy_value, ptr noundef null) #9
   %cmp.i = icmp eq ptr %call.i2, null
-  br i1 %cmp.i, label %py_hashentry_table_new.exit.thread, label %for.body.i
+  br i1 %cmp.i, label %if.then, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %h.019.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @py_hashes, %entry ]
@@ -3462,21 +3462,21 @@ error.sink.split.i:                               ; preds = %if.then13.i, %if.en
 
 error.i:                                          ; preds = %for.body.i, %error.sink.split.i
   tail call void @_Py_hashtable_destroy(ptr noundef nonnull %call.i2) #9
-  br label %py_hashentry_table_new.exit.thread
-
-py_hashentry_table_new.exit.thread:               ; preds = %error.i, %entry
-  %hashtable4 = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  store ptr null, ptr %hashtable4, align 8
-  %call3 = tail call ptr @PyErr_NoMemory() #9
-  br label %return
+  br label %if.then
 
 py_hashentry_table_new.exit:                      ; preds = %for.inc.i
   %hashtable = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %call.i2, ptr %hashtable, align 8
   br label %return
 
-return:                                           ; preds = %py_hashentry_table_new.exit, %py_hashentry_table_new.exit.thread
-  %retval.0 = phi i32 [ -1, %py_hashentry_table_new.exit.thread ], [ 0, %py_hashentry_table_new.exit ]
+if.then:                                          ; preds = %error.i, %entry
+  %hashtable4 = getelementptr inbounds nuw i8, ptr %call.i, i64 40
+  store ptr null, ptr %hashtable4, align 8
+  %call3 = tail call ptr @PyErr_NoMemory() #9
+  br label %return
+
+return:                                           ; preds = %py_hashentry_table_new.exit, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ 0, %py_hashentry_table_new.exit ]
   ret i32 %retval.0
 }
 

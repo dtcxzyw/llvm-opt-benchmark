@@ -4530,7 +4530,7 @@ for.inc151:                                       ; preds = %.noexc224, %invoke.
 lpad131:                                          ; preds = %invoke.cont129
   %106 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef %call.i180)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %call.i180)
           to label %ehcleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad131
@@ -5414,7 +5414,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE9push_backERKS0_.exit: ; preds = %f
 lpad:                                             ; preds = %_ZN20b3AlignedObjectArrayI9b3SapAabbE9push_backERKS0_.exit
   %73 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %eh.resume unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad

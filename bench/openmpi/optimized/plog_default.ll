@@ -39,7 +39,7 @@ define internal range(i32 -156, -31) i32 @mylog(ptr noundef %0, ptr noundef %1, 
 
 13:                                               ; preds = %12, %7
   %.not22.i = icmp eq ptr %9, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit.thread, label %14
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %14
 
 14:                                               ; preds = %13
   %15 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %9, ptr noundef null) #12
@@ -54,7 +54,7 @@ define internal range(i32 -156, -31) i32 @mylog(ptr noundef %0, ptr noundef %1, 
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @local_caddy_t_class, i64 40), align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i.i = icmp eq ptr %21, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread16, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.i
   %22 = phi ptr [ %24, %.lr.ph.i.i ], [ %21, %14 ]
@@ -63,9 +63,9 @@ define internal range(i32 -156, -31) i32 @mylog(ptr noundef %0, ptr noundef %1, 
   %23 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread16, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.exit.thread16:                   ; preds = %.lr.ph.i.i, %14
+.loopexit:                                        ; preds = %.lr.ph.i.i, %14
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store ptr %1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 128
@@ -76,10 +76,10 @@ pmix_obj_new_tma.exit.thread16:                   ; preds = %.lr.ph.i.i, %14
   store ptr %6, ptr %28, align 8
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_host_server, i64 136), align 8
   tail call void %29(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull @localcbfn, ptr noundef nonnull %9) #12
-  br label %pmix_obj_new_tma.exit.thread
+  br label %pmix_obj_new_tma.exit
 
-pmix_obj_new_tma.exit.thread:                     ; preds = %13, %pmix_obj_new_tma.exit.thread16
-  %.0 = phi i32 [ -156, %pmix_obj_new_tma.exit.thread16 ], [ -32, %13 ]
+pmix_obj_new_tma.exit:                            ; preds = %13, %.loopexit
+  %.0 = phi i32 [ -156, %.loopexit ], [ -32, %13 ]
   ret i32 %.0
 }
 

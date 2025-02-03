@@ -2921,7 +2921,7 @@ define ptr @Cudd_bddPickOneMinterm(ptr noundef %0, ptr noundef %1, ptr noundef r
   br label %.lr.ph73
 
 28:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  tail call void @free(ptr noundef %8) #23
+  tail call void @free(ptr noundef nonnull %8) #23
   tail call void @free(ptr noundef nonnull %15) #23
   br label %113
 
@@ -3071,7 +3071,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader, %37
   %111 = load i32, ptr %110, align 4
   %112 = add i32 %111, -1
   store i32 %112, ptr %110, align 4
-  tail call void @free(ptr noundef %8) #23
+  tail call void @free(ptr noundef nonnull %8) #23
   tail call void @free(ptr noundef %15) #23
   br label %113
 
@@ -3239,7 +3239,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %exitcond544.not, label %._crit_edge436, label %.lr.ph435, !llvm.loop !35
 
 ._crit_edge436:                                   ; preds = %52, %.preheader349
-  tail call void @free(ptr noundef %14) #23
+  tail call void @free(ptr noundef nonnull %14) #23
   tail call void @free(ptr noundef %34) #23
   br label %268
 
@@ -3275,7 +3275,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %exitcond539.not, label %._crit_edge433, label %.lr.ph432, !llvm.loop !36
 
 ._crit_edge433:                                   ; preds = %61, %56
-  tail call void @free(ptr noundef %14) #23
+  tail call void @free(ptr noundef nonnull %14) #23
   tail call void @free(ptr noundef %34) #23
   br label %268
 
@@ -3330,7 +3330,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %exitcond534.not, label %._crit_edge429, label %.lr.ph428, !llvm.loop !37
 
 ._crit_edge429:                                   ; preds = %73, %68
-  tail call void @free(ptr noundef %14) #23
+  tail call void @free(ptr noundef nonnull %14) #23
   tail call void @free(ptr noundef %34) #23
   tail call void @free(ptr noundef %54) #23
   br label %268

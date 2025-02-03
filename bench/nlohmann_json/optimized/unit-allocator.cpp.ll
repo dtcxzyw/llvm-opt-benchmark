@@ -3039,7 +3039,7 @@ _ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7
   %cond.i21.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES_IhSaIhEEvEENSB_ISF_EEE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %call5.i.i.i.i.i.i.i18, %cond.true.i.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i21.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   invoke fastcc void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS0_14adl_serializerES3_IhSaIhEEvEC2ERKSF_(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp14)
-          to label %invoke.cont.i.i.i.i unwind label %lpad.body.i.i.i.i
+          to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES4_IhSaIhEEvEENSC_ISG_EEE11_M_allocateEm.exit.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont14.i.thread.i.i.i, label %for.body.i.i.i.i.i.i
@@ -3065,7 +3065,7 @@ lpad.i.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i.
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = call ptr @__cxa_begin_catch(ptr %20) #20
-  call fastcc void @_ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES4_IhSaIhEEvEENSC_ISG_EEEvT_SJ_RT0_(ptr noundef %cond.i21.i.i.i.i, ptr noundef %__cur.04.i.i.i.i.i.i)
+  call fastcc void @_ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES4_IhSaIhEEvEENSC_ISG_EEEvT_SJ_RT0_(ptr noundef %cond.i21.i.i.i.i, ptr noundef nonnull %__cur.04.i.i.i.i.i.i)
   invoke void @__cxa_rethrow() #23
           to label %unreachable.i.i.i.i.i.i unwind label %lpad7.i.i.i.i.i.i
 
@@ -3073,7 +3073,7 @@ lpad7.i.i.i.i.i.i:                                ; preds = %lpad.i.i.i.i.i.i
   %22 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %if.end.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %if.end.thread.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad7.i.i.i.i.i.i
   %23 = landingpad { ptr, i32 }
@@ -3117,34 +3117,25 @@ if.then.i41.i.i.i.i:                              ; preds = %_ZSt8_DestroyIPN8nl
   call void @_ZdlPv(ptr noundef nonnull %.val.i) #24
   br label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES_IhSaIhEEvEENSB_ISF_EEE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i.i
 
-lpad.body.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES4_IhSaIhEEvEENSC_ISG_EEE11_M_allocateEm.exit.i.i.i.i
+lpad.i.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES4_IhSaIhEEvEENSC_ISG_EEE11_M_allocateEm.exit.i.i.i.i
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = call ptr @__cxa_begin_catch(ptr %29) #20
-  %tobool.not.i.i.i.i = icmp eq ptr %cond.i21.i.i.i.i, null
-  br i1 %tobool.not.i.i.i.i, label %if.end.i.thread8.i.i.i, label %if.then.i43.i.i.i.i
+  br label %if.then.i43.i.i.i.i
 
-if.end.i.thread8.i.i.i:                           ; preds = %lpad.body.i.i.i.i
-  call fastcc void @_ZNSt16allocator_traitsIN12_GLOBAL__N_120allocator_no_forwardIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdS1_NS3_14adl_serializerES6_IhSaIhEEvEEEEE7destroyISG_EEvRSH_PT_(ptr noundef %add.ptr.i.i.i.i) #20
-  br label %invoke.cont20.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %lpad7.i.i.i.i.i.i
+if.end.thread.i.i.i.i:                            ; preds = %lpad7.i.i.i.i.i.i
   %31 = extractvalue { ptr, i32 } %22, 0
   %32 = call ptr @__cxa_begin_catch(ptr %31) #20
   call fastcc void @_ZNSt16allocator_traitsIN12_GLOBAL__N_120allocator_no_forwardIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdS1_NS3_14adl_serializerES6_IhSaIhEEvEEEEE7destroyISG_EEvRSH_PT_(ptr noundef nonnull %add.ptr.i.i.i.i) #20
-  %tobool.not.i42.i.i.i.i = icmp eq ptr %cond.i21.i.i.i.i, null
-  br i1 %tobool.not.i42.i.i.i.i, label %invoke.cont20.i.i.i.i, label %if.then.i43.i.i.i.i
+  br label %if.then.i43.i.i.i.i
 
-if.then.i43.i.i.i.i:                              ; preds = %if.end.i.i.i.i, %lpad.body.i.i.i.i
+if.then.i43.i.i.i.i:                              ; preds = %if.end.thread.i.i.i.i, %lpad.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %cond.i21.i.i.i.i) #24
-  br label %invoke.cont20.i.i.i.i
-
-invoke.cont20.i.i.i.i:                            ; preds = %if.then.i43.i.i.i.i, %if.end.i.i.i.i, %if.end.i.thread8.i.i.i
   invoke void @__cxa_rethrow() #23
           to label %unreachable.i.i.i.i unwind label %lpad19.i.i.i.i
 
-lpad19.i.i.i.i:                                   ; preds = %invoke.cont20.i.i.i.i
+lpad19.i.i.i.i:                                   ; preds = %if.then.i43.i.i.i.i
   %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -3157,7 +3148,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad19.i.i.i.i
   call void @__clang_call_terminate(ptr %35) #21
   unreachable
 
-unreachable.i.i.i.i:                              ; preds = %invoke.cont20.i.i.i.i
+unreachable.i.i.i.i:                              ; preds = %if.then.i43.i.i.i.i
   unreachable
 
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES_IhSaIhEEvEENSB_ISF_EEE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i.i: ; preds = %if.then.i41.i.i.i.i, %_ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES4_IhSaIhEEvEENSC_ISG_EEEvT_SJ_RT0_.exit.i.i.i.i
@@ -4639,7 +4630,7 @@ if.then18:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #26
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #26
   %_M_storage.i.i.i21 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %call.i.i22 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i21, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit25 unwind label %terminate.lpad.i.i23
@@ -4745,7 +4736,7 @@ if.then50:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #26
+  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #26
   %_M_storage.i.i.i75 = getelementptr inbounds nuw i8, ptr %call.i74, i64 32
   %call.i.i76 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i75)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit79 unwind label %terminate.lpad.i.i77
@@ -5256,7 +5247,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIN8nloh
   %add.ptr19.i254382 = phi ptr [ %add.ptr19.i254, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS1_14adl_serializerES_IhSaIhEEvEESaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit259 ], [ %add.ptr19.i254383, %if.then.i ]
   %__cur.0.i.lcssa.i238.pn = phi ptr [ %__cur.0.i.lcssa.i238, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS1_14adl_serializerES_IhSaIhEEvEESaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit259 ], [ %__cur.0.i2238.i239379, %if.then.i ]
   %__cur.0.i2238.i239380 = getelementptr inbounds nuw i8, ptr %__cur.0.i.lcssa.i238.pn, i64 16
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin0.sroa.0.0104) #26
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin0.sroa.0.0104) #26
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %if.end44.loopexit370, label %for.body
 
@@ -5587,7 +5578,7 @@ for.inc89:                                        ; preds = %_ZNSt6vectorIN8nloh
   %add.ptr19.i354403 = phi ptr [ %add.ptr19.i354, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS1_14adl_serializerES_IhSaIhEEvEESaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit359 ], [ %add.ptr19.i354404, %if.then.i52 ]
   %__cur.0.i.lcssa.i338.pn = phi ptr [ %__cur.0.i.lcssa.i338, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS1_14adl_serializerES_IhSaIhEEvEESaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit359 ], [ %__cur.0.i2238.i339400, %if.then.i52 ]
   %__cur.0.i2238.i339401 = getelementptr inbounds nuw i8, ptr %__cur.0.i.lcssa.i338.pn, i64 16
-  %call.i39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin076.sroa.0.0106) #26
+  %call.i39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin076.sroa.0.0106) #26
   %cmp.i36.not = icmp eq ptr %call.i39, %add.ptr.i.i35
   br i1 %cmp.i36.not, label %for.end91.loopexit, label %for.body84
 
@@ -6431,7 +6422,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIN8nloh
   %add.ptr19.i254382 = phi ptr [ %add.ptr19.i254, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES_IhSaIhEEvEESaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit259 ], [ %add.ptr19.i254383, %if.then.i ]
   %__cur.0.i.lcssa.i238.pn = phi ptr [ %__cur.0.i.lcssa.i238, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES_IhSaIhEEvEESaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit259 ], [ %__cur.0.i2238.i239379, %if.then.i ]
   %__cur.0.i2238.i239380 = getelementptr inbounds nuw i8, ptr %__cur.0.i.lcssa.i238.pn, i64 16
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin0.sroa.0.0104) #26
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin0.sroa.0.0104) #26
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %if.end44.loopexit370, label %for.body
 
@@ -6762,7 +6753,7 @@ for.inc89:                                        ; preds = %_ZNSt6vectorIN8nloh
   %add.ptr19.i354403 = phi ptr [ %add.ptr19.i354, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES_IhSaIhEEvEESaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit359 ], [ %add.ptr19.i354404, %if.then.i51 ]
   %__cur.0.i.lcssa.i338.pn = phi ptr [ %__cur.0.i.lcssa.i338, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES_IhSaIhEEvEESaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit359 ], [ %__cur.0.i2238.i339400, %if.then.i51 ]
   %__cur.0.i2238.i339401 = getelementptr inbounds nuw i8, ptr %__cur.0.i.lcssa.i338.pn, i64 16
-  %call.i39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin076.sroa.0.0106) #26
+  %call.i39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin076.sroa.0.0106) #26
   %cmp.i36.not = icmp eq ptr %call.i39, %add.ptr.i.i35
   br i1 %cmp.i36.not, label %for.end91.loopexit, label %for.body84
 
@@ -7109,7 +7100,7 @@ lpad.i2:                                          ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #20
-  tail call fastcc void @_ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES4_IhSaIhEEvEENSC_ISG_EEEvT_SJ_RT0_(ptr noundef %cond.i.i.i, ptr noundef %__cur.0.i4)
+  tail call fastcc void @_ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_120allocator_no_forwardENS1_14adl_serializerES4_IhSaIhEEvEENSC_ISG_EEEvT_SJ_RT0_(ptr noundef %cond.i.i.i, ptr noundef nonnull %__cur.0.i4)
   invoke void @__cxa_rethrow() #23
           to label %unreachable.i unwind label %lpad4.i
 

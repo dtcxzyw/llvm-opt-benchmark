@@ -1618,7 +1618,7 @@ do.body76:                                        ; preds = %if.end57
   br i1 %cmp.i55, label %if.end92, label %return
 
 if.end92:                                         ; preds = %ZSTD_decompressBegin_usingDDict.exit, %do.body76
-  call void @ZSTD_checkContinuity(ptr noundef %dctx, ptr noundef %dst.addr.0.ph98133, i64 noundef %dstCapacity.addr.0.ph97132) #16
+  call void @ZSTD_checkContinuity(ptr noundef nonnull %dctx, ptr noundef %dst.addr.0.ph98133, i64 noundef %dstCapacity.addr.0.ph97132) #16
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %blockProperties.i)
   %add.ptr.i57 = getelementptr inbounds i8, ptr %dst.addr.0.ph98133, i64 %dstCapacity.addr.0.ph97132
   %7 = load i32, ptr %format, align 8
@@ -2740,7 +2740,7 @@ do.body156:                                       ; preds = %do.body143
   br i1 %cmp157, label %return, label %do.end168
 
 do.end168:                                        ; preds = %do.body156
-  call void @ZSTD_buildFSETable(ptr noundef %entropy, ptr noundef nonnull %litlengthNCount, i32 noundef %4, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %5, ptr noundef nonnull %workspace71, i64 noundef 628, i32 noundef 0) #16
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %entropy, ptr noundef nonnull %litlengthNCount, i32 noundef %4, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %5, ptr noundef nonnull %workspace71, i64 noundef 628, i32 noundef 0) #16
   %add.ptr174 = getelementptr inbounds i8, ptr %add.ptr123, i64 %call128
   %add.ptr176 = getelementptr inbounds nuw i8, ptr %add.ptr174, i64 12
   %cmp177 = icmp ugt ptr %add.ptr176, %add.ptr

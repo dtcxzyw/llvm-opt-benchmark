@@ -1567,19 +1567,19 @@ if.then7:                                         ; preds = %if.end4
 if.end8:                                          ; preds = %if.end4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5, i8 -1, i64 %conv, i1 false)
   %cmp11 = icmp slt i32 %length, 0
-  br i1 %cmp11, label %if.then12, label %if.end15
+  br i1 %cmp11, label %if.end15.thread, label %if.end15
 
-if.then12:                                        ; preds = %if.end8
+if.end15.thread:                                  ; preds = %if.end8
   %call13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #16
   %conv14 = trunc i64 %call13 to i32
-  br label %if.end15
+  br label %if.then17
 
-if.end15:                                         ; preds = %if.then12, %if.end8
-  %length.addr.0 = phi i32 [ %conv14, %if.then12 ], [ %length, %if.end8 ]
+if.end15:                                         ; preds = %if.end8
   br i1 %cmp1, label %if.end120, label %if.then17
 
-if.then17:                                        ; preds = %if.end15
-  %idx.ext = sext i32 %length.addr.0 to i64
+if.then17:                                        ; preds = %if.end15.thread, %if.end15
+  %length.addr.054 = phi i32 [ %conv14, %if.end15.thread ], [ %length, %if.end15 ]
+  %idx.ext = sext i32 %length.addr.054 to i64
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 %idx.ext
   %pv = getelementptr inbounds nuw i8, ptr %sel, i64 8
   %cmp5.i = icmp sgt i32 %1, 0
@@ -1621,12 +1621,12 @@ land.lhs.true30:                                  ; preds = %land.lhs.true27
   %idxprom33 = zext nneg i32 %and32 to i64
   %arrayidx34 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %idxprom33
   %6 = load i8, ptr %arrayidx34, align 1
-  %conv3558 = zext i8 %6 to i32
+  %conv3560 = zext i8 %6 to i32
   %7 = load i8, ptr %incdec.ptr, align 1
   %conv36 = zext i8 %7 to i32
   %shr = lshr i32 %conv36, 5
   %shl = shl nuw nsw i32 1, %shr
-  %and37 = and i32 %shl, %conv3558
+  %and37 = and i32 %shl, %conv3560
   %tobool38.not = icmp eq i32 %and37, 0
   br i1 %tobool38.not, label %if.else98, label %land.lhs.true39
 

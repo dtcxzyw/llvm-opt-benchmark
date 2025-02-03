@@ -584,7 +584,7 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
   unreachable
 
 161:                                              ; preds = %158, %155
-  call void @free(ptr noundef %153) #15
+  call void @free(ptr noundef nonnull %153) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
 162:                                              ; preds = %simple_action_list_append.exit.i.cont
@@ -652,7 +652,7 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
   unreachable
 
 194:                                              ; preds = %189, %185
-  call void @free(ptr noundef %183) #15
+  call void @free(ptr noundef nonnull %183) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
 195:                                              ; preds = %simple_action_list_append.exit.i.cont

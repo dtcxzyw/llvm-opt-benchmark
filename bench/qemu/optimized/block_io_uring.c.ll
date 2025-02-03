@@ -507,7 +507,7 @@ if.then:                                          ; preds = %trace_luring_init_s
   %call3 = tail call ptr @__errno_location() #15
   %6 = load i32, ptr %call3, align 4
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 435, ptr noundef nonnull @__func__.luring_init, i32 noundef %6, ptr noundef nonnull @.str.2) #11
-  tail call void @g_free(ptr noundef %call) #11
+  tail call void @g_free(ptr noundef nonnull %call) #11
   br label %return
 
 if.end:                                           ; preds = %trace_luring_init_state.exit
@@ -567,16 +567,16 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %s) #11
   br label %trace_luring_cleanup_state.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef %s) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %s) #11
   br label %trace_luring_cleanup_state.exit
 
 trace_luring_cleanup_state.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  tail call void @g_free(ptr noundef %s) #11
+  tail call void @g_free(ptr noundef nonnull %s) #11
   ret void
 }
 

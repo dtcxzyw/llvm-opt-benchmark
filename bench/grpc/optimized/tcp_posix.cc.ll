@@ -4586,7 +4586,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0113 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %peer_string) #25
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 1827, i32 noundef 1, ptr noundef nonnull @.str.13, ptr noundef %ep, ptr noundef %call2)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 1827, i32 noundef 1, ptr noundef nonnull @.str.13, ptr noundef nonnull %ep, ptr noundef %call2)
           to label %invoke.cont3 unwind label %lpad.loopexit
 
 invoke.cont3:                                     ; preds = %for.body
@@ -5309,7 +5309,7 @@ if.end:                                           ; preds = %_ZL34ZerocopyDisabl
   %memory_owner = getelementptr inbounds nuw i8, ptr %ep, i64 552
   tail call void @_ZN17grpc_event_engine12experimental15MemoryAllocator5ResetEv(ptr noundef nonnull align 8 dereferenceable(16) %memory_owner)
   tail call void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %read_mu)
-  tail call fastcc void @_ZL9tcp_unrefPN12_GLOBAL__N_18grpc_tcpE(ptr noundef %ep)
+  tail call fastcc void @_ZL9tcp_unrefPN12_GLOBAL__N_18grpc_tcpE(ptr noundef nonnull %ep)
   ret void
 }
 
@@ -7000,7 +7000,7 @@ if.then.i:                                        ; preds = %if.then2
   br i1 %tobool.i.i.i.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 659, i32 noundef 1, ptr noundef nonnull @.str.35, ptr noundef %call1.i)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 659, i32 noundef 1, ptr noundef nonnull @.str.35, ptr noundef nonnull %call1.i)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i, %if.then.i

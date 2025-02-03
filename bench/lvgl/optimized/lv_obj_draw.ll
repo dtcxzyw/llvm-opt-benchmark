@@ -524,7 +524,7 @@ thread-pre-split:                                 ; preds = %10
   br i1 %.not, label %51, label %42
 
 42:                                               ; preds = %23
-  %43 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef range(i32 1, 0) %1, i8 noundef zeroext 103) #5
+  %43 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef range(i32 1, 0) %1, i8 noundef zeroext 103) #5
   %44 = ptrtoint ptr %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 101
   %46 = trunc i64 %44 to i8

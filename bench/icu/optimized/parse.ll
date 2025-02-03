@@ -2937,7 +2937,7 @@ if.end39:                                         ; preds = %if.then22, %if.else
 
 if.then44:                                        ; preds = %if.end39
   %15 = load i32, ptr %line, align 4
-  call void (i32, ptr, ...) @error(i32 noundef %15, ptr noundef nonnull @.str.121, ptr noundef %call)
+  call void (i32, ptr, ...) @error(i32 noundef %15, ptr noundef nonnull @.str.121, ptr noundef nonnull %call)
   br label %return
 
 if.end45:                                         ; preds = %if.end39
@@ -2948,7 +2948,7 @@ if.end45:                                         ; preds = %if.end39
   %call47 = call ptr @string_open(ptr noundef %16, ptr noundef %tag, ptr noundef %call46, i32 noundef %17, ptr noundef %comment, ptr noundef nonnull %status)
   call void @ucbuf_close(ptr noundef %call41)
   call void @uprv_free_75(ptr noundef null)
-  call void @uprv_free_75(ptr noundef %call)
+  call void @uprv_free_75(ptr noundef nonnull %call)
   call void @uprv_free_75(ptr noundef nonnull %call12)
   br label %return
 

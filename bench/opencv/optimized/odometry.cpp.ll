@@ -13364,7 +13364,7 @@ define linkonce_odr hidden void @_ZN2cv4rgbd15FastICPOdometry16setTransformTypeE
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #28
+  tail call void @__cxa_free_exception(ptr nonnull %4) #28
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %2

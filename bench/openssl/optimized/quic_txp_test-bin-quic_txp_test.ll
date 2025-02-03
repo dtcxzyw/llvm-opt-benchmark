@@ -1305,7 +1305,7 @@ if.end446:                                        ; preds = %sw.bb437
 
 if.end455:                                        ; preds = %if.end446
   %115 = load ptr, ptr %qsm101.i, align 8
-  call void @ossl_quic_stream_map_update_state(ptr noundef %115, ptr noundef %call442) #8
+  call void @ossl_quic_stream_map_update_state(ptr noundef %115, ptr noundef nonnull %call442) #8
   br label %for.inc
 
 sw.bb458:                                         ; preds = %for.cond

@@ -3784,7 +3784,7 @@ if.end60:                                         ; preds = %if.else55
   %24 = add i64 %idx.ext, %sub.ptr.rhs.cast
   %sub = sub i64 %sub.ptr.lhs.cast, %24
   %conv65 = trunc i64 %sub to i32
-  %call66 = call fastcc ptr @lookup_untracked(ptr noundef %23, ptr noundef %untracked.1177, ptr noundef %add.ptr, i32 noundef %conv65)
+  %call66 = call fastcc ptr @lookup_untracked(ptr noundef %23, ptr noundef %untracked.1177, ptr noundef nonnull %add.ptr, i32 noundef %conv65)
   br label %if.end67
 
 if.end67:                                         ; preds = %while.body50, %if.end60
@@ -4957,31 +4957,31 @@ if.end6:                                          ; preds = %if.then2, %if.end
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %if.end6
-  %inc27.i109 = phi i32 [ 0, %if.end6 ], [ %inc27.i108, %while.cond.backedge ]
-  %.lcssa96107 = phi i32 [ 0, %if.end6 ], [ %.lcssa96105, %while.cond.backedge ]
+  %inc27.i107 = phi i32 [ 0, %if.end6 ], [ %inc27.i106, %while.cond.backedge ]
+  %.lcssa94105 = phi i32 [ 0, %if.end6 ], [ %.lcssa94103, %while.cond.backedge ]
   %dir_state.1 = phi i32 [ 0, %if.end6 ], [ %dir_state.4, %while.cond.backedge ]
   br i1 %tobool.not.i40, label %while.cond.preheader.i, label %if.then.i
 
 while.cond.preheader.i:                           ; preds = %while.cond
   %37 = load i32, ptr %dirs_nr.i, align 8
-  %cmp33.i = icmp ult i32 %.lcssa96107, %37
+  %cmp33.i = icmp ult i32 %.lcssa94105, %37
   br i1 %cmp33.i, label %while.body.preheader.i, label %while.end.i
 
 while.body.preheader.i:                           ; preds = %while.cond.preheader.i
-  %38 = sext i32 %.lcssa96107 to i64
+  %38 = sext i32 %.lcssa94105 to i64
   %39 = load ptr, ptr %untracked, align 8
-  %arrayidx.i97 = getelementptr inbounds ptr, ptr %39, i64 %38
-  %40 = load ptr, ptr %arrayidx.i97, align 8
-  %recurse.i98 = getelementptr inbounds nuw i8, ptr %40, i64 68
-  %bf.load.i99 = load i8, ptr %recurse.i98, align 4
-  %41 = and i8 %bf.load.i99, 4
-  %tobool12.not.i100 = icmp eq i8 %41, 0
-  br i1 %tobool12.not.i100, label %if.then13.i, label %if.end15.i
+  %arrayidx.i95 = getelementptr inbounds ptr, ptr %39, i64 %38
+  %40 = load ptr, ptr %arrayidx.i95, align 8
+  %recurse.i96 = getelementptr inbounds nuw i8, ptr %40, i64 68
+  %bf.load.i97 = load i8, ptr %recurse.i96, align 4
+  %41 = and i8 %bf.load.i97, 4
+  %tobool12.not.i98 = icmp eq i8 %41, 0
+  br i1 %tobool12.not.i98, label %if.then13.i, label %if.end15.i
 
 if.then.i:                                        ; preds = %while.cond
   %call4.i.i = call ptr @readdir64(ptr noundef nonnull %36) #26
   %cmp.not5.i.i = icmp eq ptr %call4.i.i, null
-  br i1 %cmp.not5.i.i, label %while.end.thread122, label %while.body.i.i
+  br i1 %cmp.not5.i.i, label %if.then3.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then.i, %while.cond.backedge.i.i
   %call6.i.i = phi ptr [ %call.i.i44, %while.cond.backedge.i.i ], [ %call4.i.i, %if.then.i ]
@@ -5007,9 +5007,9 @@ land.rhs10.i.i.i:                                 ; preds = %land.rhs.i.i.i
 while.cond.backedge.i.i:                          ; preds = %land.rhs10.i.i.i, %land.rhs.i.i.i
   %call.i.i44 = call ptr @readdir64(ptr noundef nonnull %36) #26
   %cmp.not.i.i45 = icmp eq ptr %call.i.i44, null
-  br i1 %cmp.not.i.i45, label %while.end.thread122, label %while.body.i.i, !llvm.loop !5
+  br i1 %cmp.not.i.i45, label %if.then3.i, label %while.body.i.i, !llvm.loop !5
 
-while.end.thread122:                              ; preds = %if.then.i, %while.cond.backedge.i.i
+if.then3.i:                                       ; preds = %if.then.i, %while.cond.backedge.i.i
   store ptr null, ptr %d_name5.i, align 8
   store i32 0, ptr %d_type7.i, align 8
   br label %if.then.i58
@@ -5033,17 +5033,17 @@ while.body.i:                                     ; preds = %if.then13.i
   br i1 %tobool12.not.i, label %if.then13.i, label %if.end15.i, !llvm.loop !28
 
 if.then13.i:                                      ; preds = %while.body.preheader.i, %while.body.i
-  %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ %38, %while.body.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i101, 1
+  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ %38, %while.body.preheader.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i99, 1
   %48 = trunc nsw i64 %indvars.iv.next.i to i32
   %cmp.i = icmp ugt i32 %37, %48
   br i1 %cmp.i, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !28
 
 if.end15.i:                                       ; preds = %while.body.i, %while.body.preheader.i
-  %.lcssa95 = phi i32 [ %.lcssa96107, %while.body.preheader.i ], [ %48, %while.body.i ]
+  %.lcssa93 = phi i32 [ %.lcssa94105, %while.body.preheader.i ], [ %48, %while.body.i ]
   %.lcssa = phi ptr [ %40, %while.body.preheader.i ], [ %46, %while.body.i ]
   store ptr %.lcssa, ptr %ucd18.i, align 8
-  %inc17.i = add nuw nsw i32 %.lcssa95, 1
+  %inc17.i = add nuw nsw i32 %.lcssa93, 1
   store i32 %inc17.i, ptr %nr_dirs.i, align 4
   br label %while.body
 
@@ -5052,25 +5052,25 @@ while.end.i.loopexit:                             ; preds = %if.then13.i
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %while.cond.preheader.i
-  %.lcssa96106 = phi i32 [ %37, %while.end.i.loopexit ], [ %.lcssa96107, %while.cond.preheader.i ]
+  %.lcssa94104 = phi i32 [ %37, %while.end.i.loopexit ], [ %.lcssa94105, %while.cond.preheader.i ]
   store ptr null, ptr %ucd18.i, align 8
   %49 = load i32, ptr %untracked_nr.i, align 8
-  %cmp20.i = icmp ult i32 %inc27.i109, %49
+  %cmp20.i = icmp ult i32 %inc27.i107, %49
   br i1 %cmp20.i, label %if.then22.i, label %if.then3.i62
 
 if.then22.i:                                      ; preds = %while.end.i
   %50 = load ptr, ptr %untracked25.i, align 8
-  %inc27.i = add nuw nsw i32 %inc27.i109, 1
+  %inc27.i = add nuw nsw i32 %inc27.i107, 1
   store i32 %inc27.i, ptr %nr_files.i, align 8
-  %idxprom28.i = sext i32 %inc27.i109 to i64
+  %idxprom28.i = sext i32 %inc27.i107 to i64
   %arrayidx29.i = getelementptr inbounds ptr, ptr %50, i64 %idxprom28.i
   %51 = load ptr, ptr %arrayidx29.i, align 8
   store ptr %51, ptr %file.i, align 8
   br label %while.body
 
 while.body:                                       ; preds = %if.end.i42, %if.end15.i, %if.then22.i
-  %inc27.i108 = phi i32 [ %inc27.i109, %if.end.i42 ], [ %inc27.i109, %if.end15.i ], [ %inc27.i, %if.then22.i ]
-  %.lcssa96105 = phi i32 [ %.lcssa96107, %if.end.i42 ], [ %inc17.i, %if.end15.i ], [ %.lcssa96106, %if.then22.i ]
+  %inc27.i106 = phi i32 [ %inc27.i107, %if.end.i42 ], [ %inc27.i107, %if.end15.i ], [ %inc27.i, %if.then22.i ]
+  %.lcssa94103 = phi i32 [ %.lcssa94105, %if.end.i42 ], [ %inc17.i, %if.end15.i ], [ %.lcssa94104, %if.then22.i ]
   %call11 = call fastcc i32 @treat_path(ptr noundef %dir, ptr noundef %untracked, ptr noundef %cdir, ptr noundef %istate, ptr noundef %path, i32 noundef %baselen, ptr noundef %pathspec)
   %52 = load i32, ptr %visited_paths, align 4
   %inc13 = add i32 %52, 1
@@ -5182,8 +5182,8 @@ while.cond.backedge:                              ; preds = %if.end60, %if.end49
 while.end:                                        ; preds = %if.then42
   br i1 %tobool.not.i40, label %if.end.i59, label %if.then.i58
 
-if.then.i58:                                      ; preds = %while.end.thread122, %if.then54, %do.end.i, %while.end
-  %dir_state.272 = phi i32 [ 2, %while.end ], [ 3, %do.end.i ], [ 3, %if.then54 ], [ %dir_state.1, %while.end.thread122 ]
+if.then.i58:                                      ; preds = %if.then3.i, %if.then54, %do.end.i, %while.end
+  %dir_state.272 = phi i32 [ 2, %while.end ], [ 3, %do.end.i ], [ 3, %if.then54 ], [ %dir_state.1, %if.then3.i ]
   %call.i = call i32 @closedir(ptr noundef nonnull %36)
   br label %if.end.i59
 
@@ -5192,7 +5192,7 @@ if.end.i59:                                       ; preds = %if.then52, %if.then
   br i1 %tobool.not.i.i, label %out, label %if.then3.i62
 
 if.then3.i62:                                     ; preds = %while.end.i, %if.end.i59
-  %dir_state.273126 = phi i32 [ %dir_state.273, %if.end.i59 ], [ %dir_state.1, %while.end.i ]
+  %dir_state.273121 = phi i32 [ %dir_state.273, %if.end.i59 ], [ %dir_state.1, %while.end.i ]
   %valid.i = getelementptr inbounds nuw i8, ptr %untracked, i64 68
   %bf.load.i63 = load i8, ptr %valid.i, align 4
   %bf.set8.i = or i8 %bf.load.i63, 6
@@ -5200,7 +5200,7 @@ if.then3.i62:                                     ; preds = %while.end.i, %if.en
   br label %out
 
 out:                                              ; preds = %if.then3.i62, %if.end.i59, %open_cached_dir.exit
-  %dir_state.0 = phi i32 [ 0, %open_cached_dir.exit ], [ %dir_state.273, %if.end.i59 ], [ %dir_state.273126, %if.then3.i62 ]
+  %dir_state.0 = phi i32 [ 0, %open_cached_dir.exit ], [ %dir_state.273, %if.end.i59 ], [ %dir_state.273121, %if.then3.i62 ]
   call void @strbuf_release(ptr noundef nonnull %path) #26
   ret i32 %dir_state.0
 }

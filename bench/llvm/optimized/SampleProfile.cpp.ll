@@ -14827,7 +14827,7 @@ define linkonce_odr hidden void @_ZN4llvm10sampleprof17ProfiledCallGraphC2ERNS_2
   br label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit
 
 _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit: ; preds = %52, %56
-  %57 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0223.0332) #26
+  %57 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0223.0332) #26
   %.not = icmp eq ptr %57, %39
   br i1 %.not, label %.preheader, label %.lr.ph
 
@@ -24074,7 +24074,7 @@ _ZN12_GLOBAL__N_119SampleProfileLoader18getInlineCandidateEPNS_15InlineCandidate
   br i1 %.not.i.i.i, label %286, label %285
 
 285:                                              ; preds = %284
-  store ptr %155, ptr %.sroa.16.1413.i, align 8
+  store ptr %154, ptr %.sroa.16.1413.i, align 8
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.16.1413.i, i64 8
   store ptr %.0.i177328.i, ptr %.sroa.9.0..sroa_idx.i, align 8
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.16.1413.i, i64 16
@@ -24107,7 +24107,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE12_M_check_lenEmPKc.exit.
   %298 = shl nuw nsw i64 %297, 5
   %299 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %298) #23
   %300 = getelementptr inbounds i8, ptr %299, i64 %289
-  store ptr %155, ptr %300, align 8
+  store ptr %154, ptr %300, align 8
   %.sroa.9.0..sroa_idx268.i = getelementptr inbounds nuw i8, ptr %300, i64 8
   store ptr %.0.i177328.i, ptr %.sroa.9.0..sroa_idx268.i, align 8
   %.sroa.12.0..sroa_idx278.i = getelementptr inbounds nuw i8, ptr %300, i64 16
@@ -24140,7 +24140,7 @@ _ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE17_M_realloc_insertIJRKS1_
 _ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE9push_backERKS1_.exit.i.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, %285
   %.sroa.318.0.copyload.i.i.i = phi i64 [ %.sroa.318.0.copyload.i.i.pre.i, %_ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i ], [ %.sroa.12.11.i, %285 ]
   %.sroa.217.0.copyload.i.i.i = phi ptr [ %305, %_ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i ], [ %.0.i177328.i, %285 ]
-  %.sroa.016.0.copyload.i.i.i = phi ptr [ %.sroa.016.0.copyload.i.i.pre.i, %_ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i ], [ %155, %285 ]
+  %.sroa.016.0.copyload.i.i.i = phi ptr [ %.sroa.016.0.copyload.i.i.pre.i, %_ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i ], [ %154, %285 ]
   %.sroa.36.13.i = phi ptr [ %304, %_ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i ], [ %.sroa.36.1412.i, %285 ]
   %.pn375.i = phi ptr [ %300, %_ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i ], [ %.sroa.16.1413.i, %285 ]
   %.sroa.0314.13.i = phi ptr [ %299, %_ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i ], [ %.sroa.0314.1414.i, %285 ]
@@ -32396,7 +32396,7 @@ _ZNSt6vectorIPKN4llvm10sampleprof15FunctionSamplesESaIS4_EE17_M_realloc_insertIJ
 
 _ZNSt6vectorIPKN4llvm10sampleprof15FunctionSamplesESaIS4_EE9push_backEOS4_.exit: ; preds = %95, %_ZNSt6vectorIPKN4llvm10sampleprof15FunctionSamplesESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
   %.val3260 = phi ptr [ %96, %95 ], [ %114, %_ZNSt6vectorIPKN4llvm10sampleprof15FunctionSamplesESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ]
-  %117 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.035.055) #26
+  %117 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.035.055) #26
   %.not49 = icmp eq ptr %117, %85
   br i1 %.not49, label %._crit_edge.loopexit, label %88
 
@@ -39723,7 +39723,7 @@ _ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4
   %107 = icmp ne i32 %105, 0
   %or.cond.i42 = and i1 %106, %107
   %spec.select75 = select i1 %or.cond.i42, i32 %105, i32 %.07184
-  %108 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.061.082) #26
+  %108 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.061.082) #26
   %.not77 = icmp eq ptr %108, %72
   br i1 %.not77, label %._crit_edge, label %76
 
@@ -39965,7 +39965,7 @@ _ZNSt3mapIN4llvm10sampleprof10FunctionIdENS1_15FunctionSamplesESt4lessIS2_ESaISt
   %204 = icmp ne i32 %202, 0
   %or.cond.i50 = and i1 %203, %204
   %spec.select76 = select i1 %or.cond.i50, i32 %202, i32 %.287
-  %205 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.053.086) #26
+  %205 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.053.086) #26
   %.not79 = icmp eq ptr %205, %116
   br i1 %.not79, label %._crit_edge90, label %120
 
@@ -40157,7 +40157,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm10sampleprof13SampleConte
   br i1 %34, label %_ZNSt8_Rb_treeIN4llvm10sampleprof13SampleContextESt4pairIKS2_NS1_15FunctionSamplesEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE24_M_get_insert_unique_posERS4_.exit, label %35
 
 35:                                               ; preds = %31
-  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #26
+  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #26
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = tail call noundef zeroext i1 @_ZNK4llvm10sampleprof13SampleContextltERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %2)
   br i1 %38, label %39, label %43
@@ -40219,7 +40219,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm10sampleprof13SampleConte
   br i1 %59, label %_ZNSt8_Rb_treeIN4llvm10sampleprof13SampleContextESt4pairIKS2_NS1_15FunctionSamplesEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE24_M_get_insert_unique_posERS4_.exit, label %60
 
 60:                                               ; preds = %56
-  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #26
+  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #26
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = tail call noundef zeroext i1 @_ZNK4llvm10sampleprof13SampleContextltERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %62)
   br i1 %63, label %64, label %68

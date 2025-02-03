@@ -29546,7 +29546,7 @@ _ZN4llvm17VPDerivedIVRecipeC2ENS_19InductionDescriptor13InductionKindEPKNS_14FPM
   br label %65
 
 65:                                               ; preds = %_ZN4llvm17VPDerivedIVRecipeC2ENS_19InductionDescriptor13InductionKindEPKNS_14FPMathOperatorEPNS_7VPValueES7_S7_.exit, %_ZN4llvm5VPlan14getCanonicalIVEv.exit
-  %.046 = phi ptr [ %47, %_ZN4llvm5VPlan14getCanonicalIVEv.exit ], [ %50, %_ZN4llvm17VPDerivedIVRecipeC2ENS_19InductionDescriptor13InductionKindEPKNS_14FPMathOperatorEPNS_7VPValueES7_S7_.exit ]
+  %.046 = phi ptr [ %46, %_ZN4llvm5VPlan14getCanonicalIVEv.exit ], [ %50, %_ZN4llvm17VPDerivedIVRecipeC2ENS_19InductionDescriptor13InductionKindEPKNS_14FPMathOperatorEPNS_7VPValueES7_S7_.exit ]
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 80
   %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #18

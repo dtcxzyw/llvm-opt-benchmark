@@ -929,7 +929,7 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_locate(ptr noundef %0, i64 noundef
   store i64 %21, ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %23 = load i32, ptr %22, align 8
-  %24 = call ptr @H5HF__man_iblock_protect(ptr noundef %0, i64 noundef %21, i32 noundef %23, ptr noundef null, i32 noundef 0, i1 noundef zeroext false, i32 noundef %5, ptr noundef nonnull %8) #4
+  %24 = call ptr @H5HF__man_iblock_protect(ptr noundef nonnull %0, i64 noundef %21, i32 noundef %23, ptr noundef null, i32 noundef 0, i1 noundef zeroext false, i32 noundef %5, ptr noundef nonnull %8) #4
   %25 = icmp eq ptr %24, null
   br i1 %25, label %29, label %.preheader
 

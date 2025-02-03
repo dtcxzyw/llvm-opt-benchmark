@@ -31235,7 +31235,7 @@ define internal fastcc noundef ptr @cat2_str(ptr noundef captures(none) %0, ptr 
 11:                                               ; preds = %10, %9, %2
   %12 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #17
   tail call void @free(ptr noundef nonnull %0) #17
-  tail call void @free(ptr noundef %1) #17
+  tail call void @free(ptr noundef nonnull %1) #17
   ret ptr %7
 }
 

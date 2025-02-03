@@ -11427,7 +11427,7 @@ if.end159.us.if.end167.us_crit_edge:              ; preds = %if.end159.us
   br i1 %78, label %for.end, label %for.inc.us
 
 if.then161.us:                                    ; preds = %if.end159.us, %if.end149.us
-  %call165.us = invoke noundef zeroext i1 @_ZN7rocksdb18VersionStorageInfo14OverlapInLevelEiPKNS_5SliceES3_(ptr noundef nonnull align 16 dereferenceable(4112) %storage_info_.i, i32 noundef %level.0484.us, ptr noundef %begin, ptr noundef %end)
+  %call165.us = invoke noundef zeroext i1 @_ZN7rocksdb18VersionStorageInfo14OverlapInLevelEiPKNS_5SliceES3_(ptr noundef nonnull align 16 dereferenceable(4112) %storage_info_.i, i32 noundef %level.0484.us, ptr noundef nonnull %begin, ptr noundef nonnull %end)
           to label %if.end167.us unwind label %lpad129.loopexit.split.us
 
 if.end167.us:                                     ; preds = %if.then161.us
@@ -22937,7 +22937,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #29
-  invoke void @_ZSt8_DestroyIPN7rocksdb20CompactionInputFilesEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef %__cur.010.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN7rocksdb20CompactionInputFilesEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef nonnull %__cur.010.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -38218,7 +38218,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %15 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %if.then unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.end.thread unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %16 = landingpad { ptr, i32 }
@@ -38315,11 +38315,11 @@ _ZNSt12_Vector_baseISt4pairIiN7rocksdb12FileMetaDataEESaIS3_EE13_M_deallocateEPS
   store ptr %add.ptr31, ptr %_M_end_of_storage, align 8
   ret void
 
-if.then:                                          ; preds = %lpad2.i.i.i.i.i
+if.end.thread:                                    ; preds = %lpad2.i.i.i.i.i
   %25 = extractvalue { ptr, i32 } %15, 0
   %26 = tail call ptr @__cxa_begin_catch(ptr %25) #29
   tail call void @_ZNSt16allocator_traitsISaISt4pairIiN7rocksdb12FileMetaDataEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %add.ptr) #29
-  br label %if.end
+  br label %if.then.i42
 
 if.else:                                          ; preds = %lpad2.i.i.i.i.i27
   %27 = extractvalue { ptr, i32 } %22, 0
@@ -38333,11 +38333,11 @@ lpad21:                                           ; preds = %invoke.cont23, %if.
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.end:                                           ; preds = %if.else, %if.then
+if.end:                                           ; preds = %if.else
   %tobool.not.i41 = icmp eq ptr %cond.i19, null
   br i1 %tobool.not.i41, label %invoke.cont23, label %if.then.i42
 
-if.then.i42:                                      ; preds = %if.end
+if.then.i42:                                      ; preds = %if.end.thread, %if.end
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i19) #27
   br label %invoke.cont23
 

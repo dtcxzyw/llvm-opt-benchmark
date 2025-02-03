@@ -7725,7 +7725,7 @@ _ZL17add_dd_statisticsP12gmx_domdec_t.exit:       ; preds = %_ZNK12DDAtomRanges5
   %3364 = ptrtoint ptr %3361 to i64
   %3365 = sub i64 %3363, %3364
   %3366 = getelementptr inbounds i8, ptr %3361, i64 %3365
-  call void @_Z9dd_move_xP12gmx_domdec_tPA3_KfN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP13gmx_wallcycle(ptr noundef %141, ptr noundef nonnull %1198, ptr %3361, ptr %3366, ptr noundef null)
+  call void @_Z9dd_move_xP12gmx_domdec_tPA3_KfN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP13gmx_wallcycle(ptr noundef nonnull %141, ptr noundef nonnull %1198, ptr %3361, ptr %3366, ptr noundef null)
   %3367 = load ptr, ptr %1203, align 8
   call void @_Z12write_dd_pdbPKclS0_RK10gmx_mtop_tPK9t_commreciPA3_KfS9_(ptr noundef nonnull @.str.46, i64 noundef %2, ptr noundef nonnull @.str.47, ptr noundef nonnull align 8 dereferenceable(768) %6, ptr noundef %3, i32 noundef -1, ptr noundef %3367, ptr noundef nonnull %1198)
   br label %3368

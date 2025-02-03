@@ -43,7 +43,7 @@ define internal void @mca_rcache_base_vma_module_construct(ptr noundef initializ
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
-  %13 = tail call i32 @mca_rcache_base_vma_tree_init(ptr noundef %0) #3
+  %13 = tail call i32 @mca_rcache_base_vma_tree_init(ptr noundef nonnull %0) #3
   ret void
 }
 
@@ -67,7 +67,7 @@ define internal void @mca_rcache_base_vma_module_destruct(ptr noundef %0) #0 {
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %1
-  tail call void @mca_rcache_base_vma_tree_finalize(ptr noundef %0) #3
+  tail call void @mca_rcache_base_vma_tree_finalize(ptr noundef nonnull %0) #3
   ret void
 }
 

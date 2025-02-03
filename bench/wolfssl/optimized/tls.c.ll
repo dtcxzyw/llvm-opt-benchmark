@@ -4206,7 +4206,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   br i1 %cmp29, label %return, label %if.end32
 
 if.end32:                                         ; preds = %land.lhs.true, %lor.lhs.false
-  %call33 = call fastcc i32 @TLSX_KeyShare_Process(ptr noundef %ssl, ptr noundef nonnull %17)
+  %call33 = call fastcc i32 @TLSX_KeyShare_Process(ptr noundef nonnull %ssl, ptr noundef nonnull %17)
   %cmp34 = icmp eq i32 %call33, 0
   br i1 %cmp34, label %if.then36, label %return
 

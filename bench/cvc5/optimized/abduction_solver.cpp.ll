@@ -740,7 +740,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #19
   br label %eh.resume
 
 cond.end17:                                       ; preds = %entry
@@ -3395,7 +3395,7 @@ invoke.cont149:                                   ; preds = %cond.end147
 lpad148:                                          ; preds = %cond.end147
   %128 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #19
+  call void @__cxa_free_exception(ptr nonnull %exception) #19
   br label %ehcleanup152
 
 cleanup:                                          ; preds = %if.then13.i.i468, %if.then.i.i461, %if.end130, %invoke.cont25

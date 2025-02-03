@@ -8593,7 +8593,7 @@ sw.bb:                                            ; preds = %if.then73
 lpad75:                                           ; preds = %sw.bb
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception74) #19
+  call void @__cxa_free_exception(ptr nonnull %exception74) #19
   br label %ehcleanup89
 
 sw.default:                                       ; preds = %if.then73
@@ -11209,7 +11209,7 @@ sw.bb:                                            ; preds = %if.then98
 lpad100:                                          ; preds = %sw.bb
   %114 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception99) #19
+  call void @__cxa_free_exception(ptr nonnull %exception99) #19
   br label %ehcleanup235
 
 sw.default:                                       ; preds = %if.then98

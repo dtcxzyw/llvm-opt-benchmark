@@ -7151,7 +7151,7 @@ Abc_UtilStrsav.exit:
   br label %27
 
 26:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef %7) #22
+  tail call void @free(ptr noundef nonnull %7) #22
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
   br label %40
 

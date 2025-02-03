@@ -5953,7 +5953,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i11:            ; preds = %3
 
 _ZN4llvm12StringSwitchISt8optionalINS_11MCFixupKindEES3_E4CaseENS_13StringLiteralES3_.exit22.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i11
   %.sroa.8.2.ph = phi i64 [ 4294967316, %_ZN4llvmeqENS_9StringRefES0_.exit.i11 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %6 = tail call i64 @_ZNK4llvm12MCAsmBackend12getFixupKindENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, i64 %2) #23
+  %6 = tail call i64 @_ZNK4llvm12MCAsmBackend12getFixupKindENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nonnull %1, i64 %2) #23
   br label %10
 
 _ZN4llvm12StringSwitchISt8optionalINS_11MCFixupKindEES3_E4CaseENS_13StringLiteralES3_.exit22.thread67: ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.i11, %_ZN4llvmeqENS_9StringRefES0_.exit.i

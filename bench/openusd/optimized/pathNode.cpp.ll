@@ -2626,7 +2626,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_ParentAndINS0_7Tf
 76:                                               ; preds = %73
   %77 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %74) #17, !noalias !14
+  tail call void @__cxa_free_exception(ptr nonnull %74) #17, !noalias !14
   br label %.body.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit.i.i.i.i.i.i: ; preds = %70
@@ -3635,7 +3635,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt
 120:                                              ; preds = %117
   %121 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %118) #17, !noalias !31
+  tail call void @__cxa_free_exception(ptr nonnull %118) #17, !noalias !31
   br label %.body.i.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit.i.i.i.i.i.i: ; preds = %114
@@ -5616,7 +5616,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds 
 51:                                               ; preds = %48
   %52 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %49) #17, !noalias !54
+  tail call void @__cxa_free_exception(ptr nonnull %49) #17, !noalias !54
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit.i.i.i.i.i.i: ; preds = %45
@@ -15136,7 +15136,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17deta
 common.resume.i:                                  ; preds = %31, %11
   %.sink.i = phi ptr [ %30, %31 ], [ %10, %11 ]
   %common.resume.op.i = phi { ptr, i32 } [ %32, %31 ], [ %12, %11 ]
-  tail call void @__cxa_free_exception(ptr %.sink.i) #17
+  tail call void @__cxa_free_exception(ptr nonnull %.sink.i) #17
   resume { ptr, i32 } %common.resume.op.i
 
 11:                                               ; preds = %9
@@ -15707,7 +15707,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_ParentAndINS0_7Tf
 51:                                               ; preds = %48
   %52 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %49) #17
+  tail call void @__cxa_free_exception(ptr nonnull %49) #17
   br label %.body.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit.i.i.i.i: ; preds = %45
@@ -16109,7 +16109,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17deta
 common.resume.i:                                  ; preds = %31, %11
   %.sink.i = phi ptr [ %30, %31 ], [ %10, %11 ]
   %common.resume.op.i = phi { ptr, i32 } [ %32, %31 ], [ %12, %11 ]
-  tail call void @__cxa_free_exception(ptr %.sink.i) #17
+  tail call void @__cxa_free_exception(ptr nonnull %.sink.i) #17
   resume { ptr, i32 } %common.resume.op.i
 
 11:                                               ; preds = %9
@@ -16875,7 +16875,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17deta
 common.resume.i:                                  ; preds = %31, %11
   %.sink.i = phi ptr [ %30, %31 ], [ %10, %11 ]
   %common.resume.op.i = phi { ptr, i32 } [ %32, %31 ], [ %12, %11 ]
-  tail call void @__cxa_free_exception(ptr %.sink.i) #17
+  tail call void @__cxa_free_exception(ptr nonnull %.sink.i) #17
   resume { ptr, i32 } %common.resume.op.i
 
 11:                                               ; preds = %9
@@ -17583,7 +17583,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_ParentAndINS0_7Sd
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %68) #17
+  tail call void @__cxa_free_exception(ptr nonnull %68) #17
   br label %.body.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl2rh26power_of_two_growth_policyILm2EE17next_bucket_countEv.exit.i.i.i.i: ; preds = %64
@@ -18020,7 +18020,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17deta
 common.resume.i:                                  ; preds = %31, %11
   %.sink.i = phi ptr [ %30, %31 ], [ %10, %11 ]
   %common.resume.op.i = phi { ptr, i32 } [ %32, %31 ], [ %12, %11 ]
-  tail call void @__cxa_free_exception(ptr %.sink.i) #17
+  tail call void @__cxa_free_exception(ptr nonnull %.sink.i) #17
   resume { ptr, i32 } %common.resume.op.i
 
 11:                                               ; preds = %9
@@ -18675,7 +18675,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17deta
 common.resume.i:                                  ; preds = %31, %11
   %.sink.i = phi ptr [ %30, %31 ], [ %10, %11 ]
   %common.resume.op.i = phi { ptr, i32 } [ %32, %31 ], [ %12, %11 ]
-  tail call void @__cxa_free_exception(ptr %.sink.i) #17
+  tail call void @__cxa_free_exception(ptr nonnull %.sink.i) #17
   resume { ptr, i32 } %common.resume.op.i
 
 11:                                               ; preds = %9
@@ -19026,7 +19026,7 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %20
   %32 = xor i64 %notmask.i, -1
   %33 = and i64 %2, %32
   invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(570) %1, i64 noundef %33)
-          to label %.noexc7 unwind label %100
+          to label %.noexc7 unwind label %98
 
 .noexc7:                                          ; preds = %29
   %34 = shl nuw i64 %32, 1
@@ -19054,177 +19054,173 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %20
   %.0.i.i17 = inttoptr i64 %.0.i.i17.in to ptr
   br label %44
 
-44:                                               ; preds = %.lr.ph, %72
-  %.0.i13 = phi ptr [ null, %.lr.ph ], [ %.1.i, %72 ]
-  %.022.i12 = phi ptr [ %.0.i.i17, %.lr.ph ], [ %.123.i, %72 ]
+44:                                               ; preds = %.lr.ph, %70
+  %.0.i13 = phi ptr [ null, %.lr.ph ], [ %.1.i, %70 ]
+  %.022.i12 = phi ptr [ %.0.i.i17, %.lr.ph ], [ %.123.i, %70 ]
   %45 = getelementptr inbounds nuw i8, ptr %.022.i12, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = and i64 %35, %47
   %49 = icmp eq i64 %48, %2
-  br i1 %49, label %50, label %70
+  br i1 %49, label %50, label %68
 
 50:                                               ; preds = %44
   %51 = load i8, ptr %40, align 8
   %52 = trunc i8 %51 to i1
-  br i1 %52, label %60, label %53
+  br i1 %52, label %58, label %53
 
 53:                                               ; preds = %50
   store i8 1, ptr %40, align 8
   %54 = load ptr, ptr %4, align 8
   %55 = invoke noundef zeroext i1 @_ZN3tbb6detail2d113spin_rw_mutex7upgradeEv(ptr noundef nonnull align 8 dereferenceable(8) %54)
-          to label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i unwind label %56
+          to label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i unwind label %_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE15bucket_accessorD2Ev.exit.i
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i: ; preds = %53
-  br i1 %55, label %60, label %.loopexit
+  br i1 %55, label %58, label %.loopexit
 
-56:                                               ; preds = %53
-  %57 = landingpad { ptr, i32 }
+_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE15bucket_accessorD2Ev.exit.i: ; preds = %53
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i, label %.body, label %58
-
-58:                                               ; preds = %56
   store ptr null, ptr %4, align 8
-  %59 = atomicrmw and ptr %54, i64 -4 seq_cst, align 8
+  %57 = atomicrmw and ptr %54, i64 -4 seq_cst, align 8
   br label %.body
 
-60:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i, %50
-  %61 = load ptr, ptr %.022.i12, align 8
-  %62 = icmp eq ptr %.0.i13, null
-  br i1 %62, label %63, label %66
+58:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i, %50
+  %59 = load ptr, ptr %.022.i12, align 8
+  %60 = icmp eq ptr %.0.i13, null
+  br i1 %60, label %61, label %64
 
-63:                                               ; preds = %60
+61:                                               ; preds = %58
   %.val.i = load ptr, ptr %36, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %65 = ptrtoint ptr %61 to i64
-  store atomic i64 %65, ptr %64 monotonic, align 8
-  br label %67
+  %62 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %63 = ptrtoint ptr %59 to i64
+  store atomic i64 %63, ptr %62 monotonic, align 8
+  br label %65
 
-66:                                               ; preds = %60
-  store ptr %61, ptr %.0.i13, align 8
-  br label %67
+64:                                               ; preds = %58
+  store ptr %59, ptr %.0.i13, align 8
+  br label %65
 
-67:                                               ; preds = %66, %63
-  %68 = load atomic i64, ptr %26 monotonic, align 8
-  %.0.i.i.i = inttoptr i64 %68 to ptr
+65:                                               ; preds = %64, %61
+  %66 = load atomic i64, ptr %26 monotonic, align 8
+  %.0.i.i.i = inttoptr i64 %66 to ptr
   store ptr %.0.i.i.i, ptr %.022.i12, align 8
-  %69 = ptrtoint ptr %.022.i12 to i64
-  store atomic i64 %69, ptr %26 monotonic, align 8
-  br label %72
+  %67 = ptrtoint ptr %.022.i12 to i64
+  store atomic i64 %67, ptr %26 monotonic, align 8
+  br label %70
 
-70:                                               ; preds = %44
-  %71 = load ptr, ptr %.022.i12, align 8
-  br label %72
+68:                                               ; preds = %44
+  %69 = load ptr, ptr %.022.i12, align 8
+  br label %70
 
-72:                                               ; preds = %70, %67
-  %.123.i = phi ptr [ %61, %67 ], [ %71, %70 ]
-  %.1.i = phi ptr [ %.0.i13, %67 ], [ %.022.i12, %70 ]
-  %73 = icmp ugt ptr %.123.i, inttoptr (i64 63 to ptr)
-  br i1 %73, label %44, label %._crit_edge, !llvm.loop !204
+70:                                               ; preds = %68, %65
+  %.123.i = phi ptr [ %59, %65 ], [ %69, %68 ]
+  %.1.i = phi ptr [ %.0.i13, %65 ], [ %.022.i12, %68 ]
+  %71 = icmp ugt ptr %.123.i, inttoptr (i64 63 to ptr)
+  br i1 %71, label %44, label %._crit_edge, !llvm.loop !204
 
-._crit_edge:                                      ; preds = %.loopexit, %72, %.noexc7
-  %74 = load ptr, ptr %4, align 8
-  %.not.i.i26.i = icmp eq ptr %74, null
-  br i1 %.not.i.i26.i, label %.noexc5, label %75
+._crit_edge:                                      ; preds = %.loopexit, %70, %.noexc7
+  %72 = load ptr, ptr %4, align 8
+  %.not.i.i26.i = icmp eq ptr %72, null
+  br i1 %.not.i.i26.i, label %.noexc5, label %73
 
-75:                                               ; preds = %._crit_edge
+73:                                               ; preds = %._crit_edge
   store ptr null, ptr %4, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %77 = load i8, ptr %76, align 8
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %79, label %81
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %75 = load i8, ptr %74, align 8
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %79
 
-79:                                               ; preds = %75
-  %80 = atomicrmw and ptr %74, i64 -4 seq_cst, align 8
+77:                                               ; preds = %73
+  %78 = atomicrmw and ptr %72, i64 -4 seq_cst, align 8
   br label %.noexc5
 
-81:                                               ; preds = %75
-  %82 = atomicrmw sub ptr %74, i64 4 seq_cst, align 8
+79:                                               ; preds = %73
+  %80 = atomicrmw sub ptr %72, i64 4 seq_cst, align 8
   br label %.noexc5
 
-.noexc5:                                          ; preds = %81, %79, %._crit_edge
+.noexc5:                                          ; preds = %79, %77, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE15bucket_accessor7acquireEPSH_mb.exit
 
 .noexc.thread:                                    ; preds = %20, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i, %3
-  %83 = phi ptr [ %.pre20, %20 ], [ %.pre, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i ], [ %.pre20, %3 ]
+  %81 = phi ptr [ %.pre20, %20 ], [ %.pre, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i ], [ %.pre20, %3 ]
   store i8 0, ptr %5, align 8
-  store ptr %83, ptr %0, align 8
+  store ptr %81, ptr %0, align 8
   br label %.preheader9.i.outer
 
 .preheader9.i.outer:                              ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i, %.noexc.thread
-  %.sroa.0.0.i3.i.ph = phi i32 [ %97, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i ], [ 1, %.noexc.thread ]
-  %84 = icmp slt i32 %.sroa.0.0.i3.i.ph, 17
+  %.sroa.0.0.i3.i.ph = phi i32 [ %95, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i ], [ 1, %.noexc.thread ]
+  %82 = icmp slt i32 %.sroa.0.0.i3.i.ph, 17
   br label %.preheader9.i
 
-.preheader9.i:                                    ; preds = %.preheader9.i.outer, %98
-  %85 = load atomic i64, ptr %83 monotonic, align 8
-  %86 = and i64 %85, 3
-  %.not.i4.i = icmp eq i64 %86, 0
-  br i1 %.not.i4.i, label %87, label %92
+.preheader9.i:                                    ; preds = %.preheader9.i.outer, %96
+  %83 = load atomic i64, ptr %81 monotonic, align 8
+  %84 = and i64 %83, 3
+  %.not.i4.i = icmp eq i64 %84, 0
+  br i1 %.not.i4.i, label %85, label %90
 
-87:                                               ; preds = %.preheader9.i
-  %88 = atomicrmw add ptr %83, i64 4 seq_cst, align 8
-  %89 = and i64 %88, 1
-  %.not16.i.i = icmp eq i64 %89, 0
-  br i1 %.not16.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE15bucket_accessor7acquireEPSH_mb.exit, label %90
+85:                                               ; preds = %.preheader9.i
+  %86 = atomicrmw add ptr %81, i64 4 seq_cst, align 8
+  %87 = and i64 %86, 1
+  %.not16.i.i = icmp eq i64 %87, 0
+  br i1 %.not16.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE15bucket_accessor7acquireEPSH_mb.exit, label %88
 
-90:                                               ; preds = %87
-  %91 = atomicrmw sub ptr %83, i64 4 seq_cst, align 8
-  br label %92
+88:                                               ; preds = %85
+  %89 = atomicrmw sub ptr %81, i64 4 seq_cst, align 8
+  br label %90
 
-92:                                               ; preds = %90, %.preheader9.i
-  br i1 %84, label %93, label %98
+90:                                               ; preds = %88, %.preheader9.i
+  br i1 %82, label %91, label %96
 
-93:                                               ; preds = %92
-  %94 = icmp sgt i32 %.sroa.0.0.i3.i.ph, 0
-  br i1 %94, label %.lr.ph.i.i.i7.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i
+91:                                               ; preds = %90
+  %92 = icmp sgt i32 %.sroa.0.0.i3.i.ph, 0
+  br i1 %92, label %.lr.ph.i.i.i7.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i
 
-.lr.ph.i.i.i7.i:                                  ; preds = %93, %.lr.ph.i.i.i7.i
-  %.01.i.i.i8.i = phi i32 [ %95, %.lr.ph.i.i.i7.i ], [ %.sroa.0.0.i3.i.ph, %93 ]
-  %95 = add nsw i32 %.01.i.i.i8.i, -1
+.lr.ph.i.i.i7.i:                                  ; preds = %91, %.lr.ph.i.i.i7.i
+  %.01.i.i.i8.i = phi i32 [ %93, %.lr.ph.i.i.i7.i ], [ %.sroa.0.0.i3.i.ph, %91 ]
+  %93 = add nsw i32 %.01.i.i.i8.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %96 = icmp samesign ugt i32 %.01.i.i.i8.i, 1
-  br i1 %96, label %.lr.ph.i.i.i7.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i, !llvm.loop !17
+  %94 = icmp samesign ugt i32 %.01.i.i.i8.i, 1
+  br i1 %94, label %.lr.ph.i.i.i7.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i, !llvm.loop !17
 
-_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i:  ; preds = %.lr.ph.i.i.i7.i, %93
-  %97 = shl nsw i32 %.sroa.0.0.i3.i.ph, 1
+_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i:  ; preds = %.lr.ph.i.i.i7.i, %91
+  %95 = shl nsw i32 %.sroa.0.0.i3.i.ph, 1
   br label %.preheader9.i.outer, !llvm.loop !205
 
-98:                                               ; preds = %92
-  %99 = tail call noundef i32 @sched_yield() #17
+96:                                               ; preds = %90
+  %97 = tail call noundef i32 @sched_yield() #17
   br label %.preheader9.i, !llvm.loop !205
 
-_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE15bucket_accessor7acquireEPSH_mb.exit: ; preds = %87, %.noexc5, %25
+_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE15bucket_accessor7acquireEPSH_mb.exit: ; preds = %85, %.noexc5, %25
   ret void
 
-100:                                              ; preds = %29
-  %101 = landingpad { ptr, i32 }
+98:                                               ; preds = %29
+  %99 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %56, %58, %100
-  %eh.lpad-body = phi { ptr, i32 } [ %101, %100 ], [ %57, %58 ], [ %57, %56 ]
-  %102 = load ptr, ptr %0, align 8
-  %.not.i = icmp eq ptr %102, null
-  br i1 %.not.i, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, label %103
+.body:                                            ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE15bucket_accessorD2Ev.exit.i, %98
+  %eh.lpad-body = phi { ptr, i32 } [ %99, %98 ], [ %56, %_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE15bucket_accessorD2Ev.exit.i ]
+  %100 = load ptr, ptr %0, align 8
+  %.not.i = icmp eq ptr %100, null
+  br i1 %.not.i, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, label %101
 
-103:                                              ; preds = %.body
+101:                                              ; preds = %.body
   store ptr null, ptr %0, align 8
-  %104 = load i8, ptr %5, align 8
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %106, label %108
+  %102 = load i8, ptr %5, align 8
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %106
 
-106:                                              ; preds = %103
-  %107 = atomicrmw and ptr %102, i64 -4 seq_cst, align 8
+104:                                              ; preds = %101
+  %105 = atomicrmw and ptr %100, i64 -4 seq_cst, align 8
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
 
-108:                                              ; preds = %103
-  %109 = atomicrmw sub ptr %102, i64 4 seq_cst, align 8
+106:                                              ; preds = %101
+  %107 = atomicrmw sub ptr %100, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
 
-_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %.body, %106, %108
+_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %.body, %104, %106
   resume { ptr, i32 } %eh.lpad-body
 }
 

@@ -798,7 +798,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
 
 .thread:                                          ; preds = %182, %.preheader234
   tail call void @free(ptr noundef nonnull %141) #11
-  tail call void @free(ptr noundef %.0191) #11
+  tail call void @free(ptr noundef nonnull %.0191) #11
   %196 = tail call ptr @__errno_location() #12
   store i32 313, ptr %196, align 4
   br label %246

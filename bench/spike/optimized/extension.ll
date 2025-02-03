@@ -138,7 +138,7 @@ define void @_ZN11extension_t15raise_interruptEv(ptr noundef nonnull readonly al
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #18
+  tail call void @__cxa_free_exception(ptr nonnull %4) #18
   resume { ptr, i32 } %7
 }
 

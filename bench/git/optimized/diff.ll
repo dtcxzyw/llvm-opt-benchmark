@@ -13436,7 +13436,7 @@ if.end22.i.i:                                     ; preds = %if.then9.i.i.i, %la
   tail call fastcc void @diff_fill_oid_info(ptr noundef %26, ptr noundef %28)
   %29 = load ptr, ptr %2, align 8
   %30 = load ptr, ptr %two.i, align 8
-  tail call fastcc void @builtin_diffstat(ptr noundef %name.0.i.i, ptr noundef %other.0.i.i, ptr noundef %29, ptr noundef %30, ptr noundef nonnull %diffstat, ptr noundef nonnull %options, ptr noundef nonnull readonly %2)
+  tail call fastcc void @builtin_diffstat(ptr noundef nonnull %name.0.i.i, ptr noundef %other.0.i.i, ptr noundef %29, ptr noundef %30, ptr noundef nonnull %diffstat, ptr noundef nonnull %options, ptr noundef nonnull readonly %2)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end22.i.i, %if.then8.i.i, %lor.lhs.false.i, %if.end.i, %if.then
@@ -13614,7 +13614,7 @@ if.end.i15:                                       ; preds = %if.then9.i.i, %land
   br i1 %tobool11.not.i, label %if.end13.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end.i15
-  tail call fastcc void @run_diff_cmd(ptr noundef %spec.select36.i, ptr noundef %name.0.i, ptr noundef null, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %o, ptr noundef nonnull readonly %p)
+  tail call fastcc void @run_diff_cmd(ptr noundef %spec.select36.i, ptr noundef nonnull %name.0.i, ptr noundef null, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %o, ptr noundef nonnull readonly %p)
   br label %run_diff.exit
 
 if.end13.i:                                       ; preds = %if.end.i15
@@ -13676,7 +13676,7 @@ alloc_filespec.exit.i:                            ; preds = %st_add.exit.i.i
   %bf.load.i.i = load i16, ptr %is_binary.i.i, align 2
   %bf.set.i.i = or i16 %bf.load.i.i, 384
   store i16 %bf.set.i.i, ptr %is_binary.i.i, align 2
-  call fastcc void @run_diff_cmd(ptr noundef null, ptr noundef %name.0.i, ptr noundef %other.0.i, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef %call3.i.i, ptr noundef nonnull %msg.i, ptr noundef nonnull %o, ptr noundef nonnull readonly %p)
+  call fastcc void @run_diff_cmd(ptr noundef null, ptr noundef nonnull %name.0.i, ptr noundef %other.0.i, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef %call3.i.i, ptr noundef nonnull %msg.i, ptr noundef nonnull %o, ptr noundef nonnull readonly %p)
   call void @free(ptr noundef %call3.i.i) #31
   call void @strbuf_release(ptr noundef nonnull %msg.i) #31
   %31 = load ptr, ptr %path.i, align 8
@@ -13709,12 +13709,12 @@ alloc_filespec.exit55.i:                          ; preds = %st_add.exit.i43.i
   %bf.load.i51.i = load i16, ptr %is_binary.i50.i, align 2
   %bf.set.i52.i = or i16 %bf.load.i51.i, 384
   store i16 %bf.set.i52.i, ptr %is_binary.i50.i, align 2
-  call fastcc void @run_diff_cmd(ptr noundef null, ptr noundef %name.0.i, ptr noundef %other.0.i, ptr noundef nonnull %16, ptr noundef %call3.i46.i, ptr noundef nonnull %14, ptr noundef nonnull %msg.i, ptr noundef nonnull %o, ptr noundef nonnull readonly %p)
+  call fastcc void @run_diff_cmd(ptr noundef null, ptr noundef nonnull %name.0.i, ptr noundef %other.0.i, ptr noundef nonnull %16, ptr noundef %call3.i46.i, ptr noundef nonnull %14, ptr noundef nonnull %msg.i, ptr noundef nonnull %o, ptr noundef nonnull readonly %p)
   call void @free(ptr noundef %call3.i46.i) #31
   br label %if.end36.i
 
 if.else.i:                                        ; preds = %land.lhs.true18.i, %land.lhs.true.i, %if.end13.i
-  call fastcc void @run_diff_cmd(ptr noundef %spec.select36.i, ptr noundef %name.0.i, ptr noundef %other.0.i, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef nonnull %msg.i, ptr noundef nonnull %o, ptr noundef nonnull readonly %p)
+  call fastcc void @run_diff_cmd(ptr noundef %spec.select36.i, ptr noundef nonnull %name.0.i, ptr noundef %other.0.i, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef nonnull %msg.i, ptr noundef nonnull %o, ptr noundef nonnull readonly %p)
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.else.i, %alloc_filespec.exit55.i

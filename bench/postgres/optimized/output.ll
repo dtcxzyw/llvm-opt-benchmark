@@ -513,7 +513,7 @@ define dso_local void @output_deallocate_prepare_statement(ptr noundef captures(
 
 13:                                               ; preds = %11, %7
   tail call void @whenever_action(i32 noundef 2)
-  tail call void @free(ptr noundef %0) #8
+  tail call void @free(ptr noundef nonnull %0) #8
   ret void
 }
 

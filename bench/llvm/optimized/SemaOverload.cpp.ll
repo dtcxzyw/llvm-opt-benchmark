@@ -47528,7 +47528,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang21TemplateSpecCandidateELb1EE9push_bac
 
 .lr.ph25.i.i.i.i.i.i:                             ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 128
-  call fastcc void @_ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_(ptr noundef %30, ptr noundef nonnull %38, ptr nonnull readonly %1)
+  call fastcc void @_ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_(ptr noundef nonnull %30, ptr noundef nonnull %38, ptr nonnull readonly %1)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 280
   br label %40
 
@@ -47633,7 +47633,7 @@ _ZSt25__unguarded_linear_insertIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__o
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4sortIRNS_11SmallVectorIPN5clang21TemplateSpecCandidateELj32EEEN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEvOT_T0_.exit, label %40, !llvm.loop !277
 
 69:                                               ; preds = %33
-  call fastcc void @_ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_(ptr noundef %30, ptr noundef nonnull %32, ptr nonnull readonly %1)
+  call fastcc void @_ZSt16__insertion_sortIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_SA_T0_(ptr noundef nonnull %30, ptr noundef nonnull %32, ptr nonnull readonly %1)
   br label %_ZN4llvm4sortIRNS_11SmallVectorIPN5clang21TemplateSpecCandidateELj32EEEN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEvOT_T0_.exit
 
 _ZN4llvm4sortIRNS_11SmallVectorIPN5clang21TemplateSpecCandidateELj32EEEN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEvOT_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN5clang21TemplateSpecCandidateEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_.exit.i.i.i.i.i.i, %._crit_edge, %69

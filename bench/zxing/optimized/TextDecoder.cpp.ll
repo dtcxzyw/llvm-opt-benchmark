@@ -73,7 +73,7 @@ define void @_ZN5ZXing11TextDecoder6AppendERNSt7__cxx1112basic_stringIcSt11char_
 33:                                               ; preds = %30, %17
   %.sink = phi ptr [ %28, %30 ], [ %15, %17 ]
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %18, %17 ]
-  call void @__cxa_free_exception(ptr %.sink) #6
+  call void @__cxa_free_exception(ptr nonnull %.sink) #6
   resume { ptr, i32 } %.pn
 }
 

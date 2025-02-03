@@ -642,7 +642,7 @@ define void @_ZN10open_spiel3uci6UCIBotC2ERKNSt7__cxx1112basic_stringIcSt11char_
           to label %79 unwind label %.loopexit
 
 79:                                               ; preds = %.lr.ph
-  %80 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.023.028) #29
+  %80 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.023.028) #29
   %.not26 = icmp eq ptr %80, %76
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 

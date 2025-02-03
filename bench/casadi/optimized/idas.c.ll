@@ -6951,7 +6951,7 @@ IDAStep.exit:                                     ; preds = %IDANls.exit.thread.
   %1954 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %1953, ptr %1954, align 8
   store double %1953, ptr %2, align 8
-  %1955 = tail call i32 @IDAGetSolution(ptr noundef %0, double noundef %1953, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %1955 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %1953, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br label %IDAStopTest2.exit.thread
 
 1956:                                             ; preds = %IDAStep.exit.thread, %IDAStep.exit

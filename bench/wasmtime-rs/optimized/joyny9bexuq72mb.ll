@@ -28837,7 +28837,7 @@ _ZN14wasmtime_types9TypeTrace30canonicalize_for_runtime_usage17h43ab1400641c6981
 78:                                               ; preds = %69, %75
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %80 = load i32, ptr %79, align 4, !alias.scope !13219, !noundef !16
-  %81 = invoke noundef i8 @_ZN16wasmtime_runtime5table5Table4fill17h85c6091581b9dbedE(ptr noalias noundef align 8 dereferenceable(40) %68, ptr noalias noundef nonnull align 8 dereferenceable(56) %70, i32 noundef 0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %12, i32 noundef %80)
+  %81 = invoke noundef i8 @_ZN16wasmtime_runtime5table5Table4fill17h85c6091581b9dbedE(ptr noalias noundef nonnull align 8 dereferenceable(40) %68, ptr noalias noundef nonnull align 8 dereferenceable(56) %70, i32 noundef 0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %12, i32 noundef %80)
           to label %82 unwind label %26, !range !13222
 
 82:                                               ; preds = %78
@@ -34823,7 +34823,7 @@ _ZN16wasmtime_runtime8instance8Instance10from_vmctx17h6253c0123f126ec4E.llvm.153
   %280 = getelementptr inbounds i8, ptr %277, i64 -160
   %281 = getelementptr inbounds nuw i8, ptr %275, i64 24
   %282 = load ptr, ptr %281, align 8, !alias.scope !14234, !noalias !14233, !noundef !16
-  %283 = invoke noundef i32 @_ZN16wasmtime_runtime8instance8Instance11table_index17hb4f8b7d92d350a9fE(ptr noundef nonnull align 16 %280, ptr noalias noundef readonly align 8 dereferenceable(16) %282)
+  %283 = invoke noundef i32 @_ZN16wasmtime_runtime8instance8Instance11table_index17hb4f8b7d92d350a9fE(ptr noundef nonnull align 16 %280, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %282)
           to label %.noexc33.i24 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc33.i24:                                     ; preds = %_ZN16wasmtime_runtime8instance8Instance10from_vmctx17h6253c0123f126ec4E.llvm.15361297093319246575.exit.i.i
@@ -34831,7 +34831,7 @@ _ZN16wasmtime_runtime8instance8Instance10from_vmctx17h6253c0123f126ec4E.llvm.153
           to label %.noexc25.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc25.i:                                       ; preds = %.noexc33.i24
-  %285 = invoke { ptr, i64 } @_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E(ptr noalias noundef align 8 dereferenceable(40) %284)
+  %285 = invoke { ptr, i64 } @_ZN16wasmtime_runtime5table5Table11gc_refs_mut17hdcc77da85f1babe3E(ptr noalias noundef nonnull align 8 dereferenceable(40) %284)
           to label %.noexc26.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc26.i:                                       ; preds = %.noexc25.i
@@ -35075,7 +35075,7 @@ thread-pre-split.i:                               ; preds = %_ZN16wasmtime_runti
   %39 = load ptr, ptr %38, align 8, !alias.scope !14263, !noalias !14266, !nonnull !16, !noundef !16
   %40 = getelementptr inbounds [0 x { { { i32, [2 x i32] }, i8, [3 x i8] }, ptr, ptr }], ptr %39, i64 0, i64 %2, i32 1
   %41 = load ptr, ptr %40, align 8, !noalias !14250, !noundef !16
-  %42 = invoke noundef align 4 dereferenceable_or_null(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition9as_gc_ref17he374d6a796380786E(ptr noalias noundef readonly align 16 dereferenceable(16) %41)
+  %42 = invoke noundef align 4 dereferenceable_or_null(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition9as_gc_ref17he374d6a796380786E(ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %41)
           to label %43 unwind label %15, !noalias !14250
 
 43:                                               ; preds = %37

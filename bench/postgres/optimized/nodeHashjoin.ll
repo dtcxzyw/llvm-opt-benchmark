@@ -1601,7 +1601,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %329, %339
   br label %ExecParallelHashJoinNewBatch.exit.thread
 
 ExecParallelHashJoinNewBatch.exit.thread:         ; preds = %535, %._crit_edge.i181
-  call void @ExecParallelHashTableSetCurrentBatch(ptr noundef %510, i32 noundef %.047.i) #6
+  call void @ExecParallelHashTableSetCurrentBatch(ptr noundef nonnull %510, i32 noundef %.047.i) #6
   %553 = load ptr, ptr %527, align 8
   %554 = getelementptr %struct.ParallelHashJoinBatchAccessor, ptr %553, i64 %530, i32 10
   %555 = load ptr, ptr %554, align 8

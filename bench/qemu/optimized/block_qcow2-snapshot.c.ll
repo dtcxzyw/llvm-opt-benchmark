@@ -1430,8 +1430,8 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %tobool.i.not4.i = icmp eq ptr %snapshot_id, null
-  br i1 %tobool.i.not4.i, label %return, label %for.cond13.preheader.i.i
+  %tobool.i.not.i = icmp eq ptr %snapshot_id, null
+  br i1 %tobool.i.not.i, label %return, label %for.cond13.preheader.i.i
 
 for.cond13.preheader.i.i:                         ; preds = %if.end
   %nb_snapshots14.i.i = getelementptr inbounds nuw i8, ptr %0, i64 260

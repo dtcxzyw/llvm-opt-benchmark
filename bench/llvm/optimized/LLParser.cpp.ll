@@ -48718,8 +48718,8 @@ _ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit: ; preds = %17, %23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %32 = load i32, ptr %21, align 8
   %33 = and i32 %32, -2
-  %switch34 = icmp eq i32 %33, 358
-  br i1 %switch34, label %.critedge.lr.ph, label %.thread
+  %switch40 = icmp eq i32 %33, 358
+  br i1 %switch40, label %.critedge.lr.ph, label %.thread28
 
 .critedge.lr.ph:                                  ; preds = %_ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -48730,8 +48730,8 @@ _ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit: ; preds = %17, %23
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 33
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.lr.ph, %66
-  %40 = phi i32 [ %32, %.critedge.lr.ph ], [ %67, %66 ]
+.critedge:                                        ; preds = %.critedge.lr.ph, %62
+  %40 = phi i32 [ %32, %.critedge.lr.ph ], [ %63, %62 ]
   %.not.i10 = icmp eq i32 %40, 358
   %41 = call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %31) #25
   store i32 %41, ptr %21, align 8
@@ -48748,13 +48748,13 @@ _ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit: ; preds = %17, %23
 
 _ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit.thread: ; preds = %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %.loopexit
+  br label %_ZNKSt14default_deleteIN4llvm14LandingPadInstEEclEPS1_.exit.i
 
 _ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit: ; preds = %.critedge
   %44 = load ptr, ptr %5, align 8
   %45 = call noundef zeroext i1 @_ZN4llvm8LLParser10parseValueEPNS_4TypeERPNS_5ValueEPNS0_16PerFunctionStateE(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(148) %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %45, label %.loopexit, label %46
+  br i1 %45, label %_ZNKSt14default_deleteIN4llvm14LandingPadInstEEclEPS1_.exit.i, label %46
 
 46:                                               ; preds = %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit
   %47 = load ptr, ptr %9, align 8
@@ -48792,40 +48792,36 @@ _ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionSt
 59:                                               ; preds = %.sink.split, %56, %54
   %60 = load i8, ptr %47, align 8
   %61 = icmp ugt i8 %60, 21
-  br i1 %61, label %62, label %66
+  br i1 %61, label %65, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %64 = getelementptr inbounds nuw i8, ptr %12, i64 33
-  store i8 1, ptr %64, align 1
-  store ptr @.str.451, ptr %12, align 8
-  store i8 3, ptr %63, align 8
-  %65 = call noundef zeroext i1 @_ZNK4llvm7LLLexer5ErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(161) %31, ptr %42, ptr noundef nonnull align 8 dereferenceable(34) %12) #25
-  br label %.loopexit
-
-66:                                               ; preds = %59
   call void @_ZN4llvm14LandingPadInst9addClauseEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(76) %20, ptr noundef nonnull %47) #25
-  %67 = load i32, ptr %21, align 8
-  %68 = and i32 %67, -2
-  %switch = icmp eq i32 %68, 358
-  br i1 %switch, label %.critedge, label %.thread, !llvm.loop !1624
+  %63 = load i32, ptr %21, align 8
+  %64 = and i32 %63, -2
+  %switch = icmp eq i32 %64, 358
+  br i1 %switch, label %.critedge, label %.thread28, !llvm.loop !1624
 
-.thread:                                          ; preds = %66, %_ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit
+.thread28:                                        ; preds = %62, %_ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit
   store ptr %20, ptr %1, align 8
   br label %_ZNSt10unique_ptrIN4llvm14LandingPadInstESt14default_deleteIS1_EED2Ev.exit
 
-.loopexit:                                        ; preds = %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit.thread, %62
-  %.1 = phi i1 [ %65, %62 ], [ true, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit.thread ], [ true, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit ]
-  %.not.i14 = icmp eq ptr %20, null
-  br i1 %.not.i14, label %_ZNSt10unique_ptrIN4llvm14LandingPadInstESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm14LandingPadInstEEclEPS1_.exit.i
+65:                                               ; preds = %59
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 33
+  store i8 1, ptr %67, align 1
+  store ptr @.str.451, ptr %12, align 8
+  store i8 3, ptr %66, align 8
+  %68 = call noundef zeroext i1 @_ZNK4llvm7LLLexer5ErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(161) %31, ptr %42, ptr noundef nonnull align 8 dereferenceable(34) %12) #25
+  br label %_ZNKSt14default_deleteIN4llvm14LandingPadInstEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4llvm14LandingPadInstEEclEPS1_.exit.i: ; preds = %.loopexit
+_ZNKSt14default_deleteIN4llvm14LandingPadInstEEclEPS1_.exit.i: ; preds = %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit, %65, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit.thread
+  %.126 = phi i1 [ %68, %65 ], [ true, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit.thread ], [ true, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit ]
   call void @_ZN4llvm11InstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %20) #25
   call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %20) #25
   br label %_ZNSt10unique_ptrIN4llvm14LandingPadInstESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm14LandingPadInstESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm14LandingPadInstEEclEPS1_.exit.i, %.loopexit, %.thread, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %.thread ], [ %.1, %.loopexit ], [ %.1, %_ZNKSt14default_deleteIN4llvm14LandingPadInstEEclEPS1_.exit.i ]
+_ZNSt10unique_ptrIN4llvm14LandingPadInstESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm14LandingPadInstEEclEPS1_.exit.i, %.thread28, %3
+  %.0 = phi i1 [ true, %3 ], [ %.126, %_ZNKSt14default_deleteIN4llvm14LandingPadInstEEclEPS1_.exit.i ], [ false, %.thread28 ]
   ret i1 %.0
 }
 
@@ -53983,7 +53979,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %37
   br i1 %38, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread29
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread29:       ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.019.036) #27
+  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.036) #27
   %.not = icmp eq ptr %39, %.sroa.3.0.i.i
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -72001,7 +71997,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %38, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIN4llvm22TypeIdOffsetVtableInfoESaISA_EEESt10_Select1stISD_ESt4lessIvESaISD_EE24_M_get_insert_unique_posERS7_.exit, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #27
+  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %43 = icmp slt i32 %42, 0
@@ -72067,7 +72063,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %67, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIN4llvm22TypeIdOffsetVtableInfoESaISA_EEESt10_Select1stISD_ESt4lessIvESaISD_EE24_M_get_insert_unique_posERS7_.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #27
+  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %70) #25
   %72 = icmp slt i32 %71, 0
@@ -77368,7 +77364,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %38, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S6_IPN4llvm11GlobalValueENS8_5SMLocEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE24_M_get_insert_unique_posERS7_.exit, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #27
+  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %43 = icmp slt i32 %42, 0
@@ -77434,7 +77430,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %67, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S6_IPN4llvm11GlobalValueENS8_5SMLocEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE24_M_get_insert_unique_posERS7_.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #27
+  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %70) #25
   %72 = icmp slt i32 %71, 0
@@ -77834,7 +77830,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %38, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm5SMLocEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #27
+  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %43 = icmp slt i32 %42, 0
@@ -77900,7 +77896,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %67, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm5SMLocEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #27
+  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %70) #25
   %72 = icmp slt i32 %71, 0
@@ -78698,7 +78694,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %38, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S6_IPN4llvm5ValueENS8_5SMLocEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE24_M_get_insert_unique_posERS7_.exit, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #27
+  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %43 = icmp slt i32 %42, 0
@@ -78764,7 +78760,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %67, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S6_IPN4llvm5ValueENS8_5SMLocEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE24_M_get_insert_unique_posERS7_.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #27
+  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %70) #25
   %72 = icmp slt i32 %71, 0
@@ -79464,7 +79460,7 @@ _ZNKSt4lessIN4llvm5ValIDEEclERKS1_S4_.exit12:     ; preds = %28
   br i1 %44, label %104, label %45
 
 45:                                               ; preds = %41
-  %46 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #27
+  %46 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load i32, ptr %47, align 8
   %switch.i.i13 = icmp ult i32 %48, 2
@@ -79814,7 +79810,7 @@ _ZNKSt4lessIN4llvm5ValIDEEclERKS1_S4_.exit12:     ; preds = %28
   br i1 %44, label %104, label %45
 
 45:                                               ; preds = %41
-  %46 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #27
+  %46 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load i32, ptr %47, align 8
   %switch.i.i13 = icmp ult i32 %48, 2

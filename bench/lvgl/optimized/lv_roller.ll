@@ -655,11 +655,11 @@ get_selected_label_width.exit:                    ; preds = %19, %24
 
 44:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %41, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !39
-  %45 = call ptr @lv_obj_get_style_prop(ptr noundef %13, i32 noundef 0, i8 noundef zeroext 90) #6
-  %46 = call ptr @lv_obj_get_style_prop(ptr noundef %13, i32 noundef 262144, i8 noundef zeroext 90) #6
+  %45 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 90) #6
+  %46 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 262144, i8 noundef zeroext 90) #6
   %47 = call i32 @lv_font_get_line_height(ptr noundef %45) #6
   %48 = call i32 @lv_font_get_line_height(ptr noundef %46) #6
-  %49 = call ptr @lv_obj_get_style_prop(ptr noundef %13, i32 noundef 0, i8 noundef zeroext 92) #6
+  %49 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 92) #6
   %50 = ptrtoint ptr %49 to i64
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %50 to i32
   %51 = add nsw i32 %48, %47
@@ -667,14 +667,14 @@ get_selected_label_width.exit:                    ; preds = %19, %24
   %53 = add nsw i32 %52, %.sroa.0.0.extract.trunc.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %55 = load i32, ptr %54, align 4, !tbaa !20
-  %56 = call i32 @lv_obj_get_height(ptr noundef %13) #6
+  %56 = call i32 @lv_obj_get_height(ptr noundef nonnull %13) #6
   %57 = sdiv i32 %56, 2
   %58 = add nsw i32 %57, %55
   %.neg.i.i = sdiv i32 %53, -2
   %59 = add i32 %58, %.neg.i.i
   %60 = add nsw i32 %59, %53
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  call void @lv_obj_get_coords(ptr noundef %13, ptr noundef nonnull %3) #6
+  call void @lv_obj_get_coords(ptr noundef nonnull %13, ptr noundef nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -1548,7 +1548,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %134 = call ptr @lv_label_get_text(ptr noundef nonnull %65) #6
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %134, ptr %135, align 8, !tbaa !45
-  call void @lv_draw_label(ptr noundef %39, ptr noundef nonnull %6, ptr noundef nonnull %10) #6
+  call void @lv_draw_label(ptr noundef nonnull %39, ptr noundef nonnull %6, ptr noundef nonnull %10) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #6

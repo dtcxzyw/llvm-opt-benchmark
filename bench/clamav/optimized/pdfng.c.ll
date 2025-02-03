@@ -954,7 +954,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %161 = load ptr, ptr %96, align 8
   call void @free(ptr noundef %161) #14
   store ptr null, ptr %96, align 8
-  call void @free(ptr noundef %117) #14
+  call void @free(ptr noundef nonnull %117) #14
   br label %._crit_edge.thread
 
 162:                                              ; preds = %154

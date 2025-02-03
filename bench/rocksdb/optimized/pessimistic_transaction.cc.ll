@@ -3674,13 +3674,13 @@ if.end56:                                         ; preds = %invoke.cont45, %_ZN
   %txn_db_impl_ = getelementptr inbounds nuw i8, ptr %this, i64 328
   %37 = load ptr, ptr %txn_db_impl_, align 8
   invoke void @_ZN7rocksdb24PessimisticTransactionDB6UnLockEPNS_22PessimisticTransactionERKNS_11LockTrackerE(ptr noundef nonnull align 8 dereferenceable(480) %37, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(8) %call3)
-          to label %nrvo.skipdtor unwind label %lpad5
+          to label %_ZNKSt14default_deleteIN7rocksdb11LockTrackerEEclEPS1_.exit.i unwind label %lpad5
 
-nrvo.skipdtor:                                    ; preds = %invoke.cont6, %if.end56
+nrvo.skipdtor:                                    ; preds = %invoke.cont6
   %cmp.not.i92 = icmp eq ptr %call3, null
   br i1 %cmp.not.i92, label %return, label %_ZNKSt14default_deleteIN7rocksdb11LockTrackerEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN7rocksdb11LockTrackerEEclEPS1_.exit.i: ; preds = %nrvo.skipdtor
+_ZNKSt14default_deleteIN7rocksdb11LockTrackerEEclEPS1_.exit.i: ; preds = %if.end56, %nrvo.skipdtor
   %vtable.i.i = load ptr, ptr %call3, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %38 = load ptr, ptr %vfn.i.i, align 8
@@ -3853,7 +3853,7 @@ invoke.cont29.us.us:                              ; preds = %if.end26.us.us
 
 invoke.cont31.us.us:                              ; preds = %invoke.cont29.us.us
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key.i) #23
-  %call.i19.us.us = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.037.us.us) #25
+  %call.i19.us.us = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.037.us.us) #25
   %cmp.i14.not.us.us = icmp eq ptr %call.i19.us.us, %add.ptr.i.i13.us
   br i1 %cmp.i14.not.us.us, label %invoke.cont33.us, label %for.body18.us.us
 
@@ -3953,7 +3953,7 @@ invoke.cont29:                                    ; preds = %if.end26
 
 invoke.cont31:                                    ; preds = %invoke.cont29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key.i) #23
-  %call.i19 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.037) #25
+  %call.i19 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.037) #25
   %cmp.i14.not = icmp eq ptr %call.i19, %add.ptr.i.i13
   br i1 %cmp.i14.not, label %invoke.cont33, label %for.body18
 

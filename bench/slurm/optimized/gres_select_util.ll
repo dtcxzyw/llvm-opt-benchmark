@@ -908,7 +908,7 @@ define internal noundef i32 @_accumulate_gres_device_req(ptr noundef %0, ptr nou
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %39) #3
   store i32 0, ptr %38, align 8
-  %40 = tail call ptr @gres_create_state(ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %38) #3
+  %40 = tail call ptr @gres_create_state(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %38) #3
   tail call void @slurm_list_append(ptr noundef %1, ptr noundef %40) #3
   br label %41
 

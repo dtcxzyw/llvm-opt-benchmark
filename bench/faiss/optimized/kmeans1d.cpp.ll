@@ -1350,7 +1350,7 @@ define noundef double @_ZN5faiss8kmeans1dEPKfmmPf(ptr noundef readonly captures(
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #22
+  call void @__cxa_free_exception(ptr nonnull %20) #22
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -2019,7 +2019,7 @@ _ZSt10accumulateIPffET0_T_S2_S1_.exit:            ; preds = %.lr.ph.i138, %.lr.p
 283:                                              ; preds = %276
   %284 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %279) #22
+  call void @__cxa_free_exception(ptr nonnull %279) #22
   br label %285
 
 285:                                              ; preds = %283, %281

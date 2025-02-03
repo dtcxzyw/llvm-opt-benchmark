@@ -4387,7 +4387,7 @@ _ZNKSt8functionIFvRN5clang4ento15CheckerRegistryEEEclES3_.exit: ; preds = %.lr.p
 
 1727:                                             ; preds = %1722
   %1728 = getelementptr inbounds nuw i8, ptr %1719, i64 512
-  call void @_ZSt16__insertion_sortIPN5clang4ento11PackageInfoEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_16checker_registry10FullNameLTIS2_EEEEEvT_SB_T0_(ptr noundef %1719, ptr noundef nonnull %1728)
+  call void @_ZSt16__insertion_sortIPN5clang4ento11PackageInfoEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_16checker_registry10FullNameLTIS2_EEEEEvT_SB_T0_(ptr noundef nonnull %1719, ptr noundef nonnull %1728)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %1727
@@ -4398,7 +4398,7 @@ _ZNKSt8functionIFvRN5clang4ento15CheckerRegistryEEEclES3_.exit: ; preds = %.lr.p
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4sortIRNS_11SmallVectorIN5clang4ento11PackageInfoELj0EEENS3_16checker_registry10FullNameLTIS4_EEEEvOT_T0_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !25
 
 1730:                                             ; preds = %1722
-  call void @_ZSt16__insertion_sortIPN5clang4ento11PackageInfoEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_16checker_registry10FullNameLTIS2_EEEEEvT_SB_T0_(ptr noundef %1719, ptr noundef nonnull %1721)
+  call void @_ZSt16__insertion_sortIPN5clang4ento11PackageInfoEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_16checker_registry10FullNameLTIS2_EEEEEvT_SB_T0_(ptr noundef nonnull %1719, ptr noundef nonnull %1721)
   br label %_ZN4llvm4sortIRNS_11SmallVectorIN5clang4ento11PackageInfoELj0EEENS3_16checker_registry10FullNameLTIS4_EEEEvOT_T0_.exit
 
 _ZN4llvm4sortIRNS_11SmallVectorIN5clang4ento11PackageInfoELj0EEENS3_16checker_registry10FullNameLTIS4_EEEEvOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge2585, %1730

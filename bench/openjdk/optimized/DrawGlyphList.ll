@@ -58,7 +58,7 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %36 = add nsw i64 %35, 16
   %37 = tail call noalias ptr @malloc(i64 noundef %36) #11
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %173, label %39
+  br i1 %38, label %172, label %39
 
 39:                                               ; preds = %32
   store i32 %15, ptr %37, align 8
@@ -74,217 +74,209 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
 
 47:                                               ; preds = %39
   tail call void @free(ptr noundef nonnull %37) #10
-  br label %173
+  br label %172
 
 48:                                               ; preds = %39
   %.not168 = icmp eq ptr %33, null
-  br i1 %.not168, label %.preheader, label %54
+  br i1 %.not168, label %.preheader, label %51
 
 .preheader:                                       ; preds = %48
   %49 = icmp sgt i32 %15, 0
-  br i1 %49, label %.lr.ph174.preheader, label %.loopexit.thread
+  br i1 %49, label %.lr.ph176.preheader, label %._crit_edge
 
-.loopexit.thread:                                 ; preds = %.preheader
-  %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1784
-  %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %45, i32 noundef 2) #10
-  br label %164
+.lr.ph176.preheader:                              ; preds = %.preheader
+  %50 = sext i32 %2 to i64
+  %wide.trip.count187 = zext nneg i32 %15 to i64
+  %invariant.gep192 = getelementptr i64, ptr %45, i64 %50
+  br label %.lr.ph176
 
-.lr.ph174.preheader:                              ; preds = %.preheader
-  %53 = sext i32 %2 to i64
-  %wide.trip.count185 = zext nneg i32 %15 to i64
-  %invariant.gep194 = getelementptr i64, ptr %45, i64 %53
-  br label %.lr.ph174
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1776
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call ptr %54(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef null) #10
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %61
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1776
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call ptr %57(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef null) #10
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %64
-
-60:                                               ; preds = %54
-  %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1784
-  %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %45, i32 noundef 2) #10
+57:                                               ; preds = %51
+  %58 = load ptr, ptr %0, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1784
+  %60 = load ptr, ptr %59, align 8
+  tail call void %60(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %45, i32 noundef 2) #10
   tail call void @free(ptr noundef nonnull %37) #10
-  br label %173
+  br label %172
 
-64:                                               ; preds = %54
-  %invariant.gep = getelementptr i8, ptr %58, i64 4
-  %65 = icmp sgt i32 %15, 0
-  br i1 %65, label %.lr.ph.preheader, label %._crit_edge
+61:                                               ; preds = %51
+  %invariant.gep = getelementptr i8, ptr %55, i64 4
+  %62 = icmp sgt i32 %15, 0
+  br i1 %62, label %.lr.ph.preheader, label %.thread
 
-.lr.ph.preheader:                                 ; preds = %64
-  %66 = shl i32 %2, 1
-  %67 = sext i32 %2 to i64
-  %68 = add i32 %66, -1
-  %69 = sext i32 %68 to i64
+.lr.ph.preheader:                                 ; preds = %61
+  %63 = shl i32 %2, 1
+  %64 = sext i32 %2 to i64
+  %65 = add i32 %63, -1
+  %66 = sext i32 %65 to i64
   %wide.trip.count = zext nneg i32 %15 to i64
-  %invariant.gep192 = getelementptr i64, ptr %45, i64 %67
+  %invariant.gep190 = getelementptr i64, ptr %45, i64 %64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv177 = phi i64 [ %69, %.lr.ph.preheader ], [ %indvars.iv.next178, %.lr.ph ]
+  %indvars.iv179 = phi i64 [ %66, %.lr.ph.preheader ], [ %indvars.iv.next180, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv177
-  %70 = load float, ptr %gep, align 4
-  %71 = fadd float %9, %70
-  %indvars.iv.next178 = add nsw i64 %indvars.iv177, 2
-  %72 = getelementptr inbounds float, ptr %58, i64 %indvars.iv.next178
-  %73 = load float, ptr %72, align 4
-  %74 = fadd float %14, %73
-  %gep193 = getelementptr i64, ptr %invariant.gep192, i64 %indvars.iv
-  %75 = load i64, ptr %gep193, align 8
-  %76 = inttoptr i64 %75 to ptr
-  %77 = load ptr, ptr %41, align 8
-  %78 = getelementptr inbounds nuw %struct.ImageRef, ptr %77, i64 %indvars.iv
-  store ptr %76, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %41, align 8
-  %82 = getelementptr inbounds nuw %struct.ImageRef, ptr %81, i64 %indvars.iv, i32 1
-  store ptr %80, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %84 = load i16, ptr %83, align 8
-  %85 = zext i16 %84 to i32
-  %86 = load ptr, ptr %41, align 8
-  %87 = getelementptr inbounds nuw %struct.ImageRef, ptr %86, i64 %indvars.iv, i32 4
-  store i32 %85, ptr %87, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %76, i64 12
-  %89 = load i16, ptr %88, align 4
-  %90 = zext i16 %89 to i32
-  %91 = load ptr, ptr %41, align 8
-  %92 = getelementptr inbounds nuw %struct.ImageRef, ptr %91, i64 %indvars.iv, i32 2
-  store i32 %90, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %76, i64 10
-  %94 = load i16, ptr %93, align 2
-  %95 = zext i16 %94 to i32
-  %96 = load ptr, ptr %41, align 8
-  %97 = getelementptr inbounds nuw %struct.ImageRef, ptr %96, i64 %indvars.iv, i32 5
-  store i32 %95, ptr %97, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %99 = load float, ptr %98, align 8
-  %100 = fadd float %71, %99
-  %101 = fcmp olt float %100, 0.000000e+00
-  %102 = tail call float @llvm.floor.f32(float %100)
-  %.sink198 = select i1 %101, float %102, float %100
-  %103 = fptosi float %.sink198 to i32
-  %104 = load ptr, ptr %41, align 8
-  %105 = getelementptr inbounds nuw %struct.ImageRef, ptr %104, i64 %indvars.iv, i32 6
-  store i32 %103, ptr %105, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %76, i64 20
-  %107 = load float, ptr %106, align 4
-  %108 = fadd float %74, %107
-  %109 = fcmp olt float %108, 0.000000e+00
-  %110 = tail call float @llvm.floor.f32(float %108)
-  %.sink201 = select i1 %109, float %110, float %108
-  %111 = fptosi float %.sink201 to i32
-  %112 = load ptr, ptr %41, align 8
-  %113 = getelementptr inbounds nuw %struct.ImageRef, ptr %112, i64 %indvars.iv, i32 7
-  store i32 %111, ptr %113, align 4
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv179
+  %67 = load float, ptr %gep, align 4
+  %68 = fadd float %9, %67
+  %indvars.iv.next180 = add nsw i64 %indvars.iv179, 2
+  %69 = getelementptr inbounds float, ptr %55, i64 %indvars.iv.next180
+  %70 = load float, ptr %69, align 4
+  %71 = fadd float %14, %70
+  %gep191 = getelementptr i64, ptr %invariant.gep190, i64 %indvars.iv
+  %72 = load i64, ptr %gep191, align 8
+  %73 = inttoptr i64 %72 to ptr
+  %74 = load ptr, ptr %41, align 8
+  %75 = getelementptr inbounds nuw %struct.ImageRef, ptr %74, i64 %indvars.iv
+  store ptr %73, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %41, align 8
+  %79 = getelementptr inbounds nuw %struct.ImageRef, ptr %78, i64 %indvars.iv, i32 1
+  store ptr %77, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %81 = load i16, ptr %80, align 8
+  %82 = zext i16 %81 to i32
+  %83 = load ptr, ptr %41, align 8
+  %84 = getelementptr inbounds nuw %struct.ImageRef, ptr %83, i64 %indvars.iv, i32 4
+  store i32 %82, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %73, i64 12
+  %86 = load i16, ptr %85, align 4
+  %87 = zext i16 %86 to i32
+  %88 = load ptr, ptr %41, align 8
+  %89 = getelementptr inbounds nuw %struct.ImageRef, ptr %88, i64 %indvars.iv, i32 2
+  store i32 %87, ptr %89, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %73, i64 10
+  %91 = load i16, ptr %90, align 2
+  %92 = zext i16 %91 to i32
+  %93 = load ptr, ptr %41, align 8
+  %94 = getelementptr inbounds nuw %struct.ImageRef, ptr %93, i64 %indvars.iv, i32 5
+  store i32 %92, ptr %94, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %96 = load float, ptr %95, align 8
+  %97 = fadd float %68, %96
+  %98 = fcmp olt float %97, 0.000000e+00
+  %99 = tail call float @llvm.floor.f32(float %97)
+  %.sink196 = select i1 %98, float %99, float %97
+  %100 = fptosi float %.sink196 to i32
+  %101 = load ptr, ptr %41, align 8
+  %102 = getelementptr inbounds nuw %struct.ImageRef, ptr %101, i64 %indvars.iv, i32 6
+  store i32 %100, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %73, i64 20
+  %104 = load float, ptr %103, align 4
+  %105 = fadd float %71, %104
+  %106 = fcmp olt float %105, 0.000000e+00
+  %107 = tail call float @llvm.floor.f32(float %105)
+  %.sink199 = select i1 %106, float %107, float %105
+  %108 = fptosi float %.sink199 to i32
+  %109 = load ptr, ptr %41, align 8
+  %110 = getelementptr inbounds nuw %struct.ImageRef, ptr %109, i64 %indvars.iv, i32 7
+  store i32 %108, ptr %110, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %64
+.thread:                                          ; preds = %.lr.ph, %61
+  %111 = load ptr, ptr %0, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1784
+  %113 = load ptr, ptr %112, align 8
+  tail call void %113(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef nonnull %55, i32 noundef 2) #10
   %114 = load ptr, ptr %0, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 1784
   %116 = load ptr, ptr %115, align 8
-  tail call void %116(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef nonnull %58, i32 noundef 2) #10
-  br label %.loopexit
+  tail call void %116(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %45, i32 noundef 2) #10
+  br label %172
 
-.lr.ph174:                                        ; preds = %.lr.ph174.preheader, %.lr.ph174
-  %indvars.iv182 = phi i64 [ 0, %.lr.ph174.preheader ], [ %indvars.iv.next183, %.lr.ph174 ]
-  %.1153172 = phi float [ %9, %.lr.ph174.preheader ], [ %157, %.lr.ph174 ]
-  %.1155171 = phi float [ %14, %.lr.ph174.preheader ], [ %160, %.lr.ph174 ]
-  %gep195 = getelementptr i64, ptr %invariant.gep194, i64 %indvars.iv182
-  %117 = load i64, ptr %gep195, align 8
+.lr.ph176:                                        ; preds = %.lr.ph176.preheader, %.lr.ph176
+  %indvars.iv184 = phi i64 [ 0, %.lr.ph176.preheader ], [ %indvars.iv.next185, %.lr.ph176 ]
+  %.1153174 = phi float [ %9, %.lr.ph176.preheader ], [ %157, %.lr.ph176 ]
+  %.1155173 = phi float [ %14, %.lr.ph176.preheader ], [ %160, %.lr.ph176 ]
+  %gep193 = getelementptr i64, ptr %invariant.gep192, i64 %indvars.iv184
+  %117 = load i64, ptr %gep193, align 8
   %118 = inttoptr i64 %117 to ptr
   %119 = load ptr, ptr %41, align 8
-  %120 = getelementptr inbounds nuw %struct.ImageRef, ptr %119, i64 %indvars.iv182
+  %120 = getelementptr inbounds nuw %struct.ImageRef, ptr %119, i64 %indvars.iv184
   store ptr %118, ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %41, align 8
-  %124 = getelementptr inbounds nuw %struct.ImageRef, ptr %123, i64 %indvars.iv182, i32 1
+  %124 = getelementptr inbounds nuw %struct.ImageRef, ptr %123, i64 %indvars.iv184, i32 1
   store ptr %122, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %126 = load i16, ptr %125, align 8
   %127 = zext i16 %126 to i32
   %128 = load ptr, ptr %41, align 8
-  %129 = getelementptr inbounds nuw %struct.ImageRef, ptr %128, i64 %indvars.iv182, i32 4
+  %129 = getelementptr inbounds nuw %struct.ImageRef, ptr %128, i64 %indvars.iv184, i32 4
   store i32 %127, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %118, i64 12
   %131 = load i16, ptr %130, align 4
   %132 = zext i16 %131 to i32
   %133 = load ptr, ptr %41, align 8
-  %134 = getelementptr inbounds nuw %struct.ImageRef, ptr %133, i64 %indvars.iv182, i32 2
+  %134 = getelementptr inbounds nuw %struct.ImageRef, ptr %133, i64 %indvars.iv184, i32 2
   store i32 %132, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %118, i64 10
   %136 = load i16, ptr %135, align 2
   %137 = zext i16 %136 to i32
   %138 = load ptr, ptr %41, align 8
-  %139 = getelementptr inbounds nuw %struct.ImageRef, ptr %138, i64 %indvars.iv182, i32 5
+  %139 = getelementptr inbounds nuw %struct.ImageRef, ptr %138, i64 %indvars.iv184, i32 5
   store i32 %137, ptr %139, align 4
   %140 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %141 = load float, ptr %140, align 8
-  %142 = fadd float %.1153172, %141
+  %142 = fadd float %.1153174, %141
   %143 = fcmp olt float %142, 0.000000e+00
   %144 = tail call float @llvm.floor.f32(float %142)
-  %.sink204 = select i1 %143, float %144, float %142
-  %145 = fptosi float %.sink204 to i32
+  %.sink202 = select i1 %143, float %144, float %142
+  %145 = fptosi float %.sink202 to i32
   %146 = load ptr, ptr %41, align 8
-  %147 = getelementptr inbounds nuw %struct.ImageRef, ptr %146, i64 %indvars.iv182, i32 6
+  %147 = getelementptr inbounds nuw %struct.ImageRef, ptr %146, i64 %indvars.iv184, i32 6
   store i32 %145, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %118, i64 20
   %149 = load float, ptr %148, align 4
-  %150 = fadd float %.1155171, %149
+  %150 = fadd float %.1155173, %149
   %151 = fcmp olt float %150, 0.000000e+00
   %152 = tail call float @llvm.floor.f32(float %150)
-  %.sink207 = select i1 %151, float %152, float %150
-  %153 = fptosi float %.sink207 to i32
+  %.sink205 = select i1 %151, float %152, float %150
+  %153 = fptosi float %.sink205 to i32
   %154 = load ptr, ptr %41, align 8
-  %155 = getelementptr inbounds nuw %struct.ImageRef, ptr %154, i64 %indvars.iv182, i32 7
+  %155 = getelementptr inbounds nuw %struct.ImageRef, ptr %154, i64 %indvars.iv184, i32 7
   store i32 %153, ptr %155, align 4
   %156 = load float, ptr %118, align 8
-  %157 = fadd float %.1153172, %156
+  %157 = fadd float %.1153174, %156
   %158 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %159 = load float, ptr %158, align 4
-  %160 = fadd float %.1155171, %159
-  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
-  br i1 %exitcond186.not, label %.loopexit, label %.lr.ph174, !llvm.loop !8
+  %160 = fadd float %.1155173, %159
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
+  %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
+  br i1 %exitcond188.not, label %._crit_edge, label %.lr.ph176, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph174, %._crit_edge
-  %.0154 = phi float [ %14, %._crit_edge ], [ %160, %.lr.ph174 ]
-  %.0152 = phi float [ %9, %._crit_edge ], [ %157, %.lr.ph174 ]
+._crit_edge:                                      ; preds = %.lr.ph176, %.preheader
+  %.1155.lcssa = phi float [ %14, %.preheader ], [ %160, %.lr.ph176 ]
+  %.1153.lcssa = phi float [ %9, %.preheader ], [ %157, %.lr.ph176 ]
   %161 = load ptr, ptr %0, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 1784
   %163 = load ptr, ptr %162, align 8
   tail call void %163(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %45, i32 noundef 2) #10
-  br i1 %.not168, label %164, label %173
+  %164 = load ptr, ptr %0, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 888
+  %166 = load ptr, ptr %165, align 8
+  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 232), align 8
+  tail call void %166(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %167, float noundef %.1153.lcssa) #10
+  %168 = load ptr, ptr %0, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 888
+  %170 = load ptr, ptr %169, align 8
+  %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 240), align 8
+  tail call void %170(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %171, float noundef %.1155.lcssa) #10
+  br label %172
 
-164:                                              ; preds = %.loopexit.thread, %.loopexit
-  %.0152190 = phi float [ %9, %.loopexit.thread ], [ %.0152, %.loopexit ]
-  %.0154189 = phi float [ %14, %.loopexit.thread ], [ %.0154, %.loopexit ]
-  %165 = load ptr, ptr %0, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 888
-  %167 = load ptr, ptr %166, align 8
-  %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 232), align 8
-  tail call void %167(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, float noundef %.0152190) #10
-  %169 = load ptr, ptr %0, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 888
-  %171 = load ptr, ptr %170, align 8
-  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 240), align 8
-  tail call void %171(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %172, float noundef %.0154189) #10
-  br label %173
-
-173:                                              ; preds = %.loopexit, %164, %32, %60, %47
-  %.0 = phi ptr [ null, %47 ], [ null, %60 ], [ null, %32 ], [ %37, %164 ], [ %37, %.loopexit ]
+172:                                              ; preds = %.thread, %._crit_edge, %32, %57, %47
+  %.0 = phi ptr [ null, %47 ], [ null, %57 ], [ null, %32 ], [ %37, %._crit_edge ], [ %37, %.thread ]
   ret ptr %.0
 }
 
@@ -1054,7 +1046,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %41 = add nsw i64 %40, 16
   %42 = tail call noalias ptr @malloc(i64 noundef %41) #11
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %275, label %44
+  br i1 %43, label %274, label %44
 
 44:                                               ; preds = %32
   store i32 %15, ptr %42, align 8
@@ -1070,7 +1062,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
 
 52:                                               ; preds = %44
   tail call void @free(ptr noundef nonnull %42) #10
-  br label %275
+  br label %274
 
 53:                                               ; preds = %44
   %54 = icmp ne i8 %38, 0
@@ -1091,7 +1083,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %64 = load ptr, ptr %63, align 8
   tail call void %64(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %50, i32 noundef 2) #10
   tail call void @free(ptr noundef nonnull %42) #10
-  br label %275
+  br label %274
 
 65:                                               ; preds = %56
   %66 = inttoptr i64 %59 to ptr
@@ -1106,193 +1098,190 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
 72:                                               ; preds = %65, %53
   %.0234 = phi i8 [ %38, %53 ], [ %spec.select, %65 ]
   %.not260 = icmp eq ptr %33, null
-  br i1 %.not260, label %.preheader, label %77
+  br i1 %.not260, label %.preheader, label %74
 
 .preheader:                                       ; preds = %72
-  br i1 %55, label %.lr.ph270, label %.loopexit.thread
+  br i1 %55, label %.lr.ph272, label %._crit_edge
 
-.loopexit.thread:                                 ; preds = %.preheader
-  %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1784
-  %75 = load ptr, ptr %74, align 8
-  tail call void %75(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %50, i32 noundef 2) #10
-  br label %266
-
-.lr.ph270:                                        ; preds = %.preheader
+.lr.ph272:                                        ; preds = %.preheader
   %.not261 = icmp eq i8 %.0234, 0
-  %76 = sext i32 %2 to i64
-  %wide.trip.count281 = zext nneg i32 %15 to i64
-  %invariant.gep290 = getelementptr i64, ptr %50, i64 %76
+  %73 = sext i32 %2 to i64
+  %wide.trip.count283 = zext nneg i32 %15 to i64
+  %invariant.gep288 = getelementptr i64, ptr %50, i64 %73
   br label %179
 
-77:                                               ; preds = %72
-  %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1776
-  %80 = load ptr, ptr %79, align 8
-  %81 = tail call ptr %80(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef null) #10
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %87
+74:                                               ; preds = %72
+  %75 = load ptr, ptr %0, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1776
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call ptr %77(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef null) #10
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %80, label %84
 
-83:                                               ; preds = %77
-  %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1784
-  %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %50, i32 noundef 2) #10
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %0, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1784
+  %83 = load ptr, ptr %82, align 8
+  tail call void %83(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %50, i32 noundef 2) #10
   tail call void @free(ptr noundef nonnull %42) #10
-  br label %275
+  br label %274
 
-87:                                               ; preds = %77
-  %invariant.gep = getelementptr i8, ptr %81, i64 4
-  br i1 %55, label %.lr.ph, label %._crit_edge
+84:                                               ; preds = %74
+  %invariant.gep = getelementptr i8, ptr %78, i64 4
+  br i1 %55, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %87
-  %88 = shl i32 %2, 1
+.lr.ph:                                           ; preds = %84
+  %85 = shl i32 %2, 1
   %.not262 = icmp eq i8 %.0234, 0
-  %89 = sext i32 %2 to i64
-  %90 = add i32 %88, -1
-  %91 = sext i32 %90 to i64
+  %86 = sext i32 %2 to i64
+  %87 = add i32 %85, -1
+  %88 = sext i32 %87 to i64
   %wide.trip.count = zext nneg i32 %15 to i64
-  %invariant.gep288 = getelementptr i64, ptr %50, i64 %89
-  br label %92
+  %invariant.gep286 = getelementptr i64, ptr %50, i64 %86
+  br label %89
 
-92:                                               ; preds = %.lr.ph, %167
-  %indvars.iv273 = phi i64 [ %91, %.lr.ph ], [ %indvars.iv.next274, %167 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %167 ]
-  %gep289 = getelementptr i64, ptr %invariant.gep288, i64 %indvars.iv
-  %93 = load i64, ptr %gep289, align 8
-  %94 = inttoptr i64 %93 to ptr
-  %95 = icmp eq i64 %93, 0
-  br i1 %95, label %96, label %100
+89:                                               ; preds = %.lr.ph, %164
+  %indvars.iv275 = phi i64 [ %88, %.lr.ph ], [ %indvars.iv.next276, %164 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %164 ]
+  %gep287 = getelementptr i64, ptr %invariant.gep286, i64 %indvars.iv
+  %90 = load i64, ptr %gep287, align 8
+  %91 = inttoptr i64 %90 to ptr
+  %92 = icmp eq i64 %90, 0
+  br i1 %92, label %93, label %97
 
-96:                                               ; preds = %92
-  %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1784
-  %99 = load ptr, ptr %98, align 8
-  tail call void %99(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %50, i32 noundef 2) #10
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %0, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1784
+  %96 = load ptr, ptr %95, align 8
+  tail call void %96(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %50, i32 noundef 2) #10
   tail call void @free(ptr noundef %42) #10
-  br label %275
+  br label %274
 
-100:                                              ; preds = %92
-  %101 = load ptr, ptr %46, align 8
-  %102 = getelementptr inbounds nuw %struct.ImageRef, ptr %101, i64 %indvars.iv
-  store ptr %94, ptr %102, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %46, align 8
-  %106 = getelementptr inbounds nuw %struct.ImageRef, ptr %105, i64 %indvars.iv, i32 1
-  store ptr %104, ptr %106, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %108 = load i16, ptr %107, align 8
-  %109 = zext i16 %108 to i32
-  %110 = load ptr, ptr %46, align 8
-  %111 = getelementptr inbounds nuw %struct.ImageRef, ptr %110, i64 %indvars.iv, i32 4
-  store i32 %109, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %94, i64 12
-  %113 = load i16, ptr %112, align 4
-  %114 = zext i16 %113 to i32
-  %115 = load ptr, ptr %46, align 8
-  %116 = getelementptr inbounds nuw %struct.ImageRef, ptr %115, i64 %indvars.iv, i32 2
-  store i32 %114, ptr %116, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %94, i64 10
-  %118 = load i16, ptr %117, align 2
-  %119 = zext i16 %118 to i32
-  %120 = load ptr, ptr %46, align 8
-  %121 = getelementptr inbounds nuw %struct.ImageRef, ptr %120, i64 %indvars.iv, i32 5
-  store i32 %119, ptr %121, align 4
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv273
-  %122 = load float, ptr %gep, align 4
-  %123 = fadd float %9, %122
-  %indvars.iv.next274 = add nsw i64 %indvars.iv273, 2
-  %124 = getelementptr inbounds float, ptr %81, i64 %indvars.iv.next274
-  %125 = load float, ptr %124, align 4
-  %126 = fadd float %14, %125
-  br i1 %.not262, label %156, label %127
+97:                                               ; preds = %89
+  %98 = load ptr, ptr %46, align 8
+  %99 = getelementptr inbounds nuw %struct.ImageRef, ptr %98, i64 %indvars.iv
+  store ptr %91, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %91, i64 32
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %46, align 8
+  %103 = getelementptr inbounds nuw %struct.ImageRef, ptr %102, i64 %indvars.iv, i32 1
+  store ptr %101, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %105 = load i16, ptr %104, align 8
+  %106 = zext i16 %105 to i32
+  %107 = load ptr, ptr %46, align 8
+  %108 = getelementptr inbounds nuw %struct.ImageRef, ptr %107, i64 %indvars.iv, i32 4
+  store i32 %106, ptr %108, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %91, i64 12
+  %110 = load i16, ptr %109, align 4
+  %111 = zext i16 %110 to i32
+  %112 = load ptr, ptr %46, align 8
+  %113 = getelementptr inbounds nuw %struct.ImageRef, ptr %112, i64 %indvars.iv, i32 2
+  store i32 %111, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %91, i64 10
+  %115 = load i16, ptr %114, align 2
+  %116 = zext i16 %115 to i32
+  %117 = load ptr, ptr %46, align 8
+  %118 = getelementptr inbounds nuw %struct.ImageRef, ptr %117, i64 %indvars.iv, i32 5
+  store i32 %116, ptr %118, align 4
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv275
+  %119 = load float, ptr %gep, align 4
+  %120 = fadd float %9, %119
+  %indvars.iv.next276 = add nsw i64 %indvars.iv275, 2
+  %121 = getelementptr inbounds float, ptr %78, i64 %indvars.iv.next276
+  %122 = load float, ptr %121, align 4
+  %123 = fadd float %14, %122
+  br i1 %.not262, label %153, label %124
 
-127:                                              ; preds = %100
-  %128 = fadd float %123, 0xBFD5555540000000
-  %129 = fadd float %126, 0xBFD5555540000000
-  %130 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %131 = load float, ptr %130, align 8
-  %132 = fadd float %128, %131
-  %133 = fcmp olt float %132, 0.000000e+00
-  %134 = tail call float @llvm.floor.f32(float %132)
-  %.sink294 = select i1 %133, float %134, float %132
-  %135 = fptosi float %.sink294 to i32
-  %136 = load ptr, ptr %46, align 8
-  %137 = getelementptr inbounds nuw %struct.ImageRef, ptr %136, i64 %indvars.iv, i32 6
-  store i32 %135, ptr %137, align 8
-  %138 = load ptr, ptr %46, align 8
-  %139 = getelementptr inbounds nuw %struct.ImageRef, ptr %138, i64 %indvars.iv
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  %141 = load i32, ptr %140, align 8
-  %142 = sitofp i32 %141 to float
-  %143 = fsub float %132, %142
-  %144 = fmul float %143, 3.000000e+00
-  %145 = fptosi float %144 to i32
-  %146 = icmp eq i32 %145, 0
-  br i1 %146, label %147, label %149
+124:                                              ; preds = %97
+  %125 = fadd float %120, 0xBFD5555540000000
+  %126 = fadd float %123, 0xBFD5555540000000
+  %127 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %128 = load float, ptr %127, align 8
+  %129 = fadd float %125, %128
+  %130 = fcmp olt float %129, 0.000000e+00
+  %131 = tail call float @llvm.floor.f32(float %129)
+  %.sink292 = select i1 %130, float %131, float %129
+  %132 = fptosi float %.sink292 to i32
+  %133 = load ptr, ptr %46, align 8
+  %134 = getelementptr inbounds nuw %struct.ImageRef, ptr %133, i64 %indvars.iv, i32 6
+  store i32 %132, ptr %134, align 8
+  %135 = load ptr, ptr %46, align 8
+  %136 = getelementptr inbounds nuw %struct.ImageRef, ptr %135, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 32
+  %138 = load i32, ptr %137, align 8
+  %139 = sitofp i32 %138 to float
+  %140 = fsub float %129, %139
+  %141 = fmul float %140, 3.000000e+00
+  %142 = fptosi float %141 to i32
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %146
 
-147:                                              ; preds = %127
-  %148 = getelementptr inbounds nuw i8, ptr %139, i64 20
-  store i32 0, ptr %148, align 4
-  br label %167
+144:                                              ; preds = %124
+  %145 = getelementptr inbounds nuw i8, ptr %136, i64 20
+  store i32 0, ptr %145, align 4
+  br label %164
 
-149:                                              ; preds = %127
-  %150 = sub nsw i32 3, %145
-  %151 = getelementptr inbounds nuw i8, ptr %139, i64 20
-  store i32 %150, ptr %151, align 4
-  %152 = load ptr, ptr %46, align 8
-  %153 = getelementptr inbounds nuw %struct.ImageRef, ptr %152, i64 %indvars.iv, i32 6
-  %154 = load i32, ptr %153, align 8
-  %155 = add nsw i32 %154, 1
-  store i32 %155, ptr %153, align 8
-  br label %167
+146:                                              ; preds = %124
+  %147 = sub nsw i32 3, %142
+  %148 = getelementptr inbounds nuw i8, ptr %136, i64 20
+  store i32 %147, ptr %148, align 4
+  %149 = load ptr, ptr %46, align 8
+  %150 = getelementptr inbounds nuw %struct.ImageRef, ptr %149, i64 %indvars.iv, i32 6
+  %151 = load i32, ptr %150, align 8
+  %152 = add nsw i32 %151, 1
+  store i32 %152, ptr %150, align 8
+  br label %164
 
-156:                                              ; preds = %100
-  %157 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %158 = load float, ptr %157, align 8
-  %159 = fadd float %123, %158
-  %160 = fcmp olt float %159, 0.000000e+00
-  %161 = tail call float @llvm.floor.f32(float %159)
-  %.sink297 = select i1 %160, float %161, float %159
-  %162 = fptosi float %.sink297 to i32
-  %163 = load ptr, ptr %46, align 8
-  %164 = getelementptr inbounds nuw %struct.ImageRef, ptr %163, i64 %indvars.iv, i32 6
-  store i32 %162, ptr %164, align 8
-  %165 = load ptr, ptr %46, align 8
-  %166 = getelementptr inbounds nuw %struct.ImageRef, ptr %165, i64 %indvars.iv, i32 3
-  store i32 0, ptr %166, align 4
-  br label %167
+153:                                              ; preds = %97
+  %154 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %155 = load float, ptr %154, align 8
+  %156 = fadd float %120, %155
+  %157 = fcmp olt float %156, 0.000000e+00
+  %158 = tail call float @llvm.floor.f32(float %156)
+  %.sink295 = select i1 %157, float %158, float %156
+  %159 = fptosi float %.sink295 to i32
+  %160 = load ptr, ptr %46, align 8
+  %161 = getelementptr inbounds nuw %struct.ImageRef, ptr %160, i64 %indvars.iv, i32 6
+  store i32 %159, ptr %161, align 8
+  %162 = load ptr, ptr %46, align 8
+  %163 = getelementptr inbounds nuw %struct.ImageRef, ptr %162, i64 %indvars.iv, i32 3
+  store i32 0, ptr %163, align 4
+  br label %164
 
-167:                                              ; preds = %147, %149, %156
-  %.0232 = phi float [ %129, %147 ], [ %129, %149 ], [ %126, %156 ]
-  %168 = getelementptr inbounds nuw i8, ptr %94, i64 20
-  %169 = load float, ptr %168, align 4
-  %170 = fadd float %.0232, %169
-  %171 = fcmp olt float %170, 0.000000e+00
-  %172 = tail call float @llvm.floor.f32(float %170)
-  %.sink300 = select i1 %171, float %172, float %170
-  %173 = fptosi float %.sink300 to i32
-  %174 = load ptr, ptr %46, align 8
-  %175 = getelementptr inbounds nuw %struct.ImageRef, ptr %174, i64 %indvars.iv, i32 7
-  store i32 %173, ptr %175, align 4
+164:                                              ; preds = %144, %146, %153
+  %.0232 = phi float [ %126, %144 ], [ %126, %146 ], [ %123, %153 ]
+  %165 = getelementptr inbounds nuw i8, ptr %91, i64 20
+  %166 = load float, ptr %165, align 4
+  %167 = fadd float %.0232, %166
+  %168 = fcmp olt float %167, 0.000000e+00
+  %169 = tail call float @llvm.floor.f32(float %167)
+  %.sink298 = select i1 %168, float %169, float %167
+  %170 = fptosi float %.sink298 to i32
+  %171 = load ptr, ptr %46, align 8
+  %172 = getelementptr inbounds nuw %struct.ImageRef, ptr %171, i64 %indvars.iv, i32 7
+  store i32 %170, ptr %172, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %92, !llvm.loop !12
+  br i1 %exitcond.not, label %.thread, label %89, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %167, %87
+.thread:                                          ; preds = %164, %84
+  %173 = load ptr, ptr %0, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 1784
+  %175 = load ptr, ptr %174, align 8
+  tail call void %175(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef nonnull %78, i32 noundef 2) #10
   %176 = load ptr, ptr %0, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 1784
   %178 = load ptr, ptr %177, align 8
-  tail call void %178(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef nonnull %81, i32 noundef 2) #10
-  br label %.loopexit
+  tail call void %178(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %50, i32 noundef 2) #10
+  br label %274
 
-179:                                              ; preds = %.lr.ph270, %249
-  %indvars.iv278 = phi i64 [ 0, %.lr.ph270 ], [ %indvars.iv.next279, %249 ]
-  %.1236268 = phi float [ %9, %.lr.ph270 ], [ %259, %249 ]
-  %.1238267 = phi float [ %14, %.lr.ph270 ], [ %262, %249 ]
-  %gep291 = getelementptr i64, ptr %invariant.gep290, i64 %indvars.iv278
-  %180 = load i64, ptr %gep291, align 8
+179:                                              ; preds = %.lr.ph272, %249
+  %indvars.iv280 = phi i64 [ 0, %.lr.ph272 ], [ %indvars.iv.next281, %249 ]
+  %.1236270 = phi float [ %9, %.lr.ph272 ], [ %259, %249 ]
+  %.1238269 = phi float [ %14, %.lr.ph272 ], [ %262, %249 ]
+  %gep289 = getelementptr i64, ptr %invariant.gep288, i64 %indvars.iv280
+  %180 = load i64, ptr %gep289, align 8
   %181 = inttoptr i64 %180 to ptr
   %182 = icmp eq i64 %180, 0
   br i1 %182, label %183, label %187
@@ -1303,52 +1292,52 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %186 = load ptr, ptr %185, align 8
   tail call void %186(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %50, i32 noundef 2) #10
   tail call void @free(ptr noundef %42) #10
-  br label %275
+  br label %274
 
 187:                                              ; preds = %179
   %188 = load ptr, ptr %46, align 8
-  %189 = getelementptr inbounds nuw %struct.ImageRef, ptr %188, i64 %indvars.iv278
+  %189 = getelementptr inbounds nuw %struct.ImageRef, ptr %188, i64 %indvars.iv280
   store ptr %181, ptr %189, align 8
   %190 = getelementptr inbounds nuw i8, ptr %181, i64 32
   %191 = load ptr, ptr %190, align 8
   %192 = load ptr, ptr %46, align 8
-  %193 = getelementptr inbounds nuw %struct.ImageRef, ptr %192, i64 %indvars.iv278, i32 1
+  %193 = getelementptr inbounds nuw %struct.ImageRef, ptr %192, i64 %indvars.iv280, i32 1
   store ptr %191, ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %195 = load i16, ptr %194, align 8
   %196 = zext i16 %195 to i32
   %197 = load ptr, ptr %46, align 8
-  %198 = getelementptr inbounds nuw %struct.ImageRef, ptr %197, i64 %indvars.iv278, i32 4
+  %198 = getelementptr inbounds nuw %struct.ImageRef, ptr %197, i64 %indvars.iv280, i32 4
   store i32 %196, ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %181, i64 12
   %200 = load i16, ptr %199, align 4
   %201 = zext i16 %200 to i32
   %202 = load ptr, ptr %46, align 8
-  %203 = getelementptr inbounds nuw %struct.ImageRef, ptr %202, i64 %indvars.iv278, i32 2
+  %203 = getelementptr inbounds nuw %struct.ImageRef, ptr %202, i64 %indvars.iv280, i32 2
   store i32 %201, ptr %203, align 8
   %204 = getelementptr inbounds nuw i8, ptr %181, i64 10
   %205 = load i16, ptr %204, align 2
   %206 = zext i16 %205 to i32
   %207 = load ptr, ptr %46, align 8
-  %208 = getelementptr inbounds nuw %struct.ImageRef, ptr %207, i64 %indvars.iv278, i32 5
+  %208 = getelementptr inbounds nuw %struct.ImageRef, ptr %207, i64 %indvars.iv280, i32 5
   store i32 %206, ptr %208, align 4
   br i1 %.not261, label %238, label %209
 
 209:                                              ; preds = %187
-  %210 = fadd float %.1236268, 0xBFD5555540000000
-  %211 = fadd float %.1238267, 0xBFD5555540000000
+  %210 = fadd float %.1236270, 0xBFD5555540000000
+  %211 = fadd float %.1238269, 0xBFD5555540000000
   %212 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %213 = load float, ptr %212, align 8
   %214 = fadd float %210, %213
   %215 = fcmp olt float %214, 0.000000e+00
   %216 = tail call float @llvm.floor.f32(float %214)
-  %.sink303 = select i1 %215, float %216, float %214
-  %217 = fptosi float %.sink303 to i32
+  %.sink301 = select i1 %215, float %216, float %214
+  %217 = fptosi float %.sink301 to i32
   %218 = load ptr, ptr %46, align 8
-  %219 = getelementptr inbounds nuw %struct.ImageRef, ptr %218, i64 %indvars.iv278, i32 6
+  %219 = getelementptr inbounds nuw %struct.ImageRef, ptr %218, i64 %indvars.iv280, i32 6
   store i32 %217, ptr %219, align 8
   %220 = load ptr, ptr %46, align 8
-  %221 = getelementptr inbounds nuw %struct.ImageRef, ptr %220, i64 %indvars.iv278
+  %221 = getelementptr inbounds nuw %struct.ImageRef, ptr %220, i64 %indvars.iv280
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 32
   %223 = load i32, ptr %222, align 8
   %224 = sitofp i32 %223 to float
@@ -1368,7 +1357,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %233 = getelementptr inbounds nuw i8, ptr %221, i64 20
   store i32 %232, ptr %233, align 4
   %234 = load ptr, ptr %46, align 8
-  %235 = getelementptr inbounds nuw %struct.ImageRef, ptr %234, i64 %indvars.iv278, i32 6
+  %235 = getelementptr inbounds nuw %struct.ImageRef, ptr %234, i64 %indvars.iv280, i32 6
   %236 = load i32, ptr %235, align 8
   %237 = add nsw i32 %236, 1
   store i32 %237, ptr %235, align 8
@@ -1377,66 +1366,61 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
 238:                                              ; preds = %187
   %239 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %240 = load float, ptr %239, align 8
-  %241 = fadd float %.1236268, %240
+  %241 = fadd float %.1236270, %240
   %242 = fcmp olt float %241, 0.000000e+00
   %243 = tail call float @llvm.floor.f32(float %241)
-  %.sink306 = select i1 %242, float %243, float %241
-  %244 = fptosi float %.sink306 to i32
+  %.sink304 = select i1 %242, float %243, float %241
+  %244 = fptosi float %.sink304 to i32
   %245 = load ptr, ptr %46, align 8
-  %246 = getelementptr inbounds nuw %struct.ImageRef, ptr %245, i64 %indvars.iv278, i32 6
+  %246 = getelementptr inbounds nuw %struct.ImageRef, ptr %245, i64 %indvars.iv280, i32 6
   store i32 %244, ptr %246, align 8
   %247 = load ptr, ptr %46, align 8
-  %248 = getelementptr inbounds nuw %struct.ImageRef, ptr %247, i64 %indvars.iv278, i32 3
+  %248 = getelementptr inbounds nuw %struct.ImageRef, ptr %247, i64 %indvars.iv280, i32 3
   store i32 0, ptr %248, align 4
   br label %249
 
 249:                                              ; preds = %229, %231, %238
-  %.0231 = phi float [ %211, %229 ], [ %211, %231 ], [ %.1238267, %238 ]
+  %.0231 = phi float [ %211, %229 ], [ %211, %231 ], [ %.1238269, %238 ]
   %250 = getelementptr inbounds nuw i8, ptr %181, i64 20
   %251 = load float, ptr %250, align 4
   %252 = fadd float %.0231, %251
   %253 = fcmp olt float %252, 0.000000e+00
   %254 = tail call float @llvm.floor.f32(float %252)
-  %.sink309 = select i1 %253, float %254, float %252
-  %255 = fptosi float %.sink309 to i32
+  %.sink307 = select i1 %253, float %254, float %252
+  %255 = fptosi float %.sink307 to i32
   %256 = load ptr, ptr %46, align 8
-  %257 = getelementptr inbounds nuw %struct.ImageRef, ptr %256, i64 %indvars.iv278, i32 7
+  %257 = getelementptr inbounds nuw %struct.ImageRef, ptr %256, i64 %indvars.iv280, i32 7
   store i32 %255, ptr %257, align 4
   %258 = load float, ptr %181, align 8
-  %259 = fadd float %.1236268, %258
+  %259 = fadd float %.1236270, %258
   %260 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %261 = load float, ptr %260, align 4
-  %262 = fadd float %.1238267, %261
-  %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
-  %exitcond282.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count281
-  br i1 %exitcond282.not, label %.loopexit, label %179, !llvm.loop !13
+  %262 = fadd float %.1238269, %261
+  %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
+  %exitcond284.not = icmp eq i64 %indvars.iv.next281, %wide.trip.count283
+  br i1 %exitcond284.not, label %._crit_edge, label %179, !llvm.loop !13
 
-.loopexit:                                        ; preds = %249, %._crit_edge
-  %.0237 = phi float [ %14, %._crit_edge ], [ %262, %249 ]
-  %.0235 = phi float [ %9, %._crit_edge ], [ %259, %249 ]
+._crit_edge:                                      ; preds = %249, %.preheader
+  %.1238.lcssa = phi float [ %14, %.preheader ], [ %262, %249 ]
+  %.1236.lcssa = phi float [ %9, %.preheader ], [ %259, %249 ]
   %263 = load ptr, ptr %0, align 8
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 1784
   %265 = load ptr, ptr %264, align 8
   tail call void %265(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %50, i32 noundef 2) #10
-  br i1 %.not260, label %266, label %275
+  %266 = load ptr, ptr %0, align 8
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 888
+  %268 = load ptr, ptr %267, align 8
+  %269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 232), align 8
+  tail call void %268(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %269, float noundef %.1236.lcssa) #10
+  %270 = load ptr, ptr %0, align 8
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 888
+  %272 = load ptr, ptr %271, align 8
+  %273 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 240), align 8
+  tail call void %272(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %273, float noundef %.1238.lcssa) #10
+  br label %274
 
-266:                                              ; preds = %.loopexit.thread, %.loopexit
-  %.0235286 = phi float [ %9, %.loopexit.thread ], [ %.0235, %.loopexit ]
-  %.0237285 = phi float [ %14, %.loopexit.thread ], [ %.0237, %.loopexit ]
-  %267 = load ptr, ptr %0, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %267, i64 888
-  %269 = load ptr, ptr %268, align 8
-  %270 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 232), align 8
-  tail call void %269(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %270, float noundef %.0235286) #10
-  %271 = load ptr, ptr %0, align 8
-  %272 = getelementptr inbounds nuw i8, ptr %271, i64 888
-  %273 = load ptr, ptr %272, align 8
-  %274 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 240), align 8
-  tail call void %273(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %274, float noundef %.0237285) #10
-  br label %275
-
-275:                                              ; preds = %.loopexit, %266, %32, %183, %96, %83, %61, %52
-  %.0 = phi ptr [ null, %52 ], [ null, %61 ], [ null, %83 ], [ null, %96 ], [ null, %183 ], [ null, %32 ], [ %42, %266 ], [ %42, %.loopexit ]
+274:                                              ; preds = %.thread, %._crit_edge, %32, %183, %93, %80, %61, %52
+  %.0 = phi ptr [ null, %52 ], [ null, %61 ], [ null, %80 ], [ null, %93 ], [ null, %183 ], [ null, %32 ], [ %42, %._crit_edge ], [ %42, %.thread ]
   ret ptr %.0
 }
 

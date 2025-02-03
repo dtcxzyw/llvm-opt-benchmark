@@ -5160,7 +5160,7 @@ switch.lookup:                                    ; preds = %21
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %67
-  tail call void @free(ptr noundef %24) #14
+  tail call void @free(ptr noundef nonnull %24) #14
   tail call void @free(ptr noundef %28) #14
   br label %163
 
@@ -5171,7 +5171,7 @@ switch.lookup:                                    ; preds = %21
 
 93:                                               ; preds = %90
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %24, i32 noundef 1) #14
-  tail call void @free(ptr noundef %28) #14
+  tail call void @free(ptr noundef nonnull %28) #14
   br label %163
 
 94:                                               ; preds = %90

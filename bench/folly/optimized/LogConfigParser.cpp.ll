@@ -2491,7 +2491,7 @@ invoke.cont.i190:                                 ; preds = %if.then19.i
 lpad.i189:                                        ; preds = %if.then19.i
   %264 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i188) #27, !noalias !104
+  call void @__cxa_free_exception(ptr nonnull %exception.i188) #27, !noalias !104
   br label %ehcleanup158.i133
 
 if.end.i.i.i195.i:                                ; preds = %if.end17.i
@@ -8035,7 +8035,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #27
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #27
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -8220,7 +8220,7 @@ lpad32:                                           ; preds = %invoke.cont40
 lpad39:                                           ; preds = %if.then37
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception38) #27
+  call void @__cxa_free_exception(ptr nonnull %exception38) #27
   br label %ehcleanup189
 
 if.end42:                                         ; preds = %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit, %if.end42.lr.ph
@@ -10036,7 +10036,7 @@ lpad142:                                          ; preds = %invoke.cont151
 lpad150:                                          ; preds = %if.then148
   %267 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception149) #27
+  call void @__cxa_free_exception(ptr nonnull %exception149) #27
   br label %ehcleanup186
 
 if.end153:                                        ; preds = %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit430, %if.end153.lr.ph

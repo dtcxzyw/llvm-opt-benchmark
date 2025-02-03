@@ -1344,7 +1344,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr100drop_in_place$LT$alloc..boxed..Box$LT$clap_builder..parser..matches..arg_matches..SubCommand$GT$$GT$17ha8743fcec01e6a2eE.llvm.1283588139133547551"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..arg_matches..SubCommand$GT$17h4e5a0ee1d2d71d31E"(ptr noalias noundef align 8 dereferenceable(80) %2)
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..arg_matches..SubCommand$GT$17h4e5a0ee1d2d71d31E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
@@ -5963,7 +5963,7 @@ define internal fastcc void @"_ZN140_$LT$clap_builder..builder..value_parser..Ra
   unreachable
 
 _ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit.i: ; preds = %63, %59
-  %.0.i.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %59 ], [ %70, %63 ]
+  %.0.i.i = phi ptr [ %70, %63 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %59 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41), !noalias !1289
   store ptr %2, ptr %42, align 8, !alias.scope !1286, !noalias !1300
   %76 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -7180,7 +7180,7 @@ define internal fastcc void @"_ZN140_$LT$clap_builder..builder..value_parser..Ra
   unreachable
 
 _ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit.i: ; preds = %68, %64
-  %.0.i.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %64 ], [ %75, %68 ]
+  %.0.i.i = phi ptr [ %75, %68 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %64 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46), !noalias !1532
   store ptr %2, ptr %47, align 8, !alias.scope !1529, !noalias !1543
   %81 = getelementptr inbounds nuw i8, ptr %47, i64 8

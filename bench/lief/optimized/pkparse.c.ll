@@ -1234,7 +1234,7 @@ define internal fastcc i32 @pk_get_ecpubkey(ptr noundef captures(none) %0, ptr n
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %3
-  %12 = tail call i32 @mbedtls_ecp_check_pubkey(ptr noundef %2, ptr noundef nonnull %4) #10
+  %12 = tail call i32 @mbedtls_ecp_check_pubkey(ptr noundef nonnull %2, ptr noundef nonnull %4) #10
   br label %13
 
 13:                                               ; preds = %11, %3
@@ -1376,12 +1376,12 @@ asn1_get_nonzero_mpi.exit:                        ; preds = %23
   br i1 %.not69, label %58, label %asn1_get_nonzero_mpi.exit.thread
 
 58:                                               ; preds = %55
-  %59 = call i32 @mbedtls_rsa_complete(ptr noundef %0) #10
+  %59 = call i32 @mbedtls_rsa_complete(ptr noundef nonnull %0) #10
   %.not70 = icmp eq i32 %59, 0
   br i1 %.not70, label %60, label %asn1_get_nonzero_mpi.exit.thread
 
 60:                                               ; preds = %58
-  %61 = call i32 @mbedtls_rsa_check_pubkey(ptr noundef %0) #10
+  %61 = call i32 @mbedtls_rsa_check_pubkey(ptr noundef nonnull %0) #10
   %.not71 = icmp eq i32 %61, 0
   br i1 %.not71, label %62, label %asn1_get_nonzero_mpi.exit.thread
 
@@ -1464,7 +1464,7 @@ define internal fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %1
   br i1 %.not62, label %34, label %32
 
 32:                                               ; preds = %27
-  call void @mbedtls_ecp_keypair_free(ptr noundef %0) #10
+  call void @mbedtls_ecp_keypair_free(ptr noundef nonnull %0) #10
   %33 = add nsw i32 %31, -15616
   br label %77
 
@@ -1492,17 +1492,17 @@ define internal fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %1
   br i1 %.not65, label %45, label %47
 
 45:                                               ; preds = %40
-  %46 = call fastcc i32 @pk_use_ecparams(ptr noundef %8, ptr noundef %0)
+  %46 = call fastcc i32 @pk_use_ecparams(ptr noundef %8, ptr noundef nonnull %0)
   %.not66 = icmp eq i32 %46, 0
   br i1 %.not66, label %50, label %47
 
 47:                                               ; preds = %45, %40
   %.044 = phi i32 [ %44, %40 ], [ %46, %45 ]
-  call void @mbedtls_ecp_keypair_free(ptr noundef %0) #10
+  call void @mbedtls_ecp_keypair_free(ptr noundef nonnull %0) #10
   br label %77
 
 48:                                               ; preds = %38
-  call void @mbedtls_ecp_keypair_free(ptr noundef %0) #10
+  call void @mbedtls_ecp_keypair_free(ptr noundef nonnull %0) #10
   %49 = add nsw i32 %39, -15616
   br label %77
 
@@ -1538,36 +1538,36 @@ define internal fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %1
   br i1 %.not70, label %65, label %77
 
 65:                                               ; preds = %61
-  %66 = call fastcc i32 @pk_get_ecpubkey(ptr noundef nonnull %9, ptr noundef %57, ptr noundef %0)
+  %66 = call fastcc i32 @pk_get_ecpubkey(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %0)
   switch i32 %66, label %77 [
     i32 0, label %74
     i32 -20096, label %.critedge
   ]
 
 67:                                               ; preds = %52
-  call void @mbedtls_ecp_keypair_free(ptr noundef %0) #10
+  call void @mbedtls_ecp_keypair_free(ptr noundef nonnull %0) #10
   %68 = add nsw i32 %53, -15616
   br label %77
 
 .critedge:                                        ; preds = %65, %52, %50
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %71 = call i32 @mbedtls_ecp_mul(ptr noundef %0, ptr noundef nonnull %69, ptr noundef nonnull %28, ptr noundef nonnull %70, ptr noundef %3, ptr noundef %4) #10
+  %71 = call i32 @mbedtls_ecp_mul(ptr noundef nonnull %0, ptr noundef nonnull %69, ptr noundef nonnull %28, ptr noundef nonnull %70, ptr noundef %3, ptr noundef %4) #10
   %.not73 = icmp eq i32 %71, 0
   br i1 %.not73, label %74, label %72
 
 72:                                               ; preds = %.critedge
-  call void @mbedtls_ecp_keypair_free(ptr noundef %0) #10
+  call void @mbedtls_ecp_keypair_free(ptr noundef nonnull %0) #10
   %73 = add nsw i32 %71, -15616
   br label %77
 
 74:                                               ; preds = %65, %.critedge
-  %75 = call i32 @mbedtls_ecp_check_privkey(ptr noundef %0, ptr noundef nonnull %28) #10
+  %75 = call i32 @mbedtls_ecp_check_privkey(ptr noundef nonnull %0, ptr noundef nonnull %28) #10
   %.not74 = icmp eq i32 %75, 0
   br i1 %.not74, label %77, label %76
 
 76:                                               ; preds = %74
-  call void @mbedtls_ecp_keypair_free(ptr noundef %0) #10
+  call void @mbedtls_ecp_keypair_free(ptr noundef nonnull %0) #10
   br label %77
 
 77:                                               ; preds = %61, %74, %65, %21, %76, %72, %67, %59, %48, %47, %32, %25, %19, %12

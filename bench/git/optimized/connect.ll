@@ -1187,7 +1187,7 @@ if.end10.i.i:                                     ; preds = %lor.lhs.false.i.i
   br label %parse_one_symref_info.exit.i
 
 reject.i.i:                                       ; preds = %lor.lhs.false.i.i, %if.end4.i.i, %if.end.i.i
-  call void @free(ptr noundef %call.i.i85) #23
+  call void @free(ptr noundef nonnull %call.i.i85) #23
   br label %parse_one_symref_info.exit.i
 
 parse_one_symref_info.exit.i:                     ; preds = %reject.i.i, %if.end10.i.i, %if.end.i79, %if.end.thread.i
@@ -2492,8 +2492,8 @@ if.else7.i:                                       ; preds = %if.end.i
   %tobool.not.i27.i = icmp ne ptr %call.i25.i, null
   %tobool2.not.i28.i = icmp eq ptr %call1.i26.i, null
   %cmp.i.i = icmp uge ptr %call1.i26.i, %call.i25.i
-  %or.cond.i.not36.i = or i1 %tobool2.not.i28.i, %cmp.i.i
-  %narrow.i.not.i = select i1 %tobool.not.i27.i, i1 %or.cond.i.not36.i, i1 false
+  %or.cond.i.not39.i = or i1 %tobool2.not.i28.i, %cmp.i.i
+  %narrow.i.not.i = select i1 %tobool.not.i27.i, i1 %or.cond.i.not39.i, i1 false
   br i1 %narrow.i.not.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.else7.i
@@ -2516,25 +2516,22 @@ if.then2.i.i:                                     ; preds = %if.end12.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %start.0.i.i, i64 1
   %call3.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, i32 noundef 93) #25
   %tobool4.not.i.i = icmp eq ptr %call3.i.i, null
-  %spec.select35.i = select i1 %tobool4.not.i.i, ptr %host.0.i, ptr %call3.i.i
+  %spec.select38.i = select i1 %tobool4.not.i.i, ptr %host.0.i, ptr %call3.i.i
   br label %host_end.exit.i
 
 host_end.exit.i:                                  ; preds = %if.then2.i.i, %if.end12.i
-  %end.0.i.i = phi ptr [ %host.0.i, %if.end12.i ], [ %spec.select35.i, %if.then2.i.i ]
+  %end.0.i.i = phi ptr [ %host.0.i, %if.end12.i ], [ %spec.select38.i, %if.then2.i.i ]
   %cond.i = icmp eq i32 %protocol.0.i, 1
-  br i1 %cond.i, label %if.end40.i, label %if.else36.i
+  br i1 %cond.i, label %lor.lhs.false.i, label %if.end40.i
 
-if.else36.i:                                      ; preds = %host_end.exit.i
+if.end40.i:                                       ; preds = %host_end.exit.i
   %call37.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %end.0.i.i, i32 noundef %separator.0.i) #25
-  br label %if.end40.i
-
-if.end40.i:                                       ; preds = %if.else36.i, %host_end.exit.i
-  %path.0.i = phi ptr [ %call37.i, %if.else36.i ], [ %end.0.i.i, %host_end.exit.i ]
-  %tobool41.not.i = icmp eq ptr %path.0.i, null
+  %tobool41.not.i = icmp eq ptr %call37.i, null
   br i1 %tobool41.not.i, label %if.then43.i, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %if.end40.i
-  %1 = load i8, ptr %path.0.i, align 1
+lor.lhs.false.i:                                  ; preds = %if.end40.i, %host_end.exit.i
+  %path.037.i = phi ptr [ %call37.i, %if.end40.i ], [ %end.0.i.i, %host_end.exit.i ]
+  %1 = load i8, ptr %path.037.i, align 1
   %tobool42.not.i = icmp eq i8 %1, 0
   br i1 %tobool42.not.i, label %if.then43.i, label %if.end45.i
 
@@ -2544,7 +2541,7 @@ if.then43.i:                                      ; preds = %lor.lhs.false.i, %i
   unreachable
 
 if.end45.i:                                       ; preds = %lor.lhs.false.i
-  %spec.select.i = getelementptr inbounds nuw i8, ptr %path.0.i, i64 %cmp46.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %path.037.i, i64 %cmp46.i
   %2 = add nsw i32 %protocol.0.i, -3
   %or.cond.i = icmp ult i32 %2, 2
   br i1 %or.cond.i, label %if.then55.i, label %parse_connect_url.exit
@@ -2559,9 +2556,9 @@ if.then55.i:                                      ; preds = %if.end45.i
 parse_connect_url.exit:                           ; preds = %if.end45.i, %if.then55.i
   %path.2.i = phi ptr [ %spec.select.i, %if.end45.i ], [ %spec.select24.i, %if.then55.i ]
   %call63.i = tail call ptr @xstrdup(ptr noundef nonnull %path.2.i) #23
-  store i8 0, ptr %path.0.i, align 1
+  store i8 0, ptr %path.037.i, align 1
   %call64.i = tail call ptr @xstrdup(ptr noundef nonnull %host.0.i) #23
-  tail call void @free(ptr noundef %url.0.i) #23
+  tail call void @free(ptr noundef nonnull %url.0.i) #23
   %and = and i32 %flags, 2
   %tobool4 = icmp ne i32 %and, 0
   %cmp6 = icmp ne i32 %protocol.0.i, 3
@@ -2954,7 +2951,7 @@ git_connect_git.exit:                             ; preds = %if.end16.i, %strbuf
   %len.i = getelementptr inbounds nuw i8, ptr %request.i, i64 8
   %48 = load i64, ptr %len.i, align 8
   call void @packet_write(i32 noundef %46, ptr noundef %47, i64 noundef %48) #23
-  call void @free(ptr noundef %call2.i38) #23
+  call void @free(ptr noundef nonnull %call2.i38) #23
   call void @strbuf_release(ptr noundef nonnull %request.i) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %request.i)
   %trace2_child_class = getelementptr inbounds nuw i8, ptr %conn.0.i, i64 64

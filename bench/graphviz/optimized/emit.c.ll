@@ -4408,7 +4408,7 @@ write_edge_test.exit.i.i:                         ; preds = %.lr.ph.i115.i.i, %.
   br label %emit_view.exit.i
 
 emit_view.exit.i:                                 ; preds = %929, %.loopexit.i.i
-  call void @gvrender_end_page(ptr noundef %0) #28
+  call void @gvrender_end_page(ptr noundef nonnull %0) #28
   %.not88.i69 = icmp eq ptr %.070.i, null
   br i1 %.not88.i69, label %932, label %930
 
@@ -4685,7 +4685,7 @@ define void @emit_clusters(ptr noundef %0, ptr noundef readonly captures(none) %
   br i1 %.not160, label %48, label %47
 
 47:                                               ; preds = %.loopexit217
-  call void @emit_clusters(ptr noundef %0, ptr noundef %30, i32 noundef %2)
+  call void @emit_clusters(ptr noundef nonnull %0, ptr noundef %30, i32 noundef %2)
   br label %48
 
 48:                                               ; preds = %47, %.loopexit217
@@ -9278,7 +9278,7 @@ emit_edge_graphics.exit:                          ; preds = %1441, %emit_begin_e
   %1504 = load ptr, ptr %1503, align 8
   %1505 = and i16 %1500, 2
   %1506 = icmp ne i16 %1505, 0
-  call fastcc void @nodeIntersect(ptr noundef %0, double %.sroa.011.0.i, double %.sroa.616.0.i, i1 noundef zeroext %1502, ptr noundef %1504, i1 noundef zeroext %1506)
+  call fastcc void @nodeIntersect(ptr noundef nonnull %0, double %.sroa.011.0.i, double %.sroa.616.0.i, i1 noundef zeroext %1502, ptr noundef %1504, i1 noundef zeroext %1506)
   %1507 = load ptr, ptr %1490, align 8
   %1508 = getelementptr inbounds nuw i8, ptr %1507, i64 16
   %1509 = load ptr, ptr %1508, align 8
@@ -9312,7 +9312,7 @@ emit_edge_graphics.exit:                          ; preds = %1441, %emit_begin_e
   %1522 = load ptr, ptr %1521, align 8
   %1523 = and i16 %1518, 4
   %1524 = icmp ne i16 %1523, 0
-  call fastcc void @nodeIntersect(ptr noundef %0, double %.sroa.011.1.i, double %.sroa.616.1.i, i1 noundef zeroext %1520, ptr noundef %1522, i1 noundef zeroext %1524)
+  call fastcc void @nodeIntersect(ptr noundef nonnull %0, double %.sroa.011.1.i, double %.sroa.616.1.i, i1 noundef zeroext %1520, ptr noundef %1522, i1 noundef zeroext %1524)
   %.pre.i131 = load ptr, ptr %1490, align 8
   br label %1525
 
@@ -9346,7 +9346,7 @@ emit_edge_graphics.exit:                          ; preds = %1441, %emit_begin_e
 
 1549:                                             ; preds = %1545, %1525
   %1550 = phi ptr [ null, %1525 ], [ %1548, %1545 ]
-  call fastcc void @emit_edge_label(ptr noundef %0, ptr noundef %1528, i32 noundef 11, i32 noundef %1533, ptr noundef %1535, ptr noundef %1537, ptr noundef %1539, ptr noundef %1541, ptr noundef %1550)
+  call fastcc void @emit_edge_label(ptr noundef nonnull %0, ptr noundef %1528, i32 noundef 11, i32 noundef %1533, ptr noundef %1535, ptr noundef %1537, ptr noundef %1539, ptr noundef %1541, ptr noundef %1550)
   %1551 = load ptr, ptr %1490, align 8
   %1552 = getelementptr inbounds nuw i8, ptr %1551, i64 144
   %1553 = load ptr, ptr %1552, align 8
@@ -9371,7 +9371,7 @@ emit_end_edge.exit:                               ; preds = %1549, %1562
   %1567 = lshr i16 %1554, 3
   %1568 = and i16 %1567, 1
   %1569 = zext nneg i16 %1568 to i32
-  call fastcc void @emit_edge_label(ptr noundef %0, ptr noundef %1553, i32 noundef 11, i32 noundef %1569, ptr noundef %1555, ptr noundef %1556, ptr noundef %1557, ptr noundef %1558, ptr noundef %1566)
+  call fastcc void @emit_edge_label(ptr noundef nonnull %0, ptr noundef %1553, i32 noundef 11, i32 noundef %1569, ptr noundef %1555, ptr noundef %1556, ptr noundef %1557, ptr noundef %1558, ptr noundef %1566)
   %1570 = load ptr, ptr %1490, align 8
   %1571 = getelementptr inbounds nuw i8, ptr %1570, i64 128
   %1572 = load ptr, ptr %1571, align 8
@@ -9386,7 +9386,7 @@ emit_end_edge.exit:                               ; preds = %1549, %1562
   %1581 = getelementptr inbounds nuw i8, ptr %1447, i64 336
   %1582 = load ptr, ptr %1581, align 8
   %1583 = load ptr, ptr %1540, align 8
-  call fastcc void @emit_edge_label(ptr noundef %0, ptr noundef %1572, i32 noundef 7, i32 noundef %1576, ptr noundef %1578, ptr noundef %1580, ptr noundef %1582, ptr noundef %1583, ptr noundef null)
+  call fastcc void @emit_edge_label(ptr noundef nonnull %0, ptr noundef %1572, i32 noundef 7, i32 noundef %1576, ptr noundef %1578, ptr noundef %1580, ptr noundef %1582, ptr noundef %1583, ptr noundef null)
   %1584 = load ptr, ptr %1490, align 8
   %1585 = getelementptr inbounds nuw i8, ptr %1584, i64 136
   %1586 = load ptr, ptr %1585, align 8
@@ -9401,9 +9401,9 @@ emit_end_edge.exit:                               ; preds = %1549, %1562
   %1595 = getelementptr inbounds nuw i8, ptr %1447, i64 328
   %1596 = load ptr, ptr %1595, align 8
   %1597 = load ptr, ptr %1540, align 8
-  call fastcc void @emit_edge_label(ptr noundef %0, ptr noundef %1586, i32 noundef 6, i32 noundef %1590, ptr noundef %1592, ptr noundef %1594, ptr noundef %1596, ptr noundef %1597, ptr noundef null)
-  call void @gvrender_end_edge(ptr noundef %0) #28
-  call void @pop_obj_state(ptr noundef %0)
+  call fastcc void @emit_edge_label(ptr noundef nonnull %0, ptr noundef %1586, i32 noundef 6, i32 noundef %1590, ptr noundef %1592, ptr noundef %1594, ptr noundef %1596, ptr noundef %1597, ptr noundef null)
+  call void @gvrender_end_edge(ptr noundef nonnull %0) #28
+  call void @pop_obj_state(ptr noundef nonnull %0)
   br label %edge_in_layer.exit.thread142
 
 edge_in_layer.exit.thread142:                     ; preds = %205, %57, %edge_in_box.exit, %emit_end_edge.exit, %edge_in_layer.exit

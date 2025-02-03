@@ -10976,7 +10976,7 @@ define internal void @_ZL8throwingl(i64 noundef %0) #12 personality ptr @__gxx_p
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %39) #20
+  call void @__cxa_free_exception(ptr nonnull %39) #20
   br label %47
 
 47:                                               ; preds = %45, %41, %16

@@ -9694,7 +9694,7 @@ ma_context_is_backend_asynchronous.exit.thread:   ; preds = %376, %380, %ma_cont
   br i1 %.not357, label %394, label %393
 
 393:                                              ; preds = %ma_context_is_backend_asynchronous.exit.thread
-  call void @ma_device_uninit(ptr noundef %2)
+  call void @ma_device_uninit(ptr noundef nonnull %2)
   br label %ma__is_channel_map_valid.exit
 
 394:                                              ; preds = %ma_context_is_backend_asynchronous.exit.thread
@@ -51056,7 +51056,7 @@ ma_decoder_init_custom_from_memory__internal.exit: ; preds = %54, %42
   store ptr %.sroa.15103.0.copyload, ptr %60, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %61 = call fastcc i32 @ma_decoder__postinit(ptr noundef %9, ptr noundef %3)
+  %61 = call fastcc i32 @ma_decoder__postinit(ptr noundef %9, ptr noundef nonnull %3)
   %.not45 = icmp eq i32 %61, 0
   br i1 %.not45, label %98, label %62
 
@@ -72796,7 +72796,7 @@ skip.exit.i:                                      ; preds = %381, %380, %376
   br i1 %392, label %.sink.split.i, label %395
 
 .loopexit175.i:                                   ; preds = %set_file_offset.exit.i, %set_file_offset.exit142.i, %set_file_offset.exit150.i, %set_file_offset.exit166.i, %stb_vorbis_get_file_offset.exit.i, %go_to_page_before.exit.thread.i
-  %393 = call i32 @stb_vorbis_seek_start(ptr noundef %0)
+  %393 = call i32 @stb_vorbis_seek_start(ptr noundef nonnull %0)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.loopexit175.i, %389, %._crit_edge.i, %79, %21, %18
@@ -96189,7 +96189,7 @@ define noundef zeroext i1 @ExportWaveAsCode(ptr noundef readonly byval(%struct.W
 
 107:                                              ; preds = %._crit_edge103, %._crit_edge108
   %108 = call zeroext i1 @SaveFileText(ptr noundef %1, ptr noundef nonnull %15) #67
-  call void @free(ptr noundef %15) #67
+  call void @free(ptr noundef nonnull %15) #67
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %107

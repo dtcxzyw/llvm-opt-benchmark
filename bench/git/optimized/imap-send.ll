@@ -2899,7 +2899,7 @@ if.then:                                          ; preds = %cram.exit
   br label %return
 
 if.end:                                           ; preds = %cram.exit
-  call void @free(ptr noundef %call34.i) #19
+  call void @free(ptr noundef nonnull %call34.i) #19
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

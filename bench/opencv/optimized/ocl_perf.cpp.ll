@@ -130,7 +130,7 @@ define hidden void @_ZN6cvtest3ocl4perf29checkDeviceMaxMemoryAllocSizeERKN2cv5Si
 39:                                               ; preds = %36
   %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %37) #9
+  tail call void @__cxa_free_exception(ptr nonnull %37) #9
   br label %42
 
 41:                                               ; preds = %15, %17

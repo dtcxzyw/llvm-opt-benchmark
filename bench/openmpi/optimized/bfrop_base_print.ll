@@ -243,7 +243,7 @@ pmix_bfrops_base_print_value.exit:                ; preds = %4, %11
   %20 = select i1 %19, ptr @.str.1, ptr %1
   %21 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.58, ptr noundef nonnull %20, ptr noundef %18) #8
   call void @free(ptr noundef %18) #8
-  %22 = call ptr @PMIx_Get_attribute_name(ptr noundef %2) #8
+  %22 = call ptr @PMIx_Get_attribute_name(ptr noundef nonnull %2) #8
   %23 = load ptr, ptr %7, align 8
   %24 = load ptr, ptr %6, align 8
   %25 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.45, ptr noundef nonnull %20, ptr noundef %22, ptr noundef nonnull %20, ptr noundef %23, ptr noundef nonnull %20, ptr noundef %24) #8

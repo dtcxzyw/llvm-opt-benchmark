@@ -2737,7 +2737,7 @@ sw.bb:                                            ; preds = %invoke.cont3
 lpad5:                                            ; preds = %sw.bb
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %_ZN5folly15expected_detail15ExpectedStorageINS_12json_pointerENS2_11parse_errorELNS0_11StorageTypeE2EED2Ev.exit19
 
 sw.bb7:                                           ; preds = %invoke.cont3
@@ -2752,7 +2752,7 @@ invoke.cont10.invoke:                             ; preds = %sw.bb7, %sw.bb
 lpad9:                                            ; preds = %sw.bb7
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %_ZN5folly15expected_detail15ExpectedStorageINS_12json_pointerENS2_11parse_errorELNS0_11StorageTypeE2EED2Ev.exit19
 
 sw.bb.i.i4.thread:                                ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i

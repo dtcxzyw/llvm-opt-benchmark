@@ -605,7 +605,7 @@ proto_item_set_generated.exit235:                 ; preds = %proto_item_set_gene
   %220 = call i32 @crc32_802_tvb(ptr noundef %217, i32 noundef %219) #6
   %221 = load i32, ptr @hf_metamako_fcs, align 4
   %222 = load i32, ptr @hf_metamako_fcs_status, align 4
-  %223 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %212, i32 noundef %221, i32 noundef %222, ptr noundef nonnull @ei_metamako_fcs_bad, ptr noundef %1, i32 noundef %220, i32 noundef 0, i32 noundef 1) #6
+  %223 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %212, i32 noundef %221, i32 noundef %222, ptr noundef nonnull @ei_metamako_fcs_bad, ptr noundef nonnull %1, i32 noundef %220, i32 noundef 0, i32 noundef 1) #6
   %.not225 = icmp eq i32 %220, %214
   br i1 %.not225, label %230, label %224
 
@@ -617,7 +617,7 @@ proto_item_set_generated.exit235:                 ; preds = %proto_item_set_gene
 226:                                              ; preds = %213
   %227 = load i32, ptr @hf_metamako_fcs, align 4
   %228 = load i32, ptr @hf_metamako_fcs_status, align 4
-  %229 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %212, i32 noundef %227, i32 noundef %228, ptr noundef nonnull @ei_metamako_fcs_bad, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %229 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %212, i32 noundef %227, i32 noundef %228, ptr noundef nonnull @ei_metamako_fcs_bad, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
   br label %230
 
 230:                                              ; preds = %216, %224, %226

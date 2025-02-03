@@ -355,7 +355,7 @@ retry.preheader:                                  ; preds = %retry.preheader.lr.
   %idx.ext53 = sext i32 %2 to i64
   %add.ptr54 = getelementptr i8, ptr %buf, i64 %idx.ext53
   %sub55 = sub i32 %len, %2
-  %call356 = tail call i32 %10(ptr noundef %s, ptr noundef %add.ptr54, i32 noundef %sub55) #13
+  %call356 = tail call i32 %10(ptr noundef nonnull %s, ptr noundef %add.ptr54, i32 noundef %sub55) #13
   %cmp457 = icmp slt i32 %call356, 0
   br i1 %cmp457, label %while.end17thread-pre-split, label %if.end10
 
@@ -727,11 +727,11 @@ lor.lhs.false30:                                  ; preds = %lor.lhs.false27
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %lor.lhs.false30, %lor.lhs.false27, %lor.lhs.false24, %lor.lhs.false21, %lor.lhs.false18, %lor.lhs.false, %if.end13
-  %call34 = call zeroext i1 @qemu_opt_set(ptr noundef %call1, ptr noundef nonnull @.str.18, ptr noundef %filename.addr.0, ptr noundef nonnull @error_abort) #13
+  %call34 = call zeroext i1 @qemu_opt_set(ptr noundef %call1, ptr noundef nonnull @.str.18, ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @error_abort) #13
   br label %return
 
 if.end35:                                         ; preds = %lor.lhs.false30
-  %call36 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.19, ptr noundef nonnull %p) #13
+  %call36 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.19, ptr noundef nonnull %p) #13
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %if.end67, label %if.then38
 

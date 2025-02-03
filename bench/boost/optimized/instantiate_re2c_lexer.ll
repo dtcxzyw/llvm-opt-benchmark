@@ -2552,7 +2552,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_4wave8cpplexer16l
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #34
+  tail call void @__cxa_free_exception(ptr nonnull %2) #34
   resume { ptr, i32 } %5
 }
 
@@ -2782,7 +2782,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_4wave8cpplexer16lexin
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #34
+  tail call void @__cxa_free_exception(ptr nonnull %2) #34
   resume { ptr, i32 } %5
 }
 
@@ -4900,7 +4900,7 @@ _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1
           cleanup
   call void @_ZN5boost15optional_detail13optional_baseINS_4wave4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #34
-  call void @_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm(ptr noundef %632, i64 noundef 80) #34
+  call void @_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm(ptr noundef nonnull %632, i64 noundef 80) #34
   br label %.body
 
 652:                                              ; preds = %646, %643, %636, %633
@@ -45129,7 +45129,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt9bad_allocE7rethrowEv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #34
+  tail call void @__cxa_free_exception(ptr nonnull %2) #34
   resume { ptr, i32 } %5
 }
 
@@ -47526,7 +47526,7 @@ _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1
           cleanup
   call void @_ZN5boost15optional_detail13optional_baseINS_4wave4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #34
-  call void @_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm(ptr noundef %632, i64 noundef 80) #34
+  call void @_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm(ptr noundef nonnull %632, i64 noundef 80) #34
   br label %.body
 
 652:                                              ; preds = %646, %643, %636, %633

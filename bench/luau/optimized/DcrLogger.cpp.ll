@@ -3171,7 +3171,7 @@ _ZSt10_ConstructIN4Luau13ScopeSnapshotEJRKS1_EEvPT_DpOT0_.exit.i: ; preds = %.lr
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #18
-  invoke void @_ZSt8_DestroyIPN4Luau13ScopeSnapshotEEvT_S3_(ptr noundef %14, ptr noundef %.0.i19)
+  invoke void @_ZSt8_DestroyIPN4Luau13ScopeSnapshotEEvT_S3_(ptr noundef %14, ptr noundef nonnull %.0.i19)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22
@@ -5101,7 +5101,7 @@ _ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds =
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #18
-  invoke void @_ZSt8_DestroyIPN4Luau12StepSnapshotEEvT_S3_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN4Luau12StepSnapshotEEvT_S3_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22
@@ -15143,7 +15143,7 @@ _ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds
   %59 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %100 unwind label %60
+          to label %.thread unwind label %60
 
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
@@ -15189,7 +15189,7 @@ _ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i32: ; pre
   %73 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %103 unwind label %74
+          to label %102 unwind label %74
 
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
@@ -15280,48 +15280,48 @@ _ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit: ; p
   store ptr %99, ptr %94, align 8
   ret void
 
-100:                                              ; preds = %58
-  %101 = extractvalue { ptr, i32 } %59, 0
-  %102 = tail call ptr @__cxa_begin_catch(ptr %101) #18
+.thread:                                          ; preds = %58
+  %100 = extractvalue { ptr, i32 } %59, 0
+  %101 = tail call ptr @__cxa_begin_catch(ptr %100) #18
   tail call void @_ZNSt16allocator_traitsISaIN4Luau12StepSnapshotEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %24) #18
   br label %108
 
-103:                                              ; preds = %72
-  %104 = extractvalue { ptr, i32 } %73, 0
-  %105 = tail call ptr @__cxa_begin_catch(ptr %104) #18
+102:                                              ; preds = %72
+  %103 = extractvalue { ptr, i32 } %73, 0
+  %104 = tail call ptr @__cxa_begin_catch(ptr %103) #18
   invoke void @_ZSt8_DestroyIPN4Luau12StepSnapshotES1_EvT_S3_RSaIT0_E(ptr noundef %23, ptr noundef nonnull %64, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %108 unwind label %106
+          to label %107 unwind label %105
 
-106:                                              ; preds = %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40, %103
-  %107 = landingpad { ptr, i32 }
+105:                                              ; preds = %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40, %102
+  %106 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %111 unwind label %112
+          to label %110 unwind label %111
 
-108:                                              ; preds = %103, %100
+107:                                              ; preds = %102
   %.not.i39 = icmp eq ptr %23, null
-  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40, label %109
+  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40, label %108
 
-109:                                              ; preds = %108
-  %110 = mul nuw nsw i64 %16, 288
-  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %110) #19
+108:                                              ; preds = %.thread, %107
+  %109 = mul nuw nsw i64 %16, 288
+  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %109) #19
   br label %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40
 
-_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40: ; preds = %109, %108
+_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40: ; preds = %108, %107
   invoke void @__cxa_rethrow() #21
-          to label %115 unwind label %106
+          to label %114 unwind label %105
 
-111:                                              ; preds = %106
-  resume { ptr, i32 } %107
+110:                                              ; preds = %105
+  resume { ptr, i32 } %106
 
-112:                                              ; preds = %106
-  %113 = landingpad { ptr, i32 }
+111:                                              ; preds = %105
+  %112 = landingpad { ptr, i32 }
           catch ptr null
-  %114 = extractvalue { ptr, i32 } %113, 0
-  tail call void @__clang_call_terminate(ptr %114) #22
+  %113 = extractvalue { ptr, i32 } %112, 0
+  tail call void @__clang_call_terminate(ptr %113) #22
   unreachable
 
-115:                                              ; preds = %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40
+114:                                              ; preds = %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40
   unreachable
 }
 

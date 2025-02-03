@@ -525,7 +525,7 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #7 
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #22
+  tail call void @__cxa_free_exception(ptr nonnull %10) #22
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %8, %7, %6, %5, %4, %3
@@ -1169,7 +1169,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
 122:                                              ; preds = %97
   %123 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %120) #22
+  call void @__cxa_free_exception(ptr nonnull %120) #22
   resume { ptr, i32 } %123
 
 .lr.ph46.i:                                       ; preds = %.loopexit.i, %._crit_edge.i
@@ -1732,7 +1732,7 @@ select.unfold:                                    ; preds = %22, %9, %10, %14, %
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #22
+  call void @__cxa_free_exception(ptr nonnull %68) #22
   resume { ptr, i32 } %71
 
 72:                                               ; preds = %._crit_edge

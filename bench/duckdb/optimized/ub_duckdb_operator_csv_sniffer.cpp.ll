@@ -756,7 +756,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i) #26
   store ptr %_M_storage.i.i, ptr %ref.tmp9.i, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i) #26
-  %call12.i159 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEEESt10_Select1stISC_ESt4lessIS1_ESaISC_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESN_IJEEEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %best_format_candidates, ptr %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  %call12.i159 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEEESt10_Select1stISC_ESt4lessIS1_ESaISC_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESN_IJEEEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %best_format_candidates, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %call12.i.noexc unwind label %lpad61
 
 call12.i.noexc:                                   ; preds = %if.then.i
@@ -7632,7 +7632,7 @@ invoke.cont167:                                   ; preds = %if.then165
 lpad166:                                          ; preds = %if.then165
   %251 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #26
+  call void @__cxa_free_exception(ptr nonnull %exception) #26
   br label %ehcleanup175
 
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %if.end161
@@ -7695,7 +7695,7 @@ invoke.cont186:                                   ; preds = %if.then183
 lpad185:                                          ; preds = %if.then183
   %257 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception184) #26
+  tail call void @__cxa_free_exception(ptr nonnull %exception184) #26
   br label %ehcleanup199
 
 if.end188:                                        ; preds = %if.end179
@@ -11224,7 +11224,7 @@ if.then.i1228:                                    ; preds = %lor.rhs.i, %_ZNSt3m
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i) #26
   store ptr %_M_storage.i.i, ptr %ref.tmp9.i, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i) #26
-  %call12.i1229 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEEESt10_Select1stISC_ESt4lessIS1_ESaISC_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESN_IJEEEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %best_format_candidates, ptr %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  %call12.i1229 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEEESt10_Select1stISC_ESt4lessIS1_ESaISC_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESN_IJEEEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %best_format_candidates, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %call12.i.noexc unwind label %lpad339
 
 call12.i.noexc:                                   ; preds = %if.then.i1228
@@ -11240,7 +11240,7 @@ invoke.cont340:                                   ; preds = %call12.i.noexc, %lo
           to label %invoke.cont342 unwind label %lpad339
 
 invoke.cont342:                                   ; preds = %invoke.cont340
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.02044) #29
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.02044) #29
   %cmp.i1223.not = icmp eq ptr %call.i, %add.ptr.i.i1222
   br i1 %cmp.i1223.not, label %for.cond.cleanup336, label %for.body337
 
@@ -14233,7 +14233,7 @@ invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i.i,
   %arrayidx.i.i.i.i399 = getelementptr inbounds i8, ptr %85, i64 %84
   store i8 0, ptr %arrayidx.i.i.i.i399, align 1, !tbaa !106
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #26, !noalias !510
-  call void @free(ptr noundef %call2.i408) #26
+  call void @free(ptr noundef nonnull %call2.i408) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %col_name_ascii.i) #26, !noalias !510
   store ptr %45, ptr %col_name_ascii.i, align 8, !tbaa !112, !noalias !510
   store i64 0, ptr %_M_string_length.i.i.i.i141.i, align 8, !tbaa !91, !noalias !510
@@ -16904,7 +16904,7 @@ lpad:                                             ; preds = %if.then45
 lpad51:                                           ; preds = %if.then50
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #26
+  call void @__cxa_free_exception(ptr nonnull %exception) #26
   br label %ehcleanup
 
 lpad53:                                           ; preds = %invoke.cont52
@@ -23108,7 +23108,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i) #26
   store ptr %sql_type, ptr %ref.tmp9.i, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i) #26
-  %call12.i9 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_9CSVOptionINS0_14StrpTimeFormatEEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %date_format, ptr %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  %call12.i9 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_9CSVOptionINS0_14StrpTimeFormatEEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %date_format, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %call12.i.noexc unwind label %lpad
 
 call12.i.noexc:                                   ; preds = %if.then.i
@@ -23910,7 +23910,7 @@ if.then.i173:                                     ; preds = %lor.rhs.i168, %_ZNS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i151) #26
   store ptr %ref.tmp16, ptr %ref.tmp9.i151, align 8, !tbaa !3, !alias.scope !651
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i152) #26
-  %call12.i175176 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_9CSVOptionINS0_14StrpTimeFormatEEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %date_format, ptr %__y.addr.0.lcssa.i.i.i24.i174, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i151, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i152)
+  %call12.i175176 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_9CSVOptionINS0_14StrpTimeFormatEEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %date_format, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i174, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i151, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i152)
           to label %call12.i175.noexc unwind label %lpad17
 
 call12.i175.noexc:                                ; preds = %if.then.i173
@@ -24171,7 +24171,7 @@ if.then.i213:                                     ; preds = %lor.rhs.i208, %_ZNS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i190) #26
   store ptr %ref.tmp49, ptr %ref.tmp9.i190, align 8, !tbaa !3, !alias.scope !657
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i191) #26
-  %call12.i215216 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_21DateTimestampSniffingEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESG_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %format_candidates, ptr %__y.addr.0.lcssa.i.i.i24.i214, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i190, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i191)
+  %call12.i215216 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_21DateTimestampSniffingEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESG_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %format_candidates, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i214, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i190, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i191)
           to label %call12.i215.noexc unwind label %lpad50
 
 call12.i215.noexc:                                ; preds = %if.then.i213
@@ -24221,7 +24221,7 @@ if.then.i241:                                     ; preds = %lor.rhs.i236, %_ZNS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i218) #26
   store ptr %ref.tmp57, ptr %ref.tmp9.i218, align 8, !tbaa !3, !alias.scope !660
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i219) #26
-  %call12.i243244 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_21DateTimestampSniffingEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESG_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %format_candidates, ptr %__y.addr.0.lcssa.i.i.i24.i242, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i218, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i219)
+  %call12.i243244 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_21DateTimestampSniffingEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESG_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %format_candidates, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i242, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i218, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i219)
           to label %call12.i243.noexc unwind label %lpad58
 
 call12.i243.noexc:                                ; preds = %if.then.i241
@@ -24852,7 +24852,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i) #26
   store ptr %ref.tmp4, ptr %ref.tmp9.i, align 8, !tbaa !3, !alias.scope !665
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i) #26
-  %call12.i125 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_9CSVOptionINS0_14StrpTimeFormatEEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %date_format, ptr %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  %call12.i125 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_9CSVOptionINS0_14StrpTimeFormatEEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %date_format, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %call12.i.noexc unwind label %lpad5
 
 call12.i.noexc:                                   ; preds = %if.then.i
@@ -25130,7 +25130,7 @@ if.then.i156:                                     ; preds = %lor.rhs.i151, %_ZNS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i133) #26
   store ptr %ref.tmp49, ptr %ref.tmp9.i133, align 8, !tbaa !3, !alias.scope !671
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i134) #26
-  %call12.i159 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_9CSVOptionINS0_14StrpTimeFormatEEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %date_format48, ptr %__y.addr.0.lcssa.i.i.i24.i157, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i133, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i134)
+  %call12.i159 = invoke ptr @_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_NS0_9CSVOptionINS0_14StrpTimeFormatEEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %date_format48, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i157, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i133, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i134)
           to label %call12.i.noexc158 unwind label %lpad50
 
 call12.i.noexc158:                                ; preds = %if.then.i156

@@ -2035,7 +2035,7 @@ IsFlatSource16.exit.thread.i:                     ; preds = %653, %651, %649, %6
   %660 = phi i64 [ %616, %659 ], [ 36028797018963967, %605 ]
   %661 = phi i64 [ %617, %659 ], [ %614, %605 ]
   %.0106154.i = phi i64 [ %.2.i, %659 ], [ 36028797018963967, %605 ]
-  tail call void @VP8IteratorStartI4(ptr noundef %0) #11, !noalias !109
+  tail call void @VP8IteratorStartI4(ptr noundef nonnull %0) #11, !noalias !109
   %662 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %663 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %664 = getelementptr inbounds nuw i8, ptr %1, i64 844
@@ -2228,7 +2228,7 @@ ReconstructIntra4.exit.i77:                       ; preds = %766, %753
   %781 = load ptr, ptr %780, align 8, !alias.scope !106, !noalias !109
   %782 = load i8, ptr %781, align 1
   %783 = zext i8 %782 to i32
-  %784 = call fastcc i32 @ReconstructIntra16(ptr noundef %0, ptr noundef %1, ptr noundef %779, i32 noundef %783)
+  %784 = call fastcc i32 @ReconstructIntra16(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %779, i32 noundef %783)
   br label %785
 
 785:                                              ; preds = %.thread163.i, %.thread156.i
@@ -2386,7 +2386,7 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   %56 = add nsw i32 %55, %54
   %57 = getelementptr inbounds [16 x [16 x i16]], ptr %5, i64 0, i64 %indvars.iv83
   %58 = getelementptr inbounds [16 x [16 x i16]], ptr %48, i64 0, i64 %indvars.iv83
-  %59 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %8, ptr noundef %57, ptr noundef nonnull %58, i32 noundef %56, i32 noundef 0, ptr noundef nonnull %35, i32 noundef %.pre.pre)
+  %59 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef nonnull %8, ptr noundef %57, ptr noundef nonnull %58, i32 noundef %56, i32 noundef 0, ptr noundef nonnull %35, i32 noundef %.pre.pre)
   store i32 %59, ptr %50, align 4
   store i32 %59, ptr %53, align 4
   store i16 0, ptr %58, align 8

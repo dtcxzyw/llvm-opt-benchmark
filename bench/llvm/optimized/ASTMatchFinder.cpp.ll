@@ -7198,7 +7198,7 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
   %.sroa.014.0.i.i.i = phi ptr [ %41, %40 ], [ %.02428.i.i.i, %._crit_edge.i.i.i ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i.i.i, i64 32
   %44 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %43, ptr noundef nonnull align 8 dereferenceable(128) %13)
-  br i1 %44, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread15.i
+  br i1 %44, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread13.i
 
 45:                                               ; preds = %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE10_Auto_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS6_EESK_IJEEEEERSE_DpOT_.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i15, i64 32
@@ -7212,7 +7212,7 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
   br i1 %51, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i, label %52
 
 52:                                               ; preds = %48
-  %53 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.08.lcssa.i.i.i15) #26
+  %53 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i15) #26
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %54, ptr noundef nonnull align 8 dereferenceable(128) %13)
   br i1 %55, label %56, label %59
@@ -7221,7 +7221,9 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
   %57 = getelementptr i8, ptr %53, i64 24
   %.val11.i.i = load ptr, ptr %57, align 8
   %58 = icmp eq ptr %.val11.i.i, null
-  br i1 %58, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i
+  %spec.select.i.i = select i1 %58, ptr null, ptr %.08.lcssa.i.i.i15
+  %spec.select76.i.i = select i1 %58, ptr %53, ptr %.08.lcssa.i.i.i15
+  br label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i
 
 59:                                               ; preds = %52
   %.02426.i13.i.i = load ptr, ptr %3, align 8
@@ -7256,11 +7258,11 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
   %.sroa.014.0.i23.i.i = phi ptr [ %64, %63 ], [ %.02428.i16.i.i, %._crit_edge.i21.i.i ]
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i23.i.i, i64 32
   %67 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %66, ptr noundef nonnull align 8 dereferenceable(128) %13)
-  br i1 %67, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread15.i
+  br i1 %67, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread13.i
 
 68:                                               ; preds = %45
   %69 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %46, ptr noundef nonnull align 8 dereferenceable(128) %13)
-  br i1 %69, label %70, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread15.i
+  br i1 %69, label %70, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread13.i
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7269,7 +7271,7 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
   br i1 %73, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i, label %74
 
 74:                                               ; preds = %70
-  %75 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.08.lcssa.i.i.i15) #26
+  %75 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i15) #26
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %77 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %13, ptr noundef nonnull align 8 dereferenceable(128) %76)
   br i1 %77, label %78, label %81
@@ -7278,7 +7280,9 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
   %79 = getelementptr i8, ptr %.08.lcssa.i.i.i15, i64 24
   %.val10.i.i = load ptr, ptr %79, align 8
   %80 = icmp eq ptr %.val10.i.i, null
-  br i1 %80, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i
+  %spec.select77.i.i = select i1 %80, ptr null, ptr %75
+  %spec.select78.i.i = select i1 %80, ptr %.08.lcssa.i.i.i15, ptr %75
+  br label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i
 
 81:                                               ; preds = %74
   %.02426.i34.i.i = load ptr, ptr %3, align 8
@@ -7314,43 +7318,43 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
   %.sroa.014.0.i44.i.i = phi ptr [ %87, %86 ], [ %.02428.i37.i.i, %._crit_edge.i42.i.i ]
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i44.i.i, i64 32
   %90 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %89, ptr noundef nonnull align 8 dereferenceable(128) %13)
-  br i1 %90, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread15.i
+  br i1 %90, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread13.i
 
-_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i: ; preds = %78, %70, %56, %48, %33
-  %.sroa.075.0.i.i = phi ptr [ null, %33 ], [ %50, %48 ], [ null, %70 ], [ %.08.lcssa.i.i.i15, %56 ], [ %75, %78 ]
-  %.sroa.12.0.i.i = phi ptr [ %34, %33 ], [ %50, %48 ], [ %72, %70 ], [ %.08.lcssa.i.i.i15, %56 ], [ %75, %78 ]
+_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i: ; preds = %70, %48, %33
+  %.sroa.075.0.i.i = phi ptr [ null, %33 ], [ %50, %48 ], [ null, %70 ]
+  %.sroa.12.0.i.i = phi ptr [ %34, %33 ], [ %50, %48 ], [ %72, %70 ]
   %.not.i = icmp eq ptr %.sroa.12.0.i.i, null
-  br i1 %.not.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread15.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i
+  br i1 %.not.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread13.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i
 
 _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i: ; preds = %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i, %88, %._crit_edge.thread.i51.i.i, %78, %65, %._crit_edge.thread.i30.i.i, %56, %42, %._crit_edge.thread.i.i.i
-  %.sroa.12.0.i12.i = phi ptr [ %.sroa.12.0.i.i, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i ], [ %.023.lcssa32.i52.i.i, %._crit_edge.thread.i51.i.i ], [ %.023.lcssa32.i31.i.i, %._crit_edge.thread.i30.i.i ], [ %.023.lcssa32.i.i.i, %._crit_edge.thread.i.i.i ], [ %53, %56 ], [ %.08.lcssa.i.i.i15, %78 ], [ %.023.lcssa33.i.i.i, %42 ], [ %.023.lcssa33.i22.i.i, %65 ], [ %.023.lcssa33.i43.i.i, %88 ]
-  %.sroa.075.0.i11.i = phi ptr [ %.sroa.075.0.i.i, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i ], [ null, %._crit_edge.thread.i51.i.i ], [ null, %._crit_edge.thread.i30.i.i ], [ null, %._crit_edge.thread.i.i.i ], [ null, %56 ], [ null, %78 ], [ null, %42 ], [ null, %65 ], [ null, %88 ]
-  %.not.i.i9.i = icmp ne ptr %.sroa.075.0.i11.i, null
-  %91 = icmp eq ptr %.sroa.12.0.i12.i, %4
+  %.sroa.12.0.i10.i = phi ptr [ %.sroa.12.0.i.i, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i ], [ %.023.lcssa32.i52.i.i, %._crit_edge.thread.i51.i.i ], [ %.023.lcssa32.i31.i.i, %._crit_edge.thread.i30.i.i ], [ %.023.lcssa32.i.i.i, %._crit_edge.thread.i.i.i ], [ %spec.select78.i.i, %78 ], [ %spec.select76.i.i, %56 ], [ %.023.lcssa33.i.i.i, %42 ], [ %.023.lcssa33.i22.i.i, %65 ], [ %.023.lcssa33.i43.i.i, %88 ]
+  %.sroa.075.0.i9.i = phi ptr [ %.sroa.075.0.i.i, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i ], [ null, %._crit_edge.thread.i51.i.i ], [ null, %._crit_edge.thread.i30.i.i ], [ null, %._crit_edge.thread.i.i.i ], [ %spec.select77.i.i, %78 ], [ %spec.select.i.i, %56 ], [ null, %42 ], [ null, %65 ], [ null, %88 ]
+  %.not.i.i9.i = icmp ne ptr %.sroa.075.0.i9.i, null
+  %91 = icmp eq ptr %.sroa.12.0.i10.i, %4
   %or.cond.i.i.i = select i1 %.not.i.i9.i, i1 true, i1 %91
   br i1 %or.cond.i.i.i, label %95, label %92
 
 92:                                               ; preds = %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.12.0.i12.i, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.12.0.i10.i, i64 32
   %94 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %13, ptr noundef nonnull align 8 dereferenceable(128) %93)
   br label %95
 
 95:                                               ; preds = %92, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i
   %96 = phi i1 [ true, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i ], [ %94, %92 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %96, ptr noundef nonnull %12, ptr noundef nonnull %.sroa.12.0.i12.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #23
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %96, ptr noundef nonnull %12, ptr noundef nonnull %.sroa.12.0.i10.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %98 = load i64, ptr %97, align 8
   %99 = add i64 %98, 1
   store i64 %99, ptr %97, align 8
   br label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS6_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_.exit
 
-_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread15.i: ; preds = %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i, %88, %68, %65, %42
+_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread13.i: ; preds = %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i, %88, %68, %65, %42
   %.sroa.01.0.ph.i = phi ptr [ %.sroa.075.0.i.i, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i ], [ %.sroa.014.0.i44.i.i, %88 ], [ %.sroa.014.0.i23.i.i, %65 ], [ %.sroa.014.0.i.i.i, %42 ], [ %.08.lcssa.i.i.i15, %68 ]
   tail call fastcc void @_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E(ptr noundef %12) #23
   br label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS6_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_.exit
 
-_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS6_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_.exit: ; preds = %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread15.i, %95, %8
-  %.sroa.013.0 = phi ptr [ %.19.i.i.i, %8 ], [ %12, %95 ], [ %.sroa.01.0.ph.i, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread15.i ]
+_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS6_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_.exit: ; preds = %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread13.i, %95, %8
+  %.sroa.013.0 = phi ptr [ %.19.i.i.i, %8 ], [ %12, %95 ], [ %.sroa.01.0.ph.i, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread13.i ]
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 160
   ret ptr %100
 }
@@ -59876,8 +59880,8 @@ define linkonce_odr noundef zeroext i1 @_ZSt30__lexicographical_compare_implIPKN
   br i1 %26, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN5clang12ast_matchers8internal13BoundNodesMapES8_EEbT_T0_.exit.thread33, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.015.022.i.i.i.i.i.i.i.i.i) #26
-  %29 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.011.021.i.i.i.i.i.i.i.i.i) #26
+  %28 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.022.i.i.i.i.i.i.i.i.i) #26
+  %29 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.011.021.i.i.i.i.i.i.i.i.i) #26
   %30 = icmp ne ptr %28, %16
   %31 = icmp ne ptr %29, %19
   %or.cond.i.i.i.i.i.i.i.i.i = select i1 %30, i1 %31, i1 false
@@ -59912,8 +59916,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN5clang12ast_matchers8internal13BoundN
   br i1 %42, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN5clang12ast_matchers8internal13BoundNodesMapES8_EEbT_T0_.exit31.thread36, label %43
 
 43:                                               ; preds = %41
-  %44 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.015.022.i.i.i.i.i.i.i.i.i28) #26
-  %45 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.011.021.i.i.i.i.i.i.i.i.i29) #26
+  %44 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.022.i.i.i.i.i.i.i.i.i28) #26
+  %45 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.011.021.i.i.i.i.i.i.i.i.i29) #26
   %46 = icmp ne ptr %44, %19
   %47 = icmp ne ptr %45, %16
   %or.cond.i.i.i.i.i.i.i.i.i30 = and i1 %46, %47
@@ -63526,7 +63530,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit57:               ; preds = %124, %126
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit60
 
 _ZN4llvm11raw_ostreamlsEPKc.exit60:               ; preds = %136, %138
-  %141 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.075.080) #26
+  %141 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.075.080) #26
   %.not78 = icmp eq ptr %141, %100
   br i1 %.not78, label %._crit_edge, label %.lr.ph
 

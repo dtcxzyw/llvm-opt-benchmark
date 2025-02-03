@@ -457,7 +457,7 @@ define void @_ZNK5faiss11Index2Layer9sa_encodeElPKfPh(ptr noundef nonnull align 
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #14
+  call void @__cxa_free_exception(ptr nonnull %18) #14
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -1108,7 +1108,7 @@ define void @_ZNK5faiss11Index2Layer17transfer_to_IVFPQERNS_10IndexIVFPQE(ptr no
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #14
+  call void @__cxa_free_exception(ptr nonnull %21) #14
   br label %88
 
 27:                                               ; preds = %2
@@ -1150,7 +1150,7 @@ define void @_ZNK5faiss11Index2Layer17transfer_to_IVFPQERNS_10IndexIVFPQE(ptr no
 46:                                               ; preds = %39
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %42) #14
+  call void @__cxa_free_exception(ptr nonnull %42) #14
   br label %88
 
 48:                                               ; preds = %27
@@ -1190,7 +1190,7 @@ define void @_ZNK5faiss11Index2Layer17transfer_to_IVFPQERNS_10IndexIVFPQE(ptr no
 65:                                               ; preds = %58
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %61) #14
+  call void @__cxa_free_exception(ptr nonnull %61) #14
   br label %88
 
 67:                                               ; preds = %48

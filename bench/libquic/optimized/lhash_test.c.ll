@@ -296,7 +296,7 @@ sw.default:                                       ; preds = %if.end7
   call void @abort() #13
   unreachable
 
-for.inc.sink.split.sink.split:                    ; preds = %dummy_lh_delete.exit, %if.end53.thread, %lor.lhs.false27
+for.inc.sink.split.sink.split:                    ; preds = %if.end53.thread, %dummy_lh_delete.exit, %lor.lhs.false27
   %retval.0.i81.ph151.sink = phi ptr [ %10, %lor.lhs.false27 ], [ %.lcssa, %if.end53.thread ], [ %.lcssa, %dummy_lh_delete.exit ]
   %call2.i.sink.ph = phi ptr [ %9, %lor.lhs.false27 ], [ %call2.i60, %if.end53.thread ], [ %call2.i60, %dummy_lh_delete.exit ]
   call void @free(ptr noundef nonnull %retval.0.i81.ph151.sink) #9
@@ -304,7 +304,7 @@ for.inc.sink.split.sink.split:                    ; preds = %dummy_lh_delete.exi
 
 for.inc.sink.split:                               ; preds = %for.inc.sink.split.sink.split, %dummy_lh_delete.exit.thread, %dummy_lh_delete.exit.thread144, %dummy_lh_insert.exit, %dummy_lh_retrieve.exit, %lor.lhs.false
   %call2.i.sink = phi ptr [ %call2.i, %lor.lhs.false ], [ %call2.i, %dummy_lh_retrieve.exit ], [ %9, %dummy_lh_insert.exit ], [ %call2.i60, %dummy_lh_delete.exit.thread144 ], [ %call2.i60, %dummy_lh_delete.exit.thread ], [ %call2.i.sink.ph, %for.inc.sink.split.sink.split ]
-  call void @free(ptr noundef %call2.i.sink) #9
+  call void @free(ptr noundef nonnull %call2.i.sink) #9
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %dummy_lh_insert.exit.thread

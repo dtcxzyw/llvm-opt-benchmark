@@ -426,7 +426,7 @@ read_attr_value.exit50.i:                         ; preds = %124, %128
   br i1 %or.cond.i, label %157, label %158
 
 157:                                              ; preds = %150
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %79, ptr noundef nonnull @.str.14) #13
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %79, ptr noundef nonnull @.str.14) #13
   br label %read_server_first_message.exit.thread
 
 158:                                              ; preds = %150
@@ -436,7 +436,7 @@ read_attr_value.exit50.i:                         ; preds = %124, %128
   br i1 %.not43.i, label %162, label %161
 
 161:                                              ; preds = %158
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %79, ptr noundef nonnull @.str.15) #13
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %79, ptr noundef nonnull @.str.15) #13
   br label %162
 
 read_server_first_message.exit.thread:            ; preds = %83, %109, %114, %139, %146, %157, %read_attr_value.exit.i, %read_attr_value.exit50.i, %147, %87, %91, %117, %121

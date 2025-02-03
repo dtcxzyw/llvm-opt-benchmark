@@ -5336,7 +5336,7 @@ define linkonce_odr dso_local void @_ZN12CMakeEmitter10cmake_listISt3setINSt7__c
   br label %22
 
 20:                                               ; preds = %14
-  %21 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.08.013) #18
+  %21 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.013) #18
   %.not = icmp eq ptr %21, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 

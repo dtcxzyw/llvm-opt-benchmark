@@ -2298,15 +2298,15 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   ]
 
 868:                                              ; preds = %865
-  %869 = call i64 @fwrite(ptr nonnull @.str.65, i64 9, i64 1, ptr %24)
+  %869 = call i64 @fwrite(ptr nonnull @.str.65, i64 9, i64 1, ptr nonnull %24)
   br label %878
 
 870:                                              ; preds = %865
-  %871 = call i64 @fwrite(ptr nonnull @.str.66, i64 11, i64 1, ptr %24)
+  %871 = call i64 @fwrite(ptr nonnull @.str.66, i64 11, i64 1, ptr nonnull %24)
   br label %878
 
 872:                                              ; preds = %865
-  %873 = call i64 @fwrite(ptr nonnull @.str.67, i64 15, i64 1, ptr %24)
+  %873 = call i64 @fwrite(ptr nonnull @.str.67, i64 15, i64 1, ptr nonnull %24)
   br label %878
 
 874:                                              ; preds = %865
@@ -2324,7 +2324,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not414, label %883, label %881
 
 881:                                              ; preds = %878
-  %882 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.70, ptr noundef nonnull %880) #13
+  %882 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.70, ptr noundef nonnull %880) #13
   br label %883
 
 883:                                              ; preds = %881, %878
@@ -2336,12 +2336,12 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   ]
 
 886:                                              ; preds = %883
-  %887 = call i64 @fwrite(ptr nonnull @.str.71, i64 23, i64 1, ptr %24)
+  %887 = call i64 @fwrite(ptr nonnull @.str.71, i64 23, i64 1, ptr nonnull %24)
   br label %891
 
 888:                                              ; preds = %883
   %889 = zext i16 %885 to i32
-  %890 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.72, i32 noundef %889) #13
+  %890 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.72, i32 noundef %889) #13
   br label %891
 
 891:                                              ; preds = %883, %888, %886
@@ -2353,12 +2353,12 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   ]
 
 894:                                              ; preds = %891
-  %895 = call i64 @fwrite(ptr nonnull @.str.73, i64 24, i64 1, ptr %24)
+  %895 = call i64 @fwrite(ptr nonnull @.str.73, i64 24, i64 1, ptr nonnull %24)
   br label %899
 
 896:                                              ; preds = %891
   %897 = zext i16 %893 to i32
-  %898 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.74, i32 noundef %897) #13
+  %898 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.74, i32 noundef %897) #13
   br label %899
 
 899:                                              ; preds = %891, %896, %894
@@ -2370,15 +2370,15 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   ]
 
 902:                                              ; preds = %899
-  %903 = call i64 @fwrite(ptr nonnull @.str.75, i64 21, i64 1, ptr %24)
+  %903 = call i64 @fwrite(ptr nonnull @.str.75, i64 21, i64 1, ptr nonnull %24)
   br label %906
 
 904:                                              ; preds = %899
-  %905 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.76, i32 noundef %901) #13
+  %905 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.76, i32 noundef %901) #13
   br label %906
 
 906:                                              ; preds = %899, %904, %902
-  %fputc = call i32 @fputc(i32 10, ptr %24)
+  %fputc = call i32 @fputc(i32 10, ptr nonnull %24)
   %.pre471 = load i32, ptr %652, align 8
   br label %907
 
@@ -4215,7 +4215,7 @@ _reset_period_str.exit:                           ; preds = %815, %switch.lookup
   br label %1147
 
 1147:                                             ; preds = %1141, %1133
-  call void @list_append(ptr noundef %6, ptr noundef %1124) #13
+  call void @list_append(ptr noundef %6, ptr noundef nonnull %1124) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1148 = load i32, ptr %1119, align 8
   %1149 = zext i32 %1148 to i64

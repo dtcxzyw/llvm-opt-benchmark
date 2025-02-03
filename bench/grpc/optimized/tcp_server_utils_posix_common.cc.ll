@@ -1149,7 +1149,7 @@ lpad103:                                          ; preds = %if.then.i.i129
   br label %ehcleanup196
 
 if.end109:                                        ; preds = %invoke.cont106
-  %call111 = invoke noundef i32 @_Z32grpc_tcp_server_pre_allocated_fdP15grpc_tcp_server(ptr noundef %s)
+  %call111 = invoke noundef i32 @_Z32grpc_tcp_server_pre_allocated_fdP15grpc_tcp_server(ptr noundef nonnull %s)
           to label %invoke.cont110 unwind label %lpad
 
 invoke.cont110:                                   ; preds = %if.end109

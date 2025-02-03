@@ -183,7 +183,7 @@ arraydestroy.body.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i18,
   br i1 %arraydestroy.done.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %7) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #16
   br label %_ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i, %for.body.i.i.i.i18
@@ -828,7 +828,7 @@ arraydestroy.body.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i,
   br i1 %arraydestroy.done.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %4) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #16
   br label %_ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
@@ -874,7 +874,7 @@ arraydestroy.body.i.i.i.i.i.i.i.i.i7:             ; preds = %for.body.i.i.i.i.i4
   br i1 %arraydestroy.done.i.i.i.i.i.i.i.i.i11, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i.i12, label %arraydestroy.body.i.i.i.i.i.i.i.i.i7
 
 _ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i.i12: ; preds = %arraydestroy.body.i.i.i.i.i.i.i.i.i7
-  tail call void @_ZdlPv(ptr noundef %8) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #16
   br label %_ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i13
 
 _ZSt8_DestroyISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i13: ; preds = %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i.i.i.i12, %for.body.i.i.i.i.i4

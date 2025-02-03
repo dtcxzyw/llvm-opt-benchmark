@@ -143,7 +143,7 @@ define noundef ptr @cl_hash_data(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %.not62, label %47, label %48
 
 47:                                               ; preds = %46
-  call void @free(ptr noundef %19) #11
+  call void @free(ptr noundef nonnull %19) #11
   br label %48
 
 48:                                               ; preds = %47, %46
@@ -267,7 +267,7 @@ define noundef ptr @cl_hash_file_fd_ctx(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not32, label %23, label %.preheader
 
 23:                                               ; preds = %21
-  tail call void @free(ptr noundef %14) #11
+  tail call void @free(ptr noundef nonnull %14) #11
   tail call void @free(ptr noundef %17) #11
   br label %31
 
@@ -277,8 +277,8 @@ define noundef ptr @cl_hash_file_fd_ctx(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not30, label %26, label %27
 
 26:                                               ; preds = %24
-  call void @free(ptr noundef %17) #11
-  call void @free(ptr noundef %14) #11
+  call void @free(ptr noundef nonnull %17) #11
+  call void @free(ptr noundef nonnull %14) #11
   br label %31
 
 27:                                               ; preds = %24
@@ -291,7 +291,7 @@ define noundef ptr @cl_hash_file_fd_ctx(ptr noundef %0, i32 noundef %1, ptr noun
   br label %30
 
 30:                                               ; preds = %28, %27
-  call void @free(ptr noundef %14) #11
+  call void @free(ptr noundef nonnull %14) #11
   br label %31
 
 31:                                               ; preds = %10, %3, %30, %26, %23, %18

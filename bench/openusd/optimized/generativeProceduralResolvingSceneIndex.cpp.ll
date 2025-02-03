@@ -3502,7 +3502,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_43Hd
   %445 = phi ptr [ %8, %434 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_43HdGpGenerativeProceduralResolvingSceneIndex8_NoticesEELj16EE7reserveEm.exit.i ]
   %446 = getelementptr inbounds nuw %"struct.std::pair.137", ptr %445, i64 %.pre-phi.i177
   %447 = getelementptr inbounds %"struct.std::pair.137", ptr %445, i64 %432
-  invoke void @_ZSt16__do_uninit_fillIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_43HdGpGenerativeProceduralResolvingSceneIndex8_NoticesEES5_EvT_S7_RKT0_(ptr noundef %446, ptr noundef nonnull %447, ptr noundef nonnull align 8 dereferenceable(7840) %9)
+  invoke void @_ZSt16__do_uninit_fillIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_43HdGpGenerativeProceduralResolvingSceneIndex8_NoticesEES5_EvT_S7_RKT0_(ptr noundef nonnull %446, ptr noundef nonnull %447, ptr noundef nonnull align 8 dereferenceable(7840) %9)
           to label %448 unwind label %518
 
 448:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_43HdGpGenerativeProceduralResolvingSceneIndex8_NoticesEELj16EE7reserveEm.exit.i.thread
@@ -8147,7 +8147,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_43Hd
   %1341 = phi ptr [ %24, %1330 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_43HdGpGenerativeProceduralResolvingSceneIndex8_NoticesEELj16EE7reserveEm.exit.i ]
   %1342 = getelementptr inbounds nuw %"struct.std::pair.137", ptr %1341, i64 %.pre-phi.i493
   %1343 = getelementptr inbounds %"struct.std::pair.137", ptr %1341, i64 %1328
-  invoke void @_ZSt16__do_uninit_fillIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_43HdGpGenerativeProceduralResolvingSceneIndex8_NoticesEES5_EvT_S7_RKT0_(ptr noundef %1342, ptr noundef nonnull %1343, ptr noundef nonnull align 8 dereferenceable(7840) %25)
+  invoke void @_ZSt16__do_uninit_fillIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_43HdGpGenerativeProceduralResolvingSceneIndex8_NoticesEES5_EvT_S7_RKT0_(ptr noundef nonnull %1342, ptr noundef nonnull %1343, ptr noundef nonnull align 8 dereferenceable(7840) %25)
           to label %1344 unwind label %1411
 
 1344:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_43HdGpGenerativeProceduralResolvingSceneIndex8_NoticesEELj16EE7reserveEm.exit.i.thread

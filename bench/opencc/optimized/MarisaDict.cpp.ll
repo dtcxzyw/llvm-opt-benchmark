@@ -1012,7 +1012,7 @@ define void @_ZN6opencc10MarisaDict11NewFromFileEP8_IO_FILE(ptr dead_on_unwind n
   br label %common.resume
 
 24:                                               ; preds = %15
-  tail call void @free(ptr noundef %13) #27
+  tail call void @free(ptr noundef nonnull %13) #27
   %25 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   invoke void @_ZN6opencc10MarisaDictC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %25)
           to label %26 unwind label %119
@@ -3219,7 +3219,7 @@ define linkonce_odr void @_ZNK6opencc16SerializableDict15SerializeToFileERKNSt7_
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #27
+  tail call void @__cxa_free_exception(ptr nonnull %7) #27
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %2

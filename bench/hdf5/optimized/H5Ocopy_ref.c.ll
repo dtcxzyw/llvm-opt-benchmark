@@ -393,9 +393,9 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %168 = call ptr @H5T_copy(ptr noundef %1, i32 noundef 0) #8
   %169 = icmp eq ptr %168, null
-  br i1 %169, label %.thread178.i, label %173
+  br i1 %169, label %.thread185.i, label %173
 
-.thread178.i:                                     ; preds = %164
+.thread185.i:                                     ; preds = %164
   %170 = load i64, ptr @H5E_OHDR_g, align 8
   %171 = load i64, ptr @H5E_CANTINIT_g, align 8
   %172 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 310, i64 noundef %170, i64 noundef %171, ptr noundef nonnull @.str.17) #8
@@ -410,7 +410,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %177 = load i64, ptr @H5E_OHDR_g, align 8
   %178 = load i64, ptr @H5E_CANTINIT_g, align 8
   %179 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 314, i64 noundef %177, i64 noundef %178, ptr noundef nonnull @.str.17) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 180:                                              ; preds = %173
   %181 = load ptr, ptr %21, align 8
@@ -424,7 +424,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %187 = load i64, ptr @H5E_OHDR_g, align 8
   %188 = load i64, ptr @H5E_CANTINIT_g, align 8
   %189 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 317, i64 noundef %187, i64 noundef %188, ptr noundef nonnull @.str.18) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 190:                                              ; preds = %180
   %191 = call ptr @H5T_path_find(ptr noundef %1, ptr noundef nonnull %168) #8
@@ -435,7 +435,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %194 = load i64, ptr @H5E_OHDR_g, align 8
   %195 = load i64, ptr @H5E_CANTINIT_g, align 8
   %196 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 322, i64 noundef %194, i64 noundef %195, ptr noundef nonnull @.str.19) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 197:                                              ; preds = %190
   %198 = call ptr @H5T_path_find(ptr noundef nonnull %168, ptr noundef nonnull %174) #8
@@ -446,7 +446,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %201 = load i64, ptr @H5E_OHDR_g, align 8
   %202 = load i64, ptr @H5E_CANTINIT_g, align 8
   %203 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 324, i64 noundef %201, i64 noundef %202, ptr noundef nonnull @.str.20) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 204:                                              ; preds = %197
   %205 = call i64 @H5T_get_size(ptr noundef %1) #8
@@ -463,7 +463,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %213 = load i64, ptr @H5E_RESOURCE_g, align 8
   %214 = load i64, ptr @H5E_NOSPACE_g, align 8
   %215 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 330, i64 noundef %213, i64 noundef %214, ptr noundef nonnull @.str.21) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 216:                                              ; preds = %204
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %210, ptr readonly align 1 %2, i64 %3, i1 false)
@@ -475,7 +475,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %220 = load i64, ptr @H5E_OHDR_g, align 8
   %221 = load i64, ptr @H5E_CANTCONVERT_g, align 8
   %222 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 335, i64 noundef %220, i64 noundef %221, ptr noundef nonnull @.str.22) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 223:                                              ; preds = %216
   %224 = load ptr, ptr %21, align 8
@@ -484,8 +484,8 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   br i1 %226, label %230, label %.preheader.i
 
 .preheader.i:                                     ; preds = %223
-  %.not183.i = icmp ugt i64 %43, %3
-  br i1 %.not183.i, label %._crit_edge.i, label %.lr.ph.i31
+  %.not190.i = icmp ugt i64 %43, %3
+  br i1 %.not190.i, label %._crit_edge.i, label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %.preheader.i
   %227 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -497,11 +497,11 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %231 = load i64, ptr @H5E_ARGS_g, align 8
   %232 = load i64, ptr @H5E_BADTYPE_g, align 8
   %233 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 339, i64 noundef %231, i64 noundef %232, ptr noundef nonnull @.str.23) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 234:                                              ; preds = %284, %.lr.ph.i31
-  %.099182.i = phi i64 [ 0, %.lr.ph.i31 ], [ %285, %284 ]
-  %235 = getelementptr inbounds %struct.H5R_ref_t, ptr %210, i64 %.099182.i
+  %.099189.i = phi i64 [ 0, %.lr.ph.i31 ], [ %285, %284 ]
+  %235 = getelementptr inbounds %struct.H5R_ref_t, ptr %210, i64 %.099189.i
   %bcmp.i32 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %235, ptr noundef nonnull dereferenceable(64) %10, i64 64)
   %.not.i33 = icmp eq i32 %bcmp.i32, 0
   br i1 %.not.i33, label %284, label %236
@@ -516,7 +516,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %240 = load i64, ptr @H5E_OHDR_g, align 8
   %241 = load i64, ptr @H5E_CANTGET_g, align 8
   %242 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 352, i64 noundef %240, i64 noundef %241, ptr noundef nonnull @.str.24) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 243:                                              ; preds = %236
   %244 = load ptr, ptr %22, align 8
@@ -530,7 +530,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %250 = load i64, ptr @H5E_OHDR_g, align 8
   %251 = load i64, ptr @H5E_CANTUNSERIALIZE_g, align 8
   %252 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 355, i64 noundef %250, i64 noundef %251, ptr noundef nonnull @.str.8) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 253:                                              ; preds = %243
   %254 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef %6)
@@ -541,7 +541,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %257 = load i64, ptr @H5E_OHDR_g, align 8
   %258 = load i64, ptr @H5E_CANTCOPY_g, align 8
   %259 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 359, i64 noundef %257, i64 noundef %258, ptr noundef nonnull @.str.10) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 260:                                              ; preds = %253
   %261 = load ptr, ptr %21, align 8
@@ -554,7 +554,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %266 = load i64, ptr @H5E_OHDR_g, align 8
   %267 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8
   %268 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 363, i64 noundef %266, i64 noundef %267, ptr noundef nonnull @.str.11) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 269:                                              ; preds = %260
   %270 = load i64, ptr %9, align 8
@@ -566,7 +566,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %274 = load i64, ptr @H5E_OHDR_g, align 8
   %275 = load i64, ptr @H5E_CANTSET_g, align 8
   %276 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 365, i64 noundef %274, i64 noundef %275, ptr noundef nonnull @.str.25) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 277:                                              ; preds = %269
   %278 = call i32 @H5R__set_loc_id(ptr noundef nonnull %235, i64 noundef %225, i1 noundef zeroext true, i1 noundef zeroext false) #8
@@ -577,10 +577,10 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %281 = load i64, ptr @H5E_OHDR_g, align 8
   %282 = load i64, ptr @H5E_CANTSET_g, align 8
   %283 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 368, i64 noundef %281, i64 noundef %282, ptr noundef nonnull @.str.26) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 284:                                              ; preds = %277, %234
-  %285 = add nuw i64 %.099182.i, 1
+  %285 = add nuw i64 %.099189.i, 1
   %exitcond.not.i34 = icmp eq i64 %285, %44
   br i1 %exitcond.not.i34, label %._crit_edge.i, label %234
 
@@ -593,7 +593,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %289 = load i64, ptr @H5E_RESOURCE_g, align 8
   %290 = load i64, ptr @H5E_NOSPACE_g, align 8
   %291 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 374, i64 noundef %289, i64 noundef %290, ptr noundef nonnull @.str.21) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 292:                                              ; preds = %._crit_edge.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %286, ptr nonnull align 1 %210, i64 %209, i1 false)
@@ -605,7 +605,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %296 = load i64, ptr @H5E_OHDR_g, align 8
   %297 = load i64, ptr @H5E_CANTCREATE_g, align 8
   %298 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 377, i64 noundef %296, i64 noundef %297, ptr noundef nonnull @.str.27) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
 299:                                              ; preds = %292
   %300 = call i32 @H5T_convert(ptr noundef nonnull %198, ptr noundef nonnull %168, ptr noundef nonnull %174, i64 noundef %44, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %210, ptr noundef null) #8
@@ -634,31 +634,31 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %.094.i = phi i32 [ -1, %302 ], [ -1, %309 ], [ 0, %306 ]
   %314 = call i32 @H5S_close(ptr noundef nonnull %293) #8
   %315 = icmp slt i32 %314, 0
-  br i1 %315, label %316, label %.thread.thread.i
+  br i1 %315, label %316, label %.thread133.i
 
 316:                                              ; preds = %313
   %317 = load i64, ptr @H5E_OHDR_g, align 8
   %318 = load i64, ptr @H5E_CANTFREE_g, align 8
   %319 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 390, i64 noundef %317, i64 noundef %318, ptr noundef nonnull @.str.29) #8
-  br label %.thread.thread.i
+  br label %.thread133.i
 
-.thread.thread.i:                                 ; preds = %316, %313, %295, %288, %280, %273, %265, %256, %249, %239, %230, %219, %212, %200, %193, %185, %176
-  %.1145.i = phi i32 [ -1, %230 ], [ -1, %219 ], [ -1, %212 ], [ -1, %200 ], [ -1, %193 ], [ -1, %185 ], [ -1, %176 ], [ -1, %316 ], [ %.094.i, %313 ], [ -1, %295 ], [ -1, %288 ], [ -1, %280 ], [ -1, %273 ], [ -1, %265 ], [ -1, %256 ], [ -1, %249 ], [ -1, %239 ]
-  %.098128143.i = phi i64 [ %225, %230 ], [ -1, %219 ], [ -1, %212 ], [ -1, %200 ], [ -1, %193 ], [ -1, %185 ], [ -1, %176 ], [ %225, %316 ], [ %225, %313 ], [ %225, %295 ], [ %225, %288 ], [ %225, %280 ], [ %225, %273 ], [ %225, %265 ], [ %225, %256 ], [ %225, %249 ], [ %225, %239 ]
-  %.097129141.i = phi ptr [ %210, %230 ], [ %210, %219 ], [ null, %212 ], [ null, %200 ], [ null, %193 ], [ null, %185 ], [ null, %176 ], [ %210, %316 ], [ %210, %313 ], [ %210, %295 ], [ %210, %288 ], [ %210, %280 ], [ %210, %273 ], [ %210, %265 ], [ %210, %256 ], [ %210, %249 ], [ %210, %239 ]
-  %.096130139.i = phi ptr [ null, %230 ], [ null, %219 ], [ null, %212 ], [ null, %200 ], [ null, %193 ], [ null, %185 ], [ null, %176 ], [ %286, %316 ], [ %286, %313 ], [ %286, %295 ], [ null, %288 ], [ null, %280 ], [ null, %273 ], [ null, %265 ], [ null, %256 ], [ null, %249 ], [ null, %239 ]
+.thread133.i:                                     ; preds = %316, %313, %295, %288, %280, %273, %265, %256, %249, %239, %230, %219, %212, %200, %193, %185, %176
+  %.1147.i = phi i32 [ %.094.i, %313 ], [ -1, %316 ], [ -1, %176 ], [ -1, %185 ], [ -1, %193 ], [ -1, %200 ], [ -1, %212 ], [ -1, %219 ], [ -1, %230 ], [ -1, %239 ], [ -1, %249 ], [ -1, %256 ], [ -1, %265 ], [ -1, %273 ], [ -1, %280 ], [ -1, %288 ], [ -1, %295 ]
+  %.098128145.i = phi i64 [ %225, %313 ], [ %225, %316 ], [ -1, %176 ], [ -1, %185 ], [ -1, %193 ], [ -1, %200 ], [ -1, %212 ], [ -1, %219 ], [ %225, %230 ], [ %225, %239 ], [ %225, %249 ], [ %225, %256 ], [ %225, %265 ], [ %225, %273 ], [ %225, %280 ], [ %225, %288 ], [ %225, %295 ]
+  %.097129143.i = phi ptr [ %210, %313 ], [ %210, %316 ], [ null, %176 ], [ null, %185 ], [ null, %193 ], [ null, %200 ], [ null, %212 ], [ %210, %219 ], [ %210, %230 ], [ %210, %239 ], [ %210, %249 ], [ %210, %256 ], [ %210, %265 ], [ %210, %273 ], [ %210, %280 ], [ %210, %288 ], [ %210, %295 ]
+  %.096130141.i = phi ptr [ %286, %313 ], [ %286, %316 ], [ null, %176 ], [ null, %185 ], [ null, %193 ], [ null, %200 ], [ null, %212 ], [ null, %219 ], [ null, %230 ], [ null, %239 ], [ null, %249 ], [ null, %256 ], [ null, %265 ], [ null, %273 ], [ null, %280 ], [ null, %288 ], [ %286, %295 ]
   %320 = call i32 @H5T_close(ptr noundef nonnull %168) #8
   %321 = icmp slt i32 %320, 0
   br i1 %321, label %322, label %326
 
-322:                                              ; preds = %.thread.thread.i
+322:                                              ; preds = %.thread133.i
   %323 = load i64, ptr @H5E_OHDR_g, align 8
   %324 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8
   %325 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 392, i64 noundef %323, i64 noundef %324, ptr noundef nonnull @.str.30) #8
   br label %326
 
-326:                                              ; preds = %322, %.thread.thread.i
-  %.2.i = phi i32 [ -1, %322 ], [ %.1145.i, %.thread.thread.i ]
+326:                                              ; preds = %322, %.thread133.i
+  %.2.i = phi i32 [ -1, %322 ], [ %.1147.i, %.thread133.i ]
   br i1 %175, label %334, label %327
 
 327:                                              ; preds = %326
@@ -674,27 +674,27 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
 
 334:                                              ; preds = %330, %327, %326
   %.3.i = phi i32 [ -1, %330 ], [ %.2.i, %327 ], [ %.2.i, %326 ]
-  %.not118.i = icmp eq ptr %.096130139.i, null
+  %.not118.i = icmp eq ptr %.096130141.i, null
   br i1 %.not118.i, label %337, label %335
 
 335:                                              ; preds = %334
-  %336 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.096130139.i) #8
+  %336 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.096130141.i) #8
   br label %337
 
 337:                                              ; preds = %335, %334
-  %.not119.i = icmp eq ptr %.097129141.i, null
+  %.not119.i = icmp eq ptr %.097129143.i, null
   br i1 %.not119.i, label %340, label %338
 
 338:                                              ; preds = %337
-  %339 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.097129141.i) #8
+  %339 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.097129143.i) #8
   br label %340
 
 340:                                              ; preds = %338, %337
-  %.not120.i = icmp eq i64 %.098128143.i, -1
+  %.not120.i = icmp eq i64 %.098128145.i, -1
   br i1 %.not120.i, label %H5O__copy_expand_ref_object2.exit, label %341
 
 341:                                              ; preds = %340
-  %342 = call i32 @H5I_dec_ref(i64 noundef %.098128143.i) #8
+  %342 = call i32 @H5I_dec_ref(i64 noundef %.098128145.i) #8
   %343 = icmp slt i32 %342, 0
   br i1 %343, label %344, label %H5O__copy_expand_ref_object2.exit
 
@@ -704,7 +704,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   %347 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_expand_ref_object2, i32 noundef 400, i64 noundef %345, i64 noundef %346, ptr noundef nonnull @.str.31) #8
   br label %H5O__copy_expand_ref_object2.exit.thread
 
-H5O__copy_expand_ref_object2.exit.thread:         ; preds = %344, %.thread178.i
+H5O__copy_expand_ref_object2.exit.thread:         ; preds = %344, %.thread185.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)

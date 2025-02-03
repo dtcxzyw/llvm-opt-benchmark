@@ -2612,7 +2612,7 @@ define dso_local void @_ZN4llvm9CacheCost12getCacheCostERNS_4LoopERNS_27LoopStan
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE13getParentLoopEv(ptr noundef nonnull align 8 dereferenceable(152) %17) #15
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit, label %20
+  br i1 %19, label %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit.thread9, label %20
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr %6, align 8
@@ -2625,7 +2625,7 @@ define dso_local void @_ZN4llvm9CacheCost12getCacheCostERNS_4LoopERNS_27LoopStan
   %.015.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %25 ], [ %21, %20 ]
   %.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, %23
-  br i1 %.not.i.i.i.i.i, label %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit, label %25
+  br i1 %.not.i.i.i.i.i, label %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit.thread9, label %25
 
 25:                                               ; preds = %.preheader.i.i.i.i.i
   %.0.val.i.i.i.i.i = load ptr, ptr %.0.i.i.i.i.i, align 8
@@ -2638,9 +2638,9 @@ define dso_local void @_ZN4llvm9CacheCost12getCacheCostERNS_4LoopERNS_27LoopStan
 "_ZN4llvm9is_sortedIRKNS_11SmallVectorIPNS_4LoopELj8EEEZL16getInnerMostLoopS6_E3$_0EEbOT_T0_.exit.i": ; preds = %25, %20
   %.014.i.i.i.i.i = phi ptr [ %21, %20 ], [ %.0.i.i.i.i.i, %25 ]
   %.not = icmp eq ptr %.014.i.i.i.i.i, %23
-  br i1 %.not, label %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit, label %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit.thread
+  br i1 %.not, label %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit.thread9, label %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit.thread
 
-_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit: ; preds = %.preheader.i.i.i.i.i, %11, %"_ZN4llvm9is_sortedIRKNS_11SmallVectorIPNS_4LoopELj8EEEZL16getInnerMostLoopS6_E3$_0EEbOT_T0_.exit.i"
+_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit.thread9: ; preds = %.preheader.i.i.i.i.i, %"_ZN4llvm9is_sortedIRKNS_11SmallVectorIPNS_4LoopELj8EEEZL16getInnerMostLoopS6_E3$_0EEbOT_T0_.exit.i", %11
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2652,8 +2652,8 @@ _ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit: ; preds = %.pr
   call void @_ZN4llvm9CacheCostC1ERKNS_11SmallVectorIPNS_4LoopELj8EEERKNS_8LoopInfoERNS_15ScalarEvolutionERNS_19TargetTransformInfoERNS_9AAResultsERNS_14DependenceInfoESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(256) %36, ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(144) %30, ptr noundef nonnull align 8 dereferenceable(1392) %32, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(44) %3, i64 %4) #15, !noalias !29
   br label %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit.thread
 
-_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit.thread: ; preds = %"_ZN4llvm9is_sortedIRKNS_11SmallVectorIPNS_4LoopELj8EEEZL16getInnerMostLoopS6_E3$_0EEbOT_T0_.exit.i", %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit
-  %storemerge = phi ptr [ %36, %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit ], [ null, %"_ZN4llvm9is_sortedIRKNS_11SmallVectorIPNS_4LoopELj8EEEZL16getInnerMostLoopS6_E3$_0EEbOT_T0_.exit.i" ]
+_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit.thread: ; preds = %"_ZN4llvm9is_sortedIRKNS_11SmallVectorIPNS_4LoopELj8EEEZL16getInnerMostLoopS6_E3$_0EEbOT_T0_.exit.i", %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit.thread9
+  %storemerge = phi ptr [ %36, %_ZL16getInnerMostLoopRKN4llvm11SmallVectorIPNS_4LoopELj8EEE.exit.thread9 ], [ null, %"_ZN4llvm9is_sortedIRKNS_11SmallVectorIPNS_4LoopELj8EEEZL16getInnerMostLoopS6_E3$_0EEbOT_T0_.exit.i" ]
   store ptr %storemerge, ptr %0, align 8
   %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %6) #15
   %38 = load ptr, ptr %6, align 8

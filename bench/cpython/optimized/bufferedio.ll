@@ -2430,8 +2430,8 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %res.4.ph) #10
   br label %if.then.i140
 
-if.then.i140:                                     ; preds = %while.end, %if.then1.i.i138, %if.end.i.i135, %if.then.i133, %found.split, %_bufferedreader_fill_buffer.exit, %if.then124, %if.then157, %if.then1.i213, %if.end.i210, %if.then186, %if.then1.i, %if.end.i, %if.then74, %if.then83, %if.then1.i240, %if.end.i237, %if.then101
-  %res.6188 = phi ptr [ null, %if.then101 ], [ null, %if.end.i237 ], [ null, %if.then1.i240 ], [ null, %if.then83 ], [ null, %if.then74 ], [ null, %_bufferedreader_fill_buffer.exit ], [ null, %if.then186 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ null, %if.then124 ], [ null, %if.then157 ], [ null, %if.then1.i213 ], [ null, %if.end.i210 ], [ %call191120, %found.split ], [ %call191119, %if.then.i133 ], [ %call191119, %if.end.i.i135 ], [ %call191119, %if.then1.i.i138 ], [ null, %while.end ]
+if.then.i140:                                     ; preds = %while.end, %if.then124, %if.then1.i.i138, %if.end.i.i135, %if.then.i133, %found.split, %if.then74, %if.then83, %if.then1.i240, %if.end.i237, %if.then101, %_bufferedreader_fill_buffer.exit, %if.then157, %if.then1.i213, %if.end.i210, %if.then186, %if.then1.i, %if.end.i
+  %res.6188 = phi ptr [ %call191119, %if.then1.i.i138 ], [ %call191119, %if.end.i.i135 ], [ %call191119, %if.then.i133 ], [ %call191120, %found.split ], [ null, %if.end.i210 ], [ null, %if.then1.i213 ], [ null, %if.then157 ], [ null, %if.end.i ], [ null, %if.then1.i ], [ null, %if.then186 ], [ null, %_bufferedreader_fill_buffer.exit ], [ null, %if.then101 ], [ null, %if.end.i237 ], [ null, %if.then1.i240 ], [ null, %if.then83 ], [ null, %if.then74 ], [ null, %if.then124 ], [ null, %while.end ]
   store volatile i64 0, ptr %owner, align 8
   %42 = load ptr, ptr %lock, align 8
   tail call void @PyThread_release_lock(ptr noundef %42) #10

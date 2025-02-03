@@ -463,7 +463,7 @@ if.else:                                          ; preds = %if.end
 
 if.end9:                                          ; preds = %if.else, %if.then2
   %3 = load i32, ptr %num, align 4
-  %call10 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %3) #3
+  %call10 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef nonnull %ctx, i32 noundef %3) #3
   br label %return
 
 return:                                           ; preds = %entry, %if.end9

@@ -272,7 +272,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #29
   br label %common.resume
 
 return:                                           ; preds = %sw.bb2, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut3DRendererEED2Ev.exit.i, %if.then24.i.i.i.i.i.i.i.i.i, %invoke.cont20.i.i.i.i.i.i.i.i.i, %invoke.cont15.i.i.i.i.i.i.i.i.i
@@ -3608,7 +3608,7 @@ invoke.cont.i.i:                                  ; preds = %if.else66.i.i
 lpad.i.i:                                         ; preds = %if.else66.i.i
   %134 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #29
   br label %lpad86.body.i
 
 if.end67.i.i:                                     ; preds = %if.then56.i.i, %if.then.i84.i

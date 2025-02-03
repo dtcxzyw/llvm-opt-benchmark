@@ -1390,7 +1390,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i.i:            ; preds = %434
 473:                                              ; preds = %._crit_edge.i.i
   %474 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %471) #21
+  call void @__cxa_free_exception(ptr nonnull %471) #21
   br label %.body348.i
 
 .noexc335.i:                                      ; preds = %.lr.ph.i345.i
@@ -2496,7 +2496,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i285:           ; preds = %880
 919:                                              ; preds = %._crit_edge.i398
   %920 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %917) #21
+  call void @__cxa_free_exception(ptr nonnull %917) #21
   br label %.body402
 
 .noexc297:                                        ; preds = %.lr.ph.i394
@@ -3404,7 +3404,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i269:           ; preds = %1256
 1295:                                             ; preds = %._crit_edge.i352
   %1296 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1293) #21
+  call void @__cxa_free_exception(ptr nonnull %1293) #21
   br label %.body356
 
 .noexc281:                                        ; preds = %.lr.ph.i348
@@ -4480,7 +4480,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %1679
 1718:                                             ; preds = %._crit_edge.i
   %1719 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1716) #21
+  call void @__cxa_free_exception(ptr nonnull %1716) #21
   br label %.body311
 
 .noexc266:                                        ; preds = %.lr.ph.i307
@@ -6643,7 +6643,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 22:                                               ; preds = %._crit_edge
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #21
+  call void @__cxa_free_exception(ptr nonnull %20) #21
   br label %24
 
 24:                                               ; preds = %22, %18

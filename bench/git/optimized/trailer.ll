@@ -3088,7 +3088,7 @@ duplicate_conf.exit.i:                            ; preds = %cond.true.i20.i.i, 
 
 get_conf_item.exit:                               ; preds = %for.body.i, %duplicate_conf.exit.i
   %retval.0.i = phi ptr [ %call2.i, %duplicate_conf.exit.i ], [ %pos.0.i, %for.body.i ]
-  tail call void @free(ptr noundef %call10) #16
+  tail call void @free(ptr noundef nonnull %call10) #16
   switch i32 %4, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb30

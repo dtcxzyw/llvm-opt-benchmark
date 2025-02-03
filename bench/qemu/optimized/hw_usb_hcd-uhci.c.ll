@@ -242,19 +242,19 @@ if.else:                                          ; preds = %entry
   %call.i38 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
   tail call void @usb_bus_new(ptr noundef nonnull %bus, i64 noundef 192, ptr noundef nonnull @uhci_bus_ops, ptr noundef %call.i38) #11
   %ports20 = getelementptr inbounds nuw i8, ptr %call.i37, i64 3128
-  tail call void @usb_register_port(ptr noundef nonnull %bus, ptr noundef nonnull %ports20, ptr noundef %call.i37, i32 noundef 0, ptr noundef nonnull @uhci_port_ops, i32 noundef 3) #11
+  tail call void @usb_register_port(ptr noundef nonnull %bus, ptr noundef nonnull %ports20, ptr noundef nonnull %call.i37, i32 noundef 0, ptr noundef nonnull @uhci_port_ops, i32 noundef 3) #11
   %arrayidx22.c = getelementptr i8, ptr %call.i37, i64 3208
-  tail call void @usb_register_port(ptr noundef nonnull %bus, ptr noundef %arrayidx22.c, ptr noundef %call.i37, i32 noundef 1, ptr noundef nonnull @uhci_port_ops, i32 noundef 3) #11
+  tail call void @usb_register_port(ptr noundef nonnull %bus, ptr noundef %arrayidx22.c, ptr noundef nonnull %call.i37, i32 noundef 1, ptr noundef nonnull @uhci_port_ops, i32 noundef 3) #11
   br label %if.end27
 
 if.end27:                                         ; preds = %if.else, %for.cond.preheader
   %call.i39 = call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
   %mem_reentrancy_guard = getelementptr inbounds nuw i8, ptr %call.i39, i64 152
-  %call29 = call ptr @qemu_bh_new_full(ptr noundef nonnull @uhci_bh, ptr noundef %call.i37, ptr noundef nonnull @.str, ptr noundef nonnull %mem_reentrancy_guard) #11
+  %call29 = call ptr @qemu_bh_new_full(ptr noundef nonnull @uhci_bh, ptr noundef nonnull %call.i37, ptr noundef nonnull @.str, ptr noundef nonnull %mem_reentrancy_guard) #11
   %bh = getelementptr inbounds nuw i8, ptr %call.i37, i64 3104
   store ptr %call29, ptr %bh, align 16
   %call.i.i.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #12
-  call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @uhci_frame_timer, ptr noundef %call.i37) #11
+  call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @uhci_frame_timer, ptr noundef nonnull %call.i37) #11
   %frame_timer = getelementptr inbounds nuw i8, ptr %call.i37, i64 3096
   store ptr %call.i.i.i, ptr %frame_timer, align 8
   %num_ports_vmstate = getelementptr inbounds nuw i8, ptr %call.i37, i64 3320
@@ -264,8 +264,8 @@ if.end27:                                         ; preds = %if.else, %for.cond.
   %tql_prev = getelementptr inbounds nuw i8, ptr %call.i37, i64 3312
   store ptr %queues, ptr %tql_prev, align 8
   %io_bar = getelementptr inbounds nuw i8, ptr %call.i37, i64 2608
-  call void @memory_region_init_io(ptr noundef nonnull %io_bar, ptr noundef %call.i37, ptr noundef nonnull @uhci_ioport_ops, ptr noundef %call.i37, ptr noundef nonnull @.str.1, i64 noundef 32) #11
-  call void @pci_register_bar(ptr noundef %call.i37, i32 noundef 4, i8 noundef zeroext 1, ptr noundef nonnull %io_bar) #11
+  call void @memory_region_init_io(ptr noundef nonnull %io_bar, ptr noundef nonnull %call.i37, ptr noundef nonnull @uhci_ioport_ops, ptr noundef nonnull %call.i37, ptr noundef nonnull @.str.1, i64 noundef 32) #11
+  call void @pci_register_bar(ptr noundef nonnull %call.i37, i32 noundef 4, i8 noundef zeroext 1, ptr noundef nonnull %io_bar) #11
   br label %return
 
 return:                                           ; preds = %if.end27, %if.then13

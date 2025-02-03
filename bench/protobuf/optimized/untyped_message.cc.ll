@@ -595,7 +595,7 @@ if.then18:                                        ; preds = %invoke.cont16
   store i64 %14, ptr %agg.result, align 8
   %and.i.i.i.i.i = and i64 %14, 1
   %cmp.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %cleanup30, label %cleanup
+  br i1 %cmp.i.i.i.i.i, label %cleanup30.thread, label %cleanup
 
 lpad:                                             ; preds = %if.end
   %15 = landingpad { ptr, i32 }
@@ -616,11 +616,11 @@ cleanup:                                          ; preds = %if.then18
   %.pre = load i64, ptr %_status, align 8
   %.pre12 = and i64 %.pre, 1
   %19 = icmp eq i64 %.pre12, 0
-  br i1 %19, label %cleanup30, label %if.then.i.i
+  br i1 %19, label %cleanup30.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.pre)
-          to label %cleanup30 unwind label %terminate.lpad.i
+          to label %cleanup30.thread unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
   %20 = landingpad { ptr, i32 }
@@ -637,7 +637,7 @@ call.i.i.noexc:                                   ; preds = %do.end
   %22 = extractvalue { i64, i8 } %call.i.i10, 0
   %23 = extractvalue { i64, i8 } %call.i.i10, 1
   %tobool.i.i = trunc i8 %23 to i1
-  br i1 %tobool.i.i, label %if.then.i.i9, label %invoke.cont25
+  br i1 %tobool.i.i, label %if.then.i.i9, label %cleanup30
 
 if.then.i.i9:                                     ; preds = %call.i.i.noexc
   %slots_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -647,9 +647,13 @@ if.then.i.i9:                                     ; preds = %call.i.i.noexc
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 32
   store i64 %13, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
   store ptr null, ptr %msg, align 8, !noalias !7
-  br label %invoke.cont25
+  br label %cleanup30
 
-invoke.cont25:                                    ; preds = %call.i.i.noexc, %if.then.i.i9
+cleanup30.thread:                                 ; preds = %if.then.i.i, %cleanup, %if.then18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url_buf) #25
+  br label %delete.notnull.i.i
+
+cleanup30:                                        ; preds = %if.then.i.i9, %call.i.i.noexc
   %25 = phi ptr [ %11, %call.i.i.noexc ], [ null, %if.then.i.i9 ]
   %slots_.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %26 = load ptr, ptr %slots_.i.i.i3.i.i, align 8, !noalias !7
@@ -658,15 +662,12 @@ invoke.cont25:                                    ; preds = %call.i.i.noexc, %if
   %28 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %27, ptr %28, align 8
   store i64 0, ptr %agg.result, align 8
-  br label %cleanup30
-
-cleanup30:                                        ; preds = %if.then18, %if.then.i.i, %cleanup, %invoke.cont25
-  %29 = phi ptr [ %11, %if.then.i.i ], [ %11, %cleanup ], [ %25, %invoke.cont25 ], [ %11, %if.then18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url_buf) #25
-  %cmp.not.i = icmp eq ptr %29, null
+  %cmp.not.i = icmp eq ptr %25, null
   br i1 %cmp.not.i, label %return, label %delete.notnull.i.i
 
-delete.notnull.i.i:                               ; preds = %cleanup30
+delete.notnull.i.i:                               ; preds = %cleanup30.thread, %cleanup30
+  %29 = phi ptr [ %11, %cleanup30.thread ], [ %25, %cleanup30 ]
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 192
   %30 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %30, 0
@@ -997,7 +998,7 @@ if.then18:                                        ; preds = %invoke.cont16
   store i64 %14, ptr %agg.result, align 8
   %and.i.i.i.i.i = and i64 %14, 1
   %cmp.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %cleanup30, label %cleanup
+  br i1 %cmp.i.i.i.i.i, label %cleanup30.thread, label %cleanup
 
 lpad:                                             ; preds = %if.end
   %15 = landingpad { ptr, i32 }
@@ -1018,11 +1019,11 @@ cleanup:                                          ; preds = %if.then18
   %.pre = load i64, ptr %_status, align 8
   %.pre12 = and i64 %.pre, 1
   %19 = icmp eq i64 %.pre12, 0
-  br i1 %19, label %cleanup30, label %if.then.i.i
+  br i1 %19, label %cleanup30.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.pre)
-          to label %cleanup30 unwind label %terminate.lpad.i
+          to label %cleanup30.thread unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
   %20 = landingpad { ptr, i32 }
@@ -1039,7 +1040,7 @@ call.i.i.noexc:                                   ; preds = %do.end
   %22 = extractvalue { i64, i8 } %call.i.i10, 0
   %23 = extractvalue { i64, i8 } %call.i.i10, 1
   %tobool.i.i = trunc i8 %23 to i1
-  br i1 %tobool.i.i, label %if.then.i.i9, label %invoke.cont25
+  br i1 %tobool.i.i, label %if.then.i.i9, label %cleanup30
 
 if.then.i.i9:                                     ; preds = %call.i.i.noexc
   %slots_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1049,9 +1050,13 @@ if.then.i.i9:                                     ; preds = %call.i.i.noexc
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 32
   store i64 %13, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !15
   store ptr null, ptr %enoom, align 8, !noalias !15
-  br label %invoke.cont25
+  br label %cleanup30
 
-invoke.cont25:                                    ; preds = %call.i.i.noexc, %if.then.i.i9
+cleanup30.thread:                                 ; preds = %if.then.i.i, %cleanup, %if.then18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url_buf) #25
+  br label %delete.notnull.i.i
+
+cleanup30:                                        ; preds = %if.then.i.i9, %call.i.i.noexc
   %25 = phi ptr [ %11, %call.i.i.noexc ], [ null, %if.then.i.i9 ]
   %slots_.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %26 = load ptr, ptr %slots_.i.i.i3.i.i, align 8, !noalias !15
@@ -1060,15 +1065,12 @@ invoke.cont25:                                    ; preds = %call.i.i.noexc, %if
   %28 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %27, ptr %28, align 8
   store i64 0, ptr %agg.result, align 8
-  br label %cleanup30
-
-cleanup30:                                        ; preds = %if.then18, %if.then.i.i, %cleanup, %invoke.cont25
-  %29 = phi ptr [ %11, %if.then.i.i ], [ %11, %cleanup ], [ %25, %invoke.cont25 ], [ %11, %if.then18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url_buf) #25
-  %cmp.not.i = icmp eq ptr %29, null
+  %cmp.not.i = icmp eq ptr %25, null
   br i1 %cmp.not.i, label %return, label %delete.notnull.i.i
 
-delete.notnull.i.i:                               ; preds = %cleanup30
+delete.notnull.i.i:                               ; preds = %cleanup30.thread, %cleanup30
+  %29 = phi ptr [ %11, %cleanup30.thread ], [ %25, %cleanup30 ]
   %capacity_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 128
   %30 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %30, 0

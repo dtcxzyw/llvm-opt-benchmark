@@ -655,7 +655,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #28
   resume { ptr, i32 } %0
 }
 
@@ -3714,7 +3714,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   resume { ptr, i32 } %17
 
 if.end.i:                                         ; preds = %entry
@@ -18094,7 +18094,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %176 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #28
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   br label %lpad6.body
 
 _ZN3fmt3v106detail16adjust_precisionERii.exit:    ; preds = %if.then94
@@ -32437,7 +32437,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   resume { ptr, i32 } %26
 
 _ZN3fmt3v106detail16adjust_precisionERii.exit:    ; preds = %if.then92

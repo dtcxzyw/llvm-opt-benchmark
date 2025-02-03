@@ -28221,7 +28221,7 @@ define internal noundef i32 @_ZL8cxxthrowP9lua_State(ptr readnone captures(none)
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #37
+  tail call void @__cxa_free_exception(ptr nonnull %2) #37
   resume { ptr, i32 } %5
 }
 

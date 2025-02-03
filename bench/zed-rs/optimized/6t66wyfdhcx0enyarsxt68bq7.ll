@@ -249,8 +249,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN15futures_channel4mpsc17Receiver$LT
   %.not14.i = icmp eq ptr %23, null
   br i1 %.not14.i, label %.lr.ph.i, label %._crit_edge.i
 
-"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit.thread": ; preds = %28, %102, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit", %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.exit", %24, %1
-  %.sroa.0.0 = phi i8 [ 0, %1 ], [ 0, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.exit" ], [ 2, %24 ], [ 1, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit" ], [ 1, %102 ], [ 1, %28 ]
+"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit.thread": ; preds = %28, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit.thread18", %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit", %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.exit", %24, %1
+  %.sroa.0.0 = phi i8 [ 0, %1 ], [ 0, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.exit" ], [ 2, %24 ], [ 1, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit" ], [ 1, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit.thread18" ], [ 1, %28 ]
   ret i8 %.sroa.0.0
 
 24:                                               ; preds = %.lr.ph.i
@@ -276,7 +276,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN15futures_channel4mpsc17Receiver$LT
   %34 = extractvalue { i64, ptr } %33, 0
   switch i64 %34, label %default.unreachable.i.i [
     i64 0, label %36
-    i64 1, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit"
+    i64 1, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit.thread18"
     i64 2, label %35
   ]
 
@@ -434,16 +434,11 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5753148024069896452.exit.
   %86 = load ptr, ptr %4, align 8, !alias.scope !36, !nonnull !4, !noundef !4
   %87 = atomicrmw sub ptr %86, i64 1 release, align 8, !noalias !36
   %88 = icmp eq i64 %87, 1
-  br i1 %88, label %89, label %.thread.i
+  br i1 %88, label %89, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit"
 
 89:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$std..sync..mutex..MutexGuard$LT$futures_channel..mpsc..SenderTask$GT$$GT$17hcb049baa8d696d6dE.llvm.5753148024069896452.exit.i"
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbc3720591c8b408fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-  br label %.thread.i
-
-.thread.i:                                        ; preds = %89, %"_ZN4core3ptr90drop_in_place$LT$std..sync..mutex..MutexGuard$LT$futures_channel..mpsc..SenderTask$GT$$GT$17hcb049baa8d696d6dE.llvm.5753148024069896452.exit.i"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.pr.pre = load ptr, ptr %0, align 8
   br label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit"
 
 90:                                               ; preds = %69, %55
@@ -456,10 +451,11 @@ common.resume:                                    ; preds = %.body.i, %55, %100
   %common.resume.op = phi { ptr, i32 } [ %101, %100 ], [ %.pn.i, %55 ], [ %.pn.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit": ; preds = %32, %.thread.i
-  %.pr = phi ptr [ %.pr.pre, %.thread.i ], [ %.val, %32 ]
-  %92 = icmp eq ptr %.pr, null
-  br i1 %92, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit.thread", label %102
+"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit": ; preds = %"_ZN4core3ptr90drop_in_place$LT$std..sync..mutex..MutexGuard$LT$futures_channel..mpsc..SenderTask$GT$$GT$17hcb049baa8d696d6dE.llvm.5753148024069896452.exit.i", %89
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  %.pr.pre = load ptr, ptr %0, align 8
+  %92 = icmp eq ptr %.pr.pre, null
+  br i1 %92, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit.thread", label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit.thread18"
 
 93:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
@@ -487,9 +483,10 @@ common.resume:                                    ; preds = %.body.i, %55, %100
   store ptr null, ptr %0, align 8
   br label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit.thread"
 
-102:                                              ; preds = %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit"
-  %103 = getelementptr inbounds nuw i8, ptr %.pr, i64 56
-  %104 = atomicrmw sub ptr %103, i64 1 seq_cst, align 8
+"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit.thread18": ; preds = %32, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit"
+  %.pr20 = phi ptr [ %.pr.pre, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit" ], [ %.val, %32 ]
+  %102 = getelementptr inbounds nuw i8, ptr %.pr20, i64 56
+  %103 = atomicrmw sub ptr %102, i64 1 seq_cst, align 8
   br label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h7c8e10699520aa8aE.exit.thread"
 }
 

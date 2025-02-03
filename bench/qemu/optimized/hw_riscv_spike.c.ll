@@ -342,7 +342,7 @@ if.end83:                                         ; preds = %land.lhs.true, %if.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qdt_tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qdt_tmp123.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qdt_tmp162.i)
-  %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #7
+  %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #7
   %call2.i = call ptr @create_device_tree(ptr noundef nonnull %fdt_size.i) #7
   %fdt3.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
   store ptr %call2.i, ptr %fdt3.i, align 8

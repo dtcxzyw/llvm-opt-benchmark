@@ -228,7 +228,7 @@ define void @_ZN5faiss15IndexBinaryHNSW3addElPKh(ptr noundef nonnull align 8 der
 31:                                               ; preds = %24
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #11
+  call void @__cxa_free_exception(ptr nonnull %27) #11
   br label %33
 
 common.resume:                                    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit90.i, %235, %33
@@ -852,7 +852,7 @@ define void @_ZNK5faiss15IndexBinaryHNSW6searchElPKhlPiPlPKNS_16SearchParameters
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #11
+  call void @__cxa_free_exception(ptr nonnull %25) #11
   br label %54
 
 31:                                               ; preds = %7
@@ -890,7 +890,7 @@ define void @_ZNK5faiss15IndexBinaryHNSW6searchElPKhlPiPlPKNS_16SearchParameters
 46:                                               ; preds = %39
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %42) #11
+  call void @__cxa_free_exception(ptr nonnull %42) #11
   br label %54
 
 48:                                               ; preds = %31

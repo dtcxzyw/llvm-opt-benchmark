@@ -5648,7 +5648,7 @@ if.else.i58:                                      ; preds = %for.body46
           to label %for.inc52 unwind label %lpad16.loopexit
 
 for.inc52:                                        ; preds = %if.else.i58, %_ZNSt16allocator_traitsISaISt5tupleIJPKN4cvc58internal4expr13NaryMatchTrieEmNS2_12NodeTemplateILb1EEEEEEE9constructIS9_JS6_mRKS8_EEEvRSA_PT_DpOT0_.exit.i
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0101) #24
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.0101) #24
   %cmp.i38.not = icmp eq ptr %call.i, %add.ptr.i.i37
   br i1 %cmp.i38.not, label %for.end54, label %for.body46
 

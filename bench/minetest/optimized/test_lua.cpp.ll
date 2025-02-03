@@ -1091,7 +1091,7 @@ invoke.cont.i:                                    ; preds = %entry
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #24
   resume { ptr, i32 } %0
 }
 

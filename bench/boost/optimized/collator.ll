@@ -1890,7 +1890,7 @@ define linkonce_odr hidden void @_ZNK5boost16exception_detail10clone_implINS0_10
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #23
+  tail call void @__cxa_free_exception(ptr nonnull %2) #23
   resume { ptr, i32 } %5
 }
 
@@ -2034,7 +2034,7 @@ define linkonce_odr hidden void @_ZTv0_n32_NK5boost16exception_detail10clone_imp
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #23
+  tail call void @__cxa_free_exception(ptr nonnull %6) #23
   resume { ptr, i32 } %9
 }
 
@@ -2590,7 +2590,7 @@ define linkonce_odr hidden void @_ZNK5boost16exception_detail10clone_implINS0_14
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #23
+  tail call void @__cxa_free_exception(ptr nonnull %2) #23
   resume { ptr, i32 } %5
 }
 
@@ -2734,7 +2734,7 @@ define linkonce_odr hidden void @_ZTv0_n32_NK5boost16exception_detail10clone_imp
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #23
+  tail call void @__cxa_free_exception(ptr nonnull %6) #23
   resume { ptr, i32 } %9
 }
 
@@ -4165,7 +4165,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx11
 18:                                               ; preds = %13
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #23
+  call void @__cxa_free_exception(ptr nonnull %14) #23
   br label %28
 
 20:                                               ; preds = %10

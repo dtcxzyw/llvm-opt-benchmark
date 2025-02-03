@@ -2679,7 +2679,7 @@ define dso_local void @io_thread_start(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 26:                                               ; preds = %22
-  %27 = call i32 @pthread_create(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @_io_thr, ptr noundef %0) #9
+  %27 = call i32 @pthread_create(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @_io_thr, ptr noundef nonnull %0) #9
   %.not30 = icmp eq i32 %27, 0
   br i1 %.not30, label %30, label %28
 
@@ -3205,7 +3205,7 @@ define dso_local range(i32 -1, 1) i32 @io_initial_client_connect(ptr noundef %0,
 
 28:                                               ; preds = %23
   tail call void @fd_set_blocking(i32 noundef %24) #9
-  tail call fastcc void @_send_io_init_msg(i32 noundef %24, ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
+  tail call fastcc void @_send_io_init_msg(i32 noundef %24, ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext true)
   %29 = tail call i32 @get_log_level() #9
   %30 = icmp sgt i32 %29, 8
   br i1 %30, label %31, label %32
@@ -3371,7 +3371,7 @@ define dso_local range(i32 -1, 1) i32 @io_client_connect(ptr noundef %0, ptr nou
 
 20:                                               ; preds = %15
   tail call void @fd_set_blocking(i32 noundef %16) #9
-  tail call fastcc void @_send_io_init_msg(i32 noundef %16, ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
+  tail call fastcc void @_send_io_init_msg(i32 noundef %16, ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext false)
   %21 = tail call i32 @get_log_level() #9
   %22 = icmp sgt i32 %21, 8
   br i1 %22, label %23, label %24

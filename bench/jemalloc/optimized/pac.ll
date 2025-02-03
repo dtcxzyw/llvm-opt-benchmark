@@ -735,7 +735,7 @@ if.end7:                                          ; preds = %pac_decay_stashed.e
   br i1 %cmp.i.not.i, label %if.end.i25, label %if.then.i23
 
 if.then.i23:                                      ; preds = %if.end7
-  tail call void @malloc_mutex_lock_slow(ptr noundef %decay) #8
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %decay) #8
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i25
 
@@ -809,7 +809,7 @@ if.then9:                                         ; preds = %if.end4
 
 if.then.i:                                        ; preds = %if.then9
   %sub.i = sub nuw i64 %add.i22, %decay.val
-  call fastcc void @pac_decay_to_limit(ptr noundef %tsdn, ptr noundef %pac, ptr noundef nonnull %decay, ptr noundef %decay_stats, ptr noundef %ecache, i1 noundef zeroext false, i64 noundef %decay.val, i64 noundef %sub.i)
+  call fastcc void @pac_decay_to_limit(ptr noundef %tsdn, ptr noundef %pac, ptr noundef nonnull %decay, ptr noundef %decay_stats, ptr noundef nonnull %ecache, i1 noundef zeroext false, i64 noundef %decay.val, i64 noundef %sub.i)
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then9, %if.end4, %if.then, %if.then2
@@ -909,14 +909,14 @@ entry:
   %pac.val = load ptr, ptr %0, align 8
   %call.i = tail call ptr @base_ehooks_get(ptr noundef %pac.val) #8
   %ecache_retained = getelementptr inbounds nuw i8, ptr %pac, i64 38936
-  %call36 = tail call ptr @ecache_evict(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i, ptr noundef nonnull %ecache_retained, i64 noundef 0) #8
+  %call36 = tail call ptr @ecache_evict(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %call.i, ptr noundef nonnull %ecache_retained, i64 noundef 0) #8
   %cmp.not7 = icmp eq ptr %call36, null
   br i1 %cmp.not7, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
   %call38 = phi ptr [ %call3, %while.body ], [ %call36, %entry ]
-  tail call void @extent_destroy_wrapper(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i, ptr noundef nonnull %call38) #8
-  %call3 = tail call ptr @ecache_evict(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i, ptr noundef nonnull %ecache_retained, i64 noundef 0) #8
+  tail call void @extent_destroy_wrapper(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %call.i, ptr noundef nonnull %call38) #8
+  %call3 = tail call ptr @ecache_evict(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %call.i, ptr noundef nonnull %ecache_retained, i64 noundef 0) #8
   %cmp.not = icmp eq ptr %call3, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !8
 

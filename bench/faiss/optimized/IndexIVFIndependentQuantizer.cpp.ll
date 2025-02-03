@@ -714,7 +714,7 @@ define void @_ZNK5faiss28IndexIVFIndependentQuantizer6searchElPKflPfPlPKNS_16Sea
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #12
+  call void @__cxa_free_exception(ptr nonnull %18) #12
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -1006,7 +1006,7 @@ define void @_ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFE
 47:                                               ; preds = %40
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %43) #12
+  call void @__cxa_free_exception(ptr nonnull %43) #12
   br label %142
 
 49:                                               ; preds = %4
@@ -1046,7 +1046,7 @@ define void @_ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFE
 66:                                               ; preds = %59
   %67 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %62) #12
+  call void @__cxa_free_exception(ptr nonnull %62) #12
   br label %142
 
 68:                                               ; preds = %49, %28
@@ -1098,7 +1098,7 @@ define void @_ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFE
 92:                                               ; preds = %85
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %88) #12
+  call void @__cxa_free_exception(ptr nonnull %88) #12
   br label %142
 
 94:                                               ; preds = %75, %72, %68
@@ -1145,7 +1145,7 @@ define void @_ZN5faiss28IndexIVFIndependentQuantizerC2EPNS_5IndexEPNS_8IndexIVFE
 115:                                              ; preds = %108
   %116 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %111) #12
+  call void @__cxa_free_exception(ptr nonnull %111) #12
   br label %142
 
 117:                                              ; preds = %98, %94

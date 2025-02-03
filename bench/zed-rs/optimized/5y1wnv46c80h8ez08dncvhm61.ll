@@ -1390,7 +1390,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %376 = extractvalue { ptr, ptr } %372, 0
   %377 = load i64, ptr %376, align 8, !range !57, !noundef !4
   %378 = extractvalue { ptr, ptr } %372, 1
-  %379 = invoke noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20eq_ignore_ascii_case17h204ae4ded3757392E"(ptr noalias noundef readonly align 8 dereferenceable(8) %378, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %238)
+  %379 = invoke noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20eq_ignore_ascii_case17h204ae4ded3757392E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %378, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %238)
           to label %380 unwind label %.body25.thread37.loopexit.i.i
 
 380:                                              ; preds = %375
@@ -16668,7 +16668,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br i1 %1171, label %.split1092.us.thread, label %.critedge419.us
 
 .critedge419.us:                                  ; preds = %1169, %1164
-  %1172 = invoke noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step13extra_special17h8c65ed3f6cde62d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1165, ptr noalias noundef readonly align 8 dereferenceable(8) %1166)
+  %1172 = invoke noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step13extra_special17h8c65ed3f6cde62d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1165, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1166)
           to label %1173 unwind label %.loopexit.split.us
 
 1173:                                             ; preds = %.critedge419.us
@@ -16724,7 +16724,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   ]
 
 .critedge419:                                     ; preds = %1183, %1178
-  %1185 = invoke noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step13extra_special17h8c65ed3f6cde62d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1179, ptr noalias noundef readonly align 8 dereferenceable(8) %1180)
+  %1185 = invoke noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step13extra_special17h8c65ed3f6cde62d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1179, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1180)
           to label %1188 unwind label %.loopexit.split
 
 .split1092.us:                                    ; preds = %1183, %1183

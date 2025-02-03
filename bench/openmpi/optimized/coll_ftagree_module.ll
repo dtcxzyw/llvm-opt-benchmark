@@ -32,7 +32,7 @@ declare i32 @mca_coll_ftagree_era_init() local_unnamed_addr #1
 define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @ompi_ftmpi_enabled, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %opal_obj_new.exit.thread
+  br i1 %4, label %5, label %opal_obj_new.exit
 
 5:                                                ; preds = %2
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_ftagree_module_t_class, i64 56), align 8
@@ -48,7 +48,7 @@ define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr noundef writ
 
 11:                                               ; preds = %10, %5
   %.not9.i = icmp eq ptr %7, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %12
+  br i1 %.not9.i, label %opal_obj_new.exit, label %12
 
 12:                                               ; preds = %11
   store ptr @mca_coll_ftagree_module_t_class, ptr %7, align 8
@@ -57,7 +57,7 @@ define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr noundef writ
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_ftagree_module_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i.i = icmp eq ptr %15, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread30, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.i.i
   %16 = phi ptr [ %18, %.lr.ph.i.i ], [ %15, %12 ]
@@ -66,9 +66,9 @@ define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr noundef writ
   %17 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread30, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread30:                       ; preds = %.lr.ph.i.i, %12
+.loopexit:                                        ; preds = %.lr.ph.i.i, %12
   %19 = load i32, ptr @mca_coll_ftagree_priority, align 4
   store i32 %19, ptr %1, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -77,7 +77,7 @@ opal_obj_new.exit.thread30:                       ; preds = %.lr.ph.i.i, %12
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %30, label %ompi_comm_remote_size.exit
 
-ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.thread30
+ompi_comm_remote_size.exit:                       ; preds = %.loopexit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -89,7 +89,7 @@ ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.t
   %29 = add nsw i32 %.val.val, %26
   br label %33
 
-30:                                               ; preds = %opal_obj_new.exit.thread30
+30:                                               ; preds = %.loopexit
   %31 = getelementptr i8, ptr %0, i64 248
   %.val28 = load ptr, ptr %31, align 8
   %32 = getelementptr i8, ptr %.val28, i64 16
@@ -116,17 +116,17 @@ ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.t
   store ptr @mca_coll_ftagree_module_enable, ptr %44, align 8
   %45 = load i32, ptr @mca_coll_ftagree_algorithm, align 4
   switch i32 %45, label %49 [
-    i32 0, label %opal_obj_new.exit.thread
+    i32 0, label %opal_obj_new.exit
     i32 2, label %46
   ]
 
 46:                                               ; preds = %33
-  br i1 %.not, label %47, label %opal_obj_new.exit.thread
+  br i1 %.not, label %47, label %opal_obj_new.exit
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 552
   store ptr @mca_coll_ftagree_eta_intra, ptr %48, align 8
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
 49:                                               ; preds = %33
   %50 = tail call i32 @mca_coll_ftagree_era_comm_init(ptr noundef nonnull %0, ptr noundef nonnull %7) #4
@@ -138,15 +138,15 @@ ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.t
 
 54:                                               ; preds = %49
   store ptr @mca_coll_ftagree_era_inter, ptr %53, align 8
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
 55:                                               ; preds = %49
   store ptr @mca_coll_ftagree_era_intra, ptr %53, align 8
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 560
   store ptr @mca_coll_ftagree_iera_intra, ptr %56, align 8
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %11, %33, %47, %46, %55, %54, %2
+opal_obj_new.exit:                                ; preds = %11, %33, %47, %46, %55, %54, %2
   %.0 = phi ptr [ null, %2 ], [ %7, %54 ], [ %7, %55 ], [ %7, %46 ], [ %7, %47 ], [ %7, %33 ], [ null, %11 ]
   ret ptr %.0
 }

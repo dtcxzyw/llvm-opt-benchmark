@@ -2944,7 +2944,7 @@ _ZNSt10shared_ptrIN3nix17SingleDerivedPathEEC2ERKS2_.exit.i: ; preds = %18
 33:                                               ; preds = %30
   %34 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %31) #21
+  tail call void @__cxa_free_exception(ptr nonnull %31) #21
   br label %.body
 
 35:                                               ; preds = %32

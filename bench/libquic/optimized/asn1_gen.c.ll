@@ -150,19 +150,19 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %tobool7.not.i, label %bad.i, label %for.cond.i.preheader
 
 for.cond.i.preheader:                             ; preds = %if.end5.i
-  %call10.i47 = call i64 @sk_num(ptr noundef nonnull %call6.i) #9
-  %cmp.i48.not = icmp eq i64 %call10.i47, 0
-  br i1 %cmp.i48.not, label %if.end20.i, label %for.body.i
+  %call10.i53 = call i64 @sk_num(ptr noundef nonnull %call6.i) #9
+  %cmp.i54.not = icmp eq i64 %call10.i53, 0
+  br i1 %cmp.i54.not, label %if.end20.i, label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end15.i
-  %inc.i = add nuw i64 %i.0.i49, 1
+  %inc.i = add nuw i64 %i.0.i55, 1
   %call10.i = call i64 @sk_num(ptr noundef nonnull %call6.i) #9
   %cmp.i = icmp ult i64 %inc.i, %call10.i
   br i1 %cmp.i, label %for.body.i, label %if.end20.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.i.preheader, %for.cond.i
-  %i.0.i49 = phi i64 [ %inc.i, %for.cond.i ], [ 0, %for.cond.i.preheader ]
-  %call11.i = call ptr @sk_value(ptr noundef nonnull %call6.i, i64 noundef %i.0.i49) #9
+  %i.0.i55 = phi i64 [ %inc.i, %for.cond.i ], [ 0, %for.cond.i.preheader ]
+  %call11.i = call ptr @sk_value(ptr noundef nonnull %call6.i, i64 noundef %i.0.i55) #9
   %value.i = getelementptr inbounds nuw i8, ptr %call11.i, i64 16
   %3 = load ptr, ptr %value.i, align 8
   %call12.i = call ptr @ASN1_generate_v3(ptr noundef %3, ptr noundef nonnull %cnf)
@@ -202,9 +202,9 @@ if.end32.i:                                       ; preds = %if.end28.i
   %value34.i = getelementptr inbounds nuw i8, ptr %call29.i, i64 8
   store ptr %call33.i, ptr %value34.i, align 8
   %tobool35.not.i = icmp eq ptr %call33.i, null
-  br i1 %tobool35.not.i, label %bad.i, label %bad.i.thread
+  br i1 %tobool35.not.i, label %bad.i, label %if.end42.i.thread
 
-bad.i.thread:                                     ; preds = %if.end32.i
+if.end42.i.thread:                                ; preds = %if.end32.i
   store i32 %0, ptr %call29.i, align 8
   %4 = load ptr, ptr %der.i, align 8
   %data.i = getelementptr inbounds nuw i8, ptr %call33.i, i64 8
@@ -212,7 +212,7 @@ bad.i.thread:                                     ; preds = %if.end32.i
   %5 = load ptr, ptr %value34.i, align 8
   store i32 %derlen.0.i, ptr %5, align 8
   store ptr null, ptr %der.i, align 8
-  br label %if.end42.i
+  br label %if.then44.i
 
 bad.i:                                            ; preds = %if.end15.i, %for.body.i, %if.end32.i, %if.end28.i, %if.end25.i, %if.end5.i, %if.end6
   %sect.0.i.ph = phi ptr [ null, %if.end6 ], [ null, %if.end5.i ], [ %sect.1.i, %if.end28.i ], [ %sect.1.i, %if.end32.i ], [ %sect.1.i, %if.end25.i ], [ %call6.i, %for.body.i ], [ %call6.i, %if.end15.i ]
@@ -225,21 +225,23 @@ if.then41.i:                                      ; preds = %bad.i
   call void @free(ptr noundef nonnull %.pr) #9
   br label %if.end42.i
 
-if.end42.i:                                       ; preds = %bad.i.thread, %if.then41.i, %bad.i
-  %ret.0.i46 = phi ptr [ %call29.i, %bad.i.thread ], [ %ret.0.i.ph, %if.then41.i ], [ %ret.0.i.ph, %bad.i ]
-  %sect.0.i45 = phi ptr [ %sect.1.i, %bad.i.thread ], [ %sect.0.i.ph, %if.then41.i ], [ %sect.0.i.ph, %bad.i ]
+if.end42.i:                                       ; preds = %if.then41.i, %bad.i
   br i1 %tobool.not.i, label %if.end45.i, label %if.then44.i
 
-if.then44.i:                                      ; preds = %if.end42.i
+if.then44.i:                                      ; preds = %if.end42.i.thread, %if.end42.i
+  %sect.0.i4551 = phi ptr [ %sect.1.i, %if.end42.i.thread ], [ %sect.0.i.ph, %if.end42.i ]
+  %ret.0.i4649 = phi ptr [ %call29.i, %if.end42.i.thread ], [ %ret.0.i.ph, %if.end42.i ]
   call void @sk_pop_free(ptr noundef nonnull %call.i, ptr noundef nonnull @ASN1_TYPE_free) #9
   br label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then44.i, %if.end42.i
-  %tobool46.not.i = icmp eq ptr %sect.0.i45, null
+  %sect.0.i4552 = phi ptr [ %sect.0.i4551, %if.then44.i ], [ %sect.0.i.ph, %if.end42.i ]
+  %ret.0.i4650 = phi ptr [ %ret.0.i4649, %if.then44.i ], [ %ret.0.i.ph, %if.end42.i ]
+  %tobool46.not.i = icmp eq ptr %sect.0.i4552, null
   br i1 %tobool46.not.i, label %asn1_multi.exit, label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.end45.i
-  call void @X509V3_section_free(ptr noundef nonnull %cnf, ptr noundef nonnull %sect.0.i45) #9
+  call void @X509V3_section_free(ptr noundef nonnull %cnf, ptr noundef nonnull %sect.0.i4552) #9
   br label %asn1_multi.exit
 
 asn1_multi.exit:                                  ; preds = %if.end45.i, %if.then47.i
@@ -520,7 +522,7 @@ asn1_str2type.exit:                               ; preds = %if.then.i, %sw.epil
   br label %if.end14
 
 if.end14:                                         ; preds = %asn1_str2type.exit, %asn1_multi.exit
-  %ret.0 = phi ptr [ %ret.0.i46, %asn1_multi.exit ], [ %retval.0.i, %asn1_str2type.exit ]
+  %ret.0 = phi ptr [ %ret.0.i4650, %asn1_multi.exit ], [ %retval.0.i, %asn1_str2type.exit ]
   %tobool15.not = icmp eq ptr %ret.0, null
   br i1 %tobool15.not, label %return, label %if.end17
 
@@ -583,8 +585,8 @@ if.end44:                                         ; preds = %if.end23, %if.end39
   %hdr_constructed.1 = phi i32 [ %hdr_constructed.0, %if.end39 ], [ 0, %if.end23 ]
   %exp_list = getelementptr inbounds nuw i8, ptr %asn1_tags, i64 24
   %28 = load i32, ptr %exp_count, align 8
-  %cmp4850 = icmp sgt i32 %28, 0
-  br i1 %cmp4850, label %for.body.preheader, label %for.end
+  %cmp4856 = icmp sgt i32 %28, 0
+  br i1 %cmp4856, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end44
   %idx.ext = zext nneg i32 %28 to i64
@@ -592,19 +594,19 @@ for.body.preheader:                               ; preds = %if.end44
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %len.153 = phi i32 [ %call51, %for.body ], [ %len.0, %for.body.preheader ]
-  %i.052 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %add.ptr.pn51 = phi ptr [ %etmp.0, %for.body ], [ %add.ptr, %for.body.preheader ]
-  %etmp.0 = getelementptr inbounds i8, ptr %add.ptr.pn51, i64 -24
-  %exp_pad = getelementptr inbounds i8, ptr %add.ptr.pn51, i64 -12
+  %len.159 = phi i32 [ %call51, %for.body ], [ %len.0, %for.body.preheader ]
+  %i.058 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %add.ptr.pn57 = phi ptr [ %etmp.0, %for.body ], [ %add.ptr, %for.body.preheader ]
+  %etmp.0 = getelementptr inbounds i8, ptr %add.ptr.pn57, i64 -24
+  %exp_pad = getelementptr inbounds i8, ptr %add.ptr.pn57, i64 -12
   %29 = load i32, ptr %exp_pad, align 4
-  %add = add nsw i32 %29, %len.153
+  %add = add nsw i32 %29, %len.159
   %conv50 = sext i32 %add to i64
-  %exp_len = getelementptr inbounds i8, ptr %add.ptr.pn51, i64 -8
+  %exp_len = getelementptr inbounds i8, ptr %add.ptr.pn57, i64 -8
   store i64 %conv50, ptr %exp_len, align 8
   %30 = load i32, ptr %etmp.0, align 8
   %call51 = call i32 @ASN1_object_size(i32 noundef 0, i32 noundef %add, i32 noundef %30) #9
-  %inc = add nuw nsw i32 %i.052, 1
+  %inc = add nuw nsw i32 %i.058, 1
   %31 = load i32, ptr %exp_count, align 8
   %cmp48 = icmp slt i32 %inc, %31
   br i1 %cmp48, label %for.body, label %for.end.loopexit, !llvm.loop !9
@@ -614,7 +616,7 @@ for.end.loopexit:                                 ; preds = %for.body
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end44
-  %cmp6154 = phi i1 [ false, %if.end44 ], [ %32, %for.end.loopexit ]
+  %cmp6160 = phi i1 [ false, %if.end44 ], [ %32, %for.end.loopexit ]
   %len.1.lcssa = phi i32 [ %len.0, %if.end44 ], [ %call51, %for.end.loopexit ]
   %conv52 = sext i32 %len.1.lcssa to i64
   %call53 = call noalias ptr @malloc(i64 noundef %conv52) #10
@@ -623,21 +625,21 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 if.end56:                                         ; preds = %for.end
   store ptr %call53, ptr %p, align 8
-  br i1 %cmp6154, label %for.body63, label %for.end75
+  br i1 %cmp6160, label %for.body63, label %for.end75
 
 for.body63:                                       ; preds = %if.end56, %for.inc72
-  %i.156 = phi i32 [ %inc73, %for.inc72 ], [ 0, %if.end56 ]
-  %etmp.155 = phi ptr [ %incdec.ptr74, %for.inc72 ], [ %exp_list, %if.end56 ]
-  %exp_constructed = getelementptr inbounds nuw i8, ptr %etmp.155, i64 8
+  %i.162 = phi i32 [ %inc73, %for.inc72 ], [ 0, %if.end56 ]
+  %etmp.161 = phi ptr [ %incdec.ptr74, %for.inc72 ], [ %exp_list, %if.end56 ]
+  %exp_constructed = getelementptr inbounds nuw i8, ptr %etmp.161, i64 8
   %33 = load i32, ptr %exp_constructed, align 8
-  %exp_len64 = getelementptr inbounds nuw i8, ptr %etmp.155, i64 16
+  %exp_len64 = getelementptr inbounds nuw i8, ptr %etmp.161, i64 16
   %34 = load i64, ptr %exp_len64, align 8
   %conv65 = trunc i64 %34 to i32
-  %35 = load i32, ptr %etmp.155, align 8
-  %exp_class = getelementptr inbounds nuw i8, ptr %etmp.155, i64 4
+  %35 = load i32, ptr %etmp.161, align 8
+  %exp_class = getelementptr inbounds nuw i8, ptr %etmp.161, i64 4
   %36 = load i32, ptr %exp_class, align 4
   call void @ASN1_put_object(ptr noundef nonnull %p, i32 noundef %33, i32 noundef %conv65, i32 noundef %35, i32 noundef %36) #9
-  %exp_pad67 = getelementptr inbounds nuw i8, ptr %etmp.155, i64 12
+  %exp_pad67 = getelementptr inbounds nuw i8, ptr %etmp.161, i64 12
   %37 = load i32, ptr %exp_pad67, align 4
   %tobool68.not = icmp eq i32 %37, 0
   br i1 %tobool68.not, label %for.inc72, label %if.then69
@@ -650,8 +652,8 @@ if.then69:                                        ; preds = %for.body63
   br label %for.inc72
 
 for.inc72:                                        ; preds = %for.body63, %if.then69
-  %inc73 = add nuw nsw i32 %i.156, 1
-  %incdec.ptr74 = getelementptr inbounds nuw i8, ptr %etmp.155, i64 24
+  %inc73 = add nuw nsw i32 %i.162, 1
+  %incdec.ptr74 = getelementptr inbounds nuw i8, ptr %etmp.161, i64 24
   %39 = load i32, ptr %exp_count, align 8
   %cmp61 = icmp slt i32 %inc73, %39
   br i1 %cmp61, label %for.body63, label %for.end75, !llvm.loop !10

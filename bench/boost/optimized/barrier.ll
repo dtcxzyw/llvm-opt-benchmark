@@ -106,7 +106,7 @@ define void @_ZN5boost6fibers7barrierC2Em(ptr noundef nonnull align 8 dereferenc
 17:                                               ; preds = %13
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %14) #21
+  tail call void @__cxa_free_exception(ptr nonnull %14) #21
   br label %22
 
 19:                                               ; preds = %16

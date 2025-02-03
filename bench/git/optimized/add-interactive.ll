@@ -2665,7 +2665,7 @@ for.cond33.outer.preheader:                       ; preds = %if.end27, %if.end27
 
 if.then30:                                        ; preds = %if.end27.tail
   %73 = load ptr, ptr %print_help, align 8
-  call void %73(ptr noundef %s) #17
+  call void %73(ptr noundef nonnull %s) #17
   br label %for.cond
 
 if.then36:                                        ; preds = %for.cond33.outer, %if.end39

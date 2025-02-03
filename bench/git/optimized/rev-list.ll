@@ -1283,7 +1283,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call fastcc void @finish_object__ma(ptr noundef %commit)
+  tail call fastcc void @finish_object__ma(ptr noundef nonnull %commit)
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -1682,7 +1682,7 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
   br label %if.end
 
 finish_object.exit:                               ; preds = %entry
-  tail call fastcc void @finish_object__ma(ptr noundef %obj)
+  tail call fastcc void @finish_object__ma(ptr noundef nonnull %obj)
   br label %if.end17
 
 if.end:                                           ; preds = %if.then9.i, %land.lhs.true.i, %if.end.i
@@ -1748,7 +1748,7 @@ if.end12:                                         ; preds = %if.end8
 
 if.then14:                                        ; preds = %if.end12
   %14 = load ptr, ptr @stdout, align 8
-  call void @show_object_with_name(ptr noundef %14, ptr noundef %obj, ptr noundef %name) #11
+  call void @show_object_with_name(ptr noundef %14, ptr noundef nonnull %obj, ptr noundef %name) #11
   br label %if.end17
 
 if.else:                                          ; preds = %if.end12

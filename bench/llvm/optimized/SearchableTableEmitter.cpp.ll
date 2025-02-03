@@ -4000,7 +4000,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %1584, %1586
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit487
 
 _ZN4llvm11raw_ostreamlsEPKc.exit487:              ; preds = %1597, %1599
-  %1602 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0545.0880) #24
+  %1602 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0545.0880) #24
   %.not731 = icmp eq ptr %1602, %1573
   br i1 %.not731, label %._crit_edge883, label %1576
 
@@ -5419,24 +5419,24 @@ define internal fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter16parseSea
   %48 = load ptr, ptr %5, align 8
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %50 = load ptr, ptr %49, align 8
-  %.not926 = icmp eq ptr %48, %50
-  br i1 %.not926, label %._crit_edge, label %.lr.ph
+  %.not25 = icmp eq ptr %48, %50
+  br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 112
   br label %52
 
 52:                                               ; preds = %.lr.ph, %_ZNK12_GLOBAL__N_112GenericTable14getFieldByNameEN4llvm9StringRefE.exit
-  %.sroa.01.027 = phi ptr [ %48, %.lr.ph ], [ %77, %_ZNK12_GLOBAL__N_112GenericTable14getFieldByNameEN4llvm9StringRefE.exit ]
-  %.sroa.0.0.copyload = load ptr, ptr %.sroa.01.027, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01.027, i64 8
+  %.sroa.01.026 = phi ptr [ %48, %.lr.ph ], [ %77, %_ZNK12_GLOBAL__N_112GenericTable14getFieldByNameEN4llvm9StringRefE.exit ]
+  %.sroa.0.0.copyload = load ptr, ptr %.sroa.01.026, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01.026, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.fr23.i = freeze i64 %.sroa.2.0.copyload
   %.val.i = load ptr, ptr %51, align 8
   %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #20
   %54 = getelementptr inbounds %"struct.(anonymous namespace)::GenericField", ptr %.val.i, i64 %53
   %.not16.i = icmp eq i64 %53, 0
-  br i1 %.not16.i, label %_ZNK12_GLOBAL__N_112GenericTable14getFieldByNameEN4llvm9StringRefE.exit.thread, label %.lr.ph.i
+  br i1 %.not16.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %52
   %55 = icmp eq i64 %.fr23.i, 0
@@ -5452,7 +5452,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter16parseSea
 _ZN4llvmeqENS_9StringRefES0_.exit.thread14.us.i:  ; preds = %.lr.ph.split.us.i
   %58 = getelementptr inbounds nuw i8, ptr %.01217.us.i, i64 56
   %.not.us.i = icmp eq ptr %58, %54
-  br i1 %.not.us.i, label %_ZNK12_GLOBAL__N_112GenericTable14getFieldByNameEN4llvm9StringRefE.exit.thread, label %.lr.ph.split.us.i
+  br i1 %.not.us.i, label %.loopexit, label %.lr.ph.split.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.i
   %.01217.i = phi ptr [ %62, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.i ], [ %.val.i, %.lr.ph.i ]
@@ -5469,10 +5469,10 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.split.i
 _ZN4llvmeqENS_9StringRefES0_.exit.thread14.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.split.i
   %62 = getelementptr inbounds nuw i8, ptr %.01217.i, i64 56
   %.not.i = icmp eq ptr %62, %54
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_112GenericTable14getFieldByNameEN4llvm9StringRefE.exit.thread, label %.lr.ph.split.i
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.split.i
 
-_ZNK12_GLOBAL__N_112GenericTable14getFieldByNameEN4llvm9StringRefE.exit.thread: ; preds = %52, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us.i
-  %.sroa.2.0..sroa_idx.le51 = getelementptr inbounds nuw i8, ptr %.sroa.01.027, i64 8
+.loopexit:                                        ; preds = %52, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us.i
+  %.sroa.2.0..sroa_idx.le50 = getelementptr inbounds nuw i8, ptr %.sroa.01.026, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %16, i64 33
   store i8 1, ptr %64, align 1
@@ -5494,9 +5494,9 @@ _ZNK12_GLOBAL__N_112GenericTable14getFieldByNameEN4llvm9StringRefE.exit.thread: 
   store i8 5, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %19, i64 33
   store i8 1, ptr %70, align 1
-  %71 = load ptr, ptr %.sroa.01.027, align 8
+  %71 = load ptr, ptr %.sroa.01.026, align 8
   store ptr %71, ptr %19, align 8
-  %72 = load i64, ptr %.sroa.2.0..sroa_idx.le51, align 8
+  %72 = load i64, ptr %.sroa.2.0..sroa_idx.le50, align 8
   %73 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %72, ptr %73, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %13, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef nonnull align 8 dereferenceable(34) %19)
@@ -5514,9 +5514,9 @@ _ZNK12_GLOBAL__N_112GenericTable14getFieldByNameEN4llvm9StringRefE.exit: ; preds
   %.val18 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds nuw i8, ptr %.val18, i64 40
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112GenericFieldELb0EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(56) %.0.i)
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.01.027, i64 16
-  %.not9 = icmp eq ptr %77, %50
-  br i1 %.not9, label %._crit_edge, label %52
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.01.026, i64 16
+  %.not = icmp eq ptr %77, %50
+  br i1 %.not, label %._crit_edge, label %52
 
 ._crit_edge:                                      ; preds = %_ZNK12_GLOBAL__N_112GenericTable14getFieldByNameEN4llvm9StringRefE.exit, %8
   br i1 %6, label %78, label %95

@@ -155,7 +155,7 @@ define internal fastcc range(i32 -67, 1) i32 @segment_attach(ptr noundef %0, i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 2) #8
   %6 = icmp eq i32 %5, -1
-  br i1 %6, label %20, label %7
+  br i1 %6, label %.thread40, label %7
 
 7:                                                ; preds = %3
   %8 = inttoptr i64 %1 to ptr
@@ -167,78 +167,72 @@ define internal fastcc range(i32 -67, 1) i32 @segment_attach(ptr noundef %0, i64
 
 .thread48:                                        ; preds = %7
   %13 = tail call i32 @close(i32 noundef %5) #8
-  br label %.thread53
+  br label %.thread40
 
 14:                                               ; preds = %7
   %15 = and i8 %2, 1
   %16 = icmp eq i8 %15, 0
   %17 = icmp eq i64 %1, 0
-  %or.cond.not63 = or i1 %17, %16
+  %or.cond.not54 = or i1 %17, %16
   %18 = ptrtoint ptr %11 to i64
   %.not = icmp eq i64 %1, %18
-  %or.cond29 = or i1 %or.cond.not63, %.not
+  %or.cond29 = or i1 %or.cond.not54, %.not
   %19 = tail call i32 @close(i32 noundef %5) #8
-  br i1 %or.cond29, label %31, label %.thread53
+  br i1 %or.cond29, label %30, label %.thread40
 
-20:                                               ; preds = %3
-  %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %pmix_shmem_segment_detach.exit, label %.thread53
+.thread40:                                        ; preds = %3, %14, %.thread48
+  %.0223547 = phi ptr [ %11, %14 ], [ inttoptr (i64 -1 to ptr), %.thread48 ], [ inttoptr (i64 -1 to ptr), %3 ]
+  %.03945 = phi i32 [ -64, %14 ], [ -32, %.thread48 ], [ -67, %3 ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %21 = load volatile i8, ptr %20, align 8
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %pmix_shmem_segment_detach.exit
 
-.thread53:                                        ; preds = %14, %.thread48, %20
-  %.0394559 = phi i32 [ -67, %20 ], [ -32, %.thread48 ], [ -64, %14 ]
-  %.022354757 = phi ptr [ inttoptr (i64 -1 to ptr), %20 ], [ inttoptr (i64 -1 to ptr), %.thread48 ], [ %11, %14 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %22 = load volatile i8, ptr %21, align 8
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %pmix_shmem_segment_detach.exit
-
-24:                                               ; preds = %.thread53
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %28 = load i64, ptr %27, align 8
-  %29 = tail call i32 @munmap(ptr noundef %26, i64 noundef %28) #8
-  store volatile i8 0, ptr %21, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+23:                                               ; preds = %.thread40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %27 = load i64, ptr %26, align 8
+  %28 = tail call i32 @munmap(ptr noundef %25, i64 noundef %27) #8
+  store volatile i8 0, ptr %20, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   br label %pmix_shmem_segment_detach.exit
 
-pmix_shmem_segment_detach.exit:                   ; preds = %20, %.thread53, %24
-  %.0394560 = phi i32 [ -67, %20 ], [ %.0394559, %.thread53 ], [ %.0394559, %24 ]
-  %.022354758 = phi ptr [ inttoptr (i64 -1 to ptr), %20 ], [ %.022354757, %.thread53 ], [ %.022354757, %24 ]
-  %30 = tail call ptr @PMIx_Error_string(i32 noundef %.0394560) #8
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %30, ptr noundef nonnull @.str.1, i32 noundef 91) #8
-  br label %33
+pmix_shmem_segment_detach.exit:                   ; preds = %.thread40, %23
+  %29 = tail call ptr @PMIx_Error_string(i32 noundef %.03945) #8
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %29, ptr noundef nonnull @.str.1, i32 noundef 91) #8
+  br label %32
 
-31:                                               ; preds = %14
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store volatile i8 1, ptr %32, align 8
-  br label %33
+30:                                               ; preds = %14
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store volatile i8 1, ptr %31, align 8
+  br label %32
 
-33:                                               ; preds = %pmix_shmem_segment_detach.exit, %31
-  %.0223546 = phi ptr [ %.022354758, %pmix_shmem_segment_detach.exit ], [ %11, %31 ]
-  %.03944 = phi i32 [ %.0394560, %pmix_shmem_segment_detach.exit ], [ 0, %31 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %.0223546, ptr %34, align 8
-  %35 = tail call i64 @sysconf(i32 noundef 30) #8
-  %36 = icmp eq i64 %35, -1
-  br i1 %36, label %37, label %data_addr_from_base.exit
+32:                                               ; preds = %pmix_shmem_segment_detach.exit, %30
+  %.0223546 = phi ptr [ %.0223547, %pmix_shmem_segment_detach.exit ], [ %11, %30 ]
+  %.03944 = phi i32 [ %.03945, %pmix_shmem_segment_detach.exit ], [ 0, %30 ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %.0223546, ptr %33, align 8
+  %34 = tail call i64 @sysconf(i32 noundef 30) #8
+  %35 = icmp eq i64 %34, -1
+  br i1 %35, label %36, label %data_addr_from_base.exit
 
-37:                                               ; preds = %33
-  %38 = tail call ptr @PMIx_Error_string(i32 noundef -1) #8
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %38, ptr noundef nonnull @.str.1, i32 noundef 240) #8
+36:                                               ; preds = %32
+  %37 = tail call ptr @PMIx_Error_string(i32 noundef -1) #8
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %37, ptr noundef nonnull @.str.1, i32 noundef 240) #8
   br label %data_addr_from_base.exit
 
-data_addr_from_base.exit:                         ; preds = %33, %37
-  %.0.i.i.i = phi i64 [ 0, %37 ], [ %35, %33 ]
-  %39 = add i64 %.0.i.i.i, -4
-  %40 = add i64 %.0.i.i.i, -1
-  %41 = and i64 %39, %40
-  %42 = ptrtoint ptr %.0223546 to i64
-  %43 = add i64 %42, 4
-  %44 = add i64 %43, %41
-  %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %45, ptr %46, align 8
+data_addr_from_base.exit:                         ; preds = %32, %36
+  %.0.i.i.i = phi i64 [ 0, %36 ], [ %34, %32 ]
+  %38 = add i64 %.0.i.i.i, -4
+  %39 = add i64 %.0.i.i.i, -1
+  %40 = and i64 %38, %39
+  %41 = ptrtoint ptr %.0223546 to i64
+  %42 = add i64 %41, 4
+  %43 = add i64 %42, %40
+  %44 = inttoptr i64 %43 to ptr
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %44, ptr %45, align 8
   ret i32 %.03944
 }
 

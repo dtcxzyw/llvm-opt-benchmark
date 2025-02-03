@@ -235,9 +235,9 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call52) #2
   br label %if.then.i
 
-if.then.i:                                        ; preds = %Py_DECREF.exit74, %while.end, %Py_DECREF.exit65, %if.end55, %if.then1.i, %if.end.i, %_Py_NewRef.exit, %if.end17
-  %repr.079 = phi ptr [ null, %if.end17 ], [ null, %_Py_NewRef.exit ], [ null, %while.end ], [ null, %Py_DECREF.exit65 ], [ %call56, %if.end55 ], [ %call56, %if.then1.i ], [ %call56, %if.end.i ], [ null, %Py_DECREF.exit74 ]
-  %keys_iter.073 = phi ptr [ null, %if.end17 ], [ null, %_Py_NewRef.exit ], [ %call18, %while.end ], [ %call18, %Py_DECREF.exit65 ], [ %call18, %if.end55 ], [ %call18, %if.then1.i ], [ %call18, %if.end.i ], [ %call18, %Py_DECREF.exit74 ]
+if.then.i:                                        ; preds = %Py_DECREF.exit74, %while.end, %_Py_NewRef.exit, %if.end17, %Py_DECREF.exit65, %if.end55, %if.then1.i, %if.end.i
+  %repr.079 = phi ptr [ %call56, %if.end.i ], [ %call56, %if.then1.i ], [ %call56, %if.end55 ], [ null, %Py_DECREF.exit65 ], [ null, %if.end17 ], [ null, %_Py_NewRef.exit ], [ null, %while.end ], [ null, %Py_DECREF.exit74 ]
+  %keys_iter.073 = phi ptr [ %call18, %if.end.i ], [ %call18, %if.then1.i ], [ %call18, %if.end55 ], [ %call18, %Py_DECREF.exit65 ], [ null, %if.end17 ], [ null, %_Py_NewRef.exit ], [ %call18, %while.end ], [ %call18, %Py_DECREF.exit74 ]
   %16 = load i64, ptr %call9, align 8
   %17 = and i64 %16, 2147483648
   %cmp.i2.not.i = icmp eq i64 %17, 0

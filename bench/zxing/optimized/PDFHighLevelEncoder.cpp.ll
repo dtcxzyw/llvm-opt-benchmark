@@ -260,7 +260,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 100:                                              ; preds = %96
   %101 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %97) #14
+  tail call void @__cxa_free_exception(ptr nonnull %97) #14
   br label %349
 
 102:                                              ; preds = %95, %73, %38, %36

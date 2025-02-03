@@ -16538,7 +16538,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit430:           ; preds = %cleanup240, %if.the
   br i1 %switch.not.not, label %for.inc242, label %return
 
 for.inc242:                                       ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit430
-  %call.i431 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0491) #29
+  %call.i431 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.0491) #29
   %cmp.i126.not = icmp eq ptr %call.i431, %add.ptr.i.i125
   br i1 %cmp.i126.not, label %return, label %for.body49
 

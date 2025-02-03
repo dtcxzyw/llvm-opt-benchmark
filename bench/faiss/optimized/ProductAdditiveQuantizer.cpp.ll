@@ -734,7 +734,7 @@ define void @_ZNK5faiss24ProductAdditiveQuantizer6decodeEPKhPfm(ptr noundef nonn
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #17
+  call void @__cxa_free_exception(ptr nonnull %23) #17
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -883,7 +883,7 @@ define void @_ZNK5faiss24ProductAdditiveQuantizer15decode_unpackedEPKiPfml(ptr n
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #17
+  call void @__cxa_free_exception(ptr nonnull %25) #17
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -1114,7 +1114,7 @@ define void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17Additiv
 57:                                               ; preds = %50
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %53) #17
+  call void @__cxa_free_exception(ptr nonnull %53) #17
   br label %59
 
 59:                                               ; preds = %57, %55
@@ -2818,7 +2818,7 @@ _ZN5faiss24ProductAdditiveQuantizerC2Ev.exit:     ; preds = %6
 32:                                               ; preds = %25
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %28) #17
+  call void @__cxa_free_exception(ptr nonnull %28) #17
   br label %.thread
 
 .thread:                                          ; preds = %30, %32
@@ -3177,7 +3177,7 @@ _ZN5faiss24ProductAdditiveQuantizerC2Ev.exit:     ; preds = %6
 32:                                               ; preds = %25
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %28) #17
+  call void @__cxa_free_exception(ptr nonnull %28) #17
   br label %.thread
 
 .thread:                                          ; preds = %30, %32

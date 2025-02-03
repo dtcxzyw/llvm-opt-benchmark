@@ -4053,28 +4053,33 @@ _ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE11_M_allocateEm.exit: ; p
   %25 = getelementptr inbounds i8, ptr %24, i64 %20
   call void @llvm.lifetime.start.p0(i64 560, ptr nonnull %5)
   invoke void @_ZN3gmx4BiasC2EOS0_(ptr noundef nonnull align 8 dereferenceable(556) %5, ptr noundef nonnull align 8 dereferenceable(556) %2)
-          to label %.noexc unwind label %39
+          to label %.noexc unwind label %.body
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE11_M_allocateEm.exit
   invoke void @_ZN3gmx19BiasCoupledToSystemC1ENS_4BiasERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(584) %25, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %28 unwind label %26
+          to label %27 unwind label %.body.thread
 
-26:                                               ; preds = %.noexc
-  %27 = landingpad { ptr, i32 }
+.body.thread:                                     ; preds = %.noexc
+  %26 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %5) #24
-  br label %.body
+  br label %.sink.split
 
-28:                                               ; preds = %.noexc
+27:                                               ; preds = %.noexc
   call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %5) #24
   call void @llvm.lifetime.end.p0(i64 560, ptr nonnull %5)
-  %29 = invoke noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN3gmx19BiasCoupledToSystemEES3_ET0_T_S6_S5_(ptr %8, ptr %1, ptr noundef %24)
-          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx19BiasCoupledToSystemES2_SaIS1_EET0_T_S5_S4_RT1_.exit unwind label %39
+  %28 = invoke noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN3gmx19BiasCoupledToSystemEES3_ET0_T_S6_S5_(ptr %8, ptr %1, ptr noundef nonnull %24)
+          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx19BiasCoupledToSystemES2_SaIS1_EET0_T_S5_S4_RT1_.exit unwind label %47
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx19BiasCoupledToSystemES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %28
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 584
-  %31 = invoke noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN3gmx19BiasCoupledToSystemEES3_ET0_T_S6_S5_(ptr %1, ptr %7, ptr noundef nonnull %30)
-          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx19BiasCoupledToSystemES2_SaIS1_EET0_T_S5_S4_RT1_.exit31 unwind label %39
+_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx19BiasCoupledToSystemES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 584
+  %30 = invoke noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN3gmx19BiasCoupledToSystemEES3_ET0_T_S6_S5_(ptr %1, ptr %7, ptr noundef nonnull %29)
+          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx19BiasCoupledToSystemES2_SaIS1_EET0_T_S5_S4_RT1_.exit31 unwind label %.body.thread45
+
+.body.thread45:                                   ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx19BiasCoupledToSystemES2_SaIS1_EET0_T_S5_S4_RT1_.exit
+  %31 = landingpad { ptr, i32 }
+          catch ptr null
+  br label %.sink.split
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx19BiasCoupledToSystemES2_SaIS1_EET0_T_S5_S4_RT1_.exit31: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx19BiasCoupledToSystemES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %.not4.i.i.i = icmp eq ptr %8, %7
@@ -4108,62 +4113,68 @@ _ZSt8_DestroyIPN3gmx19BiasCoupledToSystemES1_EvT_S3_RSaIT0_E.exit: ; preds = %_Z
 _ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemES1_EvT_S3_RSaIT0_E.exit, %36
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %24, ptr %0, align 8
-  store ptr %31, ptr %6, align 8
+  store ptr %30, ptr %6, align 8
   %38 = getelementptr inbounds nuw %"struct.gmx::BiasCoupledToSystem", ptr %24, i64 %18
   store ptr %38, ptr %37, align 8
   ret void
 
-39:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx19BiasCoupledToSystemES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %28, %_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE11_M_allocateEm.exit
-  %.0 = phi ptr [ %24, %_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE11_M_allocateEm.exit ], [ null, %28 ], [ %30, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx19BiasCoupledToSystemES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
-  %40 = landingpad { ptr, i32 }
+.body:                                            ; preds = %_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE11_M_allocateEm.exit
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  %40 = extractvalue { ptr, i32 } %39, 0
+  %41 = call ptr @__cxa_begin_catch(ptr %40) #24
+  %.not = icmp eq ptr %24, null
+  br i1 %.not, label %.thread49, label %44
 
-.body:                                            ; preds = %26, %39
-  %.0.lpad-body = phi ptr [ %.0, %39 ], [ %24, %26 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %40, %39 ], [ %27, %26 ]
-  %41 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %42 = call ptr @__cxa_begin_catch(ptr %41) #24
-  %.not = icmp eq ptr %.0.lpad-body, null
-  br i1 %.not, label %43, label %44
-
-43:                                               ; preds = %.body
+.thread49:                                        ; preds = %.body
   call void @_ZNSt16allocator_traitsISaIN3gmx19BiasCoupledToSystemEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %25) #24
-  br label %47
+  br label %_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit34
 
-44:                                               ; preds = %.body
-  invoke void @_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemES1_EvT_S3_RSaIT0_E(ptr noundef %24, ptr noundef nonnull %.0.lpad-body, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %47 unwind label %45
+.sink.split:                                      ; preds = %.body.thread, %.body.thread45
+  %.sink51 = phi { ptr, i32 } [ %31, %.body.thread45 ], [ %26, %.body.thread ]
+  %.0.lpad-body41.ph = phi ptr [ %29, %.body.thread45 ], [ %24, %.body.thread ]
+  %42 = extractvalue { ptr, i32 } %.sink51, 0
+  %43 = call ptr @__cxa_begin_catch(ptr %42) #24
+  br label %44
+
+44:                                               ; preds = %.sink.split, %.body
+  %.0.lpad-body41 = phi ptr [ %24, %.body ], [ %.0.lpad-body41.ph, %.sink.split ]
+  invoke void @_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %24, ptr noundef nonnull %.0.lpad-body41, ptr noundef nonnull align 1 dereferenceable(1) %0)
+          to label %.thread unwind label %45
 
 45:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit34, %44
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %49 unwind label %50
+          to label %51 unwind label %52
 
-47:                                               ; preds = %44, %43
-  %.not.i33 = icmp eq ptr %24, null
-  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit34, label %48
+47:                                               ; preds = %27
+  %48 = landingpad { ptr, i32 }
+          catch ptr null
+  %49 = extractvalue { ptr, i32 } %48, 0
+  %50 = call ptr @__cxa_begin_catch(ptr %49) #24
+  call void @_ZNSt16allocator_traitsISaIN3gmx19BiasCoupledToSystemEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %25) #24
+  br label %.thread
 
-48:                                               ; preds = %47
+.thread:                                          ; preds = %44, %47
   call void @_ZdlPv(ptr noundef nonnull %24) #23
   br label %_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit34
 
-_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit34: ; preds = %48, %47
+_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit34: ; preds = %.thread49, %.thread
   invoke void @__cxa_rethrow() #21
-          to label %53 unwind label %45
+          to label %55 unwind label %45
 
-49:                                               ; preds = %45
+51:                                               ; preds = %45
   resume { ptr, i32 } %46
 
-50:                                               ; preds = %45
-  %51 = landingpad { ptr, i32 }
+52:                                               ; preds = %45
+  %53 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #25
+  %54 = extractvalue { ptr, i32 } %53, 0
+  call void @__clang_call_terminate(ptr %54) #25
   unreachable
 
-53:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit34
+55:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit34
   unreachable
 }
 
@@ -4300,7 +4311,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %12
   %eh.lpad-body = phi { ptr, i32 } [ %31, %30 ], [ %lpad.phi, %25 ]
   %32 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %33 = tail call ptr @__cxa_begin_catch(ptr %32) #24
-  invoke void @_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemEEvT_S3_(ptr noundef %2, ptr noundef %.018)
+  invoke void @_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemEEvT_S3_(ptr noundef %2, ptr noundef nonnull %.018)
           to label %34 unwind label %35
 
 34:                                               ; preds = %.body

@@ -2053,7 +2053,7 @@ if.else.i.i428:                                   ; preds = %invoke.cont150
 
 cleanup.done178:                                  ; preds = %if.then.i.i427, %if.else.i.i428
   call void @_ZN4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationStateD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %ref.tmp148) #24
-  %call.i680 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin3137.sroa.0.0968) #29
+  %call.i680 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3137.sroa.0.0968) #29
   %cmp.i424.not = icmp eq ptr %call.i680, %add.ptr.i.i
   br i1 %cmp.i424.not, label %cond.true268, label %for.body145
 

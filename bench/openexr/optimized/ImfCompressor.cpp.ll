@@ -261,7 +261,7 @@ invoke.cont:                                      ; preds = %sw.default
 lpad:                                             ; preds = %sw.default
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #16
   resume { ptr, i32 } %1
 
 switch.lookup:                                    ; preds = %entry
@@ -323,7 +323,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #16
   br label %eh.resume
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %sw.bb

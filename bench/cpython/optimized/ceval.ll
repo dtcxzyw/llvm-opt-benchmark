@@ -32584,18 +32584,18 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %co_posonlyargcount = getelementptr inbounds nuw i8, ptr %co, i64 56
   %0 = load i32, ptr %co_posonlyargcount, align 8
-  %cmp143 = icmp sgt i32 %0, 0
-  br i1 %cmp143, label %for.body.lr.ph, label %do.body75
+  %cmp144 = icmp sgt i32 %0, 0
+  br i1 %cmp144, label %for.body.lr.ph, label %do.body75
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %co_localsplusnames = getelementptr inbounds nuw i8, ptr %co, i64 96
-  %cmp339 = icmp sgt i64 %kwcount, 0
+  %cmp340 = icmp sgt i64 %kwcount, 0
   %ob_item6 = getelementptr inbounds nuw i8, ptr %kwnames, i64 24
-  br i1 %cmp339, label %for.body.us, label %do.body75
+  br i1 %cmp340, label %for.body.us, label %do.body75
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond2.for.inc35_crit_edge.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond2.for.inc35_crit_edge.us ], [ 0, %for.body.lr.ph ]
-  %posonly_conflicts.045.us = phi i32 [ %posonly_conflicts.2.us, %for.cond2.for.inc35_crit_edge.us ], [ 0, %for.body.lr.ph ]
+  %posonly_conflicts.046.us = phi i32 [ %posonly_conflicts.2.us, %for.cond2.for.inc35_crit_edge.us ], [ 0, %for.body.lr.ph ]
   %1 = load ptr, ptr %co_localsplusnames, align 8
   %ob_item.us = getelementptr inbounds nuw i8, ptr %1, i64 24
   %arrayidx.us = getelementptr [1 x ptr], ptr %ob_item.us, i64 0, i64 %indvars.iv
@@ -32603,10 +32603,10 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br label %for.body5.us
 
 for.body5.us:                                     ; preds = %for.body.us, %for.inc.us
-  %conv42.us = phi i64 [ 0, %for.body.us ], [ %conv.us, %for.inc.us ]
-  %posonly_conflicts.141.us = phi i32 [ %posonly_conflicts.045.us, %for.body.us ], [ %posonly_conflicts.2.us, %for.inc.us ]
-  %k2.040.us = phi i32 [ 0, %for.body.us ], [ %inc34.us, %for.inc.us ]
-  %arrayidx8.us = getelementptr [1 x ptr], ptr %ob_item6, i64 0, i64 %conv42.us
+  %conv43.us = phi i64 [ 0, %for.body.us ], [ %conv.us, %for.inc.us ]
+  %posonly_conflicts.142.us = phi i32 [ %posonly_conflicts.046.us, %for.body.us ], [ %posonly_conflicts.2.us, %for.inc.us ]
+  %k2.041.us = phi i32 [ 0, %for.body.us ], [ %inc34.us, %for.inc.us ]
+  %arrayidx8.us = getelementptr [1 x ptr], ptr %ob_item6, i64 0, i64 %conv43.us
   %3 = load ptr, ptr %arrayidx8.us, align 8
   %cmp9.us = icmp eq ptr %3, %2
   br i1 %cmp9.us, label %if.then11.us, label %if.end17.us
@@ -32626,7 +32626,7 @@ if.then22.us:                                     ; preds = %if.end17.us
   br i1 %cmp24.not.us, label %if.end27.us, label %do.body94
 
 if.end27.us:                                      ; preds = %if.then22.us
-  %inc28.us = add i32 %posonly_conflicts.141.us, 1
+  %inc28.us = add i32 %posonly_conflicts.142.us, 1
   br label %for.inc.us
 
 if.then11.us:                                     ; preds = %for.body5.us
@@ -32635,12 +32635,12 @@ if.then11.us:                                     ; preds = %for.body5.us
   br i1 %cmp13.not.us, label %if.end16.us, label %do.body94
 
 if.end16.us:                                      ; preds = %if.then11.us
-  %inc.us = add i32 %posonly_conflicts.141.us, 1
+  %inc.us = add i32 %posonly_conflicts.142.us, 1
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end16.us, %if.end27.us, %if.else.us
-  %posonly_conflicts.2.us = phi i32 [ %inc.us, %if.end16.us ], [ %inc28.us, %if.end27.us ], [ %posonly_conflicts.141.us, %if.else.us ]
-  %inc34.us = add i32 %k2.040.us, 1
+  %posonly_conflicts.2.us = phi i32 [ %inc.us, %if.end16.us ], [ %inc28.us, %if.end27.us ], [ %posonly_conflicts.142.us, %if.else.us ]
+  %inc34.us = add i32 %k2.041.us, 1
   %conv.us = sext i32 %inc34.us to i64
   %cmp3.us = icmp sgt i64 %kwcount, %conv.us
   br i1 %cmp3.us, label %for.body5.us, label %for.cond2.for.inc35_crit_edge.us, !llvm.loop !78
@@ -32720,7 +32720,7 @@ if.end80:                                         ; preds = %do.body75
   %cmp82 = icmp eq i64 %dec81, 0
   br i1 %cmp82, label %return.sink.split, label %return
 
-do.body94:                                        ; preds = %if.then11.us, %if.then22.us, %if.else.us, %if.end57, %if.then68, %if.end64, %do.end, %if.then38
+do.body94:                                        ; preds = %if.then11.us, %if.then22.us, %if.else.us, %if.then38, %if.end57, %if.then68, %if.end64, %do.end
   %18 = load i64, ptr %call, align 8
   %19 = and i64 %18, 2147483648
   %cmp.i.not = icmp eq i64 %19, 0

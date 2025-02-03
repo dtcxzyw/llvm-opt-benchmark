@@ -348,7 +348,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_bindx(ptr noundef %0, ptr noundef read
   br label %31
 
 31:                                               ; preds = %27, %._crit_edge
-  tail call void @free(ptr noundef %12) #10
+  tail call void @free(ptr noundef nonnull %12) #10
   br label %32
 
 32:                                               ; preds = %8, %31, %20, %14

@@ -9605,13 +9605,13 @@ define internal i32 @dissect_smb2_ioctl_request(ptr noundef %0, ptr noundef %1, 
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %56
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef %4, ptr noundef nonnull @dissect_smb2_ioctl_data_out)
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %7, ptr noundef %4, ptr noundef nonnull @dissect_smb2_ioctl_data_in)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_ioctl_data_out)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_ioctl_data_in)
   br label %65
 
 64:                                               ; preds = %56
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %7, ptr noundef %4, ptr noundef nonnull @dissect_smb2_ioctl_data_in)
-  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef %4, ptr noundef nonnull @dissect_smb2_ioctl_data_out)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_ioctl_data_in)
+  call fastcc void @dissect_smb2_olb_buffer(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull @dissect_smb2_ioctl_data_out)
   br label %65
 
 65:                                               ; preds = %64, %63

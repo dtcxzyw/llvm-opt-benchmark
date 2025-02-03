@@ -177,7 +177,7 @@ if.end42:                                         ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %errbuf.i)
   %6 = load i8, ptr %call26, align 1
   %tobool.not24.i = icmp eq i8 %6, 0
-  br i1 %tobool.not24.i, label %find_funcname_matching_regexp.exit.thread, label %while.body.lr.ph.i
+  br i1 %tobool.not24.i, label %if.then45, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end42
   %rm_eo.i = getelementptr inbounds nuw i8, ptr %match.i, i64 4
@@ -190,7 +190,7 @@ while.body.us.i:                                  ; preds = %while.body.lr.ph.i,
   %start.addr.025.us.i = phi ptr [ %spec.select19.us.i, %while.cond.backedge.us.i ], [ %call26, %while.body.lr.ph.i ]
   %call.us.i = call i32 @regexec(ptr noundef nonnull %regexp, ptr noundef nonnull %start.addr.025.us.i, i64 noundef 1, ptr noundef nonnull %match.i, i32 noundef 0) #8
   switch i32 %call.us.i, label %if.then2.i [
-    i32 1, label %find_funcname_matching_regexp.exit.thread
+    i32 1, label %if.then45
     i32 0, label %if.end6.us.i
   ]
 
@@ -270,13 +270,13 @@ while.body29.us.i:                                ; preds = %while.cond21.us.i
 while.cond.backedge.us.i:                         ; preds = %while.cond.critedge.us.i, %switch.early.test.i.us.i
   %16 = load i8, ptr %spec.select19.us.i, align 1
   %tobool.not.us.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.us.i, label %find_funcname_matching_regexp.exit.thread, label %while.body.us.i, !llvm.loop !9
+  br i1 %tobool.not.us.i, label %if.then45, label %while.body.us.i, !llvm.loop !9
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.cond.backedge.i
   %start.addr.025.i = phi ptr [ %spec.select19.i, %while.cond.backedge.i ], [ %call26, %while.body.lr.ph.i ]
   %call.i = call i32 @regexec(ptr noundef nonnull %regexp, ptr noundef nonnull %start.addr.025.i, i64 noundef 1, ptr noundef nonnull %match.i, i32 noundef 0) #8
   switch i32 %call.i, label %if.then2.i [
-    i32 1, label %find_funcname_matching_regexp.exit.thread
+    i32 1, label %if.then45
     i32 0, label %if.end6.i
   ]
 
@@ -348,13 +348,7 @@ while.end31.i:                                    ; preds = %while.cond21.i, %wh
 while.cond.backedge.i:                            ; preds = %while.end31.i
   %25 = load i8, ptr %spec.select19.i, align 1
   %tobool.not.i = icmp eq i8 %25, 0
-  br i1 %tobool.not.i, label %find_funcname_matching_regexp.exit.thread, label %while.body.i, !llvm.loop !9
-
-find_funcname_matching_regexp.exit.thread:        ; preds = %while.body.i, %while.cond.backedge.i, %while.body.us.i, %while.cond.backedge.us.i, %if.end42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %match.i)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %errbuf.i)
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.1, ptr noundef %call, i64 noundef %spec.select) #9
-  unreachable
+  br i1 %tobool.not.i, label %if.then45, label %while.body.i, !llvm.loop !9
 
 find_funcname_matching_regexp.exit:               ; preds = %while.end31.i, %switch.early.test.i.us.i, %switch.early.test.i.us.i, %if.end4.i.us.i
   %retval.0.i = phi ptr [ %spec.select.us.i, %if.end4.i.us.i ], [ %spec.select.us.i, %switch.early.test.i.us.i ], [ %spec.select.us.i, %switch.early.test.i.us.i ], [ %spec.select.i, %while.end31.i ]
@@ -364,6 +358,12 @@ find_funcname_matching_regexp.exit:               ; preds = %while.end31.i, %swi
   %call4875 = call ptr %nth_line_cb(ptr noundef %cb_data, i64 noundef 0) #8
   %cmp4976 = icmp ugt ptr %retval.0.i, %call4875
   br i1 %cmp4976, label %while.body51, label %while.end52
+
+if.then45:                                        ; preds = %while.body.i, %while.cond.backedge.i, %while.body.us.i, %while.cond.backedge.us.i, %if.end42
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %match.i)
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %errbuf.i)
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.1, ptr noundef %call, i64 noundef %spec.select) #9
+  unreachable
 
 while.body51:                                     ; preds = %find_funcname_matching_regexp.exit, %while.body51
   %26 = load i64, ptr %begin, align 8

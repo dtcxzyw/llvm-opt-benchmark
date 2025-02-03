@@ -69,7 +69,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef %dwaa, i32 noundef 1, ptr noundef %encode, ptr noundef null)
+  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef %dwaa, i32 noundef 1, ptr noundef nonnull %encode, ptr noundef null)
   %cmp3 = icmp eq i32 %call2, 0
   br i1 %cmp3, label %if.then4, label %if.end
 
@@ -1589,7 +1589,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef %dwab, i32 noundef 0, ptr noundef %encode, ptr noundef null)
+  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef %dwab, i32 noundef 0, ptr noundef nonnull %encode, ptr noundef null)
   %cmp3 = icmp eq i32 %call2, 0
   br i1 %cmp3, label %if.then4, label %if.end
 
@@ -1619,7 +1619,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef %dwaa, i32 noundef 0, ptr noundef null, ptr noundef %decode)
+  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef %dwaa, i32 noundef 0, ptr noundef null, ptr noundef nonnull %decode)
   %cmp3 = icmp eq i32 %call2, 0
   br i1 %cmp3, label %if.then4, label %if.end
 
@@ -2648,7 +2648,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef %dwaa, i32 noundef 0, ptr noundef null, ptr noundef %decode)
+  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef %dwaa, i32 noundef 0, ptr noundef null, ptr noundef nonnull %decode)
   %cmp3 = icmp eq i32 %call2, 0
   br i1 %cmp3, label %if.then4, label %if.end
 
@@ -8506,7 +8506,7 @@ if.else158:                                       ; preds = %if.else154
 for.inc171.sink.split:                            ; preds = %if.else158, %if.else154, %if.else150, %if.else146, %if.else142, %if.else138, %if.else
   %dctInverse8x8_6.sink = phi ptr [ @dctInverse8x8_7, %if.else ], [ @dctInverse8x8_6, %if.else138 ], [ @dctInverse8x8_5, %if.else142 ], [ @dctInverse8x8_4, %if.else146 ], [ @dctInverse8x8_3, %if.else150 ], [ @dctInverse8x8_2, %if.else154 ], [ %dctInverse8x8_1.dctInverse8x8_0, %if.else158 ]
   %30 = load ptr, ptr %dctInverse8x8_6.sink, align 8
-  tail call void %30(ptr noundef %18) #16
+  tail call void %30(ptr noundef nonnull %18) #16
   br label %for.inc171
 
 for.inc171:                                       ; preds = %for.body.i, %for.inc171.sink.split

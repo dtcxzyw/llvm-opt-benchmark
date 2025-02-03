@@ -4862,7 +4862,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #24
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #24
   resume { ptr, i32 } %0
 }
 
@@ -7648,7 +7648,7 @@ if.end37.sink.split.i.i:                          ; preds = %if.else18.i.i, %if.
 
 _ZSt22__move_median_to_firstIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i: ; preds = %if.end37.sink.split.i.i, %if.else18.i.i, %if.then.i.i15
   %__a.0.val.sink.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i15 ], [ %add.ptr.i8.i, %if.else18.i.i ], [ %__c.0.val.__b.0.val.i.i, %if.end37.sink.split.i.i ]
-  tail call fastcc void @_ZSt9iter_swapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEES7_EvT_T0_(ptr %__first.val84197, ptr nonnull %__a.0.val.sink.i.i), !noalias !499
+  tail call fastcc void @_ZSt9iter_swapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEES7_EvT_T0_(ptr nonnull %__first.val84197, ptr nonnull %__a.0.val.sink.i.i), !noalias !499
   %double_cr2.i.i.i = getelementptr inbounds nuw i8, ptr %__first.val84197, i64 32
   %arrayidx.i.i44.i.i25.i.i.i = getelementptr inbounds nuw i8, ptr %__first.val84197, i64 40
   %arrayidx.i.i45.i.i27.i.i.i = getelementptr inbounds nuw i8, ptr %__first.val84197, i64 48

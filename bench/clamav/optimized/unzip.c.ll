@@ -1359,7 +1359,7 @@ zinitkey.exit:                                    ; preds = %zinitkey.exit.loope
   br i1 %.not141, label %200, label %199
 
 199:                                              ; preds = %197
-  call void @free(ptr noundef %133) #12
+  call void @free(ptr noundef nonnull %133) #12
   br label %212
 
 200:                                              ; preds = %.loopexit, %197

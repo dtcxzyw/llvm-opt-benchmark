@@ -1023,7 +1023,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #34
   resume { ptr, i32 } %2
 }
 
@@ -9170,7 +9170,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #34
+  call void @__cxa_free_exception(ptr nonnull %exception) #34
   br label %eh.resume
 
 if.end:                                           ; preds = %_ZNK5folly11ThreadLocalIbvvEdeEv.exit
@@ -10211,7 +10211,7 @@ lpad:                                             ; preds = %invoke.cont38.invok
 lpad5:                                            ; preds = %if.then4
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #34
+  call void @__cxa_free_exception(ptr nonnull %exception) #34
   br label %ehcleanup
 
 if.then9:                                         ; preds = %invoke.cont
@@ -10286,7 +10286,7 @@ invoke.cont38.cont:                               ; preds = %invoke.cont38.invok
 lpad37:                                           ; preds = %if.then35
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception36) #34
+  call void @__cxa_free_exception(ptr nonnull %exception36) #34
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont18, %invoke.cont.cleanup_crit_edge

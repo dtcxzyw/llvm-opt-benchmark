@@ -6430,7 +6430,7 @@ arrayctor.loop.i:                                 ; preds = %invoke.cont.i, %new
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 104
   %arrayctor.done.i = icmp samesign eq i64 %arrayctor.cur.add.i, 848
-  br i1 %arrayctor.done.i, label %new.cont, label %arrayctor.loop.i
+  br i1 %arrayctor.done.i, label %if.end, label %arrayctor.loop.i
 
 lpad.i:                                           ; preds = %arrayctor.loop.i
   %1 = landingpad { ptr, i32 }
@@ -6454,7 +6454,11 @@ arraydestroy.done2.i:                             ; preds = %arraydestroy.body.i
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #19
   br label %eh.resume
 
-new.cont:                                         ; preds = %invoke.cont.i
+if.then:                                          ; preds = %entry
+  store i32 7, ptr %status, align 4
+  br label %return
+
+if.end:                                           ; preds = %invoke.cont.i
   %rules3.i = getelementptr inbounds nuw i8, ptr %call, i64 848
   store ptr %rules, ptr %rules3.i, align 8
   %parent4.i = getelementptr inbounds nuw i8, ptr %call, i64 856
@@ -6463,12 +6467,8 @@ new.cont:                                         ; preds = %invoke.cont.i
   store ptr @.str, ptr %gender.i, align 8
   br label %invoke.cont2
 
-if.then:                                          ; preds = %entry
-  store i32 7, ptr %status, align 4
-  br label %return
-
-invoke.cont2:                                     ; preds = %new.cont, %invoke.cont2
-  %arrayctor.cur.idx = phi i64 [ 0, %new.cont ], [ %arrayctor.cur.add, %invoke.cont2 ]
+invoke.cont2:                                     ; preds = %if.end, %invoke.cont2
+  %arrayctor.cur.idx = phi i64 [ 0, %if.end ], [ %arrayctor.cur.add, %invoke.cont2 ]
   %arrayctor.cur.ptr = getelementptr inbounds nuw i8, ptr %simpleFormats, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr, align 16
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr, i64 8

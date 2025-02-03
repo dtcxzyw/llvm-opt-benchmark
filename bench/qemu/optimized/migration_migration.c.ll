@@ -1284,7 +1284,7 @@ if.then22:                                        ; preds = %if.else
 
 if.then26:                                        ; preds = %if.then22
   tail call void @qapi_free_InetSocketAddress(ptr noundef nonnull %u) #19
-  br label %cleanup
+  br label %if.then.i.i
 
 if.end:                                           ; preds = %if.then22
   store i32 2, ptr %call1, align 8
@@ -1328,7 +1328,7 @@ if.end44:                                         ; preds = %if.then39
 if.else50:                                        ; preds = %lor.lhs.false36
   %call51 = tail call i32 @strstart(ptr noundef %uri, ptr noundef nonnull @.str.18, ptr noundef null) #19
   %tobool52.not = icmp eq i32 %call51, 0
-  br i1 %tobool52.not, label %if.else65, label %if.then53
+  br i1 %tobool52.not, label %cleanup, label %if.then53
 
 if.then53:                                        ; preds = %if.else50
   store i32 3, ptr %call1, align 8
@@ -1340,10 +1340,6 @@ if.then53:                                        ; preds = %if.else50
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %glib_autoptr_cleanup_MigrationAddress.exit.thread, label %if.then.i.i
 
-if.else65:                                        ; preds = %if.else50
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 505, ptr noundef nonnull @__func__.migrate_uri_parse, ptr noundef nonnull @.str.19, ptr noundef %uri) #19
-  br label %cleanup
-
 glib_autoptr_cleanup_MigrationAddress.exit.thread: ; preds = %if.end, %if.then53, %if.end44, %if.then
   store i32 0, ptr %call, align 8
   %addr71 = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -1351,11 +1347,12 @@ glib_autoptr_cleanup_MigrationAddress.exit.thread: ; preds = %if.end, %if.then53
   store ptr %call, ptr %channel, align 8
   br label %glib_autoptr_cleanup_MigrationChannel.exit
 
-cleanup:                                          ; preds = %if.else65, %if.then26
+cleanup:                                          ; preds = %if.else50
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 505, ptr noundef nonnull @__func__.migrate_uri_parse, ptr noundef nonnull @.str.19, ptr noundef %uri) #19
   %tobool.not.i.i = icmp eq ptr %call1, null
   br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_MigrationAddress.exit, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.then39, %if.then53, %cleanup
+if.then.i.i:                                      ; preds = %if.then26, %if.then39, %if.then53, %cleanup
   tail call void @qapi_free_MigrationAddress(ptr noundef nonnull %call1) #19
   br label %glib_autoptr_cleanup_MigrationAddress.exit
 

@@ -59,7 +59,7 @@ define void @_ZN5boost6fibers4numa10pin_threadEjm(i32 noundef %0, i64 noundef %1
 19:                                               ; preds = %15
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #13
+  call void @__cxa_free_exception(ptr nonnull %16) #13
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #13
   resume { ptr, i32 } %20
 

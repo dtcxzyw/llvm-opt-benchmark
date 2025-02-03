@@ -444,7 +444,7 @@ sub_0:                                            ; preds = %7
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %39
-  tail call void @free(ptr noundef %19) #12
+  tail call void @free(ptr noundef nonnull %19) #12
   tail call void @free(ptr noundef %26) #12
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #12
   br label %143
@@ -458,7 +458,7 @@ sub_0:                                            ; preds = %7
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %49
-  tail call void @free(ptr noundef %26) #12
+  tail call void @free(ptr noundef nonnull %26) #12
   tail call void @free(ptr noundef nonnull %46) #12
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #12
   br label %143

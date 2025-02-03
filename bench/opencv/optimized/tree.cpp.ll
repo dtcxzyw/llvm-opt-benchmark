@@ -5900,7 +5900,7 @@ define hidden void @_ZN2cv2ml10DTreesImpl17findSplitCatClassEiRKSt6vectorIiSaIiE
   %128 = load ptr, ptr %1, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 376
   %130 = load ptr, ptr %129, align 8
-  invoke void %130(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull %66, i32 noundef %20, i32 noundef %37, ptr noundef %124, i32 noundef %.sroa.speculated, ptr noundef %127)
+  invoke void %130(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull %66, i32 noundef %20, i32 noundef %37, ptr noundef nonnull %124, i32 noundef %.sroa.speculated, ptr noundef nonnull %127)
           to label %_ZSt4sortIPPdN2cv2ml10cmp_lt_ptrIdEEEvT_S6_T0_.exit.thread unwind label %99
 
 _ZSt4sortIPPdN2cv2ml10cmp_lt_ptrIdEEEvT_S6_T0_.exit.thread: ; preds = %118, %122

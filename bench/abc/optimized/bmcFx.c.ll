@@ -370,7 +370,7 @@ Div_CubePrintOne.exit.us:                         ; preds = %25, %Vec_StrGrow.ex
   %.val.us = load i32, ptr %8, align 4
   %35 = sext i32 %.val.us to i64
   %36 = icmp slt i64 %indvars.iv.next21, %35
-  br i1 %36, label %.lr.ph.split.us, label %.critedge, !llvm.loop !10
+  br i1 %36, label %.lr.ph.split.us, label %.critedge.thread, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %Div_CubePrintOne.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Div_CubePrintOne.exit ], [ 0, %.lr.ph ]
@@ -429,18 +429,18 @@ Div_CubePrintOne.exit:                            ; preds = %48, %Vec_StrGrow.ex
   %.val = load i32, ptr %8, align 4
   %58 = sext i32 %.val to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph.split, label %.critedge, !llvm.loop !10
+  br i1 %59, label %.lr.ph.split, label %.critedge.thread, !llvm.loop !10
 
-.critedge:                                        ; preds = %Div_CubePrintOne.exit, %Div_CubePrintOne.exit.us, %Vec_StrStart.exit
-  %60 = phi ptr [ %.promoted13, %Vec_StrStart.exit ], [ %.val12.i15.us, %Div_CubePrintOne.exit.us ], [ %.val12.i15, %Div_CubePrintOne.exit ]
-  %.not.i10 = icmp eq ptr %60, null
-  br i1 %.not.i10, label %Vec_StrFree.exit, label %61
+.critedge:                                        ; preds = %Vec_StrStart.exit
+  %.not.i10 = icmp eq ptr %.promoted13, null
+  br i1 %.not.i10, label %Vec_StrFree.exit, label %.critedge.thread
 
-61:                                               ; preds = %.critedge
+.critedge.thread:                                 ; preds = %Div_CubePrintOne.exit, %Div_CubePrintOne.exit.us, %.critedge
+  %60 = phi ptr [ %.promoted13, %.critedge ], [ %.val12.i15.us, %Div_CubePrintOne.exit.us ], [ %.val12.i15, %Div_CubePrintOne.exit ]
   tail call void @free(ptr noundef nonnull %60) #17
   br label %Vec_StrFree.exit
 
-Vec_StrFree.exit:                                 ; preds = %.critedge, %61
+Vec_StrFree.exit:                                 ; preds = %.critedge, %.critedge.thread
   ret void
 }
 

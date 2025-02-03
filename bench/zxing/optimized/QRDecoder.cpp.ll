@@ -4401,7 +4401,7 @@ define internal fastcc noundef signext i8 @_ZN5ZXing6QRCodeL18ToAlphaNumericChar
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #19
+  tail call void @__cxa_free_exception(ptr nonnull %4) #19
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %1

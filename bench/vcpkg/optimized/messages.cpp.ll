@@ -4896,13 +4896,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %58 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %57, i1 true)
   %59 = shl nuw nsw i64 %58, 1
   %60 = xor i64 %59, 126
-  call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_27get_sorted_english_messagesEvE13MessageSorterEEEvT_SE_T0_T1_(ptr %.pre, ptr nonnull %9, i64 noundef %60)
+  call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_27get_sorted_english_messagesEvE13MessageSorterEEEvT_SE_T0_T1_(ptr nonnull %.pre, ptr nonnull %9, i64 noundef %60)
   %61 = icmp sgt i64 %56, 1024
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %53
   %63 = getelementptr inbounds nuw i8, ptr %.pre, i64 1024
-  call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_27get_sorted_english_messagesEvE13MessageSorterEEEvT_SE_T0_(ptr %.pre, ptr nonnull %63)
+  call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_27get_sorted_english_messagesEvE13MessageSorterEEEvT_SE_T0_(ptr nonnull %.pre, ptr nonnull %63)
   %.not6.i.i.i.i = icmp eq ptr %63, %9
   br i1 %.not6.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEEZNS3_27get_sorted_english_messagesEvE13MessageSorterEvT_SB_T0_.exit, label %.lr.ph.i.i.i.i
 
@@ -4914,7 +4914,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEEZNS3_27get_sorted_english_messagesEvE13MessageSorterEvT_SB_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !32
 
 65:                                               ; preds = %53
-  call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_27get_sorted_english_messagesEvE13MessageSorterEEEvT_SE_T0_(ptr %.pre, ptr nonnull %9)
+  call fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_27get_sorted_english_messagesEvE13MessageSorterEEEvT_SE_T0_(ptr nonnull %.pre, ptr nonnull %9)
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEEZNS3_27get_sorted_english_messagesEvE13MessageSorterEvT_SB_T0_.exit
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEEZNS3_27get_sorted_english_messagesEvE13MessageSorterEvT_SB_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %65, %62, %52
@@ -5911,7 +5911,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNK4cmrc19embedded_filesystem4openE
 16:                                               ; preds = %10
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %11) #28
+  call void @__cxa_free_exception(ptr nonnull %11) #28
   br label %23
 
 18:                                               ; preds = %6

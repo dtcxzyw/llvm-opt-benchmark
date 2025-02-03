@@ -124,11 +124,11 @@ define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br i1 %.not47, label %63, label %59
 
 59:                                               ; preds = %56
-  %60 = tail call i32 %58(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.3) #4
+  %60 = tail call i32 %58(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.3) #4
   br label %63
 
 61:                                               ; preds = %48
-  %62 = tail call i32 @inode_chstat(ptr noundef nonnull %5, ptr noundef %1, i32 noundef %.3, i32 noundef 0) #4
+  %62 = tail call i32 @inode_chstat(ptr noundef nonnull %5, ptr noundef nonnull %1, i32 noundef %.3, i32 noundef 0) #4
   br label %63
 
 63:                                               ; preds = %61, %59, %56, %53, %46, %35, %7

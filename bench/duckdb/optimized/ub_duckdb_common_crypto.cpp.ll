@@ -865,7 +865,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   %len.addr.2.lcssa.i = phi i64 [ %len.addr.1.i, %if.end27.i ], [ %sub38.i, %while.body.i ]
   %input.addr.2.lcssa.i = phi ptr [ %input.addr.1.i, %if.end27.i ], [ %add.ptr37.i, %while.body.i ]
   %in39.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %in39.i, ptr align 1 %input.addr.2.lcssa.i, i64 %len.addr.2.lcssa.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %in39.i, ptr nonnull align 1 %input.addr.2.lcssa.i, i64 %len.addr.2.lcssa.i, i1 false)
   br label %_ZN6duckdb10MD5Context9MD5UpdateEPKhm.exit
 
 _ZN6duckdb10MD5Context9MD5UpdateEPKhm.exit:       ; preds = %while.end.i, %cleanup.thread.i

@@ -3387,7 +3387,7 @@ if.then33:                                        ; preds = %invoke.cont26
 
 invoke.cont34:                                    ; preds = %if.then33
   invoke void @_ZN2pb6solverC1ERN3euf6solverEi(ptr noundef nonnull align 8 dereferenceable(1049) %call35, ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 noundef %fid)
-          to label %if.end145 unwind label %lpad28
+          to label %if.then147 unwind label %lpad28
 
 lpad:                                             ; preds = %invoke.cont16, %invoke.cont, %if.end12
   %11 = landingpad { ptr, i32 }
@@ -3429,7 +3429,7 @@ if.then44:                                        ; preds = %if.then40
 
 invoke.cont45:                                    ; preds = %if.then44
   invoke void @_ZN2bv6solverC1ERN3euf6solverEi(ptr noundef nonnull align 8 dereferenceable(640) %call46, ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 noundef %fid)
-          to label %if.end145 unwind label %lpad28
+          to label %if.then147 unwind label %lpad28
 
 if.then54:                                        ; preds = %if.then40
   %exception = call ptr @__cxa_allocate_exception(i64 40) #24
@@ -3464,7 +3464,7 @@ if.then68:                                        ; preds = %if.then40
 
 invoke.cont69:                                    ; preds = %if.then68
   invoke void @_ZN8intblast6solverC1ERN3euf6solverE(ptr noundef nonnull align 8 dereferenceable(328) %call70, ptr noundef nonnull align 8 dereferenceable(9136) %this)
-          to label %if.end145 unwind label %lpad28
+          to label %if.then147 unwind label %lpad28
 
 if.else72:                                        ; preds = %if.then40
   %exception73 = call ptr @__cxa_allocate_exception(i64 40) #24
@@ -3504,7 +3504,7 @@ if.then94:                                        ; preds = %if.else90
 
 invoke.cont95:                                    ; preds = %if.then94
   invoke void @_ZN5array6solverC1ERN3euf6solverEi(ptr noundef nonnull align 8 dereferenceable(536) %call96, ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 noundef %fid)
-          to label %if.end145 unwind label %lpad28
+          to label %if.then147 unwind label %lpad28
 
 if.else98:                                        ; preds = %if.else90
   %m_fid.i36 = getelementptr inbounds nuw i8, ptr %fpa, i64 16
@@ -3518,7 +3518,7 @@ if.then102:                                       ; preds = %if.else98
 
 invoke.cont103:                                   ; preds = %if.then102
   invoke void @_ZN3fpa6solverC1ERN3euf6solverE(ptr noundef nonnull align 8 dereferenceable(1556) %call104, ptr noundef nonnull align 8 dereferenceable(9136) %this)
-          to label %if.end145 unwind label %lpad28
+          to label %if.then147 unwind label %lpad28
 
 if.else106:                                       ; preds = %if.else98
   %cmp109 = icmp eq i32 %fid, 5
@@ -3530,7 +3530,7 @@ if.then110:                                       ; preds = %if.else106
 
 invoke.cont111:                                   ; preds = %if.then110
   invoke void @_ZN5arith6solverC1ERN3euf6solverEi(ptr noundef nonnull align 8 dereferenceable(1144) %call112, ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 noundef 5)
-          to label %if.end145 unwind label %lpad28
+          to label %if.then147 unwind label %lpad28
 
 if.else114:                                       ; preds = %if.else106
   %call.i37 = invoke noundef i32 @_ZNK8datatype4util3fidEv(ptr noundef nonnull align 8 dereferenceable(288) %dt)
@@ -3546,7 +3546,7 @@ if.then118:                                       ; preds = %invoke.cont115
 
 invoke.cont119:                                   ; preds = %if.then118
   invoke void @_ZN2dt6solverC1ERN3euf6solverEi(ptr noundef nonnull align 8 dereferenceable(736) %call120, ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 noundef %fid)
-          to label %if.end145 unwind label %lpad28
+          to label %if.then147 unwind label %lpad28
 
 if.else122:                                       ; preds = %invoke.cont115
   %m_fid.i38 = getelementptr inbounds nuw i8, ptr %rf, i64 8
@@ -3560,7 +3560,7 @@ if.then126:                                       ; preds = %if.else122
 
 invoke.cont127:                                   ; preds = %if.then126
   invoke void @_ZN6recfun6solverC1ERN3euf6solverE(ptr noundef nonnull align 8 dereferenceable(268) %call128, ptr noundef nonnull align 8 dereferenceable(9136) %this)
-          to label %if.end145 unwind label %lpad28
+          to label %if.then147 unwind label %lpad28
 
 if.else130:                                       ; preds = %if.else122
   %call132 = invoke noundef i32 @_ZNK22special_relations_util13get_family_idEv(ptr noundef nonnull align 8 dereferenceable(12) %sp)
@@ -3576,18 +3576,14 @@ if.then134:                                       ; preds = %invoke.cont131
 
 invoke.cont135:                                   ; preds = %if.then134
   invoke void @_ZN7specrel6solverC1ERN3euf6solverEi(ptr noundef nonnull align 8 dereferenceable(128) %call136, ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 noundef %fid)
-          to label %if.end145 unwind label %lpad28
+          to label %if.then147 unwind label %lpad28
 
-if.end145:                                        ; preds = %invoke.cont135, %invoke.cont127, %invoke.cont119, %invoke.cont111, %invoke.cont103, %invoke.cont95, %invoke.cont69, %invoke.cont45, %invoke.cont34
-  %ext.0 = phi ptr [ %call35, %invoke.cont34 ], [ %call46, %invoke.cont45 ], [ %call70, %invoke.cont69 ], [ %call96, %invoke.cont95 ], [ %call104, %invoke.cont103 ], [ %call112, %invoke.cont111 ], [ %call120, %invoke.cont119 ], [ %call128, %invoke.cont127 ], [ %call136, %invoke.cont135 ]
-  %tobool146.not = icmp eq ptr %ext.0, null
-  br i1 %tobool146.not, label %if.else149, label %if.then147
-
-if.then147:                                       ; preds = %if.end145
-  invoke void @_ZN3euf6solver10add_solverEPNS_9th_solverE(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull %ext.0)
+if.then147:                                       ; preds = %invoke.cont34, %invoke.cont45, %invoke.cont69, %invoke.cont95, %invoke.cont103, %invoke.cont111, %invoke.cont119, %invoke.cont127, %invoke.cont135
+  %ext.0.ph = phi ptr [ %call136, %invoke.cont135 ], [ %call128, %invoke.cont127 ], [ %call120, %invoke.cont119 ], [ %call112, %invoke.cont111 ], [ %call104, %invoke.cont103 ], [ %call96, %invoke.cont95 ], [ %call70, %invoke.cont69 ], [ %call46, %invoke.cont45 ], [ %call35, %invoke.cont34 ]
+  invoke void @_ZN3euf6solver10add_solverEPNS_9th_solverE(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull %ext.0.ph)
           to label %if.end154 unwind label %lpad28
 
-if.else149:                                       ; preds = %invoke.cont131, %if.end145
+if.else149:                                       ; preds = %invoke.cont131
   %tobool150.not = icmp eq ptr %f, null
   br i1 %tobool150.not, label %if.end154, label %if.then151
 
@@ -3596,7 +3592,7 @@ if.then151:                                       ; preds = %if.else149
           to label %if.end154 unwind label %lpad28
 
 if.end154:                                        ; preds = %if.else149, %if.then151, %if.then147
-  %ext.052 = phi ptr [ null, %if.else149 ], [ null, %if.then151 ], [ %ext.0, %if.then147 ]
+  %ext.053 = phi ptr [ null, %if.else149 ], [ null, %if.then151 ], [ %ext.0.ph, %if.then147 ]
   call void @_ZN6recfun4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %rf) #24
   call void @_ZN8datatype4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %dt) #24
   call void @_ZN8fpa_utilD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fpa) #24
@@ -3624,7 +3620,7 @@ ehcleanup158:                                     ; preds = %ehcleanup157, %lpad
   resume { ptr, i32 } %.pn26.pn.pn.pn
 
 return:                                           ; preds = %if.end3, %if.end3, %_ZNK6vectorIPN3euf9th_solverELb0EjE3getEjRKS2_.exit.cont, %entry, %if.end154
-  %retval.0 = phi ptr [ %ext.052, %if.end154 ], [ null, %entry ], [ %.then.val, %_ZNK6vectorIPN3euf9th_solverELb0EjE3getEjRKS2_.exit.cont ], [ null, %if.end3 ], [ null, %if.end3 ]
+  %retval.0 = phi ptr [ %ext.053, %if.end154 ], [ null, %entry ], [ %.then.val, %_ZNK6vectorIPN3euf9th_solverELb0EjE3getEjRKS2_.exit.cont ], [ null, %if.end3 ], [ null, %if.end3 ]
   ret ptr %retval.0
 
 unreachable:                                      ; preds = %invoke.cont77, %invoke.cont58

@@ -781,7 +781,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers26dispatch_SIMDResul
 89:                                               ; preds = %82
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %85) #15
+  call void @__cxa_free_exception(ptr nonnull %85) #15
   br label %common.resume
 
 91:                                               ; preds = %75
@@ -821,7 +821,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers26dispatch_SIMDResul
 108:                                              ; preds = %101
   %109 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %104) #15
+  call void @__cxa_free_exception(ptr nonnull %104) #15
   br label %common.resume
 
 110:                                              ; preds = %91
@@ -860,7 +860,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers26dispatch_SIMDResul
 126:                                              ; preds = %119
   %127 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %122) #15
+  call void @__cxa_free_exception(ptr nonnull %122) #15
   br label %common.resume
 
 128:                                              ; preds = %110
@@ -900,7 +900,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers26dispatch_SIMDResul
 145:                                              ; preds = %138
   %146 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %141) #15
+  call void @__cxa_free_exception(ptr nonnull %141) #15
   br label %common.resume
 
 147:                                              ; preds = %128
@@ -1522,7 +1522,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 441:                                              ; preds = %434
   %442 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %437) #15
+  call void @__cxa_free_exception(ptr nonnull %437) #15
   br label %common.resume
 
 common.resume:                                    ; preds = %1519, %1521, %1473, %1475, %831, %833, %850, %852, %868, %870, %887, %889, %1126, %1128, %1143, %1145, %1162, %1164, %1180, %1182, %1199, %1201, %1438, %1440, %87, %89, %106, %108, %124, %126, %143, %145, %439, %441, %456, %458, %475, %477, %493, %495, %512, %514, %808, %810
@@ -1581,7 +1581,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 458:                                              ; preds = %451
   %459 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %454) #15
+  call void @__cxa_free_exception(ptr nonnull %454) #15
   br label %common.resume
 
 460:                                              ; preds = %444
@@ -1621,7 +1621,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 477:                                              ; preds = %470
   %478 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %473) #15
+  call void @__cxa_free_exception(ptr nonnull %473) #15
   br label %common.resume
 
 479:                                              ; preds = %460
@@ -1660,7 +1660,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 495:                                              ; preds = %488
   %496 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %491) #15
+  call void @__cxa_free_exception(ptr nonnull %491) #15
   br label %common.resume
 
 497:                                              ; preds = %479
@@ -1700,7 +1700,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 514:                                              ; preds = %507
   %515 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %510) #15
+  call void @__cxa_free_exception(ptr nonnull %510) #15
   br label %common.resume
 
 516:                                              ; preds = %497
@@ -2322,7 +2322,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 810:                                              ; preds = %803
   %811 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %806) #15
+  call void @__cxa_free_exception(ptr nonnull %806) #15
   br label %common.resume
 
 812:                                              ; preds = %807, %511, %492, %474, %455
@@ -2387,7 +2387,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 833:                                              ; preds = %826
   %834 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %829) #15
+  call void @__cxa_free_exception(ptr nonnull %829) #15
   br label %common.resume
 
 835:                                              ; preds = %819
@@ -2427,7 +2427,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 852:                                              ; preds = %845
   %853 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %848) #15
+  call void @__cxa_free_exception(ptr nonnull %848) #15
   br label %common.resume
 
 854:                                              ; preds = %835
@@ -2466,7 +2466,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 870:                                              ; preds = %863
   %871 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %866) #15
+  call void @__cxa_free_exception(ptr nonnull %866) #15
   br label %common.resume
 
 872:                                              ; preds = %854
@@ -2506,7 +2506,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 889:                                              ; preds = %882
   %890 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %885) #15
+  call void @__cxa_free_exception(ptr nonnull %885) #15
   br label %common.resume
 
 891:                                              ; preds = %872
@@ -3080,7 +3080,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1128:                                             ; preds = %1121
   %1129 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1124) #15
+  call void @__cxa_free_exception(ptr nonnull %1124) #15
   br label %common.resume
 
 1130:                                             ; preds = %1125, %886, %867, %849, %830
@@ -3133,7 +3133,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1145:                                             ; preds = %1138
   %1146 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1141) #15
+  call void @__cxa_free_exception(ptr nonnull %1141) #15
   br label %common.resume
 
 1147:                                             ; preds = %1131
@@ -3173,7 +3173,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1164:                                             ; preds = %1157
   %1165 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1160) #15
+  call void @__cxa_free_exception(ptr nonnull %1160) #15
   br label %common.resume
 
 1166:                                             ; preds = %1147
@@ -3212,7 +3212,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1182:                                             ; preds = %1175
   %1183 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1178) #15
+  call void @__cxa_free_exception(ptr nonnull %1178) #15
   br label %common.resume
 
 1184:                                             ; preds = %1166
@@ -3252,7 +3252,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1201:                                             ; preds = %1194
   %1202 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1197) #15
+  call void @__cxa_free_exception(ptr nonnull %1197) #15
   br label %common.resume
 
 1203:                                             ; preds = %1184
@@ -3826,7 +3826,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1440:                                             ; preds = %1433
   %1441 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1436) #15
+  call void @__cxa_free_exception(ptr nonnull %1436) #15
   br label %common.resume
 
 1442:                                             ; preds = %1437, %1198, %1179, %1161, %1142
@@ -3894,7 +3894,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1475:                                             ; preds = %1460
   %1476 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1471) #15
+  call void @__cxa_free_exception(ptr nonnull %1471) #15
   br label %common.resume
 
 1477:                                             ; preds = %1443
@@ -3998,7 +3998,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1521:                                             ; preds = %1512
   %1522 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1517) #15
+  call void @__cxa_free_exception(ptr nonnull %1517) #15
   br label %common.resume
 
 _ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fINS_20simd_result_handlers18StoreResultHandlerEEEvRT_imiiPKhS8_PKNS_15NormTableScalerE.exit: ; preds = %1503, %1502, %1500, %1499, %1490, %1489, %1487, %1486, %_ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handlers18DummyResultHandlerENS_11DummyScalerEEEvimiiPKhS6_RT_RKT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handlers18DummyResultHandlerENS_15NormTableScalerEEEvimiiPKhS6_RT_RKT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handlers18StoreResultHandlerENS_11DummyScalerEEEvimiiPKhS6_RT_RKT0_.exit.i.i, %_ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handlers18StoreResultHandlerENS_15NormTableScalerEEEvimiiPKhS6_RT_RKT0_.exit.i.i, %1477
@@ -4158,7 +4158,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fI
 90:                                               ; preds = %83
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %86) #15
+  call void @__cxa_free_exception(ptr nonnull %86) #15
   br label %common.resume.i
 
 92:                                               ; preds = %76
@@ -4198,7 +4198,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fI
 109:                                              ; preds = %102
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %105) #15
+  call void @__cxa_free_exception(ptr nonnull %105) #15
   br label %common.resume.i
 
 111:                                              ; preds = %92
@@ -4237,7 +4237,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fI
 127:                                              ; preds = %120
   %128 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %123) #15
+  call void @__cxa_free_exception(ptr nonnull %123) #15
   br label %common.resume.i
 
 129:                                              ; preds = %111
@@ -4277,7 +4277,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123Run_pq4_accumulate_loop1fI
 146:                                              ; preds = %139
   %147 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %142) #15
+  call void @__cxa_free_exception(ptr nonnull %142) #15
   br label %common.resume.i
 
 148:                                              ; preds = %129
@@ -4844,7 +4844,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_17SIMDResultHandlerE
 359:                                              ; preds = %352
   %360 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %355) #15
+  call void @__cxa_free_exception(ptr nonnull %355) #15
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %645, %643, %432, %430, %413, %411, %395, %393, %376, %374, %359, %357, %146, %144, %127, %125, %109, %107, %90, %88
@@ -4903,7 +4903,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_17SIMDResultHandler
 376:                                              ; preds = %369
   %377 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %372) #15
+  call void @__cxa_free_exception(ptr nonnull %372) #15
   br label %common.resume.i
 
 378:                                              ; preds = %362
@@ -4943,7 +4943,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_17SIMDResultHandler
 395:                                              ; preds = %388
   %396 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %391) #15
+  call void @__cxa_free_exception(ptr nonnull %391) #15
   br label %common.resume.i
 
 397:                                              ; preds = %378
@@ -4982,7 +4982,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_17SIMDResultHandler
 413:                                              ; preds = %406
   %414 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %409) #15
+  call void @__cxa_free_exception(ptr nonnull %409) #15
   br label %common.resume.i
 
 415:                                              ; preds = %397
@@ -5022,7 +5022,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_17SIMDResultHandler
 432:                                              ; preds = %425
   %433 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %428) #15
+  call void @__cxa_free_exception(ptr nonnull %428) #15
   br label %common.resume.i
 
 434:                                              ; preds = %415
@@ -5589,7 +5589,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_17SIMDResultHandlerE
 645:                                              ; preds = %638
   %646 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %641) #15
+  call void @__cxa_free_exception(ptr nonnull %641) #15
   br label %common.resume.i
 
 647:                                              ; preds = %642, %429, %410, %392, %373
@@ -18042,7 +18042,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 301:                                              ; preds = %294
   %302 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %297) #15
+  call void @__cxa_free_exception(ptr nonnull %297) #15
   br label %common.resume
 
 303:                                              ; preds = %287
@@ -18082,7 +18082,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 320:                                              ; preds = %313
   %321 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %316) #15
+  call void @__cxa_free_exception(ptr nonnull %316) #15
   br label %common.resume
 
 322:                                              ; preds = %303
@@ -18121,7 +18121,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 338:                                              ; preds = %331
   %339 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %334) #15
+  call void @__cxa_free_exception(ptr nonnull %334) #15
   br label %common.resume
 
 340:                                              ; preds = %322
@@ -18161,7 +18161,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 357:                                              ; preds = %350
   %358 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %353) #15
+  call void @__cxa_free_exception(ptr nonnull %353) #15
   br label %common.resume
 
 359:                                              ; preds = %340
@@ -19515,7 +19515,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 895:                                              ; preds = %888
   %896 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %891) #15
+  call void @__cxa_free_exception(ptr nonnull %891) #15
   br label %common.resume
 
 common.resume:                                    ; preds = %3431, %3433, %2039, %2041, %2058, %2060, %2076, %2078, %2095, %2097, %2709, %2711, %2726, %2728, %2745, %2747, %2763, %2765, %2782, %2784, %3396, %3398, %1527, %1529, %1546, %1548, %1564, %1566, %1583, %1585, %1763, %1765, %1780, %1782, %1799, %1801, %1817, %1819, %1836, %1838, %2016, %2018, %299, %301, %318, %320, %336, %338, %355, %357, %893, %895, %910, %912, %929, %931, %947, %949, %966, %968, %1504, %1506
@@ -19574,7 +19574,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 912:                                              ; preds = %905
   %913 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %908) #15
+  call void @__cxa_free_exception(ptr nonnull %908) #15
   br label %common.resume
 
 914:                                              ; preds = %898
@@ -19614,7 +19614,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 931:                                              ; preds = %924
   %932 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %927) #15
+  call void @__cxa_free_exception(ptr nonnull %927) #15
   br label %common.resume
 
 933:                                              ; preds = %914
@@ -19653,7 +19653,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 949:                                              ; preds = %942
   %950 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %945) #15
+  call void @__cxa_free_exception(ptr nonnull %945) #15
   br label %common.resume
 
 951:                                              ; preds = %933
@@ -19693,7 +19693,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 968:                                              ; preds = %961
   %969 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %964) #15
+  call void @__cxa_free_exception(ptr nonnull %964) #15
   br label %common.resume
 
 970:                                              ; preds = %951
@@ -21047,7 +21047,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1506:                                             ; preds = %1499
   %1507 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1502) #15
+  call void @__cxa_free_exception(ptr nonnull %1502) #15
   br label %common.resume
 
 1508:                                             ; preds = %1503, %965, %946, %928, %909
@@ -21112,7 +21112,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1529:                                             ; preds = %1522
   %1530 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1525) #15
+  call void @__cxa_free_exception(ptr nonnull %1525) #15
   br label %common.resume
 
 1531:                                             ; preds = %1515
@@ -21152,7 +21152,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1548:                                             ; preds = %1541
   %1549 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1544) #15
+  call void @__cxa_free_exception(ptr nonnull %1544) #15
   br label %common.resume
 
 1550:                                             ; preds = %1531
@@ -21191,7 +21191,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1566:                                             ; preds = %1559
   %1567 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1562) #15
+  call void @__cxa_free_exception(ptr nonnull %1562) #15
   br label %common.resume
 
 1568:                                             ; preds = %1550
@@ -21231,7 +21231,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1585:                                             ; preds = %1578
   %1586 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1581) #15
+  call void @__cxa_free_exception(ptr nonnull %1581) #15
   br label %common.resume
 
 1587:                                             ; preds = %1568
@@ -21774,7 +21774,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1765:                                             ; preds = %1758
   %1766 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1761) #15
+  call void @__cxa_free_exception(ptr nonnull %1761) #15
   br label %common.resume
 
 1767:                                             ; preds = %1762, %1582, %1563, %1545, %1526
@@ -21827,7 +21827,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1782:                                             ; preds = %1775
   %1783 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1778) #15
+  call void @__cxa_free_exception(ptr nonnull %1778) #15
   br label %common.resume
 
 1784:                                             ; preds = %1768
@@ -21867,7 +21867,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1801:                                             ; preds = %1794
   %1802 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1797) #15
+  call void @__cxa_free_exception(ptr nonnull %1797) #15
   br label %common.resume
 
 1803:                                             ; preds = %1784
@@ -21906,7 +21906,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1819:                                             ; preds = %1812
   %1820 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1815) #15
+  call void @__cxa_free_exception(ptr nonnull %1815) #15
   br label %common.resume
 
 1821:                                             ; preds = %1803
@@ -21946,7 +21946,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1838:                                             ; preds = %1831
   %1839 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1834) #15
+  call void @__cxa_free_exception(ptr nonnull %1834) #15
   br label %common.resume
 
 1840:                                             ; preds = %1821
@@ -22489,7 +22489,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 2018:                                             ; preds = %2011
   %2019 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2014) #15
+  call void @__cxa_free_exception(ptr nonnull %2014) #15
   br label %common.resume
 
 2020:                                             ; preds = %2015, %1835, %1816, %1798, %1779
@@ -22554,7 +22554,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2041:                                             ; preds = %2034
   %2042 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2037) #15
+  call void @__cxa_free_exception(ptr nonnull %2037) #15
   br label %common.resume
 
 2043:                                             ; preds = %2027
@@ -22594,7 +22594,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2060:                                             ; preds = %2053
   %2061 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2056) #15
+  call void @__cxa_free_exception(ptr nonnull %2056) #15
   br label %common.resume
 
 2062:                                             ; preds = %2043
@@ -22633,7 +22633,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2078:                                             ; preds = %2071
   %2079 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2074) #15
+  call void @__cxa_free_exception(ptr nonnull %2074) #15
   br label %common.resume
 
 2080:                                             ; preds = %2062
@@ -22673,7 +22673,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2097:                                             ; preds = %2090
   %2098 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2093) #15
+  call void @__cxa_free_exception(ptr nonnull %2093) #15
   br label %common.resume
 
 2099:                                             ; preds = %2080
@@ -24139,7 +24139,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 2711:                                             ; preds = %2704
   %2712 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2707) #15
+  call void @__cxa_free_exception(ptr nonnull %2707) #15
   br label %common.resume
 
 2713:                                             ; preds = %2708, %2094, %2075, %2057, %2038
@@ -24192,7 +24192,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2728:                                             ; preds = %2721
   %2729 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2724) #15
+  call void @__cxa_free_exception(ptr nonnull %2724) #15
   br label %common.resume
 
 2730:                                             ; preds = %2714
@@ -24232,7 +24232,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2747:                                             ; preds = %2740
   %2748 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2743) #15
+  call void @__cxa_free_exception(ptr nonnull %2743) #15
   br label %common.resume
 
 2749:                                             ; preds = %2730
@@ -24271,7 +24271,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2765:                                             ; preds = %2758
   %2766 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2761) #15
+  call void @__cxa_free_exception(ptr nonnull %2761) #15
   br label %common.resume
 
 2767:                                             ; preds = %2749
@@ -24311,7 +24311,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2784:                                             ; preds = %2777
   %2785 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2780) #15
+  call void @__cxa_free_exception(ptr nonnull %2780) #15
   br label %common.resume
 
 2786:                                             ; preds = %2767
@@ -25777,7 +25777,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 3398:                                             ; preds = %3391
   %3399 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3394) #15
+  call void @__cxa_free_exception(ptr nonnull %3394) #15
   br label %common.resume
 
 3400:                                             ; preds = %3395, %2781, %2762, %2744, %2725
@@ -25845,7 +25845,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 3433:                                             ; preds = %3418
   %3434 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3429) #15
+  call void @__cxa_free_exception(ptr nonnull %3429) #15
   br label %common.resume
 
 3435:                                             ; preds = %3401
@@ -26184,7 +26184,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 301:                                              ; preds = %294
   %302 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %297) #15
+  call void @__cxa_free_exception(ptr nonnull %297) #15
   br label %common.resume
 
 303:                                              ; preds = %287
@@ -26224,7 +26224,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 320:                                              ; preds = %313
   %321 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %316) #15
+  call void @__cxa_free_exception(ptr nonnull %316) #15
   br label %common.resume
 
 322:                                              ; preds = %303
@@ -26263,7 +26263,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 338:                                              ; preds = %331
   %339 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %334) #15
+  call void @__cxa_free_exception(ptr nonnull %334) #15
   br label %common.resume
 
 340:                                              ; preds = %322
@@ -26303,7 +26303,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 357:                                              ; preds = %350
   %358 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %353) #15
+  call void @__cxa_free_exception(ptr nonnull %353) #15
   br label %common.resume
 
 359:                                              ; preds = %340
@@ -27617,7 +27617,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 859:                                              ; preds = %852
   %860 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %855) #15
+  call void @__cxa_free_exception(ptr nonnull %855) #15
   br label %common.resume
 
 common.resume:                                    ; preds = %3287, %3289, %1967, %1969, %1986, %1988, %2004, %2006, %2023, %2025, %2601, %2603, %2618, %2620, %2637, %2639, %2655, %2657, %2674, %2676, %3252, %3254, %1455, %1457, %1474, %1476, %1492, %1494, %1511, %1513, %1691, %1693, %1708, %1710, %1727, %1729, %1745, %1747, %1764, %1766, %1944, %1946, %299, %301, %318, %320, %336, %338, %355, %357, %857, %859, %874, %876, %893, %895, %911, %913, %930, %932, %1432, %1434
@@ -27676,7 +27676,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 876:                                              ; preds = %869
   %877 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %872) #15
+  call void @__cxa_free_exception(ptr nonnull %872) #15
   br label %common.resume
 
 878:                                              ; preds = %862
@@ -27716,7 +27716,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 895:                                              ; preds = %888
   %896 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %891) #15
+  call void @__cxa_free_exception(ptr nonnull %891) #15
   br label %common.resume
 
 897:                                              ; preds = %878
@@ -27755,7 +27755,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 913:                                              ; preds = %906
   %914 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %909) #15
+  call void @__cxa_free_exception(ptr nonnull %909) #15
   br label %common.resume
 
 915:                                              ; preds = %897
@@ -27795,7 +27795,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 932:                                              ; preds = %925
   %933 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %928) #15
+  call void @__cxa_free_exception(ptr nonnull %928) #15
   br label %common.resume
 
 934:                                              ; preds = %915
@@ -29109,7 +29109,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1434:                                             ; preds = %1427
   %1435 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1430) #15
+  call void @__cxa_free_exception(ptr nonnull %1430) #15
   br label %common.resume
 
 1436:                                             ; preds = %1431, %929, %910, %892, %873
@@ -29174,7 +29174,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1457:                                             ; preds = %1450
   %1458 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1453) #15
+  call void @__cxa_free_exception(ptr nonnull %1453) #15
   br label %common.resume
 
 1459:                                             ; preds = %1443
@@ -29214,7 +29214,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1476:                                             ; preds = %1469
   %1477 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1472) #15
+  call void @__cxa_free_exception(ptr nonnull %1472) #15
   br label %common.resume
 
 1478:                                             ; preds = %1459
@@ -29253,7 +29253,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1494:                                             ; preds = %1487
   %1495 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1490) #15
+  call void @__cxa_free_exception(ptr nonnull %1490) #15
   br label %common.resume
 
 1496:                                             ; preds = %1478
@@ -29293,7 +29293,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1513:                                             ; preds = %1506
   %1514 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1509) #15
+  call void @__cxa_free_exception(ptr nonnull %1509) #15
   br label %common.resume
 
 1515:                                             ; preds = %1496
@@ -29836,7 +29836,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1693:                                             ; preds = %1686
   %1694 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1689) #15
+  call void @__cxa_free_exception(ptr nonnull %1689) #15
   br label %common.resume
 
 1695:                                             ; preds = %1690, %1510, %1491, %1473, %1454
@@ -29889,7 +29889,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1710:                                             ; preds = %1703
   %1711 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1706) #15
+  call void @__cxa_free_exception(ptr nonnull %1706) #15
   br label %common.resume
 
 1712:                                             ; preds = %1696
@@ -29929,7 +29929,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1729:                                             ; preds = %1722
   %1730 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1725) #15
+  call void @__cxa_free_exception(ptr nonnull %1725) #15
   br label %common.resume
 
 1731:                                             ; preds = %1712
@@ -29968,7 +29968,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1747:                                             ; preds = %1740
   %1748 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1743) #15
+  call void @__cxa_free_exception(ptr nonnull %1743) #15
   br label %common.resume
 
 1749:                                             ; preds = %1731
@@ -30008,7 +30008,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1766:                                             ; preds = %1759
   %1767 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1762) #15
+  call void @__cxa_free_exception(ptr nonnull %1762) #15
   br label %common.resume
 
 1768:                                             ; preds = %1749
@@ -30551,7 +30551,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1946:                                             ; preds = %1939
   %1947 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1942) #15
+  call void @__cxa_free_exception(ptr nonnull %1942) #15
   br label %common.resume
 
 1948:                                             ; preds = %1943, %1763, %1744, %1726, %1707
@@ -30616,7 +30616,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1969:                                             ; preds = %1962
   %1970 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1965) #15
+  call void @__cxa_free_exception(ptr nonnull %1965) #15
   br label %common.resume
 
 1971:                                             ; preds = %1955
@@ -30656,7 +30656,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1988:                                             ; preds = %1981
   %1989 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1984) #15
+  call void @__cxa_free_exception(ptr nonnull %1984) #15
   br label %common.resume
 
 1990:                                             ; preds = %1971
@@ -30695,7 +30695,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2006:                                             ; preds = %1999
   %2007 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2002) #15
+  call void @__cxa_free_exception(ptr nonnull %2002) #15
   br label %common.resume
 
 2008:                                             ; preds = %1990
@@ -30735,7 +30735,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2025:                                             ; preds = %2018
   %2026 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2021) #15
+  call void @__cxa_free_exception(ptr nonnull %2021) #15
   br label %common.resume
 
 2027:                                             ; preds = %2008
@@ -32161,7 +32161,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 2603:                                             ; preds = %2596
   %2604 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2599) #15
+  call void @__cxa_free_exception(ptr nonnull %2599) #15
   br label %common.resume
 
 2605:                                             ; preds = %2600, %2022, %2003, %1985, %1966
@@ -32214,7 +32214,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2620:                                             ; preds = %2613
   %2621 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2616) #15
+  call void @__cxa_free_exception(ptr nonnull %2616) #15
   br label %common.resume
 
 2622:                                             ; preds = %2606
@@ -32254,7 +32254,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2639:                                             ; preds = %2632
   %2640 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2635) #15
+  call void @__cxa_free_exception(ptr nonnull %2635) #15
   br label %common.resume
 
 2641:                                             ; preds = %2622
@@ -32293,7 +32293,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2657:                                             ; preds = %2650
   %2658 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2653) #15
+  call void @__cxa_free_exception(ptr nonnull %2653) #15
   br label %common.resume
 
 2659:                                             ; preds = %2641
@@ -32333,7 +32333,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2676:                                             ; preds = %2669
   %2677 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2672) #15
+  call void @__cxa_free_exception(ptr nonnull %2672) #15
   br label %common.resume
 
 2678:                                             ; preds = %2659
@@ -33759,7 +33759,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 3254:                                             ; preds = %3247
   %3255 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3250) #15
+  call void @__cxa_free_exception(ptr nonnull %3250) #15
   br label %common.resume
 
 3256:                                             ; preds = %3251, %2673, %2654, %2636, %2617
@@ -33827,7 +33827,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 3289:                                             ; preds = %3274
   %3290 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3285) #15
+  call void @__cxa_free_exception(ptr nonnull %3285) #15
   br label %common.resume
 
 3291:                                             ; preds = %3257
@@ -39815,7 +39815,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 301:                                              ; preds = %294
   %302 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %297) #15
+  call void @__cxa_free_exception(ptr nonnull %297) #15
   br label %common.resume
 
 303:                                              ; preds = %287
@@ -39855,7 +39855,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 320:                                              ; preds = %313
   %321 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %316) #15
+  call void @__cxa_free_exception(ptr nonnull %316) #15
   br label %common.resume
 
 322:                                              ; preds = %303
@@ -39894,7 +39894,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 338:                                              ; preds = %331
   %339 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %334) #15
+  call void @__cxa_free_exception(ptr nonnull %334) #15
   br label %common.resume
 
 340:                                              ; preds = %322
@@ -39934,7 +39934,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 357:                                              ; preds = %350
   %358 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %353) #15
+  call void @__cxa_free_exception(ptr nonnull %353) #15
   br label %common.resume
 
 359:                                              ; preds = %340
@@ -41288,7 +41288,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 895:                                              ; preds = %888
   %896 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %891) #15
+  call void @__cxa_free_exception(ptr nonnull %891) #15
   br label %common.resume
 
 common.resume:                                    ; preds = %3431, %3433, %2039, %2041, %2058, %2060, %2076, %2078, %2095, %2097, %2709, %2711, %2726, %2728, %2745, %2747, %2763, %2765, %2782, %2784, %3396, %3398, %1527, %1529, %1546, %1548, %1564, %1566, %1583, %1585, %1763, %1765, %1780, %1782, %1799, %1801, %1817, %1819, %1836, %1838, %2016, %2018, %299, %301, %318, %320, %336, %338, %355, %357, %893, %895, %910, %912, %929, %931, %947, %949, %966, %968, %1504, %1506
@@ -41347,7 +41347,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 912:                                              ; preds = %905
   %913 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %908) #15
+  call void @__cxa_free_exception(ptr nonnull %908) #15
   br label %common.resume
 
 914:                                              ; preds = %898
@@ -41387,7 +41387,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 931:                                              ; preds = %924
   %932 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %927) #15
+  call void @__cxa_free_exception(ptr nonnull %927) #15
   br label %common.resume
 
 933:                                              ; preds = %914
@@ -41426,7 +41426,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 949:                                              ; preds = %942
   %950 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %945) #15
+  call void @__cxa_free_exception(ptr nonnull %945) #15
   br label %common.resume
 
 951:                                              ; preds = %933
@@ -41466,7 +41466,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 968:                                              ; preds = %961
   %969 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %964) #15
+  call void @__cxa_free_exception(ptr nonnull %964) #15
   br label %common.resume
 
 970:                                              ; preds = %951
@@ -42820,7 +42820,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1506:                                             ; preds = %1499
   %1507 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1502) #15
+  call void @__cxa_free_exception(ptr nonnull %1502) #15
   br label %common.resume
 
 1508:                                             ; preds = %1503, %965, %946, %928, %909
@@ -42885,7 +42885,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1529:                                             ; preds = %1522
   %1530 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1525) #15
+  call void @__cxa_free_exception(ptr nonnull %1525) #15
   br label %common.resume
 
 1531:                                             ; preds = %1515
@@ -42925,7 +42925,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1548:                                             ; preds = %1541
   %1549 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1544) #15
+  call void @__cxa_free_exception(ptr nonnull %1544) #15
   br label %common.resume
 
 1550:                                             ; preds = %1531
@@ -42964,7 +42964,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1566:                                             ; preds = %1559
   %1567 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1562) #15
+  call void @__cxa_free_exception(ptr nonnull %1562) #15
   br label %common.resume
 
 1568:                                             ; preds = %1550
@@ -43004,7 +43004,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1585:                                             ; preds = %1578
   %1586 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1581) #15
+  call void @__cxa_free_exception(ptr nonnull %1581) #15
   br label %common.resume
 
 1587:                                             ; preds = %1568
@@ -43547,7 +43547,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1765:                                             ; preds = %1758
   %1766 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1761) #15
+  call void @__cxa_free_exception(ptr nonnull %1761) #15
   br label %common.resume
 
 1767:                                             ; preds = %1762, %1582, %1563, %1545, %1526
@@ -43600,7 +43600,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1782:                                             ; preds = %1775
   %1783 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1778) #15
+  call void @__cxa_free_exception(ptr nonnull %1778) #15
   br label %common.resume
 
 1784:                                             ; preds = %1768
@@ -43640,7 +43640,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1801:                                             ; preds = %1794
   %1802 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1797) #15
+  call void @__cxa_free_exception(ptr nonnull %1797) #15
   br label %common.resume
 
 1803:                                             ; preds = %1784
@@ -43679,7 +43679,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1819:                                             ; preds = %1812
   %1820 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1815) #15
+  call void @__cxa_free_exception(ptr nonnull %1815) #15
   br label %common.resume
 
 1821:                                             ; preds = %1803
@@ -43719,7 +43719,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1838:                                             ; preds = %1831
   %1839 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1834) #15
+  call void @__cxa_free_exception(ptr nonnull %1834) #15
   br label %common.resume
 
 1840:                                             ; preds = %1821
@@ -44262,7 +44262,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 2018:                                             ; preds = %2011
   %2019 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2014) #15
+  call void @__cxa_free_exception(ptr nonnull %2014) #15
   br label %common.resume
 
 2020:                                             ; preds = %2015, %1835, %1816, %1798, %1779
@@ -44327,7 +44327,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2041:                                             ; preds = %2034
   %2042 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2037) #15
+  call void @__cxa_free_exception(ptr nonnull %2037) #15
   br label %common.resume
 
 2043:                                             ; preds = %2027
@@ -44367,7 +44367,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2060:                                             ; preds = %2053
   %2061 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2056) #15
+  call void @__cxa_free_exception(ptr nonnull %2056) #15
   br label %common.resume
 
 2062:                                             ; preds = %2043
@@ -44406,7 +44406,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2078:                                             ; preds = %2071
   %2079 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2074) #15
+  call void @__cxa_free_exception(ptr nonnull %2074) #15
   br label %common.resume
 
 2080:                                             ; preds = %2062
@@ -44446,7 +44446,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2097:                                             ; preds = %2090
   %2098 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2093) #15
+  call void @__cxa_free_exception(ptr nonnull %2093) #15
   br label %common.resume
 
 2099:                                             ; preds = %2080
@@ -45912,7 +45912,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 2711:                                             ; preds = %2704
   %2712 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2707) #15
+  call void @__cxa_free_exception(ptr nonnull %2707) #15
   br label %common.resume
 
 2713:                                             ; preds = %2708, %2094, %2075, %2057, %2038
@@ -45965,7 +45965,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2728:                                             ; preds = %2721
   %2729 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2724) #15
+  call void @__cxa_free_exception(ptr nonnull %2724) #15
   br label %common.resume
 
 2730:                                             ; preds = %2714
@@ -46005,7 +46005,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2747:                                             ; preds = %2740
   %2748 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2743) #15
+  call void @__cxa_free_exception(ptr nonnull %2743) #15
   br label %common.resume
 
 2749:                                             ; preds = %2730
@@ -46044,7 +46044,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2765:                                             ; preds = %2758
   %2766 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2761) #15
+  call void @__cxa_free_exception(ptr nonnull %2761) #15
   br label %common.resume
 
 2767:                                             ; preds = %2749
@@ -46084,7 +46084,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2784:                                             ; preds = %2777
   %2785 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2780) #15
+  call void @__cxa_free_exception(ptr nonnull %2780) #15
   br label %common.resume
 
 2786:                                             ; preds = %2767
@@ -47550,7 +47550,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 3398:                                             ; preds = %3391
   %3399 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3394) #15
+  call void @__cxa_free_exception(ptr nonnull %3394) #15
   br label %common.resume
 
 3400:                                             ; preds = %3395, %2781, %2762, %2744, %2725
@@ -47618,7 +47618,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 3433:                                             ; preds = %3418
   %3434 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3429) #15
+  call void @__cxa_free_exception(ptr nonnull %3429) #15
   br label %common.resume
 
 3435:                                             ; preds = %3401
@@ -47957,7 +47957,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 301:                                              ; preds = %294
   %302 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %297) #15
+  call void @__cxa_free_exception(ptr nonnull %297) #15
   br label %common.resume
 
 303:                                              ; preds = %287
@@ -47997,7 +47997,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 320:                                              ; preds = %313
   %321 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %316) #15
+  call void @__cxa_free_exception(ptr nonnull %316) #15
   br label %common.resume
 
 322:                                              ; preds = %303
@@ -48036,7 +48036,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 338:                                              ; preds = %331
   %339 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %334) #15
+  call void @__cxa_free_exception(ptr nonnull %334) #15
   br label %common.resume
 
 340:                                              ; preds = %322
@@ -48076,7 +48076,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 357:                                              ; preds = %350
   %358 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %353) #15
+  call void @__cxa_free_exception(ptr nonnull %353) #15
   br label %common.resume
 
 359:                                              ; preds = %340
@@ -49390,7 +49390,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 859:                                              ; preds = %852
   %860 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %855) #15
+  call void @__cxa_free_exception(ptr nonnull %855) #15
   br label %common.resume
 
 common.resume:                                    ; preds = %3287, %3289, %1967, %1969, %1986, %1988, %2004, %2006, %2023, %2025, %2601, %2603, %2618, %2620, %2637, %2639, %2655, %2657, %2674, %2676, %3252, %3254, %1455, %1457, %1474, %1476, %1492, %1494, %1511, %1513, %1691, %1693, %1708, %1710, %1727, %1729, %1745, %1747, %1764, %1766, %1944, %1946, %299, %301, %318, %320, %336, %338, %355, %357, %857, %859, %874, %876, %893, %895, %911, %913, %930, %932, %1432, %1434
@@ -49449,7 +49449,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 876:                                              ; preds = %869
   %877 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %872) #15
+  call void @__cxa_free_exception(ptr nonnull %872) #15
   br label %common.resume
 
 878:                                              ; preds = %862
@@ -49489,7 +49489,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 895:                                              ; preds = %888
   %896 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %891) #15
+  call void @__cxa_free_exception(ptr nonnull %891) #15
   br label %common.resume
 
 897:                                              ; preds = %878
@@ -49528,7 +49528,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 913:                                              ; preds = %906
   %914 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %909) #15
+  call void @__cxa_free_exception(ptr nonnull %909) #15
   br label %common.resume
 
 915:                                              ; preds = %897
@@ -49568,7 +49568,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 932:                                              ; preds = %925
   %933 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %928) #15
+  call void @__cxa_free_exception(ptr nonnull %928) #15
   br label %common.resume
 
 934:                                              ; preds = %915
@@ -50882,7 +50882,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1434:                                             ; preds = %1427
   %1435 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1430) #15
+  call void @__cxa_free_exception(ptr nonnull %1430) #15
   br label %common.resume
 
 1436:                                             ; preds = %1431, %929, %910, %892, %873
@@ -50947,7 +50947,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1457:                                             ; preds = %1450
   %1458 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1453) #15
+  call void @__cxa_free_exception(ptr nonnull %1453) #15
   br label %common.resume
 
 1459:                                             ; preds = %1443
@@ -50987,7 +50987,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1476:                                             ; preds = %1469
   %1477 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1472) #15
+  call void @__cxa_free_exception(ptr nonnull %1472) #15
   br label %common.resume
 
 1478:                                             ; preds = %1459
@@ -51026,7 +51026,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1494:                                             ; preds = %1487
   %1495 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1490) #15
+  call void @__cxa_free_exception(ptr nonnull %1490) #15
   br label %common.resume
 
 1496:                                             ; preds = %1478
@@ -51066,7 +51066,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1513:                                             ; preds = %1506
   %1514 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1509) #15
+  call void @__cxa_free_exception(ptr nonnull %1509) #15
   br label %common.resume
 
 1515:                                             ; preds = %1496
@@ -51609,7 +51609,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1693:                                             ; preds = %1686
   %1694 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1689) #15
+  call void @__cxa_free_exception(ptr nonnull %1689) #15
   br label %common.resume
 
 1695:                                             ; preds = %1690, %1510, %1491, %1473, %1454
@@ -51662,7 +51662,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1710:                                             ; preds = %1703
   %1711 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1706) #15
+  call void @__cxa_free_exception(ptr nonnull %1706) #15
   br label %common.resume
 
 1712:                                             ; preds = %1696
@@ -51702,7 +51702,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1729:                                             ; preds = %1722
   %1730 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1725) #15
+  call void @__cxa_free_exception(ptr nonnull %1725) #15
   br label %common.resume
 
 1731:                                             ; preds = %1712
@@ -51741,7 +51741,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1747:                                             ; preds = %1740
   %1748 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1743) #15
+  call void @__cxa_free_exception(ptr nonnull %1743) #15
   br label %common.resume
 
 1749:                                             ; preds = %1731
@@ -51781,7 +51781,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1766:                                             ; preds = %1759
   %1767 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1762) #15
+  call void @__cxa_free_exception(ptr nonnull %1762) #15
   br label %common.resume
 
 1768:                                             ; preds = %1749
@@ -52324,7 +52324,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1946:                                             ; preds = %1939
   %1947 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1942) #15
+  call void @__cxa_free_exception(ptr nonnull %1942) #15
   br label %common.resume
 
 1948:                                             ; preds = %1943, %1763, %1744, %1726, %1707
@@ -52389,7 +52389,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1969:                                             ; preds = %1962
   %1970 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1965) #15
+  call void @__cxa_free_exception(ptr nonnull %1965) #15
   br label %common.resume
 
 1971:                                             ; preds = %1955
@@ -52429,7 +52429,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1988:                                             ; preds = %1981
   %1989 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1984) #15
+  call void @__cxa_free_exception(ptr nonnull %1984) #15
   br label %common.resume
 
 1990:                                             ; preds = %1971
@@ -52468,7 +52468,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2006:                                             ; preds = %1999
   %2007 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2002) #15
+  call void @__cxa_free_exception(ptr nonnull %2002) #15
   br label %common.resume
 
 2008:                                             ; preds = %1990
@@ -52508,7 +52508,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2025:                                             ; preds = %2018
   %2026 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2021) #15
+  call void @__cxa_free_exception(ptr nonnull %2021) #15
   br label %common.resume
 
 2027:                                             ; preds = %2008
@@ -53934,7 +53934,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 2603:                                             ; preds = %2596
   %2604 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2599) #15
+  call void @__cxa_free_exception(ptr nonnull %2599) #15
   br label %common.resume
 
 2605:                                             ; preds = %2600, %2022, %2003, %1985, %1966
@@ -53987,7 +53987,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2620:                                             ; preds = %2613
   %2621 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2616) #15
+  call void @__cxa_free_exception(ptr nonnull %2616) #15
   br label %common.resume
 
 2622:                                             ; preds = %2606
@@ -54027,7 +54027,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2639:                                             ; preds = %2632
   %2640 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2635) #15
+  call void @__cxa_free_exception(ptr nonnull %2635) #15
   br label %common.resume
 
 2641:                                             ; preds = %2622
@@ -54066,7 +54066,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2657:                                             ; preds = %2650
   %2658 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2653) #15
+  call void @__cxa_free_exception(ptr nonnull %2653) #15
   br label %common.resume
 
 2659:                                             ; preds = %2641
@@ -54106,7 +54106,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2676:                                             ; preds = %2669
   %2677 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2672) #15
+  call void @__cxa_free_exception(ptr nonnull %2672) #15
   br label %common.resume
 
 2678:                                             ; preds = %2659
@@ -55532,7 +55532,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 3254:                                             ; preds = %3247
   %3255 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3250) #15
+  call void @__cxa_free_exception(ptr nonnull %3250) #15
   br label %common.resume
 
 3256:                                             ; preds = %3251, %2673, %2654, %2636, %2617
@@ -55600,7 +55600,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 3289:                                             ; preds = %3274
   %3290 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3285) #15
+  call void @__cxa_free_exception(ptr nonnull %3285) #15
   br label %common.resume
 
 3291:                                             ; preds = %3257
@@ -61585,7 +61585,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 301:                                              ; preds = %294
   %302 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %297) #15
+  call void @__cxa_free_exception(ptr nonnull %297) #15
   br label %common.resume
 
 303:                                              ; preds = %287
@@ -61625,7 +61625,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 320:                                              ; preds = %313
   %321 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %316) #15
+  call void @__cxa_free_exception(ptr nonnull %316) #15
   br label %common.resume
 
 322:                                              ; preds = %303
@@ -61664,7 +61664,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 338:                                              ; preds = %331
   %339 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %334) #15
+  call void @__cxa_free_exception(ptr nonnull %334) #15
   br label %common.resume
 
 340:                                              ; preds = %322
@@ -61704,7 +61704,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 357:                                              ; preds = %350
   %358 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %353) #15
+  call void @__cxa_free_exception(ptr nonnull %353) #15
   br label %common.resume
 
 359:                                              ; preds = %340
@@ -63058,7 +63058,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 895:                                              ; preds = %888
   %896 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %891) #15
+  call void @__cxa_free_exception(ptr nonnull %891) #15
   br label %common.resume
 
 common.resume:                                    ; preds = %3423, %3425, %2039, %2041, %2058, %2060, %2076, %2078, %2095, %2097, %2705, %2707, %2722, %2724, %2741, %2743, %2759, %2761, %2778, %2780, %3388, %3390, %1527, %1529, %1546, %1548, %1564, %1566, %1583, %1585, %1763, %1765, %1780, %1782, %1799, %1801, %1817, %1819, %1836, %1838, %2016, %2018, %299, %301, %318, %320, %336, %338, %355, %357, %893, %895, %910, %912, %929, %931, %947, %949, %966, %968, %1504, %1506
@@ -63117,7 +63117,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 912:                                              ; preds = %905
   %913 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %908) #15
+  call void @__cxa_free_exception(ptr nonnull %908) #15
   br label %common.resume
 
 914:                                              ; preds = %898
@@ -63157,7 +63157,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 931:                                              ; preds = %924
   %932 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %927) #15
+  call void @__cxa_free_exception(ptr nonnull %927) #15
   br label %common.resume
 
 933:                                              ; preds = %914
@@ -63196,7 +63196,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 949:                                              ; preds = %942
   %950 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %945) #15
+  call void @__cxa_free_exception(ptr nonnull %945) #15
   br label %common.resume
 
 951:                                              ; preds = %933
@@ -63236,7 +63236,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 968:                                              ; preds = %961
   %969 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %964) #15
+  call void @__cxa_free_exception(ptr nonnull %964) #15
   br label %common.resume
 
 970:                                              ; preds = %951
@@ -64590,7 +64590,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1506:                                             ; preds = %1499
   %1507 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1502) #15
+  call void @__cxa_free_exception(ptr nonnull %1502) #15
   br label %common.resume
 
 1508:                                             ; preds = %1503, %965, %946, %928, %909
@@ -64655,7 +64655,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1529:                                             ; preds = %1522
   %1530 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1525) #15
+  call void @__cxa_free_exception(ptr nonnull %1525) #15
   br label %common.resume
 
 1531:                                             ; preds = %1515
@@ -64695,7 +64695,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1548:                                             ; preds = %1541
   %1549 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1544) #15
+  call void @__cxa_free_exception(ptr nonnull %1544) #15
   br label %common.resume
 
 1550:                                             ; preds = %1531
@@ -64734,7 +64734,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1566:                                             ; preds = %1559
   %1567 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1562) #15
+  call void @__cxa_free_exception(ptr nonnull %1562) #15
   br label %common.resume
 
 1568:                                             ; preds = %1550
@@ -64774,7 +64774,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1585:                                             ; preds = %1578
   %1586 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1581) #15
+  call void @__cxa_free_exception(ptr nonnull %1581) #15
   br label %common.resume
 
 1587:                                             ; preds = %1568
@@ -65317,7 +65317,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1765:                                             ; preds = %1758
   %1766 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1761) #15
+  call void @__cxa_free_exception(ptr nonnull %1761) #15
   br label %common.resume
 
 1767:                                             ; preds = %1762, %1582, %1563, %1545, %1526
@@ -65370,7 +65370,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1782:                                             ; preds = %1775
   %1783 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1778) #15
+  call void @__cxa_free_exception(ptr nonnull %1778) #15
   br label %common.resume
 
 1784:                                             ; preds = %1768
@@ -65410,7 +65410,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1801:                                             ; preds = %1794
   %1802 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1797) #15
+  call void @__cxa_free_exception(ptr nonnull %1797) #15
   br label %common.resume
 
 1803:                                             ; preds = %1784
@@ -65449,7 +65449,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1819:                                             ; preds = %1812
   %1820 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1815) #15
+  call void @__cxa_free_exception(ptr nonnull %1815) #15
   br label %common.resume
 
 1821:                                             ; preds = %1803
@@ -65489,7 +65489,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1838:                                             ; preds = %1831
   %1839 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1834) #15
+  call void @__cxa_free_exception(ptr nonnull %1834) #15
   br label %common.resume
 
 1840:                                             ; preds = %1821
@@ -66032,7 +66032,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 2018:                                             ; preds = %2011
   %2019 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2014) #15
+  call void @__cxa_free_exception(ptr nonnull %2014) #15
   br label %common.resume
 
 2020:                                             ; preds = %2015, %1835, %1816, %1798, %1779
@@ -66097,7 +66097,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2041:                                             ; preds = %2034
   %2042 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2037) #15
+  call void @__cxa_free_exception(ptr nonnull %2037) #15
   br label %common.resume
 
 2043:                                             ; preds = %2027
@@ -66137,7 +66137,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2060:                                             ; preds = %2053
   %2061 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2056) #15
+  call void @__cxa_free_exception(ptr nonnull %2056) #15
   br label %common.resume
 
 2062:                                             ; preds = %2043
@@ -66176,7 +66176,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2078:                                             ; preds = %2071
   %2079 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2074) #15
+  call void @__cxa_free_exception(ptr nonnull %2074) #15
   br label %common.resume
 
 2080:                                             ; preds = %2062
@@ -66216,7 +66216,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2097:                                             ; preds = %2090
   %2098 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2093) #15
+  call void @__cxa_free_exception(ptr nonnull %2093) #15
   br label %common.resume
 
 2099:                                             ; preds = %2080
@@ -67678,7 +67678,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 2707:                                             ; preds = %2700
   %2708 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2703) #15
+  call void @__cxa_free_exception(ptr nonnull %2703) #15
   br label %common.resume
 
 2709:                                             ; preds = %2704, %2094, %2075, %2057, %2038
@@ -67731,7 +67731,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2724:                                             ; preds = %2717
   %2725 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2720) #15
+  call void @__cxa_free_exception(ptr nonnull %2720) #15
   br label %common.resume
 
 2726:                                             ; preds = %2710
@@ -67771,7 +67771,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2743:                                             ; preds = %2736
   %2744 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2739) #15
+  call void @__cxa_free_exception(ptr nonnull %2739) #15
   br label %common.resume
 
 2745:                                             ; preds = %2726
@@ -67810,7 +67810,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2761:                                             ; preds = %2754
   %2762 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2757) #15
+  call void @__cxa_free_exception(ptr nonnull %2757) #15
   br label %common.resume
 
 2763:                                             ; preds = %2745
@@ -67850,7 +67850,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2780:                                             ; preds = %2773
   %2781 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2776) #15
+  call void @__cxa_free_exception(ptr nonnull %2776) #15
   br label %common.resume
 
 2782:                                             ; preds = %2763
@@ -69312,7 +69312,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 3390:                                             ; preds = %3383
   %3391 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3386) #15
+  call void @__cxa_free_exception(ptr nonnull %3386) #15
   br label %common.resume
 
 3392:                                             ; preds = %3387, %2777, %2758, %2740, %2721
@@ -69380,7 +69380,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 3425:                                             ; preds = %3410
   %3426 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3421) #15
+  call void @__cxa_free_exception(ptr nonnull %3421) #15
   br label %common.resume
 
 3427:                                             ; preds = %3393
@@ -69719,7 +69719,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 301:                                              ; preds = %294
   %302 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %297) #15
+  call void @__cxa_free_exception(ptr nonnull %297) #15
   br label %common.resume
 
 303:                                              ; preds = %287
@@ -69759,7 +69759,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 320:                                              ; preds = %313
   %321 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %316) #15
+  call void @__cxa_free_exception(ptr nonnull %316) #15
   br label %common.resume
 
 322:                                              ; preds = %303
@@ -69798,7 +69798,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 338:                                              ; preds = %331
   %339 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %334) #15
+  call void @__cxa_free_exception(ptr nonnull %334) #15
   br label %common.resume
 
 340:                                              ; preds = %322
@@ -69838,7 +69838,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 357:                                              ; preds = %350
   %358 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %353) #15
+  call void @__cxa_free_exception(ptr nonnull %353) #15
   br label %common.resume
 
 359:                                              ; preds = %340
@@ -71152,7 +71152,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 859:                                              ; preds = %852
   %860 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %855) #15
+  call void @__cxa_free_exception(ptr nonnull %855) #15
   br label %common.resume
 
 common.resume:                                    ; preds = %3279, %3281, %1967, %1969, %1986, %1988, %2004, %2006, %2023, %2025, %2597, %2599, %2614, %2616, %2633, %2635, %2651, %2653, %2670, %2672, %3244, %3246, %1455, %1457, %1474, %1476, %1492, %1494, %1511, %1513, %1691, %1693, %1708, %1710, %1727, %1729, %1745, %1747, %1764, %1766, %1944, %1946, %299, %301, %318, %320, %336, %338, %355, %357, %857, %859, %874, %876, %893, %895, %911, %913, %930, %932, %1432, %1434
@@ -71211,7 +71211,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 876:                                              ; preds = %869
   %877 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %872) #15
+  call void @__cxa_free_exception(ptr nonnull %872) #15
   br label %common.resume
 
 878:                                              ; preds = %862
@@ -71251,7 +71251,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 895:                                              ; preds = %888
   %896 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %891) #15
+  call void @__cxa_free_exception(ptr nonnull %891) #15
   br label %common.resume
 
 897:                                              ; preds = %878
@@ -71290,7 +71290,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 913:                                              ; preds = %906
   %914 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %909) #15
+  call void @__cxa_free_exception(ptr nonnull %909) #15
   br label %common.resume
 
 915:                                              ; preds = %897
@@ -71330,7 +71330,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 932:                                              ; preds = %925
   %933 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %928) #15
+  call void @__cxa_free_exception(ptr nonnull %928) #15
   br label %common.resume
 
 934:                                              ; preds = %915
@@ -72644,7 +72644,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1434:                                             ; preds = %1427
   %1435 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1430) #15
+  call void @__cxa_free_exception(ptr nonnull %1430) #15
   br label %common.resume
 
 1436:                                             ; preds = %1431, %929, %910, %892, %873
@@ -72709,7 +72709,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1457:                                             ; preds = %1450
   %1458 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1453) #15
+  call void @__cxa_free_exception(ptr nonnull %1453) #15
   br label %common.resume
 
 1459:                                             ; preds = %1443
@@ -72749,7 +72749,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1476:                                             ; preds = %1469
   %1477 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1472) #15
+  call void @__cxa_free_exception(ptr nonnull %1472) #15
   br label %common.resume
 
 1478:                                             ; preds = %1459
@@ -72788,7 +72788,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1494:                                             ; preds = %1487
   %1495 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1490) #15
+  call void @__cxa_free_exception(ptr nonnull %1490) #15
   br label %common.resume
 
 1496:                                             ; preds = %1478
@@ -72828,7 +72828,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1513:                                             ; preds = %1506
   %1514 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1509) #15
+  call void @__cxa_free_exception(ptr nonnull %1509) #15
   br label %common.resume
 
 1515:                                             ; preds = %1496
@@ -73371,7 +73371,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1693:                                             ; preds = %1686
   %1694 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1689) #15
+  call void @__cxa_free_exception(ptr nonnull %1689) #15
   br label %common.resume
 
 1695:                                             ; preds = %1690, %1510, %1491, %1473, %1454
@@ -73424,7 +73424,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1710:                                             ; preds = %1703
   %1711 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1706) #15
+  call void @__cxa_free_exception(ptr nonnull %1706) #15
   br label %common.resume
 
 1712:                                             ; preds = %1696
@@ -73464,7 +73464,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1729:                                             ; preds = %1722
   %1730 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1725) #15
+  call void @__cxa_free_exception(ptr nonnull %1725) #15
   br label %common.resume
 
 1731:                                             ; preds = %1712
@@ -73503,7 +73503,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1747:                                             ; preds = %1740
   %1748 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1743) #15
+  call void @__cxa_free_exception(ptr nonnull %1743) #15
   br label %common.resume
 
 1749:                                             ; preds = %1731
@@ -73543,7 +73543,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1766:                                             ; preds = %1759
   %1767 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1762) #15
+  call void @__cxa_free_exception(ptr nonnull %1762) #15
   br label %common.resume
 
 1768:                                             ; preds = %1749
@@ -74086,7 +74086,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1946:                                             ; preds = %1939
   %1947 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1942) #15
+  call void @__cxa_free_exception(ptr nonnull %1942) #15
   br label %common.resume
 
 1948:                                             ; preds = %1943, %1763, %1744, %1726, %1707
@@ -74151,7 +74151,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1969:                                             ; preds = %1962
   %1970 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1965) #15
+  call void @__cxa_free_exception(ptr nonnull %1965) #15
   br label %common.resume
 
 1971:                                             ; preds = %1955
@@ -74191,7 +74191,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1988:                                             ; preds = %1981
   %1989 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1984) #15
+  call void @__cxa_free_exception(ptr nonnull %1984) #15
   br label %common.resume
 
 1990:                                             ; preds = %1971
@@ -74230,7 +74230,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2006:                                             ; preds = %1999
   %2007 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2002) #15
+  call void @__cxa_free_exception(ptr nonnull %2002) #15
   br label %common.resume
 
 2008:                                             ; preds = %1990
@@ -74270,7 +74270,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2025:                                             ; preds = %2018
   %2026 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2021) #15
+  call void @__cxa_free_exception(ptr nonnull %2021) #15
   br label %common.resume
 
 2027:                                             ; preds = %2008
@@ -75692,7 +75692,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 2599:                                             ; preds = %2592
   %2600 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2595) #15
+  call void @__cxa_free_exception(ptr nonnull %2595) #15
   br label %common.resume
 
 2601:                                             ; preds = %2596, %2022, %2003, %1985, %1966
@@ -75745,7 +75745,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2616:                                             ; preds = %2609
   %2617 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2612) #15
+  call void @__cxa_free_exception(ptr nonnull %2612) #15
   br label %common.resume
 
 2618:                                             ; preds = %2602
@@ -75785,7 +75785,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2635:                                             ; preds = %2628
   %2636 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2631) #15
+  call void @__cxa_free_exception(ptr nonnull %2631) #15
   br label %common.resume
 
 2637:                                             ; preds = %2618
@@ -75824,7 +75824,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2653:                                             ; preds = %2646
   %2654 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2649) #15
+  call void @__cxa_free_exception(ptr nonnull %2649) #15
   br label %common.resume
 
 2655:                                             ; preds = %2637
@@ -75864,7 +75864,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2672:                                             ; preds = %2665
   %2673 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2668) #15
+  call void @__cxa_free_exception(ptr nonnull %2668) #15
   br label %common.resume
 
 2674:                                             ; preds = %2655
@@ -77286,7 +77286,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 3246:                                             ; preds = %3239
   %3247 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3242) #15
+  call void @__cxa_free_exception(ptr nonnull %3242) #15
   br label %common.resume
 
 3248:                                             ; preds = %3243, %2669, %2650, %2632, %2613
@@ -77354,7 +77354,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 3281:                                             ; preds = %3266
   %3282 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3277) #15
+  call void @__cxa_free_exception(ptr nonnull %3277) #15
   br label %common.resume
 
 3283:                                             ; preds = %3249
@@ -83327,7 +83327,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 301:                                              ; preds = %294
   %302 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %297) #15
+  call void @__cxa_free_exception(ptr nonnull %297) #15
   br label %common.resume
 
 303:                                              ; preds = %287
@@ -83367,7 +83367,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 320:                                              ; preds = %313
   %321 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %316) #15
+  call void @__cxa_free_exception(ptr nonnull %316) #15
   br label %common.resume
 
 322:                                              ; preds = %303
@@ -83406,7 +83406,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 338:                                              ; preds = %331
   %339 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %334) #15
+  call void @__cxa_free_exception(ptr nonnull %334) #15
   br label %common.resume
 
 340:                                              ; preds = %322
@@ -83446,7 +83446,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 357:                                              ; preds = %350
   %358 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %353) #15
+  call void @__cxa_free_exception(ptr nonnull %353) #15
   br label %common.resume
 
 359:                                              ; preds = %340
@@ -84800,7 +84800,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 895:                                              ; preds = %888
   %896 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %891) #15
+  call void @__cxa_free_exception(ptr nonnull %891) #15
   br label %common.resume
 
 common.resume:                                    ; preds = %3423, %3425, %2039, %2041, %2058, %2060, %2076, %2078, %2095, %2097, %2705, %2707, %2722, %2724, %2741, %2743, %2759, %2761, %2778, %2780, %3388, %3390, %1527, %1529, %1546, %1548, %1564, %1566, %1583, %1585, %1763, %1765, %1780, %1782, %1799, %1801, %1817, %1819, %1836, %1838, %2016, %2018, %299, %301, %318, %320, %336, %338, %355, %357, %893, %895, %910, %912, %929, %931, %947, %949, %966, %968, %1504, %1506
@@ -84859,7 +84859,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 912:                                              ; preds = %905
   %913 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %908) #15
+  call void @__cxa_free_exception(ptr nonnull %908) #15
   br label %common.resume
 
 914:                                              ; preds = %898
@@ -84899,7 +84899,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 931:                                              ; preds = %924
   %932 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %927) #15
+  call void @__cxa_free_exception(ptr nonnull %927) #15
   br label %common.resume
 
 933:                                              ; preds = %914
@@ -84938,7 +84938,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 949:                                              ; preds = %942
   %950 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %945) #15
+  call void @__cxa_free_exception(ptr nonnull %945) #15
   br label %common.resume
 
 951:                                              ; preds = %933
@@ -84978,7 +84978,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 968:                                              ; preds = %961
   %969 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %964) #15
+  call void @__cxa_free_exception(ptr nonnull %964) #15
   br label %common.resume
 
 970:                                              ; preds = %951
@@ -86332,7 +86332,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1506:                                             ; preds = %1499
   %1507 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1502) #15
+  call void @__cxa_free_exception(ptr nonnull %1502) #15
   br label %common.resume
 
 1508:                                             ; preds = %1503, %965, %946, %928, %909
@@ -86397,7 +86397,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1529:                                             ; preds = %1522
   %1530 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1525) #15
+  call void @__cxa_free_exception(ptr nonnull %1525) #15
   br label %common.resume
 
 1531:                                             ; preds = %1515
@@ -86437,7 +86437,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1548:                                             ; preds = %1541
   %1549 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1544) #15
+  call void @__cxa_free_exception(ptr nonnull %1544) #15
   br label %common.resume
 
 1550:                                             ; preds = %1531
@@ -86476,7 +86476,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1566:                                             ; preds = %1559
   %1567 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1562) #15
+  call void @__cxa_free_exception(ptr nonnull %1562) #15
   br label %common.resume
 
 1568:                                             ; preds = %1550
@@ -86516,7 +86516,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1585:                                             ; preds = %1578
   %1586 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1581) #15
+  call void @__cxa_free_exception(ptr nonnull %1581) #15
   br label %common.resume
 
 1587:                                             ; preds = %1568
@@ -87059,7 +87059,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1765:                                             ; preds = %1758
   %1766 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1761) #15
+  call void @__cxa_free_exception(ptr nonnull %1761) #15
   br label %common.resume
 
 1767:                                             ; preds = %1762, %1582, %1563, %1545, %1526
@@ -87112,7 +87112,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1782:                                             ; preds = %1775
   %1783 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1778) #15
+  call void @__cxa_free_exception(ptr nonnull %1778) #15
   br label %common.resume
 
 1784:                                             ; preds = %1768
@@ -87152,7 +87152,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1801:                                             ; preds = %1794
   %1802 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1797) #15
+  call void @__cxa_free_exception(ptr nonnull %1797) #15
   br label %common.resume
 
 1803:                                             ; preds = %1784
@@ -87191,7 +87191,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1819:                                             ; preds = %1812
   %1820 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1815) #15
+  call void @__cxa_free_exception(ptr nonnull %1815) #15
   br label %common.resume
 
 1821:                                             ; preds = %1803
@@ -87231,7 +87231,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1838:                                             ; preds = %1831
   %1839 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1834) #15
+  call void @__cxa_free_exception(ptr nonnull %1834) #15
   br label %common.resume
 
 1840:                                             ; preds = %1821
@@ -87774,7 +87774,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 2018:                                             ; preds = %2011
   %2019 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2014) #15
+  call void @__cxa_free_exception(ptr nonnull %2014) #15
   br label %common.resume
 
 2020:                                             ; preds = %2015, %1835, %1816, %1798, %1779
@@ -87839,7 +87839,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2041:                                             ; preds = %2034
   %2042 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2037) #15
+  call void @__cxa_free_exception(ptr nonnull %2037) #15
   br label %common.resume
 
 2043:                                             ; preds = %2027
@@ -87879,7 +87879,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2060:                                             ; preds = %2053
   %2061 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2056) #15
+  call void @__cxa_free_exception(ptr nonnull %2056) #15
   br label %common.resume
 
 2062:                                             ; preds = %2043
@@ -87918,7 +87918,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2078:                                             ; preds = %2071
   %2079 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2074) #15
+  call void @__cxa_free_exception(ptr nonnull %2074) #15
   br label %common.resume
 
 2080:                                             ; preds = %2062
@@ -87958,7 +87958,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2097:                                             ; preds = %2090
   %2098 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2093) #15
+  call void @__cxa_free_exception(ptr nonnull %2093) #15
   br label %common.resume
 
 2099:                                             ; preds = %2080
@@ -89420,7 +89420,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 2707:                                             ; preds = %2700
   %2708 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2703) #15
+  call void @__cxa_free_exception(ptr nonnull %2703) #15
   br label %common.resume
 
 2709:                                             ; preds = %2704, %2094, %2075, %2057, %2038
@@ -89473,7 +89473,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2724:                                             ; preds = %2717
   %2725 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2720) #15
+  call void @__cxa_free_exception(ptr nonnull %2720) #15
   br label %common.resume
 
 2726:                                             ; preds = %2710
@@ -89513,7 +89513,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2743:                                             ; preds = %2736
   %2744 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2739) #15
+  call void @__cxa_free_exception(ptr nonnull %2739) #15
   br label %common.resume
 
 2745:                                             ; preds = %2726
@@ -89552,7 +89552,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2761:                                             ; preds = %2754
   %2762 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2757) #15
+  call void @__cxa_free_exception(ptr nonnull %2757) #15
   br label %common.resume
 
 2763:                                             ; preds = %2745
@@ -89592,7 +89592,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2780:                                             ; preds = %2773
   %2781 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2776) #15
+  call void @__cxa_free_exception(ptr nonnull %2776) #15
   br label %common.resume
 
 2782:                                             ; preds = %2763
@@ -91054,7 +91054,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 3390:                                             ; preds = %3383
   %3391 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3386) #15
+  call void @__cxa_free_exception(ptr nonnull %3386) #15
   br label %common.resume
 
 3392:                                             ; preds = %3387, %2777, %2758, %2740, %2721
@@ -91122,7 +91122,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 3425:                                             ; preds = %3410
   %3426 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3421) #15
+  call void @__cxa_free_exception(ptr nonnull %3421) #15
   br label %common.resume
 
 3427:                                             ; preds = %3393
@@ -91461,7 +91461,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 301:                                              ; preds = %294
   %302 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %297) #15
+  call void @__cxa_free_exception(ptr nonnull %297) #15
   br label %common.resume
 
 303:                                              ; preds = %287
@@ -91501,7 +91501,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 320:                                              ; preds = %313
   %321 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %316) #15
+  call void @__cxa_free_exception(ptr nonnull %316) #15
   br label %common.resume
 
 322:                                              ; preds = %303
@@ -91540,7 +91540,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 338:                                              ; preds = %331
   %339 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %334) #15
+  call void @__cxa_free_exception(ptr nonnull %334) #15
   br label %common.resume
 
 340:                                              ; preds = %322
@@ -91580,7 +91580,7 @@ define internal fastcc void @_ZN5faiss20simd_result_handlers34dispatch_SIMDResul
 357:                                              ; preds = %350
   %358 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %353) #15
+  call void @__cxa_free_exception(ptr nonnull %353) #15
   br label %common.resume
 
 359:                                              ; preds = %340
@@ -92894,7 +92894,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 859:                                              ; preds = %852
   %860 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %855) #15
+  call void @__cxa_free_exception(ptr nonnull %855) #15
   br label %common.resume
 
 common.resume:                                    ; preds = %3279, %3281, %1967, %1969, %1986, %1988, %2004, %2006, %2023, %2025, %2597, %2599, %2614, %2616, %2633, %2635, %2651, %2653, %2670, %2672, %3244, %3246, %1455, %1457, %1474, %1476, %1492, %1494, %1511, %1513, %1691, %1693, %1708, %1710, %1727, %1729, %1745, %1747, %1764, %1766, %1944, %1946, %299, %301, %318, %320, %336, %338, %355, %357, %857, %859, %874, %876, %893, %895, %911, %913, %930, %932, %1432, %1434
@@ -92953,7 +92953,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 876:                                              ; preds = %869
   %877 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %872) #15
+  call void @__cxa_free_exception(ptr nonnull %872) #15
   br label %common.resume
 
 878:                                              ; preds = %862
@@ -92993,7 +92993,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 895:                                              ; preds = %888
   %896 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %891) #15
+  call void @__cxa_free_exception(ptr nonnull %891) #15
   br label %common.resume
 
 897:                                              ; preds = %878
@@ -93032,7 +93032,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 913:                                              ; preds = %906
   %914 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %909) #15
+  call void @__cxa_free_exception(ptr nonnull %909) #15
   br label %common.resume
 
 915:                                              ; preds = %897
@@ -93072,7 +93072,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 932:                                              ; preds = %925
   %933 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %928) #15
+  call void @__cxa_free_exception(ptr nonnull %928) #15
   br label %common.resume
 
 934:                                              ; preds = %915
@@ -94386,7 +94386,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1434:                                             ; preds = %1427
   %1435 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1430) #15
+  call void @__cxa_free_exception(ptr nonnull %1430) #15
   br label %common.resume
 
 1436:                                             ; preds = %1431, %929, %910, %892, %873
@@ -94451,7 +94451,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1457:                                             ; preds = %1450
   %1458 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1453) #15
+  call void @__cxa_free_exception(ptr nonnull %1453) #15
   br label %common.resume
 
 1459:                                             ; preds = %1443
@@ -94491,7 +94491,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1476:                                             ; preds = %1469
   %1477 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1472) #15
+  call void @__cxa_free_exception(ptr nonnull %1472) #15
   br label %common.resume
 
 1478:                                             ; preds = %1459
@@ -94530,7 +94530,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1494:                                             ; preds = %1487
   %1495 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1490) #15
+  call void @__cxa_free_exception(ptr nonnull %1490) #15
   br label %common.resume
 
 1496:                                             ; preds = %1478
@@ -94570,7 +94570,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1513:                                             ; preds = %1506
   %1514 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1509) #15
+  call void @__cxa_free_exception(ptr nonnull %1509) #15
   br label %common.resume
 
 1515:                                             ; preds = %1496
@@ -95113,7 +95113,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1693:                                             ; preds = %1686
   %1694 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1689) #15
+  call void @__cxa_free_exception(ptr nonnull %1689) #15
   br label %common.resume
 
 1695:                                             ; preds = %1690, %1510, %1491, %1473, %1454
@@ -95166,7 +95166,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1710:                                             ; preds = %1703
   %1711 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1706) #15
+  call void @__cxa_free_exception(ptr nonnull %1706) #15
   br label %common.resume
 
 1712:                                             ; preds = %1696
@@ -95206,7 +95206,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1729:                                             ; preds = %1722
   %1730 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1725) #15
+  call void @__cxa_free_exception(ptr nonnull %1725) #15
   br label %common.resume
 
 1731:                                             ; preds = %1712
@@ -95245,7 +95245,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1747:                                             ; preds = %1740
   %1748 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1743) #15
+  call void @__cxa_free_exception(ptr nonnull %1743) #15
   br label %common.resume
 
 1749:                                             ; preds = %1731
@@ -95285,7 +95285,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1766:                                             ; preds = %1759
   %1767 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1762) #15
+  call void @__cxa_free_exception(ptr nonnull %1762) #15
   br label %common.resume
 
 1768:                                             ; preds = %1749
@@ -95828,7 +95828,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 1946:                                             ; preds = %1939
   %1947 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1942) #15
+  call void @__cxa_free_exception(ptr nonnull %1942) #15
   br label %common.resume
 
 1948:                                             ; preds = %1943, %1763, %1744, %1726, %1707
@@ -95893,7 +95893,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1969:                                             ; preds = %1962
   %1970 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1965) #15
+  call void @__cxa_free_exception(ptr nonnull %1965) #15
   br label %common.resume
 
 1971:                                             ; preds = %1955
@@ -95933,7 +95933,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 1988:                                             ; preds = %1981
   %1989 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1984) #15
+  call void @__cxa_free_exception(ptr nonnull %1984) #15
   br label %common.resume
 
 1990:                                             ; preds = %1971
@@ -95972,7 +95972,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2006:                                             ; preds = %1999
   %2007 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2002) #15
+  call void @__cxa_free_exception(ptr nonnull %2002) #15
   br label %common.resume
 
 2008:                                             ; preds = %1990
@@ -96012,7 +96012,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2025:                                             ; preds = %2018
   %2026 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2021) #15
+  call void @__cxa_free_exception(ptr nonnull %2021) #15
   br label %common.resume
 
 2027:                                             ; preds = %2008
@@ -97434,7 +97434,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 2599:                                             ; preds = %2592
   %2600 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2595) #15
+  call void @__cxa_free_exception(ptr nonnull %2595) #15
   br label %common.resume
 
 2601:                                             ; preds = %2596, %2022, %2003, %1985, %1966
@@ -97487,7 +97487,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2616:                                             ; preds = %2609
   %2617 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2612) #15
+  call void @__cxa_free_exception(ptr nonnull %2612) #15
   br label %common.resume
 
 2618:                                             ; preds = %2602
@@ -97527,7 +97527,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2635:                                             ; preds = %2628
   %2636 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2631) #15
+  call void @__cxa_free_exception(ptr nonnull %2631) #15
   br label %common.resume
 
 2637:                                             ; preds = %2618
@@ -97566,7 +97566,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2653:                                             ; preds = %2646
   %2654 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2649) #15
+  call void @__cxa_free_exception(ptr nonnull %2649) #15
   br label %common.resume
 
 2655:                                             ; preds = %2637
@@ -97606,7 +97606,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 2672:                                             ; preds = %2665
   %2673 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2668) #15
+  call void @__cxa_free_exception(ptr nonnull %2668) #15
   br label %common.resume
 
 2674:                                             ; preds = %2655
@@ -99028,7 +99028,7 @@ _ZN5faiss12_GLOBAL__N_123accumulate_fixed_blocksILi4ELi1ENS_20simd_result_handle
 3246:                                             ; preds = %3239
   %3247 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3242) #15
+  call void @__cxa_free_exception(ptr nonnull %3242) #15
   br label %common.resume
 
 3248:                                             ; preds = %3243, %2669, %2650, %2632, %2613
@@ -99096,7 +99096,7 @@ _ZN5faiss12_GLOBAL__N_132pq4_accumulate_loop_fixed_scalerINS_20simd_result_handl
 3281:                                             ; preds = %3266
   %3282 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3277) #15
+  call void @__cxa_free_exception(ptr nonnull %3277) #15
   br label %common.resume
 
 3283:                                             ; preds = %3249

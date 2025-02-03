@@ -361,7 +361,7 @@ sw.bb126:                                         ; preds = %for.cond, %for.cond
   br i1 %cmp128, label %end, label %if.end130
 
 if.end130:                                        ; preds = %sw.bb126
-  call void @dtls1_stop_timer(ptr noundef %ssl) #4
+  call void @dtls1_stop_timer(ptr noundef nonnull %ssl) #4
   %28 = load ptr, ptr %s3277, align 8
   %cert_req = getelementptr inbounds nuw i8, ptr %28, i64 464
   %29 = load i32, ptr %cert_req, align 8
@@ -526,7 +526,7 @@ sw.bb255:                                         ; preds = %for.cond, %for.cond
   br i1 %cmp257, label %end, label %if.end259
 
 if.end259:                                        ; preds = %sw.bb255
-  call void @dtls1_stop_timer(ptr noundef %ssl) #4
+  call void @dtls1_stop_timer(ptr noundef nonnull %ssl) #4
   %bf.load261 = load i8, ptr %hit260, align 1
   %bf.clear262 = and i8 %bf.load261, 1
   %tobool264.not = icmp eq i8 %bf.clear262, 0
@@ -611,7 +611,7 @@ end:                                              ; preds = %if.end249, %if.end1
   br i1 %cmp10.not, label %if.end306, label %if.then305
 
 if.then305:                                       ; preds = %end
-  call void %cb.0(ptr noundef %ssl, i32 noundef 4098, i32 noundef %ret.0) #4
+  call void %cb.0(ptr noundef nonnull %ssl, i32 noundef 4098, i32 noundef %ret.0) #4
   br label %if.end306
 
 if.end306:                                        ; preds = %if.then305, %end

@@ -422,7 +422,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z14cmExpr_yyparsePv(ptr noundef %
 165:                                              ; preds = %162
   %166 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %163) #16
+  call void @__cxa_free_exception(ptr nonnull %163) #16
   resume { ptr, i32 } %166
 
 167:                                              ; preds = %159

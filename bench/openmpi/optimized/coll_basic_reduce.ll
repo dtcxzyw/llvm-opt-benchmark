@@ -518,7 +518,7 @@ opal_datatype_span.exit:                          ; preds = %22, %28
   br i1 %.not50, label %54, label %53
 
 53:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef %42) #6
+  tail call void @free(ptr noundef nonnull %42) #6
   br label %56
 
 54:                                               ; preds = %.lr.ph
@@ -528,7 +528,7 @@ opal_datatype_span.exit:                          ; preds = %22, %28
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %54, %.preheader
-  tail call void @free(ptr noundef %42) #6
+  tail call void @free(ptr noundef nonnull %42) #6
   br label %56
 
 56:                                               ; preds = %._crit_edge, %18, %ompi_comm_remote_size.exit, %opal_datatype_span.exit, %53, %50

@@ -4997,13 +4997,13 @@ for.body37:                                       ; preds = %for.body37.preheade
   %19 = load i32, ptr %nsubscriptions.addr, align 4
   %20 = zext i32 %19 to i64
   %cmp36 = icmp samesign ult i64 %indvars.iv.next45, %20
-  br i1 %cmp36, label %for.body37, label %if.end46, !llvm.loop !25
+  br i1 %cmp36, label %for.body37, label %if.then.i.i.i, !llvm.loop !25
 
-if.end46:                                         ; preds = %for.body37, %if.then31, %for.end
+if.end46:                                         ; preds = %if.then31, %for.end
   %tobool.not.i.i.i = icmp eq ptr %out.sroa.0.053, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.end46
+if.then.i.i.i:                                    ; preds = %for.body37, %if.end46
   call void @_ZdlPv(ptr noundef nonnull %out.sroa.0.053) #24
   br label %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit
 

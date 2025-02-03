@@ -2353,7 +2353,7 @@ _ZNKSt8functionIFvPN4llvm10BasicBlockEEEclES2_.exit: ; preds = %_ZN4llvm21Generi
   call void %117(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZN4llvm10BasicBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %1) #13
-  call void @_ZdlPvm(ptr noundef %1, i64 noundef 80) #16
+  call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 80) #16
   br label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit
 
 _ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %87, %89, %_ZNKSt8functionIFvPN4llvm10BasicBlockEEEclES2_.exit

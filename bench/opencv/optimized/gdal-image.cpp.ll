@@ -455,7 +455,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef rea
 74:                                               ; preds = %55
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %56) #23
+  call void @__cxa_free_exception(ptr nonnull %56) #23
   br label %382
 
 76:                                               ; preds = %52

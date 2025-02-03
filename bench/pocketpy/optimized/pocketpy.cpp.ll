@@ -25193,7 +25193,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !96
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %18
-  invoke fastcc void @"_ZSt21__inplace_stable_sortIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_SD_T0_"(ptr noundef %12, ptr noundef nonnull %15, ptr %0)
+  invoke fastcc void @"_ZSt21__inplace_stable_sortIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_SD_T0_"(ptr noundef nonnull %12, ptr noundef nonnull %15, ptr %0)
           to label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i" unwind label %23
 
 common.resume.i:                                  ; preds = %30, %23
@@ -25212,7 +25212,7 @@ common.resume.i:                                  ; preds = %30, %23
   br label %common.resume.i
 
 _ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIPPN4pkpy8PyObjectES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_SD_T0_T1_T2_"(ptr noundef %12, ptr noundef nonnull %15, ptr noundef nonnull %21, i64 noundef %storemerge26.i.i.i.i.i, ptr %0)
+  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIPPN4pkpy8PyObjectES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_SD_T0_T1_T2_"(ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %21, i64 noundef %storemerge26.i.i.i.i.i, ptr %0)
           to label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i" unwind label %23
 
 25:                                               ; preds = %3
@@ -25236,7 +25236,7 @@ select.unfold.i.i.i.i22.i:                        ; preds = %.lr.ph.i.i.i.i16.i
   br i1 %.not10.i.i.i.i23.i, label %.loopexit.i.i14.i, label %.lr.ph.i.i.i.i16.i, !llvm.loop !96
 
 .loopexit.i.i14.i:                                ; preds = %select.unfold.i.i.i.i22.i, %26
-  invoke fastcc void @"_ZSt21__inplace_stable_sortIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEEvT_SD_T0_"(ptr noundef %12, ptr noundef nonnull %15, ptr %0, ptr %7)
+  invoke fastcc void @"_ZSt21__inplace_stable_sortIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEEvT_SD_T0_"(ptr noundef nonnull %12, ptr noundef nonnull %15, ptr %0, ptr %7)
           to label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i" unwind label %30
 
 30:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i, %.loopexit.i.i14.i
@@ -25247,7 +25247,7 @@ select.unfold.i.i.i.i22.i:                        ; preds = %.lr.ph.i.i.i.i16.i
   br label %common.resume.i
 
 _ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i: ; preds = %.lr.ph.i.i.i.i16.i
-  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIPPN4pkpy8PyObjectES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEEvT_SD_T0_T1_T2_"(ptr noundef %12, ptr noundef nonnull %15, ptr noundef nonnull %29, i64 noundef %storemerge26.i.i.i.i19.i, ptr %0, ptr %7)
+  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIPPN4pkpy8PyObjectES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEEvT_SD_T0_T1_T2_"(ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %29, i64 noundef %storemerge26.i.i.i.i19.i, ptr %0, ptr %7)
           to label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i" unwind label %30
 
 "_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i": ; preds = %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i, %.loopexit.i.i14.i, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i, %.loopexit.i.i.i
@@ -33555,7 +33555,7 @@ define internal noundef ptr @"_ZZN4pkpy15__init_builtinsEPNS_2VMEEN5$_1808__invo
 
 8:                                                ; preds = %3
   %.sroa.0.0.copyload.i = load i16, ptr @_ZN4pkpy11__missing__E, align 2
-  %9 = call noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull %4, i1 noundef zeroext false, i1 noundef zeroext false)
+  %9 = call noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef nonnull %1, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull %4, i1 noundef zeroext false, i1 noundef zeroext false)
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %20, label %10
 
@@ -38055,7 +38055,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4pkpy7StrNameESt4pairIKS1_NS0_
   br i1 %34, label %_ZNSt8_Rb_treeIN4pkpy7StrNameESt4pairIKS1_NS0_3StrEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE24_M_get_insert_unique_posERS3_.exit, label %35
 
 35:                                               ; preds = %31
-  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #42
+  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #42
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = tail call noundef zeroext i1 @_ZNK4pkpy7StrNameltERKS0_(ptr noundef nonnull align 2 dereferenceable(2) %37, ptr noundef nonnull align 2 dereferenceable(2) %2) #37
   br i1 %38, label %39, label %43
@@ -38117,7 +38117,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4pkpy7StrNameESt4pairIKS1_NS0_
   br i1 %59, label %_ZNSt8_Rb_treeIN4pkpy7StrNameESt4pairIKS1_NS0_3StrEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE24_M_get_insert_unique_posERS3_.exit, label %60
 
 60:                                               ; preds = %56
-  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #42
+  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #42
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = tail call noundef zeroext i1 @_ZNK4pkpy7StrNameltERKS0_(ptr noundef nonnull align 2 dereferenceable(2) %2, ptr noundef nonnull align 2 dereferenceable(2) %62) #37
   br i1 %63, label %64, label %68

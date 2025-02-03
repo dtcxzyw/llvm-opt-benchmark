@@ -437,7 +437,7 @@ define void @_ZN3gmx12DomDecHelper3runEld(ptr noundef nonnull readonly align 8 c
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 96
   %48 = load ptr, ptr %47, align 8
-  tail call void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %48, ptr noundef %19, ptr noundef %21)
+  tail call void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %48, ptr noundef nonnull %19, ptr noundef %21)
   br label %.thread
 
 .thread:                                          ; preds = %35, %44, %39

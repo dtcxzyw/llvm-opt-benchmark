@@ -165,7 +165,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #7
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #7
   resume { ptr, i32 } %12
 
 _ZN3ue29verify_u8IjEEhT_.exit.i:                  ; preds = %if.then2

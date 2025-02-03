@@ -1418,36 +1418,39 @@ cleanup.action34:                                 ; preds = %lpad, %lpad23
 do.end47:                                         ; preds = %cleanup.done32, %if.then43
   %call48 = call noalias noundef dereferenceable_or_null(3032) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 3032, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
   %new.isnull49 = icmp eq ptr %call48, null
-  br i1 %new.isnull49, label %if.then66, label %new.notnull50
+  br i1 %new.isnull49, label %do.end70, label %new.notnull50
 
 new.notnull50:                                    ; preds = %do.end47
   %11 = load ptr, ptr %_addr, align 8
   invoke void @_ZN3zmq17socks_connecter_tC1EPNS_11io_thread_tEPNS_14session_base_tERKNS_9options_tEPNS_9address_tES9_b(ptr noundef nonnull align 8 dereferenceable(3032) %call48, ptr noundef %call3, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(1336) %options, ptr noundef %11, ptr noundef %call17, i1 noundef zeroext %wait_)
-          to label %do.end70 unwind label %lpad56
-
-if.then66:                                        ; preds = %do.end47
-  %12 = load ptr, ptr @stderr, align 8
-  %call67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 603) #22
-  %13 = load ptr, ptr @stderr, align 8
-  %call68 = call i32 @fflush(ptr noundef %13)
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.2)
-  br label %do.end70
+          to label %do.end70.thread unwind label %lpad56
 
 lpad56:                                           ; preds = %new.notnull50
-  %14 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %call48, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   br label %eh.resume
 
-do.end70:                                         ; preds = %new.notnull50, %if.then66
+do.end70:                                         ; preds = %do.end47
+  %13 = load ptr, ptr @stderr, align 8
+  %call67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 603) #22
+  %14 = load ptr, ptr @stderr, align 8
+  %call68 = call i32 @fflush(ptr noundef %14)
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.2)
   %socks_proxy_username = getelementptr inbounds nuw i8, ptr %this, i64 432
   %call72 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %socks_proxy_username) #24
-  br i1 %call72, label %if.end187, label %if.then73
+  br i1 %call72, label %if.end197, label %if.then73
 
-if.then73:                                        ; preds = %do.end70
+do.end70.thread:                                  ; preds = %new.notnull50
+  %socks_proxy_username43 = getelementptr inbounds nuw i8, ptr %this, i64 432
+  %call7244 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %socks_proxy_username43) #24
+  br i1 %call7244, label %do.end196, label %if.then73
+
+if.then73:                                        ; preds = %do.end70.thread, %do.end70
+  %socks_proxy_username45 = phi ptr [ %socks_proxy_username43, %do.end70.thread ], [ %socks_proxy_username, %do.end70 ]
   %socks_proxy_password = getelementptr inbounds nuw i8, ptr %this, i64 464
-  call void @_ZN3zmq17socks_connecter_t21set_auth_method_basicERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(3032) %call48, ptr noundef nonnull align 8 dereferenceable(32) %socks_proxy_username, ptr noundef nonnull align 8 dereferenceable(32) %socks_proxy_password)
-  br label %if.end187
+  call void @_ZN3zmq17socks_connecter_t21set_auth_method_basicERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(3032) %call48, ptr noundef nonnull align 8 dereferenceable(32) %socks_proxy_username45, ptr noundef nonnull align 8 dereferenceable(32) %socks_proxy_password)
+  br label %do.end196
 
 if.else:                                          ; preds = %if.then13
   %call78 = tail call noalias noundef dereferenceable_or_null(1552) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1552, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
@@ -1560,15 +1563,12 @@ lpad176:                                          ; preds = %new.notnull170
   tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %call168, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   br label %eh.resume
 
-if.end187:                                        ; preds = %if.then73, %do.end70
-  br i1 %new.isnull49, label %if.end197, label %do.end196
-
-do.end196:                                        ; preds = %new.notnull170, %new.notnull121, %new.notnull101, %new.notnull80, %cleanup.action153, %if.end187
-  %connecter.041 = phi ptr [ %call48, %if.end187 ], [ %call168, %new.notnull170 ], [ %call119, %new.notnull121 ], [ %call99, %new.notnull101 ], [ %call78, %new.notnull80 ], [ %call139, %cleanup.action153 ]
+do.end196:                                        ; preds = %do.end70.thread, %new.notnull170, %new.notnull121, %new.notnull101, %new.notnull80, %cleanup.action153, %if.then73
+  %connecter.041 = phi ptr [ %call168, %new.notnull170 ], [ %call119, %new.notnull121 ], [ %call99, %new.notnull101 ], [ %call78, %new.notnull80 ], [ %call139, %cleanup.action153 ], [ %call48, %if.then73 ], [ %call48, %do.end70.thread ]
   call void @_ZN3zmq5own_t12launch_childEPS0_(ptr noundef nonnull align 8 dereferenceable(1444) %this, ptr noundef nonnull %connecter.041)
   br label %do.end281
 
-if.end197:                                        ; preds = %if.then138, %if.then167, %if.then118, %if.then98, %if.else, %if.else163, %if.end187
+if.end197:                                        ; preds = %do.end70, %if.then138, %if.then167, %if.then118, %if.then98, %if.else, %if.else163
   %29 = load ptr, ptr %_addr, align 8
   %call.i31 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @_ZN3zmq13protocol_nameL3udpE) #24
   %cmp.i32 = icmp eq i32 %call.i31, 0
@@ -1620,11 +1620,11 @@ do.end241:                                        ; preds = %new.notnull222, %if
   %switch.cast = zext nneg i8 %36 to i19
   %switch.downshift = lshr i19 -229376, %switch.cast
   %switch.masked = trunc i19 %switch.downshift to i1
-  %switch.cast43 = zext nneg i8 %36 to i19
-  %switch.downshift45 = lshr i19 -245760, %switch.cast43
-  %switch.masked46 = trunc i19 %switch.downshift45 to i1
+  %switch.cast46 = zext nneg i8 %36 to i19
+  %switch.downshift48 = lshr i19 -245760, %switch.cast46
+  %switch.masked49 = trunc i19 %switch.downshift48 to i1
   %recv.0 = select i1 %37, i1 %switch.masked, i1 false
-  %send.0 = select i1 %37, i1 %switch.masked46, i1 false
+  %send.0 = select i1 %37, i1 %switch.masked49, i1 false
   %38 = load ptr, ptr %_addr, align 8
   %call265 = call noundef i32 @_ZN3zmq12udp_engine_t4initEPNS_9address_tEbb(ptr noundef nonnull align 8 dereferenceable(17880) %call220, ptr noundef %38, i1 noundef zeroext %send.0, i1 noundef zeroext %recv.0)
   %cmp267.not = icmp eq i32 %call265, 0
@@ -1658,7 +1658,7 @@ do.end281:                                        ; preds = %do.body278, %do.end
   ret void
 
 eh.resume:                                        ; preds = %lpad226, %lpad176, %lpad149, %lpad127, %lpad107, %lpad86, %lpad56, %cleanup.action34
-  %.pn21 = phi { ptr, i32 } [ %35, %lpad226 ], [ %16, %lpad86 ], [ %14, %lpad56 ], [ %.pn, %cleanup.action34 ], [ %19, %lpad107 ], [ %22, %lpad127 ], [ %25, %lpad149 ], [ %28, %lpad176 ]
+  %.pn21 = phi { ptr, i32 } [ %35, %lpad226 ], [ %16, %lpad86 ], [ %12, %lpad56 ], [ %.pn, %cleanup.action34 ], [ %19, %lpad107 ], [ %22, %lpad127 ], [ %25, %lpad149 ], [ %28, %lpad176 ]
   resume { ptr, i32 } %.pn21
 }
 

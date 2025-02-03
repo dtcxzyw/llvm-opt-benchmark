@@ -3787,7 +3787,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit395:              ; preds = %716, %714, %_ZN4llv
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit398
 
 _ZN4llvm11raw_ostreamlsEPKc.exit398:              ; preds = %726, %728
-  %731 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0849.0927) #24
+  %731 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0849.0927) #24
   %.not899 = icmp eq ptr %731, %438
   br i1 %.not899, label %.preheader, label %.lr.ph929
 

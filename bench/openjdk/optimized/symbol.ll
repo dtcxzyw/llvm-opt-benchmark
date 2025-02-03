@@ -1225,7 +1225,7 @@ define hidden noundef zeroext i1 @_ZN6Symbol8is_validEPS_(ptr noundef %0) local_
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef %0) #17
+  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull %0) #17
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %9

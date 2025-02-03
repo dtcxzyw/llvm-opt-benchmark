@@ -5951,29 +5951,29 @@ define i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %21 = load ptr, ptr %0, align 8
   %22 = call ptr @slurm_send_recv_msgs(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 0)
   %.not35 = icmp eq ptr %22, null
-  br i1 %.not35, label %.thread45, label %23
+  br i1 %.not35, label %51, label %23
 
 23:                                               ; preds = %14
   %24 = call i32 @list_count(ptr noundef nonnull %22) #21
   %25 = call ptr @list_pop(ptr noundef nonnull %22) #21
-  %.not3648 = icmp eq ptr %25, null
-  br i1 %.not3648, label %._crit_edge.thread, label %.lr.ph
+  %.not3649 = icmp eq ptr %25, null
+  br i1 %.not3649, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
-  %.fr53 = freeze i32 %24
-  %26 = icmp slt i32 %.fr53, 2
+  %.fr54 = freeze i32 %24
+  %26 = icmp slt i32 %.fr54, 2
   br i1 %26, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %27 = phi ptr [ %33, %.lr.ph.split.us ], [ %25, %.lr.ph ]
-  %.02849.us = phi i32 [ %.028.mux.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.02850.us = phi i32 [ %.028.mux.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %28 = load i16, ptr %27, align 8
   %29 = zext i16 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @slurm_get_return_code(i32 noundef %29, ptr noundef %31) #21
   %.not38.us = icmp eq i32 %32, 0
-  %.028.mux.us = select i1 %.not38.us, i32 %.02849.us, i32 %32
+  %.028.mux.us = select i1 %.not38.us, i32 %.02850.us, i32 %32
   call void @destroy_data_info(ptr noundef nonnull %27) #21
   %33 = call ptr @list_pop(ptr noundef nonnull %22) #21
   %.not36.us = icmp eq ptr %33, null
@@ -5981,8 +5981,8 @@ define i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %47
   %34 = phi ptr [ %48, %47 ], [ %25, %.lr.ph ]
-  %.02750 = phi ptr [ %.1, %47 ], [ null, %.lr.ph ]
-  %.02849 = phi i32 [ %.129, %47 ], [ 0, %.lr.ph ]
+  %.02751 = phi ptr [ %.1, %47 ], [ null, %.lr.ph ]
+  %.02850 = phi i32 [ %.129, %47 ], [ 0, %.lr.ph ]
   %35 = load i16, ptr %34, align 8
   %36 = zext i16 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -5992,7 +5992,7 @@ define i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   br i1 %.not38, label %47, label %40
 
 40:                                               ; preds = %.lr.ph.split
-  %.not39 = icmp eq ptr %.02750, null
+  %.not39 = icmp eq ptr %.02751, null
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %42 = load ptr, ptr %41, align 8
   br i1 %.not39, label %43, label %45
@@ -6002,41 +6002,41 @@ define i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   br label %47
 
 45:                                               ; preds = %40
-  %46 = call i32 @hostlist_push_host(ptr noundef nonnull %.02750, ptr noundef %42) #21
+  %46 = call i32 @hostlist_push_host(ptr noundef nonnull %.02751, ptr noundef %42) #21
   br label %47
 
 47:                                               ; preds = %.lr.ph.split, %45, %43
-  %.129 = phi i32 [ %39, %45 ], [ %39, %43 ], [ %.02849, %.lr.ph.split ]
-  %.1 = phi ptr [ %.02750, %45 ], [ %44, %43 ], [ %.02750, %.lr.ph.split ]
+  %.129 = phi i32 [ %39, %45 ], [ %39, %43 ], [ %.02850, %.lr.ph.split ]
+  %.1 = phi ptr [ %.02751, %45 ], [ %44, %43 ], [ %.02751, %.lr.ph.split ]
   call void @destroy_data_info(ptr noundef nonnull %34) #21
   %48 = call ptr @list_pop(ptr noundef nonnull %22) #21
   %.not36 = icmp eq ptr %48, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
-.thread45:                                        ; preds = %14
-  %49 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.76) #21
-  br label %52
-
 ._crit_edge:                                      ; preds = %47
   %.not37 = icmp eq ptr %.1, null
-  br i1 %.not37, label %._crit_edge.thread, label %50
+  br i1 %.not37, label %._crit_edge.thread, label %49
 
-50:                                               ; preds = %._crit_edge
+49:                                               ; preds = %._crit_edge
   call void @slurm_xfree(ptr noundef nonnull %0) #21
   call void @hostlist_sort(ptr noundef nonnull %.1) #21
-  %51 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %.1) #21
-  store ptr %51, ptr %0, align 8
+  %50 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %.1) #21
+  store ptr %50, ptr %0, align 8
   call void @hostlist_destroy(ptr noundef nonnull %.1) #21
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %23, %50, %._crit_edge
-  %.028.lcssa58 = phi i32 [ %.129, %50 ], [ %.129, %._crit_edge ], [ 0, %23 ], [ %.028.mux.us, %.lr.ph.split.us ]
-  call void @list_destroy(ptr noundef nonnull %22) #21
-  br label %52
+51:                                               ; preds = %14
+  %52 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.76) #21
+  br label %53
 
-52:                                               ; preds = %.thread45, %._crit_edge.thread
-  %.2304447 = phi i32 [ -1, %.thread45 ], [ %.028.lcssa58, %._crit_edge.thread ]
-  ret i32 %.2304447
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %23, %._crit_edge, %49
+  %.028.lcssa59 = phi i32 [ %.129, %._crit_edge ], [ %.129, %49 ], [ 0, %23 ], [ %.028.mux.us, %.lr.ph.split.us ]
+  call void @list_destroy(ptr noundef nonnull %22) #21
+  br label %53
+
+53:                                               ; preds = %51, %._crit_edge.thread
+  %.2304448 = phi i32 [ %.028.lcssa59, %._crit_edge.thread ], [ -1, %51 ]
+  ret i32 %.2304448
 }
 
 declare i32 @list_count(ptr noundef) local_unnamed_addr #3

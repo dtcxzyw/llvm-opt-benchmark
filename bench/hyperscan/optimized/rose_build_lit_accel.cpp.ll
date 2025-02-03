@@ -440,7 +440,7 @@ invoke.cont.i.i.i250.cont:                        ; preds = %invoke.cont.i.i.i25
 lpad.i.i.i249:                                    ; preds = %if.then.i.i.i247
   %46 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i248) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i248) #13
   br label %ehcleanup165
 
 _ZN3ue29verify_u8IjEEhT_.exit.i:                  ; preds = %if.end225.i
@@ -697,7 +697,7 @@ if.then.i.i.i273:                                 ; preds = %if.end190.i
 lpad.i.i.i275:                                    ; preds = %if.then.i.i.i273
   %75 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i274) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i274) #13
   br label %ehcleanup165
 
 invoke.cont3:                                     ; preds = %if.end190.i
@@ -1012,7 +1012,7 @@ if.then.i.i357:                                   ; preds = %do.end142
 lpad.i.i:                                         ; preds = %if.then.i.i357
   %110 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #13
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit376
 
 lpad135:                                          ; preds = %invoke.cont.i.i365.invoke, %if.end145, %if.end132
@@ -1045,7 +1045,7 @@ invoke.cont.i.i365.cont:                          ; preds = %invoke.cont.i.i365.
 lpad.i.i364:                                      ; preds = %if.then.i.i362
   %113 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i363) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i363) #13
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit376
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split: ; preds = %do.end149, %do.end142

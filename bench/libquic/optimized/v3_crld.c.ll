@@ -92,13 +92,13 @@ entry:
   br i1 %tobool.not, label %merr, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %call137 = tail call i64 @sk_num(ptr noundef %nval) #3
-  %cmp38.not = icmp eq i64 %call137, 0
-  br i1 %cmp38.not, label %return, label %for.body
+  %call133 = tail call i64 @sk_num(ptr noundef %nval) #3
+  %cmp34.not = icmp eq i64 %call133, 0
+  br i1 %cmp34.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.039 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %call2 = tail call ptr @sk_value(ptr noundef %nval, i64 noundef %i.039) #3
+  %i.035 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %call2 = tail call ptr @sk_value(ptr noundef %nval, i64 noundef %i.035) #3
   %value = getelementptr inbounds nuw i8, ptr %call2, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool3.not = icmp eq ptr %0, null
@@ -223,7 +223,7 @@ if.end40:                                         ; preds = %if.end36
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end40, %if.end12
-  %inc = add nuw i64 %i.039, 1
+  %inc = add nuw i64 %i.035, 1
   %call1 = tail call i64 @sk_num(ptr noundef %nval) #3
   %cmp = icmp ult i64 %inc, %call1
   br i1 %cmp, label %for.body, label %return, !llvm.loop !9

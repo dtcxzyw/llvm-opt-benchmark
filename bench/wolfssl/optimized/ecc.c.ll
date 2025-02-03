@@ -284,7 +284,7 @@ if.then116:                                       ; preds = %if.end106
   br i1 %cond237, label %if.then122, label %done
 
 if.then122:                                       ; preds = %if.then116
-  %call127 = call i32 @sp_cmp(ptr noundef %P.addr.0, ptr noundef %Q.addr.0) #19
+  %call127 = call i32 @sp_cmp(ptr noundef %P.addr.0, ptr noundef nonnull %Q.addr.0) #19
   %cmp128 = icmp eq i32 %call127, 0
   br i1 %cmp128, label %land.lhs.true, label %if.end167
 
@@ -314,7 +314,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true141
 if.then154:                                       ; preds = %lor.lhs.false, %land.lhs.true141
   call void @sp_clear(ptr noundef nonnull %vla) #19
   call void @sp_clear(ptr noundef nonnull %vla37) #19
-  %call161 = call fastcc i32 @_ecc_projective_dbl_point(ptr noundef %P.addr.0, ptr noundef %R, ptr noundef nonnull %modulus, i64 noundef %mp)
+  %call161 = call fastcc i32 @_ecc_projective_dbl_point(ptr noundef nonnull %P.addr.0, ptr noundef %R, ptr noundef nonnull %modulus, i64 noundef %mp)
   br label %cleanup
 
 if.end167:                                        ; preds = %lor.lhs.false, %land.lhs.true133, %land.lhs.true, %if.then122
@@ -353,12 +353,12 @@ if.end211:                                        ; preds = %if.then203
   br i1 %cmp212, label %if.end216, label %done
 
 if.end216:                                        ; preds = %if.end211
-  %call215 = call i32 @sp_mul(ptr noundef nonnull %vla, ptr noundef %R, ptr noundef %R) #19
+  %call215 = call i32 @sp_mul(ptr noundef nonnull %vla, ptr noundef nonnull %R, ptr noundef nonnull %R) #19
   %cmp217 = icmp eq i32 %call215, 0
   br i1 %cmp217, label %if.end221, label %done
 
 if.end221:                                        ; preds = %if.end216
-  %call220 = call i32 @sp_mont_red_ex(ptr noundef %R, ptr noundef nonnull %modulus, i64 noundef %mp, i32 noundef 0) #19
+  %call220 = call i32 @sp_mont_red_ex(ptr noundef nonnull %R, ptr noundef nonnull %modulus, i64 noundef %mp, i32 noundef 0) #19
   %cmp222 = icmp eq i32 %call220, 0
   br i1 %cmp222, label %if.end228, label %done
 
@@ -438,7 +438,7 @@ if.end304:                                        ; preds = %if.end299
   br i1 %cmp305, label %if.end309, label %done
 
 if.end309:                                        ; preds = %if.end304
-  %call308 = call i32 @sp_submod_ct(ptr noundef %R, ptr noundef nonnull %vla37, ptr noundef nonnull %modulus, ptr noundef %R) #19
+  %call308 = call i32 @sp_submod_ct(ptr noundef nonnull %R, ptr noundef nonnull %vla37, ptr noundef nonnull %modulus, ptr noundef nonnull %R) #19
   %cmp310 = icmp eq i32 %call308, 0
   br i1 %cmp310, label %if.end314, label %done
 
@@ -448,7 +448,7 @@ if.end314:                                        ; preds = %if.end309
   br i1 %cmp315, label %if.end319, label %done
 
 if.end319:                                        ; preds = %if.end314
-  %call318 = call i32 @sp_addmod_ct(ptr noundef nonnull %vla37, ptr noundef %R, ptr noundef nonnull %modulus, ptr noundef nonnull %vla37) #19
+  %call318 = call i32 @sp_addmod_ct(ptr noundef nonnull %vla37, ptr noundef nonnull %R, ptr noundef nonnull %modulus, ptr noundef nonnull %vla37) #19
   %cmp320 = icmp eq i32 %call318, 0
   br i1 %cmp320, label %if.then322, label %done
 
@@ -468,7 +468,7 @@ if.end338:                                        ; preds = %if.then328
   br i1 %cmp339, label %if.end343, label %done
 
 if.end343:                                        ; preds = %if.then322, %if.end338
-  %call342 = call i32 @sp_mul(ptr noundef nonnull %z172, ptr noundef %R, ptr noundef nonnull %z172) #19
+  %call342 = call i32 @sp_mul(ptr noundef nonnull %z172, ptr noundef nonnull %R, ptr noundef nonnull %z172) #19
   %cmp344 = icmp eq i32 %call342, 0
   br i1 %cmp344, label %if.end348, label %done
 
@@ -478,7 +478,7 @@ if.end348:                                        ; preds = %if.end343
   br i1 %cmp349, label %if.end353, label %done
 
 if.end353:                                        ; preds = %if.end348
-  %call352 = call i32 @sp_mul(ptr noundef nonnull %vla, ptr noundef %R, ptr noundef nonnull %vla) #19
+  %call352 = call i32 @sp_mul(ptr noundef nonnull %vla, ptr noundef nonnull %R, ptr noundef nonnull %vla) #19
   %cmp354 = icmp eq i32 %call352, 0
   br i1 %cmp354, label %if.end358, label %done
 
@@ -488,17 +488,17 @@ if.end358:                                        ; preds = %if.end353
   br i1 %cmp359, label %if.end363, label %done
 
 if.end363:                                        ; preds = %if.end358
-  %call362 = call i32 @sp_sqr(ptr noundef %R, ptr noundef %R) #19
+  %call362 = call i32 @sp_sqr(ptr noundef nonnull %R, ptr noundef nonnull %R) #19
   %cmp364 = icmp eq i32 %call362, 0
   br i1 %cmp364, label %if.end368, label %done
 
 if.end368:                                        ; preds = %if.end363
-  %call367 = call i32 @sp_mont_red_ex(ptr noundef %R, ptr noundef nonnull %modulus, i64 noundef %mp, i32 noundef 0) #19
+  %call367 = call i32 @sp_mont_red_ex(ptr noundef nonnull %R, ptr noundef nonnull %modulus, i64 noundef %mp, i32 noundef 0) #19
   %cmp369 = icmp eq i32 %call367, 0
   br i1 %cmp369, label %if.end373, label %done
 
 if.end373:                                        ; preds = %if.end368
-  %call372 = call i32 @sp_mul(ptr noundef nonnull %vla37, ptr noundef %R, ptr noundef nonnull %vla37) #19
+  %call372 = call i32 @sp_mul(ptr noundef nonnull %vla37, ptr noundef nonnull %R, ptr noundef nonnull %vla37) #19
   %cmp374 = icmp eq i32 %call372, 0
   br i1 %cmp374, label %if.end378, label %done
 
@@ -508,7 +508,7 @@ if.end378:                                        ; preds = %if.end373
   br i1 %cmp379, label %if.end383, label %done
 
 if.end383:                                        ; preds = %if.end378
-  %call382 = call i32 @sp_mul(ptr noundef nonnull %vla, ptr noundef %R, ptr noundef nonnull %vla) #19
+  %call382 = call i32 @sp_mul(ptr noundef nonnull %vla, ptr noundef nonnull %R, ptr noundef nonnull %vla) #19
   %cmp384 = icmp eq i32 %call382, 0
   br i1 %cmp384, label %if.end388, label %done
 
@@ -518,27 +518,27 @@ if.end388:                                        ; preds = %if.end383
   br i1 %cmp389, label %if.end393, label %done
 
 if.end393:                                        ; preds = %if.end388
-  %call392 = call i32 @sp_sqr(ptr noundef nonnull %y170, ptr noundef %R) #19
+  %call392 = call i32 @sp_sqr(ptr noundef nonnull %y170, ptr noundef nonnull %R) #19
   %cmp394 = icmp eq i32 %call392, 0
   br i1 %cmp394, label %if.end398, label %done
 
 if.end398:                                        ; preds = %if.end393
-  %call397 = call i32 @sp_mont_red_ex(ptr noundef %R, ptr noundef nonnull %modulus, i64 noundef %mp, i32 noundef 0) #19
+  %call397 = call i32 @sp_mont_red_ex(ptr noundef nonnull %R, ptr noundef nonnull %modulus, i64 noundef %mp, i32 noundef 0) #19
   %cmp399 = icmp eq i32 %call397, 0
   br i1 %cmp399, label %if.end403, label %done
 
 if.end403:                                        ; preds = %if.end398
-  %call402 = call i32 @sp_submod_ct(ptr noundef %R, ptr noundef nonnull %vla37, ptr noundef nonnull %modulus, ptr noundef %R) #19
+  %call402 = call i32 @sp_submod_ct(ptr noundef nonnull %R, ptr noundef nonnull %vla37, ptr noundef nonnull %modulus, ptr noundef nonnull %R) #19
   %cmp404 = icmp eq i32 %call402, 0
   br i1 %cmp404, label %if.end408, label %done
 
 if.end408:                                        ; preds = %if.end403
-  %call407 = call i32 @sp_submod_ct(ptr noundef nonnull %vla37, ptr noundef %R, ptr noundef nonnull %modulus, ptr noundef nonnull %vla37) #19
+  %call407 = call i32 @sp_submod_ct(ptr noundef nonnull %vla37, ptr noundef nonnull %R, ptr noundef nonnull %modulus, ptr noundef nonnull %vla37) #19
   %cmp409 = icmp eq i32 %call407, 0
   br i1 %cmp409, label %if.end413, label %done
 
 if.end413:                                        ; preds = %if.end408
-  %call412 = call i32 @sp_submod_ct(ptr noundef nonnull %vla37, ptr noundef %R, ptr noundef nonnull %modulus, ptr noundef nonnull %vla37) #19
+  %call412 = call i32 @sp_submod_ct(ptr noundef nonnull %vla37, ptr noundef nonnull %R, ptr noundef nonnull %modulus, ptr noundef nonnull %vla37) #19
   %cmp414 = icmp eq i32 %call412, 0
   br i1 %cmp414, label %if.end418, label %done
 
@@ -680,12 +680,12 @@ if.end160:                                        ; preds = %if.end155
   br i1 %cmp161, label %if.end165, label %if.end270
 
 if.end165:                                        ; preds = %if.end160
-  %call164 = call i32 @sp_submod_ct(ptr noundef %R, ptr noundef nonnull %vla, ptr noundef nonnull %modulus, ptr noundef nonnull %vla37) #19
+  %call164 = call i32 @sp_submod_ct(ptr noundef nonnull %R, ptr noundef nonnull %vla, ptr noundef nonnull %modulus, ptr noundef nonnull %vla37) #19
   %cmp166 = icmp eq i32 %call164, 0
   br i1 %cmp166, label %if.end170, label %if.end270
 
 if.end170:                                        ; preds = %if.end165
-  %call169 = call i32 @sp_addmod_ct(ptr noundef nonnull %vla, ptr noundef %R, ptr noundef nonnull %modulus, ptr noundef nonnull %vla) #19
+  %call169 = call i32 @sp_addmod_ct(ptr noundef nonnull %vla, ptr noundef nonnull %R, ptr noundef nonnull %modulus, ptr noundef nonnull %vla) #19
   %cmp171 = icmp eq i32 %call169, 0
   br i1 %cmp171, label %if.end175, label %if.end270
 
@@ -740,7 +740,7 @@ if.end220:                                        ; preds = %if.end215
   br i1 %cmp221, label %if.end225, label %if.end270
 
 if.end225:                                        ; preds = %if.end220
-  %call224 = call i32 @sp_mul(ptr noundef nonnull %y111, ptr noundef %R, ptr noundef nonnull %y111) #19
+  %call224 = call i32 @sp_mul(ptr noundef nonnull %y111, ptr noundef nonnull %R, ptr noundef nonnull %y111) #19
   %cmp226 = icmp eq i32 %call224, 0
   br i1 %cmp226, label %if.end230, label %if.end270
 
@@ -750,27 +750,27 @@ if.end230:                                        ; preds = %if.end225
   br i1 %cmp231, label %if.end235, label %if.end270
 
 if.end235:                                        ; preds = %if.end230
-  %call234 = call i32 @sp_sqr(ptr noundef nonnull %vla, ptr noundef %R) #19
+  %call234 = call i32 @sp_sqr(ptr noundef nonnull %vla, ptr noundef nonnull %R) #19
   %cmp236 = icmp eq i32 %call234, 0
   br i1 %cmp236, label %if.end240, label %if.end270
 
 if.end240:                                        ; preds = %if.end235
-  %call239 = call i32 @sp_mont_red_ex(ptr noundef %R, ptr noundef nonnull %modulus, i64 noundef %mp, i32 noundef 0) #19
+  %call239 = call i32 @sp_mont_red_ex(ptr noundef nonnull %R, ptr noundef nonnull %modulus, i64 noundef %mp, i32 noundef 0) #19
   %cmp241 = icmp eq i32 %call239, 0
   br i1 %cmp241, label %if.end245, label %if.end270
 
 if.end245:                                        ; preds = %if.end240
-  %call244 = call i32 @sp_submod_ct(ptr noundef %R, ptr noundef nonnull %y111, ptr noundef nonnull %modulus, ptr noundef %R) #19
+  %call244 = call i32 @sp_submod_ct(ptr noundef nonnull %R, ptr noundef nonnull %y111, ptr noundef nonnull %modulus, ptr noundef nonnull %R) #19
   %cmp246 = icmp eq i32 %call244, 0
   br i1 %cmp246, label %if.end250, label %if.end270
 
 if.end250:                                        ; preds = %if.end245
-  %call249 = call i32 @sp_submod_ct(ptr noundef %R, ptr noundef nonnull %y111, ptr noundef nonnull %modulus, ptr noundef %R) #19
+  %call249 = call i32 @sp_submod_ct(ptr noundef nonnull %R, ptr noundef nonnull %y111, ptr noundef nonnull %modulus, ptr noundef nonnull %R) #19
   %cmp251 = icmp eq i32 %call249, 0
   br i1 %cmp251, label %if.end255, label %if.end270
 
 if.end255:                                        ; preds = %if.end250
-  %call254 = call i32 @sp_submod_ct(ptr noundef nonnull %y111, ptr noundef %R, ptr noundef nonnull %modulus, ptr noundef nonnull %y111) #19
+  %call254 = call i32 @sp_submod_ct(ptr noundef nonnull %y111, ptr noundef nonnull %R, ptr noundef nonnull %modulus, ptr noundef nonnull %y111) #19
   %cmp256 = icmp eq i32 %call254, 0
   br i1 %cmp256, label %if.end260, label %if.end270
 
@@ -1214,7 +1214,7 @@ if.end27:                                         ; preds = %if.end19
 if.end36:                                         ; preds = %if.end27
   %arrayidx32 = getelementptr inbounds nuw i8, ptr %R, i64 8
   %4 = load ptr, ptr %arrayidx32, align 8
-  %call35 = call i32 @sp_copy(ptr noundef %P, ptr noundef %4) #19
+  %call35 = call i32 @sp_copy(ptr noundef nonnull %P, ptr noundef %4) #19
   %cmp37 = icmp eq i32 %call35, 0
   br i1 %cmp37, label %if.end45, label %if.end353
 
@@ -1390,7 +1390,7 @@ if.end198:                                        ; preds = %if.end185
 
 if.end208:                                        ; preds = %if.end198
   %40 = load ptr, ptr %arrayidx, align 8
-  %call207 = call i32 @sp_copy(ptr noundef %P, ptr noundef %40) #19
+  %call207 = call i32 @sp_copy(ptr noundef nonnull %P, ptr noundef %40) #19
   %cmp209 = icmp eq i32 %call207, 0
   br i1 %cmp209, label %if.end218, label %if.end353
 
@@ -5864,7 +5864,7 @@ if.then3:                                         ; preds = %entry
   br i1 %cmp8, label %if.end13, label %if.end88
 
 if.end13:                                         ; preds = %if.then3
-  %call12 = call i32 @sp_sqr(ptr noundef %ecp, ptr noundef nonnull %t2) #19
+  %call12 = call i32 @sp_sqr(ptr noundef nonnull %ecp, ptr noundef nonnull %t2) #19
   %cmp14 = icmp eq i32 %call12, 0
   br i1 %cmp14, label %if.end19, label %if.end88
 
@@ -5874,7 +5874,7 @@ if.end19:                                         ; preds = %if.end13
   br i1 %cmp20, label %if.end27, label %if.end88
 
 if.end27:                                         ; preds = %if.end19
-  %call26 = call i32 @sp_mul(ptr noundef %ecp, ptr noundef nonnull %t2, ptr noundef nonnull %t2) #19
+  %call26 = call i32 @sp_mul(ptr noundef nonnull %ecp, ptr noundef nonnull %t2, ptr noundef nonnull %t2) #19
   %cmp28 = icmp eq i32 %call26, 0
   br i1 %cmp28, label %if.end34, label %if.end88
 
@@ -5884,17 +5884,17 @@ if.end34:                                         ; preds = %if.end27
   br i1 %cmp35, label %if.end42, label %if.end88
 
 if.end42:                                         ; preds = %if.end34
-  %call41 = call i32 @sp_add(ptr noundef nonnull %t1, ptr noundef %ecp, ptr noundef nonnull %t1) #19
+  %call41 = call i32 @sp_add(ptr noundef nonnull %t1, ptr noundef nonnull %ecp, ptr noundef nonnull %t1) #19
   %cmp43 = icmp eq i32 %call41, 0
   br i1 %cmp43, label %if.end50, label %if.end88
 
 if.end50:                                         ; preds = %if.end42
-  %call49 = call i32 @sp_add(ptr noundef nonnull %t1, ptr noundef %ecp, ptr noundef nonnull %t1) #19
+  %call49 = call i32 @sp_add(ptr noundef nonnull %t1, ptr noundef nonnull %ecp, ptr noundef nonnull %t1) #19
   %cmp51 = icmp eq i32 %call49, 0
   br i1 %cmp51, label %if.end58, label %if.end88
 
 if.end58:                                         ; preds = %if.end50
-  %call57 = call i32 @sp_add(ptr noundef nonnull %t1, ptr noundef %ecp, ptr noundef nonnull %t1) #19
+  %call57 = call i32 @sp_add(ptr noundef nonnull %t1, ptr noundef nonnull %ecp, ptr noundef nonnull %t1) #19
   %cmp59 = icmp eq i32 %call57, 0
   br i1 %cmp59, label %if.end64, label %if.end88
 
@@ -7122,12 +7122,12 @@ if.end33:                                         ; preds = %if.end29
   br i1 %cmp34, label %if.end40, label %if.end59
 
 if.end40:                                         ; preds = %if.end33
-  %call39 = tail call i32 @sp_mul(ptr noundef %p, ptr noundef %tx, ptr noundef %p) #19
+  %call39 = tail call i32 @sp_mul(ptr noundef nonnull %p, ptr noundef %tx, ptr noundef nonnull %p) #19
   %cmp41 = icmp eq i32 %call39, 0
   br i1 %cmp41, label %if.end46, label %if.end59
 
 if.end46:                                         ; preds = %if.end40
-  %call45 = tail call i32 @sp_mont_red_ex(ptr noundef %p, ptr noundef nonnull %modulus, i64 noundef %mp, i32 noundef 0) #19
+  %call45 = tail call i32 @sp_mont_red_ex(ptr noundef nonnull %p, ptr noundef nonnull %modulus, i64 noundef %mp, i32 noundef 0) #19
   %cmp47 = icmp eq i32 %call45, 0
   br i1 %cmp47, label %if.end53, label %if.end59
 

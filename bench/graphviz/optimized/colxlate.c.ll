@@ -2658,8 +2658,8 @@ define range(i32 -1, 2) i32 @colorxlate(ptr noundef %0, ptr noundef writeonly in
   br i1 %23, label %41, label %.threadthread-pre-split
 
 .threadthread-pre-split:                          ; preds = %21
-  %.pr197 = load i8, ptr %.0112, align 1
-  %24 = icmp eq i8 %.pr197, 35
+  %.pr200 = load i8, ptr %.0112, align 1
+  %24 = icmp eq i8 %.pr200, 35
   br i1 %24, label %25, label %.thread193
 
 25:                                               ; preds = %.threadthread-pre-split
@@ -2888,7 +2888,7 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   unreachable
 
 .thread193:                                       ; preds = %..thread193_crit_edge, %19, %.threadthread-pre-split, %25
-  %172 = phi i8 [ %.pre, %..thread193_crit_edge ], [ %16, %19 ], [ %.pr197, %.threadthread-pre-split ], [ 35, %25 ]
+  %172 = phi i8 [ %.pre, %..thread193_crit_edge ], [ %16, %19 ], [ %.pr200, %.threadthread-pre-split ], [ 35, %25 ]
   %173 = icmp eq i8 %172, 46
   %174 = sext i8 %172 to i32
   %175 = add nsw i32 %174, -48
@@ -2898,8 +2898,8 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
 
 177:                                              ; preds = %.thread193
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  %.not200 = icmp eq i8 %172, 0
-  br i1 %.not200, label %agxbsizeof.exit.i.i, label %agxbsizeof.exit.i.lr.ph
+  %.not203 = icmp eq i8 %172, 0
+  br i1 %.not203, label %agxbsizeof.exit.i.i, label %agxbsizeof.exit.i.lr.ph
 
 agxbsizeof.exit.i.lr.ph:                          ; preds = %177
   %178 = getelementptr inbounds nuw i8, ptr %13, i64 31
@@ -2908,11 +2908,11 @@ agxbsizeof.exit.i.lr.ph:                          ; preds = %177
   br label %agxbsizeof.exit.i
 
 agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.lr.ph, %agxbputc.exit
-  %.val.i.i.i207 = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph ], [ %.val.i.i.i205, %agxbputc.exit ]
-  %.val.i.i = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph ], [ %.val.i.i204, %agxbputc.exit ]
+  %.val.i.i.i210 = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph ], [ %.val.i.i.i208, %agxbputc.exit ]
+  %.val.i.i = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph ], [ %.val.i.i207, %agxbputc.exit ]
   %181 = phi i8 [ %172, %agxbsizeof.exit.i.lr.ph ], [ %199, %agxbputc.exit ]
-  %.0111201 = phi ptr [ %.0112, %agxbsizeof.exit.i.lr.ph ], [ %182, %agxbputc.exit ]
-  %182 = getelementptr inbounds nuw i8, ptr %.0111201, i64 1
+  %.0111204 = phi ptr [ %.0112, %agxbsizeof.exit.i.lr.ph ], [ %182, %agxbputc.exit ]
+  %182 = getelementptr inbounds nuw i8, ptr %.0111204, i64 1
   %183 = icmp eq i8 %181, 44
   %narrow = select i1 %183, i8 32, i8 %181
   %.not.i.i = icmp eq i8 %.val.i.i, -1
@@ -2930,13 +2930,13 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.l
   br label %188
 
 188:                                              ; preds = %187, %agxbsizeof.exit.i
-  %.val.i.i.i206 = phi i8 [ %.val.i15.pre.i, %187 ], [ %.val.i.i.i207, %agxbsizeof.exit.i ]
-  %.val.i.i202 = phi i8 [ %.val.i15.pre.i, %187 ], [ %.val.i.i, %agxbsizeof.exit.i ]
-  %.not.i16.i = icmp eq i8 %.val.i.i202, -1
+  %.val.i.i.i209 = phi i8 [ %.val.i15.pre.i, %187 ], [ %.val.i.i.i210, %agxbsizeof.exit.i ]
+  %.val.i.i205 = phi i8 [ %.val.i15.pre.i, %187 ], [ %.val.i.i, %agxbsizeof.exit.i ]
+  %.not.i16.i = icmp eq i8 %.val.i.i205, -1
   br i1 %.not.i16.i, label %194, label %189
 
 189:                                              ; preds = %188
-  %190 = zext i8 %.val.i.i202 to i64
+  %190 = zext i8 %.val.i.i205 to i64
   %191 = getelementptr inbounds nuw [31 x i8], ptr %13, i64 0, i64 %190
   store i8 %narrow, ptr %191, align 1
   %192 = load i8, ptr %178, align 1
@@ -2954,21 +2954,21 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.l
   br label %agxbputc.exit
 
 agxbputc.exit:                                    ; preds = %189, %194
-  %.val.i.i.i205 = phi i8 [ %193, %189 ], [ %.val.i.i.i206, %194 ]
-  %.val.i.i204 = phi i8 [ %193, %189 ], [ -1, %194 ]
+  %.val.i.i.i208 = phi i8 [ %193, %189 ], [ %.val.i.i.i209, %194 ]
+  %.val.i.i207 = phi i8 [ %193, %189 ], [ -1, %194 ]
   %199 = load i8, ptr %182, align 1
   %.not = icmp eq i8 %199, 0
   br i1 %.not, label %agxbsizeof.exit.i.i.loopexit, label %agxbsizeof.exit.i
 
 agxbsizeof.exit.i.i.loopexit:                     ; preds = %agxbputc.exit
-  %.pre209 = load i64, ptr %179, align 8
-  %.pre211 = load i64, ptr %180, align 8
+  %.pre212 = load i64, ptr %179, align 8
+  %.pre214 = load i64, ptr %180, align 8
   br label %agxbsizeof.exit.i.i
 
 agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i.i.loopexit, %177
-  %200 = phi i64 [ %.pre211, %agxbsizeof.exit.i.i.loopexit ], [ 0, %177 ]
-  %201 = phi i64 [ %.pre209, %agxbsizeof.exit.i.i.loopexit ], [ 0, %177 ]
-  %.val.i.i.i = phi i8 [ %.val.i.i.i205, %agxbsizeof.exit.i.i.loopexit ], [ 0, %177 ]
+  %200 = phi i64 [ %.pre214, %agxbsizeof.exit.i.i.loopexit ], [ 0, %177 ]
+  %201 = phi i64 [ %.pre212, %agxbsizeof.exit.i.i.loopexit ], [ 0, %177 ]
+  %.val.i.i.i = phi i8 [ %.val.i.i.i208, %agxbsizeof.exit.i.i.loopexit ], [ 0, %177 ]
   store double 1.000000e+00, ptr %8, align 8
   %202 = getelementptr inbounds nuw i8, ptr %13, i64 31
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
@@ -3016,7 +3016,7 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
   br label %agxbuse.exit
 
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %215
-  %.val.i4.pr.i215 = phi i1 [ true, %215 ], [ false, %agxbclear.exit.thread.i ]
+  %.val.i4.pr.i218 = phi i1 [ true, %215 ], [ false, %agxbclear.exit.thread.i ]
   %217 = phi ptr [ %216, %215 ], [ %13, %agxbclear.exit.thread.i ]
   %218 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %217, ptr noundef nonnull @.str.4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #21
   %219 = icmp sgt i32 %218, 2
@@ -3354,7 +3354,7 @@ hsv2rgb.exit136:                                  ; preds = %361, %363, %378, %3
   unreachable
 
 392:                                              ; preds = %220, %220, %hsv2rgb.exit136, %hsv2rgb.exit132, %hsv2rgb.exit128, %hsv2rgb.exit, %233
-  br i1 %.val.i4.pr.i215, label %393, label %agxbfree.exit
+  br i1 %.val.i4.pr.i218, label %393, label %agxbfree.exit
 
 393:                                              ; preds = %392
   %.val = load ptr, ptr %13, align 8
@@ -3362,7 +3362,7 @@ hsv2rgb.exit136:                                  ; preds = %361, %363, %378, %3
   br label %agxbfree.exit
 
 394:                                              ; preds = %agxbuse.exit
-  br i1 %.val.i4.pr.i215, label %395, label %agxbfree.exit137
+  br i1 %.val.i4.pr.i218, label %395, label %agxbfree.exit137
 
 395:                                              ; preds = %394
   %.val122 = load ptr, ptr %13, align 8
@@ -3373,17 +3373,17 @@ agxbfree.exit137:                                 ; preds = %.thread193, %395, %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %396 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0112, ptr noundef nonnull dereferenceable(6) @.str.7) #20
   %.not.i138 = icmp eq i32 %396, 0
-  br i1 %.not.i138, label %resolveColor.exit, label %397
+  br i1 %.not.i138, label %resolveColor.exit.thread, label %397
 
 397:                                              ; preds = %agxbfree.exit137
   %398 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0112, ptr noundef nonnull dereferenceable(6) @.str.8) #20
   %.not25.i = icmp eq i32 %398, 0
-  br i1 %.not25.i, label %resolveColor.exit, label %399
+  br i1 %.not25.i, label %resolveColor.exit.thread, label %399
 
 399:                                              ; preds = %397
   %400 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0112, ptr noundef nonnull dereferenceable(10) @.str.9) #20
   %.not26.i = icmp eq i32 %400, 0
-  br i1 %.not26.i, label %resolveColor.exit, label %401
+  br i1 %.not26.i, label %resolveColor.exit.thread, label %401
 
 401:                                              ; preds = %399
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -3490,7 +3490,7 @@ agxbputc.exit.i.i.i:                              ; preds = %436
   br i1 %444, label %agxbputc.exit.i.i.i._crit_edge, label %agxbclear.exit.thread.i.i.i
 
 agxbputc.exit.i.i.i._crit_edge:                   ; preds = %agxbputc.exit.i.i.i
-  %.pre213 = load ptr, ptr %4, align 8
+  %.pre216 = load ptr, ptr %4, align 8
   br label %445
 
 agxbclear.exit.thread.i.i.i:                      ; preds = %agxbputc.exit.i.i.i
@@ -3498,7 +3498,7 @@ agxbclear.exit.thread.i.i.i:                      ; preds = %agxbputc.exit.i.i.i
   br label %fullColor.exit.i
 
 445:                                              ; preds = %agxbputc.exit.i.i.i._crit_edge, %agxbputc.exit.i.i.thread.i
-  %446 = phi ptr [ %.pre213, %agxbputc.exit.i.i.i._crit_edge ], [ %438, %agxbputc.exit.i.i.thread.i ]
+  %446 = phi ptr [ %.pre216, %agxbputc.exit.i.i.i._crit_edge ], [ %438, %agxbputc.exit.i.i.thread.i ]
   store i64 0, ptr %430, align 8
   br label %fullColor.exit.i
 
@@ -3515,25 +3515,29 @@ fullColor.exit.i:                                 ; preds = %445, %agxbclear.exi
   call void @free(ptr noundef %.val.i) #21
   br label %resolveColor.exit
 
-resolveColor.exit:                                ; preds = %agxbfree.exit137, %397, %399, %fullColor.exit.i, %450
-  %.0.i139 = phi ptr [ %.0112, %agxbfree.exit137 ], [ %.0112, %397 ], [ %.0112, %399 ], [ %447, %fullColor.exit.i ], [ %447, %450 ]
+resolveColor.exit.thread:                         ; preds = %agxbfree.exit137, %397, %399
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %.not118 = icmp eq ptr %.0.i139, null
+  br label %451
+
+resolveColor.exit:                                ; preds = %fullColor.exit.i, %450
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  %.not118 = icmp eq ptr %447, null
   br i1 %.not118, label %agxbfree.exit, label %451
 
-451:                                              ; preds = %resolveColor.exit
+451:                                              ; preds = %resolveColor.exit.thread, %resolveColor.exit
+  %.0.i139199 = phi ptr [ %.0112, %resolveColor.exit.thread ], [ %447, %resolveColor.exit ]
   %452 = load ptr, ptr @colorxlate.last, align 8
   %453 = icmp eq ptr %452, null
   br i1 %453, label %thread-pre-split, label %454
 
 454:                                              ; preds = %451
   %455 = load ptr, ptr %452, align 8
-  %456 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %455, ptr noundef nonnull dereferenceable(1) %.0.i139) #20
+  %456 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %455, ptr noundef nonnull dereferenceable(1) %.0.i139199) #20
   %.not119 = icmp eq i32 %456, 0
   br i1 %.not119, label %thread-pre-split.thread, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %451, %454
-  %457 = call ptr @bsearch(ptr noundef nonnull %.0.i139, ptr noundef nonnull @color_lib, i64 noundef 2515, i64 noundef 16, ptr noundef nonnull @colorcmpf) #21
+  %457 = call ptr @bsearch(ptr noundef nonnull %.0.i139199, ptr noundef nonnull @color_lib, i64 noundef 2515, i64 noundef 16, ptr noundef nonnull @colorcmpf) #21
   store ptr %457, ptr @colorxlate.last, align 8
   %.not120 = icmp eq ptr %457, null
   br i1 %.not120, label %570, label %thread-pre-split.thread

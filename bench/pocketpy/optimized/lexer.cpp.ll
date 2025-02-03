@@ -724,7 +724,7 @@ define noundef signext range(i8 11, 10) i8 @_ZN4pkpy5Lexer7eatcharEv(ptr noundef
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #28
+  tail call void @__cxa_free_exception(ptr nonnull %7) #28
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %1
@@ -3411,7 +3411,7 @@ _ZN4pkpy12small_vectorIcLm32EE9push_backEOc.exit48: ; preds = %304, %322
 333:                                              ; preds = %331
   %334 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %332) #28
+  call void @__cxa_free_exception(ptr nonnull %332) #28
   br label %.body
 
 335:                                              ; preds = %328
@@ -3430,7 +3430,7 @@ _ZN4pkpy12small_vectorIcLm32EE9push_backEOc.exit48: ; preds = %304, %322
 341:                                              ; preds = %339
   %342 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %340) #28
+  call void @__cxa_free_exception(ptr nonnull %340) #28
   br label %.body
 
 343:                                              ; preds = %335

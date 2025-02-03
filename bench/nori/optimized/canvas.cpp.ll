@@ -110,7 +110,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
 37:                                               ; preds = %33
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %34) #15
+  tail call void @__cxa_free_exception(ptr nonnull %34) #15
   br label %104
 
 39:                                               ; preds = %31
@@ -169,7 +169,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
 58:                                               ; preds = %55
   %59 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %56) #15
+  tail call void @__cxa_free_exception(ptr nonnull %56) #15
   br label %104
 
 60:                                               ; preds = %.thread, %52
@@ -413,7 +413,7 @@ define hidden void @_ZN7nanogui6Canvas4drawEP10NVGcontext(ptr noundef nonnull al
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #15
+  tail call void @__cxa_free_exception(ptr nonnull %9) #15
   resume { ptr, i32 } %12
 
 _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit:            ; preds = %2

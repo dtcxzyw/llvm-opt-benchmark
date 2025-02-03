@@ -311,11 +311,11 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #6
   %128 = tail call i32 @xmlTextReaderClose(ptr noundef nonnull %10) #6
   tail call void @xmlFreeTextReader(ptr noundef nonnull %10) #6
-  tail call void @free(ptr noundef %97) #6
+  tail call void @free(ptr noundef nonnull %97) #6
   br label %143
 
 129:                                              ; preds = %._crit_edge163
-  tail call void @free(ptr noundef %97) #6
+  tail call void @free(ptr noundef nonnull %97) #6
   %130 = load ptr, ptr %54, align 8
   %131 = tail call i32 @hm_addhash_str(ptr noundef %130, ptr noundef nonnull %.0102, i32 noundef 0, ptr noundef nonnull %126) #6
   %.not125 = icmp eq i32 %131, 0

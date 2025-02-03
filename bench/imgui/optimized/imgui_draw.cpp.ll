@@ -9444,7 +9444,7 @@ if.then15:                                        ; preds = %if.end14
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then15, %if.end14
-  call void @_ZNK6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(ptr noundef nonnull align 8 dereferenceable(118) %font.addr.0, ptr noundef nonnull %this, float noundef %font_size.addr.0, ptr noundef nonnull align 4 dereferenceable(8) %pos, i32 noundef %col, ptr noundef nonnull align 4 dereferenceable(16) %clip_rect, ptr noundef %text_begin, ptr noundef %text_end.addr.0, float noundef %wrap_width, i1 noundef zeroext %tobool)
+  call void @_ZNK6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(ptr noundef nonnull align 8 dereferenceable(118) %font.addr.0, ptr noundef nonnull %this, float noundef %font_size.addr.0, ptr noundef nonnull align 4 dereferenceable(8) %pos, i32 noundef %col, ptr noundef nonnull align 4 dereferenceable(16) %clip_rect, ptr noundef %text_begin, ptr noundef nonnull %text_end.addr.0, float noundef %wrap_width, i1 noundef zeroext %tobool)
   br label %return
 
 return:                                           ; preds = %if.end4, %entry, %if.end28
@@ -10110,7 +10110,7 @@ if.end7.i:                                        ; preds = %if.end4.i
   %2 = load float, ptr %FontSize.i, align 8
   %_CmdHeader.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %clip_rect.i, ptr noundef nonnull align 8 dereferenceable(16) %_CmdHeader.i, i64 16, i1 false)
-  call void @_ZNK6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(ptr noundef nonnull align 8 dereferenceable(118) %1, ptr noundef nonnull align 8 dereferenceable(196) %this, float noundef %2, ptr noundef nonnull readonly align 4 dereferenceable(8) %pos, i32 noundef %col, ptr noundef nonnull align 4 dereferenceable(16) %clip_rect.i, ptr noundef %text_begin, ptr noundef %text_end.addr.0.i, float noundef 0.000000e+00, i1 noundef zeroext false)
+  call void @_ZNK6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(ptr noundef nonnull align 8 dereferenceable(118) %1, ptr noundef nonnull align 8 dereferenceable(196) %this, float noundef %2, ptr noundef nonnull readonly align 4 dereferenceable(8) %pos, i32 noundef %col, ptr noundef nonnull align 4 dereferenceable(16) %clip_rect.i, ptr noundef %text_begin, ptr noundef nonnull %text_end.addr.0.i, float noundef 0.000000e+00, i1 noundef zeroext false)
   br label %_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4.exit
 
 _ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4.exit: ; preds = %entry, %if.end4.i, %if.end7.i
@@ -13195,7 +13195,7 @@ land.lhs.true:                                    ; preds = %for.cond
 
 for.end:                                          ; preds = %land.lhs.true, %land.lhs.true, %for.cond
   %conv13 = fpext float %size_pixels to double
-  %call14 = call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %Name, i64 noundef 40, ptr noundef nonnull @.str.2, ptr noundef %p.0, double noundef %conv13)
+  %call14 = call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %Name, i64 noundef 40, ptr noundef nonnull @.str.2, ptr noundef nonnull %p.0, double noundef %conv13)
   br label %if.end15
 
 if.end15:                                         ; preds = %for.end, %cond.end

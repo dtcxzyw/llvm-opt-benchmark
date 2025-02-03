@@ -2687,7 +2687,7 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
 140:                                              ; preds = %.loopexit.i
   %141 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %138) #19
+  call void @__cxa_free_exception(ptr nonnull %138) #19
   br label %.body
 
 .loopexit:                                        ; preds = %130, %114, %125

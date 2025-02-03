@@ -445,7 +445,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   br i1 %.not107, label %95, label %101
 
 95:                                               ; preds = %92
-  call void @pgstat_init_function_usage(ptr noundef %30, ptr noundef nonnull %6) #5
+  call void @pgstat_init_function_usage(ptr noundef nonnull %30, ptr noundef nonnull %6) #5
   store i8 0, ptr %84, align 4
   store i32 0, ptr %85, align 8
   %96 = load ptr, ptr %30, align 8

@@ -728,7 +728,7 @@ sw.default:                                       ; preds = %if.end51
   br label %out
 
 out:                                              ; preds = %sw.bb57, %if.then55, %sw.bb, %sw.default, %if.then30, %if.then
-  %call58 = call ptr @bdrv_get_aio_context(ptr noundef %bs) #10
+  %call58 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #10
   call void @aio_context_release(ptr noundef %call58) #10
   ret void
 }

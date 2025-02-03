@@ -699,12 +699,12 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %call6 = call ptr @PyInterpreterState_Head() #6
-  %cmp7.not28 = icmp eq ptr %call6, null
-  br i1 %cmp7.not28, label %return, label %while.body
+  %cmp7.not29 = icmp eq ptr %call6, null
+  br i1 %cmp7.not29, label %return, label %while.body
 
 while.body:                                       ; preds = %if.end5, %if.end24
-  %interp.029 = phi ptr [ %call25, %if.end24 ], [ %call6, %if.end5 ]
-  %call8 = call i64 @PyInterpreterState_GetID(ptr noundef nonnull %interp.029) #6
+  %interp.030 = phi ptr [ %call25, %if.end24 ], [ %call6, %if.end5 ]
+  %call8 = call i64 @PyInterpreterState_GetID(ptr noundef nonnull %interp.030) #6
   %1 = load i32, ptr %send, align 4
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %2, i32 noundef 1) #6
@@ -787,7 +787,7 @@ if.end13:                                         ; preds = %while.body.i.i
   br i1 %tobool9.i.not, label %if.end24, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
-  %call16 = call ptr @PyInterpreterState_GetIDObject(ptr noundef nonnull %interp.029) #6
+  %call16 = call ptr @PyInterpreterState_GetIDObject(ptr noundef nonnull %interp.030) #6
   %cmp17 = icmp eq ptr %call16, null
   br i1 %cmp17, label %if.then27, label %if.end19
 
@@ -813,11 +813,11 @@ Py_DECREF.exit37:                                 ; preds = %if.end19, %if.then1
   br i1 %cmp21, label %if.then27, label %if.end24
 
 if.end24:                                         ; preds = %if.end.i.i, %cond.end.i, %Py_DECREF.exit37, %if.end13
-  %call25 = call ptr @PyInterpreterState_Next(ptr noundef nonnull %interp.029) #6
+  %call25 = call ptr @PyInterpreterState_Next(ptr noundef nonnull %interp.030) #6
   %cmp7.not = icmp eq ptr %call25, null
   br i1 %cmp7.not, label %return, label %while.body, !llvm.loop !11
 
-if.then27:                                        ; preds = %Py_DECREF.exit37, %if.then15, %if.then11
+if.then27:                                        ; preds = %if.then15, %Py_DECREF.exit37, %if.then11
   %17 = load i64, ptr %call3, align 8
   %18 = and i64 %17, 2147483648
   %cmp.i42.not = icmp eq i64 %18, 0

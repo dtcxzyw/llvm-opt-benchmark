@@ -28143,8 +28143,6 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$hi
 
 27:                                               ; preds = %17
   %28 = mul nsw i64 %4, 24
-  %29 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %29)
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %28, i64 noundef 8) #65
   resume { ptr, i32 } %20
 }
@@ -62179,7 +62177,7 @@ define hidden noundef nonnull ptr @_ZN8chalk_ir4fold10TypeFolder10fold_const17h1
 6:                                                ; preds = %3
   %7 = extractvalue { ptr, ptr } %5, 0
   %8 = extractvalue { ptr, ptr } %5, 1
-  %9 = tail call noundef nonnull ptr @"_ZN87_$LT$chalk_ir..Const$LT$I$GT$$u20$as$u20$chalk_ir..fold..TypeSuperFoldable$LT$I$GT$$GT$19try_super_fold_with17h17a8cbb7be43703dE.llvm.6150282900714191917"(ptr noundef nonnull %1, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) %8, i32 noundef %2)
+  %9 = tail call noundef nonnull ptr @"_ZN87_$LT$chalk_ir..Const$LT$I$GT$$u20$as$u20$chalk_ir..fold..TypeSuperFoldable$LT$I$GT$$GT$19try_super_fold_with17h17a8cbb7be43703dE.llvm.6150282900714191917"(ptr noundef nonnull %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !15516
   ret ptr %9
 
@@ -62210,7 +62208,7 @@ define hidden noundef nonnull ptr @_ZN8chalk_ir4fold10TypeFolder13fold_lifetime1
 6:                                                ; preds = %3
   %7 = extractvalue { ptr, ptr } %5, 0
   %8 = extractvalue { ptr, ptr } %5, 1
-  %9 = tail call noundef nonnull ptr @"_ZN90_$LT$chalk_ir..Lifetime$LT$I$GT$$u20$as$u20$chalk_ir..fold..TypeSuperFoldable$LT$I$GT$$GT$19try_super_fold_with17h81b711a86d307a61E.llvm.6150282900714191917"(ptr noundef nonnull %1, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) %8, i32 noundef %2)
+  %9 = tail call noundef nonnull ptr @"_ZN90_$LT$chalk_ir..Lifetime$LT$I$GT$$u20$as$u20$chalk_ir..fold..TypeSuperFoldable$LT$I$GT$$GT$19try_super_fold_with17h81b711a86d307a61E.llvm.6150282900714191917"(ptr noundef nonnull %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !15519
   ret ptr %9
 
@@ -62461,7 +62459,7 @@ define hidden void @_ZN8chalk_ir4fold10TypeFolder19fold_program_clause17h0e21225
 8:                                                ; preds = %4
   %9 = extractvalue { ptr, ptr } %7, 0
   %10 = extractvalue { ptr, ptr } %7, 1
-  call void @"_ZN8chalk_ir4fold12boring_impls105_$LT$impl$u20$chalk_ir..fold..TypeSuperFoldable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$19try_super_fold_with17h696aa9338cd4d098E.llvm.6150282900714191917"(ptr noalias noundef nonnull sret({ { { { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i32, [9 x i32] }, i8, [7 x i8] }, ptr } } } }) align 8 captures(none) dereferenceable(104) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %5, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) %10, i32 noundef %3)
+  call void @"_ZN8chalk_ir4fold12boring_impls105_$LT$impl$u20$chalk_ir..fold..TypeSuperFoldable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$19try_super_fold_with17h696aa9338cd4d098E.llvm.6150282900714191917"(ptr noalias noundef nonnull sret({ { { { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i32, [9 x i32] }, i8, [7 x i8] }, ptr } } } }) align 8 captures(none) dereferenceable(104) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %5, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %3)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5), !noalias !15565
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %6, i64 104, i1 false), !alias.scope !15571, !noalias !15575
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6), !noalias !15565
@@ -62653,7 +62651,7 @@ define hidden noundef nonnull ptr @_ZN8chalk_ir4fold10TypeFolder7fold_ty17h5ad5e
 6:                                                ; preds = %3
   %7 = extractvalue { ptr, ptr } %5, 0
   %8 = extractvalue { ptr, ptr } %5, 1
-  %9 = tail call noundef nonnull ptr @"_ZN84_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$chalk_ir..fold..TypeSuperFoldable$LT$I$GT$$GT$19try_super_fold_with17h5a3df8c31bed7234E.llvm.6150282900714191917"(ptr noundef nonnull %1, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) %8, i32 noundef %2)
+  %9 = tail call noundef nonnull ptr @"_ZN84_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$chalk_ir..fold..TypeSuperFoldable$LT$I$GT$$GT$19try_super_fold_with17h5a3df8c31bed7234E.llvm.6150282900714191917"(ptr noundef nonnull %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !15600
   ret ptr %9
 
@@ -62684,7 +62682,7 @@ define hidden noundef nonnull ptr @_ZN8chalk_ir4fold10TypeFolder9fold_goal17h7b1
 6:                                                ; preds = %3
   %7 = extractvalue { ptr, ptr } %5, 0
   %8 = extractvalue { ptr, ptr } %5, 1
-  %9 = tail call noundef nonnull ptr @"_ZN86_$LT$chalk_ir..Goal$LT$I$GT$$u20$as$u20$chalk_ir..fold..TypeSuperFoldable$LT$I$GT$$GT$19try_super_fold_with17h6ca64cda433439b9E.llvm.6150282900714191917"(ptr noundef nonnull %1, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) %8, i32 noundef %2)
+  %9 = tail call noundef nonnull ptr @"_ZN86_$LT$chalk_ir..Goal$LT$I$GT$$u20$as$u20$chalk_ir..fold..TypeSuperFoldable$LT$I$GT$$GT$19try_super_fold_with17h6ca64cda433439b9E.llvm.6150282900714191917"(ptr noundef nonnull %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !15603
   ret ptr %9
 
@@ -126606,7 +126604,7 @@ define hidden { i64, ptr } @_ZN6hir_ty5infer5unify14InferenceTable21resolve_with
 19:                                               ; preds = %5
   %20 = extractvalue { ptr, ptr } %18, 0
   %21 = extractvalue { ptr, ptr } %18, 1
-  %22 = invoke { i64, ptr } @"_ZN8chalk_ir4fold12boring_impls97_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..GenericArg$LT$I$GT$$GT$13try_fold_with17hc0eea50c3a2f2fcdE"(i64 noundef %1, ptr noundef %2, ptr noundef nonnull align 1 %20, ptr noalias noundef readonly align 8 dereferenceable(24) %21, i32 noundef 0)
+  %22 = invoke { i64, ptr } @"_ZN8chalk_ir4fold12boring_impls97_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..GenericArg$LT$I$GT$$GT$13try_fold_with17hc0eea50c3a2f2fcdE"(i64 noundef %1, ptr noundef %2, ptr noundef nonnull align 1 %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, i32 noundef 0)
           to label %29 unwind label %27
 
 23:                                               ; preds = %5
@@ -126794,7 +126792,7 @@ define hidden noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable21resol
 17:                                               ; preds = %4
   %18 = extractvalue { ptr, ptr } %16, 0
   %19 = extractvalue { ptr, ptr } %16, 1
-  %20 = invoke noundef nonnull ptr @"_ZN8chalk_ir4fold12boring_impls99_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$13try_fold_with17h81afa2d6fb13eb02E.llvm.6150282900714191917"(ptr noundef nonnull %1, ptr noundef nonnull align 1 %18, ptr noalias noundef readonly align 8 dereferenceable(24) %19, i32 noundef 0)
+  %20 = invoke noundef nonnull ptr @"_ZN8chalk_ir4fold12boring_impls99_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$13try_fold_with17h81afa2d6fb13eb02E.llvm.6150282900714191917"(ptr noundef nonnull %1, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19, i32 noundef 0)
           to label %27 unwind label %25
 
 21:                                               ; preds = %4
@@ -128578,7 +128576,7 @@ _ZN6hir_ty5lower17TyLoweringContext24substs_from_path_segment17hf5bce92caec94f03
 178:                                              ; preds = %176
   %179 = extractvalue { ptr, ptr } %175, 1
   %180 = extractvalue { ptr, ptr } %175, 0
-  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %16, ptr noundef nonnull align 1 %180, ptr noalias noundef readonly align 8 dereferenceable(24) %179, i64 %177)
+  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %16, ptr noundef nonnull align 1 %180, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %179, i64 %177)
           to label %181 unwind label %.loopexit.i.i
 
 181:                                              ; preds = %178
@@ -137366,7 +137364,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4c9788dd3a97c908E.exit.i9.i.i: ; preds 
 .noexc108:                                        ; preds = %.cont.i.i
   %131 = extractvalue { ptr, ptr } %130, 0
   %132 = extractvalue { ptr, ptr } %130, 1
-  invoke void @_ZN6hir_ty5utils16all_super_traits17heafcb402858e9f86E(ptr noalias noundef nonnull sret({ { [2 x i64] }, i64 }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 1 %131, ptr noalias noundef readonly align 8 dereferenceable(24) %132, i32 noundef range(i32 1, 0) %127)
+  invoke void @_ZN6hir_ty5utils16all_super_traits17heafcb402858e9f86E(ptr noalias noundef nonnull sret({ { [2 x i64] }, i64 }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 1 %131, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %132, i32 noundef range(i32 1, 0) %127)
           to label %.noexc109 unwind label %.loopexit
 
 .noexc109:                                        ; preds = %.noexc108

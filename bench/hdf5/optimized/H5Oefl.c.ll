@@ -1256,14 +1256,14 @@ define internal noundef ptr @H5O__efl_copy_file(ptr readnone captures(none) %0, 
   %12 = load i64, ptr @H5E_RESOURCE_g, align 8
   %13 = load i64, ptr @H5E_NOSPACE_g, align 8
   %14 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__efl_copy_file, i32 noundef 457, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.3) #10
-  br label %99
+  br label %.thread73
 
 15:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8
-  %.not81 = icmp eq i64 %17, 0
-  br i1 %.not81, label %._crit_edge, label %.lr.ph
+  %.not84 = icmp eq i64 %17, 0
+  br i1 %.not84, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1271,15 +1271,15 @@ define internal noundef ptr @H5O__efl_copy_file(ptr readnone captures(none) %0, 
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
-  %.05277 = phi i64 [ 8, %.lr.ph ], [ %26, %20 ]
-  %.05376 = phi i64 [ 0, %.lr.ph ], [ %27, %20 ]
-  %21 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %19, i64 %.05376, i32 1
+  %.05280 = phi i64 [ 8, %.lr.ph ], [ %26, %20 ]
+  %.05379 = phi i64 [ 0, %.lr.ph ], [ %27, %20 ]
+  %21 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %19, i64 %.05379, i32 1
   %22 = load ptr, ptr %21, align 8
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #11
   %24 = add i64 %23, 8
   %25 = and i64 %24, 4294967288
-  %26 = add i64 %25, %.05277
-  %27 = add nuw i64 %.05376, 1
+  %26 = add i64 %25, %.05280
+  %27 = add nuw i64 %.05379, 1
   %exitcond.not = icmp eq i64 %27, %17
   br i1 %exitcond.not, label %._crit_edge, label %20
 
@@ -1293,7 +1293,7 @@ define internal noundef ptr @H5O__efl_copy_file(ptr readnone captures(none) %0, 
   %31 = load i64, ptr @H5E_EFL_g, align 8
   %32 = load i64, ptr @H5E_CANTINIT_g, align 8
   %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__efl_copy_file, i32 noundef 469, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.17) #10
-  br label %.thread.thread83
+  br label %.thread.thread86
 
 34:                                               ; preds = %._crit_edge
   %35 = load i64, ptr %10, align 8
@@ -1305,7 +1305,7 @@ define internal noundef ptr @H5O__efl_copy_file(ptr readnone captures(none) %0, 
   %39 = load i64, ptr @H5E_EFL_g, align 8
   %40 = load i64, ptr @H5E_PROTECT_g, align 8
   %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__efl_copy_file, i32 noundef 473, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.18) #10
-  br label %.thread.thread83
+  br label %.thread.thread86
 
 42:                                               ; preds = %34
   %43 = call i32 @H5HL_insert(ptr noundef %2, ptr noundef nonnull %36, i64 noundef 1, ptr noundef nonnull @.str.19, ptr noundef nonnull %8) #10
@@ -1346,31 +1346,31 @@ define internal noundef ptr @H5O__efl_copy_file(ptr readnone captures(none) %0, 
 
 64:                                               ; preds = %61, %49
   %65 = load i64, ptr %16, align 8
-  %.not82 = icmp eq i64 %65, 0
-  br i1 %.not82, label %.thread67, label %.lr.ph80
+  %.not85 = icmp eq i64 %65, 0
+  br i1 %.not85, label %.thread67, label %.lr.ph83
 
-.lr.ph80:                                         ; preds = %64
+.lr.ph83:                                         ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br label %72
 
 68:                                               ; preds = %72
-  %69 = add nuw i64 %.15478, 1
+  %69 = add nuw i64 %.15481, 1
   %70 = load i64, ptr %16, align 8
   %71 = icmp ult i64 %69, %70
   br i1 %71, label %72, label %.thread67
 
-72:                                               ; preds = %.lr.ph80, %68
-  %.15478 = phi i64 [ 0, %.lr.ph80 ], [ %69, %68 ]
+72:                                               ; preds = %.lr.ph83, %68
+  %.15481 = phi i64 [ 0, %.lr.ph83 ], [ %69, %68 ]
   %73 = load ptr, ptr %66, align 8
-  %74 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %73, i64 %.15478, i32 1
+  %74 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %73, i64 %.15481, i32 1
   %75 = load ptr, ptr %74, align 8
   %76 = call noalias ptr @H5MM_xstrdup(ptr noundef %75) #10
   %77 = load ptr, ptr %67, align 8
-  %78 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %77, i64 %.15478, i32 1
+  %78 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %77, i64 %.15481, i32 1
   store ptr %76, ptr %78, align 8
   %79 = load ptr, ptr %67, align 8
-  %80 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %79, i64 %.15478
+  %80 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %79, i64 %.15481
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #11
@@ -1395,21 +1395,21 @@ define internal noundef ptr @H5O__efl_copy_file(ptr readnone captures(none) %0, 
   %94 = load i64, ptr @H5E_EFL_g, align 8
   %95 = load i64, ptr @H5E_PROTECT_g, align 8
   %96 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__efl_copy_file, i32 noundef 504, i64 noundef %94, i64 noundef %95, ptr noundef nonnull @.str.21) #10
-  br label %.thread.thread83
+  br label %.thread.thread86
 
 .thread:                                          ; preds = %.thread67
   %97 = icmp eq ptr %.072, null
-  br i1 %97, label %.thread.thread83, label %99
+  br i1 %97, label %.thread.thread86, label %.thread73
 
-.thread.thread83:                                 ; preds = %38, %30, %93, %.thread
+.thread.thread86:                                 ; preds = %38, %30, %93, %.thread
   %98 = call ptr @H5MM_xfree(ptr noundef nonnull %10) #10
-  br label %99
+  br label %.thread73
 
-99:                                               ; preds = %.thread.thread, %.thread.thread83, %.thread
-  %.175 = phi ptr [ null, %.thread.thread ], [ null, %.thread.thread83 ], [ %.072, %.thread ]
-  %100 = load i64, ptr %9, align 8
-  call void @H5AC_tag(i64 noundef %100, ptr noundef null) #10
-  ret ptr %.175
+.thread73:                                        ; preds = %.thread.thread, %.thread.thread86, %.thread
+  %.176 = phi ptr [ null, %.thread.thread86 ], [ %.072, %.thread ], [ null, %.thread.thread ]
+  %99 = load i64, ptr %9, align 8
+  call void @H5AC_tag(i64 noundef %99, ptr noundef null) #10
+  ret ptr %.176
 }
 
 ; Function Attrs: nofree nounwind uwtable

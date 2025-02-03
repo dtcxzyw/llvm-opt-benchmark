@@ -1257,7 +1257,7 @@ define noalias noundef ptr @Cudd_bddConstrainDecomp(ptr noundef %0, ptr noundef 
   br label %35
 
 34:                                               ; preds = %29
-  tail call void @free(ptr noundef %7) #8
+  tail call void @free(ptr noundef nonnull %7) #8
   br label %.loopexit
 
 35:                                               ; preds = %.lr.ph46, %48

@@ -6748,7 +6748,7 @@ invoke.cont:                                      ; preds = %if.then7
 lpad:                                             ; preds = %if.then7
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #30
+  call void @__cxa_free_exception(ptr nonnull %exception) #30
   br label %ehcleanup25
 
 if.end8:                                          ; preds = %if.end
@@ -7496,7 +7496,7 @@ invoke.cont:                                      ; preds = %if.then9
 lpad:                                             ; preds = %if.then9
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #30
+  call void @__cxa_free_exception(ptr nonnull %exception) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %count) #30
   resume { ptr, i32 } %4
 

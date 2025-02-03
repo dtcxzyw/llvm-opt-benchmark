@@ -3124,7 +3124,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
 
 87:                                               ; preds = %83
   %88 = load ptr, ptr %76, align 8
-  call fastcc void @RELEASE_ARRAYS(ptr noundef nonnull %0, ptr noundef %74, ptr noundef %88)
+  call fastcc void @RELEASE_ARRAYS(ptr noundef nonnull %0, ptr noundef nonnull %74, ptr noundef %88)
   %89 = load ptr, ptr %0, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 120
   %91 = load ptr, ptr %90, align 8
@@ -3155,7 +3155,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
   br label %370
 
 103:                                              ; preds = %83
-  %104 = call fastcc i32 @GET_ARRAYS(ptr noundef nonnull %0, ptr noundef %74, ptr noundef %76)
+  %104 = call fastcc i32 @GET_ARRAYS(ptr noundef nonnull %0, ptr noundef nonnull %74, ptr noundef %76)
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %106, label %112
 

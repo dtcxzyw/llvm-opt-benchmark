@@ -823,7 +823,7 @@ entry:
 
 if.end23:                                         ; preds = %entry
   %conv24 = zext i8 %bar_nr to i32
-  tail call void @pci_register_bar(ptr noundef %dev, i32 noundef %conv24, i8 noundef zeroext 0, ptr noundef nonnull %msix_exclusive_bar) #14
+  tail call void @pci_register_bar(ptr noundef nonnull %dev, i32 noundef %conv24, i8 noundef zeroext 0, ptr noundef nonnull %msix_exclusive_bar) #14
   br label %return
 
 return:                                           ; preds = %entry, %if.end23

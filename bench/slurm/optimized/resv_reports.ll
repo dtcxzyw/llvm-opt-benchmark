@@ -164,7 +164,7 @@ define dso_local noundef i32 @resv_utilization(i32 noundef %0, ptr noundef reado
   %.0147.i.i = phi i32 [ %45, %.thread.i.i ], [ -2, %53 ]
   %57 = tail call i32 @llvm.smax.i32(i32 %.0147.i.i, i32 1)
   %58 = zext nneg i32 %57 to i64
-  %59 = tail call i32 @xstrncasecmp(ptr noundef %56, ptr noundef nonnull @.str.10, i64 noundef %58) #10
+  %59 = tail call i32 @xstrncasecmp(ptr noundef nonnull %56, ptr noundef nonnull @.str.10, i64 noundef %58) #10
   %.not126.i.i = icmp eq i32 %59, 0
   br i1 %.not126.i.i, label %145, label %63
 

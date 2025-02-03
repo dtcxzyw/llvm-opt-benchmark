@@ -407,7 +407,7 @@ pmix_cmd_line_get_param.exit258:                  ; preds = %.lr.ph.i253
   unreachable
 
 164:                                              ; preds = %148
-  call void @PMIx_Info_free(ptr noundef %67, i64 noundef 1) #16
+  call void @PMIx_Info_free(ptr noundef nonnull %67, i64 noundef 1) #16
   call void @pmix_init_registered_attrs() #16
   %165 = call i32 @pmix_register_client_attrs() #16
   %166 = call i32 @pmix_register_server_attrs() #16

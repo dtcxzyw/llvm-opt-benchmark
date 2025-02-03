@@ -1567,7 +1567,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   %7 = load ptr, ptr @stderr, align 8
   %call4.i.i = tail call i32 @fflush(ptr noundef %7)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call2.i.i)
-          to label %invoke.cont3 unwind label %if.else.i.i31
+          to label %invoke.cont3 unwind label %if.then3.i.i33
 
 invoke.cont3:                                     ; preds = %invoke.cont, %if.then.i.i
   store ptr %5, ptr %__my_lock2, align 8
@@ -1702,14 +1702,14 @@ ehcleanup:                                        ; preds = %_ZNSt11unique_lockI
           cleanup
   br label %ehcleanup8
 
-if.else.i.i31:                                    ; preds = %if.then.i.i
+if.then3.i.i33:                                   ; preds = %if.then.i.i
   %26 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i.i34 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #23
   br label %ehcleanup8
 
-ehcleanup8:                                       ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit28, %if.else.i.i31, %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %21, %lpad ], [ %25, %ehcleanup ], [ %26, %if.else.i.i31 ], [ %22, %_ZNSt11unique_lockISt5mutexED2Ev.exit28 ]
+ehcleanup8:                                       ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit28, %if.then3.i.i33, %ehcleanup, %lpad
+  %.pn.pn = phi { ptr, i32 } [ %21, %lpad ], [ %25, %ehcleanup ], [ %26, %if.then3.i.i33 ], [ %22, %_ZNSt11unique_lockISt5mutexED2Ev.exit28 ]
   call void @_ZNSt10shared_ptrISt5mutexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__mutex) #23
   resume { ptr, i32 } %.pn.pn
 
@@ -1864,7 +1864,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   %7 = load ptr, ptr @stderr, align 8
   %call4.i.i = tail call i32 @fflush(ptr noundef %7)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call2.i.i)
-          to label %invoke.cont3 unwind label %if.else.i.i33
+          to label %invoke.cont3 unwind label %if.then3.i.i35
 
 invoke.cont3:                                     ; preds = %invoke.cont, %if.then.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i)
@@ -1981,14 +1981,14 @@ ehcleanup:                                        ; preds = %_ZNSt11unique_lockI
           cleanup
   br label %ehcleanup9
 
-if.else.i.i33:                                    ; preds = %if.then.i.i
+if.then3.i.i35:                                   ; preds = %if.then.i.i
   %22 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i.i36 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #23
   br label %ehcleanup9
 
-ehcleanup9:                                       ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit15, %if.else.i.i33, %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %8, %lpad ], [ %21, %ehcleanup ], [ %22, %if.else.i.i33 ], [ %9, %_ZNSt11unique_lockISt5mutexED2Ev.exit15 ]
+ehcleanup9:                                       ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit15, %if.then3.i.i35, %ehcleanup, %lpad
+  %.pn.pn = phi { ptr, i32 } [ %8, %lpad ], [ %21, %ehcleanup ], [ %22, %if.then3.i.i35 ], [ %9, %_ZNSt11unique_lockISt5mutexED2Ev.exit15 ]
   call void @_ZNSt10shared_ptrISt5mutexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__mutex) #23
   resume { ptr, i32 } %.pn.pn
 

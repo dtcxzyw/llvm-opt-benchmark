@@ -4695,13 +4695,13 @@ if.then118:                                       ; preds = %invoke.cont113
   store i32 %0, ptr %errorIndex.i283, align 4
   br label %cleanup226
 
-lpad114.loopexit:                                 ; preds = %for.cond, %for.body
-  %lpad.loopexit542 = landingpad { ptr, i32 }
+ehcleanup.thread:                                 ; preds = %for.body, %for.cond
+  %lpad.loopexit594 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %delete.notnull.i306
 
 lpad114.loopexit.split-lp:                        ; preds = %if.then140, %if.end147, %invoke.cont151, %if.then160, %if.then166
-  %lpad.loopexit.split-lp543 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp595 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -4715,7 +4715,7 @@ for.cond:                                         ; preds = %if.end120, %invoke.
   %matchPos.0 = phi i32 [ %add, %invoke.cont132 ], [ -1, %if.end120 ]
   %i.0 = phi i32 [ %inc, %invoke.cont132 ], [ 0, %if.end120 ]
   %call128 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %call112)
-          to label %invoke.cont127 unwind label %lpad114.loopexit
+          to label %invoke.cont127 unwind label %ehcleanup.thread
 
 invoke.cont127:                                   ; preds = %for.cond
   %cmp129 = icmp slt i32 %i.0, %call128
@@ -4723,7 +4723,7 @@ invoke.cont127:                                   ; preds = %for.cond
 
 for.body:                                         ; preds = %invoke.cont127
   %call133 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection16getMatchLengthAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call112, i32 noundef %i.0)
-          to label %invoke.cont132 unwind label %lpad114.loopexit
+          to label %invoke.cont132 unwind label %ehcleanup.thread
 
 invoke.cont132:                                   ; preds = %for.body
   %add = add nsw i32 %call133, %0
@@ -4756,7 +4756,14 @@ if.end147:                                        ; preds = %invoke.cont143, %if
 
 invoke.cont151:                                   ; preds = %if.end147
   %call154 = invoke noundef ptr @_ZN6icu_758TimeZone14createTimeZoneERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %tzID)
-          to label %cleanup226 unwind label %lpad114.loopexit.split-lp
+          to label %delete.notnull.i301.thread unwind label %lpad114.loopexit.split-lp
+
+delete.notnull.i301.thread:                       ; preds = %invoke.cont151
+  %vtable.i302583 = load ptr, ptr %call112, align 8
+  %vfn.i303584 = getelementptr inbounds nuw i8, ptr %vtable.i302583, i64 8
+  %36 = load ptr, ptr %vfn.i303584, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %call112) #20
+  br label %cleanup669
 
 if.end156:                                        ; preds = %for.end, %if.end120
   %parsedPos.4 = phi i32 [ %parsedPos.0, %if.end120 ], [ %parsedPos.5, %for.end ]
@@ -4768,48 +4775,49 @@ if.then160:                                       ; preds = %if.end156
           to label %invoke.cont161 unwind label %lpad114.loopexit.split-lp
 
 invoke.cont161:                                   ; preds = %if.then160
-  %36 = load i32, ptr %status, align 4
-  %cmp.i287 = icmp sgt i32 %36, 0
+  %37 = load i32, ptr %status, align 4
+  %cmp.i287 = icmp sgt i32 %37, 0
   br i1 %cmp.i287, label %cleanup226, label %if.then166
 
 if.then166:                                       ; preds = %invoke.cont161
   %vtable167 = load ptr, ptr %call162, align 8
   %vfn168 = getelementptr inbounds nuw i8, ptr %vtable167, i64 120
-  %37 = load ptr, ptr %vfn168, align 8
-  %call170 = invoke noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(236) %call162, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef %nameTypes.0, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %38 = load ptr, ptr %vfn168, align 8
+  %call170 = invoke noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(236) %call162, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef %nameTypes.0, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont171 unwind label %lpad114.loopexit.split-lp
 
 invoke.cont171:                                   ; preds = %if.then166
-  %38 = load i32, ptr %status, align 4
-  %cmp.i289 = icmp slt i32 %38, 1
+  %39 = load i32, ptr %status, align 4
+  %cmp.i289 = icmp slt i32 %39, 1
   br i1 %cmp.i289, label %if.end178, label %if.then176
 
 if.then176:                                       ; preds = %invoke.cont171
   %errorIndex.i291 = getelementptr inbounds nuw i8, ptr %pos, i64 12
   store i32 %0, ptr %errorIndex.i291, align 4
-  br label %cleanup
+  %isnull.i295 = icmp eq ptr %call170, null
+  br i1 %isnull.i295, label %cleanup226, label %delete.notnull.i296
 
-lpad172.loopexit:                                 ; preds = %for.cond186, %for.body192
-  %lpad.loopexit539 = landingpad { ptr, i32 }
+_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit.loopexit: ; preds = %for.cond186, %for.body192
+  %lpad.loopexit591 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad172
+  br label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit
 
-lpad172.loopexit.split-lp:                        ; preds = %if.then207, %if.end214, %invoke.cont218
-  %lpad.loopexit.split-lp540 = landingpad { ptr, i32 }
+_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit.loopexit.split-lp: ; preds = %if.then207, %if.end214, %invoke.cont218
+  %lpad.loopexit.split-lp592 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad172
+  br label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit
 
-lpad172:                                          ; preds = %lpad172.loopexit.split-lp, %lpad172.loopexit
-  %lpad.phi541 = phi { ptr, i32 } [ %lpad.loopexit539, %lpad172.loopexit ], [ %lpad.loopexit.split-lp540, %lpad172.loopexit.split-lp ]
+_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit.loopexit.split-lp, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit.loopexit
+  %lpad.phi593 = phi { ptr, i32 } [ %lpad.loopexit591, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit.loopexit ], [ %lpad.loopexit.split-lp592, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit.loopexit.split-lp ]
   %vtable.i = load ptr, ptr %call170, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
-  %39 = load ptr, ptr %vfn.i, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %call170) #20
+  %40 = load ptr, ptr %vfn.i, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %call170) #20
   br label %ehcleanup
 
 if.end178:                                        ; preds = %invoke.cont171
-  %cmp.i292.not = icmp eq ptr %call170, null
-  br i1 %cmp.i292.not, label %cleanup226, label %for.cond186
+  %cond587 = icmp eq ptr %call170, null
+  br i1 %cond587, label %cleanup226, label %for.cond186
 
 for.cond186:                                      ; preds = %if.end178, %invoke.cont195
   %parsedPos.10 = phi i32 [ %spec.select207, %invoke.cont195 ], [ %parsedPos.4, %if.end178 ]
@@ -4817,7 +4825,7 @@ for.cond186:                                      ; preds = %if.end178, %invoke.
   %matchPos184.0 = phi i32 [ %add197, %invoke.cont195 ], [ -1, %if.end178 ]
   %i185.0 = phi i32 [ %inc202, %invoke.cont195 ], [ 0, %if.end178 ]
   %call190 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %call170)
-          to label %invoke.cont189 unwind label %lpad172.loopexit
+          to label %invoke.cont189 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit.loopexit
 
 invoke.cont189:                                   ; preds = %for.cond186
   %cmp191 = icmp slt i32 %i185.0, %call190
@@ -4825,7 +4833,7 @@ invoke.cont189:                                   ; preds = %for.cond186
 
 for.body192:                                      ; preds = %invoke.cont189
   %call196 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection16getMatchLengthAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call170, i32 noundef %i185.0)
-          to label %invoke.cont195 unwind label %lpad172.loopexit
+          to label %invoke.cont195 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit.loopexit
 
 invoke.cont195:                                   ; preds = %for.body192
   %add197 = add nsw i32 %call196, %0
@@ -4837,14 +4845,14 @@ invoke.cont195:                                   ; preds = %for.body192
 
 for.end203:                                       ; preds = %invoke.cont189
   %cmp204 = icmp sgt i32 %matchIdx183.0, -1
-  br i1 %cmp204, label %if.then205, label %cleanup
+  br i1 %cmp204, label %if.then205, label %delete.notnull.i296
 
 if.then205:                                       ; preds = %for.end203
   br i1 %tobool.not, label %if.end214, label %if.then207
 
 if.then207:                                       ; preds = %if.then205
   %call211 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection13getNameTypeAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call170, i32 noundef %matchIdx183.0)
-          to label %invoke.cont210 unwind label %lpad172.loopexit.split-lp
+          to label %invoke.cont210 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit.loopexit.split-lp
 
 invoke.cont210:                                   ; preds = %if.then207
   %call213 = call noundef i32 @_ZN6icu_7514TimeZoneFormat11getTimeTypeE17UTimeZoneNameType(i32 noundef %call211)
@@ -4854,52 +4862,49 @@ invoke.cont210:                                   ; preds = %if.then207
 if.end214:                                        ; preds = %invoke.cont210, %if.then205
   store i32 %matchPos184.0, ptr %index.i, align 8
   %call219 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat13getTimeZoneIDEPKNS_13TimeZoneNames19MatchInfoCollectionEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %call170, i32 noundef %matchIdx183.0, ptr noundef nonnull align 8 dereferenceable(64) %tzID)
-          to label %invoke.cont218 unwind label %lpad172.loopexit.split-lp
+          to label %invoke.cont218 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit.loopexit.split-lp
 
 invoke.cont218:                                   ; preds = %if.end214
   %call221 = invoke noundef ptr @_ZN6icu_758TimeZone14createTimeZoneERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %tzID)
-          to label %cleanup unwind label %lpad172.loopexit.split-lp
+          to label %delete.notnull.i296 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit.loopexit.split-lp
 
-cleanup:                                          ; preds = %for.end203, %invoke.cont218, %if.then176
-  %cond1 = phi i1 [ false, %if.then176 ], [ false, %invoke.cont218 ], [ true, %for.end203 ]
-  %parsedPos.8 = phi i32 [ %parsedPos.4, %if.then176 ], [ %parsedPos.10, %invoke.cont218 ], [ %parsedPos.10, %for.end203 ]
-  %retval.5 = phi ptr [ null, %if.then176 ], [ %call221, %invoke.cont218 ], [ undef, %for.end203 ]
-  %isnull.i295 = icmp eq ptr %call170, null
-  br i1 %isnull.i295, label %cleanup226, label %delete.notnull.i296
-
-delete.notnull.i296:                              ; preds = %cleanup
+delete.notnull.i296:                              ; preds = %invoke.cont218, %for.end203, %if.then176
+  %retval.5528 = phi ptr [ null, %if.then176 ], [ undef, %for.end203 ], [ %call221, %invoke.cont218 ]
+  %parsedPos.8526 = phi i32 [ %parsedPos.4, %if.then176 ], [ %parsedPos.10, %for.end203 ], [ %parsedPos.10, %invoke.cont218 ]
+  %cond1524 = phi i1 [ false, %if.then176 ], [ true, %for.end203 ], [ false, %invoke.cont218 ]
   %vtable.i297 = load ptr, ptr %call170, align 8
   %vfn.i298 = getelementptr inbounds nuw i8, ptr %vtable.i297, i64 8
-  %40 = load ptr, ptr %vfn.i298, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %call170) #20
+  %41 = load ptr, ptr %vfn.i298, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %call170) #20
   br label %cleanup226
 
-cleanup226:                                       ; preds = %if.end178, %delete.notnull.i296, %cleanup, %if.end156, %invoke.cont161, %invoke.cont151, %if.then118
-  %cond = phi i1 [ false, %if.then118 ], [ false, %invoke.cont151 ], [ true, %invoke.cont161 ], [ true, %if.end156 ], [ %cond1, %cleanup ], [ %cond1, %delete.notnull.i296 ], [ true, %if.end178 ]
-  %parsedPos.3 = phi i32 [ %parsedPos.0, %if.then118 ], [ %parsedPos.5, %invoke.cont151 ], [ %parsedPos.4, %invoke.cont161 ], [ %parsedPos.4, %if.end156 ], [ %parsedPos.8, %cleanup ], [ %parsedPos.8, %delete.notnull.i296 ], [ %parsedPos.4, %if.end178 ]
-  %retval.3 = phi ptr [ null, %if.then118 ], [ %call154, %invoke.cont151 ], [ undef, %invoke.cont161 ], [ undef, %if.end156 ], [ %retval.5, %cleanup ], [ %retval.5, %delete.notnull.i296 ], [ undef, %if.end178 ]
+cleanup226:                                       ; preds = %if.end178, %delete.notnull.i296, %if.then176, %if.end156, %invoke.cont161, %if.then118
+  %cond = phi i1 [ false, %if.then118 ], [ true, %invoke.cont161 ], [ true, %if.end156 ], [ false, %if.then176 ], [ %cond1524, %delete.notnull.i296 ], [ true, %if.end178 ]
+  %parsedPos.3 = phi i32 [ %parsedPos.0, %if.then118 ], [ %parsedPos.4, %invoke.cont161 ], [ %parsedPos.4, %if.end156 ], [ %parsedPos.4, %if.then176 ], [ %parsedPos.8526, %delete.notnull.i296 ], [ %parsedPos.4, %if.end178 ]
+  %retval.3 = phi ptr [ null, %if.then118 ], [ undef, %invoke.cont161 ], [ undef, %if.end156 ], [ null, %if.then176 ], [ %retval.5528, %delete.notnull.i296 ], [ null, %if.end178 ]
   %isnull.i300 = icmp eq ptr %call112, null
   br i1 %isnull.i300, label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304, label %delete.notnull.i301
 
 delete.notnull.i301:                              ; preds = %cleanup226
   %vtable.i302 = load ptr, ptr %call112, align 8
   %vfn.i303 = getelementptr inbounds nuw i8, ptr %vtable.i302, i64 8
-  %41 = load ptr, ptr %vfn.i303, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %call112) #20
-  br label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304
-
-_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304: ; preds = %cleanup226, %delete.notnull.i301
+  %42 = load ptr, ptr %vfn.i303, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %call112) #20
   br i1 %cond, label %sw.epilog302, label %cleanup669
 
-ehcleanup:                                        ; preds = %lpad114.loopexit, %lpad114.loopexit.split-lp, %lpad172
-  %.pn = phi { ptr, i32 } [ %lpad.phi541, %lpad172 ], [ %lpad.loopexit542, %lpad114.loopexit ], [ %lpad.loopexit.split-lp543, %lpad114.loopexit.split-lp ]
+_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304: ; preds = %cleanup226
+  br i1 %cond, label %sw.epilog302, label %cleanup669
+
+ehcleanup:                                        ; preds = %lpad114.loopexit.split-lp, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit
+  %.pn = phi { ptr, i32 } [ %lpad.phi593, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit ], [ %lpad.loopexit.split-lp595, %lpad114.loopexit.split-lp ]
   br i1 %cmp.i284.not, label %ehcleanup670, label %delete.notnull.i306
 
-delete.notnull.i306:                              ; preds = %ehcleanup
+delete.notnull.i306:                              ; preds = %ehcleanup.thread, %ehcleanup
+  %.pn621 = phi { ptr, i32 } [ %lpad.loopexit594, %ehcleanup.thread ], [ %.pn, %ehcleanup ]
   %vtable.i307 = load ptr, ptr %call112, align 8
   %vfn.i308 = getelementptr inbounds nuw i8, ptr %vtable.i307, i64 8
-  %42 = load ptr, ptr %vfn.i308, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %call112) #20
+  %43 = load ptr, ptr %vfn.i308, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %call112) #20
   br label %ehcleanup670
 
 sw.bb230:                                         ; preds = %invoke.cont38
@@ -4911,8 +4916,8 @@ sw.bb231:                                         ; preds = %invoke.cont38
 sw.epilog:                                        ; preds = %invoke.cont38, %sw.bb231, %sw.bb230
   %genericNameTypes.0 = phi i32 [ 5, %sw.bb231 ], [ 3, %sw.bb230 ], [ 1, %invoke.cont38 ]
   store i32 0, ptr %tt, align 4
-  %43 = load i32, ptr %status, align 4
-  %cmp.i.i310 = icmp slt i32 %43, 1
+  %44 = load i32, ptr %status, align 4
+  %cmp.i.i310 = icmp slt i32 %44, 1
   br i1 %cmp.i.i310, label %if.end.i312, label %if.then244
 
 if.end.i312:                                      ; preds = %sw.epilog
@@ -4921,8 +4926,8 @@ if.end.i312:                                      ; preds = %sw.epilog
 
 .noexc:                                           ; preds = %if.end.i312
   %fTimeZoneGenericNames.i = getelementptr inbounds nuw i8, ptr %this, i64 568
-  %44 = load ptr, ptr %fTimeZoneGenericNames.i, align 8
-  %cmp.i313 = icmp eq ptr %44, null
+  %45 = load ptr, ptr %fTimeZoneGenericNames.i, align 8
+  %cmp.i313 = icmp eq ptr %45, null
   br i1 %cmp.i313, label %if.then2.i, label %if.end5.i
 
 if.then2.i:                                       ; preds = %.noexc
@@ -4940,17 +4945,17 @@ if.end5.i:                                        ; preds = %call3.i.noexc, %.no
 
 invoke.cont232:                                   ; preds = %if.end5.i
   %.pre = load i32, ptr %status, align 4
-  %45 = icmp sgt i32 %.pre, 0
-  br i1 %45, label %if.then244, label %if.then237
+  %46 = icmp sgt i32 %.pre, 0
+  br i1 %46, label %if.then244, label %if.then237
 
 if.then237:                                       ; preds = %invoke.cont232
-  %46 = load ptr, ptr %fTimeZoneGenericNames.i, align 8
-  %call239 = invoke noundef i32 @_ZNK6icu_7520TimeZoneGenericNames13findBestMatchERKNS_13UnicodeStringEijRS1_R23UTimeZoneFormatTimeTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef %genericNameTypes.0, ptr noundef nonnull align 8 dereferenceable(64) %tzID, ptr noundef nonnull align 4 dereferenceable(4) %tt, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %47 = load ptr, ptr %fTimeZoneGenericNames.i, align 8
+  %call239 = invoke noundef i32 @_ZNK6icu_7520TimeZoneGenericNames13findBestMatchERKNS_13UnicodeStringEijRS1_R23UTimeZoneFormatTimeTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef %genericNameTypes.0, ptr noundef nonnull align 8 dereferenceable(64) %tzID, ptr noundef nonnull align 4 dereferenceable(4) %tt, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end240 unwind label %lpad41
 
 if.end240:                                        ; preds = %if.then237
-  %47 = load i32, ptr %status, align 4
-  %cmp.i318 = icmp slt i32 %47, 1
+  %48 = load i32, ptr %status, align 4
+  %cmp.i318 = icmp slt i32 %48, 1
   br i1 %cmp.i318, label %if.end246, label %if.then244
 
 if.then244:                                       ; preds = %sw.epilog, %invoke.cont232, %if.end240
@@ -4966,8 +4971,8 @@ if.then248:                                       ; preds = %if.end246
   br i1 %tobool.not, label %if.end251, label %if.then250
 
 if.then250:                                       ; preds = %if.then248
-  %48 = load i32, ptr %tt, align 4
-  store i32 %48, ptr %timeType, align 4
+  %49 = load i32, ptr %tt, align 4
+  store i32 %49, ptr %timeType, align 4
   br label %if.end251
 
 if.end251:                                        ; preds = %if.then250, %if.then248
@@ -4981,12 +4986,12 @@ sw.bb257:                                         ; preds = %invoke.cont38
           to label %invoke.cont260 unwind label %lpad41
 
 invoke.cont260:                                   ; preds = %sw.bb257
-  %49 = load i32, ptr %errorIndex.i519, align 4
-  %cmp264 = icmp eq i32 %49, -1
+  %50 = load i32, ptr %errorIndex.i519, align 4
+  %cmp264 = icmp eq i32 %50, -1
   br i1 %cmp264, label %if.then265, label %sw.epilog302
 
 if.then265:                                       ; preds = %invoke.cont260
-  %50 = load i32, ptr %index.i215517, align 8
+  %51 = load i32, ptr %index.i215517, align 8
   br label %if.then295.invoke
 
 sw.bb272:                                         ; preds = %invoke.cont38
@@ -4996,12 +5001,12 @@ sw.bb272:                                         ; preds = %invoke.cont38
           to label %invoke.cont275 unwind label %lpad41
 
 invoke.cont275:                                   ; preds = %sw.bb272
-  %51 = load i32, ptr %errorIndex.i519, align 4
-  %cmp279 = icmp eq i32 %51, -1
+  %52 = load i32, ptr %errorIndex.i519, align 4
+  %cmp279 = icmp eq i32 %52, -1
   br i1 %cmp279, label %if.then280, label %sw.epilog302
 
 if.then280:                                       ; preds = %invoke.cont275
-  %52 = load i32, ptr %index.i215517, align 8
+  %53 = load i32, ptr %index.i215517, align 8
   br label %if.then295.invoke
 
 sw.bb287:                                         ; preds = %invoke.cont38
@@ -5011,29 +5016,29 @@ sw.bb287:                                         ; preds = %invoke.cont38
           to label %invoke.cont290 unwind label %lpad41
 
 invoke.cont290:                                   ; preds = %sw.bb287
-  %53 = load i32, ptr %errorIndex.i519, align 4
-  %cmp294 = icmp eq i32 %53, -1
+  %54 = load i32, ptr %errorIndex.i519, align 4
+  %cmp294 = icmp eq i32 %54, -1
   br i1 %cmp294, label %if.then295, label %sw.epilog302
 
 if.then295:                                       ; preds = %invoke.cont290
-  %54 = load i32, ptr %index.i215517, align 8
+  %55 = load i32, ptr %index.i215517, align 8
   br label %if.then295.invoke
 
 if.then295.invoke:                                ; preds = %if.end251, %if.then265, %if.then280, %if.then295
-  %add252.sink = phi i32 [ %add252, %if.end251 ], [ %50, %if.then265 ], [ %52, %if.then280 ], [ %54, %if.then295 ]
+  %add252.sink = phi i32 [ %add252, %if.end251 ], [ %51, %if.then265 ], [ %53, %if.then280 ], [ %55, %if.then295 ]
   store i32 %add252.sink, ptr %index.i, align 8
-  %55 = invoke noundef ptr @_ZN6icu_758TimeZone14createTimeZoneERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %tzID)
+  %56 = invoke noundef ptr @_ZN6icu_758TimeZone14createTimeZoneERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %tzID)
           to label %cleanup669 unwind label %lpad41
 
-sw.epilog302:                                     ; preds = %invoke.cont38, %invoke.cont290, %invoke.cont275, %invoke.cont260, %if.end246, %sw.bb90, %invoke.cont78, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304, %if.end72, %if.end55
-  %parsedPos.2 = phi i32 [ %parsedPos.0, %invoke.cont38 ], [ %parsedPos.0, %invoke.cont290 ], [ %parsedPos.0, %invoke.cont275 ], [ %parsedPos.0, %invoke.cont260 ], [ %parsedPos.0, %if.end246 ], [ %parsedPos.3, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304 ], [ %parsedPos.0, %sw.bb90 ], [ %parsedPos.0, %invoke.cont78 ], [ %parsedPos.0, %if.end72 ], [ %parsedPos.0, %if.end55 ]
-  %evaluated.1 = phi i32 [ %evaluated.0, %invoke.cont38 ], [ %evaluated.0, %invoke.cont290 ], [ %evaluated.0, %invoke.cont275 ], [ %evaluated.0, %invoke.cont260 ], [ %evaluated.0, %if.end246 ], [ %evaluated.0, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304 ], [ %evaluated.0, %sw.bb90 ], [ %evaluated.0, %invoke.cont78 ], [ %or74, %if.end72 ], [ %or57, %if.end55 ]
-  %retval.1 = phi ptr [ undef, %invoke.cont38 ], [ undef, %invoke.cont290 ], [ undef, %invoke.cont275 ], [ undef, %invoke.cont260 ], [ undef, %if.end246 ], [ %retval.3, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304 ], [ undef, %sw.bb90 ], [ undef, %invoke.cont78 ], [ undef, %if.end72 ], [ undef, %if.end55 ]
+sw.epilog302:                                     ; preds = %delete.notnull.i301, %invoke.cont38, %invoke.cont290, %invoke.cont275, %invoke.cont260, %if.end246, %sw.bb90, %invoke.cont78, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304, %if.end72, %if.end55
+  %parsedPos.2 = phi i32 [ %parsedPos.0, %invoke.cont38 ], [ %parsedPos.0, %invoke.cont290 ], [ %parsedPos.0, %invoke.cont275 ], [ %parsedPos.0, %invoke.cont260 ], [ %parsedPos.0, %if.end246 ], [ %parsedPos.3, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304 ], [ %parsedPos.0, %sw.bb90 ], [ %parsedPos.0, %invoke.cont78 ], [ %parsedPos.0, %if.end72 ], [ %parsedPos.0, %if.end55 ], [ %parsedPos.3, %delete.notnull.i301 ]
+  %evaluated.1 = phi i32 [ %evaluated.0, %invoke.cont38 ], [ %evaluated.0, %invoke.cont290 ], [ %evaluated.0, %invoke.cont275 ], [ %evaluated.0, %invoke.cont260 ], [ %evaluated.0, %if.end246 ], [ %evaluated.0, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304 ], [ %evaluated.0, %sw.bb90 ], [ %evaluated.0, %invoke.cont78 ], [ %or74, %if.end72 ], [ %or57, %if.end55 ], [ %evaluated.0, %delete.notnull.i301 ]
+  %retval.1 = phi ptr [ undef, %invoke.cont38 ], [ undef, %invoke.cont290 ], [ undef, %invoke.cont275 ], [ undef, %invoke.cont260 ], [ undef, %if.end246 ], [ %retval.3, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304 ], [ undef, %sw.bb90 ], [ undef, %invoke.cont78 ], [ undef, %if.end72 ], [ undef, %if.end55 ], [ %retval.3, %delete.notnull.i301 ]
   %idxprom = zext i32 %style to i64
   %arrayidx = getelementptr inbounds nuw [20 x i16], ptr @_ZN6icu_75L17STYLE_PARSE_FLAGSE, i64 0, i64 %idxprom
-  %56 = load i16, ptr %arrayidx, align 2
-  %conv303567 = zext i16 %56 to i32
-  %or304 = or i32 %evaluated.1, %conv303567
+  %57 = load i16, ptr %arrayidx, align 2
+  %conv303619 = zext i16 %57 to i32
+  %or304 = or i32 %evaluated.1, %conv303619
   %cmp305 = icmp sgt i32 %parsedPos.2, %0
   br i1 %cmp305, label %if.then306, label %if.end310
 
@@ -5055,25 +5060,25 @@ invoke.cont.i347:                                 ; preds = %if.then.i343
 
 invoke.cont3.i350:                                ; preds = %invoke.cont.i347
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i338) #20
-  %57 = load ptr, ptr %agg.tmp.i339, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %57) #20, !srcloc !4
+  %58 = load ptr, ptr %agg.tmp.i339, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %58) #20, !srcloc !4
   br label %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit355
 
 lpad.i344:                                        ; preds = %if.then.i343
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i345
 
 lpad2.i349:                                       ; preds = %invoke.cont.i347
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i338) #20
   br label %ehcleanup.i345
 
 ehcleanup.i345:                                   ; preds = %lpad2.i349, %lpad.i344
-  %.pn.i346 = phi { ptr, i32 } [ %59, %lpad2.i349 ], [ %58, %lpad.i344 ]
-  %60 = load ptr, ptr %agg.tmp.i339, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %60) #20, !srcloc !4
+  %.pn.i346 = phi { ptr, i32 } [ %60, %lpad2.i349 ], [ %59, %lpad.i344 ]
+  %61 = load ptr, ptr %agg.tmp.i339, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %61) #20, !srcloc !4
   br label %ehcleanup670
 
 if.end.i341:                                      ; preds = %if.then306
@@ -5092,34 +5097,34 @@ if.end310:                                        ; preds = %sw.epilog302
 
 invoke.cont312:                                   ; preds = %if.end310
   %cmp313 = icmp sge i32 %parsedPos.2, %cond.i
-  %or.cond534 = icmp ugt i32 %style, 19
-  %or.cond535 = or i1 %or.cond534, %cmp313
-  br i1 %or.cond535, label %if.end352, label %if.then320
+  %or.cond585 = icmp ugt i32 %style, 19
+  %or.cond586 = or i1 %or.cond585, %cmp313
+  br i1 %or.cond586, label %if.end352, label %if.then320
 
 if.then320:                                       ; preds = %invoke.cont312
   store i32 %0, ptr %index.i215517, align 8
   store i32 -1, ptr %errorIndex.i519, align 4
   store i8 0, ptr %hasDigitOffset324, align 1
   %call326 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat18parseOffsetISO8601ERKNS_13UnicodeStringERNS_13ParsePositionEaPa(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(16) %tmpPos, i8 noundef signext 0, ptr noundef nonnull %hasDigitOffset324)
-  %61 = load i32, ptr %errorIndex.i519, align 4
-  %cmp329 = icmp eq i32 %61, -1
+  %62 = load i32, ptr %errorIndex.i519, align 4
+  %cmp329 = icmp eq i32 %62, -1
   br i1 %cmp329, label %if.then330, label %if.end352
 
 if.then330:                                       ; preds = %if.then320
-  %62 = load i32, ptr %index.i215517, align 8
-  %cmp333 = icmp eq i32 %62, %cond.i
-  %63 = load i8, ptr %hasDigitOffset324, align 1
-  %tobool335 = icmp ne i8 %63, 0
+  %63 = load i32, ptr %index.i215517, align 8
+  %cmp333 = icmp eq i32 %63, %cond.i
+  %64 = load i8, ptr %hasDigitOffset324, align 1
+  %tobool335 = icmp ne i8 %64, 0
   %or.cond8 = select i1 %cmp333, i1 true, i1 %tobool335
   br i1 %or.cond8, label %if.then410.invoke, label %if.end342
 
 lpad321:                                          ; preds = %if.then410.invoke, %if.end.i466, %if.then641, %if.then617, %if.then594, %if.end5.i427, %if.then2.i428, %if.end.i424, %if.end8.i, %if.end.i397, %if.then654, %if.then629, %if.then605, %if.then580, %if.then508, %if.then431, %if.then420, %if.then395, %if.then383, %if.then358, %if.then346
-  %64 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup668
 
 if.end342:                                        ; preds = %if.then330
-  %cmp345 = icmp slt i32 %parsedPos.2, %62
+  %cmp345 = icmp slt i32 %parsedPos.2, %63
   br i1 %cmp345, label %if.then346, label %if.end352
 
 if.then346:                                       ; preds = %if.end342
@@ -5127,11 +5132,11 @@ if.then346:                                       ; preds = %if.end342
           to label %invoke.cont347 unwind label %lpad321
 
 invoke.cont347:                                   ; preds = %if.then346
-  %65 = load i32, ptr %index.i215517, align 8
+  %66 = load i32, ptr %index.i215517, align 8
   br label %if.end352
 
 if.end352:                                        ; preds = %if.then320, %invoke.cont347, %if.end342, %invoke.cont312
-  %parsedPos.12 = phi i32 [ %65, %invoke.cont347 ], [ %parsedPos.2, %if.end342 ], [ %parsedPos.2, %if.then320 ], [ %parsedPos.2, %invoke.cont312 ]
+  %parsedPos.12 = phi i32 [ %66, %invoke.cont347 ], [ %parsedPos.2, %if.end342 ], [ %parsedPos.2, %if.then320 ], [ %parsedPos.2, %invoke.cont312 ]
   %parsedOffset.2 = phi i32 [ %call326, %invoke.cont347 ], [ %parsedOffset.0, %if.end342 ], [ %parsedOffset.0, %if.then320 ], [ %parsedOffset.0, %invoke.cont312 ]
   %cmp353 = icmp slt i32 %parsedPos.12, %cond.i
   %and356 = and i32 %or304, 32
@@ -5147,20 +5152,20 @@ if.then358:                                       ; preds = %if.end352
           to label %invoke.cont362 unwind label %lpad321
 
 invoke.cont362:                                   ; preds = %if.then358
-  %66 = load i32, ptr %errorIndex.i519, align 4
-  %cmp366 = icmp eq i32 %66, -1
+  %67 = load i32, ptr %errorIndex.i519, align 4
+  %cmp366 = icmp eq i32 %67, -1
   br i1 %cmp366, label %if.then367, label %if.end389
 
 if.then367:                                       ; preds = %invoke.cont362
-  %67 = load i32, ptr %index.i215517, align 8
-  %cmp370 = icmp eq i32 %67, %cond.i
-  %68 = load i8, ptr %hasDigitOffset361, align 1
-  %tobool372 = icmp ne i8 %68, 0
+  %68 = load i32, ptr %index.i215517, align 8
+  %cmp370 = icmp eq i32 %68, %cond.i
+  %69 = load i8, ptr %hasDigitOffset361, align 1
+  %tobool372 = icmp ne i8 %69, 0
   %or.cond9 = select i1 %cmp370, i1 true, i1 %tobool372
   br i1 %or.cond9, label %if.then410.invoke, label %if.end379
 
 if.end379:                                        ; preds = %if.then367
-  %cmp382 = icmp slt i32 %parsedPos.12, %67
+  %cmp382 = icmp slt i32 %parsedPos.12, %68
   br i1 %cmp382, label %if.then383, label %if.end389
 
 if.then383:                                       ; preds = %if.end379
@@ -5168,11 +5173,11 @@ if.then383:                                       ; preds = %if.end379
           to label %invoke.cont384 unwind label %lpad321
 
 invoke.cont384:                                   ; preds = %if.then383
-  %69 = load i32, ptr %index.i215517, align 8
+  %70 = load i32, ptr %index.i215517, align 8
   br label %if.end389
 
 if.end389:                                        ; preds = %invoke.cont362, %invoke.cont384, %if.end379, %if.end352
-  %parsedPos.13 = phi i32 [ %69, %invoke.cont384 ], [ %parsedPos.12, %if.end379 ], [ %parsedPos.12, %invoke.cont362 ], [ %parsedPos.12, %if.end352 ]
+  %parsedPos.13 = phi i32 [ %70, %invoke.cont384 ], [ %parsedPos.12, %if.end379 ], [ %parsedPos.12, %invoke.cont362 ], [ %parsedPos.12, %if.end352 ]
   %parsedOffset.3 = phi i32 [ %call363, %invoke.cont384 ], [ %parsedOffset.2, %if.end379 ], [ %parsedOffset.2, %invoke.cont362 ], [ %parsedOffset.2, %if.end352 ]
   %cmp390 = icmp slt i32 %parsedPos.13, %cond.i
   %and393 = and i32 %or304, 64
@@ -5188,27 +5193,27 @@ if.then395:                                       ; preds = %if.end389
           to label %invoke.cont399 unwind label %lpad321
 
 invoke.cont399:                                   ; preds = %if.then395
-  %70 = load i32, ptr %errorIndex.i519, align 4
-  %cmp403 = icmp eq i32 %70, -1
+  %71 = load i32, ptr %errorIndex.i519, align 4
+  %cmp403 = icmp eq i32 %71, -1
   br i1 %cmp403, label %if.then404, label %if.end426
 
 if.then404:                                       ; preds = %invoke.cont399
-  %71 = load i32, ptr %index.i215517, align 8
-  %cmp407 = icmp eq i32 %71, %cond.i
-  %72 = load i8, ptr %hasDigitOffset398, align 1
-  %tobool409 = icmp ne i8 %72, 0
+  %72 = load i32, ptr %index.i215517, align 8
+  %cmp407 = icmp eq i32 %72, %cond.i
+  %73 = load i8, ptr %hasDigitOffset398, align 1
+  %tobool409 = icmp ne i8 %73, 0
   %or.cond10 = select i1 %cmp407, i1 true, i1 %tobool409
   br i1 %or.cond10, label %if.then410.invoke, label %if.end416
 
 if.then410.invoke:                                ; preds = %if.then404, %if.then367, %if.then330
-  %.sink = phi i32 [ %62, %if.then330 ], [ %67, %if.then367 ], [ %71, %if.then404 ]
-  %73 = phi i32 [ %call326, %if.then330 ], [ %call363, %if.then367 ], [ %call400, %if.then404 ]
+  %.sink = phi i32 [ %63, %if.then330 ], [ %68, %if.then367 ], [ %72, %if.then404 ]
+  %74 = phi i32 [ %call326, %if.then330 ], [ %call363, %if.then367 ], [ %call400, %if.then404 ]
   store i32 %.sink, ptr %index.i, align 8
-  %74 = invoke noundef ptr @_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi(ptr nonnull align 8 poison, i32 noundef %73)
+  %75 = invoke noundef ptr @_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi(ptr nonnull align 8 poison, i32 noundef %74)
           to label %cleanup667 unwind label %lpad321
 
 if.end416:                                        ; preds = %if.then404
-  %cmp419 = icmp slt i32 %parsedPos.13, %71
+  %cmp419 = icmp slt i32 %parsedPos.13, %72
   br i1 %cmp419, label %if.then420, label %if.end426
 
 if.then420:                                       ; preds = %if.end416
@@ -5216,11 +5221,11 @@ if.then420:                                       ; preds = %if.end416
           to label %invoke.cont421 unwind label %lpad321
 
 invoke.cont421:                                   ; preds = %if.then420
-  %75 = load i32, ptr %index.i215517, align 8
+  %76 = load i32, ptr %index.i215517, align 8
   br label %if.end426
 
 if.end426:                                        ; preds = %invoke.cont399, %invoke.cont421, %if.end416, %if.end389
-  %parsedPos.14 = phi i32 [ %75, %invoke.cont421 ], [ %parsedPos.13, %if.end416 ], [ %parsedPos.13, %invoke.cont399 ], [ %parsedPos.13, %if.end389 ]
+  %parsedPos.14 = phi i32 [ %76, %invoke.cont421 ], [ %parsedPos.13, %if.end416 ], [ %parsedPos.13, %invoke.cont399 ], [ %parsedPos.13, %if.end389 ]
   %parsedOffset.4 = phi i32 [ %call400, %invoke.cont421 ], [ %parsedOffset.3, %if.end416 ], [ %parsedOffset.3, %invoke.cont399 ], [ %parsedOffset.3, %if.end389 ]
   %and427 = and i32 %parseOptions, 1
   %tobool428.not = icmp eq i32 %and427, 0
@@ -5232,16 +5237,16 @@ if.then429:                                       ; preds = %if.end426
 
 if.then431:                                       ; preds = %if.then429
   %fTimeZoneNames433 = getelementptr inbounds nuw i8, ptr %this, i64 560
-  %76 = load ptr, ptr %fTimeZoneNames433, align 8
-  %vtable434 = load ptr, ptr %76, align 8
+  %77 = load ptr, ptr %fTimeZoneNames433, align 8
+  %vtable434 = load ptr, ptr %77, align 8
   %vfn435 = getelementptr inbounds nuw i8, ptr %vtable434, i64 120
-  %77 = load ptr, ptr %vfn435, align 8
-  %call437 = invoke noundef ptr %77(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef 118, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %78 = load ptr, ptr %vfn435, align 8
+  %call437 = invoke noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef 118, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont438 unwind label %lpad321
 
 invoke.cont438:                                   ; preds = %if.then431
-  %78 = load i32, ptr %status, align 4
-  %cmp.i380 = icmp slt i32 %78, 1
+  %79 = load i32, ptr %status, align 4
+  %cmp.i380 = icmp slt i32 %79, 1
   br i1 %cmp.i380, label %if.end445, label %if.then443
 
 if.then443:                                       ; preds = %invoke.cont438
@@ -5249,25 +5254,22 @@ if.then443:                                       ; preds = %invoke.cont438
   store i32 %0, ptr %errorIndex.i382, align 4
   br label %cleanup489
 
-lpad439.loopexit:                                 ; preds = %for.cond452, %for.body458, %if.then465
-  %lpad.loopexit536 = landingpad { ptr, i32 }
+_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387.loopexit: ; preds = %for.cond452, %for.body458, %if.then465
+  %lpad.loopexit588 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad439
+  br label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387
 
-lpad439.loopexit.split-lp:                        ; preds = %if.then477, %invoke.cont480
-  %lpad.loopexit.split-lp537 = landingpad { ptr, i32 }
+_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387.loopexit.split-lp: ; preds = %if.then477, %invoke.cont480
+  %lpad.loopexit.split-lp589 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad439
+  br label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387
 
-lpad439:                                          ; preds = %lpad439.loopexit.split-lp, %lpad439.loopexit
-  %lpad.phi538 = phi { ptr, i32 } [ %lpad.loopexit536, %lpad439.loopexit ], [ %lpad.loopexit.split-lp537, %lpad439.loopexit.split-lp ]
-  br i1 %cmp.i388.not, label %ehcleanup668, label %delete.notnull.i384
-
-delete.notnull.i384:                              ; preds = %lpad439
+_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387: ; preds = %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387.loopexit.split-lp, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387.loopexit
+  %lpad.phi590 = phi { ptr, i32 } [ %lpad.loopexit588, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387.loopexit ], [ %lpad.loopexit.split-lp589, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387.loopexit.split-lp ]
   %vtable.i385 = load ptr, ptr %call437, align 8
   %vfn.i386 = getelementptr inbounds nuw i8, ptr %vtable.i385, i64 8
-  %79 = load ptr, ptr %vfn.i386, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(16) %call437) #20
+  %80 = load ptr, ptr %vfn.i386, align 8
+  call void %80(ptr noundef nonnull align 8 dereferenceable(16) %call437) #20
   br label %ehcleanup668
 
 if.end445:                                        ; preds = %invoke.cont438
@@ -5279,7 +5281,7 @@ for.cond452:                                      ; preds = %if.end445, %for.inc
   %matchPos446.1 = phi i32 [ %matchPos446.2, %for.inc472 ], [ -1, %if.end445 ]
   %i451.0 = phi i32 [ %inc473, %for.inc472 ], [ 0, %if.end445 ]
   %call456 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %call437)
-          to label %invoke.cont455 unwind label %lpad439.loopexit
+          to label %invoke.cont455 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387.loopexit
 
 invoke.cont455:                                   ; preds = %for.cond452
   %cmp457 = icmp slt i32 %i451.0, %call456
@@ -5287,7 +5289,7 @@ invoke.cont455:                                   ; preds = %for.cond452
 
 for.body458:                                      ; preds = %invoke.cont455
   %call462 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection16getMatchLengthAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call437, i32 noundef %i451.0)
-          to label %invoke.cont461 unwind label %lpad439.loopexit
+          to label %invoke.cont461 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387.loopexit
 
 invoke.cont461:                                   ; preds = %for.body458
   %add463 = add nsw i32 %call462, %0
@@ -5296,7 +5298,7 @@ invoke.cont461:                                   ; preds = %for.body458
 
 if.then465:                                       ; preds = %invoke.cont461
   %call469 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection16getMatchLengthAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call437, i32 noundef %i451.0)
-          to label %invoke.cont468 unwind label %lpad439.loopexit
+          to label %invoke.cont468 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387.loopexit
 
 invoke.cont468:                                   ; preds = %if.then465
   %add470 = add nsw i32 %call469, %0
@@ -5316,47 +5318,52 @@ if.end475:                                        ; preds = %invoke.cont455, %if
 
 if.then477:                                       ; preds = %if.end475
   %call481 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat13getTimeZoneIDEPKNS_13TimeZoneNames19MatchInfoCollectionEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %call437, i32 noundef %specificMatchIdx.0, ptr noundef nonnull align 8 dereferenceable(64) %parsedID)
-          to label %invoke.cont480 unwind label %lpad439.loopexit.split-lp
+          to label %invoke.cont480 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387.loopexit.split-lp
 
 invoke.cont480:                                   ; preds = %if.then477
   %call485 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection13getNameTypeAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call437, i32 noundef %specificMatchIdx.0)
-          to label %invoke.cont484 unwind label %lpad439.loopexit.split-lp
+          to label %cleanup489.thread unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387.loopexit.split-lp
 
-invoke.cont484:                                   ; preds = %invoke.cont480
+cleanup489.thread:                                ; preds = %invoke.cont480
   %call487 = call noundef i32 @_ZN6icu_7514TimeZoneFormat11getTimeTypeE17UTimeZoneNameType(i32 noundef %call485)
-  br label %cleanup489
+  br label %delete.notnull.i391
 
-cleanup489:                                       ; preds = %if.end475, %invoke.cont484, %if.then443
-  %parsedPos.17 = phi i32 [ %parsedPos.14, %if.then443 ], [ %matchPos446.0, %invoke.cont484 ], [ %parsedPos.14, %if.end475 ]
-  %parsedOffset.7 = phi i32 [ %parsedOffset.4, %if.then443 ], [ 2147483647, %invoke.cont484 ], [ %parsedOffset.4, %if.end475 ]
-  %parsedTimeType.5 = phi i32 [ 0, %if.then443 ], [ %call487, %invoke.cont484 ], [ 0, %if.end475 ]
-  %retval.8 = phi ptr [ null, %if.then443 ], [ %retval.1, %invoke.cont484 ], [ %retval.1, %if.end475 ]
+cleanup489:                                       ; preds = %if.end475, %if.then443
+  %retval.8 = phi ptr [ null, %if.then443 ], [ %retval.1, %if.end475 ]
   %isnull.i390 = icmp eq ptr %call437, null
   br i1 %isnull.i390, label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394, label %delete.notnull.i391
 
-delete.notnull.i391:                              ; preds = %cleanup489
+delete.notnull.i391:                              ; preds = %cleanup489.thread, %cleanup489
+  %retval.8558 = phi ptr [ %retval.1, %cleanup489.thread ], [ %retval.8, %cleanup489 ]
+  %parsedTimeType.5556 = phi i32 [ %call487, %cleanup489.thread ], [ 0, %cleanup489 ]
+  %parsedOffset.7554 = phi i32 [ 2147483647, %cleanup489.thread ], [ %parsedOffset.4, %cleanup489 ]
+  %parsedPos.17552 = phi i32 [ %matchPos446.0, %cleanup489.thread ], [ %parsedPos.14, %cleanup489 ]
   %vtable.i392 = load ptr, ptr %call437, align 8
   %vfn.i393 = getelementptr inbounds nuw i8, ptr %vtable.i392, i64 8
-  %80 = load ptr, ptr %vfn.i393, align 8
-  call void %80(ptr noundef nonnull align 8 dereferenceable(16) %call437) #20
+  %81 = load ptr, ptr %vfn.i393, align 8
+  call void %81(ptr noundef nonnull align 8 dereferenceable(16) %call437) #20
   br label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394
 
 _ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394: ; preds = %cleanup489, %delete.notnull.i391
+  %retval.8559 = phi ptr [ %retval.8, %cleanup489 ], [ %retval.8558, %delete.notnull.i391 ]
+  %parsedTimeType.5557 = phi i32 [ 0, %cleanup489 ], [ %parsedTimeType.5556, %delete.notnull.i391 ]
+  %parsedOffset.7555 = phi i32 [ %parsedOffset.4, %cleanup489 ], [ %parsedOffset.7554, %delete.notnull.i391 ]
+  %parsedPos.17553 = phi i32 [ %parsedPos.14, %cleanup489 ], [ %parsedPos.17552, %delete.notnull.i391 ]
   br i1 %cmp.i380, label %if.end493, label %cleanup667
 
 if.end493:                                        ; preds = %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394, %if.then429
-  %parsedPos.16 = phi i32 [ %parsedPos.17, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394 ], [ %parsedPos.14, %if.then429 ]
-  %parsedOffset.6 = phi i32 [ %parsedOffset.7, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394 ], [ %parsedOffset.4, %if.then429 ]
-  %parsedTimeType.4 = phi i32 [ %parsedTimeType.5, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394 ], [ 0, %if.then429 ]
-  %retval.7 = phi ptr [ %retval.8, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394 ], [ %retval.1, %if.then429 ]
+  %parsedPos.16 = phi i32 [ %parsedPos.17553, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394 ], [ %parsedPos.14, %if.then429 ]
+  %parsedOffset.6 = phi i32 [ %parsedOffset.7555, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394 ], [ %parsedOffset.4, %if.then429 ]
+  %parsedTimeType.4 = phi i32 [ %parsedTimeType.5557, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394 ], [ 0, %if.then429 ]
+  %retval.7 = phi ptr [ %retval.8559, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394 ], [ %retval.1, %if.then429 ]
   %cmp496 = icmp slt i32 %parsedPos.16, %cond.i
   %cmp5513.not = xor i1 %cmp5513, true
-  %81 = and i1 %cmp496, %cmp5513.not
-  %or.cond211.not = and i1 %81, %cmp39
-  %82 = load i32, ptr %status, align 4
-  %cmp.i.i395 = icmp slt i32 %82, 1
-  %or.cond588 = select i1 %or.cond211.not, i1 %cmp.i.i395, i1 false
-  br i1 %or.cond588, label %if.end.i397, label %if.end570
+  %82 = and i1 %cmp496, %cmp5513.not
+  %or.cond211.not = and i1 %82, %cmp39
+  %83 = load i32, ptr %status, align 4
+  %cmp.i.i395 = icmp slt i32 %83, 1
+  %or.cond638 = select i1 %or.cond211.not, i1 %cmp.i.i395, i1 false
+  br i1 %or.cond638, label %if.end.i397, label %if.end570
 
 if.end.i397:                                      ; preds = %if.end493
   invoke void @umtx_lock_75(ptr noundef nonnull @_ZN6icu_75L5gLockE)
@@ -5364,8 +5371,8 @@ if.end.i397:                                      ; preds = %if.end493
 
 .noexc402:                                        ; preds = %if.end.i397
   %fTZDBTimeZoneNames.i = getelementptr inbounds nuw i8, ptr %this, i64 1320
-  %83 = load ptr, ptr %fTZDBTimeZoneNames.i, align 8
-  %cmp.i398 = icmp eq ptr %83, null
+  %84 = load ptr, ptr %fTZDBTimeZoneNames.i, align 8
+  %cmp.i398 = icmp eq ptr %84, null
   br i1 %cmp.i398, label %if.then2.i399, label %if.end8.i
 
 if.then2.i399:                                    ; preds = %.noexc402
@@ -5383,7 +5390,7 @@ if.then5.i:                                       ; preds = %if.then2.i399
   br label %if.end8.i
 
 lpad.i401:                                        ; preds = %new.notnull.i
-  %84 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call3.i) #20
   br label %ehcleanup668
@@ -5397,21 +5404,21 @@ if.end8.i:                                        ; preds = %if.else.i, %if.then
           to label %invoke.cont503 unwind label %lpad321
 
 invoke.cont503:                                   ; preds = %if.end8.i
-  %.pre565 = load i32, ptr %status, align 4
-  %85 = icmp sgt i32 %.pre565, 0
-  br i1 %85, label %if.end570, label %if.then508
+  %.pre617 = load i32, ptr %status, align 4
+  %86 = icmp sgt i32 %.pre617, 0
+  br i1 %86, label %if.end570, label %if.then508
 
 if.then508:                                       ; preds = %invoke.cont503
-  %86 = load ptr, ptr %fTZDBTimeZoneNames.i, align 8
-  %vtable510 = load ptr, ptr %86, align 8
+  %87 = load ptr, ptr %fTZDBTimeZoneNames.i, align 8
+  %vtable510 = load ptr, ptr %87, align 8
   %vfn511 = getelementptr inbounds nuw i8, ptr %vtable510, i64 120
-  %87 = load ptr, ptr %vfn511, align 8
-  %call513 = invoke noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(236) %86, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef 118, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %88 = load ptr, ptr %vfn511, align 8
+  %call513 = invoke noundef ptr %88(ptr noundef nonnull align 8 dereferenceable(236) %87, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef 118, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont514 unwind label %lpad321
 
 invoke.cont514:                                   ; preds = %if.then508
-  %88 = load i32, ptr %status, align 4
-  %cmp.i407 = icmp slt i32 %88, 1
+  %89 = load i32, ptr %status, align 4
+  %cmp.i407 = icmp slt i32 %89, 1
   br i1 %cmp.i407, label %if.end521, label %if.then519
 
 if.then519:                                       ; preds = %invoke.cont514
@@ -5419,25 +5426,22 @@ if.then519:                                       ; preds = %invoke.cont514
   store i32 %0, ptr %errorIndex.i409, align 4
   br label %cleanup565
 
-lpad515.loopexit:                                 ; preds = %for.cond528, %for.body534, %if.then541
+_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414.loopexit: ; preds = %for.cond528, %for.body534, %if.then541
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %lpad515
+  br label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414
 
-lpad515.loopexit.split-lp:                        ; preds = %if.then553, %invoke.cont556
+_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414.loopexit.split-lp: ; preds = %if.then553, %invoke.cont556
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %lpad515
+  br label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414
 
-lpad515:                                          ; preds = %lpad515.loopexit.split-lp, %lpad515.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad515.loopexit ], [ %lpad.loopexit.split-lp, %lpad515.loopexit.split-lp ]
-  br i1 %cmp.i415.not, label %ehcleanup668, label %delete.notnull.i411
-
-delete.notnull.i411:                              ; preds = %lpad515
+_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414: ; preds = %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414.loopexit.split-lp, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414.loopexit ], [ %lpad.loopexit.split-lp, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414.loopexit.split-lp ]
   %vtable.i412 = load ptr, ptr %call513, align 8
   %vfn.i413 = getelementptr inbounds nuw i8, ptr %vtable.i412, i64 8
-  %89 = load ptr, ptr %vfn.i413, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(16) %call513) #20
+  %90 = load ptr, ptr %vfn.i413, align 8
+  call void %90(ptr noundef nonnull align 8 dereferenceable(16) %call513) #20
   br label %ehcleanup668
 
 if.end521:                                        ; preds = %invoke.cont514
@@ -5449,7 +5453,7 @@ for.cond528:                                      ; preds = %if.end521, %for.inc
   %matchPos522.1 = phi i32 [ %matchPos522.2, %for.inc548 ], [ -1, %if.end521 ]
   %i527.0 = phi i32 [ %inc549, %for.inc548 ], [ 0, %if.end521 ]
   %call532 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %call513)
-          to label %invoke.cont531 unwind label %lpad515.loopexit
+          to label %invoke.cont531 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414.loopexit
 
 invoke.cont531:                                   ; preds = %for.cond528
   %cmp533 = icmp slt i32 %i527.0, %call532
@@ -5457,7 +5461,7 @@ invoke.cont531:                                   ; preds = %for.cond528
 
 for.body534:                                      ; preds = %invoke.cont531
   %call538 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection16getMatchLengthAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call513, i32 noundef %i527.0)
-          to label %invoke.cont537 unwind label %lpad515.loopexit
+          to label %invoke.cont537 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414.loopexit
 
 invoke.cont537:                                   ; preds = %for.body534
   %add539 = add nsw i32 %call538, %0
@@ -5466,7 +5470,7 @@ invoke.cont537:                                   ; preds = %for.body534
 
 if.then541:                                       ; preds = %invoke.cont537
   %call545 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection16getMatchLengthAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call513, i32 noundef %i527.0)
-          to label %invoke.cont544 unwind label %lpad515.loopexit
+          to label %invoke.cont544 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414.loopexit
 
 invoke.cont544:                                   ; preds = %if.then541
   %add546 = add nsw i32 %call545, %0
@@ -5486,45 +5490,50 @@ if.end551:                                        ; preds = %invoke.cont531, %if
 
 if.then553:                                       ; preds = %if.end551
   %call557 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat13getTimeZoneIDEPKNS_13TimeZoneNames19MatchInfoCollectionEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %call513, i32 noundef %tzdbNameMatchIdx.0, ptr noundef nonnull align 8 dereferenceable(64) %parsedID)
-          to label %invoke.cont556 unwind label %lpad515.loopexit.split-lp
+          to label %invoke.cont556 unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414.loopexit.split-lp
 
 invoke.cont556:                                   ; preds = %if.then553
   %call561 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection13getNameTypeAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call513, i32 noundef %tzdbNameMatchIdx.0)
-          to label %invoke.cont560 unwind label %lpad515.loopexit.split-lp
+          to label %cleanup565.thread unwind label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414.loopexit.split-lp
 
-invoke.cont560:                                   ; preds = %invoke.cont556
+cleanup565.thread:                                ; preds = %invoke.cont556
   %call563 = call noundef i32 @_ZN6icu_7514TimeZoneFormat11getTimeTypeE17UTimeZoneNameType(i32 noundef %call561)
-  br label %cleanup565
+  br label %delete.notnull.i418
 
-cleanup565:                                       ; preds = %if.end551, %invoke.cont560, %if.then519
-  %parsedPos.20 = phi i32 [ %parsedPos.16, %if.then519 ], [ %matchPos522.0, %invoke.cont560 ], [ %parsedPos.16, %if.end551 ]
-  %parsedOffset.10 = phi i32 [ %parsedOffset.6, %if.then519 ], [ 2147483647, %invoke.cont560 ], [ %parsedOffset.6, %if.end551 ]
-  %parsedTimeType.8 = phi i32 [ %parsedTimeType.4, %if.then519 ], [ %call563, %invoke.cont560 ], [ %parsedTimeType.4, %if.end551 ]
-  %retval.9 = phi ptr [ null, %if.then519 ], [ %retval.7, %invoke.cont560 ], [ %retval.7, %if.end551 ]
+cleanup565:                                       ; preds = %if.end551, %if.then519
+  %retval.9 = phi ptr [ null, %if.then519 ], [ %retval.7, %if.end551 ]
   %isnull.i417 = icmp eq ptr %call513, null
   br i1 %isnull.i417, label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421, label %delete.notnull.i418
 
-delete.notnull.i418:                              ; preds = %cleanup565
+delete.notnull.i418:                              ; preds = %cleanup565.thread, %cleanup565
+  %retval.9571 = phi ptr [ %retval.7, %cleanup565.thread ], [ %retval.9, %cleanup565 ]
+  %parsedTimeType.8569 = phi i32 [ %call563, %cleanup565.thread ], [ %parsedTimeType.4, %cleanup565 ]
+  %parsedOffset.10567 = phi i32 [ 2147483647, %cleanup565.thread ], [ %parsedOffset.6, %cleanup565 ]
+  %parsedPos.20565 = phi i32 [ %matchPos522.0, %cleanup565.thread ], [ %parsedPos.16, %cleanup565 ]
   %vtable.i419 = load ptr, ptr %call513, align 8
   %vfn.i420 = getelementptr inbounds nuw i8, ptr %vtable.i419, i64 8
-  %90 = load ptr, ptr %vfn.i420, align 8
-  call void %90(ptr noundef nonnull align 8 dereferenceable(16) %call513) #20
+  %91 = load ptr, ptr %vfn.i420, align 8
+  call void %91(ptr noundef nonnull align 8 dereferenceable(16) %call513) #20
   br label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421
 
 _ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421: ; preds = %cleanup565, %delete.notnull.i418
+  %retval.9572 = phi ptr [ %retval.9, %cleanup565 ], [ %retval.9571, %delete.notnull.i418 ]
+  %parsedTimeType.8570 = phi i32 [ %parsedTimeType.4, %cleanup565 ], [ %parsedTimeType.8569, %delete.notnull.i418 ]
+  %parsedOffset.10568 = phi i32 [ %parsedOffset.6, %cleanup565 ], [ %parsedOffset.10567, %delete.notnull.i418 ]
+  %parsedPos.20566 = phi i32 [ %parsedPos.16, %cleanup565 ], [ %parsedPos.20565, %delete.notnull.i418 ]
   br i1 %cmp.i407, label %if.end570, label %cleanup667
 
 if.end570:                                        ; preds = %invoke.cont503, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421, %if.end493
-  %parsedPos.19 = phi i32 [ %parsedPos.20, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421 ], [ %parsedPos.16, %invoke.cont503 ], [ %parsedPos.16, %if.end493 ]
-  %parsedOffset.9 = phi i32 [ %parsedOffset.10, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421 ], [ %parsedOffset.6, %invoke.cont503 ], [ %parsedOffset.6, %if.end493 ]
-  %parsedTimeType.7 = phi i32 [ %parsedTimeType.8, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421 ], [ %parsedTimeType.4, %invoke.cont503 ], [ %parsedTimeType.4, %if.end493 ]
+  %parsedPos.19 = phi i32 [ %parsedPos.20566, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421 ], [ %parsedPos.16, %invoke.cont503 ], [ %parsedPos.16, %if.end493 ]
+  %parsedOffset.9 = phi i32 [ %parsedOffset.10568, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421 ], [ %parsedOffset.6, %invoke.cont503 ], [ %parsedOffset.6, %if.end493 ]
+  %parsedTimeType.7 = phi i32 [ %parsedTimeType.8570, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421 ], [ %parsedTimeType.4, %invoke.cont503 ], [ %parsedTimeType.4, %if.end493 ]
   %cmp571 = icmp slt i32 %parsedPos.19, %cond.i
   br i1 %cmp571, label %if.then572, label %if.end599
 
 if.then572:                                       ; preds = %if.end570
   store i32 0, ptr %tt573, align 4
-  %91 = load i32, ptr %status, align 4
-  %cmp.i.i422 = icmp slt i32 %91, 1
+  %92 = load i32, ptr %status, align 4
+  %cmp.i.i422 = icmp slt i32 %92, 1
   br i1 %cmp.i.i422, label %if.end.i424, label %if.then587
 
 if.end.i424:                                      ; preds = %if.then572
@@ -5533,8 +5542,8 @@ if.end.i424:                                      ; preds = %if.then572
 
 .noexc431:                                        ; preds = %if.end.i424
   %fTimeZoneGenericNames.i425 = getelementptr inbounds nuw i8, ptr %this, i64 568
-  %92 = load ptr, ptr %fTimeZoneGenericNames.i425, align 8
-  %cmp.i426 = icmp eq ptr %92, null
+  %93 = load ptr, ptr %fTimeZoneGenericNames.i425, align 8
+  %cmp.i426 = icmp eq ptr %93, null
   br i1 %cmp.i426, label %if.then2.i428, label %if.end5.i427
 
 if.then2.i428:                                    ; preds = %.noexc431
@@ -5551,18 +5560,18 @@ if.end5.i427:                                     ; preds = %call3.i430.noexc, %
           to label %invoke.cont575 unwind label %lpad321
 
 invoke.cont575:                                   ; preds = %if.end5.i427
-  %.pre566 = load i32, ptr %status, align 4
-  %93 = icmp sgt i32 %.pre566, 0
-  br i1 %93, label %if.then587, label %if.then580
+  %.pre618 = load i32, ptr %status, align 4
+  %94 = icmp sgt i32 %.pre618, 0
+  br i1 %94, label %if.then587, label %if.then580
 
 if.then580:                                       ; preds = %invoke.cont575
-  %94 = load ptr, ptr %fTimeZoneGenericNames.i425, align 8
-  %call582 = invoke noundef i32 @_ZNK6icu_7520TimeZoneGenericNames13findBestMatchERKNS_13UnicodeStringEijRS1_R23UTimeZoneFormatTimeTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(64) %tzID, ptr noundef nonnull align 4 dereferenceable(4) %tt573, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %95 = load ptr, ptr %fTimeZoneGenericNames.i425, align 8
+  %call582 = invoke noundef i32 @_ZNK6icu_7520TimeZoneGenericNames13findBestMatchERKNS_13UnicodeStringEijRS1_R23UTimeZoneFormatTimeTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(64) %tzID, ptr noundef nonnull align 4 dereferenceable(4) %tt573, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end583 unwind label %lpad321
 
 if.end583:                                        ; preds = %if.then580
-  %95 = load i32, ptr %status, align 4
-  %cmp.i437 = icmp slt i32 %95, 1
+  %96 = load i32, ptr %status, align 4
+  %cmp.i437 = icmp slt i32 %96, 1
   br i1 %cmp.i437, label %if.end589, label %if.then587
 
 if.then587:                                       ; preds = %if.then572, %invoke.cont575, %if.end583
@@ -5584,13 +5593,13 @@ if.then594:                                       ; preds = %land.lhs.true591
           to label %invoke.cont596 unwind label %lpad321
 
 invoke.cont596:                                   ; preds = %if.then594
-  %96 = load i32, ptr %tt573, align 4
+  %97 = load i32, ptr %tt573, align 4
   br label %if.end599
 
 if.end599:                                        ; preds = %if.end589, %land.lhs.true591, %invoke.cont596, %if.end570
   %parsedPos.22 = phi i32 [ %add592, %invoke.cont596 ], [ %parsedPos.19, %land.lhs.true591 ], [ %parsedPos.19, %if.end589 ], [ %parsedPos.19, %if.end570 ]
   %parsedOffset.12 = phi i32 [ 2147483647, %invoke.cont596 ], [ %parsedOffset.9, %land.lhs.true591 ], [ %parsedOffset.9, %if.end589 ], [ %parsedOffset.9, %if.end570 ]
-  %parsedTimeType.10 = phi i32 [ %96, %invoke.cont596 ], [ %parsedTimeType.7, %land.lhs.true591 ], [ %parsedTimeType.7, %if.end589 ], [ %parsedTimeType.7, %if.end570 ]
+  %parsedTimeType.10 = phi i32 [ %97, %invoke.cont596 ], [ %parsedTimeType.7, %land.lhs.true591 ], [ %parsedTimeType.7, %if.end589 ], [ %parsedTimeType.7, %if.end570 ]
   %cmp600 = icmp sge i32 %parsedPos.22, %cond.i
   %cmp604.not = icmp eq i32 %style, 17
   %or.cond212 = or i1 %cmp604.not, %cmp600
@@ -5603,13 +5612,13 @@ if.then605:                                       ; preds = %if.end599
           to label %invoke.cont608 unwind label %lpad321
 
 invoke.cont608:                                   ; preds = %if.then605
-  %97 = load i32, ptr %errorIndex.i519, align 4
-  %cmp612 = icmp eq i32 %97, -1
+  %98 = load i32, ptr %errorIndex.i519, align 4
+  %cmp612 = icmp eq i32 %98, -1
   br i1 %cmp612, label %land.lhs.true613, label %if.end623
 
 land.lhs.true613:                                 ; preds = %invoke.cont608
-  %98 = load i32, ptr %index.i215517, align 8
-  %cmp616 = icmp slt i32 %parsedPos.22, %98
+  %99 = load i32, ptr %index.i215517, align 8
+  %cmp616 = icmp slt i32 %parsedPos.22, %99
   br i1 %cmp616, label %if.then617, label %if.end623
 
 if.then617:                                       ; preds = %land.lhs.true613
@@ -5617,7 +5626,7 @@ if.then617:                                       ; preds = %land.lhs.true613
           to label %if.end623 unwind label %lpad321
 
 if.end623:                                        ; preds = %if.then617, %invoke.cont608, %land.lhs.true613, %if.end599
-  %parsedPos.23 = phi i32 [ %parsedPos.22, %land.lhs.true613 ], [ %parsedPos.22, %invoke.cont608 ], [ %parsedPos.22, %if.end599 ], [ %98, %if.then617 ]
+  %parsedPos.23 = phi i32 [ %parsedPos.22, %land.lhs.true613 ], [ %parsedPos.22, %invoke.cont608 ], [ %parsedPos.22, %if.end599 ], [ %99, %if.then617 ]
   %parsedOffset.13 = phi i32 [ %parsedOffset.12, %land.lhs.true613 ], [ %parsedOffset.12, %invoke.cont608 ], [ %parsedOffset.12, %if.end599 ], [ 2147483647, %if.then617 ]
   %parsedTimeType.11 = phi i32 [ %parsedTimeType.10, %land.lhs.true613 ], [ %parsedTimeType.10, %invoke.cont608 ], [ %parsedTimeType.10, %if.end599 ], [ 0, %if.then617 ]
   %cmp624 = icmp sge i32 %parsedPos.23, %cond.i
@@ -5631,13 +5640,13 @@ if.then629:                                       ; preds = %if.end623
           to label %invoke.cont632 unwind label %lpad321
 
 invoke.cont632:                                   ; preds = %if.then629
-  %99 = load i32, ptr %errorIndex.i519, align 4
-  %cmp636 = icmp eq i32 %99, -1
+  %100 = load i32, ptr %errorIndex.i519, align 4
+  %cmp636 = icmp eq i32 %100, -1
   br i1 %cmp636, label %land.lhs.true637, label %if.end648
 
 land.lhs.true637:                                 ; preds = %invoke.cont632
-  %100 = load i32, ptr %index.i215517, align 8
-  %cmp640 = icmp slt i32 %parsedPos.23, %100
+  %101 = load i32, ptr %index.i215517, align 8
+  %cmp640 = icmp slt i32 %parsedPos.23, %101
   br i1 %cmp640, label %if.then641, label %if.end648
 
 if.then641:                                       ; preds = %land.lhs.true637
@@ -5645,7 +5654,7 @@ if.then641:                                       ; preds = %land.lhs.true637
           to label %if.end648 unwind label %lpad321
 
 if.end648:                                        ; preds = %if.then641, %if.end623, %land.lhs.true637, %invoke.cont632, %if.end426
-  %parsedPos.15 = phi i32 [ %parsedPos.23, %land.lhs.true637 ], [ %parsedPos.23, %invoke.cont632 ], [ %parsedPos.23, %if.end623 ], [ %parsedPos.14, %if.end426 ], [ %100, %if.then641 ]
+  %parsedPos.15 = phi i32 [ %parsedPos.23, %land.lhs.true637 ], [ %parsedPos.23, %invoke.cont632 ], [ %parsedPos.23, %if.end623 ], [ %parsedPos.14, %if.end426 ], [ %101, %if.then641 ]
   %parsedOffset.5 = phi i32 [ %parsedOffset.13, %land.lhs.true637 ], [ %parsedOffset.13, %invoke.cont632 ], [ %parsedOffset.13, %if.end623 ], [ %parsedOffset.4, %if.end426 ], [ 2147483647, %if.then641 ]
   %parsedTimeType.3 = phi i32 [ %parsedTimeType.11, %land.lhs.true637 ], [ %parsedTimeType.11, %invoke.cont632 ], [ %parsedTimeType.11, %if.end623 ], [ 0, %if.end426 ], [ 0, %if.then641 ]
   %cmp649 = icmp sgt i32 %parsedPos.15, %0
@@ -5653,13 +5662,13 @@ if.end648:                                        ; preds = %if.then641, %if.end
 
 invoke.cont651:                                   ; preds = %if.end648
   %fUnion.i.i458 = getelementptr inbounds nuw i8, ptr %parsedID, i64 8
-  %101 = load i16, ptr %fUnion.i.i458, align 8
-  %cmp.i.i459 = icmp slt i16 %101, 0
-  %102 = ashr i16 %101, 5
-  %shr.i.i460 = sext i16 %102 to i32
+  %102 = load i16, ptr %fUnion.i.i458, align 8
+  %cmp.i.i459 = icmp slt i16 %102, 0
+  %103 = ashr i16 %102, 5
+  %shr.i.i460 = sext i16 %103 to i32
   %fLength.i461 = getelementptr inbounds nuw i8, ptr %parsedID, i64 12
-  %103 = load i32, ptr %fLength.i461, align 4
-  %cond.i462 = select i1 %cmp.i.i459, i32 %103, i32 %shr.i.i460
+  %104 = load i32, ptr %fLength.i461, align 4
+  %cond.i462 = select i1 %cmp.i.i459, i32 %104, i32 %shr.i.i460
   %cmp653 = icmp sgt i32 %cond.i462, 0
   br i1 %cmp653, label %if.then654, label %if.else657
 
@@ -5684,25 +5693,25 @@ invoke.cont.i472:                                 ; preds = %if.then.i468
 
 invoke.cont3.i475:                                ; preds = %invoke.cont.i472
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i463) #20
-  %104 = load ptr, ptr %agg.tmp.i464, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %104) #20, !srcloc !4
+  %105 = load ptr, ptr %agg.tmp.i464, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %105) #20, !srcloc !4
   br label %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit480
 
 lpad.i469:                                        ; preds = %if.then.i468
-  %105 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i470
 
 lpad2.i474:                                       ; preds = %invoke.cont.i472
-  %106 = landingpad { ptr, i32 }
+  %107 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i463) #20
   br label %ehcleanup.i470
 
 ehcleanup.i470:                                   ; preds = %lpad2.i474, %lpad.i469
-  %.pn.i471 = phi { ptr, i32 } [ %106, %lpad2.i474 ], [ %105, %lpad.i469 ]
-  %107 = load ptr, ptr %agg.tmp.i464, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %107) #20, !srcloc !4
+  %.pn.i471 = phi { ptr, i32 } [ %107, %lpad2.i474 ], [ %106, %lpad.i469 ]
+  %108 = load ptr, ptr %agg.tmp.i464, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %108) #20, !srcloc !4
   br label %ehcleanup668
 
 if.end.i466:                                      ; preds = %if.else657
@@ -5733,22 +5742,22 @@ if.end665:                                        ; preds = %if.end648
   br label %cleanup667
 
 cleanup667:                                       ; preds = %if.then410.invoke, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421, %if.end665, %if.end663, %if.then587
-  %retval.6 = phi ptr [ null, %if.then587 ], [ %parsedTZ.0, %if.end663 ], [ null, %if.end665 ], [ %retval.9, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421 ], [ %retval.8, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394 ], [ %74, %if.then410.invoke ]
+  %retval.6 = phi ptr [ null, %if.then587 ], [ %parsedTZ.0, %if.end663 ], [ null, %if.end665 ], [ %retval.9572, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit421 ], [ %retval.8559, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit394 ], [ %75, %if.then410.invoke ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %parsedID) #20
   br label %cleanup669
 
-ehcleanup668:                                     ; preds = %delete.notnull.i411, %lpad515, %delete.notnull.i384, %lpad439, %lpad.i401, %ehcleanup.i470, %lpad321
-  %.pn200 = phi { ptr, i32 } [ %84, %lpad.i401 ], [ %64, %lpad321 ], [ %.pn.i471, %ehcleanup.i470 ], [ %lpad.phi538, %lpad439 ], [ %lpad.phi538, %delete.notnull.i384 ], [ %lpad.phi, %lpad515 ], [ %lpad.phi, %delete.notnull.i411 ]
+ehcleanup668:                                     ; preds = %lpad.i401, %ehcleanup.i470, %lpad321, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387
+  %.pn200 = phi { ptr, i32 } [ %lpad.phi, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit414 ], [ %lpad.phi590, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit387 ], [ %85, %lpad.i401 ], [ %65, %lpad321 ], [ %.pn.i471, %ehcleanup.i470 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %parsedID) #20
   br label %ehcleanup670
 
-cleanup669:                                       ; preds = %if.then66.invoke, %if.then295.invoke, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit355, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit281, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit258, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304, %cleanup667, %if.then244
-  %retval.2 = phi ptr [ %retval.6, %cleanup667 ], [ null, %if.then244 ], [ %retval.3, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304 ], [ %retval.0.i246, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit258 ], [ %retval.0.i268, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit281 ], [ %retval.0.i342, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit355 ], [ %55, %if.then295.invoke ], [ %19, %if.then66.invoke ]
+cleanup669:                                       ; preds = %if.then66.invoke, %if.then295.invoke, %delete.notnull.i301.thread, %delete.notnull.i301, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit355, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit281, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit258, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304, %cleanup667, %if.then244
+  %retval.2 = phi ptr [ %retval.6, %cleanup667 ], [ null, %if.then244 ], [ %retval.3, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit304 ], [ %retval.0.i246, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit258 ], [ %retval.0.i268, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit281 ], [ %retval.0.i342, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit355 ], [ %retval.3, %delete.notnull.i301 ], [ %call154, %delete.notnull.i301.thread ], [ %56, %if.then295.invoke ], [ %19, %if.then66.invoke ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %tzID) #20
   br label %cleanup671
 
 ehcleanup670:                                     ; preds = %delete.notnull.i306, %ehcleanup, %ehcleanup.i249, %lpad41, %ehcleanup.i345, %ehcleanup.i271, %ehcleanup668
-  %.pn202 = phi { ptr, i32 } [ %.pn200, %ehcleanup668 ], [ %.pn.i250, %ehcleanup.i249 ], [ %.pn.i272, %ehcleanup.i271 ], [ %15, %lpad41 ], [ %.pn.i346, %ehcleanup.i345 ], [ %.pn, %ehcleanup ], [ %.pn, %delete.notnull.i306 ]
+  %.pn202 = phi { ptr, i32 } [ %.pn200, %ehcleanup668 ], [ %.pn.i250, %ehcleanup.i249 ], [ %.pn.i272, %ehcleanup.i271 ], [ %15, %lpad41 ], [ %.pn.i346, %ehcleanup.i345 ], [ %.pn, %ehcleanup ], [ %.pn621, %delete.notnull.i306 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %tzID) #20
   br label %ehcleanup672
 
@@ -6679,14 +6688,14 @@ entry:
 lpad.loopexit:                                    ; preds = %for.cond, %for.body, %if.then18
   %lpad.loopexit36 = landingpad { ptr, i32 }
           cleanup
-  br label %delete.notnull.i
+  br label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit
 
 lpad.loopexit.split-lp:                           ; preds = %if.then26, %if.then.i
   %lpad.loopexit.split-lp37 = landingpad { ptr, i32 }
           cleanup
-  br label %delete.notnull.i
+  br label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit
 
-delete.notnull.i:                                 ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i
+_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit: ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i
   %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad.i ], [ %lpad.loopexit36, %lpad.loopexit ], [ %lpad.loopexit.split-lp37, %lpad.loopexit.split-lp ]
   %vtable.i = load ptr, ptr %call2, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
@@ -6772,7 +6781,7 @@ lpad.i:                                           ; preds = %if.then4.i, %.noexc
   %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %mzID.i) #20
-  br label %delete.notnull.i
+  br label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit
 
 if.end.i:                                         ; preds = %if.then4.i, %invoke.cont.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %mzID.i) #20

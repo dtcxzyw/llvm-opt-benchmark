@@ -1886,13 +1886,13 @@ invoke.cont17:                                    ; preds = %for.body16
   %8 = load i32, ptr %n, align 4
   %9 = zext i32 %8 to i64
   %cmp15 = icmp samesign ult i64 %indvars.iv.next76, %9
-  br i1 %cmp15, label %for.body16, label %if.end, !llvm.loop !23
+  br i1 %cmp15, label %for.body16, label %for.cond.preheader.i.i25, !llvm.loop !23
 
-if.end:                                           ; preds = %invoke.cont17, %invoke.cont10
+if.end:                                           ; preds = %invoke.cont10
   %cmp.not.i.i24 = icmp eq ptr %call.i13, null
   br i1 %cmp.not.i.i24, label %_ZN17scoped_mpz_matrixD2Ev.exit, label %for.cond.preheader.i.i25
 
-for.cond.preheader.i.i25:                         ; preds = %if.end
+for.cond.preheader.i.i25:                         ; preds = %invoke.cont17, %if.end
   br i1 %isempty.i, label %for.end9.i.i49, label %for.body5.i.i34
 
 for.body5.i.i34:                                  ; preds = %for.cond.preheader.i.i25, %for.inc7.i.i44

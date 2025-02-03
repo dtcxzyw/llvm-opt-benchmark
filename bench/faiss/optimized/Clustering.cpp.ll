@@ -410,7 +410,7 @@ define void @_ZN5faiss10Clustering13train_encodedElPKhPKNS_5IndexERS3_PKf(ptr no
 45:                                               ; preds = %37
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #17
+  call void @__cxa_free_exception(ptr nonnull %41) #17
   br label %47
 
 47:                                               ; preds = %45, %43
@@ -468,7 +468,7 @@ define void @_ZN5faiss10Clustering13train_encodedElPKhPKNS_5IndexERS3_PKf(ptr no
 75:                                               ; preds = %65
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %71) #17
+  call void @__cxa_free_exception(ptr nonnull %71) #17
   br label %77
 
 77:                                               ; preds = %75, %73
@@ -532,7 +532,7 @@ define void @_ZN5faiss10Clustering13train_encodedElPKhPKNS_5IndexERS3_PKf(ptr no
 109:                                              ; preds = %99
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %105) #17
+  call void @__cxa_free_exception(ptr nonnull %105) #17
   br label %111
 
 111:                                              ; preds = %109, %107
@@ -591,7 +591,7 @@ define void @_ZN5faiss10Clustering13train_encodedElPKhPKNS_5IndexERS3_PKf(ptr no
 134:                                              ; preds = %127
   %135 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %130) #17
+  call void @__cxa_free_exception(ptr nonnull %130) #17
   br label %136
 
 136:                                              ; preds = %134, %132
@@ -915,7 +915,7 @@ _ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EE9push_backERKS1_.exit: ; 
 304:                                              ; preds = %295
   %305 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %298) #17
+  call void @__cxa_free_exception(ptr nonnull %298) #17
   br label %306
 
 306:                                              ; preds = %304, %302

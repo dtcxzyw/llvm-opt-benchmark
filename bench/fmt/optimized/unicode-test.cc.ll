@@ -3197,7 +3197,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #30
   resume { ptr, i32 } %0
 }
 
@@ -21168,7 +21168,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %176 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #30
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %lpad6.body
 
 _ZN3fmt3v106detail16adjust_precisionERii.exit:    ; preds = %if.then94
@@ -35511,7 +35511,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   resume { ptr, i32 } %26
 
 _ZN3fmt3v106detail16adjust_precisionERii.exit:    ; preds = %if.then92
@@ -38403,7 +38403,7 @@ lpad2:                                            ; preds = %invoke.cont13, %_ZN
 lpad12:                                           ; preds = %if.then
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #30
+  call void @__cxa_free_exception(ptr nonnull %exception) #30
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont9
@@ -38533,7 +38533,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont11, %inv
 lpad10:                                           ; preds = %if.then9
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #30
+  call void @__cxa_free_exception(ptr nonnull %exception) #30
   br label %ehcleanup
 
 invoke.cont14:                                    ; preds = %if.end.i, %.noexc
@@ -38895,7 +38895,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #30
+  call void @__cxa_free_exception(ptr nonnull %exception) #30
   resume { ptr, i32 } %7
 
 if.end:                                           ; preds = %_ZSt9use_facetISt7codecvtIDic11__mbstate_tEERKT_RKSt6locale.exit

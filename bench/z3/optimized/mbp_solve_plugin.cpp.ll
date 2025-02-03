@@ -1622,17 +1622,17 @@ _ZNK10arith_util7is_zeroEPK4expr.exit:            ; preds = %.noexc.i.i
 
 if.then39:                                        ; preds = %_ZNK10arith_util7is_zeroEPK4expr.exit
   %call42 = call noundef ptr @_ZN10arith_util6mk_intEi(ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef 0)
-  %call2.i = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %36, i32 noundef 0, i32 noundef 2, ptr noundef %lhs.0, ptr noundef %call42)
+  %call2.i = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %36, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %lhs.0, ptr noundef %call42)
   br label %return.sink.split
 
 if.end45:                                         ; preds = %_ZNK10arith_util7is_zeroEPK4expr.exit
   %37 = load ptr, ptr %a, align 8
-  %call.i49 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %37, i32 noundef 5, i32 noundef 11, ptr noundef %lhs.0, ptr noundef nonnull %first.0)
+  %call.i49 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %37, i32 noundef 5, i32 noundef 11, ptr noundef nonnull %lhs.0, ptr noundef nonnull %first.0)
   %call2.i50 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %36, i32 noundef 0, i32 noundef 2, ptr noundef %second.0, ptr noundef %call.i49)
   %38 = load ptr, ptr %m, align 8
   %call53 = call noundef ptr @_ZN10arith_util6mk_intEi(ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef 0)
   %39 = load ptr, ptr %a, align 8
-  %call.i51 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %39, i32 noundef 5, i32 noundef 16, ptr noundef %lhs.0, ptr noundef nonnull %first.0)
+  %call.i51 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %39, i32 noundef 5, i32 noundef 16, ptr noundef nonnull %lhs.0, ptr noundef nonnull %first.0)
   %call2.i52 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %38, i32 noundef 0, i32 noundef 2, ptr noundef %call53, ptr noundef %call.i51)
   %call.i53 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %36, i32 noundef 0, i32 noundef 5, ptr noundef %call2.i50, ptr noundef %call2.i52)
   br label %return.sink.split

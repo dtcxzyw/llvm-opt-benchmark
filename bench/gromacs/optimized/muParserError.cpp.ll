@@ -529,7 +529,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
 169:                                              ; preds = %164
   %170 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %165) #16
+  tail call void @__cxa_free_exception(ptr nonnull %165) #16
   br label %172
 
 171:                                              ; preds = %160

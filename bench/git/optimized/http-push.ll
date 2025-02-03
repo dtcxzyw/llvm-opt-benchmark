@@ -1541,7 +1541,7 @@ if.then84:                                        ; preds = %if.end80
   br label %return
 
 if.end91:                                         ; preds = %if.end80
-  %call92 = call fastcc i32 @verify_merge_base(ptr noundef %head_oid, ptr noundef %remote_ref.1)
+  %call92 = call fastcc i32 @verify_merge_base(ptr noundef %head_oid, ptr noundef nonnull %remote_ref.1)
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %if.then94, label %if.end101
 

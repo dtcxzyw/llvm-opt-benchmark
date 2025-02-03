@@ -6161,7 +6161,7 @@ invoke.cont16:                                    ; preds = %if.end14
 lpad15:                                           ; preds = %if.end14
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #25
+  call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %ehcleanup
 
 cleanup:                                          ; preds = %if.end10, %if.end6, %if.end, %invoke.cont

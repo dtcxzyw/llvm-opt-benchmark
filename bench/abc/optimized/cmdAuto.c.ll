@@ -1147,7 +1147,7 @@ tailrecurse:                                      ; preds = %95
   br label %131
 
 131:                                              ; preds = %128, %126
-  tail call void @Cmf_CreateOptions_rec(ptr noundef %0, i32 noundef %107, ptr noundef %2, i32 noundef %108, ptr noundef %4)
+  tail call void @Cmf_CreateOptions_rec(ptr noundef %0, i32 noundef %107, ptr noundef nonnull %2, i32 noundef %108, ptr noundef %4)
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 2
   %.val65 = load i32, ptr %99, align 4
   %132 = trunc i64 %indvars.iv.next104 to i32

@@ -2786,7 +2786,7 @@ lpad:                                             ; preds = %new.notnull
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call7) #18
   br label %eh.resume
 
-delete.notnull.i:                                 ; preds = %memptr.end, %invoke.cont16
+_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit: ; preds = %invoke.cont16, %memptr.end
   %3 = landingpad { ptr, i32 }
           cleanup
   %vtable.i = load ptr, ptr %call7, align 8
@@ -2815,12 +2815,12 @@ memptr.nonvirtual:                                ; preds = %if.end13
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
   %9 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(272) %5, double noundef %args, i32 noundef %args2, i32 noundef %args4, ptr noundef nonnull align 8 dereferenceable(300) %call7, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont16 unwind label %delete.notnull.i
+          to label %invoke.cont16 unwind label %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit
 
 invoke.cont16:                                    ; preds = %memptr.end
   %fString.i = getelementptr inbounds nuw i8, ptr %call7, i64 8
   invoke void @_ZN6icu_7522FormattedStringBuilder15writeTerminatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %cleanup.thread unwind label %delete.notnull.i
+          to label %cleanup.thread unwind label %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit
 
 cleanup.thread:                                   ; preds = %invoke.cont16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i64 16), ptr %agg.result, align 8
@@ -2845,8 +2845,8 @@ delete.notnull.i15:                               ; preds = %_ZN6icu_7512LocalPo
 return:                                           ; preds = %cleanup.thread31, %delete.notnull.i15, %cleanup.thread, %if.then
   ret void
 
-eh.resume:                                        ; preds = %delete.notnull.i, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %delete.notnull.i ]
+eh.resume:                                        ; preds = %lpad, %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit
+  %.pn = phi { ptr, i32 } [ %3, %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit ], [ %2, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -3111,7 +3111,7 @@ lpad:                                             ; preds = %new.notnull
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call5) #18
   br label %eh.resume
 
-delete.notnull.i:                                 ; preds = %memptr.end, %invoke.cont13
+_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit: ; preds = %invoke.cont13, %memptr.end
   %3 = landingpad { ptr, i32 }
           cleanup
   %vtable.i = load ptr, ptr %call5, align 8
@@ -3140,12 +3140,12 @@ memptr.nonvirtual:                                ; preds = %if.end11
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
   %9 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(272) %5, double noundef %args, i32 noundef %args2, ptr noundef nonnull align 8 dereferenceable(300) %call5, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont13 unwind label %delete.notnull.i
+          to label %invoke.cont13 unwind label %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit
 
 invoke.cont13:                                    ; preds = %memptr.end
   %fString.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
   invoke void @_ZN6icu_7522FormattedStringBuilder15writeTerminatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %cleanup.thread unwind label %delete.notnull.i
+          to label %cleanup.thread unwind label %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit
 
 cleanup.thread:                                   ; preds = %invoke.cont13
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i64 16), ptr %agg.result, align 8
@@ -3170,8 +3170,8 @@ delete.notnull.i15:                               ; preds = %_ZN6icu_7512LocalPo
 return:                                           ; preds = %cleanup.thread31, %delete.notnull.i15, %cleanup.thread, %if.then
   ret void
 
-eh.resume:                                        ; preds = %delete.notnull.i, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %delete.notnull.i ]
+eh.resume:                                        ; preds = %lpad, %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit
+  %.pn = phi { ptr, i32 } [ %3, %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit ], [ %2, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -3390,7 +3390,7 @@ lpad:                                             ; preds = %new.notnull
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call5) #18
   br label %eh.resume
 
-delete.notnull.i:                                 ; preds = %memptr.end, %invoke.cont13
+_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit: ; preds = %invoke.cont13, %memptr.end
   %3 = landingpad { ptr, i32 }
           cleanup
   %vtable.i = load ptr, ptr %call5, align 8
@@ -3419,12 +3419,12 @@ memptr.nonvirtual:                                ; preds = %if.end11
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
   %9 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(272) %5, i32 noundef %args, i32 noundef %args2, ptr noundef nonnull align 8 dereferenceable(300) %call5, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont13 unwind label %delete.notnull.i
+          to label %invoke.cont13 unwind label %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit
 
 invoke.cont13:                                    ; preds = %memptr.end
   %fString.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
   invoke void @_ZN6icu_7522FormattedStringBuilder15writeTerminatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %cleanup.thread unwind label %delete.notnull.i
+          to label %cleanup.thread unwind label %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit
 
 cleanup.thread:                                   ; preds = %invoke.cont13
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i64 16), ptr %agg.result, align 8
@@ -3449,8 +3449,8 @@ delete.notnull.i15:                               ; preds = %_ZN6icu_7512LocalPo
 return:                                           ; preds = %cleanup.thread31, %delete.notnull.i15, %cleanup.thread, %if.then
   ret void
 
-eh.resume:                                        ; preds = %delete.notnull.i, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %delete.notnull.i ]
+eh.resume:                                        ; preds = %lpad, %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit
+  %.pn = phi { ptr, i32 } [ %3, %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit ], [ %2, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -4137,7 +4137,7 @@ lpad.i:                                           ; preds = %new.notnull.i
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call5.i) #18, !noalias !31
   br label %eh.resume.i
 
-delete.notnull.i.i:                               ; preds = %invoke.cont13.i, %if.end11.i
+_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i: ; preds = %invoke.cont13.i, %if.end11.i
   %5 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i = load ptr, ptr %call5.i, align 8, !noalias !31
@@ -4148,12 +4148,12 @@ delete.notnull.i.i:                               ; preds = %invoke.cont13.i, %i
 
 if.end11.i:                                       ; preds = %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEEC2EPS1_R10UErrorCode.exit.i
   invoke void @_ZNK6icu_7525RelativeDateTimeFormatter17formatNumericImplEd21URelativeDateTimeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %reldatefmt, double noundef %offset, i32 noundef %unit, ptr noundef nonnull align 8 dereferenceable(300) %call5.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont13.i unwind label %delete.notnull.i.i, !noalias !31
+          to label %invoke.cont13.i unwind label %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i, !noalias !31
 
 invoke.cont13.i:                                  ; preds = %if.end11.i
   %fString.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 8
   invoke void @_ZN6icu_7522FormattedStringBuilder15writeTerminatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %cleanup.thread.i unwind label %delete.notnull.i.i, !noalias !31
+          to label %cleanup.thread.i unwind label %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i, !noalias !31
 
 cleanup.thread.i:                                 ; preds = %invoke.cont13.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i64 16), ptr %ref.tmp, align 8, !alias.scope !31
@@ -4165,8 +4165,8 @@ delete.notnull.i15.i:                             ; preds = %_ZN6icu_7512LocalPo
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(300) %call5.i) #18, !noalias !31
   br label %_ZNK6icu_7525RelativeDateTimeFormatter15doFormatToValueIMS0_KFvd21URelativeDateTimeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCodeEJdS2_EEENS_25FormattedRelativeDateTimeET_S6_DpT0_.exit
 
-eh.resume.i:                                      ; preds = %delete.notnull.i.i, %lpad.i
-  %.pn.i = phi { ptr, i32 } [ %4, %lpad.i ], [ %5, %delete.notnull.i.i ]
+eh.resume.i:                                      ; preds = %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i, %lpad.i
+  %.pn.i = phi { ptr, i32 } [ %5, %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i ], [ %4, %lpad.i ]
   resume { ptr, i32 } %.pn.i
 
 _ZNK6icu_7525RelativeDateTimeFormatter15doFormatToValueIMS0_KFvd21URelativeDateTimeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCodeEJdS2_EEENS_25FormattedRelativeDateTimeET_S6_DpT0_.exit: ; preds = %if.then.i, %cleanup.thread31.i, %cleanup.thread.i, %delete.notnull.i15.i
@@ -4354,7 +4354,7 @@ lpad.i:                                           ; preds = %new.notnull.i
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call5.i) #18, !noalias !34
   br label %eh.resume.i
 
-delete.notnull.i.i:                               ; preds = %invoke.cont13.i, %if.end11.i
+_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i: ; preds = %invoke.cont13.i, %if.end11.i
   %5 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i = load ptr, ptr %call5.i, align 8, !noalias !34
@@ -4365,12 +4365,12 @@ delete.notnull.i.i:                               ; preds = %invoke.cont13.i, %i
 
 if.end11.i:                                       ; preds = %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEEC2EPS1_R10UErrorCode.exit.i
   invoke void @_ZNK6icu_7525RelativeDateTimeFormatter18formatRelativeImplEd21URelativeDateTimeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %reldatefmt, double noundef %offset, i32 noundef %unit, ptr noundef nonnull align 8 dereferenceable(300) %call5.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont13.i unwind label %delete.notnull.i.i, !noalias !34
+          to label %invoke.cont13.i unwind label %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i, !noalias !34
 
 invoke.cont13.i:                                  ; preds = %if.end11.i
   %fString.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 8
   invoke void @_ZN6icu_7522FormattedStringBuilder15writeTerminatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %cleanup.thread.i unwind label %delete.notnull.i.i, !noalias !34
+          to label %cleanup.thread.i unwind label %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i, !noalias !34
 
 cleanup.thread.i:                                 ; preds = %invoke.cont13.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i64 16), ptr %ref.tmp, align 8, !alias.scope !34
@@ -4382,8 +4382,8 @@ delete.notnull.i15.i:                             ; preds = %_ZN6icu_7512LocalPo
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(300) %call5.i) #18, !noalias !34
   br label %_ZNK6icu_7525RelativeDateTimeFormatter15doFormatToValueIMS0_KFvd21URelativeDateTimeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCodeEJdS2_EEENS_25FormattedRelativeDateTimeET_S6_DpT0_.exit
 
-eh.resume.i:                                      ; preds = %delete.notnull.i.i, %lpad.i
-  %.pn.i = phi { ptr, i32 } [ %4, %lpad.i ], [ %5, %delete.notnull.i.i ]
+eh.resume.i:                                      ; preds = %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i, %lpad.i
+  %.pn.i = phi { ptr, i32 } [ %5, %_ZN6icu_7512LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i ], [ %4, %lpad.i ]
   resume { ptr, i32 } %.pn.i
 
 _ZNK6icu_7525RelativeDateTimeFormatter15doFormatToValueIMS0_KFvd21URelativeDateTimeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCodeEJdS2_EEENS_25FormattedRelativeDateTimeET_S6_DpT0_.exit: ; preds = %if.then.i, %cleanup.thread31.i, %cleanup.thread.i, %delete.notnull.i15.i

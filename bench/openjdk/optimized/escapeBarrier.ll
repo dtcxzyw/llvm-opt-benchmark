@@ -1275,38 +1275,43 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %17, %_ZN10JavaThrea
 define hidden void @_ZN13EscapeBarrier14thread_removedEP10JavaThread(ptr noundef %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @EscapeBarrier_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
-  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %3
+  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
 
-3:                                                ; preds = %1
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %4 = load volatile i32, ptr %3, align 8
+  %5 = and i32 %4, 8
+  %.not6 = icmp eq i32 %5, 0
+  br i1 %.not6, label %_ZN13MonitorLockerD2Ev.exit, label %9
+
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread: ; preds = %1
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
-  br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %7 = load volatile i32, ptr %6, align 8
+  %8 = and i32 %7, 8
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %.thread5, label %9
 
-_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1, %3
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  %5 = load volatile i32, ptr %4, align 8
-  %6 = and i32 %5, 8
-  %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %10, label %.preheader
+9:                                                ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  %10 = phi ptr [ %6, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread ], [ %3, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ]
+  br label %11
 
-.preheader:                                       ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %.preheader
-  %7 = load volatile i32, ptr %4, align 8
-  %8 = and i32 %7, -9
-  %9 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %8, i32 %7, ptr nonnull %4) #10, !srcloc !29
-  %.not.i.i2 = icmp eq i32 %9, %7
-  br i1 %.not.i.i2, label %_ZN10JavaThread20clear_obj_deopt_flagEv.exit, label %.preheader, !llvm.loop !35
+11:                                               ; preds = %11, %9
+  %12 = load volatile i32, ptr %10, align 8
+  %13 = and i32 %12, -9
+  %14 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %13, i32 %12, ptr nonnull %10) #10, !srcloc !29
+  %.not.i.i2 = icmp eq i32 %14, %12
+  br i1 %.not.i.i2, label %.thread, label %11, !llvm.loop !35
 
-_ZN10JavaThread20clear_obj_deopt_flagEv.exit:     ; preds = %.preheader
+.thread:                                          ; preds = %11
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
-  br label %10
+  br label %.thread5
 
-10:                                               ; preds = %_ZN10JavaThread20clear_obj_deopt_flagEv.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %11
-
-11:                                               ; preds = %10
+.thread5:                                         ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread, %.thread
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %10, %11
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %.thread5
   ret void
 }
 

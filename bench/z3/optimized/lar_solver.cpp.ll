@@ -51101,17 +51101,17 @@ _ZN6vectorIPN2lp8lar_termELb1EjE4backEv.exit:     ; preds = %entry, %if.end.i.i
   %m_need_register_terms = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %6 = load i8, ptr %m_need_register_terms, align 8
   %tobool = trunc i8 %6 to i1
-  br i1 %tobool, label %if.then, label %if.end
+  br i1 %tobool, label %if.end.thread, label %if.end
 
-if.then:                                          ; preds = %_ZN6vectorIPN2lp8lar_termELb1EjE4backEv.exit
+if.end.thread:                                    ; preds = %_ZN6vectorIPN2lp8lar_termELb1EjE4backEv.exit
   tail call void @_ZN2lp10lar_solver26deregister_normalized_termERKNS_8lar_termE(ptr noundef nonnull align 8 dereferenceable(1888) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  br label %if.end
+  br label %delete.notnull
 
-if.end:                                           ; preds = %if.then, %_ZN6vectorIPN2lp8lar_termELb1EjE4backEv.exit
+if.end:                                           ; preds = %_ZN6vectorIPN2lp8lar_termELb1EjE4backEv.exit
   %isnull = icmp eq ptr %5, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
-delete.notnull:                                   ; preds = %if.end
+delete.notnull:                                   ; preds = %if.end.thread, %if.end
   %7 = load ptr, ptr %5, align 8
   %m_capacity.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %m_capacity.i.i.i.i.i.i, align 8
@@ -51161,30 +51161,31 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %for.end.i.i.i.i.i.i
 
 _ZN2lp8lar_termD2Ev.exit:                         ; preds = %delete.notnull, %for.end.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %5) #30
+  %.pre = load ptr, ptr %s, align 8
+  %m_terms5.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 1504
+  %.pre4 = load ptr, ptr %m_terms5.phi.trans.insert, align 8
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN2lp8lar_termD2Ev.exit, %if.end
-  %14 = load ptr, ptr %s, align 8
-  %m_terms5 = getelementptr inbounds nuw i8, ptr %14, i64 1504
-  %15 = load ptr, ptr %m_terms5, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %15, i64 -4
-  %16 = load i32, ptr %arrayidx.i, align 4
-  %dec.i = add i32 %16, -1
+  %14 = phi ptr [ %.pre4, %_ZN2lp8lar_termD2Ev.exit ], [ %1, %if.end ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %14, i64 -4
+  %15 = load i32, ptr %arrayidx.i, align 4
+  %dec.i = add i32 %15, -1
   store i32 %dec.i, ptr %arrayidx.i, align 4
-  %17 = load ptr, ptr %s, align 8
-  %m_terms8 = getelementptr inbounds nuw i8, ptr %17, i64 1504
-  %18 = load ptr, ptr %m_terms8, align 8
-  %cmp.i = icmp eq ptr %18, null
+  %16 = load ptr, ptr %s, align 8
+  %m_terms8 = getelementptr inbounds nuw i8, ptr %16, i64 1504
+  %17 = load ptr, ptr %m_terms8, align 8
+  %cmp.i = icmp eq ptr %17, null
   br i1 %cmp.i, label %_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %delete.end
-  %arrayidx.i2 = getelementptr inbounds i8, ptr %18, i64 -4
-  %19 = load i32, ptr %arrayidx.i2, align 4
+  %arrayidx.i2 = getelementptr inbounds i8, ptr %17, i64 -4
+  %18 = load i32, ptr %arrayidx.i2, align 4
   br label %_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv.exit
 
 _ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv.exit:    ; preds = %delete.end, %if.end.i
-  %retval.0.i = phi i32 [ %19, %if.end.i ], [ 0, %delete.end ]
-  %m_term_register = getelementptr inbounds nuw i8, ptr %17, i64 1128
+  %retval.0.i = phi i32 [ %18, %if.end.i ], [ 0, %delete.end ]
+  %m_term_register = getelementptr inbounds nuw i8, ptr %16, i64 1128
   tail call void @_ZN2lp12var_register6shrinkEj(ptr noundef nonnull align 8 dereferenceable(72) %m_term_register, i32 noundef %retval.0.i)
   ret void
 }

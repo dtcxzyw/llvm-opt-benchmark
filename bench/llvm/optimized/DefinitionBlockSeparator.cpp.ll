@@ -1119,7 +1119,7 @@ _ZN4llvm5ErrorD2Ev.exit.thread:                   ; preds = %.lr.ph203
   br label %.loopexit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %.lr.ph203
-  %474 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.099.0201) #11
+  %474 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.099.0201) #11
   %.not174 = icmp eq ptr %474, %467
   br i1 %.not174, label %.loopexit, label %.lr.ph203
 

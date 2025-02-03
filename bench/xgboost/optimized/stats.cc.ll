@@ -13149,7 +13149,7 @@ common.resume:                                    ; preds = %720, %_ZNSt6vectorI
   br label %common.resume
 
 _ZNSt17_Temporary_bufferIPmmEC2ES0_l.exit.i.i.i:  ; preds = %.lr.ph.i.i.i.i.i
-  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIPmS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common16WeightedQuantileINS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EENS7_IZNS5_6MedianEPKNS4_7ContextERKNS8_6TensorIfLi2EEERKNS4_16HostDeviceVectorIfEEPNSL_IfLi1EEEE3$_0EEEEfSK_dSC_SC_T0_EUlmmE0_EEEvSC_SC_SX_T1_T2_"(ptr noundef %27, ptr noundef nonnull %28, ptr noundef nonnull %31, i64 noundef %storemerge26.i.i.i.i.i, ptr %.0.val)
+  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIPmS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common16WeightedQuantileINS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EENS7_IZNS5_6MedianEPKNS4_7ContextERKNS8_6TensorIfLi2EEERKNS4_16HostDeviceVectorIfEEPNSL_IfLi1EEEE3$_0EEEEfSK_dSC_SC_T0_EUlmmE0_EEEvSC_SC_SX_T1_T2_"(ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %31, i64 noundef %storemerge26.i.i.i.i.i, ptr %.0.val)
           to label %.loopexit._crit_edge.i.i.i unwind label %32
 
 .loopexit._crit_edge.i.i.i:                       ; preds = %.loopexit.i.i.i, %_ZNSt17_Temporary_bufferIPmmEC2ES0_l.exit.i.i.i

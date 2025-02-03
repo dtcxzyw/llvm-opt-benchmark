@@ -70,7 +70,7 @@ define void @ompi_register_datarep_f(ptr noundef %0, ptr noundef %1, ptr noundef
 
 14:                                               ; preds = %13, %7
   %.not9.i = icmp eq ptr %10, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %15
+  br i1 %.not9.i, label %opal_obj_new.exit, label %15
 
 15:                                               ; preds = %14
   store ptr @ompi_intercept_extra_state_t_class, ptr %10, align 8
@@ -79,7 +79,7 @@ define void @ompi_register_datarep_f(ptr noundef %0, ptr noundef %1, ptr noundef
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_intercept_extra_state_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i.i = icmp eq ptr %18, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread47, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
   %19 = phi ptr [ %21, %.lr.ph.i.i ], [ %18, %15 ]
@@ -88,16 +88,16 @@ define void @ompi_register_datarep_f(ptr noundef %0, ptr noundef %1, ptr noundef
   %20 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread47, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread:                         ; preds = %14
+opal_obj_new.exit:                                ; preds = %14
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_file_null, i64 128), align 8
   %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_file_null, i64 136), align 8
   %24 = load i32, ptr @ompi_errcode_intern_lastused, align 4
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph.preheader.i, label %ompi_errcode_get_mpi_code.exit
 
-.lr.ph.preheader.i:                               ; preds = %opal_obj_new.exit.thread
+.lr.ph.preheader.i:                               ; preds = %opal_obj_new.exit
   %.pre15.i = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph.i
 
@@ -148,8 +148,8 @@ opal_pointer_array_get_item.exit.i:               ; preds = %42, %36
   %50 = load i32, ptr %49, align 4
   br label %ompi_errcode_get_mpi_code.exit
 
-ompi_errcode_get_mpi_code.exit:                   ; preds = %26, %opal_obj_new.exit.thread, %48
-  %.0.i = phi i32 [ %50, %48 ], [ 14, %opal_obj_new.exit.thread ], [ 14, %26 ]
+ompi_errcode_get_mpi_code.exit:                   ; preds = %26, %opal_obj_new.exit, %48
+  %.0.i = phi i32 [ %50, %48 ], [ 14, %opal_obj_new.exit ], [ 14, %26 ]
   %51 = tail call i32 @ompi_errhandler_invoke(ptr noundef %22, ptr noundef nonnull @ompi_mpi_file_null, i32 noundef %23, i32 noundef %.0.i, ptr noundef nonnull @FUNC_NAME) #9
   %.not34 = icmp eq ptr %5, null
   br i1 %.not34, label %110, label %52
@@ -158,7 +158,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %26, %opal_obj_new.e
   store i32 %51, ptr %5, align 4
   br label %110
 
-opal_obj_new.exit.thread47:                       ; preds = %.lr.ph.i.i, %15
+.loopexit:                                        ; preds = %.lr.ph.i.i, %15
   %53 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_registered_datareps, i64 40), align 8
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store volatile ptr %53, ptr %54, align 8
@@ -175,7 +175,7 @@ opal_obj_new.exit.thread47:                       ; preds = %.lr.ph.i.i, %15
   %.not = icmp eq i32 %60, 0
   br i1 %.not, label %94, label %61
 
-61:                                               ; preds = %opal_obj_new.exit.thread47
+61:                                               ; preds = %.loopexit
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_file_null, i64 128), align 8
   %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_file_null, i64 136), align 8
   %64 = icmp sgt i32 %60, -1
@@ -247,7 +247,7 @@ ompi_errcode_get_mpi_code.exit46:                 ; preds = %67, %61, %.preheade
   store i32 %92, ptr %5, align 4
   br label %110
 
-94:                                               ; preds = %opal_obj_new.exit.thread47
+94:                                               ; preds = %.loopexit
   %95 = icmp eq ptr %1, @mpi_conversion_fn_null_
   br i1 %95, label %98, label %96
 

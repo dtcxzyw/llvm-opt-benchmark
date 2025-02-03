@@ -1240,7 +1240,7 @@ if.end18:                                         ; preds = %for.body, %do.end20
   %and.i14.i.i.i = and i64 %edata.val18.i.i, -268369920
   %or.i17.i.i.i = or disjoint i64 %and.i14.i.i.i, 243314687
   store i64 %or.i17.i.i.i, ptr %edata.2.ph, align 8
-  tail call fastcc void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef nonnull %edata.2.ph, i64 noundef %sub5.i.i, ptr noundef %add.ptr.i.i, i64 noundef %and3)
+  tail call fastcc void @base_extent_bump_alloc_post(ptr noundef nonnull %base, ptr noundef nonnull %edata.2.ph, i64 noundef %sub5.i.i, ptr noundef %add.ptr.i.i, i64 noundef %and3)
   %cmp20.not = icmp eq ptr %esn, null
   br i1 %cmp20.not, label %if.end24, label %if.then22
 

@@ -110,7 +110,7 @@ if.end.i.i:                                       ; preds = %if.end15.i.i, %if.e
   %retry_counter.019.i.i = phi i32 [ 32, %if.end.lr.ph.i.i ], [ %dec.i.i, %if.end15.i.i ]
   %2 = load ptr, ptr %Ai.i.i, align 8
   %3 = load ptr, ptr %b, align 8
-  %call3.i.i = call i32 @BN_from_montgomery(ptr noundef %2, ptr noundef %3, ptr noundef %mont, ptr noundef %ctx) #5
+  %call3.i.i = call i32 @BN_from_montgomery(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %mont, ptr noundef %ctx) #5
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %if.end6.i.i
 
@@ -151,7 +151,7 @@ if.else.i.i:                                      ; preds = %if.then10.i.i
 
 do.end.i.i:                                       ; preds = %if.end6.i.i
   %7 = load ptr, ptr %b, align 8
-  %call22.i.i = call i32 @BN_mod_exp_mont(ptr noundef %7, ptr noundef %7, ptr noundef %e, ptr noundef nonnull %N.i.i, ptr noundef %ctx, ptr noundef %mont) #5
+  %call22.i.i = call i32 @BN_mod_exp_mont(ptr noundef %7, ptr noundef %7, ptr noundef %e, ptr noundef nonnull %N.i.i, ptr noundef %ctx, ptr noundef nonnull %mont) #5
   %tobool23.not.i.i = icmp eq i32 %call22.i.i, 0
   br i1 %tobool23.not.i.i, label %if.then24.i.i, label %if.end25.i.i
 
@@ -161,7 +161,7 @@ if.then24.i.i:                                    ; preds = %do.end.i.i
 
 if.end25.i.i:                                     ; preds = %do.end.i.i
   %8 = load ptr, ptr %b, align 8
-  %call28.i.i = call i32 @BN_to_montgomery(ptr noundef %8, ptr noundef %8, ptr noundef %mont, ptr noundef %ctx) #5
+  %call28.i.i = call i32 @BN_to_montgomery(ptr noundef %8, ptr noundef %8, ptr noundef nonnull %mont, ptr noundef %ctx) #5
   %tobool29.not.i.i = icmp eq i32 %call28.i.i, 0
   br i1 %tobool29.not.i.i, label %if.then30.i.i, label %bn_blinding_update.exit
 

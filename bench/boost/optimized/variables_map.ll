@@ -890,7 +890,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
           to label %.noexc130 unwind label %338
 
 .noexc130:                                        ; preds = %286
-  %289 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.07.i.i) #29
+  %289 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.07.i.i) #29
   %.not.i.i129 = icmp eq ptr %289, %25
   br i1 %.not.i.i129, label %.loopexit, label %286, !llvm.loop !57
 
@@ -2699,7 +2699,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_15program_options
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #25
+  tail call void @__cxa_free_exception(ptr nonnull %2) #25
   resume { ptr, i32 } %5
 }
 
@@ -5254,7 +5254,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_15program_options15re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #25
+  tail call void @__cxa_free_exception(ptr nonnull %2) #25
   resume { ptr, i32 } %5
 }
 

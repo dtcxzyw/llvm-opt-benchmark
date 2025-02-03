@@ -2807,7 +2807,7 @@ invoke.cont29.i:                                  ; preds = %if.then20.i, %if.th
   br label %if.end33.i
 
 if.else.i:                                        ; preds = %invoke.cont12.i
-  %call.i.i7 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0100.i) #30
+  %call.i.i7 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.0100.i) #30
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.else.i, %invoke.cont29.i

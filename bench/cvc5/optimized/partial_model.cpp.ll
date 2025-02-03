@@ -10412,7 +10412,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %0, %lpad.i.i ]
   %4 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #27
-  invoke void @_ZSt8_DestroyIPN4cvc58internal13DeltaRationalEEvT_S4_(ptr noundef %__first, ptr noundef %__cur.011)
+  invoke void @_ZSt8_DestroyIPN4cvc58internal13DeltaRationalEEvT_S4_(ptr noundef %__first, ptr noundef nonnull %__cur.011)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %lpad.body

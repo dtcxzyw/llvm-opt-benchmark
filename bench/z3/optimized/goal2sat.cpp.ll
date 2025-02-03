@@ -405,7 +405,7 @@ entry:
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.then, label %dynamic_cast.end
+  br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 9136)
@@ -413,16 +413,16 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %m, align 8
   store ptr null, ptr %ref.tmp, align 8
   invoke void @_ZN3euf6solverC1ER11ast_managerRN3sat16sat_internalizerERK10params_ref(ptr noundef nonnull align 8 dereferenceable(9136) %call2, ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+          to label %if.end.thread unwind label %lpad
 
-invoke.cont:                                      ; preds = %if.then
+if.end.thread:                                    ; preds = %if.then
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #21
   %3 = load ptr, ptr %m_solver, align 8
   %vtable4 = load ptr, ptr %3, align 8
   %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 96
   %4 = load ptr, ptr %vfn5, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %call2)
-  br label %if.end
+  br label %if.end15
 
 lpad:                                             ; preds = %if.then
   %5 = landingpad { ptr, i32 }
@@ -430,17 +430,13 @@ lpad:                                             ; preds = %if.then
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #21
   br label %eh.resume
 
-dynamic_cast.end:                                 ; preds = %entry
+if.end:                                           ; preds = %entry
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN3sat9extensionE, ptr nonnull @_ZTIN3euf6solverE, i64 0) #21
-  br label %if.end
-
-if.end:                                           ; preds = %dynamic_cast.end, %invoke.cont
-  %euf.0 = phi ptr [ %6, %dynamic_cast.end ], [ %call2, %invoke.cont ]
-  %tobool6.not = icmp eq ptr %euf.0, null
+  %tobool6.not = icmp eq ptr %6, null
   br i1 %tobool6.not, label %if.then7, label %if.end15
 
 if.then7:                                         ; preds = %if.end
-  %exception = call ptr @__cxa_allocate_exception(i64 40) #21
+  %exception = tail call ptr @__cxa_allocate_exception(i64 40) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont11 unwind label %cleanup.action
@@ -466,8 +462,9 @@ cleanup.action:                                   ; preds = %if.then7
   call void @__cxa_free_exception(ptr %exception) #21
   br label %eh.resume
 
-if.end15:                                         ; preds = %if.end
-  ret ptr %euf.0
+if.end15:                                         ; preds = %if.end.thread, %if.end
+  %euf.08 = phi ptr [ %call2, %if.end.thread ], [ %6, %if.end ]
+  ret ptr %euf.08
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %lpad
   %.pn.pn = phi { ptr, i32 } [ %8, %cleanup.action ], [ %7, %ehcleanup ], [ %5, %lpad ]

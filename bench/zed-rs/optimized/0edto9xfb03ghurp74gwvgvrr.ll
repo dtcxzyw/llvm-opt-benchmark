@@ -1909,7 +1909,7 @@ common.resume:                                    ; preds = %.body, %30
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %.val2 = load ptr, ptr %19, align 8, !noundef !5
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$alloc..boxed..Box$LT$url..Url$GT$$GT$17h0a846423a563940bE"(ptr %.val2) #17
-          to label %common.resume unwind label %33
+          to label %common.resume unwind label %32
 
 "_ZN4core3ptr111drop_in_place$LT$http_body_util..combinators..collect..Collect$LT$reqwest..async_impl..decoder..Decoder$GT$$GT$17hcbf548b6ffab9fd6E.exit": ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$http_body_util..collected..Collected$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hdd069d7c40898d31E.llvm.16659958247667724540.exit.i"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1938,8 +1938,6 @@ common.resume:                                    ; preds = %.body, %30
 30:                                               ; preds = %"_ZN4core3ptr111drop_in_place$LT$http_body_util..combinators..collect..Collect$LT$reqwest..async_impl..decoder..Decoder$GT$$GT$17hcbf548b6ffab9fd6E.exit"
   %31 = landingpad { ptr, i32 }
           cleanup
-  %32 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %32)
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 88, i64 noundef 8) #16
   br label %common.resume
 
@@ -1948,8 +1946,8 @@ common.resume:                                    ; preds = %.body, %30
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 88, i64 noundef 8) #16
   br label %common.ret
 
-33:                                               ; preds = %.body
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %.body
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #15
   unreachable
@@ -2665,7 +2663,7 @@ default.unreachable21:                            ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %.val8 = load ptr, ptr %21, align 8, !noundef !5
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$alloc..boxed..Box$LT$url..Url$GT$$GT$17h0a846423a563940bE"(ptr %.val8) #17
-          to label %.body9 unwind label %64
+          to label %.body9 unwind label %63
 
 22:                                               ; preds = %3
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.927653914bfdf18cdede2c99bb3fcef9.37) #18
@@ -2686,7 +2684,7 @@ default.unreachable21:                            ; preds = %3
           cleanup
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   invoke void @"_ZN4core3ptr111drop_in_place$LT$http_body_util..combinators..collect..Collect$LT$reqwest..async_impl..decoder..Decoder$GT$$GT$17hcbf548b6ffab9fd6E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %25) #17
-          to label %.body unwind label %64
+          to label %.body unwind label %63
 
 28:                                               ; preds = %24
   %29 = load i64, ptr %7, align 8, !range !627, !noundef !5
@@ -2725,9 +2723,9 @@ default.unreachable21:                            ; preds = %3
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #15
   unreachable
 
-common.ret:                                       ; preds = %62, %41
-  %storemerge22 = phi i64 [ 0, %62 ], [ 1, %41 ]
-  %storemerge = phi i8 [ 1, %62 ], [ 3, %41 ]
+common.ret:                                       ; preds = %61, %41
+  %storemerge22 = phi i64 [ 0, %61 ], [ 1, %41 ]
+  %storemerge = phi i8 [ 1, %61 ], [ 3, %41 ]
   store i64 %storemerge22, ptr %0, align 8
   store i8 %storemerge, ptr %9, align 8
   ret void
@@ -2779,24 +2777,22 @@ common.ret:                                       ; preds = %62, %41
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %51 = load i64, ptr %50, align 8, !range !22, !noalias !639, !noundef !5
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %62, label %53
+  br i1 %52, label %61, label %53
 
 53:                                               ; preds = %.noexc.i
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %55 = load i64, ptr %54, align 8, !noalias !639, !noundef !5
   %56 = icmp eq i64 %55, 0
-  br i1 %56, label %62, label %57
+  br i1 %56, label %61, label %57
 
 57:                                               ; preds = %53
   %58 = load ptr, ptr %4, align 8, !noalias !639, !nonnull !5, !noundef !5
   call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef %55, i64 noundef %51) #16
-  br label %62
+  br label %61
 
 59:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1fc38ec9fbb1e776E.exit"
   %60 = landingpad { ptr, i32 }
           cleanup
-  %61 = icmp ne ptr %.val, null
-  call void @llvm.assume(i1 %61)
   call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 88, i64 noundef 8) #16
   br label %.body9
 
@@ -2805,15 +2801,15 @@ common.ret:                                       ; preds = %62, %41
   store i8 2, ptr %9, align 8
   resume { ptr, i32 } %.pn6
 
-62:                                               ; preds = %57, %53, %.noexc.i
+61:                                               ; preds = %57, %53, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !639
   call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 88, i64 noundef 8) #16
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   br label %common.ret
 
-64:                                               ; preds = %.body, %26
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %.body, %26
+  %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #15
   unreachable

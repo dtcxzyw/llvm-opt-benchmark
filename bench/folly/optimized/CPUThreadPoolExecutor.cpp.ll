@@ -11024,7 +11024,7 @@ lpad:                                             ; preds = %invoke.cont38.invok
 lpad5:                                            ; preds = %if.then4
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #25
+  call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %ehcleanup
 
 if.then9:                                         ; preds = %invoke.cont
@@ -11099,7 +11099,7 @@ invoke.cont38.cont:                               ; preds = %invoke.cont38.invok
 lpad37:                                           ; preds = %if.then35
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception36) #25
+  call void @__cxa_free_exception(ptr nonnull %exception36) #25
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont18, %invoke.cont.cleanup_crit_edge
@@ -24644,7 +24644,7 @@ invoke.cont29:                                    ; preds = %if.then
 lpad28:                                           ; preds = %if.then
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #25
+  call void @__cxa_free_exception(ptr nonnull %exception) #25
   resume { ptr, i32 } %20
 
 if.end:                                           ; preds = %seqcst_fail50.i.i.i.i
@@ -25517,7 +25517,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #25
   br label %common.resume
 
 _ZN5folly6detail13MPMCQueueBaseINS_9MPMCQueueINS_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0EEEEC2Em.exit: ; preds = %entry

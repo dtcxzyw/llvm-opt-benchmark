@@ -4767,7 +4767,7 @@ terminate.lpad.i.i:                               ; preds = %if.then13.i.i.i
   unreachable
 
 _ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalEED2Ev.exit: ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i, %if.then.i.i.i, %if.then13.i.i.i
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.012) #22
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.012) #22
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -7405,7 +7405,7 @@ terminate.lpad.i.i115:                            ; preds = %ehcleanup55
   unreachable
 
 while.end:                                        ; preds = %invoke.cont26
-  %call.i118 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0) #22
+  %call.i118 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.0) #22
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %count)
           to label %while.cond unwind label %terminate.lpad.i.i119, !llvm.loop !211
 
@@ -12825,7 +12825,7 @@ invoke.cont8:                                     ; preds = %if.end
 lpad7:                                            ; preds = %if.end
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #20
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #20
   resume { ptr, i32 } %6
 }
 

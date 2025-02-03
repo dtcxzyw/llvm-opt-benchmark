@@ -1963,7 +1963,7 @@ _ZL26hb_ensure_native_directionP11hb_buffer_t.exit.i: ; preds = %230, %227, %._c
   %243 = load ptr, ptr %236, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 32
   %245 = load ptr, ptr %244, align 8
-  call void %245(ptr noundef nonnull %19, ptr noundef %2, ptr noundef %1)
+  call void %245(ptr noundef nonnull %19, ptr noundef nonnull %2, ptr noundef %1)
   %246 = call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.2)
   br label %247
 
@@ -2774,7 +2774,7 @@ _ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit.i.i.i: ; preds = %565, %555
   br i1 %.not.i.i46.i, label %_ZL22hb_ot_position_defaultPK21hb_ot_shape_context_t.exit.i.i, label %582
 
 582:                                              ; preds = %.loopexit.i.i.i
-  call void @_Z28_hb_ot_shape_fallback_spacesPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t(ptr noundef nonnull %19, ptr noundef %1, ptr noundef nonnull %2)
+  call void @_Z28_hb_ot_shape_fallback_spacesPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t(ptr noundef nonnull %19, ptr noundef nonnull %1, ptr noundef nonnull %2)
   br label %_ZL22hb_ot_position_defaultPK21hb_ot_shape_context_t.exit.i.i
 
 _ZL22hb_ot_position_defaultPK21hb_ot_shape_context_t.exit.i.i: ; preds = %582, %.loopexit.i.i.i
@@ -3217,7 +3217,7 @@ _ZL29hb_ot_hide_default_ignorablesP11hb_buffer_tP9hb_font_t.exit.i.i: ; preds = 
   %763 = load ptr, ptr %236, align 8
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 40
   %765 = load ptr, ptr %764, align 8
-  call void %765(ptr noundef nonnull %19, ptr noundef %2, ptr noundef nonnull %1)
+  call void %765(ptr noundef nonnull %19, ptr noundef nonnull %2, ptr noundef nonnull %1)
   %766 = call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef nonnull %1, ptr noundef nonnull @.str.4)
   br label %_ZL21hb_ot_substitute_postPK21hb_ot_shape_context_t.exit.i
 

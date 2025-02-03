@@ -11904,7 +11904,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %79
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false), !noalias !2068
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2068
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !2068
-  %114 = invoke noundef i64 @_ZN5typst5model7heading11HeadingElem13resolve_level17hb7387a3e7b70c8adE(ptr noalias noundef readonly align 8 dereferenceable(144) %113, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
+  %114 = invoke noundef i64 @_ZN5typst5model7heading11HeadingElem13resolve_level17hb7387a3e7b70c8adE(ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %113, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
           to label %.noexc80 unwind label %.loopexit.split-lp.loopexit
 
 .noexc80:                                         ; preds = %97
@@ -12174,7 +12174,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit48: ; preds = %_ZN10pdf_w
   %65 = and i64 %64, -16
   %66 = getelementptr i8, ptr %63, i64 %65
   %67 = getelementptr i8, ptr %66, i64 16
-  %68 = invoke noundef align 8 dereferenceable(24) ptr @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..HeadingElem$GT$4body17he7322e9a437c2928E"(ptr noalias noundef readonly align 8 dereferenceable(144) %67)
+  %68 = invoke noundef align 8 dereferenceable(24) ptr @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..HeadingElem$GT$4body17he7322e9a437c2928E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %67)
           to label %86 unwind label %.thread67
 
 69:                                               ; preds = %42

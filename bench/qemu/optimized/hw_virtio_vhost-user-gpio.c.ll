@@ -208,7 +208,7 @@ if.end24:                                         ; preds = %if.then23, %do.body
   br i1 %cmp.i, label %vu_gpio_realize_connect.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
-  %call3.i = call fastcc i32 @vu_gpio_connect(ptr noundef %call.i28, ptr noundef nonnull %spec.select)
+  %call3.i = call fastcc i32 @vu_gpio_connect(ptr noundef nonnull %call.i28, ptr noundef nonnull %spec.select)
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %do.body.i
 

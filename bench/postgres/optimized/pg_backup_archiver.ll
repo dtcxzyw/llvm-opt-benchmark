@@ -3338,7 +3338,7 @@ default.unreachable303:                           ; preds = %682
   br i1 %695, label %696, label %698
 
 696:                                              ; preds = %693
-  %697 = call fastcc i32 @restore_toc_entry(ptr noundef nonnull %0, ptr noundef nonnull %.4277, i1 noundef zeroext false)
+  %697 = call fastcc i32 @restore_toc_entry(ptr noundef %0, ptr noundef nonnull %.4277, i1 noundef zeroext false)
   %.pre301 = load ptr, ptr %675, align 8
   br label %698
 
@@ -3374,7 +3374,7 @@ default.unreachable303:                           ; preds = %682
   br i1 %708, label %709, label %711
 
 709:                                              ; preds = %706
-  %710 = call fastcc i32 @restore_toc_entry(ptr noundef nonnull %0, ptr noundef nonnull %.5282, i1 noundef zeroext false)
+  %710 = call fastcc i32 @restore_toc_entry(ptr noundef %0, ptr noundef nonnull %.5282, i1 noundef zeroext false)
   %.pre302 = load ptr, ptr %675, align 8
   br label %711
 
@@ -7935,7 +7935,7 @@ ReadInt.exit.i320:                                ; preds = %.lr.ph.i.i314, %487
 
 processEncodingEntry.exit:                        ; preds = %557
   store i32 %558, ptr %35, align 8
-  tail call void @free(ptr noundef %552) #22
+  tail call void @free(ptr noundef nonnull %552) #22
   br label %578
 
 562:                                              ; preds = %538

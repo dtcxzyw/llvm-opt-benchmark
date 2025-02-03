@@ -27920,7 +27920,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit32: ; preds = %94, %98, %102
   br i1 %.not27, label %110, label %109
 
 109:                                              ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit32
-  tail call void @_ZN10JavaThread7prepareEP8_jobject14ThreadPriority(ptr noundef nonnull align 8 dereferenceable(1800) %106, ptr noundef %1, i32 noundef -1) #16
+  tail call void @_ZN10JavaThread7prepareEP8_jobject14ThreadPriority(ptr noundef nonnull align 8 dereferenceable(1800) %106, ptr noundef nonnull %1, i32 noundef -1) #16
   br label %110
 
 110:                                              ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit30, %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit32, %109
@@ -30759,60 +30759,61 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   store volatile i32 6, ptr %12, align 4
   %23 = load ptr, ptr @Heap_lock, align 8
   %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %24
+  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
 
-24:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  %24 = tail call noundef zeroext i1 @_ZN8Universe26has_reference_pending_listEv() #16
+  br i1 %24, label %_ZN13MonitorLockerD2Ev.exit, label %_ZN13MonitorLocker4waitEl.exit.preheader
+
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread: ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #16
-  br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-
-_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %24
   %25 = tail call noundef zeroext i1 @_ZN8Universe26has_reference_pending_listEv() #16
-  br i1 %25, label %._crit_edge, label %_ZN13MonitorLocker4waitEl.exit
+  br i1 %25, label %._crit_edge.thread9, label %_ZN13MonitorLocker4waitEl.exit.preheader
 
-_ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %_ZN13MonitorLocker4waitEl.exit
+_ZN13MonitorLocker4waitEl.exit.preheader:         ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  br label %_ZN13MonitorLocker4waitEl.exit
+
+_ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLocker4waitEl.exit.preheader, %_ZN13MonitorLocker4waitEl.exit
   %26 = tail call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %23, i64 noundef 0) #16
   %27 = tail call noundef zeroext i1 @_ZN8Universe26has_reference_pending_listEv() #16
-  br i1 %27, label %._crit_edge, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !60
+  br i1 %27, label %._crit_edge.thread9, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !60
 
-._crit_edge:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %28
-
-28:                                               ; preds = %._crit_edge
+._crit_edge.thread9:                              ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #16
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %28
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 408
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %._crit_edge.thread9
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 408
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i5 = icmp eq ptr %33, null
-  br i1 %.not.i.i5, label %_ZN17HandleMarkCleanerD2Ev.exit, label %34
+  %.not.i.i5 = icmp eq ptr %32, null
+  br i1 %.not.i.i5, label %_ZN17HandleMarkCleanerD2Ev.exit, label %33
 
-34:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  tail call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %30) #16
-  %.pre.i.i = load ptr, ptr %31, align 8
+33:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
+  tail call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %29) #16
+  %.pre.i.i = load ptr, ptr %30, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN13MonitorLockerD2Ev.exit, %34
-  %35 = phi ptr [ %32, %_ZN13MonitorLockerD2Ev.exit ], [ %.pre.i.i, %34 ]
-  %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr %35, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %36, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store ptr %40, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %36, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  store ptr %44, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 928
-  tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %47) #16
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN13MonitorLockerD2Ev.exit, %33
+  %34 = phi ptr [ %31, %_ZN13MonitorLockerD2Ev.exit ], [ %.pre.i.i, %33 ]
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  store ptr %34, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %35, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  store ptr %39, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %35, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  store ptr %43, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 928
+  tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   store volatile i32 4, ptr %12, align 4
   ret void

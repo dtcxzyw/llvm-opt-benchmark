@@ -139,7 +139,7 @@ define internal void @mca_mpool_base_basic_finalize(ptr noundef %0) #0 {
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %1
-  tail call void @free(ptr noundef %0) #10
+  tail call void @free(ptr noundef nonnull %0) #10
   ret void
 }
 

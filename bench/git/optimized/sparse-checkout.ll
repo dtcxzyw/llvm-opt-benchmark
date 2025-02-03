@@ -1963,7 +1963,7 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.t
   %7 = load ptr, ptr %pattern.i, align 8
   %call.i8.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #14
   call void @strbuf_add(ptr noundef nonnull %buffer.i, ptr noundef nonnull %7, i64 noundef %call.i8.i) #12
-  call fastcc void @insert_recursive_pattern(ptr noundef %call, ptr noundef %buffer.i)
+  call fastcc void @insert_recursive_pattern(ptr noundef nonnull %call, ptr noundef %buffer.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %strbuf_setlen.exit.i, %lor.lhs.false.i

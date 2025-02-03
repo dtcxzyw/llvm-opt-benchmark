@@ -712,7 +712,7 @@ define noundef zeroext i1 @opal_path_nfs(ptr noundef readonly captures(none) %0,
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %44, %38
-  call void @free(ptr noundef %5) #14
+  call void @free(ptr noundef nonnull %5) #14
   %.not63 = icmp eq ptr %1, null
   br i1 %.not63, label %84, label %.sink.split
 
@@ -790,7 +790,7 @@ opal_check_mtab.exit:                             ; preds = %59
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %72
-  call void @free(ptr noundef %68) #14
+  call void @free(ptr noundef nonnull %68) #14
   %.not62 = icmp eq ptr %1, null
   br i1 %.not62, label %84, label %.sink.split.sink.split
 

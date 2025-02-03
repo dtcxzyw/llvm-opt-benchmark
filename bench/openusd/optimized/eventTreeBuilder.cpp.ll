@@ -6757,7 +6757,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   br i1 %34, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdESt4pairIKS1_St6vectorINS0_22Trace_EventTreeBuilder17_PendingEventNodeESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE24_M_get_insert_unique_posERS3_.exit, label %35
 
 35:                                               ; preds = %31
-  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #24
+  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #24
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13TraceThreadIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br i1 %38, label %39, label %43
@@ -6819,7 +6819,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   br i1 %59, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdESt4pairIKS1_St6vectorINS0_22Trace_EventTreeBuilder17_PendingEventNodeESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE24_M_get_insert_unique_posERS3_.exit, label %60
 
 60:                                               ; preds = %56
-  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #24
+  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #24
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13TraceThreadIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %62)
   br i1 %63, label %64, label %68
@@ -6977,7 +6977,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_Pend
   %34 = load i8, ptr %7, align 1
   %35 = trunc i8 %34 to i1
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeC1ERKNS_7TfTokenEjmmbb(ptr noundef nonnull align 8 dereferenceable(88) %26, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %27, i64 noundef %29, i64 noundef %31, i1 noundef zeroext %33, i1 noundef zeroext %35)
-          to label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeEEE9constructIS2_JNS0_7TfTokenENS0_13TraceCategoryUt_EiibbEEEvRS3_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE13_M_deallocateEPS2_m.exit42
+          to label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeEEE9constructIS2_JNS0_7TfTokenENS0_13TraceCategoryUt_EiibbEEEvRS3_PT_DpOT0_.exit unwind label %91
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeEEE9constructIS2_JNS0_7TfTokenENS0_13TraceCategoryUt_EiibbEEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i = icmp eq ptr %11, %1
@@ -7095,32 +7095,32 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder1
   store ptr %88, ptr %83, align 8
   ret void
 
-89:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE13_M_deallocateEPS2_m.exit42
+89:                                               ; preds = %91
   %90 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %94 unwind label %95
+          to label %95 unwind label %96
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE13_M_deallocateEPS2_m.exit42: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE12_M_check_lenEmPKc.exit
-  %91 = landingpad { ptr, i32 }
+91:                                               ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE12_M_check_lenEmPKc.exit
+  %92 = landingpad { ptr, i32 }
           catch ptr null
-  %92 = extractvalue { ptr, i32 } %91, 0
-  %93 = tail call ptr @__cxa_begin_catch(ptr %92) #19
+  %93 = extractvalue { ptr, i32 } %92, 0
+  %94 = tail call ptr @__cxa_begin_catch(ptr %93) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %24) #22
   invoke void @__cxa_rethrow() #23
-          to label %98 unwind label %89
-
-94:                                               ; preds = %89
-  resume { ptr, i32 } %90
+          to label %99 unwind label %89
 
 95:                                               ; preds = %89
-  %96 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %90
+
+96:                                               ; preds = %89
+  %97 = landingpad { ptr, i32 }
           catch ptr null
-  %97 = extractvalue { ptr, i32 } %96, 0
-  tail call void @__clang_call_terminate(ptr %97) #21
+  %98 = extractvalue { ptr, i32 } %97, 0
+  tail call void @__clang_call_terminate(ptr %98) #21
   unreachable
 
-98:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE13_M_deallocateEPS2_m.exit42
+99:                                               ; preds = %91
   unreachable
 }
 
@@ -7558,7 +7558,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_Pend
   %33 = load i8, ptr %7, align 1
   %34 = trunc i8 %33 to i1
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeC1ERKNS_7TfTokenEjmmbb(ptr noundef nonnull align 8 dereferenceable(88) %26, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %27, i64 noundef %29, i64 noundef %30, i1 noundef zeroext %32, i1 noundef zeroext %34)
-          to label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeEEE9constructIS2_JRKNS0_7TfTokenEjimbbEEEvRS3_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE13_M_deallocateEPS2_m.exit42
+          to label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeEEE9constructIS2_JRKNS0_7TfTokenEjimbbEEEvRS3_PT_DpOT0_.exit unwind label %90
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeEEE9constructIS2_JRKNS0_7TfTokenEjimbbEEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i = icmp eq ptr %11, %1
@@ -7676,32 +7676,32 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder1
   store ptr %87, ptr %82, align 8
   ret void
 
-88:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE13_M_deallocateEPS2_m.exit42
+88:                                               ; preds = %90
   %89 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %93 unwind label %94
+          to label %94 unwind label %95
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE13_M_deallocateEPS2_m.exit42: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE12_M_check_lenEmPKc.exit
-  %90 = landingpad { ptr, i32 }
+90:                                               ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE12_M_check_lenEmPKc.exit
+  %91 = landingpad { ptr, i32 }
           catch ptr null
-  %91 = extractvalue { ptr, i32 } %90, 0
-  %92 = tail call ptr @__cxa_begin_catch(ptr %91) #19
+  %92 = extractvalue { ptr, i32 } %91, 0
+  %93 = tail call ptr @__cxa_begin_catch(ptr %92) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %24) #22
   invoke void @__cxa_rethrow() #23
-          to label %97 unwind label %88
-
-93:                                               ; preds = %88
-  resume { ptr, i32 } %89
+          to label %98 unwind label %88
 
 94:                                               ; preds = %88
-  %95 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %89
+
+95:                                               ; preds = %88
+  %96 = landingpad { ptr, i32 }
           catch ptr null
-  %96 = extractvalue { ptr, i32 } %95, 0
-  tail call void @__clang_call_terminate(ptr %96) #21
+  %97 = extractvalue { ptr, i32 } %96, 0
+  tail call void @__clang_call_terminate(ptr %97) #21
   unreachable
 
-97:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22Trace_EventTreeBuilder17_PendingEventNodeESaIS2_EE13_M_deallocateEPS2_m.exit42
+98:                                               ; preds = %90
   unreachable
 }
 

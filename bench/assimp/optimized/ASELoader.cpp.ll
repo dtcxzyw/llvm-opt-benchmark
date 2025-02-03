@@ -406,7 +406,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 lpad6:                                            ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #21
+  call void @__cxa_free_exception(ptr nonnull %exception) #21
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont4
@@ -4789,7 +4789,7 @@ if.end.i72:                                       ; preds = %invoke.cont91
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont91, %if.end.i72
-  invoke void @_ZN6Assimp11ASEImporter9AddMeshesEPKNS_3ASE8BaseNodeEP6aiNode(ptr noundef nonnull align 8 dereferenceable(98) %this, ptr noundef %51, ptr noundef nonnull %call89)
+  invoke void @_ZN6Assimp11ASEImporter9AddMeshesEPKNS_3ASE8BaseNodeEP6aiNode(ptr noundef nonnull align 8 dereferenceable(98) %this, ptr noundef nonnull %51, ptr noundef nonnull %call89)
           to label %invoke.cont98 unwind label %lpad61.loopexit
 
 invoke.cont98:                                    ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -4993,7 +4993,7 @@ invoke.cont151:                                   ; preds = %if.then149
 lpad150:                                          ; preds = %if.then149
   %79 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   br label %ehcleanup158
 
 if.end153:                                        ; preds = %for.end144

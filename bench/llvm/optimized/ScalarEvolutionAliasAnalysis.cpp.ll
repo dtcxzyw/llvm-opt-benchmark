@@ -240,7 +240,7 @@ _ZN4llvm5APIntC2Ejmbb.exit108:                    ; preds = %81, %88
   %.166 = phi ptr [ %38, %_ZN4llvm5APIntC2Ejmbb.exit108 ], [ %spec.select, %98 ]
   %.1 = phi ptr [ %35, %_ZN4llvm5APIntC2Ejmbb.exit108 ], [ %spec.select165, %98 ]
   %101 = load ptr, ptr %0, align 8
-  %102 = call noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1392) %101, ptr noundef %.166, ptr noundef %.1, i32 noundef 0, i32 noundef 0) #14
+  %102 = call noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1392) %101, ptr noundef nonnull %.166, ptr noundef nonnull %.1, i32 noundef 0, i32 noundef 0) #14
   %103 = call noundef zeroext i1 @_ZN4llvm19SCEVCouldNotCompute7classofEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(30) %102) #14
   br i1 %103, label %.critedge93.thread, label %104
 
@@ -435,7 +435,7 @@ _ZN4llvm5APIntD2Ev.exit.i112:                     ; preds = %183, %180, %_ZN4llv
 
 .critedge93.thread:                               ; preds = %100, %189, %.critedge93
   %190 = load ptr, ptr %0, align 8
-  %191 = call noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1392) %190, ptr noundef %.1, ptr noundef %.166, i32 noundef 0, i32 noundef 0) #14
+  %191 = call noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1392) %190, ptr noundef nonnull %.1, ptr noundef nonnull %.166, i32 noundef 0, i32 noundef 0) #14
   %192 = call noundef zeroext i1 @_ZN4llvm19SCEVCouldNotCompute7classofEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(30) %191) #14
   br i1 %192, label %.critedge99.thread, label %193
 

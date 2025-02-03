@@ -1482,7 +1482,7 @@ oideq.exit65:                                     ; preds = %if.then.i63, %if.el
   br i1 %retval.0.in.i.i61.not, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %oideq.exit65
-  tail call void @free(ptr noundef %entry1) #16
+  tail call void @free(ptr noundef nonnull %entry1) #16
   br label %return
 
 if.end17:                                         ; preds = %oideq.exit65
@@ -1502,7 +1502,7 @@ if.then25:                                        ; preds = %land.lhs.true
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then25, %land.lhs.true, %if.end17
-  tail call void @free(ptr noundef %entry1) #16
+  tail call void @free(ptr noundef nonnull %entry1) #16
   br label %return
 
 sw.bb28:                                          ; preds = %sw.bb4
@@ -2198,8 +2198,8 @@ if.end:                                           ; preds = %if.then24, %while.e
 
 if.then39:                                        ; preds = %if.end
   store ptr null, ptr %arrayidx, align 8
-  tail call fastcc void @load_subtree(ptr noundef %t, ptr noundef %24, ptr noundef %tree, i32 noundef %conv.i)
-  tail call void @free(ptr noundef %24) #16
+  tail call fastcc void @load_subtree(ptr noundef %t, ptr noundef nonnull %24, ptr noundef %tree, i32 noundef %conv.i)
+  tail call void @free(ptr noundef nonnull %24) #16
   br label %redo
 
 sw.bb45.split:                                    ; preds = %redo
@@ -2813,14 +2813,14 @@ if.then.i.i.i:                                    ; preds = %if.end3.i
   %..i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 32, i64 20
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %object_oid, ptr noundef nonnull readonly dereferenceable(20) %7, i64 %..i.i.i.i.i)
   %retval.0.in.i.i.not.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %retval.0.in.i.i.not.i.i.i, label %get_note.exit.i, label %get_note.exit.thread.i
+  br i1 %retval.0.in.i.i.not.i.i.i, label %if.end6.i, label %get_note.exit.thread.i
 
 get_note.exit.thread.i:                           ; preds = %if.then.i.i.i, %if.end3.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tree.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %n.addr.i.i.i)
   br label %format_note.exit
 
-get_note.exit.i:                                  ; preds = %if.then.i.i.i
+if.end6.i:                                        ; preds = %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tree.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %n.addr.i.i.i)
   %val_oid.i.i = getelementptr inbounds nuw i8, ptr %7, i64 36
@@ -2831,11 +2831,11 @@ get_note.exit.i:                                  ; preds = %if.then.i.i.i
   %or.cond.i = select i1 %tobool8.i, i1 true, i1 %cmp.i
   br i1 %or.cond.i, label %if.then9.i, label %if.end10.i
 
-if.then9.i:                                       ; preds = %get_note.exit.i
+if.then9.i:                                       ; preds = %if.end6.i
   call void @free(ptr noundef %call7.i) #16
   br label %format_note.exit
 
-if.end10.i:                                       ; preds = %get_note.exit.i
+if.end10.i:                                       ; preds = %if.end6.i
   br i1 %tobool11.not.i, label %if.end22thread-pre-split.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end10.i

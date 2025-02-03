@@ -3139,7 +3139,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   br label %149
 
 149:                                              ; preds = %147, %145
-  %150 = tail call i64 @g_strlcat(ptr noundef nonnull %129, ptr noundef %131, i64 noundef 96) #8
+  %150 = tail call i64 @g_strlcat(ptr noundef nonnull %129, ptr noundef nonnull %131, i64 noundef 96) #8
   %151 = add i32 %.4, 2
   %.not = icmp sgt i32 %151, %116
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13

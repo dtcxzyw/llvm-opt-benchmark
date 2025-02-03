@@ -7772,7 +7772,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #34
   resume { ptr, i32 } %4
 
 if.end:                                           ; preds = %entry
@@ -8250,7 +8250,7 @@ invoke.cont.i:                                    ; preds = %if.then.i33
 lpad.i:                                           ; preds = %if.then.i33
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #34
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #34
   br label %common.resume
 
 if.end.i:                                         ; preds = %_ZNK5folly9IPAddress4asV6Ev.exit
@@ -8541,7 +8541,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #34
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -8790,7 +8790,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #34
   resume { ptr, i32 } %13
 
 _ZNK5folly11IPAddressV610createIPv4Ev.exit:       ; preds = %land.rhs
@@ -9002,7 +9002,7 @@ common.resume:                                    ; preds = %lpad.i.i, %lpad.i
 lpad.i:                                           ; preds = %if.then.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #34
   br label %common.resume
 
 _ZNK5folly11IPAddressV610createIPv4Ev.exit:       ; preds = %land.rhs
@@ -9077,7 +9077,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #34
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #34
   br label %common.resume
 
 _ZNK5folly11IPAddressV610createIPv4Ev.exit.i:     ; preds = %land.rhs.i

@@ -1299,7 +1299,7 @@ _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit18:  ; preds = %29
 41:                                               ; preds = %38, %15
   %.sink = phi ptr [ %36, %38 ], [ %13, %15 ]
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %16, %15 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #11
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #11
   resume { ptr, i32 } %.pn
 }
 

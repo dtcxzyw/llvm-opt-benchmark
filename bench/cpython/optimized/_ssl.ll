@@ -4695,17 +4695,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp7, label %fail.thread, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end5
-  %call1126 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #11
-  %cmp1227 = icmp sgt i32 %call1126, 0
-  br i1 %cmp1227, label %for.body, label %for.end
+  %call1127 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #11
+  %cmp1228 = icmp sgt i32 %call1127, 0
+  br i1 %cmp1228, label %for.body, label %for.end
 
 fail.thread:                                      ; preds = %if.end5
   tail call void @AUTHORITY_INFO_ACCESS_free(ptr noundef nonnull %call) #11
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.028 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %call14 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %i.028) #11
+  %i.029 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %call14 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %i.029) #11
   %0 = load ptr, ptr %call14, align 8
   %call15 = tail call i32 @OBJ_obj2nid(ptr noundef %0) #11
   %cmp16.not = icmp eq i32 %call15, %nid
@@ -4727,7 +4727,7 @@ if.end19:                                         ; preds = %lor.lhs.false
   %conv = sext i32 %5 to i64
   %call21 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef %4, i64 noundef %conv) #11
   %cmp22 = icmp eq ptr %call21, null
-  br i1 %cmp22, label %fail, label %if.end25
+  br i1 %cmp22, label %if.then.i, label %if.end25
 
 if.end25:                                         ; preds = %if.end19
   %call26 = tail call i32 @PyList_Append(ptr noundef nonnull %call6, ptr noundef nonnull %call21) #11
@@ -4748,10 +4748,10 @@ if.then1.i51:                                     ; preds = %if.end.i48
 
 Py_DECREF.exit53:                                 ; preds = %if.end25, %if.then1.i51, %if.end.i48
   %cmp27 = icmp slt i32 %call26, 0
-  br i1 %cmp27, label %fail, label %for.inc
+  br i1 %cmp27, label %if.then.i, label %for.inc
 
 for.inc:                                          ; preds = %Py_DECREF.exit53, %for.body, %lor.lhs.false
-  %inc = add nuw nsw i32 %i.028, 1
+  %inc = add nuw nsw i32 %i.029, 1
   %call11 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #11
   %cmp12 = icmp slt i32 %inc, %call11
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !8
@@ -4795,14 +4795,14 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call6) #11
   br label %return
 
-fail:                                             ; preds = %Py_DECREF.exit53, %if.end19
+if.then.i:                                        ; preds = %if.end19, %Py_DECREF.exit53
   tail call void @AUTHORITY_INFO_ACCESS_free(ptr noundef nonnull %call) #11
   %12 = load i64, ptr %call6, align 8
   %13 = and i64 %12, 2147483648
   %cmp.i2.not.i = icmp eq i64 %13, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i, label %return
 
-if.end.i.i:                                       ; preds = %fail
+if.end.i.i:                                       ; preds = %if.then.i
   %dec.i.i = add i64 %12, -1
   store i64 %dec.i.i, ptr %call6, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
@@ -4812,8 +4812,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call6) #11
   br label %return
 
-return:                                           ; preds = %if.then1.i.i, %if.end.i.i, %fail, %fail.thread, %if.end.i, %if.then1.i, %if.else, %if.end.i39, %if.then1.i42, %if.then34, %entry, %if.then4
-  %retval.0 = phi ptr [ @_Py_NoneStruct, %if.then4 ], [ @_Py_NoneStruct, %entry ], [ @_Py_NoneStruct, %if.then34 ], [ @_Py_NoneStruct, %if.then1.i42 ], [ @_Py_NoneStruct, %if.end.i39 ], [ %call35, %if.else ], [ %call35, %if.then1.i ], [ %call35, %if.end.i ], [ null, %fail.thread ], [ null, %fail ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ]
+return:                                           ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %fail.thread, %if.end.i, %if.then1.i, %if.else, %if.end.i39, %if.then1.i42, %if.then34, %entry, %if.then4
+  %retval.0 = phi ptr [ @_Py_NoneStruct, %if.then4 ], [ @_Py_NoneStruct, %entry ], [ @_Py_NoneStruct, %if.then34 ], [ @_Py_NoneStruct, %if.then1.i42 ], [ @_Py_NoneStruct, %if.end.i39 ], [ %call35, %if.else ], [ %call35, %if.then1.i ], [ %call35, %if.end.i ], [ null, %fail.thread ], [ null, %if.then.i ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ]
   ret ptr %retval.0
 }
 

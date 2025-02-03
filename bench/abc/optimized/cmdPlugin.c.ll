@@ -280,14 +280,14 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 define noalias noundef ptr @Abc_ManReadBinary(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = tail call ptr @Abc_ManReadFile(ptr noundef %0)
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %77, label %5
+  br i1 %4, label %76, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %6, align 8
   %7 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %1) #13
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %thread-pre-split, label %8
+  br i1 %.not, label %thread-pre-split.thread, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
@@ -302,7 +302,7 @@ define noalias noundef ptr @Abc_ManReadBinary(ptr noundef %0, ptr noundef readon
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #13
   %16 = trunc i64 %15 to i32
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph.preheader, label %thread-pre-split
+  br i1 %17, label %.lr.ph.preheader, label %thread-pre-split.thread
 
 .lr.ph.preheader:                                 ; preds = %8
   %wide.trip.count = and i64 %15, 2147483647
@@ -429,13 +429,13 @@ Vec_IntGrow.exit.i43:                             ; preds = %54, %52
   br label %.sink.split
 
 .sink.split:                                      ; preds = %66, %Vec_IntGrow.exit.i43, %.Vec_IntGrow.exit10_crit_edge.i38, %42, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink55 = phi i32 [ %21, %.Vec_IntGrow.exit10_crit_edge.i ], [ %21, %Vec_IntGrow.exit.i ], [ %21, %42 ], [ %45, %.Vec_IntGrow.exit10_crit_edge.i38 ], [ %45, %Vec_IntGrow.exit.i43 ], [ %45, %66 ]
-  %.sink51 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %32, %Vec_IntGrow.exit.i ], [ %43, %42 ], [ %.pre.i40, %.Vec_IntGrow.exit10_crit_edge.i38 ], [ %56, %Vec_IntGrow.exit.i43 ], [ %67, %66 ]
+  %.sink59 = phi i32 [ %21, %.Vec_IntGrow.exit10_crit_edge.i ], [ %21, %Vec_IntGrow.exit.i ], [ %21, %42 ], [ %45, %.Vec_IntGrow.exit10_crit_edge.i38 ], [ %45, %Vec_IntGrow.exit.i43 ], [ %45, %66 ]
+  %.sink55 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %32, %Vec_IntGrow.exit.i ], [ %43, %42 ], [ %.pre.i40, %.Vec_IntGrow.exit10_crit_edge.i38 ], [ %56, %Vec_IntGrow.exit.i43 ], [ %67, %66 ]
   %.sink = phi i32 [ 0, %.Vec_IntGrow.exit10_crit_edge.i ], [ 0, %Vec_IntGrow.exit.i ], [ 0, %42 ], [ 1, %.Vec_IntGrow.exit10_crit_edge.i38 ], [ 1, %Vec_IntGrow.exit.i43 ], [ 1, %66 ]
-  %68 = add nsw i32 %.sink55, 1
+  %68 = add nsw i32 %.sink59, 1
   store i32 %68, ptr %12, align 4
-  %69 = sext i32 %.sink55 to i64
-  %70 = getelementptr inbounds i32, ptr %.sink51, i64 %69
+  %69 = sext i32 %.sink59 to i64
+  %70 = getelementptr inbounds i32, ptr %.sink55, i64 %69
   store i32 %.sink, ptr %70, align 4
   br label %71
 
@@ -447,28 +447,26 @@ Vec_IntGrow.exit.i43:                             ; preds = %54, %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %or.cond45, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %thread-pre-split.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %or.cond, label %thread-pre-split, label %.lr.ph, !llvm.loop !7
 
-thread-pre-split.loopexit:                        ; preds = %71
+thread-pre-split:                                 ; preds = %71
   %.pr.pre = load ptr, ptr %6, align 8
-  br label %thread-pre-split
+  %.not.i = icmp eq ptr %.pr.pre, null
+  br i1 %.not.i, label %Vec_StrFree.exit, label %thread-pre-split.thread
 
-thread-pre-split:                                 ; preds = %8, %thread-pre-split.loopexit, %5
-  %75 = phi ptr [ %.val, %5 ], [ %.pr.pre, %thread-pre-split.loopexit ], [ %.val, %8 ]
-  %.031 = phi ptr [ null, %5 ], [ %11, %thread-pre-split.loopexit ], [ %11, %8 ]
-  %.not.i = icmp eq ptr %75, null
-  br i1 %.not.i, label %Vec_StrFree.exit, label %76
-
-76:                                               ; preds = %thread-pre-split
+thread-pre-split.thread:                          ; preds = %8, %5, %thread-pre-split
+  %.03152 = phi ptr [ %11, %thread-pre-split ], [ %11, %8 ], [ null, %5 ]
+  %75 = phi ptr [ %.pr.pre, %thread-pre-split ], [ %.val, %8 ], [ %.val, %5 ]
   tail call void @free(ptr noundef nonnull %75) #16
   br label %Vec_StrFree.exit
 
-Vec_StrFree.exit:                                 ; preds = %thread-pre-split, %76
+Vec_StrFree.exit:                                 ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.03153 = phi ptr [ %11, %thread-pre-split ], [ %.03152, %thread-pre-split.thread ]
   tail call void @free(ptr noundef nonnull %3) #16
-  br label %77
+  br label %76
 
-77:                                               ; preds = %2, %Vec_StrFree.exit
-  %.0 = phi ptr [ %.031, %Vec_StrFree.exit ], [ null, %2 ]
+76:                                               ; preds = %2, %Vec_StrFree.exit
+  %.0 = phi ptr [ %.03153, %Vec_StrFree.exit ], [ null, %2 ]
   ret ptr %.0
 }
 

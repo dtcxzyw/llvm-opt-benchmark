@@ -1412,7 +1412,7 @@ ehcleanup120.i:                                   ; preds = %ehcleanup118.i, %lp
   br label %ehcleanup139.i
 
 for.inc125.i:                                     ; preds = %if.then13.i.i134.i, %if.then.i.i127.i, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit124.i, %if.else.i.i62, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i, %invoke.cont84.i
-  %call.i137.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin371.sroa.0.0202.i) #23
+  %call.i137.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin371.sroa.0.0202.i) #23
   %cmp.i60.not.i = icmp eq ptr %call.i137.i, %7
   br i1 %cmp.i60.not.i, label %for.end127.i, label %for.body79.i
 

@@ -1513,12 +1513,12 @@ var_get.exit.i:                                   ; preds = %pmix_pointer_array_
 var_find_by_name.exit.thread:                     ; preds = %37, %55, %54
   %.0.i.ph = phi i32 [ -46, %54 ], [ -46, %55 ], [ %39, %37 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @free(ptr noundef %20) #25
+  call void @free(ptr noundef nonnull %20) #25
   br label %60
 
 59:                                               ; preds = %55, %var_get.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @free(ptr noundef %20) #25
+  call void @free(ptr noundef nonnull %20) #25
   br label %60
 
 60:                                               ; preds = %59, %var_find_by_name.exit.thread, %pmix_mca_base_var_generate_full_name4.exit

@@ -1170,7 +1170,7 @@ define internal fastcc void @write_help_msg(i32 noundef %0, ptr noundef nonnull 
   br label %43
 
 43:                                               ; preds = %41, %38, %36, %31, %23
-  tail call void @free(ptr noundef %9) #16
+  tail call void @free(ptr noundef nonnull %9) #16
   br label %44
 
 44:                                               ; preds = %5, %43, %21, %14

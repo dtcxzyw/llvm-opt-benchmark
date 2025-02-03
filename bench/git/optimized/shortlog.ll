@@ -196,7 +196,7 @@ if.then4.i.i:                                     ; preds = %if.end12.i
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.end12.i
-  %call13.i = call fastcc i32 @parse_ident(ptr noundef %log, ptr noundef %ident.i, ptr noundef %9)
+  %call13.i = call fastcc i32 @parse_ident(ptr noundef nonnull %log, ptr noundef %ident.i, ptr noundef %9)
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   %12 = load ptr, ptr %buf.i.i, align 8
   %value.0.i = select i1 %tobool14.not.i, ptr %12, ptr %9
@@ -205,7 +205,7 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.e
   br i1 %tobool19.not.i, label %while.cond.backedge.i, label %if.end21.i
 
 if.end21.i:                                       ; preds = %strbuf_setlen.exit.i
-  call fastcc void @insert_one_record(ptr noundef %log, ptr noundef %value.0.i, ptr noundef %cond)
+  call fastcc void @insert_one_record(ptr noundef nonnull %log, ptr noundef %value.0.i, ptr noundef %cond)
   br label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end21.i, %strbuf_setlen.exit.i, %while.body.i
@@ -1549,11 +1549,9 @@ if.then11:                                        ; preds = %if.end
   br i1 %tobool13.not, label %if.end20, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then11
-  %tobool14.not = icmp eq ptr %eol.0, null
   %cmp15 = icmp ult ptr %call12, %eol.0
-  %or.cond = or i1 %tobool14.not, %cmp15
   %add.ptr18 = getelementptr inbounds nuw i8, ptr %call12, i64 1
-  %spec.select = select i1 %or.cond, ptr %add.ptr18, ptr %oneline.addr.0.lcssa
+  %spec.select = select i1 %cmp15, ptr %add.ptr18, ptr %oneline.addr.0.lcssa
   br label %if.end20
 
 if.end20:                                         ; preds = %land.lhs.true, %if.then11, %if.end

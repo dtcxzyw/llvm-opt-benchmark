@@ -280,7 +280,7 @@ push_state.exit:                                  ; preds = %85
   br label %110
 
 110:                                              ; preds = %108, %106
-  call void @free(ptr noundef %17) #9
+  call void @free(ptr noundef nonnull %17) #9
   %111 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %111) #9
   br label %327
@@ -330,7 +330,7 @@ push_state.exit:                                  ; preds = %85
   br label %135
 
 135:                                              ; preds = %133, %131
-  call void @free(ptr noundef %17) #9
+  call void @free(ptr noundef nonnull %17) #9
   %136 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %136) #9
   br label %327
@@ -451,7 +451,7 @@ push_state.exit:                                  ; preds = %85
   br label %188
 
 188:                                              ; preds = %186, %184
-  call void @free(ptr noundef %17) #9
+  call void @free(ptr noundef nonnull %17) #9
   %189 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %189) #9
   br label %327
@@ -500,7 +500,7 @@ push_state.exit:                                  ; preds = %85
   br label %210
 
 210:                                              ; preds = %208, %206
-  call void @free(ptr noundef %17) #9
+  call void @free(ptr noundef nonnull %17) #9
   %211 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %211) #9
   br label %327
@@ -758,7 +758,7 @@ fmap_need_off_once_len.exit.thread.thread:        ; preds = %39, %315, %fmap_nee
   br label %325
 
 325:                                              ; preds = %323, %321
-  call void @free(ptr noundef %17) #9
+  call void @free(ptr noundef nonnull %17) #9
   %326 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %326) #9
   br label %327

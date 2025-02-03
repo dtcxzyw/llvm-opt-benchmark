@@ -113,7 +113,7 @@ define void @_ZN5faiss17RangeSearchResult13do_allocationEv(ptr noundef nonnull a
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #16
+  call void @__cxa_free_exception(ptr nonnull %23) #16
   br label %29
 
 29:                                               ; preds = %27, %25

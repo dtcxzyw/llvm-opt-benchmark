@@ -27894,7 +27894,7 @@ define internal fastcc void @dissect_x11_event(ptr noundef %0, ptr noundef reado
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %6
-  tail call fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext %11, ptr noundef nonnull %13, ptr noundef %10, ptr noundef %4, i32 noundef %5)
+  tail call fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext %11, ptr noundef nonnull %13, ptr noundef %10, ptr noundef nonnull %4, i32 noundef %5)
   br label %22
 
 22:                                               ; preds = %6, %21
@@ -32002,7 +32002,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %385 = getelementptr inbounds nuw i8, ptr %4, i64 8240
   %386 = tail call ptr @val_to_str(i32 noundef %384, ptr noundef nonnull %385, ptr noundef nonnull @.str.14691) #10
   %387 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %379, i32 noundef 0, i32 noundef -1, i32 noundef %383, ptr noundef null, ptr noundef nonnull @.str.14705, i32 noundef %381, ptr noundef %386) #10
-  tail call fastcc void @decode_x11_event(ptr noundef %379, i8 noundef zeroext %380, ptr noundef nonnull %382, ptr noundef %387, ptr noundef %4, i32 noundef %5)
+  tail call fastcc void @decode_x11_event(ptr noundef %379, i8 noundef zeroext %380, ptr noundef nonnull %382, ptr noundef %387, ptr noundef nonnull %4, i32 noundef %5)
   store i32 %.02784, ptr %7, align 4
   br label %1627
 
@@ -33691,7 +33691,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   br label %1627
 
 1626:                                             ; preds = %89
-  call fastcc void @tryExtension(i32 noundef %32, ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %20, ptr noundef %4, i32 noundef %5)
+  call fastcc void @tryExtension(i32 noundef %32, ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %20, ptr noundef nonnull %4, i32 noundef %5)
   br label %1627
 
 1627:                                             ; preds = %1546, %1551, %1476, %1479, %234, %238, %1626, %1622, %1618, %1612, %1608, %1607, %1589, %1575, %1569, %1565, %1561, %1557, %1528, %1512, %1508, %1494, %1490, %1486, %1385, %1370, %1366, %1365, %1337, %1319, %1313, %1287, %1261, %1260, %1229, %1228, %1198, %1185, %1171, %1161, %1160, %1124, %1118, %1112, %1106, %1098, %1092, %1078, %1077, %1056, %1034, %1014, %979, %978, %932, %920, %900, %888, %876, %864, %852, %840, %816, %794, %780, %774, %760, %759, %726, %720, %712, %706, %694, %690, %689, %670, %652, %634, %610, %604, %603, %579, %575, %568, %548, %536, %528, %522, %518, %514, %509, %499, %483, %478, %463, %448, %438, %413, %408, %388, %367, %357, %352, %344, %338, %326, %319, %318, %272, %271, %247, %241, %146, %134, %128, %122, %116, %90

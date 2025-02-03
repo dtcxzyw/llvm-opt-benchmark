@@ -506,7 +506,7 @@ define dso_local void @_ZNK5clang11LangOptions15remapPathPrefixERN4llvm15SmallVe
   br i1 %12, label %._crit_edge, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.09.013) #14
+  %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.09.013) #14
   %.not = icmp eq ptr %14, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

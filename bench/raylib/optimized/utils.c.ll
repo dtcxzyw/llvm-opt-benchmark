@@ -496,7 +496,7 @@ define noundef zeroext i1 @ExportDataAsCode(ptr noundef readonly captures(none) 
   %54 = zext i8 %53 to i32
   %55 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %54) #17
   %56 = call zeroext i1 @SaveFileText(ptr noundef %2, ptr noundef nonnull %8)
-  call void @free(ptr noundef %8) #17
+  call void @free(ptr noundef nonnull %8) #17
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %._crit_edge82

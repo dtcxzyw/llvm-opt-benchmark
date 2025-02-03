@@ -289,7 +289,7 @@ define void @_ZN5rfb_t16handle_configureE9command_t(ptr noundef nonnull align 8 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #25
+  tail call void @__cxa_free_exception(ptr nonnull %9) #25
   br label %67
 
 13:                                               ; preds = %2
@@ -324,7 +324,7 @@ define void @_ZN5rfb_t16handle_configureE9command_t(ptr noundef nonnull align 8 
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #25
+  tail call void @__cxa_free_exception(ptr nonnull %28) #25
   br label %67
 
 32:                                               ; preds = %13
@@ -392,7 +392,7 @@ define void @_ZN5rfb_t16handle_configureE9command_t(ptr noundef nonnull align 8 
 55:                                               ; preds = %52
   %56 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %53) #25
+  tail call void @__cxa_free_exception(ptr nonnull %53) #25
   br label %67
 
 57:                                               ; preds = %45
@@ -582,7 +582,7 @@ define void @_ZN5rfb_t11thread_mainEv(ptr noundef nonnull align 8 dereferenceabl
 39:                                               ; preds = %36
   %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %37) #25
+  tail call void @__cxa_free_exception(ptr nonnull %37) #25
   br label %387
 
 41:                                               ; preds = %1
@@ -690,7 +690,7 @@ define void @_ZN5rfb_t11thread_mainEv(ptr noundef nonnull align 8 dereferenceabl
 76:                                               ; preds = %73
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %74) #25
+  call void @__cxa_free_exception(ptr nonnull %74) #25
   br label %387
 
 78:                                               ; preds = %68
@@ -728,7 +728,7 @@ define void @_ZN5rfb_t11thread_mainEv(ptr noundef nonnull align 8 dereferenceabl
 89:                                               ; preds = %86
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %87) #25
+  call void @__cxa_free_exception(ptr nonnull %87) #25
   br label %.body
 
 _ZN5rfb_t5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc
@@ -796,7 +796,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 112:                                              ; preds = %106
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %107) #25
+  call void @__cxa_free_exception(ptr nonnull %107) #25
   br label %.body
 
 114:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -840,7 +840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 127:                                              ; preds = %124
   %128 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %125) #25
+  call void @__cxa_free_exception(ptr nonnull %125) #25
   br label %.body33
 
 _ZN5rfb_t5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit35: ; preds = %.noexc31
@@ -1333,7 +1333,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i81
 306:                                              ; preds = %303
   %307 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %304) #25
+  call void @__cxa_free_exception(ptr nonnull %304) #25
   br label %.body91
 
 _ZN5rfb_t5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit93: ; preds = %.noexc89
@@ -1964,7 +1964,7 @@ define void @_ZN5rfb_t5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %11) #25
+  tail call void @__cxa_free_exception(ptr nonnull %11) #25
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %2
@@ -1993,7 +1993,7 @@ define void @_ZN5rfb_t4readB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #25
+  tail call void @__cxa_free_exception(ptr nonnull %10) #25
   br label %37
 
 14:                                               ; preds = %2
@@ -2012,7 +2012,7 @@ define void @_ZN5rfb_t4readB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #25
+  tail call void @__cxa_free_exception(ptr nonnull %17) #25
   br label %37
 
 21:                                               ; preds = %14
@@ -3334,7 +3334,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 33:                                               ; preds = %.critedge.thread
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #25
+  call void @__cxa_free_exception(ptr nonnull %29) #25
   br label %36
 
 35:                                               ; preds = %.critedge
@@ -4332,7 +4332,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %_ZN
   %333 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt13runtime_error
-  call void @__cxa_free_exception(ptr %330) #25
+  call void @__cxa_free_exception(ptr nonnull %330) #25
   br label %.body
 
 334:                                              ; preds = %362

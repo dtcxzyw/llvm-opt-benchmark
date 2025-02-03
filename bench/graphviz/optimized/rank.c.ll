@@ -1537,8 +1537,8 @@ minmax_edges2.exit:                               ; preds = %112
   br label %minmax_edges2.exit.thread
 
 minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %minmax_edges2.exit
-  tail call void @rank1(ptr noundef %0)
-  %115 = tail call ptr @agfstnode(ptr noundef %0) #14
+  tail call void @rank1(ptr noundef nonnull %0)
+  %115 = tail call ptr @agfstnode(ptr noundef nonnull %0) #14
   %.not.i17 = icmp eq ptr %115, null
   %116 = load ptr, ptr %2, align 8
   br i1 %.not.i17, label %272, label %117

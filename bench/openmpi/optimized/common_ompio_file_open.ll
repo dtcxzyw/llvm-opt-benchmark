@@ -1074,7 +1074,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_decode_datatype(ptr noundef readno
 
 41:                                               ; preds = %.lr.ph72
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.21) #12
-  call void @free(ptr noundef %22) #12
+  call void @free(ptr noundef nonnull %22) #12
   br label %opal_convertor_cleanup.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1134,7 +1134,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_decode_datatype(ptr noundef readno
 
 75:                                               ; preds = %68
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.21) #12
-  call void @free(ptr noundef %22) #12
+  call void @free(ptr noundef nonnull %22) #12
   br label %opal_convertor_cleanup.exit
 
 76:                                               ; preds = %68
@@ -1181,7 +1181,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_decode_datatype(ptr noundef readno
   br label %97
 
 97:                                               ; preds = %94, %._crit_edge77
-  call void @free(ptr noundef %22) #12
+  call void @free(ptr noundef nonnull %22) #12
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %99 = load i32, ptr %98, align 8
   %100 = icmp ugt i32 %99, 5

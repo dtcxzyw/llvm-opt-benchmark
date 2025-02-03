@@ -6381,7 +6381,7 @@ define void @"_ZN131_$LT$clap_builder..builder..value_parser..PossibleValuesPars
           to label %common.resume unwind label %68, !noalias !1428
 
 45:                                               ; preds = %.noexc3.i.i, %.noexc.i.i
-  %.0.i.i.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc.i.i ], [ %37, %.noexc3.i.i ]
+  %.0.i.i.i = phi ptr [ %37, %.noexc3.i.i ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !1415
   store ptr %2, ptr %15, align 8, !alias.scope !1412, !noalias !1429
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -7087,7 +7087,7 @@ define void @"_ZN128_$LT$clap_builder..builder..value_parser..FalseyValueParser$
   unreachable
 
 _ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit.i: ; preds = %21, %17
-  %.0.i.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %17 ], [ %28, %21 ]
+  %.0.i.i = phi ptr [ %28, %21 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !1508
   store ptr %2, ptr %9, align 8, !alias.scope !1505, !noalias !1519
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -7258,7 +7258,7 @@ define void @"_ZN129_$LT$clap_builder..builder..value_parser..BoolishValueParser
   unreachable
 
 _ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit.i: ; preds = %27, %23
-  %.0.i.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %23 ], [ %34, %27 ]
+  %.0.i.i = phi ptr [ %34, %27 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %23 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !1537
   store ptr %2, ptr %15, align 8, !alias.scope !1534, !noalias !1548
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -7726,7 +7726,7 @@ common.resume:                                    ; preds = %80, %89, %50, %35
   unreachable
 
 _ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit.i: ; preds = %64, %60
-  %.0.i.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %60 ], [ %71, %64 ]
+  %.0.i.i = phi ptr [ %71, %64 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %60 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1601
   store ptr %2, ptr %10, align 8, !alias.scope !1598, !noalias !1612
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -8048,7 +8048,7 @@ common.resume:                                    ; preds = %95, %100, %45
   br label %56
 
 83:                                               ; preds = %.noexc20, %.noexc
-  %.0.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ], [ %67, %.noexc20 ]
+  %.0.i = phi ptr [ %67, %.noexc20 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1666
   store ptr %2, ptr %18, align 8, !alias.scope !1663, !noalias !1682
   %84 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -8652,7 +8652,7 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   unreachable
 
 _ZN12clap_builder6output13help_template12HelpTemplate3new17h475227edf9522ef8E.exit: ; preds = %48, %57
-  %.0.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %48 ], [ %64, %57 ]
+  %.0.i = phi ptr [ %64, %57 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %48 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1799
   %70 = and i32 %51, 131072
   %.not.i.i = icmp ne i32 %70, 0
@@ -8722,7 +8722,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate3new17h475227edf9522ef8E.ex
   unreachable
 
 _ZN12clap_builder6output13help_template8AutoHelp3new17h59a11bbf4e85cec5E.exit: ; preds = %85, %94
-  %.0.i.i7 = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %85 ], [ %101, %94 ]
+  %.0.i.i7 = phi ptr [ %101, %94 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %85 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !1833
   %107 = and i32 %88, 131072
   %.not.i.i.i8 = icmp ne i32 %107, 0
@@ -8965,7 +8965,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN128_$LT$clap_builder..builder..va
           to label %52 unwind label %50
 
 26:                                               ; preds = %.noexc3, %.noexc
-  %.0.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ], [ %18, %.noexc3 ]
+  %.0.i = phi ptr [ %18, %.noexc3 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1864
   store ptr %0, ptr %6, align 8, !alias.scope !1861, !noalias !1875
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8

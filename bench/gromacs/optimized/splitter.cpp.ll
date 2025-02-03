@@ -783,7 +783,7 @@ _ZN3gmx11ListOfListsIiEC2Ev.exit:                 ; preds = %244
   %253 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %21, i1 true)
   %254 = shl nuw nsw i64 %253, 1
   %255 = xor i64 %254, 126
-  invoke void @_ZSt16__introsort_loopIP5t_sidlN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_SA_T0_T1_(ptr noundef %.sroa.095.1.lcssa, ptr noundef nonnull %251, i64 noundef %255, ptr nonnull @_ZL8sid_compRK5t_sidS1_)
+  invoke void @_ZSt16__introsort_loopIP5t_sidlN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_SA_T0_T1_(ptr noundef nonnull %.sroa.095.1.lcssa, ptr noundef nonnull %251, i64 noundef %255, ptr nonnull @_ZL8sid_compRK5t_sidS1_)
           to label %.noexc50 unwind label %.loopexit.split-lp
 
 .noexc50:                                         ; preds = %252

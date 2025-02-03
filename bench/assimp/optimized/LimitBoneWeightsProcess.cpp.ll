@@ -372,11 +372,11 @@ if.end49:                                         ; preds = %for.body41
   %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %40, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %43, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPN6Assimp23LimitBoneWeightsProcess6WeightElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_(ptr noundef %42, ptr noundef nonnull %arrayidx.i46, i64 noundef %mul.i.i)
+  invoke void @_ZSt16__introsort_loopIPN6Assimp23LimitBoneWeightsProcess6WeightElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_(ptr noundef nonnull %42, ptr noundef nonnull %arrayidx.i46, i64 noundef %mul.i.i)
           to label %.noexc unwind label %lpad16.loopexit
 
 .noexc:                                           ; preds = %if.end49
-  invoke void @_ZSt22__final_insertion_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %42, ptr noundef nonnull %arrayidx.i46)
+  invoke void @_ZSt22__final_insertion_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef nonnull %42, ptr noundef nonnull %arrayidx.i46)
           to label %invoke.cont56 unwind label %lpad16.loopexit
 
 invoke.cont56:                                    ; preds = %.noexc

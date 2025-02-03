@@ -5436,7 +5436,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit105.thread: ; preds = %.lr.ph545, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit105
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.0161.0311544, i64 64
   %94 = load ptr, ptr %93, align 8
-  %95 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0161.0311544) #22
+  %95 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0161.0311544) #22
   %.not202 = icmp eq ptr %95, %16
   br i1 %.not202, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit107, label %96
 
@@ -6125,7 +6125,7 @@ _ZN16VSelfPointerTextD2Ev.exit:                   ; preds = %286, %308, %321, %_
           to label %_ZN8AstCFunc9addStmtspEP7AstNode.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN8AstCFunc9addStmtspEP7AstNode.exit:            ; preds = %.invoke
-  %343 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0161.0311544) #22
+  %343 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0161.0311544) #22
   %.not201 = icmp eq ptr %343, %16
   br i1 %.not201, label %.critedge, label %82, !llvm.loop !30
 
@@ -6251,7 +6251,7 @@ _ZlsRSoPK7AstNode.exit152:                        ; preds = %370, %372
 _ZN8AstCFunc4nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit154: ; preds = %380, %345, %_ZNK7AstNode8dumpTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
   %.sroa.0171.2 = phi ptr [ %.sroa.0171.1.lcssa, %_ZNK7AstNode8dumpTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit ], [ %.sroa.0171.1.lcssa, %345 ], [ %.sroa.0171.0319, %380 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
-  %383 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0171.2) #22
+  %383 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0171.2) #22
   %.not199 = icmp eq ptr %383, %16
   br i1 %.not199, label %._crit_edge322, label %18, !llvm.loop !32
 

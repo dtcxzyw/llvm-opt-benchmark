@@ -1472,7 +1472,7 @@ _ZN6casadi17SerializingStream8decorateEc.exit.i41: ; preds = %.noexc46, %32
           to label %_ZNK6casadi11GenericTypecvbEv.exit unwind label %.loopexit
 
 _ZNK6casadi11GenericTypecvbEv.exit:               ; preds = %58
-  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.060.075) #27
+  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.060.075) #27
   %.not = icmp eq ptr %61, %54
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

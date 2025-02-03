@@ -1432,7 +1432,7 @@ if.then.i.i:                                      ; preds = %strbuf_addch.exit.i
   br label %setup_man_path.exit.i
 
 setup_man_path.exit.i:                            ; preds = %if.then.i.i, %strbuf_addch.exit.i.i
-  call void @free(ptr noundef %call1.i.i161) #14
+  call void @free(ptr noundef nonnull %call1.i.i161) #14
   %34 = load ptr, ptr %buf.i.i.i, align 8
   %call2.i.i = call i32 @setenv(ptr noundef nonnull @.str.741, ptr noundef %34, i32 noundef 1) #14
   call void @strbuf_release(ptr noundef nonnull %new_path.i.i) #14

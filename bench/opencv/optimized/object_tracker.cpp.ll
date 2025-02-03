@@ -325,7 +325,7 @@ define hidden void @_ZN3vas2ot13ObjectTracker4Impl12SetDeltaTimeEf(ptr noundef n
 11:                                               ; preds = %5
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #26
+  tail call void @__cxa_free_exception(ptr nonnull %9) #26
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %2
@@ -379,7 +379,7 @@ define hidden void @_ZN3vas2ot13ObjectTracker4Impl5TrackERKN2cv3MatERKSt6vectorI
 28:                                               ; preds = %13
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %26) #26
+  tail call void @__cxa_free_exception(ptr nonnull %26) #26
   br label %_ZNSt6vectorIN3vas2ot9DetectionESaIS2_EED2Ev.exit73
 
 30:                                               ; preds = %9
@@ -803,7 +803,7 @@ _ZNSt6vectorIN3vas2ot6ObjectESaIS2_EE12emplace_backIJRS2_EEEvDpOT_.exit: ; preds
 .thread:                                          ; preds = %205
   %208 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %206) #26
+  tail call void @__cxa_free_exception(ptr nonnull %206) #26
   br label %_ZNSt6vectorIN3vas2ot6ObjectESaIS2_EED2Ev.exit
 
 ._crit_edge137:                                   ; preds = %_ZNSt6vectorIN3vas2ot6ObjectESaIS2_EE12emplace_backIJRS2_EEEvDpOT_.exit, %98
@@ -908,7 +908,7 @@ define hidden void @_ZN3vas2ot13ObjectTracker4ImplC2ERKNS2_14InitParametersE(ptr
 35:                                               ; preds = %31
   %36 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %32) #26
+  tail call void @__cxa_free_exception(ptr nonnull %32) #26
   br label %96
 
 37:                                               ; preds = %2
@@ -1052,7 +1052,7 @@ _ZNSt6vectorISt10shared_ptrIN3vas2ot8TrackletEESaIS4_EE5clearEv.exit: ; preds = 
 94:                                               ; preds = %91
   %95 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %92) #26
+  tail call void @__cxa_free_exception(ptr nonnull %92) #26
   br label %96
 
 96:                                               ; preds = %94, %35, %33
@@ -1398,7 +1398,7 @@ define hidden void @_ZNK3vas2ot13ObjectTracker7Builder5BuildENS0_12TrackingTypeE
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %22) #26
+  tail call void @__cxa_free_exception(ptr nonnull %22) #26
   br label %110
 
 26:                                               ; preds = %3
@@ -1419,7 +1419,7 @@ define hidden void @_ZNK3vas2ot13ObjectTracker7Builder5BuildENS0_12TrackingTypeE
 33:                                               ; preds = %28
   %34 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %31) #26
+  tail call void @__cxa_free_exception(ptr nonnull %31) #26
   br label %110
 
 switch.lookup:                                    ; preds = %26
@@ -1579,7 +1579,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESa
 93:                                               ; preds = %88
   %94 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %91) #26
+  call void @__cxa_free_exception(ptr nonnull %91) #26
   br label %97
 
 95:                                               ; preds = %92
@@ -1604,7 +1604,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESa
 101:                                              ; preds = %98
   %102 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %99) #26
+  call void @__cxa_free_exception(ptr nonnull %99) #26
   br label %110
 
 103:                                              ; preds = %79, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit

@@ -24213,7 +24213,7 @@ _ZN4llvm7memprof14AllocationInfoC2ERKNS0_21IndexedAllocationInfoENS_12function_r
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %20, ptr noundef nonnull align 8 dereferenceable(160) %21, i64 160, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_7memprof14AllocationInfoELb0EE19moveElementsForGrowEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %7)
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_7memprof14AllocationInfoELb0EE19moveElementsForGrowEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %7)
   %22 = load i64, ptr %5, align 8
   %23 = load ptr, ptr %0, align 8
   %24 = icmp eq ptr %23, %6

@@ -4206,7 +4206,7 @@ invoke.cont59.i.i.i:                              ; preds = %invoke.cont55.i.i.i
   br i1 %call60.i.i.i, label %do.end65.i.i.i, label %cleanup.i.i.i
 
 do.end65.i.i.i:                                   ; preds = %invoke.cont59.i.i.i
-  invoke fastcc void @_ZN3ue2L20markTopSuccAsHandledENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIjSt4lessIjESaIjEEERKNS8_IS7_S9_IS7_ESaIS7_EEERSt3mapIjSt3setIS7_SF_SG_ESA_SaISt4pairIKjSM_EEERSK_IjSH_SA_SaISN_ISO_SH_EEERSK_IS7_SC_SF_SaISN_IKS7_SC_EEE(ptr %agg.tmp.sroa.0.0.copyload.i.fr.i.i.i.i.i.i, i64 %u28.sroa.3.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(32) %top_inter.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %succs.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %tops, ptr noundef nonnull align 8 dereferenceable(48) %unhandled_top_succs.i, ptr noundef nonnull align 8 dereferenceable(48) %unhandled_succ_tops.i)
+  invoke fastcc void @_ZN3ue2L20markTopSuccAsHandledENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIjSt4lessIjESaIjEEERKNS8_IS7_S9_IS7_ESaIS7_EEERSt3mapIjSt3setIS7_SF_SG_ESA_SaISt4pairIKjSM_EEERSK_IjSH_SA_SaISN_ISO_SH_EEERSK_IS7_SC_SF_SaISN_IKS7_SC_EEE(ptr nonnull %agg.tmp.sroa.0.0.copyload.i.fr.i.i.i.i.i.i, i64 %u28.sroa.3.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(32) %top_inter.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %succs.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %tops, ptr noundef nonnull align 8 dereferenceable(48) %unhandled_top_succs.i, ptr noundef nonnull align 8 dereferenceable(48) %unhandled_succ_tops.i)
           to label %cleanup.i.i.i unwind label %lpad3.i.loopexit.i.i
 
 cleanup.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i28.i.i, %_ZNKSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_NS0_8flat_setIjSt4lessIjESaIjEEEESt10_Select1stISG_ESC_IS8_ESaISG_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISG_EPKSt18_Rb_tree_node_baseRSA_.exit.i.i.i.i.i.i, %invoke.cont9.i.i.i, %for.body.i.i.i.i.i.i.i.i, %do.end65.i.i.i, %invoke.cont59.i.i.i, %invoke.cont51.i.i.i
@@ -4833,7 +4833,7 @@ invoke.cont.i.i378.i:                             ; preds = %if.then.i.i374.i
 lpad.i.i375.i:                                    ; preds = %if.then.i.i374.i
   %239 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #21, !noalias !306
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #21, !noalias !306
   br label %lpad.body.i376.i
 
 lpad.i379.i:                                      ; preds = %invoke.cont.i.i378.i
@@ -7940,7 +7940,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %0
 }
 
@@ -11733,7 +11733,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #21
   br label %lpad.body
 
 invoke.cont3:                                     ; preds = %entry
@@ -12469,7 +12469,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #21
   br label %lpad.body
 
 invoke.cont3:                                     ; preds = %entry

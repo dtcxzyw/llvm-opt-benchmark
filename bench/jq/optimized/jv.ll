@@ -2018,7 +2018,7 @@ jv_copy.exit:                                     ; preds = %2, %6
   br i1 %.not, label %16, label %13, !llvm.loop !18
 
 16:                                               ; preds = %13
-  call void @jv_free(i64 %0, ptr %1)
+  call void @jv_free(i64 %0, ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -2123,7 +2123,7 @@ jv_array_append.exit:                             ; preds = %28, %36
   %.sroa.027.0 = phi i64 [ 134, %jv_copy.exit36 ], [ 134, %.preheader ], [ %40, %jv_array_append.exit ]
   %.sroa.429.0 = phi ptr [ %18, %jv_copy.exit36 ], [ %18, %.preheader ], [ %41, %jv_array_append.exit ]
   tail call void @jv_free(i64 %0, ptr %1)
-  tail call void @jv_free(i64 %2, ptr %3)
+  tail call void @jv_free(i64 %2, ptr nonnull %3)
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.429.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -2496,7 +2496,7 @@ jv_array_append.exit:                             ; preds = %.lr.ph, %25
 ._crit_edge:                                      ; preds = %jv_array_append.exit, %jv_copy.exit
   %.sroa.013.0.lcssa = phi i64 [ 134, %jv_copy.exit ], [ %29, %jv_array_append.exit ]
   %.sroa.415.0.lcssa = phi ptr [ %15, %jv_copy.exit ], [ %.sroa.415.0, %jv_array_append.exit ]
-  call void @jv_free(i64 %0, ptr %1)
+  call void @jv_free(i64 %0, ptr nonnull %1)
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.013.0.lcssa, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.415.0.lcssa, 1
   ret { i64, ptr } %.fca.1.insert
@@ -2862,7 +2862,7 @@ jv_copy.exit:                                     ; preds = %4, %8
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %28
-  call void @jv_free(i64 %0, ptr %1)
+  call void @jv_free(i64 %0, ptr nonnull %1)
   %32 = call noundef ptr @jv_mem_alloc(i64 noundef 33) #25
   store i32 1, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
@@ -2913,7 +2913,7 @@ jv_copy.exit:                                     ; preds = %4, %8
   br i1 %53, label %54, label %46
 
 54:                                               ; preds = %51
-  call void @jv_free(i64 %0, ptr %1)
+  call void @jv_free(i64 %0, ptr nonnull %1)
   %55 = call { i64, ptr } @jv_string_sized(ptr noundef nonnull @.str.11, i32 noundef 20)
   %56 = extractvalue { i64, ptr } %55, 1
   %57 = call ptr @jv_mem_alloc(i64 noundef 24) #25

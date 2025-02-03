@@ -13684,7 +13684,7 @@ minimum_size_type.exit971:                        ; preds = %870, %872, %874, %8
 
 1255:                                             ; preds = %1249
   %1256 = load i32, ptr %1250, align 4
-  %1257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.257, i32 noundef %1256) #42
+  %1257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.257, i32 noundef %1256) #42
   br label %.sink.split
 
 1258:                                             ; preds = %1249
@@ -13695,11 +13695,11 @@ minimum_size_type.exit971:                        ; preds = %870, %872, %874, %8
   br i1 %.not909, label %1264, label %1262
 
 1262:                                             ; preds = %1258
-  %1263 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.253, i32 noundef %1261) #42
+  %1263 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.253, i32 noundef %1261) #42
   br label %.sink.split
 
 1264:                                             ; preds = %1258
-  %1265 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.258, i32 noundef %1261) #42
+  %1265 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.258, i32 noundef %1261) #42
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1262, %1264, %1255
@@ -17000,12 +17000,12 @@ append_str.exit235:                               ; preds = %320
 ; Function Attrs: nofree nounwind uwtable
 define hidden noundef ptr @Strsafe(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %.thread20, label %3
+  br i1 %2, label %Strsafe_find.exit.thread19, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @x1a, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %Strsafe_find.exit.thread, label %6
+  br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %3
   %7 = load i8, ptr %0, align 1
@@ -17035,50 +17035,50 @@ strhash.exit.i:                                   ; preds = %.lr.ph.i.i, %6
   %20 = getelementptr ptr, ptr %18, i64 %19
   %.09.i = load ptr, ptr %20, align 8
   %.not10.i = icmp eq ptr %.09.i, null
-  br i1 %.not10.i, label %Strsafe_find.exit.thread, label %.lr.ph.i
+  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i
 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %.0.i = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %Strsafe_find.exit.thread, label %.lr.ph.i, !llvm.loop !224
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !224
 
 .lr.ph.i:                                         ; preds = %strhash.exit.i, %21
   %.011.i = phi ptr [ %.0.i, %21 ], [ %.09.i, %strhash.exit.i ]
   %23 = load ptr, ptr %.011.i, align 8
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %0) #45
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.thread20, label %21
+  br i1 %25, label %Strsafe_find.exit.thread19, label %21
 
-Strsafe_find.exit.thread:                         ; preds = %21, %strhash.exit.i, %3
+.loopexit:                                        ; preds = %21, %3, %strhash.exit.i
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #45
   %27 = shl i64 %26, 32
   %sext = add i64 %27, 4294967296
   %28 = ashr exact i64 %sext, 32
   %29 = tail call noalias ptr @malloc(i64 noundef %28) #44
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.thread, label %.preheader
+  br i1 %.not, label %Strsafe_find.exit, label %.preheader
 
-.preheader:                                       ; preds = %Strsafe_find.exit.thread, %.preheader
-  %.02.i = phi ptr [ %32, %.preheader ], [ %29, %Strsafe_find.exit.thread ]
-  %.0.i15 = phi ptr [ %30, %.preheader ], [ %0, %Strsafe_find.exit.thread ]
+.preheader:                                       ; preds = %.loopexit, %.preheader
+  %.02.i = phi ptr [ %32, %.preheader ], [ %29, %.loopexit ]
+  %.0.i15 = phi ptr [ %30, %.preheader ], [ %0, %.loopexit ]
   %30 = getelementptr i8, ptr %.0.i15, i64 1
   %31 = load i8, ptr %.0.i15, align 1
   %32 = getelementptr i8, ptr %.02.i, i64 1
   store i8 %31, ptr %.02.i, align 1
   %.not.i16 = icmp eq i8 %31, 0
-  br i1 %.not.i16, label %33, label %.preheader, !llvm.loop !102
+  br i1 %.not.i16, label %lemon_strcpy.exit, label %.preheader, !llvm.loop !102
 
-33:                                               ; preds = %.preheader
-  %34 = tail call i32 @Strsafe_insert(ptr noundef nonnull %29)
-  br label %.thread20
+lemon_strcpy.exit:                                ; preds = %.preheader
+  %33 = tail call i32 @Strsafe_insert(ptr noundef nonnull %29)
+  br label %Strsafe_find.exit.thread19
 
-.thread:                                          ; preds = %Strsafe_find.exit.thread
+Strsafe_find.exit:                                ; preds = %.loopexit
   tail call void @memory_error()
   unreachable
 
-.thread20:                                        ; preds = %.lr.ph.i, %33, %1
-  %.0 = phi ptr [ null, %1 ], [ %29, %33 ], [ %23, %.lr.ph.i ]
+Strsafe_find.exit.thread19:                       ; preds = %.lr.ph.i, %lemon_strcpy.exit, %1
+  %.0 = phi ptr [ null, %1 ], [ %29, %lemon_strcpy.exit ], [ %23, %.lr.ph.i ]
   ret ptr %.0
 }
 

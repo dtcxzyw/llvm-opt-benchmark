@@ -1170,7 +1170,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i89.i.i.i: ; preds = 
 410:                                              ; preds = %407
   %411 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %408) #18
+  call void @__cxa_free_exception(ptr nonnull %408) #18
   br label %.body.i.i.i
 
 _ZNK5ZXing6Pdf4179ModulusGF7inverseEi.exit.i.i.i: ; preds = %403
@@ -2149,7 +2149,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i41.i.i.i: ; preds = %743
 766:                                              ; preds = %763
   %767 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %764) #18, !noalias !10
+  call void @__cxa_free_exception(ptr nonnull %764) #18, !noalias !10
   br label %.body.i95.i.i
 
 768:                                              ; preds = %.lr.ph72.i.i.i
@@ -2190,7 +2190,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i41.i.i.i: ; preds = %743
 794:                                              ; preds = %792
   %795 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %793) #18, !noalias !10
+  call void @__cxa_free_exception(ptr nonnull %793) #18, !noalias !10
   br label %.body.i95.i.i
 
 796:                                              ; preds = %790
@@ -2334,7 +2334,7 @@ _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit61.i.i.i:   ; preds = %835, %_ZNSt6vectorI
 853:                                              ; preds = %850
   %854 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %851) #18
+  call void @__cxa_free_exception(ptr nonnull %851) #18
   br label %.body105.i.i
 
 855:                                              ; preds = %.lr.ph129.i.i

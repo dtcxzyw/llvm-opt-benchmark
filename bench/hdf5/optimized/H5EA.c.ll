@@ -1188,7 +1188,7 @@ define i32 @H5EA_iterate(ptr noundef readonly captures(none) %0, ptr noundef rea
   %8 = load i64, ptr %7, align 8
   %9 = tail call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull @H5_ea_native_elmt_blk_free_list, i64 noundef %8) #5
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread, label %.preheader
+  br i1 %10, label %35, label %.preheader
 
 .preheader:                                       ; preds = %3
   %11 = load ptr, ptr %0, align 8
@@ -1197,53 +1197,53 @@ define i32 @H5EA_iterate(ptr noundef readonly captures(none) %0, ptr noundef rea
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.thread:                                          ; preds = %3
-  %14 = load i64, ptr @H5E_EARRAY_g, align 8
-  %15 = load i64, ptr @H5E_CANTALLOC_g, align 8
-  %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA_iterate, i32 noundef 979, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.14) #5
-  br label %39
+14:                                               ; preds = %28
+  %15 = add nuw i64 %.01626, 1
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 328
+  %18 = load i64, ptr %17, align 8
+  %19 = icmp ult i64 %15, %18
+  %20 = icmp eq i32 %29, 0
+  %21 = and i1 %20, %19
+  br i1 %21, label %.lr.ph, label %.loopexit
 
-17:                                               ; preds = %31
-  %18 = add nuw i64 %.01625, 1
-  %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 328
-  %21 = load i64, ptr %20, align 8
-  %22 = icmp ult i64 %18, %21
-  %23 = icmp eq i32 %32, 0
-  %24 = and i1 %23, %22
-  br i1 %24, label %.lr.ph, label %.loopexit
+.lr.ph:                                           ; preds = %.preheader, %14
+  %.01626 = phi i64 [ %15, %14 ], [ 0, %.preheader ]
+  %22 = tail call i32 @H5EA_get(ptr noundef nonnull %0, i64 noundef %.01626, ptr noundef nonnull %9)
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %28
 
-.lr.ph:                                           ; preds = %.preheader, %17
-  %.01625 = phi i64 [ %18, %17 ], [ 0, %.preheader ]
-  %25 = tail call i32 @H5EA_get(ptr noundef nonnull %0, i64 noundef %.01625, ptr noundef nonnull %9)
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %31
-
-27:                                               ; preds = %.lr.ph
-  %28 = load i64, ptr @H5E_EARRAY_g, align 8
-  %29 = load i64, ptr @H5E_CANTGET_g, align 8
-  %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA_iterate, i32 noundef 985, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.15) #5
+24:                                               ; preds = %.lr.ph
+  %25 = load i64, ptr @H5E_EARRAY_g, align 8
+  %26 = load i64, ptr @H5E_CANTGET_g, align 8
+  %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA_iterate, i32 noundef 985, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.15) #5
   br label %.loopexit
 
-31:                                               ; preds = %.lr.ph
-  %32 = tail call i32 %1(i64 noundef %.01625, ptr noundef nonnull %9, ptr noundef %2) #5
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %17
+28:                                               ; preds = %.lr.ph
+  %29 = tail call i32 %1(i64 noundef %.01626, ptr noundef nonnull %9, ptr noundef %2) #5
+  %30 = icmp slt i32 %29, 0
+  br i1 %30, label %31, label %14
 
-34:                                               ; preds = %31
-  %35 = load i64, ptr @H5E_EARRAY_g, align 8
-  %36 = load i64, ptr @H5E_BADITER_g, align 8
-  %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA_iterate, i32 noundef 989, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.16) #5
+31:                                               ; preds = %28
+  %32 = load i64, ptr @H5E_EARRAY_g, align 8
+  %33 = load i64, ptr @H5E_BADITER_g, align 8
+  %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA_iterate, i32 noundef 989, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.16) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %.preheader, %27, %34
-  %.0 = phi i32 [ -1, %27 ], [ %32, %34 ], [ 0, %.preheader ], [ %32, %17 ]
-  %38 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_ea_native_elmt_blk_free_list, ptr noundef nonnull %9) #5
-  br label %39
+35:                                               ; preds = %3
+  %36 = load i64, ptr @H5E_EARRAY_g, align 8
+  %37 = load i64, ptr @H5E_CANTALLOC_g, align 8
+  %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA_iterate, i32 noundef 979, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.14) #5
+  br label %40
 
-39:                                               ; preds = %.thread, %.loopexit
-  %.022 = phi i32 [ -1, %.thread ], [ %.0, %.loopexit ]
-  ret i32 %.022
+.loopexit:                                        ; preds = %14, %.preheader, %31, %24
+  %.0.ph = phi i32 [ %29, %31 ], [ -1, %24 ], [ 0, %.preheader ], [ %29, %14 ]
+  %39 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_ea_native_elmt_blk_free_list, ptr noundef nonnull %9) #5
+  br label %40
+
+40:                                               ; preds = %35, %.loopexit
+  %.023 = phi i32 [ %.0.ph, %.loopexit ], [ -1, %35 ]
+  ret i32 %.023
 }
 
 declare noalias ptr @H5FL_blk_malloc(ptr noundef, i64 noundef) local_unnamed_addr #1

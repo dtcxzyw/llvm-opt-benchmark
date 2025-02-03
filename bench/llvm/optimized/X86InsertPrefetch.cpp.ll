@@ -957,7 +957,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i:    ; preds = %.lr.ph.i
 
 229:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
   %230 = getelementptr inbounds nuw i8, ptr %225, i64 10
-  %231 = add i64 %.sroa.4.0.i.i, -10
+  %231 = add i64 %227, -10
   store ptr %230, ptr %10, align 8
   store i64 %231, ptr %29, align 8
   %232 = getelementptr inbounds nuw i8, ptr %.sroa.07.026.i, i64 24

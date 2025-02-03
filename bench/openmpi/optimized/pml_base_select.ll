@@ -454,7 +454,7 @@ opal_pointer_array_get_item.exit89:               ; preds = %119, %125
   br i1 %.not.i94, label %opal_obj_run_destructors.exit, label %.lr.ph.i92, !llvm.loop !9
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i92, %173
-  call void @free(ptr noundef %.060124) #10
+  call void @free(ptr noundef nonnull %.060124) #10
   %181 = load volatile i64, ptr %145, align 8
   %182 = icmp eq i64 %181, 0
   br i1 %182, label %._crit_edge126, label %opal_list_remove_first.exit96

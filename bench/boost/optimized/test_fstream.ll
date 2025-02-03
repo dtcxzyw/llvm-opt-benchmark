@@ -7139,7 +7139,7 @@ _ZN5boost6nowide17basic_stackstringIwcLm256EEC2EPKc.exit.i.i: ; preds = %.noexc8
 325:                                              ; preds = %322
   %326 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %323) #27
+  call void @__cxa_free_exception(ptr nonnull %323) #27
   br label %.body.i76
 
 .loopexit111:                                     ; preds = %316
@@ -26930,7 +26930,7 @@ define linkonce_odr hidden void @_ZN5boost6nowide13basic_filebufIcSt11char_trait
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #27
+  tail call void @__cxa_free_exception(ptr nonnull %9) #27
   resume { ptr, i32 } %12
 
 _ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12validate_cvtERKSt6locale.exit: ; preds = %2
@@ -28510,7 +28510,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6nowide13basic_filebufIcSt11cha
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #27
+  call void @__cxa_free_exception(ptr nonnull %15) #27
   br label %.body
 
 _ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12validate_cvtERKSt6locale.exit: ; preds = %.noexc

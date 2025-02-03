@@ -144,7 +144,7 @@ define void @_ZNK5faiss17AdditiveQuantizer6decodeEPKhPfm(ptr noundef nonnull ali
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #17
+  call void @__cxa_free_exception(ptr nonnull %23) #17
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -229,7 +229,7 @@ define void @_ZNK5faiss17AdditiveQuantizer15decode_unpackedEPKiPfml(ptr noundef 
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #17
+  call void @__cxa_free_exception(ptr nonnull %25) #17
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -994,7 +994,7 @@ _ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EE5resetEPS1_
 78:                                               ; preds = %69
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %72) #17
+  call void @__cxa_free_exception(ptr nonnull %72) #17
   br label %80
 
 80:                                               ; preds = %78, %76
@@ -1087,7 +1087,7 @@ _ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EE5resetEPS1_
 118:                                              ; preds = %111
   %119 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %114) #17
+  call void @__cxa_free_exception(ptr nonnull %114) #17
   br label %120
 
 120:                                              ; preds = %118, %116

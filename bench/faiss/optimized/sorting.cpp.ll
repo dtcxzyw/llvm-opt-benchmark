@@ -1684,7 +1684,7 @@ define void @_ZN5faiss11bucket_sortEmPKmmPlS2_i(i64 noundef %0, ptr noundef %1, 
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %31) #7
+  call void @__cxa_free_exception(ptr nonnull %31) #7
   br label %92
 
 37:                                               ; preds = %.lr.ph.i
@@ -1768,7 +1768,7 @@ define void @_ZN5faiss11bucket_sortEmPKmmPlS2_i(i64 noundef %0, ptr noundef %1, 
 69:                                               ; preds = %62
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %65) #7
+  call void @__cxa_free_exception(ptr nonnull %65) #7
   br label %92
 
 71:                                               ; preds = %._crit_edge67.i
@@ -2251,7 +2251,7 @@ define void @_ZN5faiss26matrix_bucket_sort_inplaceEmmPiiPli(i64 noundef %0, i64 
 41:                                               ; preds = %34
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %37) #7
+  call void @__cxa_free_exception(ptr nonnull %37) #7
   br label %43
 
 43:                                               ; preds = %41, %39
@@ -2305,7 +2305,7 @@ define void @_ZN5faiss26matrix_bucket_sort_inplaceEmmPiiPli(i64 noundef %0, i64 
 65:                                               ; preds = %58
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %61) #7
+  call void @__cxa_free_exception(ptr nonnull %61) #7
   br label %67
 
 67:                                               ; preds = %65, %63
@@ -2380,7 +2380,7 @@ define void @_ZN5faiss26matrix_bucket_sort_inplaceEmmPiiPli(i64 noundef %0, i64 
 96:                                               ; preds = %89
   %97 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %92) #7
+  call void @__cxa_free_exception(ptr nonnull %92) #7
   br label %98
 
 98:                                               ; preds = %96, %94
@@ -2577,7 +2577,7 @@ _ZN5faiss12_GLOBAL__N_123bucket_sort_inplace_refIiEEvmmPT_S2_Pl.exit: ; preds = 
 163:                                              ; preds = %156
   %164 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %159) #7
+  call void @__cxa_free_exception(ptr nonnull %159) #7
   br label %165
 
 165:                                              ; preds = %163, %161
@@ -4005,7 +4005,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_17ToWriteIiE11bucket_sortEv(p
 32:                                               ; preds = %25
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %28) #7
+  call void @__cxa_free_exception(ptr nonnull %28) #7
   br label %34
 
 34:                                               ; preds = %32, %30
@@ -4154,7 +4154,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %48, %50, %52, %54
 112:                                              ; preds = %105
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %108) #7
+  call void @__cxa_free_exception(ptr nonnull %108) #7
   br label %114
 
 114:                                              ; preds = %112, %110
@@ -4526,7 +4526,7 @@ define void @_ZN5faiss26matrix_bucket_sort_inplaceEmmPllS0_i(i64 noundef %0, i64
 40:                                               ; preds = %33
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %36) #7
+  call void @__cxa_free_exception(ptr nonnull %36) #7
   br label %42
 
 42:                                               ; preds = %40, %38
@@ -4579,7 +4579,7 @@ define void @_ZN5faiss26matrix_bucket_sort_inplaceEmmPllS0_i(i64 noundef %0, i64
 63:                                               ; preds = %56
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %59) #7
+  call void @__cxa_free_exception(ptr nonnull %59) #7
   br label %65
 
 65:                                               ; preds = %63, %61
@@ -4653,7 +4653,7 @@ define void @_ZN5faiss26matrix_bucket_sort_inplaceEmmPllS0_i(i64 noundef %0, i64
 93:                                               ; preds = %86
   %94 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %89) #7
+  call void @__cxa_free_exception(ptr nonnull %89) #7
   br label %95
 
 95:                                               ; preds = %93, %91
@@ -4851,7 +4851,7 @@ _ZN5faiss12_GLOBAL__N_123bucket_sort_inplace_refIlEEvmmPT_S2_Pl.exit: ; preds = 
 157:                                              ; preds = %150
   %158 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %153) #7
+  call void @__cxa_free_exception(ptr nonnull %153) #7
   br label %159
 
 159:                                              ; preds = %157, %155
@@ -6204,7 +6204,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_17ToWriteIlE11bucket_sortEv(p
 32:                                               ; preds = %25
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %28) #7
+  call void @__cxa_free_exception(ptr nonnull %28) #7
   br label %34
 
 34:                                               ; preds = %32, %30
@@ -6349,7 +6349,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %47, %49, %51, %53
 111:                                              ; preds = %104
   %112 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %107) #7
+  call void @__cxa_free_exception(ptr nonnull %107) #7
   br label %113
 
 113:                                              ; preds = %111, %109
@@ -6843,7 +6843,7 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i32: ; preds = %_ZNSt6vectorIlS
 97:                                               ; preds = %82
   %98 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %85) #7
+  call void @__cxa_free_exception(ptr nonnull %85) #7
   br label %99
 
 99:                                               ; preds = %97, %95

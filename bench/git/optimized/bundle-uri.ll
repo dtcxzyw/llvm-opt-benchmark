@@ -611,29 +611,29 @@ while.end.i.i:                                    ; preds = %if.end17.i.i
 if.then23.i.i:                                    ; preds = %while.end.i.i, %while.end.thread.i.i
   %13 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i.i = icmp eq i32 %13, 0
-  br i1 %tobool1.not.i.i.i, label %_.exit.i.i, label %if.end3.i.i.i
+  br i1 %tobool1.not.i.i.i, label %cleanup.i.i, label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %if.then23.i.i
   %call.i.i.i = call ptr @gettext(ptr noundef nonnull @.str.32) #15
-  br label %_.exit.i.i
-
-_.exit.i.i:                                       ; preds = %if.end3.i.i.i, %if.then23.i.i
-  %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.end3.i.i.i ], [ @.str.32, %if.then23.i.i ]
-  %call25.i.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i.i) #15
-  br label %if.then30.i.i
+  br label %cleanup.i.i
 
 if.end27.i.i:                                     ; preds = %while.end.i.i
   %call28.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call2.i.i, ptr noundef nonnull @.str.33, ptr noundef %5, ptr noundef nonnull %4)
   br label %if.then30.i.i
 
-if.then30.i.i:                                    ; preds = %if.end27.i.i, %_.exit.i.i, %if.end5.i.i
-  %result.017.i.i = phi i32 [ 1, %if.end5.i.i ], [ 0, %if.end27.i.i ], [ -1, %_.exit.i.i ]
+cleanup.i.i:                                      ; preds = %if.end3.i.i.i, %if.then23.i.i
+  %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.end3.i.i.i ], [ @.str.32, %if.then23.i.i ]
+  %call25.i.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i.i) #15
+  br label %if.then30.i.i
+
+if.then30.i.i:                                    ; preds = %cleanup.i.i, %if.end27.i.i, %if.end5.i.i
+  %result.012.i.i = phi i32 [ -1, %cleanup.i.i ], [ 1, %if.end5.i.i ], [ 0, %if.end27.i.i ]
   %call31.i.i = call i32 @fclose(ptr noundef nonnull %call2.i.i)
   %call33.i.i = call i32 @finish_command(ptr noundef nonnull %cp.i.i) #15
   %tobool34.not.i.i = icmp ne i32 %call33.i.i, 0
-  %brmerge.i = or i1 %tobool8.not.i.i, %tobool34.not.i.i
-  %.mux.i = select i1 %tobool34.not.i.i, i32 1, i32 %result.017.i.i
-  br i1 %brmerge.i, label %download_https_uri_to_file.exit.i, label %if.then38.i.i
+  %brmerge.i.i = or i1 %tobool8.not.i.i, %tobool34.not.i.i
+  %.mux.i.i = select i1 %tobool34.not.i.i, i32 1, i32 %result.012.i.i
+  br i1 %brmerge.i.i, label %download_https_uri_to_file.exit.i, label %if.then38.i.i
 
 if.end32.thread.i.i:                              ; preds = %if.end.i.i
   %call3321.i.i = call i32 @finish_command(ptr noundef nonnull %cp.i.i) #15
@@ -644,7 +644,7 @@ if.then38.i.i:                                    ; preds = %if.then30.i.i
   br label %download_https_uri_to_file.exit.i
 
 download_https_uri_to_file.exit.i:                ; preds = %if.then38.i.i, %if.end32.thread.i.i, %if.then30.i.i, %if.then.i28
-  %retval.0.i.i30 = phi i32 [ 1, %if.then.i28 ], [ %.mux.i, %if.then30.i.i ], [ %result.017.i.i, %if.then38.i.i ], [ 1, %if.end32.thread.i.i ]
+  %retval.0.i.i30 = phi i32 [ 1, %if.then.i28 ], [ %.mux.i.i, %if.then30.i.i ], [ %result.012.i.i, %if.then38.i.i ], [ 1, %if.end32.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %cp.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %line.i.i)
   br label %copy_uri_to_file.exit

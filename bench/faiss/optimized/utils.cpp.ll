@@ -258,7 +258,7 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIfE12write_resultEPfPl(ptr noun
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #17
+  call void @__cxa_free_exception(ptr nonnull %25) #17
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -557,7 +557,7 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIsE12write_resultEPsPl(ptr noun
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #17
+  call void @__cxa_free_exception(ptr nonnull %25) #17
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -735,7 +735,7 @@ define noundef i64 @_ZN5faiss16get_mem_usage_kbEv() local_unnamed_addr #1 person
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #17
+  call void @__cxa_free_exception(ptr nonnull %17) #17
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -966,7 +966,7 @@ define void @_ZN5faiss9matrix_qrEiiPf(i32 noundef %0, i32 noundef %1, ptr nounde
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #17
+  call void @__cxa_free_exception(ptr nonnull %20) #17
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -2421,7 +2421,7 @@ define void @_ZN5faiss12bincode_histEmmPKhPi(i64 noundef %0, i64 noundef %1, ptr
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #17
+  call void @__cxa_free_exception(ptr nonnull %17) #17
   br label %23
 
 23:                                               ; preds = %21, %19

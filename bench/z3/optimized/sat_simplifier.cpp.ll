@@ -4325,7 +4325,7 @@ lpad7.i:                                          ; preds = %if.then5.i
 eh.resume.i:                                      ; preds = %lpad7.i, %lpad.i
   %exception6.sink.i = phi ptr [ %exception6.i, %lpad7.i ], [ %exception.i, %lpad.i ]
   %.pn.i = phi { ptr, i32 } [ %19, %lpad7.i ], [ %15, %lpad.i ]
-  call void @__cxa_free_exception(ptr %exception6.sink.i) #25
+  call void @__cxa_free_exception(ptr nonnull %exception6.sink.i) #25
   br label %lpad.body
 
 invoke.cont10:                                    ; preds = %while.body9, %if.end3.i, %call.i2.i.noexc
@@ -13969,7 +13969,7 @@ if.end9:                                          ; preds = %if.end3, %entry, %_
 eh.resume:                                        ; preds = %lpad7, %lpad
   %exception6.sink = phi ptr [ %exception6, %lpad7 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %7, %lpad7 ], [ %3, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception6.sink) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception6.sink) #25
   resume { ptr, i32 } %.pn
 }
 

@@ -680,7 +680,7 @@ define hidden noundef ptr @_ZNK5boost6locale8impl_icu16formatters_cache20create_
 36:                                               ; preds = %33
   %37 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %34) #18
+  tail call void @__cxa_free_exception(ptr nonnull %34) #18
   br label %39
 
 38:                                               ; preds = %26, %29, %19, %22, %16, %13, %10, %7, %4

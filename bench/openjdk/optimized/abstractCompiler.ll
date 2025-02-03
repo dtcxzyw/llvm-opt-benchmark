@@ -11,7 +11,7 @@ define hidden noundef zeroext i1 @_ZN16AbstractCompiler19should_perform_initEv(p
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load volatile i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 2
-  br i1 %.not, label %15, label %4
+  br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @CompileThread_lock, align 8
@@ -40,23 +40,23 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.preheader, %_ZN13M
   %11 = tail call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 noundef 0) #2
   %12 = load volatile i32, ptr %2, align 4
   %13 = icmp eq i32 %12, 1
-  br i1 %13, label %_ZN13MonitorLocker4waitEl.exit, label %.loopexit, !llvm.loop !6
+  br i1 %13, label %_ZN13MonitorLocker4waitEl.exit, label %.loopexit.thread, !llvm.loop !6
 
-.loopexit:                                        ; preds = %_ZN13MonitorLocker4waitEl.exit, %.preheader, %10
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %14
+.loopexit:                                        ; preds = %.preheader, %10
+  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %.loopexit.thread
 
-14:                                               ; preds = %.loopexit
+.loopexit.thread:                                 ; preds = %_ZN13MonitorLocker4waitEl.exit, %.loopexit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #2
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %.loopexit, %14
-  br i1 %.not5, label %16, label %15
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %.loopexit, %.loopexit.thread
+  br i1 %.not5, label %15, label %14
 
-15:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit, %1
-  br label %16
+14:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit, %1
+  br label %15
 
-16:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit, %15
-  %.1 = phi i1 [ true, %_ZN13MonitorLockerD2Ev.exit ], [ false, %15 ]
+15:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit, %14
+  %.1 = phi i1 [ true, %_ZN13MonitorLockerD2Ev.exit ], [ false, %14 ]
   ret i1 %.1
 }
 

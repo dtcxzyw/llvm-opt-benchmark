@@ -62,7 +62,7 @@ define void @_ZNK5ZXing4OneD13Code128Writer6encodeERKNSt7__cxx1112basic_stringIw
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #8
+  tail call void @__cxa_free_exception(ptr nonnull %15) #8
   br label %_ZNSt7__cxx114listISt5arrayIiLm6EESaIS2_EED2Ev.exit129
 
 19:                                               ; preds = %.lr.ph

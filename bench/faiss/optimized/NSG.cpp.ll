@@ -479,7 +479,7 @@ define void @_ZNK5faiss3NSG6searchERNS_16DistanceComputerEiPlPfRNS_12VisitedTabl
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #15
+  call void @__cxa_free_exception(ptr nonnull %23) #15
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -524,7 +524,7 @@ define void @_ZNK5faiss3NSG6searchERNS_16DistanceComputerEiPlPfRNS_12VisitedTabl
 46:                                               ; preds = %39
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %42) #15
+  call void @__cxa_free_exception(ptr nonnull %42) #15
   br label %48
 
 48:                                               ; preds = %46, %44
@@ -1920,7 +1920,7 @@ define void @_ZN5faiss3NSG5buildEPNS_5IndexElRKNS_3nsg5GraphIlEEb(ptr noundef no
 28:                                               ; preds = %21
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %24) #15
+  call void @__cxa_free_exception(ptr nonnull %24) #15
   br label %30
 
 30:                                               ; preds = %28, %26

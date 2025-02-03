@@ -5354,7 +5354,7 @@ define internal range(i32 -1, 1) i32 @accel_startup(ptr noundef writeonly captur
 12:                                               ; preds = %1
   store i8 0, ptr @accel_startup_ok, align 1
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.42) #24
-  br label %128
+  br label %130
 
 13:                                               ; preds = %1
   %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 162), align 2
@@ -5380,7 +5380,7 @@ define internal range(i32 -1, 1) i32 @accel_startup(ptr noundef writeonly captur
 25:                                               ; preds = %22
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre4, ptr noundef nonnull dereferenceable(9) @.str.46) #26
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %98
+  br i1 %27, label %28, label %.preheader.i2.preheader
 
 28:                                               ; preds = %25, %22, %19, %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -5530,80 +5530,85 @@ accel_move_code_to_huge_pages.exit:               ; preds = %28, %accel_remap_hu
   %.pre = load ptr, ptr @sapi_module, align 8
   br label %98
 
-98:                                               ; preds = %accel_move_code_to_huge_pages.exit, %25, %13
-  %99 = phi ptr [ %.pre, %accel_move_code_to_huge_pages.exit ], [ %.pre4, %25 ], [ %.pre4, %13 ]
+98:                                               ; preds = %accel_move_code_to_huge_pages.exit, %13
+  %99 = phi ptr [ %.pre, %accel_move_code_to_huge_pages.exit ], [ %.pre4, %13 ]
   %.not.i1 = icmp eq ptr %99, null
-  br i1 %.not.i1, label %.accel_find_sapi.exit_crit_edge, label %.preheader.i2
+  br i1 %.not.i1, label %.accel_find_sapi.exit_crit_edge, label %.preheader.i2.preheader
 
 .accel_find_sapi.exit_crit_edge:                  ; preds = %98
   %.pre5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 56), align 8
   br label %accel_find_sapi.exit
 
-100:                                              ; preds = %.preheader.i2
-  %101 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %.not5.i = icmp eq ptr %102, null
-  br i1 %.not5.i, label %106, label %.preheader.i2
+.preheader.i2.preheader:                          ; preds = %25, %98
+  %100 = phi ptr [ %99, %98 ], [ %.pre4, %25 ]
+  br label %.preheader.i2
 
-.preheader.i2:                                    ; preds = %98, %100
-  %103 = phi ptr [ %102, %100 ], [ @.str.57, %98 ]
-  %.06.i = phi ptr [ %101, %100 ], [ @accel_find_sapi.supported_sapis, %98 ]
-  %104 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) %103) #26
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %.loopexit, label %100
+101:                                              ; preds = %.preheader.i2
+  %102 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %.not5.i = icmp eq ptr %103, null
+  br i1 %.not5.i, label %107, label %.preheader.i2
 
-106:                                              ; preds = %100
-  %107 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 56), align 8
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %109, label %accel_find_sapi.exit
+.preheader.i2:                                    ; preds = %.preheader.i2.preheader, %101
+  %104 = phi ptr [ %103, %101 ], [ @.str.57, %.preheader.i2.preheader ]
+  %.06.i = phi ptr [ %102, %101 ], [ @accel_find_sapi.supported_sapis, %.preheader.i2.preheader ]
+  %105 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) %104) #26
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %.loopexit, label %101
 
-109:                                              ; preds = %106
-  %110 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(4) @.str.43) #26
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %.loopexit, label %112
+107:                                              ; preds = %101
+  %108 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 56), align 8
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %accel_find_sapi.exit
 
-112:                                              ; preds = %109
-  %113 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(7) @.str.66) #26
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %.loopexit, label %accel_find_sapi.exit
+110:                                              ; preds = %107
+  %111 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(4) @.str.43) #26
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %.loopexit, label %113
 
-accel_find_sapi.exit:                             ; preds = %.accel_find_sapi.exit_crit_edge, %112, %106
-  %115 = phi i8 [ %.pre5, %.accel_find_sapi.exit_crit_edge ], [ %107, %112 ], [ %107, %106 ]
+113:                                              ; preds = %110
+  %114 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(7) @.str.66) #26
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %.loopexit, label %accel_find_sapi.exit
+
+accel_find_sapi.exit:                             ; preds = %.accel_find_sapi.exit_crit_edge, %113, %107
+  %116 = phi ptr [ null, %.accel_find_sapi.exit_crit_edge ], [ %100, %113 ], [ %100, %107 ]
+  %117 = phi i8 [ %.pre5, %.accel_find_sapi.exit_crit_edge ], [ %108, %113 ], [ %108, %107 ]
   store i8 0, ptr @accel_startup_ok, align 1
-  %116 = trunc i8 %115 to i1
-  br i1 %116, label %121, label %117
+  %118 = trunc i8 %117 to i1
+  br i1 %118, label %123, label %119
 
-117:                                              ; preds = %accel_find_sapi.exit
-  %118 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(4) @.str.43) #26
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %120, label %121
+119:                                              ; preds = %accel_find_sapi.exit
+  %120 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(4) @.str.43) #26
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %122, label %123
 
-120:                                              ; preds = %117
+122:                                              ; preds = %119
   store ptr @.str.47, ptr @zps_api_failure_reason, align 8
   call void @zend_llist_del_element(ptr noundef nonnull @zend_extensions, ptr noundef null, ptr noundef nonnull @accelerator_remove_cb) #24
-  br label %128
+  br label %130
 
-121:                                              ; preds = %117, %accel_find_sapi.exit
+123:                                              ; preds = %119, %accel_find_sapi.exit
   store ptr @.str.48, ptr @zps_api_failure_reason, align 8
   call void @zend_llist_del_element(ptr noundef nonnull @zend_extensions, ptr noundef null, ptr noundef nonnull @accelerator_remove_cb) #24
-  br label %128
+  br label %130
 
-.loopexit:                                        ; preds = %.preheader.i2, %112, %109
-  %122 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1
-  %123 = and i8 %122, 1
-  %124 = icmp eq i8 %123, 0
-  br i1 %124, label %128, label %125
+.loopexit:                                        ; preds = %.preheader.i2, %113, %110
+  %124 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1
+  %125 = and i8 %124, 1
+  %126 = icmp eq i8 %125, 0
+  br i1 %126, label %130, label %127
 
-125:                                              ; preds = %.loopexit
-  %126 = load ptr, ptr @zend_post_startup_cb, align 8
-  store ptr %126, ptr @orig_post_startup_cb, align 8
+127:                                              ; preds = %.loopexit
+  %128 = load ptr, ptr @zend_post_startup_cb, align 8
+  store ptr %128, ptr @orig_post_startup_cb, align 8
   store ptr @accel_post_startup, ptr @zend_post_startup_cb, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr null, ptr %127, align 8
-  br label %128
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store ptr null, ptr %129, align 8
+  br label %130
 
-128:                                              ; preds = %.loopexit, %120, %121, %125, %12
-  %.0 = phi i32 [ -1, %12 ], [ 0, %125 ], [ 0, %121 ], [ 0, %120 ], [ 0, %.loopexit ]
+130:                                              ; preds = %.loopexit, %122, %123, %127, %12
+  %.0 = phi i32 [ -1, %12 ], [ 0, %127 ], [ 0, %123 ], [ 0, %122 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 

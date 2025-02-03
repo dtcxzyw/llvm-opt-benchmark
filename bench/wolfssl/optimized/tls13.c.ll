@@ -1505,7 +1505,7 @@ if.end22.i.i:                                     ; preds = %if.end14.i.i
 
 if.end29.i.i:                                     ; preds = %if.end22.i.i
   %25 = load ptr, ptr %auth.i.i, align 16
-  %call34.i.i = call i32 @wc_Poly1305_MAC(ptr noundef %25, ptr noundef %output, i32 noundef 5, ptr noundef nonnull %add.ptr, i32 noundef %conv.i.i, ptr noundef nonnull %add.ptr46.i, i32 noundef 16) #11
+  %call34.i.i = call i32 @wc_Poly1305_MAC(ptr noundef %25, ptr noundef nonnull %output, i32 noundef 5, ptr noundef nonnull %add.ptr, i32 noundef %conv.i.i, ptr noundef nonnull %add.ptr46.i, i32 noundef 16) #11
   br label %ChaCha20Poly1305_Encrypt.exit.i
 
 ChaCha20Poly1305_Encrypt.exit.i:                  ; preds = %for.body.i.i.i, %if.end29.i.i, %if.end22.i.i, %if.end8.i.i, %if.end.i.i, %sw.bb41.i

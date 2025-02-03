@@ -1314,7 +1314,7 @@ define void @_ZN5faiss16ProductQuantizer18set_derived_valuesEv(ptr noundef nonnu
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #18
+  call void @__cxa_free_exception(ptr nonnull %19) #18
   br label %25
 
 25:                                               ; preds = %23, %21
@@ -2832,7 +2832,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.split.us: ; preds = %._cr
 150:                                              ; preds = %143
   %151 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %146) #18
+  call void @__cxa_free_exception(ptr nonnull %146) #18
   br label %152
 
 152:                                              ; preds = %150, %148
@@ -3682,7 +3682,7 @@ define void @_ZNK5faiss16ProductQuantizer6searchEPKfmPKhmPNS_9HeapArrayINS_4CMax
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %31) #18
+  call void @__cxa_free_exception(ptr nonnull %31) #18
   br label %37
 
 37:                                               ; preds = %35, %33
@@ -5342,7 +5342,7 @@ define void @_ZNK5faiss16ProductQuantizer9search_ipEPKfmPKhmPNS_9HeapArrayINS_4C
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %31) #18
+  call void @__cxa_free_exception(ptr nonnull %31) #18
   br label %37
 
 37:                                               ; preds = %35, %33
@@ -7222,7 +7222,7 @@ define void @_ZNK5faiss16ProductQuantizer10search_sdcEPKhmS2_mPNS_9HeapArrayINS_
 46:                                               ; preds = %39
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %42) #18
+  call void @__cxa_free_exception(ptr nonnull %42) #18
   br label %70
 
 48:                                               ; preds = %7
@@ -7262,7 +7262,7 @@ define void @_ZNK5faiss16ProductQuantizer10search_sdcEPKhmS2_mPNS_9HeapArrayINS_
 65:                                               ; preds = %58
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %61) #18
+  call void @__cxa_free_exception(ptr nonnull %61) #18
   br label %70
 
 67:                                               ; preds = %48

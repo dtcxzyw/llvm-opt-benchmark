@@ -312,11 +312,11 @@ define hidden void @mbedtls_strerror(i32 noundef %0, ptr noundef captures(none) 
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
-  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.038, i64 noundef %.037, ptr noundef nonnull @.str.205, i32 noundef %17) #6
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.038, i64 noundef %.037, ptr noundef nonnull @.str.205, i32 noundef %17) #6
   br label %37
 
 35:                                               ; preds = %30
-  %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.038, i64 noundef %.037, ptr noundef nonnull @.str.206, ptr noundef nonnull %31) #6
+  %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.038, i64 noundef %.037, ptr noundef nonnull @.str.206, ptr noundef nonnull %31) #6
   br label %37
 
 37:                                               ; preds = %21, %16, %14, %3, %35, %33

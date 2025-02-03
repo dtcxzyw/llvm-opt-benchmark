@@ -14193,7 +14193,7 @@ if.end69:                                         ; preds = %while.cond64
   br i1 %call72, label %if.end74, label %cleanup99.thread
 
 if.end74:                                         ; preds = %if.end69
-  %call75 = call fastcc noundef i32 @_ZN4node9inspector8protocol12_GLOBAL__N_110parseTokenItEENS2_5TokenEPKT_S7_PS7_S8_(ptr noundef %39, ptr noundef %end, ptr noundef %tokenStart, ptr noundef %tokenEnd)
+  %call75 = call fastcc noundef i32 @_ZN4node9inspector8protocol12_GLOBAL__N_110parseTokenItEENS2_5TokenEPKT_S7_PS7_S8_(ptr noundef nonnull %39, ptr noundef %end, ptr noundef %tokenStart, ptr noundef %tokenEnd)
   %cmp76.not = icmp eq i32 %call75, 10
   br i1 %cmp76.not, label %if.end78, label %cleanup99.thread
 
@@ -15399,7 +15399,7 @@ if.end69:                                         ; preds = %while.cond64
   br i1 %call72, label %if.end74, label %cleanup99.thread
 
 if.end74:                                         ; preds = %if.end69
-  %call75 = call fastcc noundef i32 @_ZN4node9inspector8protocol12_GLOBAL__N_110parseTokenIhEENS2_5TokenEPKT_S7_PS7_S8_(ptr noundef %24, ptr noundef %end, ptr noundef %tokenStart, ptr noundef %tokenEnd)
+  %call75 = call fastcc noundef i32 @_ZN4node9inspector8protocol12_GLOBAL__N_110parseTokenIhEENS2_5TokenEPKT_S7_PS7_S8_(ptr noundef nonnull %24, ptr noundef %end, ptr noundef %tokenStart, ptr noundef %tokenEnd)
   %cmp76.not = icmp eq i32 %call75, 10
   br i1 %cmp76.not, label %if.end78, label %cleanup99.thread
 
@@ -23646,7 +23646,7 @@ if.end84:                                         ; preds = %if.end79
   %vfn90 = getelementptr inbounds nuw i8, ptr %vtable89, i64 56
   %76 = load ptr, ptr %vfn90, align 8
   tail call void %76(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr %74, i64 %sub.ptr.div.i124) #27
-  %call91 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE10ParseTokenEPKhS7_PS7_S8_(ptr noundef %71, ptr noundef %end, ptr noundef %token_start, ptr noundef %token_end)
+  %call91 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE10ParseTokenEPKhS7_PS7_S8_(ptr noundef nonnull %71, ptr noundef %end, ptr noundef %token_start, ptr noundef %token_end)
   %cmp92.not = icmp eq i32 %call91, 10
   br i1 %cmp92.not, label %if.end94, label %if.then93
 
@@ -25471,7 +25471,7 @@ if.end84:                                         ; preds = %if.end79
   %vfn90 = getelementptr inbounds nuw i8, ptr %vtable89, i64 56
   %77 = load ptr, ptr %vfn90, align 8
   tail call void %77(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr %75, i64 %sub.ptr.div.i139) #27
-  %call91 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE10ParseTokenEPKtS7_PS7_S8_(ptr noundef %72, ptr noundef %end, ptr noundef %token_start, ptr noundef %token_end)
+  %call91 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE10ParseTokenEPKtS7_PS7_S8_(ptr noundef nonnull %72, ptr noundef %end, ptr noundef %token_start, ptr noundef %token_end)
   %cmp92.not = icmp eq i32 %call91, 10
   br i1 %cmp92.not, label %if.end94, label %if.then93
 

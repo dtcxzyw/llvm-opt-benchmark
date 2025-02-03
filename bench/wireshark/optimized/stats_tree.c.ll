@@ -915,7 +915,7 @@ define i32 @stats_tree_packet(ptr noundef initializes((24, 40)) %0, ptr noundef 
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %13
-  %21 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #19
+  %21 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #19
   br label %22
 
 22:                                               ; preds = %13, %20

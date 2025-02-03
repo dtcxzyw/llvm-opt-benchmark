@@ -11040,7 +11040,7 @@ if.else.i.i:                                      ; preds = %invoke.cont9
 invoke.cont11:                                    ; preds = %if.else.i.i, %if.then.i.i
   call void @_ZN11SubgameSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %ref.tmp) #25
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %ref.tmp) #25
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.028) #30
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.028) #30
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
@@ -17355,7 +17355,7 @@ if.end329:                                        ; preds = %invoke.cont325, %in
 
 delete.notnull:                                   ; preds = %if.end329
   call void @_ZN8SettingsD1Ev(ptr noundef nonnull align 8 dereferenceable(236) %game_settings.0) #25
-  call void @_ZdlPv(ptr noundef %game_settings.0) #27
+  call void @_ZdlPv(ptr noundef nonnull %game_settings.0) #27
   br label %if.end332
 
 if.end332:                                        ; preds = %delete.notnull, %if.end329

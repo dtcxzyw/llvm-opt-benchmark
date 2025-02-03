@@ -1991,7 +1991,7 @@ _ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i
   br i1 %switch.selectcmp.i28, label %118, label %"_ZZN4llvm20RecurrenceDescriptor17isRecurrenceInstrEPNS_4LoopEPNS_7PHINodeEPNS_11InstructionENS_9RecurKindERNS0_8InstDescENS_13FastMathFlagsEENK3$_0clEv.exit"
 
 118:                                              ; preds = %116, %75
-  tail call void @_ZN4llvm20RecurrenceDescriptor15isMinMaxPatternEPNS_11InstructionENS_9RecurKindERKNS0_8InstDescE(ptr dead_on_unwind writable sret(%"class.llvm::RecurrenceDescriptor::InstDesc") align 8 %0, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  tail call void @_ZN4llvm20RecurrenceDescriptor15isMinMaxPatternEPNS_11InstructionENS_9RecurKindERKNS0_8InstDescE(ptr dead_on_unwind writable sret(%"class.llvm::RecurrenceDescriptor::InstDesc") align 8 %0, ptr noundef nonnull %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
   br label %145
 
 "_ZZN4llvm20RecurrenceDescriptor17isRecurrenceInstrEPNS_4LoopEPNS_7PHINodeEPNS_11InstructionENS_9RecurKindERNS0_8InstDescENS_13FastMathFlagsEENK3$_0clEv.exit": ; preds = %116

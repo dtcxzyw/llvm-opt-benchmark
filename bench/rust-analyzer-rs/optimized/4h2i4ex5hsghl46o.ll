@@ -39460,7 +39460,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread81, %2
 40:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
   %41 = extractvalue { ptr, ptr } %37, 0
   %42 = extractvalue { ptr, ptr } %37, 1
-  invoke void @_ZN3hir7symbols15SymbolCollector3new17hc93f2771efdd8d74E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, { ptr, ptr } }) align 8 captures(none) dereferenceable(88) %12, ptr noundef nonnull align 1 %41, ptr noalias noundef readonly align 8 dereferenceable(24) %42)
+  invoke void @_ZN3hir7symbols15SymbolCollector3new17hc93f2771efdd8d74E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, { ptr, ptr } }) align 8 captures(none) dereferenceable(88) %12, ptr noundef nonnull align 1 %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42)
           to label %43 unwind label %38
 
 43:                                               ; preds = %40
@@ -39739,7 +39739,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %18,
 34:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
   %35 = extractvalue { ptr, ptr } %31, 0
   %36 = extractvalue { ptr, ptr } %31, 1
-  invoke void @_ZN3hir7symbols15SymbolCollector14collect_module17h55499455ce4aa7d7E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 1 %35, ptr noalias noundef readonly align 8 dereferenceable(24) %36, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %2)
+  invoke void @_ZN3hir7symbols15SymbolCollector14collect_module17h55499455ce4aa7d7E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %2)
           to label %37 unwind label %32
 
 37:                                               ; preds = %34
@@ -39882,7 +39882,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %18,
 34:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
   %35 = extractvalue { ptr, ptr } %31, 0
   %36 = extractvalue { ptr, ptr } %31, 1
-  invoke void @_ZN3hir5Crate7modules17h1f0a23b639429c65E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %6, i32 noundef %2, ptr noundef nonnull align 1 %35, ptr noalias noundef readonly align 8 dereferenceable(24) %36)
+  invoke void @_ZN3hir5Crate7modules17h1f0a23b639429c65E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %6, i32 noundef %2, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36)
           to label %37 unwind label %32
 
 37:                                               ; preds = %34

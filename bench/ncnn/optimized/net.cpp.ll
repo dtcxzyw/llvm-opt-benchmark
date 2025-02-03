@@ -11224,7 +11224,7 @@ _ZSt10_ConstructIN4ncnn4BlobEJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #24
-  invoke void @_ZSt8_DestroyIPN4ncnn4BlobEEvT_S3_(ptr noundef %5, ptr noundef %.014.i.i.i)
+  invoke void @_ZSt8_DestroyIPN4ncnn4BlobEEvT_S3_(ptr noundef %5, ptr noundef nonnull %.014.i.i.i)
           to label %25 unwind label %26
 
 25:                                               ; preds = %21
@@ -11305,7 +11305,7 @@ _ZSt10_ConstructIN4ncnn4BlobEJEEvPT_DpOT0_.exit.i.i.i43: ; preds = %.lr.ph.i.i.i
 .body.thread:                                     ; preds = %47
   %49 = extractvalue { ptr, i32 } %48, 0
   %50 = tail call ptr @__cxa_begin_catch(ptr %49) #24
-  br label %_ZNSt12_Vector_baseIN4ncnn4BlobESaIS1_EE13_M_deallocateEPS1_m.exit
+  br label %.thread
 
 51:                                               ; preds = %47
   %52 = landingpad { ptr, i32 }
@@ -11328,15 +11328,15 @@ _ZSt27__uninitialized_default_n_aIPN4ncnn4BlobEmS1_ET_S3_T0_RSaIT1_E.exit46: ; p
   %58 = tail call ptr @__cxa_begin_catch(ptr %57) #24
   %59 = getelementptr inbounds %"class.ncnn::Blob", ptr %39, i64 %1
   invoke void @_ZSt8_DestroyIPN4ncnn4BlobES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %39, ptr noundef nonnull %59, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseIN4ncnn4BlobESaIS1_EE13_M_deallocateEPS1_m.exit unwind label %60
+          to label %.thread unwind label %60
 
-60:                                               ; preds = %_ZNSt12_Vector_baseIN4ncnn4BlobESaIS1_EE13_M_deallocateEPS1_m.exit, %.body
+60:                                               ; preds = %.thread, %.body
   %61 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %91
 
-_ZNSt12_Vector_baseIN4ncnn4BlobESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %.body, %.body.thread
+.thread:                                          ; preds = %.body.thread, %.body
   tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %37) #28
   invoke void @__cxa_rethrow() #26
           to label %94 unwind label %60
@@ -11427,7 +11427,7 @@ _ZNSt12_Vector_baseIN4ncnn4BlobESaIS1_EE13_M_deallocateEPS1_m.exit51: ; preds = 
   tail call void @__clang_call_terminate(ptr %93) #25
   unreachable
 
-94:                                               ; preds = %_ZNSt12_Vector_baseIN4ncnn4BlobESaIS1_EE13_M_deallocateEPS1_m.exit
+94:                                               ; preds = %.thread
   unreachable
 }
 
@@ -11511,7 +11511,7 @@ _ZSt10_ConstructIN4ncnn4BlobEJRKS1_EEvPT_DpOT0_.exit: ; preds = %40, %.noexc
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = tail call ptr @__cxa_begin_catch(ptr %46) #24
-  invoke void @_ZSt8_DestroyIPN4ncnn4BlobEEvT_S3_(ptr noundef %2, ptr noundef %.016)
+  invoke void @_ZSt8_DestroyIPN4ncnn4BlobEEvT_S3_(ptr noundef %2, ptr noundef nonnull %.016)
           to label %48 unwind label %49
 
 48:                                               ; preds = %44

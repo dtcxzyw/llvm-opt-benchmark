@@ -1895,11 +1895,7 @@ if.end459.i:                                      ; preds = %if.end448.i
 if.then462.i:                                     ; preds = %if.end459.i
   %call.i151.i = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 72) #19
   %cmp.i152.i = icmp eq ptr %call.i151.i, null
-  br i1 %cmp.i152.i, label %err.thread.i.i, label %if.end.i.i
-
-err.thread.i.i:                                   ; preds = %if.then462.i
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_uri_parse_authority) #19
-  br label %evhttp_uri_parse_authority.exit.thread.i
+  br i1 %cmp.i152.i, label %err.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then462.i
   %port.i.i = getelementptr inbounds nuw i8, ptr %call.i151.i, i64 32
@@ -1931,17 +1927,21 @@ if.end7.i.i:                                      ; preds = %end_of_authority.ex
   %path.i.i = getelementptr inbounds nuw i8, ptr %call.i151.i, i64 48
   store ptr %call8.i.i, ptr %path.i.i, align 8
   %cmp10.i.i = icmp eq ptr %call8.i.i, null
-  br i1 %cmp10.i.i, label %err.thread11.i.i, label %evhttp_uri_parse_authority.exit.i
+  br i1 %cmp10.i.i, label %if.then11.i.i, label %evhttp_uri_parse_authority.exit.i
 
-err.thread11.i.i:                                 ; preds = %if.end7.i.i
+if.then11.i.i:                                    ; preds = %if.end7.i.i
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_uri_parse_authority) #19
   br label %if.then13.i.i
 
-if.then13.i.i:                                    ; preds = %err.thread11.i.i, %end_of_authority.exit.i.i
+err.i.i:                                          ; preds = %if.then462.i
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_uri_parse_authority) #19
+  br label %evhttp_uri_parse_authority.exit.thread.i
+
+if.then13.i.i:                                    ; preds = %if.then11.i.i, %end_of_authority.exit.i.i
   call void @evhttp_uri_free(ptr noundef nonnull %call.i151.i)
   br label %evhttp_uri_parse_authority.exit.thread.i
 
-evhttp_uri_parse_authority.exit.thread.i:         ; preds = %if.then13.i.i, %err.thread.i.i
+evhttp_uri_parse_authority.exit.thread.i:         ; preds = %if.then13.i.i, %err.i.i
   %uri_elems159.i = getelementptr inbounds nuw i8, ptr %req, i64 104
   store ptr null, ptr %uri_elems159.i, align 8
   br label %101
@@ -5521,16 +5521,16 @@ if.else:                                          ; preds = %if.end
 if.end15:                                         ; preds = %if.else, %if.end
   %len.pn = phi i64 [ %len, %if.end ], [ %call6, %if.else ]
   %end.0 = getelementptr inbounds nuw i8, ptr %uri, i64 %len.pn
-  %cmp1633.not = icmp eq i64 %len.pn, 0
-  br i1 %cmp1633.not, label %for.end, label %for.body.lr.ph
+  %cmp1631.not = icmp eq i64 %len.pn, 0
+  br i1 %cmp1631.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end15
   %tobool23.not = icmp eq i32 %space_as_plus, 0
   br i1 %tobool23.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %p.034.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %uri, %for.body.lr.ph ]
-  %0 = load i8, ptr %p.034.us, align 1
+  %p.032.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %uri, %for.body.lr.ph ]
+  %0 = load i8, ptr %p.032.us, align 1
   %idxprom.us = zext i8 %0 to i64
   %arrayidx.us = getelementptr inbounds nuw [256 x i8], ptr @uri_chars, i64 0, i64 %idxprom.us
   %1 = load i8, ptr %arrayidx.us, align 1
@@ -5538,7 +5538,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %tobool17.not.us, label %if.else20.us, label %if.then18.us
 
 if.then18.us:                                     ; preds = %for.body.us
-  %call19.us = tail call i32 @evbuffer_add(ptr noundef nonnull %call, ptr noundef nonnull %p.034.us, i64 noundef 1) #19
+  %call19.us = tail call i32 @evbuffer_add(ptr noundef nonnull %call, ptr noundef nonnull %p.032.us, i64 noundef 1) #19
   br label %for.inc.us
 
 if.else20.us:                                     ; preds = %for.body.us
@@ -5547,13 +5547,13 @@ if.else20.us:                                     ; preds = %for.body.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.else20.us, %if.then18.us
-  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %p.034.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %p.032.us, i64 1
   %cmp16.us = icmp ult ptr %incdec.ptr.us, %end.0
   br i1 %cmp16.us, label %for.body.us, label %for.end, !llvm.loop !20
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %p.034 = phi ptr [ %incdec.ptr, %for.inc ], [ %uri, %for.body.lr.ph ]
-  %2 = load i8, ptr %p.034, align 1
+  %p.032 = phi ptr [ %incdec.ptr, %for.inc ], [ %uri, %for.body.lr.ph ]
+  %2 = load i8, ptr %p.032, align 1
   %idxprom = zext i8 %2 to i64
   %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @uri_chars, i64 0, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 1
@@ -5561,7 +5561,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool17.not, label %if.else20, label %if.then18
 
 if.then18:                                        ; preds = %for.body
-  %call19 = tail call i32 @evbuffer_add(ptr noundef nonnull %call, ptr noundef nonnull %p.034, i64 noundef 1) #19
+  %call19 = tail call i32 @evbuffer_add(ptr noundef nonnull %call, ptr noundef nonnull %p.032, i64 noundef 1) #19
   br label %for.inc
 
 if.else20:                                        ; preds = %for.body
@@ -5578,7 +5578,7 @@ if.else26:                                        ; preds = %if.else20
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then18, %if.else26, %if.then24
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.034, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.032, i64 1
   %cmp16 = icmp ult ptr %incdec.ptr, %end.0
   br i1 %cmp16, label %for.body, label %for.end, !llvm.loop !20
 
@@ -5594,14 +5594,14 @@ if.then35:                                        ; preds = %for.end
   %call37 = tail call i32 @evbuffer_remove(ptr noundef nonnull %call, ptr noundef nonnull %call33, i64 noundef %call36) #19
   br label %if.then40
 
-if.then40:                                        ; preds = %if.then35, %for.end, %if.else
-  %result.032 = phi ptr [ null, %if.else ], [ null, %for.end ], [ %call33, %if.then35 ]
+if.then40:                                        ; preds = %for.end, %if.then35, %if.else
+  %result.0.ph = phi ptr [ null, %if.else ], [ null, %for.end ], [ %call33, %if.then35 ]
   tail call void @evbuffer_free(ptr noundef nonnull %call) #19
   br label %if.end41
 
 if.end41:                                         ; preds = %entry, %if.then40
-  %result.029 = phi ptr [ %result.032, %if.then40 ], [ null, %entry ]
-  ret ptr %result.029
+  %result.030 = phi ptr [ %result.0.ph, %if.then40 ], [ null, %entry ]
+  ret ptr %result.030
 }
 
 declare i32 @evbuffer_remove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -8152,7 +8152,7 @@ if.then9:                                         ; preds = %if.end17.i, %while.
   %scheme = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call10, ptr %scheme, align 8
   %cmp12 = icmp eq ptr %call10, null
-  br i1 %cmp12, label %if.then113.sink.split, label %if.end14
+  br i1 %cmp12, label %if.then116.sink.split, label %if.end14
 
 if.end14:                                         ; preds = %if.then9
   %add.ptr = getelementptr inbounds nuw i8, ptr %call6, i64 1
@@ -8191,7 +8191,7 @@ if.end.i57:                                       ; preds = %while.cond.i
 end_of_authority.exit:                            ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
   %call27 = tail call fastcc i32 @parse_authority(ptr noundef %call, ptr noundef %add.ptr24, ptr noundef %cp.addr.0.i, ptr noundef %call)
   %cmp28 = icmp slt i32 %call27, 0
-  br i1 %cmp28, label %if.then113, label %if.end32
+  br i1 %cmp28, label %if.then116, label %if.end32
 
 if.end32:                                         ; preds = %end_of_authority.exit, %land.lhs.true18, %if.end15
   %readp.1 = phi ptr [ %readp.0, %land.lhs.true18 ], [ %readp.0, %if.end15 ], [ %cp.addr.0.i, %end_of_authority.exit ]
@@ -8226,7 +8226,7 @@ if.end46:                                         ; preds = %if.then43, %if.end3
   %8 = phi i8 [ %.pre, %if.then43 ], [ %7, %if.end39 ]
   %fragment.0 = phi ptr [ %incdec.ptr44, %if.then43 ], [ null, %if.end39 ]
   %cmp48.not = icmp eq i8 %8, 0
-  br i1 %cmp48.not, label %if.end51, label %if.then113
+  br i1 %cmp48.not, label %if.end51, label %if.then116
 
 if.end51:                                         ; preds = %if.end46
   %9 = load i8, ptr %readp.1, align 1
@@ -8240,10 +8240,10 @@ land.lhs.true58:                                  ; preds = %land.lhs.true53
   %arrayidx59 = getelementptr inbounds nuw i8, ptr %readp.1, i64 1
   %10 = load i8, ptr %arrayidx59, align 1
   %cmp61 = icmp eq i8 %10, 47
-  br i1 %cmp61, label %if.then113, label %if.end77
+  br i1 %cmp61, label %if.then116, label %if.end77
 
 land.lhs.true66:                                  ; preds = %if.end51
-  switch i8 %9, label %if.then113 [
+  switch i8 %9, label %if.then116 [
     i8 47, label %if.end77
     i8 0, label %if.end77
   ]
@@ -8260,7 +8260,7 @@ while.cond.i59:                                   ; preds = %if.end77, %if.end6.
   %cp.addr.0.i60 = phi ptr [ %incdec.ptr.i62, %if.end6.i ], [ %readp.1, %if.end77 ]
   switch i8 %13, label %if.end6.i [
     i8 0, label %do.end
-    i8 58, label %if.then113
+    i8 58, label %if.then116
     i8 47, label %do.end
   ]
 
@@ -8274,7 +8274,7 @@ do.end:                                           ; preds = %while.cond.i59, %wh
   %path86 = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %call85, ptr %path86, align 8
   %cmp88 = icmp eq ptr %call85, null
-  br i1 %cmp88, label %if.then113.sink.split, label %if.end91
+  br i1 %cmp88, label %if.then116.sink.split, label %if.end91
 
 if.end91:                                         ; preds = %do.end
   %tobool92.not = icmp eq ptr %query.0, null
@@ -8285,7 +8285,7 @@ if.then93:                                        ; preds = %if.end91
   %query95 = getelementptr inbounds nuw i8, ptr %call, i64 56
   store ptr %call94, ptr %query95, align 8
   %cmp97 = icmp eq ptr %call94, null
-  br i1 %cmp97, label %if.then113.sink.split, label %if.end101
+  br i1 %cmp97, label %if.then116.sink.split, label %if.end101
 
 if.end101:                                        ; preds = %if.then93, %if.end91
   %tobool102.not = icmp eq ptr %fragment.0, null
@@ -8296,23 +8296,23 @@ if.then103:                                       ; preds = %if.end101
   %fragment105 = getelementptr inbounds nuw i8, ptr %call, i64 64
   store ptr %call104, ptr %fragment105, align 8
   %cmp107 = icmp eq ptr %call104, null
-  br i1 %cmp107, label %if.then113.sink.split, label %if.end111
+  br i1 %cmp107, label %if.then116.sink.split, label %if.end111
 
 if.end111:                                        ; preds = %if.then103, %if.end101
   tail call void @event_mm_free_(ptr noundef nonnull %call2) #19
   br label %return
 
-if.then113.sink.split:                            ; preds = %if.then103, %if.then93, %do.end, %if.then9
+if.then116.sink.split:                            ; preds = %do.end, %if.then93, %if.then103, %if.then9
   tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_uri_parse_with_flags) #19
-  br label %if.then113
+  br label %if.then116
 
-if.then113:                                       ; preds = %while.cond.i59, %if.then113.sink.split, %end_of_authority.exit, %if.end46, %land.lhs.true58, %land.lhs.true66
+if.then116:                                       ; preds = %while.cond.i59, %if.then116.sink.split, %end_of_authority.exit, %land.lhs.true66, %land.lhs.true58, %if.end46
   tail call void @evhttp_uri_free(ptr noundef nonnull %call)
   tail call void @event_mm_free_(ptr noundef nonnull %call2) #19
   br label %return
 
-return:                                           ; preds = %if.then113.thread, %if.end114.thread, %if.then113, %if.end111
-  %retval.0 = phi ptr [ %call, %if.end111 ], [ null, %if.then113 ], [ null, %if.end114.thread ], [ null, %if.then113.thread ]
+return:                                           ; preds = %if.then113.thread, %if.end114.thread, %if.then116, %if.end111
+  %retval.0 = phi ptr [ %call, %if.end111 ], [ null, %if.then116 ], [ null, %if.end114.thread ], [ null, %if.then113.thread ]
   ret ptr %retval.0
 }
 

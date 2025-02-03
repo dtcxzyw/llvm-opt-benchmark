@@ -4860,7 +4860,7 @@ common.resume:                                    ; preds = %lpad68, %lpad298, %
 lpad25.i.i.i:                                     ; preds = %if.then24.i.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #27
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #27
   br label %common.resume
 
 _ZNK8proxygen11HTTPMessage16getStatusMessageB5cxx11Ev.exit: ; preds = %if.then113, %if.then.i.i.i
@@ -7987,7 +7987,7 @@ invoke.cont26.i:                                  ; preds = %if.then24.i
 lpad25.i:                                         ; preds = %if.then24.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #27
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #27
   resume { ptr, i32 } %1
 
 _ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
@@ -9038,7 +9038,7 @@ invoke.cont26:                                    ; preds = %if.then24
 lpad25:                                           ; preds = %if.then24
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #27
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #27
   resume { ptr, i32 } %1
 
 if.end27:                                         ; preds = %entry, %if.then

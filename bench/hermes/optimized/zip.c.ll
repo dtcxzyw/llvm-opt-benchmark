@@ -7740,7 +7740,7 @@ for.end35:                                        ; preds = %for.body23, %for.en
   br i1 %cmp37.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %for.end35
-  call void @free(ptr noundef %call) #30
+  call void @free(ptr noundef nonnull %call) #30
   %16 = load ptr, ptr %m_pBuf, align 8
   call void @free(ptr noundef %16) #30
   br label %return

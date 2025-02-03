@@ -1609,7 +1609,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %331 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @__cxa_free_exception(ptr %328) #25
+  call void @__cxa_free_exception(ptr nonnull %328) #25
   br label %.body459
 
 332:                                              ; preds = %334, %329
@@ -3706,7 +3706,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %957 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @__cxa_free_exception(ptr %948) #25
+  call void @__cxa_free_exception(ptr nonnull %948) #25
   br label %1596
 
 958:                                              ; preds = %960, %949

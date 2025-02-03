@@ -80,7 +80,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 18:                                               ; preds = %17, %12
   %.not9.i = icmp eq ptr %14, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %19
+  br i1 %.not9.i, label %opal_obj_new.exit, label %19
 
 19:                                               ; preds = %18
   store ptr @opal_cmd_line_t_class, ptr %14, align 8
@@ -89,7 +89,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_cmd_line_t_class, i64 40), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i.i = icmp eq ptr %22, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread86, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
   %23 = phi ptr [ %25, %.lr.ph.i.i ], [ %22, %19 ]
@@ -98,9 +98,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %24 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread86, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !5
 
-opal_obj_new.exit.thread:                         ; preds = %18
+opal_obj_new.exit:                                ; preds = %18
   %26 = tail call ptr @__errno_location() #11
   %27 = load i32, ptr %26, align 4
   %28 = load ptr, ptr @opal_show_help, align 8
@@ -108,18 +108,18 @@ opal_obj_new.exit.thread:                         ; preds = %18
   call void @exit(i32 noundef %27) #9
   unreachable
 
-opal_obj_new.exit.thread86:                       ; preds = %.lr.ph.i.i, %19
+.loopexit:                                        ; preds = %.lr.ph.i.i, %19
   %30 = load i32, ptr %3, align 4
   %31 = load ptr, ptr %4, align 8
   %32 = call i32 @opal_info_init(i32 noundef %30, ptr noundef %31, ptr noundef nonnull %14) #8
   %.not50 = icmp eq i32 %32, 0
   br i1 %.not50, label %34, label %33
 
-33:                                               ; preds = %opal_obj_new.exit.thread86
+33:                                               ; preds = %.loopexit
   call void @exit(i32 noundef %32) #9
   unreachable
 
-34:                                               ; preds = %opal_obj_new.exit.thread86
+34:                                               ; preds = %.loopexit
   %35 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef nonnull %14, ptr noundef nonnull @.str.5) #8
   br i1 %35, label %36, label %39
 
@@ -207,9 +207,9 @@ opal_obj_run_constructors.exit62:                 ; preds = %.lr.ph.i59, %54
 
 66:                                               ; preds = %opal_obj_run_constructors.exit62
   %67 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef nonnull %14, ptr noundef nonnull @.str.11) #8
-  br i1 %67, label %.thread101, label %.critedge
+  br i1 %67, label %.thread100, label %.critedge
 
-.thread101:                                       ; preds = %66
+.thread100:                                       ; preds = %66
   call void @opal_info_out(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #8
   %68 = load ptr, ptr @opal_info_ver_full, align 8
   call void @ompi_info_show_ompi_version(ptr noundef %68) #8
@@ -217,7 +217,7 @@ opal_obj_run_constructors.exit62:                 ; preds = %.lr.ph.i59, %54
   call void @opal_info_do_arch() #8
   call void @opal_info_do_hostname() #8
   call void @ompi_info_do_config(i1 noundef zeroext true) #8
-  br label %.thread102
+  br label %.thread101
 
 .critedge:                                        ; preds = %66
   %69 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef nonnull %14, ptr noundef nonnull @.str.15) #8
@@ -229,55 +229,55 @@ opal_obj_run_constructors.exit62:                 ; preds = %.lr.ph.i59, %54
 
 .thread:                                          ; preds = %.critedge, %70
   %71 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef nonnull %14, ptr noundef nonnull @.str.16) #8
-  br i1 %71, label %72, label %.thread90
+  br i1 %71, label %72, label %.thread89
 
 72:                                               ; preds = %.thread
   call void @opal_info_do_arch() #8
-  br label %.thread90
+  br label %.thread89
 
-.thread90:                                        ; preds = %.thread, %72
-  %.192 = phi i1 [ true, %72 ], [ %69, %.thread ]
+.thread89:                                        ; preds = %.thread, %72
+  %.191 = phi i1 [ true, %72 ], [ %69, %.thread ]
   %73 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef nonnull %14, ptr noundef nonnull @.str.17) #8
-  br i1 %73, label %74, label %.thread94
+  br i1 %73, label %74, label %.thread93
 
-74:                                               ; preds = %.thread90
+74:                                               ; preds = %.thread89
   call void @opal_info_do_hostname() #8
-  br label %.thread94
+  br label %.thread93
 
-.thread94:                                        ; preds = %.thread90, %74
-  %.296 = phi i1 [ true, %74 ], [ %.192, %.thread90 ]
+.thread93:                                        ; preds = %.thread89, %74
+  %.295 = phi i1 [ true, %74 ], [ %.191, %.thread89 ]
   %75 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef nonnull %14, ptr noundef nonnull @.str.18) #8
-  br i1 %75, label %76, label %.thread98
+  br i1 %75, label %76, label %.thread97
 
-76:                                               ; preds = %.thread94
+76:                                               ; preds = %.thread93
   call void @ompi_info_do_config(i1 noundef zeroext true) #8
-  br label %.thread98
+  br label %.thread97
 
-.thread98:                                        ; preds = %.thread94, %76
-  %.3100 = phi i1 [ true, %76 ], [ %.296, %.thread94 ]
+.thread97:                                        ; preds = %.thread93, %76
+  %.399 = phi i1 [ true, %76 ], [ %.295, %.thread93 ]
   %77 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef nonnull %14, ptr noundef nonnull @.str.19) #8
-  br i1 %77, label %.thread102, label %78
+  br i1 %77, label %.thread101, label %78
 
-78:                                               ; preds = %.thread98
+78:                                               ; preds = %.thread97
   %79 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef nonnull %14, ptr noundef nonnull @.str.20) #8
-  br i1 %79, label %.thread102, label %80
+  br i1 %79, label %.thread101, label %80
 
 80:                                               ; preds = %78
   %81 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef nonnull %14, ptr noundef nonnull @.str.21) #8
   br i1 %81, label %.critedge56, label %84
 
-.thread102:                                       ; preds = %.thread98, %78, %.thread101
+.thread101:                                       ; preds = %.thread97, %78, %.thread100
   %82 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef nonnull %14, ptr noundef nonnull @.str.10) #8
   call void @opal_info_do_params(i1 noundef zeroext %67, i1 noundef zeroext %82, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %14) #8
   %83 = call zeroext i1 @opal_cmd_line_is_taken(ptr noundef nonnull %14, ptr noundef nonnull @.str.21) #8
-  br i1 %83, label %.critedge56, label %.thread105
+  br i1 %83, label %.critedge56, label %.thread104
 
-.critedge56:                                      ; preds = %.thread102, %80
+.critedge56:                                      ; preds = %.thread101, %80
   call void @opal_info_do_type(ptr noundef nonnull %14) #8
-  br label %.thread105
+  br label %.thread104
 
 84:                                               ; preds = %80
-  br i1 %.3100, label %.thread105, label %85
+  br i1 %.399, label %.thread104, label %85
 
 85:                                               ; preds = %84
   call void @opal_info_out(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #8
@@ -293,20 +293,20 @@ opal_obj_run_constructors.exit62:                 ; preds = %.lr.ph.i59, %54
   %91 = load ptr, ptr @opal_info_ver_full, align 8
   %92 = load ptr, ptr @opal_info_ver_all, align 8
   call void @opal_info_show_component_version(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92) #8
-  br label %.thread105
+  br label %.thread104
 
-.thread105:                                       ; preds = %.thread102, %.critedge56, %85, %84
+.thread104:                                       ; preds = %.thread101, %.critedge56, %85, %84
   call void @ompi_info_close_components() #8
   %93 = load i8, ptr @opal_uses_threads, align 1
   %94 = trunc i8 %93 to i1
   br i1 %94, label %95, label %98
 
-95:                                               ; preds = %.thread105
+95:                                               ; preds = %.thread104
   %96 = atomicrmw volatile add ptr %20, i32 -1 monotonic, align 4
   %97 = add i32 %96, -1
   br label %opal_thread_add_fetch_32.exit
 
-98:                                               ; preds = %.thread105
+98:                                               ; preds = %.thread104
   %99 = load volatile i32, ptr %20, align 4
   %100 = add nsw i32 %99, -1
   store volatile i32 %100, ptr %20, align 4
@@ -336,7 +336,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %95, %98
   br i1 %.not.i66, label %opal_obj_run_destructors.exit, label %.lr.ph.i64, !llvm.loop !7
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i64, %103
-  call void @free(ptr noundef %14) #8
+  call void @free(ptr noundef nonnull %14) #8
   br label %111
 
 111:                                              ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
@@ -435,7 +435,7 @@ opal_thread_add_fetch_32.exit75:                  ; preds = %141, %144
   br i1 %.not.i79, label %opal_obj_run_destructors.exit80, label %.lr.ph.i77, !llvm.loop !7
 
 opal_obj_run_destructors.exit80:                  ; preds = %.lr.ph.i77, %149
-  call void @free(ptr noundef %133) #8
+  call void @free(ptr noundef nonnull %133) #8
   br label %157
 
 157:                                              ; preds = %opal_pointer_array_get_item.exit, %opal_thread_add_fetch_32.exit75, %opal_obj_run_destructors.exit80

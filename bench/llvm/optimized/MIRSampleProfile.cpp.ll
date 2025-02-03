@@ -15315,7 +15315,7 @@ _ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPKNS_15MachineFunctionENS_23df_ite
 
 89:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !151
-  call void @_ZN4llvm11df_iteratorINS_7InverseIPKNS_17MachineBasicBlockEEENS_23df_iterator_default_setIS4_Lj8EEELb1ENS_11GraphTraitsIS5_EEEC2ES4_RS7_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %.sroa.0194.0274, ptr noundef nonnull align 8 dereferenceable(96) %8), !noalias !154
+  call void @_ZN4llvm11df_iteratorINS_7InverseIPKNS_17MachineBasicBlockEEENS_23df_iterator_default_setIS4_Lj8EEELb1ENS_11GraphTraitsIS5_EEEC2ES4_RS7_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %.sroa.0194.0274, ptr noundef nonnull align 8 dereferenceable(96) %8), !noalias !154
   %90 = load ptr, ptr %4, align 8, !noalias !154
   %91 = load ptr, ptr %81, align 8, !noalias !154
   %92 = load ptr, ptr %80, align 8, !noalias !154

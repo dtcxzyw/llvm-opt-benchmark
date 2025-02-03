@@ -2824,7 +2824,7 @@ common.resume:                                    ; preds = %ehcleanup44, %lpad.
 lpad.i.i:                                         ; preds = %if.then.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   br label %common.resume
 
 _ZN8proxygen2hq13HQStreamCodec20maxEncoderStreamDataEv.exit: ; preds = %cond.end.i
@@ -3316,7 +3316,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   br label %ehcleanup51
 
 invoke.cont15:                                    ; preds = %cond.end.i

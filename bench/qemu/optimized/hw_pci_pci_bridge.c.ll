@@ -415,19 +415,19 @@ pci_bridge_init_alias.exit34:                     ; preds = %if.then.i12.i, %if.
   %reass.sub37 = sub nsw i64 %or.i.i, %conv1.i.i
   %sub.i32 = add nsw i64 %reass.sub37, 1
   %cond.i33 = select i1 %or.cond.not.i30, i64 %sub.i32, i64 0
-  tail call void @memory_region_init_alias(ptr noundef nonnull %alias_io, ptr noundef %br, ptr noundef nonnull @.str.1, ptr noundef nonnull %address_space_io, i64 noundef %conv1.i.i, i64 noundef %cond.i33) #9
+  tail call void @memory_region_init_alias(ptr noundef nonnull %alias_io, ptr noundef nonnull %br, ptr noundef nonnull @.str.1, ptr noundef nonnull %address_space_io, i64 noundef %conv1.i.i, i64 noundef %cond.i33) #9
   tail call void @memory_region_add_subregion_overlap(ptr noundef %6, i64 noundef %conv1.i.i, ptr noundef nonnull %alias_io, i32 noundef 1) #9
   %alias_vga = getelementptr inbounds nuw i8, ptr %br, i64 6288
-  %call.i.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef %br, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
+  %call.i.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %br, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
   %config.i = getelementptr inbounds nuw i8, ptr %call.i.i35, i64 168
   %14 = load ptr, ptr %config.i, align 8
   %add.ptr.i = getelementptr i8, ptr %14, i64 62
   %add.ptr.val.i = load i16, ptr %add.ptr.i, align 1
   %arrayidx.i = getelementptr i8, ptr %br, i64 6560
-  tail call void @memory_region_init_alias(ptr noundef %arrayidx.i, ptr noundef %br, ptr noundef nonnull @.str.9, ptr noundef nonnull %address_space_io, i64 noundef 944, i64 noundef 12) #9
+  tail call void @memory_region_init_alias(ptr noundef %arrayidx.i, ptr noundef nonnull %br, ptr noundef nonnull @.str.9, ptr noundef nonnull %address_space_io, i64 noundef 944, i64 noundef 12) #9
   %arrayidx2.i = getelementptr i8, ptr %br, i64 6832
-  tail call void @memory_region_init_alias(ptr noundef %arrayidx2.i, ptr noundef %br, ptr noundef nonnull @.str.10, ptr noundef nonnull %address_space_io, i64 noundef 960, i64 noundef 32) #9
-  tail call void @memory_region_init_alias(ptr noundef nonnull %alias_vga, ptr noundef %br, ptr noundef nonnull @.str.11, ptr noundef nonnull %address_space_mem, i64 noundef 655360, i64 noundef 131072) #9
+  tail call void @memory_region_init_alias(ptr noundef %arrayidx2.i, ptr noundef nonnull %br, ptr noundef nonnull @.str.10, ptr noundef nonnull %address_space_io, i64 noundef 960, i64 noundef 32) #9
+  tail call void @memory_region_init_alias(ptr noundef nonnull %alias_vga, ptr noundef nonnull %br, ptr noundef nonnull @.str.11, ptr noundef nonnull %address_space_mem, i64 noundef 655360, i64 noundef 131072) #9
   %15 = and i16 %add.ptr.val.i, 8
   %tobool.not.i = icmp eq i16 %15, 0
   br i1 %tobool.not.i, label %pci_bridge_init_vga_aliases.exit, label %if.then.i

@@ -10517,7 +10517,7 @@ define dso_local float @fonsDrawText(ptr noundef %0, float noundef %1, float nou
   br i1 %.not71, label %75, label %72
 
 72:                                               ; preds = %70
-  %73 = tail call float @fonsTextBounds(ptr noundef nonnull %0, float noundef %1, float noundef %2, ptr noundef %3, ptr noundef %.063, ptr noundef null)
+  %73 = tail call float @fonsTextBounds(ptr noundef nonnull %0, float noundef %1, float noundef %2, ptr noundef %3, ptr noundef nonnull %.063, ptr noundef null)
   %74 = fsub float %1, %73
   br label %.sink.split
 
@@ -10527,7 +10527,7 @@ define dso_local float @fonsDrawText(ptr noundef %0, float noundef %1, float nou
   br i1 %.not72, label %81, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call float @fonsTextBounds(ptr noundef nonnull %0, float noundef %1, float noundef %2, ptr noundef %3, ptr noundef %.063, ptr noundef null)
+  %78 = tail call float @fonsTextBounds(ptr noundef nonnull %0, float noundef %1, float noundef %2, ptr noundef %3, ptr noundef nonnull %.063, ptr noundef null)
   %79 = fneg float %78
   %80 = tail call float @llvm.fmuladd.f32(float %79, float 5.000000e-01, float %1)
   br label %.sink.split
@@ -24600,7 +24600,7 @@ nvg__allocTempVerts.exit:                         ; preds = %50, %119
   %129 = load ptr, ptr %51, align 8
   %130 = fmul float %1, %40
   %131 = fmul float %2, %40
-  %132 = call i32 @fonsTextIterInit(ptr noundef %129, ptr noundef nonnull %8, float noundef %130, float noundef %131, ptr noundef %3, ptr noundef %.080, i32 noundef 2)
+  %132 = call i32 @fonsTextIterInit(ptr noundef %129, ptr noundef nonnull %8, float noundef %130, float noundef %131, ptr noundef %3, ptr noundef nonnull %.080, i32 noundef 2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(80) %8, i64 80, i1 false)
   %133 = load ptr, ptr %51, align 8
   %134 = call i32 @fonsTextIterNext(ptr noundef %133, ptr noundef nonnull %8, ptr noundef nonnull %10)
@@ -25531,7 +25531,7 @@ define dso_local i32 @nvgTextBreakLines(ptr noundef captures(none) %0, ptr nound
   store i32 %95, ptr %101, align 4
   %102 = fmul float %3, %39
   %103 = load ptr, ptr %54, align 8
-  %104 = call i32 @fonsTextIterInit(ptr noundef %103, ptr noundef nonnull %7, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %1, ptr noundef %.0256, i32 noundef 1)
+  %104 = call i32 @fonsTextIterInit(ptr noundef %103, ptr noundef nonnull %7, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %1, ptr noundef nonnull %.0256, i32 noundef 1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %7, i64 80, i1 false)
   %105 = load ptr, ptr %54, align 8
   %106 = call i32 @fonsTextIterNext(ptr noundef %105, ptr noundef nonnull %7, ptr noundef nonnull %9)
@@ -25925,7 +25925,7 @@ define dso_local i32 @nvgTextGlyphPositions(ptr noundef captures(none) %0, float
   %101 = load ptr, ptr %53, align 8
   %102 = fmul float %1, %40
   %103 = fmul float %2, %40
-  %104 = call i32 @fonsTextIterInit(ptr noundef %101, ptr noundef nonnull %8, float noundef %102, float noundef %103, ptr noundef %3, ptr noundef %.049, i32 noundef 1)
+  %104 = call i32 @fonsTextIterInit(ptr noundef %101, ptr noundef nonnull %8, float noundef %102, float noundef %103, ptr noundef %3, ptr noundef nonnull %.049, i32 noundef 1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(80) %8, i64 80, i1 false)
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -37843,13 +37843,13 @@ stbi__hdr_convert.exit:                           ; preds = %247, %248, %250, %2
   br label %177
 
 .split73.us:                                      ; preds = %81
-  call void @free(ptr noundef %60) #57
+  call void @free(ptr noundef nonnull %60) #57
   call void @free(ptr noundef %.011363.us) #57
   store ptr @.str.107, ptr @stbi__g_failure_reason, align 8
   br label %._crit_edge65.thread
 
 stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.exit.us
-  call void @free(ptr noundef %60) #57
+  call void @free(ptr noundef nonnull %60) #57
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
   br label %._crit_edge65.thread
 

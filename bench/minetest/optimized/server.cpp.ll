@@ -5887,7 +5887,7 @@ invoke.cont.i2214:                                ; preds = %if.then.i2212
 lpad.i2213:                                       ; preds = %if.then.i2212
   %460 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #34
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #34
   br label %ehcleanup959
 
 if.then941:                                       ; preds = %call.i.i2209.noexc
@@ -24776,7 +24776,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #34
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -25980,7 +25980,7 @@ lpad.i:                                           ; preds = %if.then.i183
           cleanup
           catch ptr @_ZTI19SendFailedException
           catch ptr @_ZTI11PacketError
-  call void @__cxa_free_exception(ptr %exception.i) #34
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #34
   br label %ehcleanup81
 
 invoke.cont29:                                    ; preds = %call.i.i181.noexc
@@ -27152,7 +27152,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i321
 lpad.i.i:                                         ; preds = %if.then.i.i321
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #34, !noalias !822
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #34, !noalias !822
   br label %lpad100.body
 
 invoke.cont103:                                   ; preds = %call.i.i.i319.noexc
@@ -28871,7 +28871,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #34
   resume { ptr, i32 } %0
 
 _ZN6Server9getClientEt11ClientState.exit:         ; preds = %entry
@@ -43380,7 +43380,7 @@ common.resume:                                    ; preds = %ehcleanup175, %lpad
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #34
   br label %common.resume
 
 _ZN6Server9getClientEt11ClientState.exit:         ; preds = %entry
@@ -45088,7 +45088,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #34
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #34
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %call.i.i.noexc
@@ -45748,7 +45748,7 @@ common.resume:                                    ; preds = %_ZN13NetworkPacketD
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #34
   br label %common.resume
 
 _ZN6Server9getClientEt11ClientState.exit:         ; preds = %if.then
@@ -50165,7 +50165,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 lpad.i.i:                                         ; preds = %if.then.i.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #34, !noalias !1247
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #34, !noalias !1247
   br label %common.resume
 
 _ZN6Server14getPeerAddressEt.exit:                ; preds = %entry

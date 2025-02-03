@@ -1321,7 +1321,7 @@ invoke.cont:                                      ; preds = %for.end
 lpad:                                             ; preds = %for.end
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %21
 
 return:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2ERKS2_.exit

@@ -39,7 +39,7 @@ define hidden noundef range(i64 1, 9) i64 @_ZN7nanogui9type_sizeENS_12VariableTy
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #5
+  tail call void @__cxa_free_exception(ptr nonnull %4) #5
   resume { ptr, i32 } %7
 
 switch.lookup:                                    ; preds = %1

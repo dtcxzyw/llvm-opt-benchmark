@@ -548,37 +548,37 @@ define hidden void @_ZN18SafeThreadsListPtr19release_stable_listEv(ptr noundef n
   %37 = select i1 %36, ptr @.str.10, ptr @.str.11
   %38 = load ptr, ptr @ThreadsSMRDelete_lock, align 8
   %.not.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i, label %39
+  br i1 %.not.i.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i
 
-39:                                               ; preds = %34
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i: ; preds = %34
+  %39 = load volatile i32, ptr @_ZN17ThreadsSMRSupport14_delete_notifyE, align 4
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
+  %.not4.i = icmp eq i32 %39, 0
+  br i1 %.not4.i, label %_ZN17ThreadsSMRSupport27release_stable_list_wake_upEb.exit, label %41
+
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i: ; preds = %34
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %38) #15
-  br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i
-
-_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i: ; preds = %39, %34
   %40 = load volatile i32, ptr @_ZN17ThreadsSMRSupport14_delete_notifyE, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %45, label %41
+  br i1 %.not.i, label %.thread3.i, label %41
 
-41:                                               ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i
+41:                                               ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %38) #15
   %42 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_137ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not3.i = icmp eq ptr %42, null
-  br i1 %.not3.i, label %45, label %43
+  %.not5.i = icmp eq ptr %42, null
+  br i1 %.not5.i, label %.thread3.i, label %43
 
 43:                                               ; preds = %41
   %44 = tail call noundef i64 @_ZN2os17current_thread_idEv() #15
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE159ELS1_137ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.12, i64 noundef %44, ptr noundef nonnull %37)
-  br label %45
+  br label %.thread3.i
 
-45:                                               ; preds = %43, %41, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i
-  br i1 %.not.i.i.i, label %_ZN17ThreadsSMRSupport27release_stable_list_wake_upEb.exit, label %46
-
-46:                                               ; preds = %45
+.thread3.i:                                       ; preds = %43, %41, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %38) #15
   br label %_ZN17ThreadsSMRSupport27release_stable_list_wake_upEb.exit
 
-_ZN17ThreadsSMRSupport27release_stable_list_wake_upEb.exit: ; preds = %46, %45, %32
+_ZN17ThreadsSMRSupport27release_stable_list_wake_upEb.exit: ; preds = %.thread3.i, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i, %32
   ret void
 }
 
@@ -602,37 +602,37 @@ define hidden void @_ZN17ThreadsSMRSupport27release_stable_list_wake_upEb(i1 nou
   %2 = select i1 %0, ptr @.str.10, ptr @.str.11
   %3 = load ptr, ptr @ThreadsSMRDelete_lock, align 8
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %4
+  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
 
-4:                                                ; preds = %1
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1
+  %4 = load volatile i32, ptr @_ZN17ThreadsSMRSupport14_delete_notifyE, align 4
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
+  %.not4 = icmp eq i32 %4, 0
+  br i1 %.not4, label %_ZN13MonitorLockerD2Ev.exit, label %6
+
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread: ; preds = %1
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #15
-  br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-
-_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1, %4
   %5 = load volatile i32, ptr @_ZN17ThreadsSMRSupport14_delete_notifyE, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %10, label %6
+  br i1 %.not, label %.thread3, label %6
 
-6:                                                ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+6:                                                ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #15
   %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_137ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not3 = icmp eq ptr %7, null
-  br i1 %.not3, label %10, label %8
+  %.not5 = icmp eq ptr %7, null
+  br i1 %.not5, label %.thread3, label %8
 
 8:                                                ; preds = %6
   %9 = tail call noundef i64 @_ZN2os17current_thread_idEv() #15
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE159ELS1_137ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.12, i64 noundef %9, ptr noundef nonnull %2)
-  br label %10
+  br label %.thread3
 
-10:                                               ; preds = %8, %6, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %11
-
-11:                                               ; preds = %10
+.thread3:                                         ; preds = %6, %8, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #15
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %10, %11
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %.thread3
   ret void
 }
 

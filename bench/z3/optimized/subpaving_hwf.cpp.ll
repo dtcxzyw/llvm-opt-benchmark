@@ -3811,7 +3811,7 @@ if.end.i:                                         ; preds = %_ZN6id_gen2mkEv.exi
   %vtable.i = load ptr, ptr %13, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %14 = load ptr, ptr %vfn.i, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %call2.i)
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %call2.i)
   %m_leaf_head.i.i = getelementptr inbounds nuw i8, ptr %0, i64 480
   %15 = load ptr, ptr %m_leaf_head.i.i, align 8
   %m_next.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 96
@@ -3913,7 +3913,7 @@ if.end:                                           ; preds = %_ZN6id_gen2mkEv.exi
   %vtable = load ptr, ptr %12, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %call2)
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %call2)
   %m_leaf_head.i = getelementptr inbounds nuw i8, ptr %this, i64 480
   %14 = load ptr, ptr %m_leaf_head.i, align 8
   %m_next.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 96

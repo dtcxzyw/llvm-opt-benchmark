@@ -1071,7 +1071,7 @@ _ZL13gmx_snew_implI5mem_tEvPKcS2_iRPT_m.exit:     ; preds = %256
 
 261:                                              ; preds = %_ZL13gmx_snew_implI5mem_tEvPKcS2_iRPT_m.exit
   %262 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  invoke void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef nonnull %40, ptr noundef %260, i32 noundef 1, ptr noundef %63, ptr noundef nonnull %262, ptr noundef nonnull %39)
+  invoke void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef nonnull %40, ptr noundef %260, i32 noundef 1, ptr noundef nonnull %63, ptr noundef nonnull %262, ptr noundef nonnull %39)
           to label %263 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 263:                                              ; preds = %261
@@ -1218,7 +1218,7 @@ _ZL13gmx_snew_implI5mem_tEvPKcS2_iRPT_m.exit:     ; preds = %256
 316:                                              ; preds = %305
   %317 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %318 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  invoke void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef nonnull %40, ptr noundef %315, i32 noundef 1, ptr noundef nonnull %317, ptr noundef nonnull %318, ptr noundef %257)
+  invoke void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef nonnull %40, ptr noundef %315, i32 noundef 1, ptr noundef nonnull %317, ptr noundef nonnull %318, ptr noundef nonnull %257)
           to label %319 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 319:                                              ; preds = %316
@@ -1809,7 +1809,7 @@ _ZL13gmx_snew_implI7t_blockEvPKcS2_iRPT_m.exit:   ; preds = %493
           to label %.noexc232 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc232:                                        ; preds = %.noexc231
-  %584 = invoke fastcc noundef i32 @_ZL14get_mtype_listP7t_blockRK10gmx_mtop_tS0_(ptr noundef readonly %63, ptr noundef nonnull readonly align 8 dereferenceable(768) %3, ptr noundef %582)
+  %584 = invoke fastcc noundef i32 @_ZL14get_mtype_listP7t_blockRK10gmx_mtop_tS0_(ptr noundef nonnull readonly %63, ptr noundef nonnull readonly align 8 dereferenceable(768) %3, ptr noundef %582)
           to label %.noexc233 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc233:                                        ; preds = %.noexc232

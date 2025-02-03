@@ -26504,7 +26504,7 @@ lpad5:                                            ; preds = %invoke.cont8, %invo
 lpad7:                                            ; preds = %if.then
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #34
+  call void @__cxa_free_exception(ptr nonnull %exception) #34
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont6
@@ -26726,7 +26726,7 @@ lpad5:                                            ; preds = %invoke.cont8, %invo
 lpad7:                                            ; preds = %if.then
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #34
+  call void @__cxa_free_exception(ptr nonnull %exception) #34
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont6
@@ -26957,7 +26957,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 lpad11:                                           ; preds = %if.then10
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #34
+  call void @__cxa_free_exception(ptr nonnull %exception) #34
   br label %ehcleanup
 
 if.end13:                                         ; preds = %invoke.cont8
@@ -27250,7 +27250,7 @@ lpad:                                             ; preds = %invoke.cont7, %entr
 lpad6:                                            ; preds = %if.then
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #34
+  call void @__cxa_free_exception(ptr nonnull %exception) #34
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
@@ -36908,7 +36908,7 @@ invoke.cont4.i:                                   ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #34
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #34
   resume { ptr, i32 } %1
 
 _ZN6duckdb7Hugeint7ConvertIlEENS_9hugeint_tET_.exit: ; preds = %if.end
@@ -36968,7 +36968,7 @@ invoke.cont3.i:                                   ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #34
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #34
   resume { ptr, i32 } %1
 
 _ZN6duckdb7Hugeint7ConvertIiEENS_9hugeint_tET_.exit: ; preds = %if.end
@@ -37026,7 +37026,7 @@ invoke.cont3.i:                                   ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #34
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #34
   resume { ptr, i32 } %1
 
 _ZN6duckdb7Hugeint7ConvertIsEENS_9hugeint_tET_.exit: ; preds = %if.end
@@ -40654,7 +40654,7 @@ for.body:                                         ; preds = %for.cond
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  br i1 %call.i.i80, label %cleanup62, label %for.cond, !llvm.loop !737
+  br i1 %call.i.i80, label %if.then.i87, label %for.cond, !llvm.loop !737
 
 lpad:                                             ; preds = %for.body
   %1 = landingpad { ptr, i32 }
@@ -40744,23 +40744,23 @@ lpad46:                                           ; preds = %if.end44
           cleanup
   br label %ehcleanup63
 
-cleanup62:                                        ; preds = %invoke.cont, %invoke.cont31
-  %.pr = phi ptr [ %.pre107, %invoke.cont31 ], [ %call.i, %invoke.cont ]
-  %retval.sroa.0.0.ph = phi ptr [ %11, %invoke.cont31 ], [ %__it.sroa.0.0, %invoke.cont ]
-  %tobool.not.i = icmp eq ptr %.pr, null
+cleanup62:                                        ; preds = %invoke.cont31
+  %tobool.not.i = icmp eq ptr %.pre107, null
   br i1 %tobool.not.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb11LogicalTypeEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %if.then.i87
 
-if.then.i87:                                      ; preds = %cleanup62
-  %add.ptr.i.i88 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr, i64 40
+if.then.i87:                                      ; preds = %invoke.cont, %cleanup62
+  %retval.sroa.0.0.ph8 = phi ptr [ %11, %cleanup62 ], [ %__it.sroa.0.0, %invoke.cont ]
+  %.pr7 = phi ptr [ %.pre107, %cleanup62 ], [ %call.i, %invoke.cont ]
+  %add.ptr.i.i88 = getelementptr inbounds nuw i8, ptr %.pr7, i64 8
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr7, i64 40
   tail call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i) #34
   %16 = load ptr, ptr %add.ptr.i.i88, align 8, !tbaa !13
-  %17 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.pr7, i64 24
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %16, %17
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %if.then.i87
-  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr, i64 16
+  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr7, i64 16
   %18 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !16
   %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %18, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)
@@ -40771,12 +40771,12 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i87
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.pr) #37
+  tail call void @_ZdlPv(ptr noundef nonnull %.pr7) #37
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb11LogicalTypeEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb11LogicalTypeEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i, %cleanup62, %if.end44
   %retval.sroa.4.097 = phi i8 [ 0, %cleanup62 ], [ 0, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i ], [ 1, %if.end44 ]
-  %retval.sroa.0.096 = phi ptr [ %retval.sroa.0.0.ph, %cleanup62 ], [ %retval.sroa.0.0.ph, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i ], [ %call48, %if.end44 ]
+  %retval.sroa.0.096 = phi ptr [ %11, %cleanup62 ], [ %retval.sroa.0.0.ph8, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i ], [ %call48, %if.end44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node) #34
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.096, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.097, 1

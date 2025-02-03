@@ -718,12 +718,12 @@ Vec_IntPush.exit163:
   %.0188 = phi ptr [ %17, %.lr.ph189 ], [ %.0107187, %.critedge6 ]
   %.0107187 = phi ptr [ %13, %.lr.ph189 ], [ %.0188, %.critedge6 ]
   %.0108186 = phi i32 [ %1, %.lr.ph189 ], [ %191, %.critedge6 ]
-  call void @Gia_ManIncrementTravId(ptr noundef %0) #16
+  call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #16
   %52 = load i32, ptr %34, align 8
   %53 = load ptr, ptr %35, align 8
   store i32 %52, ptr %53, align 4
   %.val142 = load ptr, ptr %22, align 8
-  call fastcc void @Bmc_ManBCoreAssignVar(ptr noundef %0, ptr noundef %.val142, i32 noundef %.0108186, ptr noundef nonnull %9)
+  call fastcc void @Bmc_ManBCoreAssignVar(ptr noundef nonnull %0, ptr noundef %.val142, i32 noundef %.0108186, ptr noundef nonnull %9)
   %.val143 = load ptr, ptr %22, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.val143, i64 8
   %55 = load i32, ptr %54, align 4

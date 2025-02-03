@@ -907,9 +907,9 @@ if.then152:                                       ; preds = %for.body.i, %for.bo
   tail call void @Curl_altsvc_cleanup(ptr noundef nonnull %asi157) #8
   %hsts158 = getelementptr inbounds nuw i8, ptr %call, i64 2728
   tail call void @Curl_hsts_cleanup(ptr noundef nonnull %hsts158) #8
-  tail call void @Curl_freeset(ptr noundef %call) #8
+  tail call void @Curl_freeset(ptr noundef nonnull %call) #8
   %31 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %31(ptr noundef %call) #8
+  tail call void %31(ptr noundef nonnull %call) #8
   br label %return
 
 return:                                           ; preds = %if.then152, %entry, %if.end149

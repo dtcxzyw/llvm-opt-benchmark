@@ -256,7 +256,7 @@ while.body.i.i.i:                                 ; preds = %for.body.i.i, %call
   %mul.i.i.i = mul nsw i32 %div.i.i.i, %itemSize
   %idx.ext.i.i.i = sext i32 %mul.i.i.i to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %array, i64 %idx.ext.i.i.i
-  %call.i.i6.i = invoke noundef i32 %cmp(ptr noundef %context, ptr noundef nonnull %add.ptr.i.i, ptr noundef %add.ptr.i.i.i)
+  %call.i.i6.i = invoke noundef i32 %cmp(ptr noundef %context, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr.i.i.i)
           to label %call.i.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.i
 
 call.i.i.noexc.i:                                 ; preds = %while.body.i.i.i
@@ -277,7 +277,7 @@ while.body10.i.i.i:                               ; preds = %if.end22.i.i.i, %wh
   %found.226.i.i.i = phi i8 [ %found.0.lcssa.i27.i.i, %while.body10.preheader.i.i.i ], [ %found.3.i.i.i, %if.end22.i.i.i ]
   %11 = mul nsw i64 %indvars.iv.i.i.i, %7
   %add.ptr14.i.i.i = getelementptr inbounds i8, ptr %array, i64 %11
-  %call15.i.i7.i = invoke noundef i32 %cmp(ptr noundef %context, ptr noundef nonnull %add.ptr.i.i, ptr noundef %add.ptr14.i.i.i)
+  %call15.i.i7.i = invoke noundef i32 %cmp(ptr noundef %context, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr14.i.i.i)
           to label %call15.i.i.noexc.i unwind label %lpad.loopexit.i
 
 call15.i.i.noexc.i:                               ; preds = %while.body10.i.i.i

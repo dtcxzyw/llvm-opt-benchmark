@@ -113678,7 +113678,7 @@ define internal fastcc { ptr, i64 } @_ZN5typst13introspection12introspector1_15_
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #83
   unreachable
 
-"_ZN4core3ptr75drop_in_place$LT$typst..introspection..introspector.._..__ComemoVariant$GT$17hd48d2ff2e076a4f1E.exit": ; preds = %41, %.sink.split.i
+"_ZN4core3ptr75drop_in_place$LT$typst..introspection..introspector.._..__ComemoVariant$GT$17hd48d2ff2e076a4f1E.exit": ; preds = %.sink.split.i, %41
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
   ret { ptr, i64 } %8
 

@@ -988,7 +988,7 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
   br i1 %.not83, label %._crit_edge112, label %59, !llvm.loop !17
 
 ._crit_edge112:                                   ; preds = %66, %.preheader
-  call void @free(ptr noundef %55) #13
+  call void @free(ptr noundef nonnull %55) #13
   br label %69
 
 69:                                               ; preds = %._crit_edge112, %57, %._crit_edge100, %._crit_edge

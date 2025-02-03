@@ -11476,7 +11476,7 @@ call110.i.noexc:                                  ; preds = %if.end.i
   br i1 %call110.i16, label %if.then, label %if.end3.i
 
 if.end3.i:                                        ; preds = %call110.i.noexc
-  %call4.i17 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %argc, ptr noundef readonly %argv, ptr noundef readonly %pattern, ptr noundef nonnull %filtersString)
+  %call4.i17 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %argc, ptr noundef readonly %argv, ptr noundef nonnull readonly %pattern, ptr noundef nonnull %filtersString)
           to label %_ZN7doctest6StringD2Ev.exit unwind label %_ZN7doctest6StringD2Ev.exit28
 
 _ZN7doctest6StringD2Ev.exit:                      ; preds = %if.end3.i
@@ -11625,7 +11625,7 @@ call110.i.noexc:                                  ; preds = %if.end.i
   br i1 %call110.i10, label %if.end, label %if.end3.i
 
 if.end3.i:                                        ; preds = %call110.i.noexc
-  %call4.i11 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %argc, ptr noundef readonly %argv, ptr noundef readonly %pattern, ptr noundef nonnull %parsedValue)
+  %call4.i11 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %argc, ptr noundef readonly %argv, ptr noundef nonnull readonly %pattern, ptr noundef nonnull %parsedValue)
           to label %_ZN7doctest6StringD2Ev.exit unwind label %_ZN7doctest6StringD2Ev.exit20
 
 _ZN7doctest6StringD2Ev.exit:                      ; preds = %if.end3.i
@@ -26860,7 +26860,7 @@ lpad.i.i.i.i.i.i:                                 ; preds = %.noexc.i.i.i
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type.i.i.i.i.i.i) #44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i.i1.i) #44
-  br label %lpad.body.i.i.i
+  br label %invoke.cont21.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %.noexc.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i.i, label %for.body.i.i.i.i.i.i
@@ -26896,30 +26896,19 @@ if.then.i33.i.i.i:                                ; preds = %_ZNSt6vectorIN7doct
 lpad.i.i.i:                                       ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE11_M_allocateEm.exit.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
-  br label %lpad.body.i.i.i
-
-lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %lpad.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %11, %lpad.i.i.i ], [ %10, %lpad.i.i.i.i.i.i ]
-  %12 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
-  %13 = call ptr @__cxa_begin_catch(ptr %12) #44
-  %tobool.not.i.i.i = icmp eq ptr %cond.i19.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %if.end.thread.i.i.i, label %if.then.i38.i.i.i
-
-if.end.thread.i.i.i:                              ; preds = %lpad.body.i.i.i
-  call fastcc void @_ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageEEE7destroyIS4_EEvRS5_PT_(ptr noundef %add.ptr.i.i1.i) #44
   br label %invoke.cont21.i.i.i
 
 lpad19.i.i.i:                                     ; preds = %invoke.cont21.i.i.i
-  %14 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %lpad9.body unwind label %terminate.lpad.i.i.i
 
-if.then.i38.i.i.i:                                ; preds = %lpad.body.i.i.i
+invoke.cont21.i.i.i:                              ; preds = %lpad.i.i.i, %lpad.i.i.i.i.i.i
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %11, %lpad.i.i.i ], [ %10, %lpad.i.i.i.i.i.i ]
+  %13 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
+  %14 = call ptr @__cxa_begin_catch(ptr %13) #44
   call void @_ZdlPv(ptr noundef nonnull %cond.i19.i.i.i) #45
-  br label %invoke.cont21.i.i.i
-
-invoke.cont21.i.i.i:                              ; preds = %if.then.i38.i.i.i, %if.end.thread.i.i.i
   invoke void @__cxa_rethrow() #46
           to label %unreachable.i.i.i unwind label %lpad19.i.i.i
 
@@ -26968,7 +26957,7 @@ lpad9:                                            ; preds = %cond.true.i.i.i.i, 
   br label %lpad9.body
 
 lpad9.body:                                       ; preds = %lpad.i.i.i.i.i, %lpad19.i.i.i, %lpad9
-  %eh.lpad-body15 = phi { ptr, i32 } [ %20, %lpad9 ], [ %7, %lpad.i.i.i.i.i ], [ %14, %lpad19.i.i.i ]
+  %eh.lpad-body15 = phi { ptr, i32 } [ %20, %lpad9 ], [ %7, %lpad.i.i.i.i.i ], [ %12, %lpad19.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #44
   br label %ehcleanup
 
@@ -27839,7 +27828,7 @@ if.then.i:                                        ; preds = %entry
           to label %_ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseEEE9constructIS4_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvRS5_PT_DpOT0_.exit.i unwind label %lpad.i.i.i.i
 
 common.resume.i:                                  ; preds = %lpad19.i.i, %lpad.i.i.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i ], [ %16, %lpad19.i.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i ], [ %14, %lpad19.i.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 lpad.i.i.i.i:                                     ; preds = %if.then.i
@@ -27899,7 +27888,7 @@ lpad.i.i.i.i.i:                                   ; preds = %.noexc.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %add.ptr.i.i) #44
-  br label %lpad.body.i.i
+  br label %invoke.cont21.i.i
 
 invoke.cont.i.i:                                  ; preds = %.noexc.i.i
   %time.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 64
@@ -27964,30 +27953,19 @@ if.then.i45.i.i:                                  ; preds = %_ZNSt6vectorIN7doct
 lpad.i.i:                                         ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_M_allocateEm.exit.i.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
-  br label %lpad.body.i.i
-
-lpad.body.i.i:                                    ; preds = %lpad.i.i, %lpad.i.i.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %13, %lpad.i.i ], [ %5, %lpad.i.i.i.i.i ]
-  %14 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
-  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #44
-  %tobool.not.i.i = icmp eq ptr %cond.i19.i.i, null
-  br i1 %tobool.not.i.i, label %if.end.thread.i.i, label %if.then.i50.i.i
-
-if.end.thread.i.i:                                ; preds = %lpad.body.i.i
-  tail call fastcc void @_ZN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %add.ptr.i.i) #44
   br label %invoke.cont21.i.i
 
 lpad19.i.i:                                       ; preds = %invoke.cont21.i.i
-  %16 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume.i unwind label %terminate.lpad.i.i
 
-if.then.i50.i.i:                                  ; preds = %lpad.body.i.i
+invoke.cont21.i.i:                                ; preds = %lpad.i.i, %lpad.i.i.i.i.i
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %13, %lpad.i.i ], [ %5, %lpad.i.i.i.i.i ]
+  %15 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
+  %16 = tail call ptr @__cxa_begin_catch(ptr %15) #44
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i19.i.i) #45
-  br label %invoke.cont21.i.i
-
-invoke.cont21.i.i:                                ; preds = %if.then.i50.i.i, %if.end.thread.i.i
   invoke void @__cxa_rethrow() #46
           to label %unreachable.i.i unwind label %lpad19.i.i
 
@@ -28292,17 +28270,6 @@ terminate.lpad:                                   ; preds = %lpad4
 
 unreachable:                                      ; preds = %invoke.cont5
   unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageEEE7destroyIS4_EEvRS5_PT_(ptr noundef %__p) unnamed_addr #6 align 2 {
-entry:
-  %details.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %details.i.i) #44
-  %type.i.i = getelementptr inbounds nuw i8, ptr %__p, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type.i.i) #44
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__p) #44
-  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -28993,7 +28960,7 @@ lpad2.i.i.i.i:                                    ; preds = %invoke.cont.i.i.i.i
   br label %ehcleanup.i.i.i.i
 
 common.resume.i:                                  ; preds = %lpad21.i.i, %ehcleanup.i.i.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i ], [ %12, %lpad21.i.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i ], [ %10, %lpad21.i.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 ehcleanup.i.i.i.i:                                ; preds = %lpad2.i.i.i.i, %lpad.i.i.i.i
@@ -29065,7 +29032,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont.i.i.i.i
 ehcleanup.i.i.i.i.i:                              ; preds = %lpad2.i.i.i.i.i, %lpad.i.i.i.i.i
   %.pn.i.i.i.i.i = phi { ptr, i32 } [ %8, %lpad2.i.i.i.i.i ], [ %7, %lpad.i.i.i.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i.i1) #44
-  br label %lpad.body.i.i
+  br label %invoke.cont23.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i, label %for.body.i.i.i.i.i
@@ -29101,30 +29068,19 @@ if.then.i33.i.i:                                  ; preds = %_ZNSt6vectorIN7doct
 lpad.i.i:                                         ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageESaIS4_EE11_M_allocateEm.exit.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  br label %lpad.body.i.i
-
-lpad.body.i.i:                                    ; preds = %lpad.i.i, %ehcleanup.i.i.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %9, %lpad.i.i ], [ %.pn.i.i.i.i.i, %ehcleanup.i.i.i.i.i ]
-  %10 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #44
-  %tobool.not.i.i = icmp eq ptr %cond.i19.i.i, null
-  br i1 %tobool.not.i.i, label %if.end.thread.i.i, label %if.then.i38.i.i
-
-if.end.thread.i.i:                                ; preds = %lpad.body.i.i
-  tail call fastcc void @_ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTestMessageEEE7destroyIS4_EEvRS5_PT_(ptr noundef %add.ptr.i.i1) #44
   br label %invoke.cont23.i.i
 
 lpad21.i.i:                                       ; preds = %invoke.cont23.i.i
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume.i unwind label %terminate.lpad.i.i
 
-if.then.i38.i.i:                                  ; preds = %lpad.body.i.i
+invoke.cont23.i.i:                                ; preds = %lpad.i.i, %ehcleanup.i.i.i.i.i
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %9, %lpad.i.i ], [ %.pn.i.i.i.i.i, %ehcleanup.i.i.i.i.i ]
+  %11 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
+  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #44
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i19.i.i) #45
-  br label %invoke.cont23.i.i
-
-invoke.cont23.i.i:                                ; preds = %if.then.i38.i.i, %if.end.thread.i.i
   invoke void @__cxa_rethrow() #46
           to label %unreachable.i.i unwind label %lpad21.i.i
 

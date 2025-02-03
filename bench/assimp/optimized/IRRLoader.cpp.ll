@@ -3159,13 +3159,9 @@ _ZNSt6vectorIP18aiMaterialPropertySaIS1_EED2Ev.exit: ; preds = %lpad, %if.then.i
 if.else:                                          ; preds = %for.body
   %call41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data, ptr noundef nonnull dereferenceable(12) @.str.16) #32
   %tobool42.not = icmp eq i32 %call41, 0
-  br i1 %tobool42.not, label %if.then43, label %if.else47
+  br i1 %tobool42.not, label %delete.notnull, label %if.else47
 
-if.then43:                                        ; preds = %if.else
-  %isnull = icmp eq ptr %2, null
-  br i1 %isnull, label %for.inc, label %delete.notnull
-
-delete.notnull:                                   ; preds = %if.then43
+delete.notnull:                                   ; preds = %if.else
   %mData.i100 = getelementptr inbounds nuw i8, ptr %2, i64 1048
   %10 = load ptr, ptr %mData.i100, align 8
   %isnull.i = icmp eq ptr %10, null
@@ -3231,10 +3227,10 @@ _ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_
   %add.ptr19.i.i126 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i131, i64 %cond.i.i.i116
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i125, %if.then.i104, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i90, %if.then.i69, %invoke.cont14, %if.then43, %_ZN18aiMaterialPropertyD2Ev.exit
-  %p.sroa.19.1 = phi ptr [ %p.sroa.19.4, %invoke.cont14 ], [ %p.sroa.19.0214, %if.then43 ], [ %p.sroa.19.0214, %_ZN18aiMaterialPropertyD2Ev.exit ], [ %incdec.ptr.i.i87, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i90 ], [ %incdec.ptr.i70, %if.then.i69 ], [ %incdec.ptr.i.i122, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i125 ], [ %incdec.ptr.i105, %if.then.i104 ]
-  %p.sroa.42.1 = phi ptr [ %p.sroa.42.4, %invoke.cont14 ], [ %p.sroa.42.0215, %if.then43 ], [ %p.sroa.42.0215, %_ZN18aiMaterialPropertyD2Ev.exit ], [ %add.ptr19.i.i91, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i90 ], [ %p.sroa.42.4, %if.then.i69 ], [ %add.ptr19.i.i126, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i125 ], [ %p.sroa.42.0215, %if.then.i104 ]
-  %p.sroa.0.2 = phi ptr [ %p.sroa.0.5, %invoke.cont14 ], [ %p.sroa.0.1216, %if.then43 ], [ %p.sroa.0.1216, %_ZN18aiMaterialPropertyD2Ev.exit ], [ %call5.i.i.i.i.i96, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i90 ], [ %p.sroa.0.5, %if.then.i69 ], [ %call5.i.i.i.i.i131, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i125 ], [ %p.sroa.0.1216, %if.then.i104 ]
+for.inc:                                          ; preds = %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i125, %if.then.i104, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i90, %if.then.i69, %invoke.cont14, %_ZN18aiMaterialPropertyD2Ev.exit
+  %p.sroa.19.1 = phi ptr [ %p.sroa.19.4, %invoke.cont14 ], [ %p.sroa.19.0214, %_ZN18aiMaterialPropertyD2Ev.exit ], [ %incdec.ptr.i.i87, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i90 ], [ %incdec.ptr.i70, %if.then.i69 ], [ %incdec.ptr.i.i122, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i125 ], [ %incdec.ptr.i105, %if.then.i104 ]
+  %p.sroa.42.1 = phi ptr [ %p.sroa.42.4, %invoke.cont14 ], [ %p.sroa.42.0215, %_ZN18aiMaterialPropertyD2Ev.exit ], [ %add.ptr19.i.i91, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i90 ], [ %p.sroa.42.4, %if.then.i69 ], [ %add.ptr19.i.i126, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i125 ], [ %p.sroa.42.0215, %if.then.i104 ]
+  %p.sroa.0.2 = phi ptr [ %p.sroa.0.5, %invoke.cont14 ], [ %p.sroa.0.1216, %_ZN18aiMaterialPropertyD2Ev.exit ], [ %call5.i.i.i.i.i96, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i90 ], [ %p.sroa.0.5, %if.then.i69 ], [ %call5.i.i.i.i.i131, %_ZNSt6vectorIP18aiMaterialPropertySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i125 ], [ %p.sroa.0.1216, %if.then.i104 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %mNumProperties, align 8
   %13 = zext i32 %12 to i64
@@ -4112,7 +4108,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
   %111 = load float, ptr %c4, align 4
   %add217 = fadd float %110, %111
   store float %add217, ptr %c4, align 4
-  call void @_ZN6Assimp11IRRImporter17ComputeAnimationsEPNS0_4NodeEP6aiNodeRSt6vectorIP10aiNodeAnimSaIS7_EE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef %root, ptr noundef %rootOut, ptr noundef nonnull align 8 dereferenceable(24) %anims)
+  call void @_ZN6Assimp11IRRImporter17ComputeAnimationsEPNS0_4NodeEP6aiNodeRSt6vectorIP10aiNodeAnimSaIS7_EE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull %root, ptr noundef %rootOut, ptr noundef nonnull align 8 dereferenceable(24) %anims)
   %children = getelementptr inbounds nuw i8, ptr %root, i64 72
   %_M_finish.i221 = getelementptr inbounds nuw i8, ptr %root, i64 80
   %112 = load ptr, ptr %_M_finish.i221, align 8
@@ -7418,7 +7414,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 lpad6:                                            ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #28
+  call void @__cxa_free_exception(ptr nonnull %exception) #28
   br label %eh.resume
 
 invoke.cont10:                                    ; preds = %invoke.cont4
@@ -7449,7 +7445,7 @@ lpad12:                                           ; preds = %invoke.cont28, %inv
 lpad17:                                           ; preds = %if.then15
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception16) #28
+  call void @__cxa_free_exception(ptr nonnull %exception16) #28
   br label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i237
 
 if.end20:                                         ; preds = %invoke.cont13

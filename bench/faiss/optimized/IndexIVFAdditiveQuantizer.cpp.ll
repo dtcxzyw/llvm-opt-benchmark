@@ -239,7 +239,7 @@ define void @_ZNK5faiss25IndexIVFAdditiveQuantizer14encode_vectorsElPKfPKlPhb(pt
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #10
+  call void @__cxa_free_exception(ptr nonnull %26) #10
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -469,7 +469,7 @@ define noundef nonnull ptr @_ZNK5faiss25IndexIVFAdditiveQuantizer23get_InvertedL
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #10
+  call void @__cxa_free_exception(ptr nonnull %15) #10
   br label %21
 
 21:                                               ; preds = %19, %17
@@ -1617,7 +1617,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
 464:                                              ; preds = %454
   %465 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %460) #10
+  call void @__cxa_free_exception(ptr nonnull %460) #10
   br label %466
 
 466:                                              ; preds = %464, %462

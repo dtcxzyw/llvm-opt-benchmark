@@ -803,14 +803,14 @@ trace_tpm_emulator_pre_save.exit:                 ; preds = %entry, %land.lhs.tr
 lor.lhs.false.i:                                  ; preds = %trace_tpm_emulator_pre_save.exit
   %volatil.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   %volatil_flags.i = getelementptr inbounds nuw i8, ptr %call.i, i64 272
-  %call2.i = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef %call.i, i8 noundef zeroext 2, ptr noundef nonnull %volatil.i, ptr noundef nonnull %volatil_flags.i)
+  %call2.i = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef nonnull %call.i, i8 noundef zeroext 2, ptr noundef nonnull %volatil.i, ptr noundef nonnull %volatil_flags.i)
   %cmp3.i = icmp slt i32 %call2.i, 0
   br i1 %cmp3.i, label %err_exit.i, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
   %savestate.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   %savestate_flags.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
-  %call5.i = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef %call.i, i8 noundef zeroext 3, ptr noundef nonnull %savestate.i, ptr noundef nonnull %savestate_flags.i)
+  %call5.i = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef nonnull %call.i, i8 noundef zeroext 3, ptr noundef nonnull %savestate.i, ptr noundef nonnull %savestate_flags.i)
   %cmp6.i = icmp slt i32 %call5.i, 0
   br i1 %cmp6.i, label %err_exit.i, label %tpm_emulator_get_state_blobs.exit
 

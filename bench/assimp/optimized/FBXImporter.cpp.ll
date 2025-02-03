@@ -359,7 +359,7 @@ lpad.i15:                                         ; preds = %if.then
 
 lpad.i15.body:                                    ; preds = %lpad.i50, %lpad.i15
   %eh.lpad-body53 = phi { ptr, i32 } [ %5, %lpad.i15 ], [ %4, %lpad.i50 ]
-  call void @__cxa_free_exception(ptr %exception.i) #19
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #19
   br label %ehcleanup86
 
 lpad:                                             ; preds = %call.i.noexc, %entry
@@ -625,7 +625,7 @@ lpad.i33:                                         ; preds = %if.then53
 
 lpad.i33.body:                                    ; preds = %lpad.i55, %lpad.i33
   %eh.lpad-body58 = phi { ptr, i32 } [ %26, %lpad.i33 ], [ %25, %lpad.i55 ]
-  call void @__cxa_free_exception(ptr %exception.i32) #19
+  call void @__cxa_free_exception(ptr nonnull %exception.i32) #19
   br label %lpad47.body
 
 lpad43:                                           ; preds = %invoke.cont42

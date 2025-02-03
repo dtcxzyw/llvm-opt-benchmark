@@ -3135,12 +3135,12 @@ define internal range(i32 0, 2) i32 @wsp_stat_packet(ptr noundef readonly captur
 .loopexit73:                                      ; preds = %16, %._crit_edge.thread
   %.065 = phi i32 [ 0, %._crit_edge.thread ], [ 1, %16 ]
   %27 = phi i32 [ %26, %._crit_edge.thread ], [ %.03342, %16 ]
-  %28 = tail call ptr @stat_tap_get_field_data(ptr noundef %10, i32 noundef %27, i32 noundef 1) #4
+  %28 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %10, i32 noundef %27, i32 noundef 1) #4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = add i32 %30, 1
   store i32 %31, ptr %29, align 8
-  tail call void @stat_tap_set_field_data(ptr noundef %10, i32 noundef %27, i32 noundef 1, ptr noundef %28) #4
+  tail call void @stat_tap_set_field_data(ptr noundef nonnull %10, i32 noundef %27, i32 noundef 1, ptr noundef %28) #4
   %32 = load i32, ptr %3, align 4
   %.not36 = icmp eq i32 %32, 0
   br i1 %.not36, label %49, label %.preheader

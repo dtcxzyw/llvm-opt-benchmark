@@ -403,8 +403,6 @@ $_ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS
 
 $_ZNSt6vectorIN3nix7PackageESaIS1_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbRKiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ = comdat any
 
-$_ZNSt16allocator_traitsISaIN3nix7PackageEEE7destroyIS1_EEvRS2_PT_ = comdat any
-
 $_ZN5boost2io6detail13call_put_headIcSt11char_traitsIcEKmEEvRSt13basic_ostreamIT_T0_EPKv = comdat any
 
 $_ZN5boost2io6detail13call_put_lastIcSt11char_traitsIcEKmEEvRSt13basic_ostreamIT_T0_EPKv = comdat any
@@ -844,7 +842,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 81:                                               ; preds = %.lr.ph43
   %82 = add nsw i32 %.12242, 1
-  %83 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.032.041) #31
+  %83 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.032.041) #31
   %84 = icmp eq ptr %83, %53
   br i1 %84, label %._crit_edge, label %.lr.ph43
 
@@ -4891,7 +4889,7 @@ _ZN3nix8SysErrorC2IJA24_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
   %101 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN3nix8SysErrorE
-  call void @__cxa_free_exception(ptr %91) #30
+  call void @__cxa_free_exception(ptr nonnull %91) #30
   br label %104
 
 102:                                              ; preds = %_ZN3nix8SysErrorC2IJA24_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDpRKT_.exit
@@ -5143,7 +5141,7 @@ _ZN3nix8SysErrorC2IJA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
 194:                                              ; preds = %189
   %195 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %190) #30
+  call void @__cxa_free_exception(ptr nonnull %190) #30
   br label %212
 
 196:                                              ; preds = %185
@@ -5162,7 +5160,7 @@ _ZN3nix8SysErrorC2IJA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
 204:                                              ; preds = %200
   %205 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %201) #30
+  call void @__cxa_free_exception(ptr nonnull %201) #30
   br label %212
 
 206:                                              ; preds = %196
@@ -5210,7 +5208,7 @@ _ZN3nix8SysErrorC2IJA24_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
 220:                                              ; preds = %216
   %221 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %217) #30
+  call void @__cxa_free_exception(ptr nonnull %217) #30
   br label %.loopexit178
 
 222:                                              ; preds = %158
@@ -5297,7 +5295,7 @@ _ZN3nix8SysErrorC2IJA24_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
 253:                                              ; preds = %249
   %254 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %250) #30
+  call void @__cxa_free_exception(ptr nonnull %250) #30
   br label %.loopexit178
 
 255:                                              ; preds = %225
@@ -5348,7 +5346,7 @@ _ZN3nix8SysErrorC2IJA24_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
 269:                                              ; preds = %266
   %270 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %267) #30
+  call void @__cxa_free_exception(ptr nonnull %267) #30
   br label %.loopexit178
 
 271:                                              ; preds = %225, %166, %213, %263, %245
@@ -9867,7 +9865,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #30
+  tail call void @__cxa_free_exception(ptr nonnull %2) #30
   resume { ptr, i32 } %5
 }
 
@@ -11199,7 +11197,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE7ret
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #30
+  tail call void @__cxa_free_exception(ptr nonnull %2) #30
   resume { ptr, i32 } %5
 }
 
@@ -12091,7 +12089,7 @@ _ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaI
 
 181:                                              ; preds = %177
   %182 = getelementptr inbounds %"struct.boost::io::detail::format_item", ptr %144, i64 %2
-  invoke void @_ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES7_EvT_S9_RSaIT0_E(ptr noundef %144, ptr noundef nonnull %182, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  invoke void @_ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES7_EvT_S9_RSaIT0_E(ptr noundef nonnull %144, ptr noundef nonnull %182, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE13_M_deallocateEPS7_m.exit111 unwind label %183
 
 183:                                              ; preds = %_ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE13_M_deallocateEPS7_m.exit111, %181
@@ -12867,7 +12865,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRK
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #30
+  tail call void @__cxa_free_exception(ptr nonnull %2) #30
   resume { ptr, i32 } %5
 }
 
@@ -13705,7 +13703,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE7rethrow
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #30
+  tail call void @__cxa_free_exception(ptr nonnull %2) #30
   resume { ptr, i32 } %5
 }
 
@@ -14931,7 +14929,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io12too_few_argsEEEvRKT
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #30
+  tail call void @__cxa_free_exception(ptr nonnull %2) #30
   resume { ptr, i32 } %5
 }
 
@@ -15069,7 +15067,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io12too_few_argsEE7rethrowE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #30
+  tail call void @__cxa_free_exception(ptr nonnull %2) #30
   resume { ptr, i32 } %5
 }
 
@@ -18153,7 +18151,7 @@ _ZNSt12_Vector_baseIN3nix7PackageESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKS
   %26 = load i8, ptr %3, align 1
   %27 = load i32, ptr %4, align 4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %28 unwind label %72
+          to label %28 unwind label %74
 
 28:                                               ; preds = %_ZNSt12_Vector_baseIN3nix7PackageESaIS1_EE11_M_allocateEm.exit
   %29 = and i8 %26, 1
@@ -18283,67 +18281,33 @@ _ZNSt12_Vector_baseIN3nix7PackageESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = 
   store ptr %71, ptr %70, align 8
   ret void
 
-72:                                               ; preds = %_ZNSt12_Vector_baseIN3nix7PackageESaIS1_EE11_M_allocateEm.exit
+72:                                               ; preds = %74
   %73 = landingpad { ptr, i32 }
-          catch ptr null
-  %74 = extractvalue { ptr, i32 } %73, 0
-  %75 = tail call ptr @__cxa_begin_catch(ptr %74) #30
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %.thread, label %78
-
-.thread:                                          ; preds = %72
-  tail call void @_ZNSt16allocator_traitsISaIN3nix7PackageEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %25) #30
-  br label %_ZNSt12_Vector_baseIN3nix7PackageESaIS1_EE13_M_deallocateEPS1_m.exit44
-
-76:                                               ; preds = %_ZNSt12_Vector_baseIN3nix7PackageESaIS1_EE13_M_deallocateEPS1_m.exit44
-  %77 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %79 unwind label %80
+          to label %78 unwind label %79
+
+74:                                               ; preds = %_ZNSt12_Vector_baseIN3nix7PackageESaIS1_EE11_M_allocateEm.exit
+  %75 = landingpad { ptr, i32 }
+          catch ptr null
+  %76 = extractvalue { ptr, i32 } %75, 0
+  %77 = tail call ptr @__cxa_begin_catch(ptr %76) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %24) #33
+  invoke void @__cxa_rethrow() #34
+          to label %82 unwind label %72
 
 78:                                               ; preds = %72
-  tail call void @_ZdlPv(ptr noundef nonnull %24) #33
-  br label %_ZNSt12_Vector_baseIN3nix7PackageESaIS1_EE13_M_deallocateEPS1_m.exit44
+  resume { ptr, i32 } %73
 
-_ZNSt12_Vector_baseIN3nix7PackageESaIS1_EE13_M_deallocateEPS1_m.exit44: ; preds = %78, %.thread
-  invoke void @__cxa_rethrow() #34
-          to label %83 unwind label %76
-
-79:                                               ; preds = %76
-  resume { ptr, i32 } %77
-
-80:                                               ; preds = %76
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %72
+  %80 = landingpad { ptr, i32 }
           catch ptr null
-  %82 = extractvalue { ptr, i32 } %81, 0
-  tail call void @__clang_call_terminate(ptr %82) #32
+  %81 = extractvalue { ptr, i32 } %80, 0
+  tail call void @__clang_call_terminate(ptr %81) #32
   unreachable
 
-83:                                               ; preds = %_ZNSt12_Vector_baseIN3nix7PackageESaIS1_EE13_M_deallocateEPS1_m.exit44
+82:                                               ; preds = %74
   unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIN3nix7PackageEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = icmp eq ptr %3, %4
-  br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8
-  %8 = icmp ult i64 %7, 16
-  tail call void @llvm.assume(i1 %8)
-  br label %_ZSt10destroy_atIN3nix7PackageEEvPT_.exit
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %2
-  tail call void @_ZdlPv(ptr noundef %3) #33
-  br label %_ZSt10destroy_atIN3nix7PackageEEvPT_.exit
-
-_ZSt10destroy_atIN3nix7PackageEEvPT_.exit:        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %1) #30
-  ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

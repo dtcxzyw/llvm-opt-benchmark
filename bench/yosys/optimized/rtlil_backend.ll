@@ -4297,7 +4297,7 @@ _ZNK5Yosys5RTLIL6Design8selectedINS0_6ModuleEEEbPT_.exit66.us: ; preds = %.lr.ph
           to label %79 unwind label %.split128.us
 
 79:                                               ; preds = %.critedge50.us
-  invoke void @_ZN5Yosys13RTLIL_BACKEND11dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_5RTLIL6ModuleEPNS8_6DesignEbbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %9, ptr noundef %73, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext %.0167, i1 noundef zeroext %4)
+  invoke void @_ZN5Yosys13RTLIL_BACKEND11dump_moduleERSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_5RTLIL6ModuleEPNS8_6DesignEbbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %9, ptr noundef nonnull %73, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext %.0167, i1 noundef zeroext %4)
           to label %80 unwind label %.split132.us
 
 80:                                               ; preds = %79
@@ -5162,7 +5162,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 22:                                               ; preds = %._crit_edge
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #21
+  call void @__cxa_free_exception(ptr nonnull %20) #21
   br label %24
 
 24:                                               ; preds = %22, %18

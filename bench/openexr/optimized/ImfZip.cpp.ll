@@ -59,7 +59,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #13
   resume { ptr, i32 } %0
 
 _ZN7Imf_3_26uiMultImEET_S1_S1_.exit:              ; preds = %entry, %land.lhs.true.i
@@ -192,7 +192,7 @@ invoke.cont:                                      ; preds = %if.then33
 lpad:                                             ; preds = %if.then33
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #13
+  call void @__cxa_free_exception(ptr nonnull %exception) #13
   resume { ptr, i32 } %8
 
 if.end34:                                         ; preds = %while.end28
@@ -242,7 +242,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #13
+  call void @__cxa_free_exception(ptr nonnull %exception) #13
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %entry

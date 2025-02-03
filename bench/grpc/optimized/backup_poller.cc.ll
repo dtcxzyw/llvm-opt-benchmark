@@ -412,7 +412,7 @@ if.then.i:                                        ; preds = %if.end
   call void @_Z20grpc_pollset_destroyP12grpc_pollset(ptr noundef %15)
   %16 = load ptr, ptr %pollset.i, align 8
   call void @gpr_free(ptr noundef %16)
-  call void @gpr_free(ptr noundef %arg)
+  call void @gpr_free(ptr noundef nonnull %arg)
   br label %return
 
 if.end6:                                          ; preds = %entry
@@ -674,7 +674,7 @@ if.then.i:                                        ; preds = %entry
   tail call void @_Z20grpc_pollset_destroyP12grpc_pollset(ptr noundef %1)
   %2 = load ptr, ptr %pollset.i, align 8
   tail call void @gpr_free(ptr noundef %2)
-  tail call void @gpr_free(ptr noundef %arg)
+  tail call void @gpr_free(ptr noundef nonnull %arg)
   br label %_ZL28backup_poller_shutdown_unrefPN12_GLOBAL__N_113backup_pollerE.exit
 
 _ZL28backup_poller_shutdown_unrefPN12_GLOBAL__N_113backup_pollerE.exit: ; preds = %entry, %if.then.i

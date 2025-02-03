@@ -96957,9 +96957,7 @@ define internal fastcc noundef zeroext i1 @_ZL31threadSafetyCheckIsSmartPointerR
   %19 = and i32 %18, 127
   %20 = add nsw i32 %19, -59
   %21 = icmp ult i32 %20, -3
-  %.not47 = icmp eq ptr %3, null
-  %.not = or i1 %.not47, %21
-  br i1 %.not, label %102, label %22
+  br i1 %21, label %102, label %22
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 104

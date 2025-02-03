@@ -18675,7 +18675,7 @@ define noundef range(i32 0, 3) i32 @_ZN2mu4Test12ParserTester13TestOptimizerEv(p
 35:                                               ; preds = %32
   %36 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %33) #26
+  call void @__cxa_free_exception(ptr nonnull %33) #26
   br label %.body26
 
 _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %26
@@ -18817,7 +18817,7 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %26
 82:                                               ; preds = %79
   %83 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %80) #26
+  call void @__cxa_free_exception(ptr nonnull %80) #26
   br label %.body26
 
 _ZNK2mu14ParserByteCode7GetBaseEv.exit36:         ; preds = %73
@@ -23290,7 +23290,7 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
   %861 = extractvalue { ptr, i32 } %860, 0
   %862 = extractvalue { ptr, i32 } %860, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %184) #26
-  call void @__cxa_free_exception(ptr %508) #26
+  call void @__cxa_free_exception(ptr nonnull %508) #26
   br label %987
 
 863:                                              ; preds = %505
@@ -24384,7 +24384,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #26
-  call void @__cxa_free_exception(ptr %40) #26
+  call void @__cxa_free_exception(ptr nonnull %40) #26
   br label %93
 
 75:                                               ; preds = %37
@@ -24627,7 +24627,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester20EqnTestWithVarCha
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr @_ZTISt9exception
           catch ptr null
-  call void @__cxa_free_exception(ptr %25) #26
+  call void @__cxa_free_exception(ptr nonnull %25) #26
   br label %47
 
 37:                                               ; preds = %20
@@ -24654,7 +24654,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester20EqnTestWithVarCha
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr @_ZTISt9exception
           catch ptr null
-  call void @__cxa_free_exception(ptr %42) #26
+  call void @__cxa_free_exception(ptr nonnull %42) #26
   br label %47
 
 46:                                               ; preds = %37
@@ -26123,7 +26123,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester3SumEPKdi(ptr nound
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-  call void @__cxa_free_exception(ptr %6) #26
+  call void @__cxa_free_exception(ptr nonnull %6) #26
   br label %15
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -26227,7 +26227,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester7LastArgEPKdi(ptr n
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-  call void @__cxa_free_exception(ptr %5) #26
+  call void @__cxa_free_exception(ptr nonnull %5) #26
   br label %16
 
 11:                                               ; preds = %2
@@ -26271,7 +26271,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester8FirstArgEPKdi(ptr 
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-  call void @__cxa_free_exception(ptr %5) #26
+  call void @__cxa_free_exception(ptr nonnull %5) #26
   br label %13
 
 11:                                               ; preds = %2
@@ -26420,7 +26420,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester5SumUdEPvPKdi(ptr n
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  call void @__cxa_free_exception(ptr %7) #26
+  call void @__cxa_free_exception(ptr nonnull %7) #26
   br label %19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -26585,7 +26585,7 @@ _ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
   %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorIN2mu6ParserESaIS1_EE12_M_check_lenEmPKc.exit ]
   %23 = getelementptr inbounds i8, ptr %22, i64 %18
   invoke void @_ZN2mu10ParserBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(596) %23, ptr noundef nonnull align 8 dereferenceable(596) %2)
-          to label %24 unwind label %.body
+          to label %24 unwind label %62
 
 24:                                               ; preds = %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %23, align 8
@@ -26624,27 +26624,22 @@ _ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
 
 _ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %28
   invoke void @__cxa_rethrow() #25
-          to label %42 unwind label %35
+          to label %40 unwind label %35
 
 35:                                               ; preds = %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i
   %36 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %.body.thread unwind label %39
+          to label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48.thread unwind label %37
 
-.body.thread:                                     ; preds = %35
-  %37 = extractvalue { ptr, i32 } %36, 0
-  %38 = tail call ptr @__cxa_begin_catch(ptr %37) #26
-  br label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48.thread
-
-39:                                               ; preds = %35
-  %40 = landingpad { ptr, i32 }
+37:                                               ; preds = %35
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #28
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #28
   unreachable
 
-42:                                               ; preds = %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i
+40:                                               ; preds = %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %25, %24
@@ -26653,153 +26648,150 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_
   %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42, label %.lr.ph.i.i.i.i.i29
 
-.lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %43
-  %.016.i.i.i.i.i30.idx = phi i64 [ %.016.i.i.i.i.i30.add, %43 ], [ 600, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
-  %.01215.i.i.i.i.i31 = phi ptr [ %44, %43 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
+.lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %41
+  %.016.i.i.i.i.i30.idx = phi i64 [ %.016.i.i.i.i.i30.add, %41 ], [ 600, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
+  %.01215.i.i.i.i.i31 = phi ptr [ %42, %41 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
   %.016.i.i.i.i.i30.ptr = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i30.idx
   invoke void @_ZN2mu10ParserBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(596) %.016.i.i.i.i.i30.ptr, ptr noundef nonnull align 8 dereferenceable(596) %.01215.i.i.i.i.i31)
-          to label %43 unwind label %45
+          to label %41 unwind label %43
 
-43:                                               ; preds = %.lr.ph.i.i.i.i.i29
+41:                                               ; preds = %.lr.ph.i.i.i.i.i29
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %.016.i.i.i.i.i30.ptr, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i31, i64 600
+  %42 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i31, i64 600
   %.016.i.i.i.i.i30.add = add nuw nsw i64 %.016.i.i.i.i.i30.idx, 600
-  %.not.i.i.i.i.i37 = icmp eq ptr %44, %5
+  %.not.i.i.i.i.i37 = icmp eq ptr %42, %5
   br i1 %.not.i.i.i.i.i37, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42.loopexit, label %.lr.ph.i.i.i.i.i29, !llvm.loop !23
 
-45:                                               ; preds = %.lr.ph.i.i.i.i.i29
-  %46 = landingpad { ptr, i32 }
+43:                                               ; preds = %.lr.ph.i.i.i.i.i29
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  %48 = tail call ptr @__cxa_begin_catch(ptr %47) #26
+  %45 = extractvalue { ptr, i32 } %44, 0
+  %46 = tail call ptr @__cxa_begin_catch(ptr %45) #26
   %.not4.i.i.i.i.i.i.i32 = icmp eq i64 %.016.i.i.i.i.i30.idx, 600
   br i1 %.not4.i.i.i.i.i.i.i32, label %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i36, label %.lr.ph.i.i.i.i.i.i.i33
 
-.lr.ph.i.i.i.i.i.i.i33:                           ; preds = %45, %.lr.ph.i.i.i.i.i.i.i33
-  %.05.i.i.i.i.i.i.i34 = phi ptr [ %51, %.lr.ph.i.i.i.i.i.i.i33 ], [ %.ptr, %45 ]
-  %49 = load ptr, ptr %.05.i.i.i.i.i.i.i34, align 8
-  %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i.i.i.i.i34) #26
-  %51 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i34, i64 600
-  %.not.i.i.i.i.i.i.i35 = icmp eq ptr %51, %.016.i.i.i.i.i30.ptr
+.lr.ph.i.i.i.i.i.i.i33:                           ; preds = %43, %.lr.ph.i.i.i.i.i.i.i33
+  %.05.i.i.i.i.i.i.i34 = phi ptr [ %49, %.lr.ph.i.i.i.i.i.i.i33 ], [ %.ptr, %43 ]
+  %47 = load ptr, ptr %.05.i.i.i.i.i.i.i34, align 8
+  %48 = load ptr, ptr %47, align 8
+  tail call void %48(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i.i.i.i.i34) #26
+  %49 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i34, i64 600
+  %.not.i.i.i.i.i.i.i35 = icmp eq ptr %49, %.016.i.i.i.i.i30.ptr
   br i1 %.not.i.i.i.i.i.i.i35, label %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i36, label %.lr.ph.i.i.i.i.i.i.i33, !llvm.loop !11
 
-_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i36: ; preds = %.lr.ph.i.i.i.i.i.i.i33, %45
+_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i36: ; preds = %.lr.ph.i.i.i.i.i.i.i33, %43
   invoke void @__cxa_rethrow() #25
-          to label %59 unwind label %52
+          to label %55 unwind label %50
 
-52:                                               ; preds = %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i36
-  %53 = landingpad { ptr, i32 }
+50:                                               ; preds = %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i36
+  %51 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %.body.thread57 unwind label %56
+          to label %68 unwind label %52
 
-.body.thread57:                                   ; preds = %52
-  %54 = extractvalue { ptr, i32 } %53, 0
-  %55 = tail call ptr @__cxa_begin_catch(ptr %54) #26
-  br label %71
-
-56:                                               ; preds = %52
-  %57 = landingpad { ptr, i32 }
+52:                                               ; preds = %50
+  %53 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #28
+  %54 = extractvalue { ptr, i32 } %53, 0
+  tail call void @__clang_call_terminate(ptr %54) #28
   unreachable
 
-59:                                               ; preds = %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i36
+55:                                               ; preds = %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i36
   unreachable
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42.loopexit: ; preds = %43
-  %.ptr63.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i30.add
+_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42.loopexit: ; preds = %41
+  %.ptr59.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i30.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %.0.lcssa.i.i.i.i.i38 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %.ptr63.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42.loopexit ]
+  %.0.lcssa.i.i.i.i.i38 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %.ptr59.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42.loopexit ]
   %.not4.i.i.i = icmp eq ptr %6, %5
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42, %.lr.ph.i.i.i
-  %.05.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42 ]
-  %60 = load ptr, ptr %.05.i.i.i, align 8
-  %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i) #26
-  %62 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 600
-  %.not.i.i.i = icmp eq ptr %62, %5
+  %.05.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42 ]
+  %56 = load ptr, ptr %.05.i.i.i, align 8
+  %57 = load ptr, ptr %56, align 8
+  tail call void %57(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i) #26
+  %58 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 600
+  %.not.i.i.i = icmp eq ptr %58, %5
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42
   %.not.i43 = icmp eq ptr %6, null
-  br i1 %.not.i43, label %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit, label %63
+  br i1 %.not.i43, label %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit, label %59
 
-63:                                               ; preds = %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit
+59:                                               ; preds = %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #24
   br label %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit, %63
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit, %59
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i38, ptr %4, align 8
-  %65 = getelementptr inbounds nuw %"class.mu::Parser", ptr %22, i64 %16
-  store ptr %65, ptr %64, align 8
+  %61 = getelementptr inbounds nuw %"class.mu::Parser", ptr %22, i64 %16
+  store ptr %61, ptr %60, align 8
   ret void
 
-.body:                                            ; preds = %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit
-  %66 = landingpad { ptr, i32 }
+62:                                               ; preds = %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  %68 = tail call ptr @__cxa_begin_catch(ptr %67) #26
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48.thread, label %71
+  br label %68
 
-_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48.thread: ; preds = %.body, %.body.thread
-  %69 = load ptr, ptr %23, align 8
-  %70 = load ptr, ptr %69, align 8
-  tail call void %70(ptr noundef nonnull align 8 dereferenceable(596) %23) #26
-  br label %77
+_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48.thread: ; preds = %35
+  %64 = extractvalue { ptr, i32 } %36, 0
+  %65 = tail call ptr @__cxa_begin_catch(ptr %64) #26
+  %66 = load ptr, ptr %23, align 8
+  %67 = load ptr, ptr %66, align 8
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(596) %23) #26
+  br label %76
 
-71:                                               ; preds = %.body.thread57, %.body
-  %.0.lpad-body61 = phi ptr [ %.ptr, %.body.thread57 ], [ %22, %.body ]
-  %.not4.i.i.i44 = icmp eq ptr %22, %.0.lpad-body61
+68:                                               ; preds = %62, %50
+  %.0.lpad-body.ph = phi ptr [ %.ptr, %50 ], [ %22, %62 ]
+  %eh.lpad-body.ph = phi { ptr, i32 } [ %51, %50 ], [ %63, %62 ]
+  %69 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
+  %70 = tail call ptr @__cxa_begin_catch(ptr %69) #26
+  %.not4.i.i.i44 = icmp eq ptr %22, %.0.lpad-body.ph
   br i1 %.not4.i.i.i44, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48, label %.lr.ph.i.i.i45
 
-.lr.ph.i.i.i45:                                   ; preds = %71, %.lr.ph.i.i.i45
-  %.05.i.i.i46 = phi ptr [ %74, %.lr.ph.i.i.i45 ], [ %22, %71 ]
-  %72 = load ptr, ptr %.05.i.i.i46, align 8
-  %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i46) #26
-  %74 = getelementptr inbounds nuw i8, ptr %.05.i.i.i46, i64 600
-  %.not.i.i.i47 = icmp eq ptr %74, %.0.lpad-body61
+.lr.ph.i.i.i45:                                   ; preds = %68, %.lr.ph.i.i.i45
+  %.05.i.i.i46 = phi ptr [ %73, %.lr.ph.i.i.i45 ], [ %22, %68 ]
+  %71 = load ptr, ptr %.05.i.i.i46, align 8
+  %72 = load ptr, ptr %71, align 8
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(596) %.05.i.i.i46) #26
+  %73 = getelementptr inbounds nuw i8, ptr %.05.i.i.i46, i64 600
+  %.not.i.i.i47 = icmp eq ptr %73, %.0.lpad-body.ph
   br i1 %.not.i.i.i47, label %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48, label %.lr.ph.i.i.i45, !llvm.loop !11
 
-75:                                               ; preds = %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit50
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit50
+  %75 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %78 unwind label %79
+          to label %77 unwind label %78
 
-_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48: ; preds = %.lr.ph.i.i.i45, %71
+_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48: ; preds = %.lr.ph.i.i.i45, %68
   %.not.i49 = icmp eq ptr %22, null
-  br i1 %.not.i49, label %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit50, label %77
+  br i1 %.not.i49, label %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit50, label %76
 
-77:                                               ; preds = %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48.thread, %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48
+76:                                               ; preds = %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48.thread, %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48
   tail call void @_ZdlPv(ptr noundef nonnull %22) #24
   br label %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit50
 
-_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit50: ; preds = %77, %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48
+_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit50: ; preds = %76, %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit48
   invoke void @__cxa_rethrow() #25
-          to label %82 unwind label %75
+          to label %81 unwind label %74
 
-78:                                               ; preds = %75
-  resume { ptr, i32 } %76
+77:                                               ; preds = %74
+  resume { ptr, i32 } %75
 
-79:                                               ; preds = %75
-  %80 = landingpad { ptr, i32 }
+78:                                               ; preds = %74
+  %79 = landingpad { ptr, i32 }
           catch ptr null
-  %81 = extractvalue { ptr, i32 } %80, 0
-  tail call void @__clang_call_terminate(ptr %81) #28
+  %80 = extractvalue { ptr, i32 } %79, 0
+  tail call void @__clang_call_terminate(ptr %80) #28
   unreachable
 
-82:                                               ; preds = %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit50
+81:                                               ; preds = %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE13_M_deallocateEPS1_m.exit50
   unreachable
 }
 

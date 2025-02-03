@@ -1622,7 +1622,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %_ZN5Ipopt6Vector12A
   %43 = icmp slt i64 %indvars.iv.next, %42
   br i1 %43, label %16, label %._crit_edge, !llvm.loop !23
 
-44:                                               ; preds = %.noexc, %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.thread.i
+44:                                               ; preds = %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.thread.i, %.noexc
   %45 = landingpad { ptr, i32 }
           cleanup
   %46 = load i32, ptr %26, align 8

@@ -1612,7 +1612,7 @@ if.end10:                                         ; preds = %if.end
   store ptr null, ptr %quirks, align 16
   %11 = load ptr, ptr %vga, align 8
   %region25 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @memory_region_init_io(ptr noundef nonnull %region25, ptr noundef %vdev, ptr noundef nonnull @vfio_vga_ops, ptr noundef nonnull %region25, ptr noundef nonnull @.str.15, i64 noundef 131072) #23
+  call void @memory_region_init_io(ptr noundef nonnull %region25, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_vga_ops, ptr noundef nonnull %region25, ptr noundef nonnull @.str.15, i64 noundef 131072) #23
   %12 = load ptr, ptr %vga, align 8
   %offset33 = getelementptr i8, ptr %12, i64 592
   store i64 944, ptr %offset33, align 16
@@ -1624,7 +1624,7 @@ if.end10:                                         ; preds = %if.end
   store ptr null, ptr %quirks42, align 16
   %15 = load ptr, ptr %vga, align 8
   %arrayidx47 = getelementptr i8, ptr %15, i64 320
-  call void @memory_region_init_io(ptr noundef %arrayidx47, ptr noundef %vdev, ptr noundef nonnull @vfio_vga_ops, ptr noundef %arrayidx47, ptr noundef nonnull @.str.16, i64 noundef 12) #23
+  call void @memory_region_init_io(ptr noundef %arrayidx47, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_vga_ops, ptr noundef %arrayidx47, ptr noundef nonnull @.str.16, i64 noundef 12) #23
   %16 = load ptr, ptr %vga, align 8
   %offset55 = getelementptr i8, ptr %16, i64 896
   store i64 960, ptr %offset55, align 16
@@ -1636,12 +1636,12 @@ if.end10:                                         ; preds = %if.end
   store ptr null, ptr %quirks64, align 16
   %19 = load ptr, ptr %vga, align 8
   %arrayidx69 = getelementptr i8, ptr %19, i64 624
-  call void @memory_region_init_io(ptr noundef %arrayidx69, ptr noundef %vdev, ptr noundef nonnull @vfio_vga_ops, ptr noundef %arrayidx69, ptr noundef nonnull @.str.17, i64 noundef 32) #23
+  call void @memory_region_init_io(ptr noundef %arrayidx69, ptr noundef nonnull %vdev, ptr noundef nonnull @vfio_vga_ops, ptr noundef %arrayidx69, ptr noundef nonnull @.str.17, i64 noundef 32) #23
   %20 = load ptr, ptr %vga, align 8
   %region75 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %arrayidx80 = getelementptr i8, ptr %20, i64 320
   %arrayidx84 = getelementptr i8, ptr %20, i64 624
-  call void @pci_register_vga(ptr noundef %vdev, ptr noundef nonnull %region75, ptr noundef %arrayidx80, ptr noundef %arrayidx84) #23
+  call void @pci_register_vga(ptr noundef nonnull %vdev, ptr noundef nonnull %region75, ptr noundef %arrayidx80, ptr noundef %arrayidx84) #23
   br label %return
 
 return:                                           ; preds = %if.end10, %if.then7, %if.then
@@ -8074,7 +8074,7 @@ entry:
   br i1 %tobool.not, label %if.end4, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   call void @qdev_unplug(ptr noundef %call.i, ptr noundef nonnull %err) #23
   %0 = load ptr, ptr %err, align 8
   %tobool2.not = icmp eq ptr %0, null

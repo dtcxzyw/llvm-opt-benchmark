@@ -3509,7 +3509,7 @@ define dso_local i32 @_ZN5clang4ento22PathDiagnosticLocation22getValidSourceLoca
 
 .split.us:                                        ; preds = %17, %20
   %.016.us = phi ptr [ %19, %20 ], [ %0, %17 ]
-  %19 = tail call noundef ptr @_ZNK5clang9ParentMap9getParentEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %.016.us) #22
+  %19 = tail call noundef ptr @_ZNK5clang9ParentMap9getParentEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %.016.us) #22
   %.not.us = icmp eq ptr %19, null
   br i1 %.not.us, label %.split30.us, label %20
 
@@ -3520,7 +3520,7 @@ define dso_local i32 @_ZN5clang4ento22PathDiagnosticLocation22getValidSourceLoca
 
 .split:                                           ; preds = %17, %33
   %.016 = phi ptr [ %22, %33 ], [ %0, %17 ]
-  %22 = tail call noundef ptr @_ZNK5clang9ParentMap9getParentEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %.016) #22
+  %22 = tail call noundef ptr @_ZNK5clang9ParentMap9getParentEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %.016) #22
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %.split30.us, label %33
 

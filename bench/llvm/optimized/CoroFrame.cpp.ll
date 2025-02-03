@@ -12932,7 +12932,7 @@ _ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EED2Ev.exit72.i.i: ; preds = %5171, %"
 
 5179:                                             ; preds = %5174
   %5180 = getelementptr inbounds nuw i8, ptr %.val.i73.i.i, i64 640
-  call fastcc void @"_ZSt16__insertion_sortIPN12_GLOBAL__N_110AllocaInfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_16FrameTypeBuilder18addFieldForAllocasERKN4llvm8FunctionERNS0_13FrameDataInfoERNS7_4coro5ShapeEE3$_1EEEvT_SI_T0_"(ptr noundef %.val.i73.i.i, ptr noundef nonnull %5180, ptr nonnull readonly %117)
+  call fastcc void @"_ZSt16__insertion_sortIPN12_GLOBAL__N_110AllocaInfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_16FrameTypeBuilder18addFieldForAllocasERKN4llvm8FunctionERNS0_13FrameDataInfoERNS7_4coro5ShapeEE3$_1EEEvT_SI_T0_"(ptr noundef nonnull %.val.i73.i.i, ptr noundef nonnull %5180, ptr nonnull readonly %117)
   br label %.lr.ph.i.i.i.i.i.i.i.i510
 
 .lr.ph.i.i.i.i.i.i.i.i510:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i510, %5179
@@ -12943,7 +12943,7 @@ _ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EED2Ev.exit72.i.i: ; preds = %5171, %"
   br i1 %.not.i.i.i.i.i.i75.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIN12_GLOBAL__N_110AllocaInfoELj8EEEZNS2_16FrameTypeBuilder18addFieldForAllocasERKNS_8FunctionERNS2_13FrameDataInfoERNS_4coro5ShapeEE3$_1EEvOT_T0_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i510, !llvm.loop !198
 
 5182:                                             ; preds = %5174
-  call fastcc void @"_ZSt16__insertion_sortIPN12_GLOBAL__N_110AllocaInfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_16FrameTypeBuilder18addFieldForAllocasERKN4llvm8FunctionERNS0_13FrameDataInfoERNS7_4coro5ShapeEE3$_1EEEvT_SI_T0_"(ptr noundef %.val.i73.i.i, ptr noundef nonnull %5173, ptr nonnull readonly %117)
+  call fastcc void @"_ZSt16__insertion_sortIPN12_GLOBAL__N_110AllocaInfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_16FrameTypeBuilder18addFieldForAllocasERKN4llvm8FunctionERNS0_13FrameDataInfoERNS7_4coro5ShapeEE3$_1EEEvT_SI_T0_"(ptr noundef nonnull %.val.i73.i.i, ptr noundef nonnull %5173, ptr nonnull readonly %117)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorIN12_GLOBAL__N_110AllocaInfoELj8EEEZNS2_16FrameTypeBuilder18addFieldForAllocasERKNS_8FunctionERNS2_13FrameDataInfoERNS_4coro5ShapeEE3$_1EEvOT_T0_.exit.i.i"
 
 "_ZN4llvm4sortIRNS_11SmallVectorIN12_GLOBAL__N_110AllocaInfoELj8EEEZNS2_16FrameTypeBuilder18addFieldForAllocasERKNS_8FunctionERNS2_13FrameDataInfoERNS_4coro5ShapeEE3$_1EEvOT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i510, %5182, %_ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EED2Ev.exit72.i.i
@@ -30093,7 +30093,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
   br label %_ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit
 
 _ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit: ; preds = %2, %10
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPNS_10AllocaInstELj4EEELb0EE19moveElementsForGrowEPS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %5)
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPNS_10AllocaInstELj4EEELb0EE19moveElementsForGrowEPS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %5)
   %12 = load i64, ptr %3, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = icmp eq ptr %13, %4
@@ -30104,7 +30104,7 @@ _ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit: ; preds = %2, %10
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPNS_10AllocaInstELj4EEELb0EE21takeAllocationForGrowEPS4_m.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPNS_10AllocaInstELj4EEELb0EE21takeAllocationForGrowEPS4_m.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit, %15
-  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %5, i64 noundef %12) #19
+  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %5, i64 noundef %12) #19
   %16 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %17 = add i64 %16, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %17) #19

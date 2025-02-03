@@ -1836,7 +1836,7 @@ invoke.cont.i90.cont:                             ; preds = %invoke.cont.i90.inv
 lpad.i:                                           ; preds = %sw.default.i
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i89) #23
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i89) #23
   br label %ehcleanup
 
 switch.lookup:                                    ; preds = %_ZN5folly8OptionalI10z_stream_sEptEv.exit88
@@ -2198,7 +2198,7 @@ invoke.cont.i70:                                  ; preds = %sw.default.i
 lpad.i:                                           ; preds = %sw.default.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i69) #23
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i69) #23
   br label %lpad38.body
 
 switch.lookup:                                    ; preds = %_ZN5folly8OptionalI10z_stream_sEptEv.exit68

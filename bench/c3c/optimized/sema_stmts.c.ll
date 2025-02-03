@@ -720,7 +720,7 @@ define dso_local noundef zeroext i1 @sema_analyse_statement(ptr noundef %0, ptr 
   br label %.sink.split
 
 .loopexit.i130:                                   ; preds = %113, %110, %107, %81
-  %138 = tail call zeroext i1 @sema_analyse_cond_expr(ptr noundef %0, ptr noundef %87) #9
+  %138 = tail call zeroext i1 @sema_analyse_cond_expr(ptr noundef nonnull %0, ptr noundef %87) #9
   br i1 %138, label %139, label %.sink.split
 
 139:                                              ; preds = %.loopexit.i130

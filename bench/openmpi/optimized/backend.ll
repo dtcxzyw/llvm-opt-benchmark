@@ -1382,7 +1382,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %54, %5
 
 82:                                               ; preds = %77, %pmix_obj_new_tma.exit
   %.0195 = phi ptr [ %50, %pmix_obj_new_tma.exit ], [ %68, %77 ]
-  %83 = call i32 @pmix_pointer_array_add(ptr noundef nonnull %10, ptr noundef %.0195) #12
+  %83 = call i32 @pmix_pointer_array_add(ptr noundef nonnull %10, ptr noundef nonnull %.0195) #12
   br label %84
 
 84:                                               ; preds = %82, %70

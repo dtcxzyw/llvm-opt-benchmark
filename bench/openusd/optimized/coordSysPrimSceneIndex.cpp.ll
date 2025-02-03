@@ -5099,8 +5099,8 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_26HdsiCoordS
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %storemerge9, i64 40
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__26HdsiCoordSysPrimSceneIndex15_RemoveBindingsERKSt6vectorINS0_8_BindingESaIS2_EEPSt3setINS_7SdfPathESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef %2)
-  %23 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %storemerge9) #26
-  %24 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %storemerge9, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
+  %23 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %storemerge9) #26
+  %24 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %storemerge9, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   tail call void @_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_26HdsiCoordSysPrimSceneIndex8_BindingESaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 64) #25

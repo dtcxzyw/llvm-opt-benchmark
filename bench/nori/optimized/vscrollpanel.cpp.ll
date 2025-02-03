@@ -64,7 +64,7 @@ define hidden void @_ZN7nanogui12VScrollPanel14perform_layoutEP10NVGcontext(ptr 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %14) #11
+  tail call void @__cxa_free_exception(ptr nonnull %14) #11
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %8

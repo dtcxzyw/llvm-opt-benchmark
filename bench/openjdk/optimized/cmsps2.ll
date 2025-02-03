@@ -467,7 +467,7 @@ WriteInputMatrixShaper.exit.i:                    ; preds = %80
   %175 = icmp ne ptr %172, null
   %176 = icmp ne ptr %174, null
   %or.cond.i.i.i = select i1 %175, i1 %176, i1 false
-  br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %.loopexit.i.i.i
+  br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %195
 
 .preheader.i.i.i:                                 ; preds = %170
   %177 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -504,16 +504,16 @@ _cmsQuickSaturateWord.exit.i.i.i:                 ; preds = %187, %185, %179
   store i16 %.0.i.i.i.i, ptr %194, align 2
   %indvars.iv.next.i.i46.i = add nuw nsw i64 %indvars.iv.i.i45.i, 1
   %exitcond.not.i.i47.i = icmp eq i64 %indvars.iv.next.i.i46.i, 256
-  br i1 %exitcond.not.i.i47.i, label %.loopexit.i.i.i, label %179, !llvm.loop !12
+  br i1 %exitcond.not.i.i47.i, label %.thread.i.i.i, label %179, !llvm.loop !12
 
-.loopexit.i.i.i:                                  ; preds = %_cmsQuickSaturateWord.exit.i.i.i, %170
-  br i1 %176, label %195, label %196
+195:                                              ; preds = %170
+  br i1 %176, label %.thread.i.i.i, label %196
 
-195:                                              ; preds = %.loopexit.i.i.i
+.thread.i.i.i:                                    ; preds = %_cmsQuickSaturateWord.exit.i.i.i, %195
   call void @cmsDeleteTransform(ptr noundef nonnull %174) #9
   br label %196
 
-196:                                              ; preds = %195, %.loopexit.i.i.i
+196:                                              ; preds = %.thread.i.i.i, %195
   %.not.i.i.i = icmp eq ptr %173, null
   br i1 %.not.i.i.i, label %ExtractGray2Y.exit.i.i, label %197
 
@@ -640,31 +640,31 @@ EmitNGamma.exit.i.i41.i:                          ; preds = %240, %.lr.ph.i.i.i3
   br i1 %246, label %247, label %250
 
 247:                                              ; preds = %244
-  %248 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.62) #9
-  call fastcc void @WriteCLUT(ptr noundef %5, ptr noundef %.0.i.i.i, ptr noundef nonnull %.031.i.i.i, ptr noundef nonnull %.030.i.i.i, ptr noundef nonnull %.029.i.i.i, ptr noundef nonnull %.028.i.i.i, i32 noundef 0, i32 noundef 0)
-  %249 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.16) #9
+  %248 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.62) #9
+  call fastcc void @WriteCLUT(ptr noundef nonnull %5, ptr noundef %.0.i.i.i, ptr noundef nonnull %.031.i.i.i, ptr noundef nonnull %.030.i.i.i, ptr noundef nonnull %.029.i.i.i, ptr noundef nonnull %.028.i.i.i, i32 noundef 0, i32 noundef 0)
+  %249 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #9
   br label %250
 
 250:                                              ; preds = %247, %244
-  %251 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.68) #9
-  %252 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.69) #9
-  %253 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.70) #9
-  %254 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.71) #9
-  %255 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.72) #9
-  %256 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.16) #9
-  %257 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.73) #9
-  %258 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.74) #9
-  %259 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.75) #9
-  %260 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.76) #9
-  %261 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.77) #9
-  %262 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.78) #9
-  %263 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.16) #9
+  %251 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.68) #9
+  %252 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.69) #9
+  %253 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.70) #9
+  %254 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.71) #9
+  %255 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.72) #9
+  %256 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #9
+  %257 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.73) #9
+  %258 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.74) #9
+  %259 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.75) #9
+  %260 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.76) #9
+  %261 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.77) #9
+  %262 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.78) #9
+  %263 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #9
   %264 = load double, ptr %27, align 8
   %265 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %266 = load double, ptr %265, align 8
   %267 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %268 = load double, ptr %267, align 8
-  %269 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.41, double noundef %264, double noundef %266, double noundef %268) #9
+  %269 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.41, double noundef %264, double noundef %266, double noundef %268) #9
   %270 = call ptr @cmsD50_XYZ() #9
   %271 = load double, ptr %270, align 8
   %272 = call ptr @cmsD50_XYZ() #9
@@ -673,7 +673,7 @@ EmitNGamma.exit.i.i41.i:                          ; preds = %240, %.lr.ph.i.i.i3
   %275 = call ptr @cmsD50_XYZ() #9
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 16
   %277 = load double, ptr %276, align 8
-  %278 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.42, double noundef %271, double noundef %274, double noundef %277) #9
+  %278 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.42, double noundef %271, double noundef %274, double noundef %277) #9
   %279 = icmp ult i32 %3, 4
   br i1 %279, label %switch.lookup, label %EmitCIEBasedDEF.exit.i.i
 
@@ -685,9 +685,9 @@ switch.lookup:                                    ; preds = %250
 
 EmitCIEBasedDEF.exit.i.i:                         ; preds = %250, %switch.lookup
   %.0.i.i28.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.47, %250 ]
-  %281 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i.i28.i.i) #9
-  %282 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.63) #9
-  %283 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.16) #9
+  %281 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i.i28.i.i) #9
+  %282 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.63) #9
+  %283 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #9
   %284 = load ptr, ptr %29, align 8
   call void @cmsPipelineFree(ptr noundef %284) #9
   br label %WriteInputLUT.exit.i

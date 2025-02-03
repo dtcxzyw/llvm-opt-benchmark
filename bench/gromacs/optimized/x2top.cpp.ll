@@ -986,7 +986,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %337
   br label %.preheader.lr.ph.i.us.us.i
 
 378:                                              ; preds = %364
-  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %52, ptr noundef %359, ptr noundef nonnull %365, ptr noundef nonnull %53)
+  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %52, ptr noundef nonnull %359, ptr noundef nonnull %365, ptr noundef nonnull %53)
           to label %.noexc52 unwind label %.loopexit185
 
 .noexc52:                                         ; preds = %378
@@ -1941,7 +1941,7 @@ _ZL7is_bondiP9t_nm2typePcS1_f.exit.thread.us.us.i: ; preds = %._crit_edge.i.us.u
 _ZL7is_bondiP9t_nm2typePcS1_f.exit.thread.us281.us.i: ; preds = %.noexc54, %.lr.ph.us356.i
   %indvars.iv401.i = phi i64 [ %indvars.iv.next402.i, %.noexc54 ], [ %indvars.iv399.i, %.lr.ph.us356.i ]
   %620 = getelementptr inbounds nuw [3 x float], ptr %342, i64 %indvars.iv401.i
-  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %52, ptr noundef %619, ptr noundef nonnull %620, ptr noundef nonnull %53)
+  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %52, ptr noundef nonnull %619, ptr noundef nonnull %620, ptr noundef nonnull %53)
           to label %.noexc54 unwind label %.loopexit.split-lp186.loopexit
 
 .noexc54:                                         ; preds = %_ZL7is_bondiP9t_nm2typePcS1_f.exit.thread.us281.us.i

@@ -2800,9 +2800,9 @@ do.body553.preheader:                             ; preds = %if.end542
   br label %for.cond.i1196
 
 if.then549:                                       ; preds = %if.end542
-  tail call fastcc void @tok_backup(ptr noundef %tok, i32 noundef %c.9)
-  %call550 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef %tok, ptr noundef nonnull @.str.1) #8
-  %call551 = tail call i32 @_PyLexer_token_setup(ptr noundef %tok, ptr noundef %token, i32 noundef %call550, ptr noundef null, ptr noundef null) #8
+  tail call fastcc void @tok_backup(ptr noundef nonnull %tok, i32 noundef %c.9)
+  %call550 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull @.str.1) #8
+  %call551 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef %call550, ptr noundef null, ptr noundef null) #8
   br label %return
 
 for.cond.i1196:                                   ; preds = %for.cond.i1196.backedge, %do.body553.preheader

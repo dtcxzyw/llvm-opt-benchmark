@@ -7114,19 +7114,19 @@ _ZL24make_gpu_id_command_lineB5cxx11PKc.exit.i190: ; preds = %2681, %2680
 
 2687:                                             ; preds = %2685, %2683
   %2688 = select i1 %2666, ptr @.str.445, ptr @.str.446
-  %2689 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %609, ptr noundef nonnull @.str.444, ptr noundef nonnull %2688, ptr noundef %2679) #23
+  %2689 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %609, ptr noundef nonnull @.str.444, ptr noundef nonnull %2688, ptr noundef nonnull %2679) #23
   %2690 = call i64 @fwrite(ptr nonnull @.str.309, i64 62, i64 1, ptr %609)
   %2691 = call i32 @fflush(ptr noundef %609)
   br i1 %2666, label %2692, label %_ZL17launch_simulationbP8_IO_FILEbPcS1_S1_S1_PKciS3_.exit
 
 2692:                                             ; preds = %2687
   %2693 = load ptr, ptr @stdout, align 8
-  %2694 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2693, ptr noundef nonnull @.str.447, ptr noundef %2679) #23
+  %2694 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2693, ptr noundef nonnull @.str.447, ptr noundef nonnull %2679) #23
   %2695 = load ptr, ptr @stdout, align 8
   %2696 = call i64 @fwrite(ptr nonnull @.str.309, i64 62, i64 1, ptr %2695)
   %2697 = load ptr, ptr @stdout, align 8
   %2698 = call i32 @fflush(ptr noundef %2697)
-  %2699 = invoke noundef i32 @system(ptr noundef readonly %2679)
+  %2699 = invoke noundef i32 @system(ptr noundef nonnull readonly %2679)
           to label %_ZL17launch_simulationbP8_IO_FILEbPcS1_S1_S1_PKciS3_.exit unwind label %2700
 
 2700:                                             ; preds = %2692

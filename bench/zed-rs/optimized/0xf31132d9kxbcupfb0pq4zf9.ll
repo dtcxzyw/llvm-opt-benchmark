@@ -4038,8 +4038,8 @@ default.unreachable:                              ; preds = %330, %264, %56
 64:                                               ; preds = %63
   unreachable
 
-common.resume:                                    ; preds = %348, %393, %402, %common.resume.i
-  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %394, %402 ], [ %394, %393 ], [ %349, %348 ]
+common.resume:                                    ; preds = %348, %393, %401, %common.resume.i
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %394, %401 ], [ %394, %393 ], [ %349, %348 ]
   resume { ptr, i32 } %common.resume.op
 
 common.resume.i:                                  ; preds = %342, %274, %65
@@ -4731,7 +4731,7 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h523e07eb54f48cd2E.exit.i.threa
   %.val = load ptr, ptr %25, align 8
   %.val12 = load ptr, ptr %351, align 8, !nonnull !20, !align !28, !noundef !20
   invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17hda2dadb125a57116E"(ptr %.val, ptr nonnull %.val12) #29
-          to label %common.resume unwind label %403
+          to label %common.resume unwind label %402
 
 .loopexit276:                                     ; preds = %_ZN14regex_automata6hybrid3dfa3DFA10next_state17h5c95132b12d4ed97E.exit.i, %_ZN14regex_automata6hybrid3dfa3DFA14next_eoi_state17h883c42b5e30e8e2eE.exit.i, %.loopexit, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9729cb62324f0952E.exit169.i"
   %.sroa.13.0 = phi ptr [ %anon.debcf3512d9c2560ad054027152a253b.116.sink.i, %.loopexit ], [ @anon.debcf3512d9c2560ad054027152a253b.118, %_ZN14regex_automata6hybrid3dfa3DFA14next_eoi_state17h883c42b5e30e8e2eE.exit.i ], [ @anon.debcf3512d9c2560ad054027152a253b.116, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9729cb62324f0952E.exit169.i" ], [ @anon.debcf3512d9c2560ad054027152a253b.118, %_ZN14regex_automata6hybrid3dfa3DFA10next_state17h5c95132b12d4ed97E.exit.i ]
@@ -4861,27 +4861,25 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h523e07eb54f48cd2E.exit.i.threa
 393:                                              ; preds = %383
   %394 = landingpad { ptr, i32 }
           cleanup
-  %395 = icmp ne ptr %.val13, null
-  call void @llvm.assume(i1 %395)
-  %396 = getelementptr inbounds nuw i8, ptr %.val14, i64 8
-  %397 = load i64, ptr %396, align 8, !range !561, !invariant.load !20
-  %398 = getelementptr inbounds nuw i8, ptr %.val14, i64 16
-  %399 = load i64, ptr %398, align 8, !range !562, !invariant.load !20
-  %400 = icmp ult i64 %399, -9223372036854775807
-  call void @llvm.assume(i1 %400)
-  %401 = icmp eq i64 %397, 0
-  br i1 %401, label %common.resume, label %402
+  %395 = getelementptr inbounds nuw i8, ptr %.val14, i64 8
+  %396 = load i64, ptr %395, align 8, !range !561, !invariant.load !20
+  %397 = getelementptr inbounds nuw i8, ptr %.val14, i64 16
+  %398 = load i64, ptr %397, align 8, !range !562, !invariant.load !20
+  %399 = icmp ult i64 %398, -9223372036854775807
+  call void @llvm.assume(i1 %399)
+  %400 = icmp eq i64 %396, 0
+  br i1 %400, label %common.resume, label %401
 
-402:                                              ; preds = %393
-  call void @__rust_dealloc(ptr noundef nonnull %.val13, i64 noundef range(i64 1, -9223372036854775808) %397, i64 noundef range(i64 1, -9223372036854775807) %399) #32
+401:                                              ; preds = %393
+  call void @__rust_dealloc(ptr noundef nonnull %.val13, i64 noundef range(i64 1, -9223372036854775808) %396, i64 noundef range(i64 1, -9223372036854775807) %398) #32
   br label %common.resume
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17hda2dadb125a57116E.exit": ; preds = %384, %392
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
   br label %347
 
-403:                                              ; preds = %348
-  %404 = landingpad { ptr, i32 }
+402:                                              ; preds = %348
+  %403 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #30
   unreachable
@@ -7024,22 +7022,20 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$L
 13:                                               ; preds = %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %17 = load i64, ptr %16, align 8, !range !561, !invariant.load !20
-  %18 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %19 = load i64, ptr %18, align 8, !range !562, !invariant.load !20
-  %20 = icmp ult i64 %19, -9223372036854775807
-  tail call void @llvm.assume(i1 %20)
-  %21 = icmp eq i64 %17, 0
-  br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35b47e592d72be71E.exit4", label %22
+  %15 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %16 = load i64, ptr %15, align 8, !range !561, !invariant.load !20
+  %17 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  %18 = load i64, ptr %17, align 8, !range !562, !invariant.load !20
+  %19 = icmp ult i64 %18, -9223372036854775807
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp eq i64 %16, 0
+  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35b47e592d72be71E.exit4", label %21
 
-22:                                               ; preds = %13
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #32
+21:                                               ; preds = %13
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %16, i64 noundef range(i64 1, -9223372036854775807) %18) #32
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35b47e592d72be71E.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35b47e592d72be71E.exit4": ; preds = %22, %13
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35b47e592d72be71E.exit4": ; preds = %21, %13
   resume { ptr, i32 } %14
 }
 

@@ -30021,21 +30021,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h65f0be47b84a2b38E"(ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
   invoke void @"_ZN4core3ptr96drop_in_place$LT$png..decoder..Reader$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h6340e3df806308e3E"(ptr noalias noundef nonnull align 8 dereferenceable(688) %1)
-          to label %"_ZN4core3ptr106drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h3a8b3bc1abb913c4E.exit" unwind label %3
+          to label %"_ZN4core3ptr106drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h3a8b3bc1abb913c4E.exit" unwind label %2
 
 "_ZN4core3ptr106drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h3a8b3bc1abb913c4E.exit": ; preds = %0
-  %2 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %2)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 728, i64 noundef 8) #69
   ret void
 
-3:                                                ; preds = %0
-  %4 = landingpad { ptr, i32 }
+2:                                                ; preds = %0
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %5 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %5)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 728, i64 noundef 8) #69
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -68766,7 +68762,7 @@ _ZN4gpui8executor18BackgroundExecutor14is_main_thread17h99c9ede8a0cb781dE.exit: 
 83:                                               ; preds = %70
   %84 = extractvalue { ptr, ptr } %81, 0
   %85 = extractvalue { ptr, ptr } %81, 1
-  invoke void @_ZN4gpui11text_system10TextSystem3new17h28168dbe64a3926bE(ptr noalias noundef nonnull sret([312 x i8]) align 8 captures(none) dereferenceable(312) %11, ptr noundef nonnull %84, ptr noalias noundef readonly align 8 dereferenceable(104) %85)
+  invoke void @_ZN4gpui11text_system10TextSystem3new17h28168dbe64a3926bE(ptr noalias noundef nonnull sret([312 x i8]) align 8 captures(none) dereferenceable(312) %11, ptr noundef nonnull %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %85)
           to label %86 unwind label %63
 
 86:                                               ; preds = %83
@@ -88193,7 +88189,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
 63:                                               ; preds = %52
   %64 = extractvalue { ptr, ptr } %60, 0
   %65 = extractvalue { ptr, ptr } %60, 1
-  invoke void @_ZN4gpui6window13WindowContext15dispatch_action17h64a9388a79727572E(ptr noalias noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 1 %64, ptr noalias noundef readonly align 8 dereferenceable(56) %65)
+  invoke void @_ZN4gpui6window13WindowContext15dispatch_action17h64a9388a79727572E(ptr noalias noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 1 %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %65)
           to label %66 unwind label %61
 
 66:                                               ; preds = %63

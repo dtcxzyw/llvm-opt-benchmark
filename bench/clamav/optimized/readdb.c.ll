@@ -988,7 +988,7 @@ define i32 @cli_sigopts_handler(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not289, label %._crit_edge285, label %.lr.ph284
 
 85:                                               ; preds = %80
-  tail call void @free(ptr noundef %.2211) #21
+  tail call void @free(ptr noundef nonnull %.2211) #21
   br label %163
 
 .lr.ph284:                                        ; preds = %.preheader263, %152
@@ -1153,7 +1153,7 @@ define i32 @cli_sigopts_handler(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 ._crit_edge285:                                   ; preds = %152, %.preheader263
   %156 = tail call i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %84, i8 noundef zeroext %14, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
-  tail call void @free(ptr noundef %84) #21
+  tail call void @free(ptr noundef nonnull %84) #21
   %.not242 = icmp ne i32 %156, 0
   %157 = and i32 %63, 8
   %.not243 = icmp eq i32 %157, 0
@@ -1161,7 +1161,7 @@ define i32 @cli_sigopts_handler(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %or.cond254, label %158, label %159
 
 158:                                              ; preds = %._crit_edge285
-  tail call void @free(ptr noundef %.2211) #21
+  tail call void @free(ptr noundef nonnull %.2211) #21
   br label %163
 
 159:                                              ; preds = %._crit_edge285
@@ -3742,7 +3742,7 @@ define internal fastcc i32 @cli_loadyara(ptr noundef %0, ptr noundef captures(no
 
 183:                                              ; preds = %176, %._crit_edge94.i.i
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.223) #21
-  call void @free(ptr noundef %145) #21
+  call void @free(ptr noundef nonnull %145) #21
   br label %.loopexit377.i
 
 .loopexit377.i:                                   ; preds = %._crit_edge.i.i, %129, %126, %183
@@ -3765,7 +3765,7 @@ parse_yara_hex_string.exit.i:                     ; preds = %176
 
 189:                                              ; preds = %186
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.169) #21
-  call void @free(ptr noundef %145) #21
+  call void @free(ptr noundef nonnull %145) #21
   call void @free(ptr noundef %106) #21
   br label %load_oneyara.exit.thread
 
@@ -3789,7 +3789,7 @@ parse_yara_hex_string.exit.i:                     ; preds = %176
 
 204:                                              ; preds = %190
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.170) #21
-  call void @free(ptr noundef %145) #21
+  call void @free(ptr noundef nonnull %145) #21
   call void @free(ptr noundef %106) #21
   br label %load_oneyara.exit.thread
 
@@ -3805,7 +3805,7 @@ parse_yara_hex_string.exit.i:                     ; preds = %176
 
 209:                                              ; preds = %206
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.171) #21
-  call void @free(ptr noundef %145) #21
+  call void @free(ptr noundef nonnull %145) #21
   call void @free(ptr noundef %106) #21
   br label %load_oneyara.exit.thread
 
@@ -3831,8 +3831,8 @@ parse_yara_hex_string.exit.i:                     ; preds = %176
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.172) #21
   %222 = load ptr, ptr %66, align 8
   call void @mpool_free(ptr noundef %222, ptr noundef nonnull %208) #21
-  call void @free(ptr noundef %145) #21
-  call void @free(ptr noundef %106) #21
+  call void @free(ptr noundef nonnull %145) #21
+  call void @free(ptr noundef nonnull %106) #21
   br label %load_oneyara.exit.thread
 
 223:                                              ; preds = %210
@@ -3858,8 +3858,8 @@ parse_yara_hex_string.exit.i:                     ; preds = %176
   call void @mpool_free(ptr noundef %235, ptr noundef %236) #21
   %237 = load ptr, ptr %66, align 8
   call void @mpool_free(ptr noundef %237, ptr noundef nonnull %208) #21
-  call void @free(ptr noundef %145) #21
-  call void @free(ptr noundef %106) #21
+  call void @free(ptr noundef nonnull %145) #21
+  call void @free(ptr noundef nonnull %106) #21
   br label %load_oneyara.exit.thread
 
 238:                                              ; preds = %223
@@ -3900,7 +3900,7 @@ yara_hexstr_verify.exit.thread.sink.split.i:      ; preds = %243, %249
 yara_hexstr_verify.exit.thread.i:                 ; preds = %246, %yara_hexstr_verify.exit.thread.sink.split.i
   %.0.i372.i = phi i32 [ 4, %yara_hexstr_verify.exit.thread.sink.split.i ], [ %248, %246 ]
   %252 = add nsw i32 %.0241446.i, 1
-  call void @free(ptr noundef %145) #21
+  call void @free(ptr noundef nonnull %145) #21
   br label %.loopexit.i
 
 yara_hexstr_verify.exit.thread373.i:              ; preds = %246
@@ -3985,7 +3985,7 @@ yara_hexstr_verify.exit.thread373.i:              ; preds = %246
   %294 = load ptr, ptr %279, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.182, i32 noundef %293, ptr noundef %294, ptr noundef nonnull %278) #21
   call fastcc void @ytable_add_string(ptr noundef %6, ptr noundef nonnull %278)
-  call void @free(ptr noundef %278) #21
+  call void @free(ptr noundef nonnull %278) #21
   br label %295
 
 295:                                              ; preds = %292, %265, %yara_hexstr_verify.exit.thread373.i, %123
@@ -4197,7 +4197,7 @@ thread-pre-split:                                 ; preds = %.loopexit.thread.i
   %.val337.i = load ptr, ptr %6, align 8
   call fastcc void @ytable_delete(ptr %.val337.i, i32 %.pre)
   call void @free(ptr noundef %362) #21
-  call void @free(ptr noundef %106) #21
+  call void @free(ptr noundef nonnull %106) #21
   %365 = icmp eq i32 %363, 22
   br i1 %365, label %load_oneyara.exit.thread147, label %load_oneyara.exit.thread
 
@@ -4261,7 +4261,7 @@ thread-pre-split:                                 ; preds = %.loopexit.thread.i
 394:                                              ; preds = %392, %390
   %.val339.i = load ptr, ptr %6, align 8
   call fastcc void @ytable_delete(ptr %.val339.i, i32 %.pre)
-  call void @free(ptr noundef %106) #21
+  call void @free(ptr noundef nonnull %106) #21
   br label %load_oneyara.exit.thread
 
 395:                                              ; preds = %366
@@ -4342,7 +4342,7 @@ thread-pre-split:                                 ; preds = %.loopexit.thread.i
   call fastcc void @ytable_delete(ptr %.val341.i, i32 %.pre)
   %432 = load ptr, ptr %66, align 8
   call void @mpool_free(ptr noundef %432, ptr noundef nonnull %374) #21
-  call void @free(ptr noundef %106) #21
+  call void @free(ptr noundef nonnull %106) #21
   br label %load_oneyara.exit.thread
 
 433:                                              ; preds = %408, %399
@@ -4402,7 +4402,7 @@ thread-pre-split:                                 ; preds = %.loopexit.thread.i
   call fastcc void @ytable_delete(ptr %.val343.i, i32 %.pre)
   %458 = load ptr, ptr %66, align 8
   call void @mpool_free(ptr noundef %458, ptr noundef nonnull %374) #21
-  call void @free(ptr noundef %106) #21
+  call void @free(ptr noundef nonnull %106) #21
   br label %load_oneyara.exit.thread
 
 459:                                              ; preds = %433
@@ -4473,7 +4473,7 @@ thread-pre-split:                                 ; preds = %.loopexit.thread.i
   call fastcc void @ytable_delete(ptr %.val345.i, i32 %.pre)
   %491 = load ptr, ptr %66, align 8
   call void @mpool_free(ptr noundef %491, ptr noundef nonnull %374) #21
-  call void @free(ptr noundef %106) #21
+  call void @free(ptr noundef nonnull %106) #21
   br label %load_oneyara.exit.thread
 
 492:                                              ; preds = %459
@@ -4579,7 +4579,7 @@ thread-pre-split:                                 ; preds = %.loopexit.thread.i
   %546 = load i32, ptr @yara_malform, align 4
   %547 = add i32 %546, 1
   store i32 %547, ptr @yara_malform, align 4
-  call void @free(ptr noundef %106) #21
+  call void @free(ptr noundef nonnull %106) #21
   br label %load_oneyara.exit.thread
 
 548:                                              ; preds = %496
@@ -9414,7 +9414,7 @@ sub_0.i:                                          ; preds = %67
   %.1140.ph.lcssa264.fr.i = freeze ptr %.1140.ph.lcssa264.i
   %.1143.ph.lcssa268.fr.i = freeze ptr %.1143.ph.lcssa268.i
   %.not163291.i = icmp eq ptr %.1231.ph.lcssa272.i, null
-  br i1 %.not163291.i, label %._crit_edge.thread.thread407.i, label %.lr.ph294.i
+  br i1 %.not163291.i, label %._crit_edge.thread.thread.i, label %.lr.ph294.i
 
 .lr.ph294.i:                                      ; preds = %.preheader.i
   %.not321.i = icmp eq ptr %.1143.ph.lcssa268.fr.i, null
@@ -9969,34 +9969,34 @@ cli_insertdbtoll.exit.i:                          ; preds = %cli_insertdbtoll.ex
 
 ._crit_edge.i:                                    ; preds = %.lr.ph316.i, %.loopexit.i
   %.not224.i = icmp eq ptr %.0145.i, null
-  br i1 %.not224.i, label %._crit_edge.thread.thread407.i, label %291
+  br i1 %.not224.i, label %._crit_edge.thread.thread.i, label %291
 
 291:                                              ; preds = %._crit_edge.i
   tail call void @free(ptr noundef nonnull %.0145.i) #21
-  br label %._crit_edge.thread.thread407.i
+  br label %._crit_edge.thread.thread.i
 
-._crit_edge.thread.thread407.i:                   ; preds = %.preheader.i, %._crit_edge.i, %291
-  %.0136392398413.i = phi i32 [ %.0136.i, %291 ], [ %.0136.i, %._crit_edge.i ], [ 8, %.preheader.i ]
-  %.0139391399412.i = phi ptr [ %.0139.i, %291 ], [ %.0139.i, %._crit_edge.i ], [ %.1140.ph.lcssa264.fr.i, %.preheader.i ]
-  %.0142390400411.i = phi ptr [ %.0142.i, %291 ], [ %.0142.i, %._crit_edge.i ], [ %.1143.ph.lcssa268.fr.i, %.preheader.i ]
+._crit_edge.thread.thread.i:                      ; preds = %._crit_edge.i, %291, %.preheader.i
+  %.0136392398408.i = phi i32 [ 8, %.preheader.i ], [ %.0136.i, %291 ], [ %.0136.i, %._crit_edge.i ]
+  %.0139391399406.i = phi ptr [ %.1140.ph.lcssa264.fr.i, %.preheader.i ], [ %.0139.i, %291 ], [ %.0139.i, %._crit_edge.i ]
+  %.0142390400404.i = phi ptr [ %.1143.ph.lcssa268.fr.i, %.preheader.i ], [ %.0142.i, %291 ], [ %.0142.i, %._crit_edge.i ]
   %292 = tail call i32 @closedir(ptr noundef nonnull %65)
-  %.not226.i = icmp eq ptr %.0142390400411.i, null
+  %.not226.i = icmp eq ptr %.0142390400404.i, null
   br i1 %.not226.i, label %294, label %293
 
-293:                                              ; preds = %._crit_edge.thread.thread407.i
-  tail call void @cl_cvdfree(ptr noundef nonnull %.0142390400411.i) #21
+293:                                              ; preds = %._crit_edge.thread.thread.i
+  tail call void @cl_cvdfree(ptr noundef nonnull %.0142390400404.i) #21
   br label %294
 
-294:                                              ; preds = %293, %._crit_edge.thread.thread407.i
-  %.not227.i = icmp eq ptr %.0139391399412.i, null
+294:                                              ; preds = %293, %._crit_edge.thread.thread.i
+  %.not227.i = icmp eq ptr %.0139391399406.i, null
   br i1 %.not227.i, label %296, label %295
 
 295:                                              ; preds = %294
-  tail call void @cl_cvdfree(ptr noundef nonnull %.0139391399412.i) #21
+  tail call void @cl_cvdfree(ptr noundef nonnull %.0139391399406.i) #21
   br label %296
 
 296:                                              ; preds = %295, %294
-  %297 = icmp eq i32 %.0136392398413.i, 8
+  %297 = icmp eq i32 %.0136392398408.i, 8
   br i1 %297, label %298, label %cli_loaddbdir.exit
 
 298:                                              ; preds = %.thread68, %296, %.thread425.i
@@ -10008,7 +10008,7 @@ cli_insertdbtoll.exit.i:                          ; preds = %cli_insertdbtoll.ex
   br label %315
 
 cli_loaddbdir.exit:                               ; preds = %298, %296, %57
-  %.0 = phi i32 [ %62, %57 ], [ 8, %298 ], [ %.0136392398413.i, %296 ]
+  %.0 = phi i32 [ %62, %57 ], [ 8, %298 ], [ %.0136392398408.i, %296 ]
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %301 = load ptr, ptr %300, align 8
   %.not56 = icmp eq ptr %301, null

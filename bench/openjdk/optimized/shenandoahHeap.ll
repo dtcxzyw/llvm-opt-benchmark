@@ -5024,7 +5024,7 @@ _ZN20BlockLocationPrinterI14ShenandoahHeapE16base_oop_or_nullEPv.exit..thread_cr
 
 51:                                               ; preds = %50, %.thread
   %.0.i3032 = phi ptr [ %26, %50 ], [ %.0.i3033, %.thread ]
-  tail call void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %.0.i3032, ptr noundef %0) #26
+  tail call void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %.0.i3032, ptr noundef nonnull %0) #26
   br label %79
 
 52:                                               ; preds = %2
@@ -25820,7 +25820,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass23oop_oop_iterate_b
   br label %_ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP17stackChunkOopDescPT0_9MemRegion.exit
 
 _ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP17stackChunkOopDescPT0_9MemRegion.exit: ; preds = %21, %43
-  tail call void @_ZN23InstanceStackChunkKlass30oop_oop_iterate_header_boundedI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP17stackChunkOopDescPT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4)
+  tail call void @_ZN23InstanceStackChunkKlass30oop_oop_iterate_header_boundedI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP17stackChunkOopDescPT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2, ptr %3, i64 %4)
   ret void
 }
 

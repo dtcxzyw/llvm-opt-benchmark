@@ -15314,7 +15314,7 @@ for.end299:                                       ; preds = %_ZN4cvc58internal12
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %100 = load ptr, ptr %vfn, align 8
-  call void %100(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %tm)
+  call void %100(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %tm)
   ret void
 }
 

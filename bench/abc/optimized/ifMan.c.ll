@@ -215,7 +215,7 @@ Vec_MemHashAlloc.exit.i:                          ; preds = %73, %Abc_PrimeCudd.
 
 Vec_MemAllocForTT.exit:                           ; preds = %82, %83
   tail call fastcc void @Vec_MemHashInsert(ptr noundef nonnull %56, ptr noundef nonnull %55)
-  tail call void @free(ptr noundef %55) #20
+  tail call void @free(ptr noundef nonnull %55) #20
   %84 = getelementptr inbounds nuw [16 x ptr], ptr %37, i64 0, i64 %indvars.iv310
   store ptr %56, ptr %84, align 8
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1

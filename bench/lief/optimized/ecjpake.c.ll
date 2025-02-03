@@ -724,7 +724,7 @@ define internal fastcc i32 @ecjpake_zkp_write(ptr noundef %0, ptr noundef %1, i3
   %31 = ptrtoint ptr %8 to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
-  %34 = call i32 @mbedtls_ecp_tls_write_point(ptr noundef %1, ptr noundef nonnull %12, i32 noundef %2, ptr noundef nonnull %15, ptr noundef %30, i64 noundef %33) #14
+  %34 = call i32 @mbedtls_ecp_tls_write_point(ptr noundef nonnull %1, ptr noundef nonnull %12, i32 noundef %2, ptr noundef nonnull %15, ptr noundef %30, i64 noundef %33) #14
   %.not44 = icmp eq i32 %34, 0
   br i1 %.not44, label %35, label %58
 

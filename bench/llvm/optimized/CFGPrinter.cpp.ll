@@ -3658,7 +3658,6 @@ _ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit160: ; preds = %339
 
 .preheader:                                       ; preds = %352, %_ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit160
   %.sink.i.i.i156214 = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit160 ], [ %344, %352 ]
-  %.0.i.i.i151189213 = phi ptr [ %340, %_ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit160 ], [ %spec.select.i.i.i150, %352 ]
   %.sroa.5.0.lcssa = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit160 ], [ %346, %352 ]
   %.not197 = icmp eq i32 %.sroa.5.0.lcssa, %.sink.i.i.i156214
   br i1 %.not197, label %._crit_edge200, label %.lr.ph199
@@ -3682,14 +3681,14 @@ _ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit160: ; preds = %339
 
 .lr.ph199:                                        ; preds = %.preheader, %359
   %.sroa.5.1198 = phi i32 [ %360, %359 ], [ %.sroa.5.0.lcssa, %.preheader ]
-  %354 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i151189213, i32 noundef %.sroa.5.1198) #21
+  %354 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %340, i32 noundef %.sroa.5.1198) #21
   %355 = load ptr, ptr %16, align 8
   %356 = load ptr, ptr %355, align 8
   %357 = call noundef zeroext i1 @_ZN4llvm14DOTGraphTraitsIPNS_11DOTFuncInfoEE12isNodeHiddenEPKNS_10BasicBlockEPKS1_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %354, ptr noundef %356)
   br i1 %357, label %359, label %358
 
 358:                                              ; preds = %.lr.ph199
-  call void @_ZN4llvm11GraphWriterIPNS_11DOTFuncInfoEE9writeEdgeEPKNS_10BasicBlockEjNS_12SuccIteratorIKNS_11InstructionES5_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i32 noundef 64, ptr nonnull %.0.i.i.i151189213, i32 %.sroa.5.1198)
+  call void @_ZN4llvm11GraphWriterIPNS_11DOTFuncInfoEE9writeEdgeEPKNS_10BasicBlockEjNS_12SuccIteratorIKNS_11InstructionES5_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i32 noundef 64, ptr nonnull %340, i32 %.sroa.5.1198)
   br label %359
 
 359:                                              ; preds = %.lr.ph199, %358

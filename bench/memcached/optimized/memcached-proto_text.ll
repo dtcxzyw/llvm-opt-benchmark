@@ -2072,7 +2072,7 @@ if.then275:                                       ; preds = %if.end261
   br i1 %tobool279.not, label %if.else295, label %if.then280
 
 if.then280:                                       ; preds = %if.then275
-  %call281 = call i32 @storage_get_item(ptr noundef %c, ptr noundef nonnull %it.1.ph, ptr noundef %0) #11
+  %call281 = call i32 @storage_get_item(ptr noundef %c, ptr noundef nonnull %it.1.ph, ptr noundef nonnull %0) #11
   %cmp282.not = icmp eq i32 %call281, 0
   br i1 %cmp282.not, label %if.then327, label %if.else343
 
@@ -2098,13 +2098,13 @@ if.then301:                                       ; preds = %if.else295
   %add.ptr319 = getelementptr inbounds nuw i8, ptr %add.ptr313, i64 %cond318
   %nbytes320 = getelementptr inbounds nuw i8, ptr %it.1.ph, i64 32
   %63 = load i32, ptr %nbytes320, align 8
-  call void @resp_add_iov(ptr noundef %0, ptr noundef nonnull %add.ptr319, i32 noundef %63) #11
+  call void @resp_add_iov(ptr noundef nonnull %0, ptr noundef nonnull %add.ptr319, i32 noundef %63) #11
   br label %if.then327
 
 if.else321:                                       ; preds = %if.else295
   %nbytes322 = getelementptr inbounds nuw i8, ptr %it.1.ph, i64 32
   %64 = load i32, ptr %nbytes322, align 8
-  call void @resp_add_chunked_iov(ptr noundef %0, ptr noundef nonnull %it.1.ph, i32 noundef %64) #11
+  call void @resp_add_chunked_iov(ptr noundef nonnull %0, ptr noundef nonnull %it.1.ph, i32 noundef %64) #11
   br label %if.then327
 
 if.then327:                                       ; preds = %if.then280, %if.then301, %if.else321, %if.end261

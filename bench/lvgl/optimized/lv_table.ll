@@ -1699,17 +1699,17 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
-  %19 = call ptr @lv_obj_get_style_prop(ptr noundef %13, i32 noundef 0, i8 noundef zeroext 48) #9
+  %19 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 48) #9
   %20 = ptrtoint ptr %19 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %20 to i32
-  %21 = call ptr @lv_obj_get_style_prop(ptr noundef %13, i32 noundef 0, i8 noundef zeroext 16) #9
+  %21 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 16) #9
   %22 = ptrtoint ptr %21 to i64
   %.sroa.0.0.extract.trunc.i175 = trunc i64 %22 to i32
-  %23 = call ptr @lv_obj_get_style_prop(ptr noundef %13, i32 noundef 0, i8 noundef zeroext 17) #9
-  %24 = call ptr @lv_obj_get_style_prop(ptr noundef %13, i32 noundef 0, i8 noundef zeroext 18) #9
+  %23 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 17) #9
+  %24 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 18) #9
   %25 = ptrtoint ptr %24 to i64
   %.sroa.0.0.extract.trunc.i177 = trunc i64 %25 to i32
-  %26 = call ptr @lv_obj_get_style_prop(ptr noundef %13, i32 noundef 0, i8 noundef zeroext 19) #9
+  %26 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 19) #9
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 60
   %28 = load i16, ptr %27, align 4, !tbaa !46
   store i16 0, ptr %27, align 4, !tbaa !46
@@ -1720,18 +1720,18 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #9
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %6) #9
-  call void @lv_obj_init_draw_rect_dsc(ptr noundef %13, i32 noundef 327680, ptr noundef nonnull %6) #9
+  call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %13, i32 noundef 327680, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #9
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %8) #9
-  call void @lv_obj_init_draw_label_dsc(ptr noundef %13, i32 noundef 327680, ptr noundef nonnull %8) #9
+  call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %13, i32 noundef 327680, ptr noundef nonnull %8) #9
   store i16 %28, ptr %27, align 4, !tbaa !46
   %32 = load i16, ptr %29, align 2
   %33 = and i16 %32, -9
   store i16 %33, ptr %29, align 2
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %35 = load i32, ptr %34, align 4, !tbaa !30
-  %36 = call i32 @lv_obj_get_scroll_y(ptr noundef %13) #9
+  %36 = call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %13) #9
   %37 = xor i32 %36, -1
   %38 = add i32 %.sroa.0.0.extract.trunc.i175, %.sroa.0.0.extract.trunc.i
   %39 = add i32 %38, %35
@@ -1741,8 +1741,8 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   store i32 0, ptr %5, align 4, !tbaa !41
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %42, align 4, !tbaa !42
-  %43 = call i32 @lv_obj_get_scroll_x(ptr noundef %13) #9
-  %44 = call ptr @lv_obj_get_style_prop(ptr noundef %13, i32 noundef 0, i8 noundef zeroext 39) #9
+  %43 = call i32 @lv_obj_get_scroll_x(ptr noundef nonnull %13) #9
+  %44 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 39) #9
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, 4294967295
   %47 = icmp eq i64 %46, 1

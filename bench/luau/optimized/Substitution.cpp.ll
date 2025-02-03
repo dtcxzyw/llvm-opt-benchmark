@@ -1933,7 +1933,7 @@ _ZN4Luau6Tarjan10visitChildIPKNS_4TypeEEEvSt8optionalIT_E.exit116.sink.split: ; 
   br label %_ZN4Luau6Tarjan10visitChildIPKNS_4TypeEEEvSt8optionalIT_E.exit116
 
 _ZN4Luau6Tarjan10visitChildIPKNS_4TypeEEEvSt8optionalIT_E.exit116: ; preds = %_ZN4Luau6Tarjan10visitChildIPKNS_4TypeEEEvSt8optionalIT_E.exit116.sink.split, %_ZN4Luau6Tarjan10visitChildIPKNS_4TypeEEEvSt8optionalIT_E.exit
-  %45 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0160.0236) #25
+  %45 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0160.0236) #25
   %.not202 = icmp eq ptr %45, %32
   br i1 %.not202, label %._crit_edge238, label %.lr.ph237
 

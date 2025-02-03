@@ -1411,7 +1411,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  tail call void @free(ptr noundef %70) #12
+  tail call void @free(ptr noundef nonnull %70) #12
   %74 = tail call noalias ptr @strdup(ptr noundef %60) #12
   store ptr %74, ptr %73, align 8
   br label %.critedge

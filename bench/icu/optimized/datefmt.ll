@@ -1896,7 +1896,7 @@ ehcleanup.thread36:                               ; preds = %invoke.cont5
           cleanup
   call void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %call3) #13
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #13
-  br label %cleanup.action14
+  br label %ehcleanup26.thread
 
 new.cont:                                         ; preds = %if.end
   %3 = load i32, ptr %status, align 4
@@ -1916,58 +1916,52 @@ cleanup.done:                                     ; preds = %invoke.cont5
 ehcleanup.thread:                                 ; preds = %new.notnull
   %5 = landingpad { ptr, i32 }
           cleanup
-  br label %cleanup.action14
+  br label %ehcleanup26.thread
 
-cleanup.action14:                                 ; preds = %ehcleanup.thread36, %ehcleanup.thread
+ehcleanup26.thread:                               ; preds = %ehcleanup.thread, %ehcleanup.thread36
   %.pn35 = phi { ptr, i32 } [ %5, %ehcleanup.thread ], [ %2, %ehcleanup.thread36 ]
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call3) #13
-  br label %ehcleanup26
+  br label %_ZN6icu_7512LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit25
 
 if.end19:                                         ; preds = %cleanup.done
   invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %call3)
-          to label %cleanup25 unwind label %_ZN6icu_7512LocalPointerINS_18DateFmtBestPatternEED2Ev.exit
-
-_ZN6icu_7512LocalPointerINS_18DateFmtBestPatternEED2Ev.exit: ; preds = %if.end19
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup26
+          to label %delete.notnull.i18 unwind label %ehcleanup26
 
 delete.notnull.i13:                               ; preds = %cleanup.done
   %vtable.i14 = load ptr, ptr %call3, align 8
   %vfn.i15 = getelementptr inbounds nuw i8, ptr %vtable.i14, i64 8
-  %7 = load ptr, ptr %vfn.i15, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(88) %call3) #13
-  br label %cleanup25
+  %6 = load ptr, ptr %vfn.i15, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(88) %call3) #13
+  br label %delete.notnull.i18
 
-cleanup25:                                        ; preds = %if.then.i, %new.cont, %if.end19, %delete.notnull.i13, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %delete.notnull.i13 ], [ %call3, %if.end19 ], [ null, %new.cont ], [ null, %if.then.i ]
+cleanup25:                                        ; preds = %if.then.i, %new.cont, %entry
   %isnull.i17 = icmp eq ptr %call, null
   br i1 %isnull.i17, label %_ZN6icu_7512LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit, label %delete.notnull.i18
 
-delete.notnull.i18:                               ; preds = %cleanup25
+delete.notnull.i18:                               ; preds = %delete.notnull.i13, %if.end19, %cleanup25
+  %retval.051 = phi ptr [ null, %cleanup25 ], [ %call3, %if.end19 ], [ null, %delete.notnull.i13 ]
   %vtable.i19 = load ptr, ptr %call, align 8
   %vfn.i20 = getelementptr inbounds nuw i8, ptr %vtable.i19, i64 8
-  %8 = load ptr, ptr %vfn.i20, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(4796) %call) #13
+  %7 = load ptr, ptr %vfn.i20, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(4796) %call) #13
   br label %_ZN6icu_7512LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit: ; preds = %cleanup25, %delete.notnull.i18
-  ret ptr %retval.0
+  %retval.052 = phi ptr [ null, %cleanup25 ], [ %retval.051, %delete.notnull.i18 ]
+  ret ptr %retval.052
 
-ehcleanup26:                                      ; preds = %cleanup.action14, %_ZN6icu_7512LocalPointerINS_18DateFmtBestPatternEED2Ev.exit
-  %.pn7 = phi { ptr, i32 } [ %6, %_ZN6icu_7512LocalPointerINS_18DateFmtBestPatternEED2Ev.exit ], [ %.pn35, %cleanup.action14 ]
-  %isnull.i21 = icmp eq ptr %call, null
-  br i1 %isnull.i21, label %_ZN6icu_7512LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit25, label %delete.notnull.i22
+ehcleanup26:                                      ; preds = %if.end19
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN6icu_7512LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit25
 
-delete.notnull.i22:                               ; preds = %ehcleanup26
+_ZN6icu_7512LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit25: ; preds = %ehcleanup26.thread, %ehcleanup26
+  %.pn745 = phi { ptr, i32 } [ %.pn35, %ehcleanup26.thread ], [ %8, %ehcleanup26 ]
   %vtable.i23 = load ptr, ptr %call, align 8
   %vfn.i24 = getelementptr inbounds nuw i8, ptr %vtable.i23, i64 8
   %9 = load ptr, ptr %vfn.i24, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(4796) %call) #13
-  br label %_ZN6icu_7512LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit25
-
-_ZN6icu_7512LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit25: ; preds = %ehcleanup26, %delete.notnull.i22
-  resume { ptr, i32 } %.pn7
+  resume { ptr, i32 } %.pn745
 }
 
 ; Function Attrs: mustprogress uwtable

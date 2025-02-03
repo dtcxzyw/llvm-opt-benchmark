@@ -2063,7 +2063,7 @@ Abc_UtilStrsav.exit61:                            ; preds = %Abc_UtilStrsav.exit
   %104 = getelementptr i8, ptr %0, i64 16
   %.val59 = load i32, ptr %104, align 8
   tail call void @Aig_ManSetRegNum(ptr noundef nonnull %14, i32 noundef %.val59) #15
-  tail call void @free(ptr noundef %35) #15
+  tail call void @free(ptr noundef nonnull %35) #15
   ret ptr %14
 }
 

@@ -1482,7 +1482,7 @@ if.end.i:                                         ; preds = %_ZN7rocksdb11PutVar
   unreachable
 
 _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %_ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
-  call void @_ZNK7rocksdb11VersionEdit20EncodeFileBoundariesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12FileMetaDataEm(ptr nonnull align 8 poison, ptr noundef %dst, ptr noundef nonnull align 8 dereferenceable(305) %second55, i64 noundef %ts_sz.coerce0)
+  call void @_ZNK7rocksdb11VersionEdit20EncodeFileBoundariesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12FileMetaDataEm(ptr nonnull align 8 poison, ptr noundef nonnull %dst, ptr noundef nonnull align 8 dereferenceable(305) %second55, i64 noundef %ts_sz.coerce0)
   %smallest_seqno = getelementptr inbounds nuw i8, ptr %add.ptr.i269, i64 32
   %47 = load i64, ptr %smallest_seqno, align 8
   %largest_seqno = getelementptr inbounds nuw i8, ptr %add.ptr.i269, i64 40
@@ -9455,7 +9455,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %15 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %if.then unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.end.thread unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %16 = landingpad { ptr, i32 }
@@ -9552,11 +9552,11 @@ _ZNSt12_Vector_baseISt4pairIiN7rocksdb12FileMetaDataEESaIS3_EE13_M_deallocateEPS
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 
-if.then:                                          ; preds = %lpad2.i.i.i.i.i
+if.end.thread:                                    ; preds = %lpad2.i.i.i.i.i
   %25 = extractvalue { ptr, i32 } %15, 0
   %26 = tail call ptr @__cxa_begin_catch(ptr %25) #24
   tail call void @_ZNSt16allocator_traitsISaISt4pairIiN7rocksdb12FileMetaDataEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %add.ptr) #24
-  br label %if.end
+  br label %if.then.i42
 
 if.else:                                          ; preds = %lpad2.i.i.i.i.i27
   %27 = extractvalue { ptr, i32 } %22, 0
@@ -9570,11 +9570,11 @@ lpad19:                                           ; preds = %invoke.cont21, %if.
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.end:                                           ; preds = %if.else, %if.then
+if.end:                                           ; preds = %if.else
   %tobool.not.i41 = icmp eq ptr %cond.i19, null
   br i1 %tobool.not.i41, label %invoke.cont21, label %if.then.i42
 
-if.then.i42:                                      ; preds = %if.end
+if.then.i42:                                      ; preds = %if.end.thread, %if.end
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i19) #23
   br label %invoke.cont21
 

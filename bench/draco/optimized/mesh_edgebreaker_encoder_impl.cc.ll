@@ -26081,7 +26081,7 @@ _ZSt10_ConstructIN5draco26MeshEdgebreakerEncoderImplINS0_31MeshEdgebreakerTraver
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #18
-  invoke void @_ZSt8_DestroyIPN5draco26MeshEdgebreakerEncoderImplINS0_31MeshEdgebreakerTraversalEncoderEE13AttributeDataEEvT_S6_(ptr noundef %5, ptr noundef %.014.i.i.i)
+  invoke void @_ZSt8_DestroyIPN5draco26MeshEdgebreakerEncoderImplINS0_31MeshEdgebreakerTraversalEncoderEE13AttributeDataEEvT_S6_(ptr noundef %5, ptr noundef nonnull %.014.i.i.i)
           to label %25 unwind label %26
 
 25:                                               ; preds = %21
@@ -26655,7 +26655,7 @@ _ZSt10_ConstructIN5draco26MeshEdgebreakerEncoderImplINS0_41MeshEdgebreakerTraver
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #18
-  invoke void @_ZSt8_DestroyIPN5draco26MeshEdgebreakerEncoderImplINS0_41MeshEdgebreakerTraversalPredictiveEncoderEE13AttributeDataEEvT_S6_(ptr noundef %5, ptr noundef %.014.i.i.i)
+  invoke void @_ZSt8_DestroyIPN5draco26MeshEdgebreakerEncoderImplINS0_41MeshEdgebreakerTraversalPredictiveEncoderEE13AttributeDataEEvT_S6_(ptr noundef %5, ptr noundef nonnull %.014.i.i.i)
           to label %25 unwind label %26
 
 25:                                               ; preds = %21
@@ -27029,7 +27029,7 @@ _ZSt10_ConstructIN5draco26MeshEdgebreakerEncoderImplINS0_38MeshEdgebreakerTraver
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #18
-  invoke void @_ZSt8_DestroyIPN5draco26MeshEdgebreakerEncoderImplINS0_38MeshEdgebreakerTraversalValenceEncoderEE13AttributeDataEEvT_S6_(ptr noundef %5, ptr noundef %.014.i.i.i)
+  invoke void @_ZSt8_DestroyIPN5draco26MeshEdgebreakerEncoderImplINS0_38MeshEdgebreakerTraversalValenceEncoderEE13AttributeDataEEvT_S6_(ptr noundef %5, ptr noundef nonnull %.014.i.i.i)
           to label %25 unwind label %26
 
 25:                                               ; preds = %21

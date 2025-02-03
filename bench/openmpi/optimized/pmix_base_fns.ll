@@ -302,7 +302,7 @@ define void @opal_pmix_setup_nspace_tracker() local_unnamed_addr #0 {
   br label %check_pmix_param.exit.i
 
 check_pmix_param.exit.i:                          ; preds = %27, %.loopexit110.i, %.preheader.i.i, %12
-  call void @free(ptr noundef %13) #12
+  call void @free(ptr noundef nonnull %13) #12
   %.pre.i = load ptr, ptr @environ, align 8
   br label %38
 
@@ -480,7 +480,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %109, %106
   br i1 %.not.i78.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i76.i, !llvm.loop !9
 
 opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i76.i, %114
-  call void @free(ptr noundef %96) #12
+  call void @free(ptr noundef nonnull %96) #12
   br label %122
 
 122:                                              ; preds = %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i
@@ -624,7 +624,7 @@ opal_thread_add_fetch_32.exit92.i:                ; preds = %176, %173
   br i1 %.not.i96.i, label %opal_obj_run_destructors.exit97.i, label %.lr.ph.i94.i, !llvm.loop !9
 
 opal_obj_run_destructors.exit97.i:                ; preds = %.lr.ph.i94.i, %181
-  call void @free(ptr noundef %163) #12
+  call void @free(ptr noundef nonnull %163) #12
   br label %189
 
 189:                                              ; preds = %opal_obj_run_destructors.exit97.i, %opal_thread_add_fetch_32.exit92.i
@@ -754,7 +754,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %17, %20
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !9
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %25
-  tail call void @free(ptr noundef %7) #12
+  tail call void @free(ptr noundef nonnull %7) #12
   br label %33
 
 33:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit

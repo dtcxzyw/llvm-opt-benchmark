@@ -1527,7 +1527,7 @@ ractor_sched_lock_.exit:                          ; preds = %rb_native_mutex_unl
 ractor_sched_barrier_join_signal_locked.exit:     ; preds = %17, %ractor_sched_lock_.exit
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %21 = load ptr, ptr %20, align 8
-  tail call fastcc void @ractor_sched_barrier_join_wait_locked(ptr noundef %0, ptr noundef %21)
+  tail call fastcc void @ractor_sched_barrier_join_wait_locked(ptr noundef nonnull %0, ptr noundef %21)
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #19
   %.not.i.i10 = icmp eq i32 %22, 0
   br i1 %.not.i.i10, label %ractor_sched_unlock_.exit, label %23
@@ -1911,7 +1911,7 @@ ractor_sched_lock_.exit.thread:                   ; preds = %.thread, %ractor_sc
   unreachable
 
 ractor_sched_barrier_join_signal_locked.exit48:   ; preds = %55, %48
-  tail call fastcc void @ractor_sched_barrier_join_wait_locked(ptr noundef %1, ptr noundef nonnull %2)
+  tail call fastcc void @ractor_sched_barrier_join_wait_locked(ptr noundef nonnull %1, ptr noundef nonnull %2)
   br label %58
 
 58:                                               ; preds = %ractor_sched_barrier_join_signal_locked.exit48, %44
@@ -20419,7 +20419,7 @@ rb_native_cond_signal.exit.i:                     ; preds = %.preheader, %timer_
   unreachable
 
 ractor_sched_unlock_.exit.i:                      ; preds = %rb_native_cond_signal.exit.i
-  %220 = call fastcc i32 @native_thread_check_and_create_shared(ptr noundef %0)
+  %220 = call fastcc i32 @native_thread_check_and_create_shared(ptr noundef nonnull %0)
   br label %timer_thread_polling.exit
 
 221:                                              ; preds = %event_wait.exit.i

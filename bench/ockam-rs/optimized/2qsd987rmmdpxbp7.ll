@@ -11604,7 +11604,7 @@ define void @"_ZN95_$LT$ockam_abac..error..ParseError$u20$as$u20$core..convert..
   call void @llvm.experimental.noalias.scope.decl(metadata !1808)
   call void @llvm.experimental.noalias.scope.decl(metadata !1811)
   %13 = load ptr, ptr %7, align 8, !alias.scope !1814, !noundef !13
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$wast..error..ErrorInner$GT$17ha4ab8793748f57f1E.llvm.6910714394678848989"(ptr noalias noundef align 8 dereferenceable(96) %13)
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$wast..error..ErrorInner$GT$17ha4ab8793748f57f1E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13)
           to label %"_ZN4core3ptr39drop_in_place$LT$wast..error..Error$GT$17hc5e59c5bcc9d1c6aE.exit" unwind label %14, !noalias !1814
 
 14:                                               ; preds = %11

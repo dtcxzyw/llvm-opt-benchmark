@@ -434,7 +434,7 @@ define linkonce_odr hidden void @_ZNK4nori10Dielectric6sampleERNS_15BSDFQueryRec
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %5) #15
+  tail call void @__cxa_free_exception(ptr nonnull %5) #15
   resume { ptr, i32 } %8
 }
 

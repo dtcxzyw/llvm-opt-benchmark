@@ -4833,7 +4833,7 @@ define internal fastcc range(i32 -30, 1) i32 @init_WinZip_AES_decryption(ptr nou
   br label %87
 
 86:                                               ; preds = %64, %11
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.83) #21
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.83) #21
   br label %87
 
 87:                                               ; preds = %1, %8, %86, %85, %76, %61, %56, %47, %37, %._crit_edge

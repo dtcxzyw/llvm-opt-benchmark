@@ -614,7 +614,7 @@ define internal noundef ptr @libnbc_comm_query(ptr noundef %0, ptr noundef write
 
 8:                                                ; preds = %7, %2
   %.not9.i = icmp eq ptr %4, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %9
+  br i1 %.not9.i, label %opal_obj_new.exit, label %9
 
 9:                                                ; preds = %8
   store ptr @ompi_coll_libnbc_module_t_class, ptr %4, align 8
@@ -623,7 +623,7 @@ define internal noundef ptr @libnbc_comm_query(ptr noundef %0, ptr noundef write
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_libnbc_module_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i.i = icmp eq ptr %12, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread93, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %13 = phi ptr [ %15, %.lr.ph.i.i ], [ %12, %9 ]
@@ -632,9 +632,9 @@ define internal noundef ptr @libnbc_comm_query(ptr noundef %0, ptr noundef write
   %14 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread93, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread93:                       ; preds = %.lr.ph.i.i, %9
+.loopexit:                                        ; preds = %.lr.ph.i.i, %9
   %16 = load i32, ptr @libnbc_priority, align 4
   store i32 %16, ptr %1, align 4
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -662,7 +662,7 @@ opal_obj_new.exit.thread93:                       ; preds = %.lr.ph.i.i, %9
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 288
   br i1 %.not, label %39, label %38
 
-38:                                               ; preds = %opal_obj_new.exit.thread93
+38:                                               ; preds = %.loopexit
   store ptr @ompi_coll_libnbc_iallgather_inter, ptr %21, align 8
   store ptr @ompi_coll_libnbc_iallgatherv_inter, ptr %22, align 8
   store ptr @ompi_coll_libnbc_iallreduce_inter, ptr %23, align 8
@@ -682,7 +682,7 @@ opal_obj_new.exit.thread93:                       ; preds = %.lr.ph.i.i, %9
   store ptr @ompi_coll_libnbc_iscatterv_inter, ptr %37, align 8
   br label %50
 
-39:                                               ; preds = %opal_obj_new.exit.thread93
+39:                                               ; preds = %.loopexit
   store ptr @ompi_coll_libnbc_iallgather, ptr %21, align 8
   store ptr @ompi_coll_libnbc_iallgatherv, ptr %22, align 8
   store ptr @ompi_coll_libnbc_iallreduce, ptr %23, align 8
@@ -723,77 +723,77 @@ opal_obj_new.exit.thread93:                       ; preds = %.lr.ph.i.i, %9
   br label %50
 
 50:                                               ; preds = %39, %38
-  %.sink110 = phi i64 [ 336, %39 ], [ 296, %38 ]
+  %.sink109 = phi i64 [ 336, %39 ], [ 296, %38 ]
   %ompi_coll_libnbc_alltoallw_init.sink = phi ptr [ @ompi_coll_libnbc_alltoallw_init, %39 ], [ @ompi_coll_libnbc_allgather_inter_init, %38 ]
-  %.sink109 = phi i64 [ 344, %39 ], [ 304, %38 ]
+  %.sink108 = phi i64 [ 344, %39 ], [ 304, %38 ]
   %ompi_coll_libnbc_barrier_init.sink = phi ptr [ @ompi_coll_libnbc_barrier_init, %39 ], [ @ompi_coll_libnbc_allgatherv_inter_init, %38 ]
-  %.sink108 = phi i64 [ 352, %39 ], [ 312, %38 ]
+  %.sink107 = phi i64 [ 352, %39 ], [ 312, %38 ]
   %ompi_coll_libnbc_bcast_init.sink = phi ptr [ @ompi_coll_libnbc_bcast_init, %39 ], [ @ompi_coll_libnbc_allreduce_inter_init, %38 ]
-  %.sink107 = phi i64 [ 360, %39 ], [ 320, %38 ]
+  %.sink106 = phi i64 [ 360, %39 ], [ 320, %38 ]
   %ompi_coll_libnbc_exscan_init.sink = phi ptr [ @ompi_coll_libnbc_exscan_init, %39 ], [ @ompi_coll_libnbc_alltoall_inter_init, %38 ]
-  %.sink106 = phi i64 [ 368, %39 ], [ 328, %38 ]
+  %.sink105 = phi i64 [ 368, %39 ], [ 328, %38 ]
   %ompi_coll_libnbc_gather_init.sink = phi ptr [ @ompi_coll_libnbc_gather_init, %39 ], [ @ompi_coll_libnbc_alltoallv_inter_init, %38 ]
-  %.sink105 = phi i64 [ 376, %39 ], [ 336, %38 ]
+  %.sink104 = phi i64 [ 376, %39 ], [ 336, %38 ]
   %ompi_coll_libnbc_gatherv_init.sink = phi ptr [ @ompi_coll_libnbc_gatherv_init, %39 ], [ @ompi_coll_libnbc_alltoallw_inter_init, %38 ]
-  %.sink104 = phi i64 [ 384, %39 ], [ 344, %38 ]
+  %.sink103 = phi i64 [ 384, %39 ], [ 344, %38 ]
   %ompi_coll_libnbc_reduce_init.sink = phi ptr [ @ompi_coll_libnbc_reduce_init, %39 ], [ @ompi_coll_libnbc_barrier_inter_init, %38 ]
-  %.sink103 = phi i64 [ 392, %39 ], [ 352, %38 ]
+  %.sink102 = phi i64 [ 392, %39 ], [ 352, %38 ]
   %ompi_coll_libnbc_reduce_scatter_init.sink = phi ptr [ @ompi_coll_libnbc_reduce_scatter_init, %39 ], [ @ompi_coll_libnbc_bcast_inter_init, %38 ]
-  %.sink102 = phi i64 [ 400, %39 ], [ 360, %38 ]
+  %.sink101 = phi i64 [ 400, %39 ], [ 360, %38 ]
   %ompi_coll_libnbc_reduce_scatter_block_init.sink = phi ptr [ @ompi_coll_libnbc_reduce_scatter_block_init, %39 ], [ null, %38 ]
-  %.sink101 = phi i64 [ 408, %39 ], [ 368, %38 ]
+  %.sink100 = phi i64 [ 408, %39 ], [ 368, %38 ]
   %ompi_coll_libnbc_scan_init.sink = phi ptr [ @ompi_coll_libnbc_scan_init, %39 ], [ @ompi_coll_libnbc_gather_inter_init, %38 ]
-  %.sink100 = phi i64 [ 416, %39 ], [ 376, %38 ]
+  %.sink99 = phi i64 [ 416, %39 ], [ 376, %38 ]
   %ompi_coll_libnbc_scatter_init.sink = phi ptr [ @ompi_coll_libnbc_scatter_init, %39 ], [ @ompi_coll_libnbc_gatherv_inter_init, %38 ]
-  %.sink99 = phi i64 [ 424, %39 ], [ 384, %38 ]
+  %.sink98 = phi i64 [ 424, %39 ], [ 384, %38 ]
   %ompi_coll_libnbc_scatterv_init.sink = phi ptr [ @ompi_coll_libnbc_scatterv_init, %39 ], [ @ompi_coll_libnbc_reduce_inter_init, %38 ]
-  %.sink98 = phi i64 [ 512, %39 ], [ 392, %38 ]
+  %.sink97 = phi i64 [ 512, %39 ], [ 392, %38 ]
   %ompi_coll_libnbc_neighbor_allgather_init.sink = phi ptr [ @ompi_coll_libnbc_neighbor_allgather_init, %39 ], [ @ompi_coll_libnbc_reduce_scatter_inter_init, %38 ]
-  %.sink97 = phi i64 [ 520, %39 ], [ 400, %38 ]
+  %.sink96 = phi i64 [ 520, %39 ], [ 400, %38 ]
   %ompi_coll_libnbc_neighbor_allgatherv_init.sink = phi ptr [ @ompi_coll_libnbc_neighbor_allgatherv_init, %39 ], [ @ompi_coll_libnbc_reduce_scatter_block_inter_init, %38 ]
-  %.sink96 = phi i64 [ 528, %39 ], [ 408, %38 ]
+  %.sink95 = phi i64 [ 528, %39 ], [ 408, %38 ]
   %ompi_coll_libnbc_neighbor_alltoall_init.sink = phi ptr [ @ompi_coll_libnbc_neighbor_alltoall_init, %39 ], [ null, %38 ]
-  %.sink95 = phi i64 [ 536, %39 ], [ 416, %38 ]
+  %.sink94 = phi i64 [ 536, %39 ], [ 416, %38 ]
   %ompi_coll_libnbc_neighbor_alltoallv_init.sink = phi ptr [ @ompi_coll_libnbc_neighbor_alltoallv_init, %39 ], [ @ompi_coll_libnbc_scatter_inter_init, %38 ]
-  %.sink94 = phi i64 [ 544, %39 ], [ 424, %38 ]
+  %.sink93 = phi i64 [ 544, %39 ], [ 424, %38 ]
   %ompi_coll_libnbc_neighbor_alltoallw_init.sink = phi ptr [ @ompi_coll_libnbc_neighbor_alltoallw_init, %39 ], [ @ompi_coll_libnbc_scatterv_inter_init, %38 ]
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink110
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink109
   store ptr %ompi_coll_libnbc_alltoallw_init.sink, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink109
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink108
   store ptr %ompi_coll_libnbc_barrier_init.sink, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink108
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink107
   store ptr %ompi_coll_libnbc_bcast_init.sink, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink107
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink106
   store ptr %ompi_coll_libnbc_exscan_init.sink, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink106
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink105
   store ptr %ompi_coll_libnbc_gather_init.sink, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink105
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink104
   store ptr %ompi_coll_libnbc_gatherv_init.sink, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink104
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink103
   store ptr %ompi_coll_libnbc_reduce_init.sink, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink103
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink102
   store ptr %ompi_coll_libnbc_reduce_scatter_init.sink, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink102
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink101
   store ptr %ompi_coll_libnbc_reduce_scatter_block_init.sink, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink101
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink100
   store ptr %ompi_coll_libnbc_scan_init.sink, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink100
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink99
   store ptr %ompi_coll_libnbc_scatter_init.sink, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink99
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink98
   store ptr %ompi_coll_libnbc_scatterv_init.sink, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink98
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink97
   store ptr %ompi_coll_libnbc_neighbor_allgather_init.sink, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink97
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink96
   store ptr %ompi_coll_libnbc_neighbor_allgatherv_init.sink, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink96
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink95
   store ptr %ompi_coll_libnbc_neighbor_alltoall_init.sink, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink95
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink94
   store ptr %ompi_coll_libnbc_neighbor_alltoallv_init.sink, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink94
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink93
   store ptr %ompi_coll_libnbc_neighbor_alltoallw_init.sink, ptr %67, align 8
   %68 = tail call i32 @NBC_Init_comm(ptr noundef nonnull %0, ptr noundef nonnull %4) #7
   %.not91 = icmp eq i32 %68, 0
-  br i1 %.not91, label %opal_obj_new.exit.thread, label %69
+  br i1 %.not91, label %opal_obj_new.exit, label %69
 
 69:                                               ; preds = %50
   %70 = load i8, ptr @opal_uses_threads, align 1
@@ -815,7 +815,7 @@ opal_obj_new.exit.thread93:                       ; preds = %.lr.ph.i.i, %9
 opal_thread_add_fetch_32.exit:                    ; preds = %72, %75
   %.0.i = phi i32 [ %74, %72 ], [ %78, %75 ]
   %79 = icmp eq i32 %.0.i, 0
-  br i1 %79, label %80, label %opal_obj_new.exit.thread
+  br i1 %79, label %80, label %opal_obj_new.exit
 
 80:                                               ; preds = %opal_thread_add_fetch_32.exit
   %81 = load ptr, ptr %4, align 8
@@ -835,10 +835,10 @@ opal_thread_add_fetch_32.exit:                    ; preds = %72, %75
   br i1 %.not.i92, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %80
-  tail call void @free(ptr noundef %4) #7
-  br label %opal_obj_new.exit.thread
+  tail call void @free(ptr noundef nonnull %4) #7
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %8, %50, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
+opal_obj_new.exit:                                ; preds = %8, %50, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
   %.0 = phi ptr [ null, %opal_thread_add_fetch_32.exit ], [ null, %opal_obj_run_destructors.exit ], [ %4, %50 ], [ null, %8 ]
   ret ptr %.0
 }

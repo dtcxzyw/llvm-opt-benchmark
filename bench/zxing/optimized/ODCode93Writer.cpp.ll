@@ -324,7 +324,7 @@ _ZN5ZXing4OneDL23Code93ConvertToExtendedERKNSt7__cxx1112basic_stringIwSt11char_t
 106:                                              ; preds = %104
   %107 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %105) #15
+  call void @__cxa_free_exception(ptr nonnull %105) #15
   br label %common.resume
 
 108:                                              ; preds = %.invoke
@@ -352,7 +352,7 @@ _ZN5ZXing4OneDL23Code93ConvertToExtendedERKNSt7__cxx1112basic_stringIwSt11char_t
 115:                                              ; preds = %112
   %116 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %113) #15
+  call void @__cxa_free_exception(ptr nonnull %113) #15
   br label %common.resume
 
 117:                                              ; preds = %110

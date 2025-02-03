@@ -8623,7 +8623,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI21PSPushConte
   br label %_ZN23InstanceStackChunkKlass23oop_oop_iterate_boundedIP7oopDesc21PSPushContentsClosureEEvS2_PT0_9MemRegion.exit
 
 _ZN23InstanceStackChunkKlass23oop_oop_iterate_boundedIP7oopDesc21PSPushContentsClosureEEvS2_PT0_9MemRegion.exit: ; preds = %13, %36
-  tail call void @_ZN23InstanceStackChunkKlass30oop_oop_iterate_header_boundedIP7oopDesc21PSPushContentsClosureEEvP17stackChunkOopDescPT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr %3, i64 %4)
+  tail call void @_ZN23InstanceStackChunkKlass30oop_oop_iterate_header_boundedIP7oopDesc21PSPushContentsClosureEEvP17stackChunkOopDescPT0_9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef nonnull %1, ptr noundef %0, ptr %3, i64 %4)
   ret void
 }
 

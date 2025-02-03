@@ -11771,7 +11771,7 @@ define internal fastcc void @"_ZN4core3ptr126drop_in_place$LT$core..result..Resu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2326)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2329)
   %6 = load ptr, ptr %5, align 8, !alias.scope !2332, !noundef !13
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..error..ErrorImpl$GT$17hfffccbe5db69baddE.llvm.7909737541732249412"(ptr noalias noundef align 8 dereferenceable(56) %6)
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..error..ErrorImpl$GT$17hfffccbe5db69baddE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17h30cadf884ee2a100E.exit" unwind label %7, !noalias !2332
 
 7:                                                ; preds = %4
@@ -14211,7 +14211,7 @@ define internal fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Resu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2875)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2878)
   %8 = load ptr, ptr %0, align 8, !alias.scope !2881, !noundef !13
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..error..ErrorImpl$GT$17hfffccbe5db69baddE.llvm.7909737541732249412"(ptr noalias noundef align 8 dereferenceable(56) %8)
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..error..ErrorImpl$GT$17hfffccbe5db69baddE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8)
           to label %10 unwind label %.body.i, !noalias !2881
 
 .body.i:                                          ; preds = %7
@@ -18572,7 +18572,7 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17h91f
   call void @llvm.experimental.noalias.scope.decl(metadata !3842)
   call void @llvm.experimental.noalias.scope.decl(metadata !3845)
   %51 = load ptr, ptr %50, align 8, !alias.scope !3848, !noundef !13
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..error..ErrorImpl$GT$17hfffccbe5db69baddE.llvm.7909737541732249412"(ptr noalias noundef align 8 dereferenceable(56) %51)
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..error..ErrorImpl$GT$17hfffccbe5db69baddE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(56) %51)
           to label %"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17h30cadf884ee2a100E.exit.i.i" unwind label %.thread25, !noalias !3848
 
 .thread25:                                        ; preds = %49
@@ -19400,7 +19400,7 @@ define hidden void @"_ZN5tokio4sync7oneshot15Sender$LT$T$GT$4send17h4c60957e0121
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3993)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3996)
   %16 = load ptr, ptr %15, align 8, !alias.scope !3999, !noalias !3987, !noundef !13
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..error..ErrorImpl$GT$17hfffccbe5db69baddE.llvm.7909737541732249412"(ptr noalias noundef align 8 dereferenceable(56) %16)
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..error..ErrorImpl$GT$17hfffccbe5db69baddE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(56) %16)
           to label %"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17h30cadf884ee2a100E.exit.i.i.i" unwind label %17, !noalias !4000
 
 17:                                               ; preds = %14

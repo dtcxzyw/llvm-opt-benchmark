@@ -2453,7 +2453,7 @@ invoke.cont:                                      ; preds = %if.then9
 lpad:                                             ; preds = %if.then9
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #30
   resume { ptr, i32 } %6
 
 lor.lhs.false12:                                  ; preds = %if.else.lr.ph
@@ -3112,7 +3112,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #30
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -3245,7 +3245,7 @@ if.then9.i:                                       ; preds = %lor.lhs.false.i, %i
 lpad.i:                                           ; preds = %if.then9.i
   %26 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @__cxa_free_exception(ptr %exception.i) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   br label %delete.end
 
 lor.lhs.false12.i:                                ; preds = %if.else.lr.ph.i
@@ -3301,7 +3301,7 @@ if.then9.i160:                                    ; preds = %lor.lhs.false.i156,
 lpad.i162:                                        ; preds = %if.then9.i160
   %38 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @__cxa_free_exception(ptr %exception.i161) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i161) #30
   br label %delete.end
 
 lor.lhs.false12.i149:                             ; preds = %if.else.lr.ph.i147
@@ -3404,7 +3404,7 @@ invoke.cont.i192.cont:                            ; preds = %invoke.cont.i192.in
 lpad.i191:                                        ; preds = %if.then9.i189
   %55 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @__cxa_free_exception(ptr %exception.i190) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i190) #30
   br label %delete.end
 
 lor.lhs.false12.i178:                             ; preds = %if.else.lr.ph.i176
@@ -5399,7 +5399,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #30
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %entry
@@ -5633,7 +5633,7 @@ invoke.cont:                                      ; preds = %if.then3
 lpad:                                             ; preds = %if.then3
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #30
   resume { ptr, i32 } %2
 
 if.end4:                                          ; preds = %if.end
@@ -7617,17 +7617,17 @@ entry:
   %Y.addr.i84 = alloca i64, align 8
   %Y.addr.i = alloca i64, align 8
   %invariant.gep = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %invariant.gep278 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %vtable282 = load ptr, ptr %this, align 8
-  %vbase.offset.ptr283 = getelementptr i8, ptr %vtable282, i64 -24
-  %vbase.offset284 = load i64, ptr %vbase.offset.ptr283, align 8
-  %add.ptr285 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset284
-  %m_CurrentLM.i286 = getelementptr inbounds nuw i8, ptr %add.ptr285, i64 8
-  %_M_finish.i.i287 = getelementptr inbounds nuw i8, ptr %add.ptr285, i64 24
-  %0 = load ptr, ptr %_M_finish.i.i287, align 8
-  %1 = load ptr, ptr %m_CurrentLM.i286, align 8
-  %cmp.i.i288 = icmp eq ptr %1, %0
-  br i1 %cmp.i.i288, label %while.end177, label %lor.rhs.i.lr.ph
+  %invariant.gep275 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %vtable279 = load ptr, ptr %this, align 8
+  %vbase.offset.ptr280 = getelementptr i8, ptr %vtable279, i64 -24
+  %vbase.offset281 = load i64, ptr %vbase.offset.ptr280, align 8
+  %add.ptr282 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset281
+  %m_CurrentLM.i283 = getelementptr inbounds nuw i8, ptr %add.ptr282, i64 8
+  %_M_finish.i.i284 = getelementptr inbounds nuw i8, ptr %add.ptr282, i64 24
+  %0 = load ptr, ptr %_M_finish.i.i284, align 8
+  %1 = load ptr, ptr %m_CurrentLM.i283, align 8
+  %cmp.i.i285 = icmp eq ptr %1, %0
+  br i1 %cmp.i.i285, label %while.end177, label %lor.rhs.i.lr.ph
 
 lor.rhs.i.lr.ph:                                  ; preds = %entry
   %m_GhostJoins = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -7638,14 +7638,14 @@ lor.rhs.i.lr.ph:                                  ; preds = %entry
 
 lor.rhs.i:                                        ; preds = %lor.rhs.i.lr.ph, %while.cond.backedge
   %2 = phi ptr [ %1, %lor.rhs.i.lr.ph ], [ %65, %while.cond.backedge ]
-  %m_CurrentLM.i289 = phi ptr [ %m_CurrentLM.i286, %lor.rhs.i.lr.ph ], [ %m_CurrentLM.i, %while.cond.backedge ]
+  %m_CurrentLM.i286 = phi ptr [ %m_CurrentLM.i283, %lor.rhs.i.lr.ph ], [ %m_CurrentLM.i, %while.cond.backedge ]
   %3 = load i64, ptr %2, align 8
   %cmp.not.i = icmp eq i64 %3, %botY
   br i1 %cmp.not.i, label %while.body, label %while.end177
 
 while.body:                                       ; preds = %lor.rhs.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %incdec.ptr.i.i, ptr %m_CurrentLM.i289, align 8
+  store ptr %incdec.ptr.i.i, ptr %m_CurrentLM.i286, align 8
   %LeftBound = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %LeftBound, align 8
   %RightBound = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7657,11 +7657,11 @@ if.then:                                          ; preds = %while.body
   call void @_ZN10ClipperLib7Clipper17InsertEdgeIntoAELEPNS_5TEdgeES2_(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef %5, ptr noundef null)
   call void @_ZN10ClipperLib7Clipper15SetWindingCountERNS_5TEdgeE(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef nonnull align 8 dereferenceable(136) %5)
   %call2 = call noundef zeroext i1 @_ZNK10ClipperLib7Clipper14IsContributingERKNS_5TEdgeE(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef nonnull align 8 dereferenceable(136) %5)
-  br i1 %call2, label %if.then3, label %if.end31
+  br i1 %call2, label %if.then3, label %if.then33
 
 if.then3:                                         ; preds = %if.then
-  %call4 = call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  br label %if.end31
+  %call4 = call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  br label %if.then33
 
 if.else:                                          ; preds = %while.body
   %tobool5.not = icmp eq ptr %5, null
@@ -7671,64 +7671,59 @@ if.else:                                          ; preds = %while.body
 if.then6:                                         ; preds = %if.else
   call void @_ZN10ClipperLib7Clipper15SetWindingCountERNS_5TEdgeE(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef nonnull align 8 dereferenceable(136) %4)
   %call7 = call noundef zeroext i1 @_ZNK10ClipperLib7Clipper14IsContributingERKNS_5TEdgeE(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef nonnull align 8 dereferenceable(136) %4)
-  br i1 %call7, label %if.then8, label %if.end31.thread261
+  br i1 %call7, label %if.then8, label %if.end54.thread
 
 if.then8:                                         ; preds = %if.then6
   %call10 = call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br label %if.end31.thread261
-
-if.end31.thread261:                               ; preds = %if.then6, %if.then8
-  %vtable12 = load ptr, ptr %this, align 8
-  %vbase.offset.ptr13 = getelementptr i8, ptr %vtable12, i64 -24
-  %vbase.offset14 = load i64, ptr %vbase.offset.ptr13, align 8
-  %Y = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %6 = load i64, ptr %Y, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %Y.addr.i)
-  store i64 %6, ptr %Y.addr.i, align 8
-  %gep277 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset14
-  call void @_ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEE4pushERKx(ptr noundef nonnull align 8 dereferenceable(25) %gep277, ptr noundef nonnull align 8 dereferenceable(8) %Y.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %Y.addr.i)
-  br label %while.cond.backedge
+  br label %if.end54.thread
 
 if.else16:                                        ; preds = %if.else
   call void @_ZN10ClipperLib7Clipper17InsertEdgeIntoAELEPNS_5TEdgeES2_(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef nonnull %5, ptr noundef nonnull %4)
   call void @_ZN10ClipperLib7Clipper15SetWindingCountERNS_5TEdgeE(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef nonnull align 8 dereferenceable(136) %4)
   %WindCnt = getelementptr inbounds nuw i8, ptr %4, i64 68
-  %7 = load i32, ptr %WindCnt, align 4
+  %6 = load i32, ptr %WindCnt, align 4
   %WindCnt17 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  store i32 %7, ptr %WindCnt17, align 4
+  store i32 %6, ptr %WindCnt17, align 4
   %WindCnt2 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %8 = load i32, ptr %WindCnt2, align 8
+  %7 = load i32, ptr %WindCnt2, align 8
   %WindCnt218 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i32 %8, ptr %WindCnt218, align 8
+  store i32 %7, ptr %WindCnt218, align 8
   %call19 = call noundef zeroext i1 @_ZNK10ClipperLib7Clipper14IsContributingERKNS_5TEdgeE(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef nonnull align 8 dereferenceable(136) %4)
-  br i1 %call19, label %if.then20, label %if.end31.thread
+  br i1 %call19, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %if.else16
   %call22 = call noundef ptr @_ZN10ClipperLib7Clipper15AddLocalMinPolyEPNS_5TEdgeES2_RKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br label %if.end31.thread
+  br label %if.end23
 
-if.end31.thread:                                  ; preds = %if.else16, %if.then20
+if.end23:                                         ; preds = %if.then20, %if.else16
   %Op1.2 = phi ptr [ %call22, %if.then20 ], [ null, %if.else16 ]
   %vtable24 = load ptr, ptr %this, align 8
   %vbase.offset.ptr25 = getelementptr i8, ptr %vtable24, i64 -24
   %vbase.offset26 = load i64, ptr %vbase.offset.ptr25, align 8
   %Y29 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %9 = load i64, ptr %Y29, align 8
+  %8 = load i64, ptr %Y29, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %Y.addr.i84)
-  store i64 %9, ptr %Y.addr.i84, align 8
+  store i64 %8, ptr %Y.addr.i84, align 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset26
   call void @_ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEE4pushERKx(ptr noundef nonnull align 8 dereferenceable(25) %gep, ptr noundef nonnull align 8 dereferenceable(8) %Y.addr.i84)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %Y.addr.i84)
   br label %if.then33
 
-if.end31:                                         ; preds = %if.then, %if.then3
-  %Op1.0 = phi ptr [ %call4, %if.then3 ], [ null, %if.then ]
-  %tobool32.not = icmp eq ptr %5, null
-  br i1 %tobool32.not, label %while.cond.backedge, label %if.then33
+if.end54.thread:                                  ; preds = %if.then8, %if.then6
+  %vtable12 = load ptr, ptr %this, align 8
+  %vbase.offset.ptr13 = getelementptr i8, ptr %vtable12, i64 -24
+  %vbase.offset14 = load i64, ptr %vbase.offset.ptr13, align 8
+  %Y = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %9 = load i64, ptr %Y, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %Y.addr.i)
+  store i64 %9, ptr %Y.addr.i, align 8
+  %gep274 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset14
+  call void @_ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEE4pushERKx(ptr noundef nonnull align 8 dereferenceable(25) %gep274, ptr noundef nonnull align 8 dereferenceable(8) %Y.addr.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %Y.addr.i)
+  br label %while.cond.backedge
 
-if.then33:                                        ; preds = %if.end31.thread, %if.end31
-  %Op1.0258 = phi ptr [ %Op1.2, %if.end31.thread ], [ %Op1.0, %if.end31 ]
+if.then33:                                        ; preds = %if.end23, %if.then, %if.then3
+  %Op1.0.ph = phi ptr [ null, %if.then ], [ %call4, %if.then3 ], [ %Op1.2, %if.end23 ]
   %Dx.i = getelementptr inbounds nuw i8, ptr %5, i64 48
   %10 = load double, ptr %Dx.i, align 8
   %cmp.i = fcmp oeq double %10, -1.000000e+40
@@ -7770,8 +7765,8 @@ if.then37:                                        ; preds = %_ZN10ClipperLib7Cli
   %14 = load i64, ptr %Y44, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %Y.addr.i87)
   store i64 %14, ptr %Y.addr.i87, align 8
-  %gep275 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset40
-  call void @_ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEE4pushERKx(ptr noundef nonnull align 8 dereferenceable(25) %gep275, ptr noundef nonnull align 8 dereferenceable(8) %Y.addr.i87)
+  %gep272 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset40
+  call void @_ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEE4pushERKx(ptr noundef nonnull align 8 dereferenceable(25) %gep272, ptr noundef nonnull align 8 dereferenceable(8) %Y.addr.i87)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %Y.addr.i87)
   br label %if.end54
 
@@ -7783,8 +7778,8 @@ if.else46:                                        ; preds = %if.then33
   %15 = load i64, ptr %Y52, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %Y.addr.i89)
   store i64 %15, ptr %Y.addr.i89, align 8
-  %gep273 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset49
-  call void @_ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEE4pushERKx(ptr noundef nonnull align 8 dereferenceable(25) %gep273, ptr noundef nonnull align 8 dereferenceable(8) %Y.addr.i89)
+  %gep270 = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset49
+  call void @_ZNSt14priority_queueIxSt6vectorIxSaIxEESt4lessIxEE4pushERKx(ptr noundef nonnull align 8 dereferenceable(25) %gep270, ptr noundef nonnull align 8 dereferenceable(8) %Y.addr.i89)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %Y.addr.i89)
   br label %if.end54
 
@@ -7792,7 +7787,7 @@ if.end54:                                         ; preds = %if.else46, %if.then
   br i1 %tobool.not, label %while.cond.backedge, label %if.end58
 
 if.end58:                                         ; preds = %if.end54
-  %tobool59.not = icmp eq ptr %Op1.0258, null
+  %tobool59.not = icmp eq ptr %Op1.0.ph, null
   br i1 %tobool59.not, label %if.end81, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end58
@@ -7802,7 +7797,7 @@ land.lhs.true:                                    ; preds = %if.end58
   br i1 %cmp.i92, label %land.lhs.true61, label %if.end81
 
 land.lhs.true61:                                  ; preds = %land.lhs.true
-  %17 = load ptr, ptr %invariant.gep278, align 8
+  %17 = load ptr, ptr %invariant.gep275, align 8
   %18 = load ptr, ptr %m_GhostJoins, align 8
   %cmp.not = icmp eq ptr %17, %18
   br i1 %cmp.not, label %if.end81, label %land.lhs.true63
@@ -7819,8 +7814,8 @@ for.body.lr.ph:                                   ; preds = %land.lhs.true63
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %20 = phi ptr [ %18, %for.body.lr.ph ], [ %34, %for.inc ]
-  %i.0269 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i = getelementptr inbounds ptr, ptr %20, i64 %i.0269
+  %i.0266 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %add.ptr.i = getelementptr inbounds ptr, ptr %20, i64 %i.0266
   %21 = load ptr, ptr %add.ptr.i, align 8
   %22 = load ptr, ptr %21, align 8
   %Pt = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -7845,7 +7840,7 @@ if.then77:                                        ; preds = %for.body
   %OffPt.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %22, ptr %call.i, align 8
   %OutPt2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store ptr %Op1.0258, ptr %OutPt2.i, align 8
+  store ptr %Op1.0.ph, ptr %OutPt2.i, align 8
   store i64 %24, ptr %OffPt.i.i, align 8
   %OffPt.sroa.2.0.OffPt2.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %OffPt.sroa.2.0.OffPt2.sroa_idx.i, align 8
@@ -7910,8 +7905,8 @@ _ZNSt6vectorIPN10ClipperLib4JoinESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_c
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPN10ClipperLib4JoinESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i, %for.body
-  %inc = add nuw i64 %i.0269, 1
-  %33 = load ptr, ptr %invariant.gep278, align 8
+  %inc = add nuw i64 %i.0266, 1
+  %33 = load ptr, ptr %invariant.gep275, align 8
   %34 = load ptr, ptr %m_GhostJoins, align 8
   %sub.ptr.lhs.cast.i94 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i95 = ptrtoint ptr %34 to i64
@@ -7964,8 +7959,8 @@ land.lhs.true95:                                  ; preds = %land.lhs.true91
   %vtable106 = load ptr, ptr %this, align 8
   %vbase.offset.ptr107 = getelementptr i8, ptr %vtable106, i64 -24
   %vbase.offset108 = load i64, ptr %vbase.offset.ptr107, align 8
-  %gep279 = getelementptr i8, ptr %invariant.gep278, i64 %vbase.offset108
-  %40 = load i8, ptr %gep279, align 8
+  %gep276 = getelementptr i8, ptr %invariant.gep275, i64 %vbase.offset108
+  %40 = load i8, ptr %gep276, align 8
   %tobool110 = trunc i8 %40 to i1
   %sub.i = sub nsw i64 %agg.tmp96.sroa.2.0.copyload, %agg.tmp99.sroa.2.0.copyload
   %sub3.i = sub nsw i64 %agg.tmp102.sroa.0.0.copyload, %agg.tmp104.sroa.0.0.copyload
@@ -8071,7 +8066,7 @@ if.then119:                                       ; preds = %land.lhs.true115
   %agg.tmp123.sroa.2.0.copyload = load i64, ptr %agg.tmp104.sroa.2.0.Top105.sroa_idx, align 8
   %call.i106 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
   %OffPt.i.i107 = getelementptr inbounds nuw i8, ptr %call.i106, i64 16
-  store ptr %Op1.0258, ptr %call.i106, align 8
+  store ptr %Op1.0.ph, ptr %call.i106, align 8
   %OutPt2.i108 = getelementptr inbounds nuw i8, ptr %call.i106, i64 8
   store ptr %call122, ptr %OutPt2.i108, align 8
   store i64 %agg.tmp123.sroa.0.0.copyload, ptr %OffPt.i.i107, align 8
@@ -8177,8 +8172,8 @@ land.lhs.true134:                                 ; preds = %land.lhs.true130
   %vtable145 = load ptr, ptr %this, align 8
   %vbase.offset.ptr146 = getelementptr i8, ptr %vtable145, i64 -24
   %vbase.offset147 = load i64, ptr %vbase.offset.ptr146, align 8
-  %gep281 = getelementptr i8, ptr %invariant.gep278, i64 %vbase.offset147
-  %53 = load i8, ptr %gep281, align 8
+  %gep278 = getelementptr i8, ptr %invariant.gep275, i64 %vbase.offset147
+  %53 = load i8, ptr %gep278, align 8
   %tobool150 = trunc i8 %53 to i1
   %sub.i141 = sub nsw i64 %agg.tmp135.sroa.2.0.copyload, %agg.tmp138.sroa.2.0.copyload
   %sub3.i142 = sub nsw i64 %agg.tmp141.sroa.0.0.copyload, %agg.tmp143.sroa.0.0.copyload
@@ -8284,7 +8279,7 @@ if.then159:                                       ; preds = %land.lhs.true155
   %agg.tmp164.sroa.2.0.copyload = load i64, ptr %agg.tmp143.sroa.2.0.Top144.sroa_idx, align 8
   %call.i216 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
   %OffPt.i.i217 = getelementptr inbounds nuw i8, ptr %call.i216, i64 16
-  store ptr %Op1.0258, ptr %call.i216, align 8
+  store ptr %Op1.0.ph, ptr %call.i216, align 8
   %OutPt2.i218 = getelementptr inbounds nuw i8, ptr %call.i216, i64 8
   store ptr %call163, ptr %OutPt2.i218, align 8
   store i64 %agg.tmp164.sroa.0.0.copyload, ptr %OffPt.i.i217, align 8
@@ -8353,23 +8348,23 @@ _ZNSt6vectorIPN10ClipperLib4JoinESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_c
 if.end166:                                        ; preds = %_ZNSt6vectorIPN10ClipperLib4JoinESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i246, %if.then.i.i224, %_ZN10ClipperLib9Int128MulExx.exit34.i210, %land.lhs.true155, %land.lhs.true152, %_ZN10ClipperLib11SlopesEqualENS_8IntPointES0_S0_S0_b.exit215, %land.lhs.true130, %if.then127
   %62 = load ptr, ptr %NextInAEL, align 8
   %tobool168.not = icmp eq ptr %62, null
-  %cmp171.not270 = icmp eq ptr %62, %5
-  %or.cond290 = select i1 %tobool168.not, i1 true, i1 %cmp171.not270
-  br i1 %or.cond290, label %while.cond.backedge, label %while.body172.lr.ph
+  %cmp171.not267 = icmp eq ptr %62, %5
+  %or.cond287 = select i1 %tobool168.not, i1 true, i1 %cmp171.not267
+  br i1 %or.cond287, label %while.cond.backedge, label %while.body172.lr.ph
 
 while.body172.lr.ph:                              ; preds = %if.end166
   %Curr173 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %while.body172
 
 while.body172:                                    ; preds = %while.body172.lr.ph, %while.body172
-  %e.0271 = phi ptr [ %62, %while.body172.lr.ph ], [ %63, %while.body172 ]
-  call void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef %5, ptr noundef %e.0271, ptr noundef nonnull align 8 dereferenceable(16) %Curr173)
-  %NextInAEL174 = getelementptr inbounds nuw i8, ptr %e.0271, i64 104
+  %e.0268 = phi ptr [ %62, %while.body172.lr.ph ], [ %63, %while.body172 ]
+  call void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr noundef %5, ptr noundef %e.0268, ptr noundef nonnull align 8 dereferenceable(16) %Curr173)
+  %NextInAEL174 = getelementptr inbounds nuw i8, ptr %e.0268, i64 104
   %63 = load ptr, ptr %NextInAEL174, align 8
   %cmp171.not = icmp eq ptr %63, %5
   br i1 %cmp171.not, label %while.cond.backedge, label %while.body172, !llvm.loop !88
 
-while.cond.backedge:                              ; preds = %while.body172, %if.end31.thread261, %if.end31, %if.end125, %if.end166, %if.end54
+while.cond.backedge:                              ; preds = %while.body172, %if.end54.thread, %if.end125, %if.end166, %if.end54
   %vtable = load ptr, ptr %this, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -8546,7 +8541,7 @@ lpad10:                                           ; preds = %invoke.cont13
 lpad12:                                           ; preds = %lpad
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #30
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad12, %lpad10
@@ -16711,7 +16706,7 @@ invoke.cont:                                      ; preds = %if.else70
 lpad:                                             ; preds = %if.else70
   %56 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #30
   resume { ptr, i32 } %56
 
 if.end73.sink.split.sink.split:                   ; preds = %if.end8.i147, %if.end8.i113, %if.end8.i73, %if.end8.i

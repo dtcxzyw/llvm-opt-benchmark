@@ -982,7 +982,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %90 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #19
   resume { ptr, i32 } %90
 
 return:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEEED2Ev.exit, %if.else31, %if.then29, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15GammaBasicOpCPUEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEEED2Ev.exit

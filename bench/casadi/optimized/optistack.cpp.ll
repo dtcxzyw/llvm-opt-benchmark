@@ -9290,7 +9290,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   br label %108
 
 _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %.invoke
-  %94 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.079.089) #23
+  %94 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.079.089) #23
   %.not = icmp eq ptr %94, %38
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

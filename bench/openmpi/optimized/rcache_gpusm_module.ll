@@ -696,7 +696,7 @@ opal_lifo_pop.exit.thread:                        ; preds = %26, %opal_lifo_pop.
   br i1 %.not.i8, label %opal_obj_run_destructors.exit9, label %.lr.ph.i6, !llvm.loop !4
 
 opal_obj_run_destructors.exit9:                   ; preds = %.lr.ph.i6, %opal_lifo_pop.exit.thread
-  tail call void @mca_rcache_base_module_fini(ptr noundef %0) #6
+  tail call void @mca_rcache_base_module_fini(ptr noundef nonnull %0) #6
   ret void
 }
 

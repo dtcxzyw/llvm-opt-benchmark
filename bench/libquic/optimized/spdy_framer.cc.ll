@@ -6479,17 +6479,17 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit: ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
   %list_.i.i = getelementptr inbounds nuw i8, ptr %headers, i64 56
-  %it.sroa.0.0323 = load ptr, ptr %list_.i.i, align 8
-  %cmp.i.not324 = icmp eq ptr %it.sroa.0.0323, %list_.i.i
-  br i1 %cmp.i.not324, label %if.end224, label %for.body.lr.ph
+  %it.sroa.0.0325 = load ptr, ptr %list_.i.i, align 8
+  %cmp.i.not326 = icmp eq ptr %it.sroa.0.0325, %list_.i.i
+  br i1 %cmp.i.not326, label %if.end224, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc211
-  %it.sroa.0.0325 = phi ptr [ %it.sroa.0.0323, %for.body.lr.ph ], [ %it.sroa.0.0, %for.inc211 ]
-  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.0325, i64 16
+  %it.sroa.0.0327 = phi ptr [ %it.sroa.0.0325, %for.body.lr.ph ], [ %it.sroa.0.0, %for.inc211 ]
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.0327, i64 16
   %call8 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i39)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i40)
@@ -6532,7 +6532,7 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit56: ; preds = %for.bo
   br i1 %call14, label %if.then, label %if.else132
 
 if.then:                                          ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit56
-  %second = getelementptr inbounds nuw i8, ptr %it.sroa.0.0325, i64 32
+  %second = getelementptr inbounds nuw i8, ptr %it.sroa.0.0327, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, ptr noundef nonnull align 8 dereferenceable(16) %second, i64 16, i1 false)
   br label %for.cond16
 
@@ -6545,14 +6545,14 @@ for.cond16:                                       ; preds = %for.cond16.backedge
 
 while.cond:                                       ; preds = %while.body, %for.cond16
   %call17 = invoke noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data)
-          to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont:                                      ; preds = %while.cond
   br i1 %call17, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %invoke.cont
   %call19 = invoke noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 noundef 0)
-          to label %invoke.cont18 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont18 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont18:                                    ; preds = %land.rhs
   %cmp = icmp eq i8 %call19, 32
@@ -6560,7 +6560,7 @@ invoke.cont18:                                    ; preds = %land.rhs
 
 lor.rhs:                                          ; preds = %invoke.cont18
   %call21 = invoke noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 noundef 0)
-          to label %invoke.cont20 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont20 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont20:                                    ; preds = %lor.rhs
   %cmp23 = icmp eq i8 %call21, 9
@@ -6568,47 +6568,11 @@ invoke.cont20:                                    ; preds = %lor.rhs
 
 while.body:                                       ; preds = %invoke.cont18, %invoke.cont20
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 noundef 1)
-          to label %while.cond unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !11
-
-lpad.loopexit:                                    ; preds = %for.body.i63, %lor.lhs.false.i, %for.inc.i
-  %lpad.loopexit273 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup131
-
-lpad.loopexit.split-lp.loopexit:                  ; preds = %for.inc.i89, %lor.lhs.false.i87, %for.body.i84
-  %lpad.loopexit275 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup131
-
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.cond28, %for.body32
-  %lpad.loopexit278 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup131
-
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body, %lor.rhs, %land.rhs, %while.cond
-  %lpad.loopexit281 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup131
-
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.end, %for.end, %if.then42, %if.then48, %if.end54, %invoke.cont60, %if.end68, %invoke.cont44, %if.end.i, %for.cond.preheader.i, %land.rhs.i, %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i, %if.else, %if.end.i73, %for.cond.preheader.i75, %land.rhs.i82, %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i
-  %cookie_values.sroa.0.2.ph.ph.ph.ph.ph = phi ptr [ %cookie_values.sroa.0.1, %while.end ], [ %cookie_values.sroa.0.1, %for.end ], [ %cookie_values.sroa.0.1, %if.else ], [ %cookie_values.sroa.0.1, %if.end.i73 ], [ %cookie_values.sroa.0.1, %for.cond.preheader.i75 ], [ %cookie_values.sroa.0.1, %land.rhs.i82 ], [ %cookie_values.sroa.0.1, %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i ], [ %cookie_values.sroa.0.9, %invoke.cont60 ], [ %cookie_values.sroa.0.6, %if.end68 ], [ %cookie_values.sroa.0.1, %if.then42 ], [ %cookie_values.sroa.0.1, %invoke.cont44 ], [ %cookie_values.sroa.0.1, %if.end.i ], [ %cookie_values.sroa.0.1, %for.cond.preheader.i ], [ %cookie_values.sroa.0.1, %land.rhs.i ], [ %cookie_values.sroa.0.1, %if.then48 ], [ %cookie_values.sroa.0.1, %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %cookie_values.sroa.0.4, %if.end54 ]
-  %lpad.loopexit284 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup131
-
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %call32.i.i128.noexc, %call25.i.i125.noexc, %call24.i.i124.noexc, %.noexc130, %for.end.i122
-  %lpad.loopexit287 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup131
-
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i.invoke
-  %lpad.loopexit.split-lp288 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup131
+          to label %while.cond unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !11
 
 while.end:                                        ; preds = %invoke.cont, %invoke.cont20
   %call26 = invoke noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data)
-          to label %invoke.cont25 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont25 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont25:                                    ; preds = %while.end
   br i1 %call26, label %for.end71, label %for.cond28
@@ -6616,7 +6580,7 @@ invoke.cont25:                                    ; preds = %while.end
 for.cond28:                                       ; preds = %invoke.cont25, %for.inc
   %i.0 = phi i64 [ %inc, %for.inc ], [ 0, %invoke.cont25 ]
   %call30 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data)
-          to label %invoke.cont29 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont29 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont29:                                    ; preds = %for.cond28
   %cmp31 = icmp ult i64 %i.0, %call30
@@ -6624,7 +6588,7 @@ invoke.cont29:                                    ; preds = %for.cond28
 
 for.body32:                                       ; preds = %invoke.cont29
   %call34 = invoke noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 noundef %i.0)
-          to label %invoke.cont33 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont33 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont33:                                    ; preds = %for.body32
   %cmp36 = icmp eq i8 %call34, 59
@@ -6636,7 +6600,7 @@ for.inc:                                          ; preds = %invoke.cont33
 
 for.end:                                          ; preds = %invoke.cont33, %invoke.cont29
   %call40 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data)
-          to label %invoke.cont39 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont39 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont39:                                    ; preds = %for.end
   %cmp41 = icmp ult i64 %i.0, %call40
@@ -6644,7 +6608,7 @@ invoke.cont39:                                    ; preds = %for.end
 
 if.then42:                                        ; preds = %invoke.cont39
   %call45 = invoke { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 noundef 0, i64 noundef %i.0)
-          to label %invoke.cont44 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont44 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont44:                                    ; preds = %if.then42
   %4 = extractvalue { ptr, i64 } %call45, 0
@@ -6652,7 +6616,7 @@ invoke.cont44:                                    ; preds = %if.then42
   %5 = extractvalue { ptr, i64 } %call45, 1
   store i64 %5, ptr %2, align 8
   %call.i64 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43)
-          to label %call.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %call.i.noexc unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.noexc:                                     ; preds = %invoke.cont44
   %cmp.i62 = icmp eq i64 %call.i64, 0
@@ -6660,7 +6624,7 @@ call.i.noexc:                                     ; preds = %invoke.cont44
 
 if.end.i:                                         ; preds = %call.i.noexc
   %call1.i65 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findEcm(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43, i8 noundef signext 61, i64 noundef 0)
-          to label %call1.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %call1.i.noexc unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call1.i.noexc:                                    ; preds = %if.end.i
   %cmp2.i = icmp eq i64 %call1.i65, -1
@@ -6668,7 +6632,7 @@ call1.i.noexc:                                    ; preds = %if.end.i
 
 for.cond.preheader.i:                             ; preds = %call1.i.noexc
   %call513.i66 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43)
-          to label %call513.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %call513.i.noexc unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call513.i.noexc:                                  ; preds = %for.cond.preheader.i
   %value_start.012.i = add nuw i64 %call1.i65, 1
@@ -6678,7 +6642,7 @@ call513.i.noexc:                                  ; preds = %for.cond.preheader.
 for.body.i63:                                     ; preds = %call513.i.noexc, %call5.i.noexc
   %value_start.015.i = phi i64 [ %value_start.0.i, %call5.i.noexc ], [ %value_start.012.i, %call513.i.noexc ]
   %call7.i67 = invoke noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43, i64 noundef %value_start.015.i)
-          to label %call7.i.noexc unwind label %lpad.loopexit
+          to label %call7.i.noexc unwind label %ehcleanup131.loopexit
 
 call7.i.noexc:                                    ; preds = %for.body.i63
   %cmp8.i = icmp eq i8 %call7.i67, 32
@@ -6686,7 +6650,7 @@ call7.i.noexc:                                    ; preds = %for.body.i63
 
 lor.lhs.false.i:                                  ; preds = %call7.i.noexc
   %call9.i68 = invoke noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43, i64 noundef %value_start.015.i)
-          to label %call9.i.noexc unwind label %lpad.loopexit
+          to label %call9.i.noexc unwind label %ehcleanup131.loopexit
 
 call9.i.noexc:                                    ; preds = %lor.lhs.false.i
   %cmp11.i = icmp eq i8 %call9.i68, 9
@@ -6694,7 +6658,7 @@ call9.i.noexc:                                    ; preds = %lor.lhs.false.i
 
 for.inc.i:                                        ; preds = %call9.i.noexc, %call7.i.noexc
   %call5.i69 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43)
-          to label %call5.i.noexc unwind label %lpad.loopexit
+          to label %call5.i.noexc unwind label %ehcleanup131.loopexit
 
 call5.i.noexc:                                    ; preds = %for.inc.i
   %value_start.0.i = add nuw i64 %value_start.015.i, 1
@@ -6708,7 +6672,7 @@ for.end.i:                                        ; preds = %call5.i.noexc, %cal
 
 land.rhs.i:                                       ; preds = %for.end.i
   %call15.i70 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43)
-          to label %invoke.cont46 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont46 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont46:                                    ; preds = %land.rhs.i
   %cmp16.i = icmp eq i64 %call15.i70, %value_start.0.lcssa.i
@@ -6716,7 +6680,7 @@ invoke.cont46:                                    ; preds = %land.rhs.i
 
 if.then48:                                        ; preds = %for.end.i, %call1.i.noexc, %invoke.cont46
   %call51 = invoke { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 noundef 0, i64 noundef %i.0)
-          to label %invoke.cont50 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont50 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont50:                                    ; preds = %if.then48
   %6 = extractvalue { ptr, i64 } %call51, 0
@@ -6735,7 +6699,14 @@ if.else.i.i:                                      ; preds = %invoke.cont50
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %cookie_values.sroa.0.1 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775792
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i.invoke, label %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
+
+if.then.i.i.i.i.invoke:                           ; preds = %if.else.i, %if.else.i.i
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.125) #30
+          to label %if.then.i.i.i.i.cont unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+if.then.i.i.i.i.cont:                             ; preds = %if.then.i.i.i.i.invoke
+  unreachable
 
 _ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
@@ -6748,7 +6719,7 @@ _ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_trait
   call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 4
   %call5.i.i.i.i.i.i71 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
-          to label %call5.i.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %call5.i.i.i.i.i.i.noexc unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i71, i64 %sub.ptr.sub.i.i.i.i.i
@@ -6796,11 +6767,11 @@ if.end54:                                         ; preds = %call.i.noexc, %invo
   %cookie_length.1 = phi i64 [ %cookie_length.0, %invoke.cont46 ], [ %add53, %invoke.cont52 ], [ %cookie_length.0, %call.i.noexc ]
   %add55 = add i64 %i.0, 1
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 noundef %add55)
-          to label %for.cond16.backedge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %for.cond16.backedge unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else:                                          ; preds = %invoke.cont39
   %call.i93 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data)
-          to label %call.i.noexc92 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %call.i.noexc92 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.noexc92:                                   ; preds = %if.else
   %cmp.i72 = icmp eq i64 %call.i93, 0
@@ -6808,7 +6779,7 @@ call.i.noexc92:                                   ; preds = %if.else
 
 if.end.i73:                                       ; preds = %call.i.noexc92
   %call1.i95 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findEcm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i8 noundef signext 61, i64 noundef 0)
-          to label %call1.i.noexc94 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %call1.i.noexc94 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call1.i.noexc94:                                  ; preds = %if.end.i73
   %cmp2.i74 = icmp eq i64 %call1.i95, -1
@@ -6816,7 +6787,7 @@ call1.i.noexc94:                                  ; preds = %if.end.i73
 
 for.cond.preheader.i75:                           ; preds = %call1.i.noexc94
   %call513.i97 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data)
-          to label %call513.i.noexc96 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %call513.i.noexc96 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call513.i.noexc96:                                ; preds = %for.cond.preheader.i75
   %value_start.012.i76 = add nuw i64 %call1.i95, 1
@@ -6826,7 +6797,7 @@ call513.i.noexc96:                                ; preds = %for.cond.preheader.
 for.body.i84:                                     ; preds = %call513.i.noexc96, %call5.i.noexc102
   %value_start.015.i85 = phi i64 [ %value_start.0.i90, %call5.i.noexc102 ], [ %value_start.012.i76, %call513.i.noexc96 ]
   %call7.i99 = invoke noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 noundef %value_start.015.i85)
-          to label %call7.i.noexc98 unwind label %lpad.loopexit.split-lp.loopexit
+          to label %call7.i.noexc98 unwind label %ehcleanup131.loopexit.split-lp.loopexit
 
 call7.i.noexc98:                                  ; preds = %for.body.i84
   %cmp8.i86 = icmp eq i8 %call7.i99, 32
@@ -6834,7 +6805,7 @@ call7.i.noexc98:                                  ; preds = %for.body.i84
 
 lor.lhs.false.i87:                                ; preds = %call7.i.noexc98
   %call9.i101 = invoke noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 noundef %value_start.015.i85)
-          to label %call9.i.noexc100 unwind label %lpad.loopexit.split-lp.loopexit
+          to label %call9.i.noexc100 unwind label %ehcleanup131.loopexit.split-lp.loopexit
 
 call9.i.noexc100:                                 ; preds = %lor.lhs.false.i87
   %cmp11.i88 = icmp eq i8 %call9.i101, 9
@@ -6842,7 +6813,7 @@ call9.i.noexc100:                                 ; preds = %lor.lhs.false.i87
 
 for.inc.i89:                                      ; preds = %call9.i.noexc100, %call7.i.noexc98
   %call5.i103 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data)
-          to label %call5.i.noexc102 unwind label %lpad.loopexit.split-lp.loopexit
+          to label %call5.i.noexc102 unwind label %ehcleanup131.loopexit.split-lp.loopexit
 
 call5.i.noexc102:                                 ; preds = %for.inc.i89
   %value_start.0.i90 = add nuw i64 %value_start.015.i85, 1
@@ -6856,7 +6827,7 @@ for.end.i78:                                      ; preds = %call5.i.noexc102, %
 
 land.rhs.i82:                                     ; preds = %for.end.i78
   %call15.i105 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data)
-          to label %invoke.cont57 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont57 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont57:                                    ; preds = %land.rhs.i82
   %cmp16.i83 = icmp eq i64 %call15.i105, %value_start.0.lcssa.i79
@@ -6875,14 +6846,7 @@ if.else.i:                                        ; preds = %if.then59
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %cookie_values.sroa.0.1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775792
-  br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i
-
-if.then.i.i.i.invoke:                             ; preds = %if.else.i, %if.else.i.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.125) #30
-          to label %if.then.i.i.i.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
-
-if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invoke
-  unreachable
+  br i1 %cmp.i.i.i, label %if.then.i.i.i.i.invoke, label %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
@@ -6895,7 +6859,7 @@ _ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_trait
   call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
   %call5.i.i.i.i.i110 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #26
-          to label %call5.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %call5.i.i.i.i.i.noexc unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i110, i64 %sub.ptr.sub.i.i.i.i
@@ -6930,7 +6894,7 @@ invoke.cont60:                                    ; preds = %_ZNSt6vectorIN4base
   %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %cookie_values.sroa.14.1, %if.then.i ]
   %cookie_values.sroa.0.9 = phi ptr [ %call5.i.i.i.i.i110, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %cookie_values.sroa.0.1, %if.then.i ]
   %call62 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data)
-          to label %invoke.cont61 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont61 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont61:                                    ; preds = %invoke.cont60
   %cookie_values.sroa.14.7 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 16
@@ -6949,7 +6913,7 @@ if.end68:                                         ; preds = %if.else64, %invoke.
   %cookie_values.sroa.0.6 = phi ptr [ %cookie_values.sroa.0.1, %if.else64 ], [ %cookie_values.sroa.0.9, %invoke.cont61 ]
   %cookie_length.3 = phi i64 [ %spec.select, %if.else64 ], [ %add63, %invoke.cont61 ]
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 noundef %i.0)
-          to label %for.cond16.backedge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %for.cond16.backedge unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.cond16.backedge:                              ; preds = %if.end68, %if.end54
   %cookie_values.sroa.25.1.be = phi ptr [ %cookie_values.sroa.25.2, %if.end54 ], [ %cookie_values.sroa.25.4, %if.end68 ]
@@ -6977,33 +6941,33 @@ for.body.i114:                                    ; preds = %for.body.i114, %for
 
 for.end.i122:                                     ; preds = %for.body.i114
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i113, ptr noundef nonnull %buf.i112, i64 noundef 4)
-          to label %.noexc130 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc130 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc130:                                        ; preds = %for.end.i122
   %call24.i.i124131 = invoke noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i113)
-          to label %call24.i.i124.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %call24.i.i124.noexc unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call24.i.i124.noexc:                              ; preds = %.noexc130
   store ptr %call24.i.i124131, ptr %z, align 8
   %call25.i.i125132 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i113)
-          to label %call25.i.i125.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %call25.i.i125.noexc unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call25.i.i125.noexc:                              ; preds = %call24.i.i124.noexc
   %conv.i.i126 = trunc i64 %call25.i.i125132 to i32
   store i32 %conv.i.i126, ptr %avail_in26.i.i, align 8
   store i32 0, ptr %clas1.i.i, align 8
   %call32.i.i128133 = invoke i32 @MOZ_Z_deflate(ptr noundef nonnull %z, i32 noundef 0)
-          to label %call32.i.i128.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %call32.i.i128.noexc unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call32.i.i128.noexc:                              ; preds = %call25.i.i125.noexc
   %call34.i.i129134 = invoke noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i113)
-          to label %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit135 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit135 unwind label %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit135: ; preds = %call32.i.i128.noexc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i112)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i113)
-  %cmp76321.not = icmp eq ptr %cookie_values.sroa.14.1, %cookie_values.sroa.0.1
-  br i1 %cmp76321.not, label %for.end130, label %for.body77.lr.ph
+  %cmp76323.not = icmp eq ptr %cookie_values.sroa.14.1, %cookie_values.sroa.0.1
+  br i1 %cmp76323.not, label %for.end130, label %for.body77.lr.ph
 
 for.body77.lr.ph:                                 ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit135
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cookie_values.sroa.14.1 to i64
@@ -7016,9 +6980,9 @@ for.body77.lr.ph:                                 ; preds = %_ZN3netL12WriteLeng
   br label %for.body77
 
 for.body77:                                       ; preds = %for.body77.lr.ph, %invoke.cont126
-  %i73.0322 = phi i64 [ 0, %for.body77.lr.ph ], [ %inc129, %invoke.cont126 ]
+  %i73.0324 = phi i64 [ 0, %for.body77.lr.ph ], [ %inc129, %invoke.cont126 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cookie) #25
-  %cmp78 = icmp eq i64 %i73.0322, 0
+  %cmp78 = icmp eq i64 %i73.0324, 0
   br i1 %cmp78, label %land.lhs.true, label %if.else97
 
 land.lhs.true:                                    ; preds = %for.body77
@@ -7035,7 +6999,7 @@ invoke.cont85:                                    ; preds = %if.then81
 lpad84:                                           ; preds = %call32.i164.noexc, %call25.i161.noexc, %call24.i160.noexc, %if.end23.i, %if.end14.i, %if.end123, %if.else112, %if.then101, %if.then89, %if.then81
   %11 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup127
+  br label %ehcleanup131.thread
 
 if.then89:                                        ; preds = %land.lhs.true
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp91, ptr noundef nonnull align 8 dereferenceable(16) %cookie_values.sroa.0.1)
@@ -7055,11 +7019,11 @@ lpad94:                                           ; preds = %invoke.cont93
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #25
-  br label %ehcleanup127
+  br label %ehcleanup131.thread
 
 if.else97:                                        ; preds = %for.body77
-  %cmp100 = icmp ult i64 %i73.0322, %sub99
-  %add.ptr.i = getelementptr inbounds %"class.base::BasicStringPiece", ptr %cookie_values.sroa.0.1, i64 %i73.0322
+  %cmp100 = icmp ult i64 %i73.0324, %sub99
+  %add.ptr.i = getelementptr inbounds %"class.base::BasicStringPiece", ptr %cookie_values.sroa.0.1, i64 %i73.0324
   br i1 %cmp100, label %if.then101, label %if.else112
 
 if.then101:                                       ; preds = %if.else97
@@ -7096,7 +7060,7 @@ lpad109:                                          ; preds = %invoke.cont108
 ehcleanup:                                        ; preds = %lpad109, %lpad107
   %.pn = phi { ptr, i32 } [ %14, %lpad109 ], [ %13, %lpad107 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104) #25
-  br label %ehcleanup127
+  br label %ehcleanup131.thread
 
 if.else112:                                       ; preds = %if.else97
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp114, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i)
@@ -7116,7 +7080,7 @@ lpad117:                                          ; preds = %invoke.cont116
   %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114) #25
-  br label %ehcleanup127
+  br label %ehcleanup131.thread
 
 if.end123:                                        ; preds = %invoke.cont95, %invoke.cont118, %invoke.cont110, %invoke.cont85
   %ref.tmp91.sink = phi ptr [ %ref.tmp91, %invoke.cont95 ], [ %ref.tmp114, %invoke.cont118 ], [ %ref.tmp104, %invoke.cont110 ], [ %ref.tmp82, %invoke.cont85 ]
@@ -7156,35 +7120,74 @@ call32.i164.noexc:                                ; preds = %call25.i161.noexc
 
 invoke.cont126:                                   ; preds = %call32.i164.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cookie) #25
-  %inc129 = add nuw i64 %i73.0322, 1
+  %inc129 = add nuw i64 %i73.0324, 1
   %exitcond.not = icmp eq i64 %inc129, %umax
-  br i1 %exitcond.not, label %for.end130, label %for.body77, !llvm.loop !24
+  br i1 %exitcond.not, label %if.then.i.i.i173, label %for.body77, !llvm.loop !24
 
-ehcleanup127:                                     ; preds = %lpad117, %ehcleanup, %lpad94, %lpad84
+ehcleanup131.thread:                              ; preds = %lpad84, %lpad94, %ehcleanup, %lpad117
   %.pn35 = phi { ptr, i32 } [ %11, %lpad84 ], [ %12, %lpad94 ], [ %.pn, %ehcleanup ], [ %15, %lpad117 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cookie) #25
-  br label %ehcleanup131
+  br label %if.then.i.i.i175
 
-for.end130:                                       ; preds = %invoke.cont126, %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit135
+for.end130:                                       ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit135
   %tobool.not.i.i.i172 = icmp eq ptr %cookie_values.sroa.0.1, null
   br i1 %tobool.not.i.i.i172, label %for.inc211, label %if.then.i.i.i173
 
-if.then.i.i.i173:                                 ; preds = %for.end130
+if.then.i.i.i173:                                 ; preds = %invoke.cont126, %for.end130
   call void @_ZdlPv(ptr noundef nonnull %cookie_values.sroa.0.1) #27
   br label %for.inc211
 
-ehcleanup131:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %ehcleanup127
-  %cookie_values.sroa.0.3 = phi ptr [ %cookie_values.sroa.0.1, %ehcleanup127 ], [ %cookie_values.sroa.0.1, %lpad.loopexit ], [ %cookie_values.sroa.0.1, %lpad.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.1, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.1, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.2.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.1, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.1, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup127 ], [ %lpad.loopexit273, %lpad.loopexit ], [ %lpad.loopexit275, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit278, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit281, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit284, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit287, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp288, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %tobool.not.i.i.i174 = icmp eq ptr %cookie_values.sroa.0.3, null
+ehcleanup131.loopexit:                            ; preds = %for.inc.i, %lor.lhs.false.i, %for.body.i63
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup131
+
+ehcleanup131.loopexit.split-lp.loopexit:          ; preds = %for.body.i84, %lor.lhs.false.i87, %for.inc.i89
+  %lpad.loopexit279 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup131
+
+ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body32, %for.cond28
+  %lpad.loopexit282 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup131
+
+ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.cond, %land.rhs, %lor.rhs, %while.body
+  %lpad.loopexit284 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup131
+
+ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i, %land.rhs.i82, %for.cond.preheader.i75, %if.end.i73, %if.else, %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i, %land.rhs.i, %for.cond.preheader.i, %if.end.i, %invoke.cont44, %if.end68, %invoke.cont60, %if.end54, %if.then48, %if.then42, %for.end, %while.end
+  %cookie_values.sroa.0.2.ph.ph.ph.ph.ph = phi ptr [ %cookie_values.sroa.0.1, %while.end ], [ %cookie_values.sroa.0.1, %for.end ], [ %cookie_values.sroa.0.1, %if.else ], [ %cookie_values.sroa.0.1, %if.end.i73 ], [ %cookie_values.sroa.0.1, %for.cond.preheader.i75 ], [ %cookie_values.sroa.0.1, %land.rhs.i82 ], [ %cookie_values.sroa.0.1, %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i ], [ %cookie_values.sroa.0.9, %invoke.cont60 ], [ %cookie_values.sroa.0.6, %if.end68 ], [ %cookie_values.sroa.0.1, %if.then42 ], [ %cookie_values.sroa.0.1, %invoke.cont44 ], [ %cookie_values.sroa.0.1, %if.end.i ], [ %cookie_values.sroa.0.1, %for.cond.preheader.i ], [ %cookie_values.sroa.0.1, %land.rhs.i ], [ %cookie_values.sroa.0.1, %if.then48 ], [ %cookie_values.sroa.0.1, %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %cookie_values.sroa.0.4, %if.end54 ]
+  %lpad.loopexit287 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup131
+
+ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.end.i122, %.noexc130, %call24.i.i124.noexc, %call25.i.i125.noexc, %call32.i.i128.noexc
+  %lpad.loopexit289 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup131
+
+ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i.i.invoke
+  %lpad.loopexit.split-lp290 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup131
+
+ehcleanup131:                                     ; preds = %ehcleanup131.loopexit.split-lp.loopexit, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit, %ehcleanup131.loopexit
+  %cookie_values.sroa.0.2 = phi ptr [ %cookie_values.sroa.0.1, %ehcleanup131.loopexit ], [ %cookie_values.sroa.0.1, %ehcleanup131.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.1, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.1, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.2.ph.ph.ph.ph.ph, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.1, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.1, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %ehcleanup131.loopexit ], [ %lpad.loopexit279, %ehcleanup131.loopexit.split-lp.loopexit ], [ %lpad.loopexit282, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit284, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit287, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit289, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp290, %ehcleanup131.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %tobool.not.i.i.i174 = icmp eq ptr %cookie_values.sroa.0.2, null
   br i1 %tobool.not.i.i.i174, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit176, label %if.then.i.i.i175
 
-if.then.i.i.i175:                                 ; preds = %ehcleanup131
-  call void @_ZdlPv(ptr noundef nonnull %cookie_values.sroa.0.3) #27
+if.then.i.i.i175:                                 ; preds = %ehcleanup131.thread, %ehcleanup131
+  %.pn35.pn277 = phi { ptr, i32 } [ %.pn35, %ehcleanup131.thread ], [ %lpad.phi, %ehcleanup131 ]
+  %cookie_values.sroa.0.3276 = phi ptr [ %cookie_values.sroa.0.1, %ehcleanup131.thread ], [ %cookie_values.sroa.0.2, %ehcleanup131 ]
+  call void @_ZdlPv(ptr noundef nonnull %cookie_values.sroa.0.3276) #27
   br label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit176
 
 _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit176: ; preds = %ehcleanup131, %if.then.i.i.i175
-  resume { ptr, i32 } %.pn35.pn
+  %.pn35.pn278 = phi { ptr, i32 } [ %lpad.phi, %ehcleanup131 ], [ %.pn35.pn277, %if.then.i.i.i175 ]
+  resume { ptr, i32 } %.pn35.pn278
 
 if.else132:                                       ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit56
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp135, ptr noundef nonnull @.str.90)
@@ -7252,7 +7255,7 @@ lor.rhs191:                                       ; preds = %lor.lhs.false186
   br i1 %call195, label %if.then197, label %if.else203
 
 if.then197:                                       ; preds = %lor.lhs.false186, %lor.lhs.false181, %lor.lhs.false176, %lor.lhs.false171, %lor.lhs.false166, %lor.lhs.false161, %lor.lhs.false156, %lor.lhs.false151, %lor.lhs.false146, %lor.lhs.false141, %lor.lhs.false, %if.else132, %lor.rhs191
-  %second199 = getelementptr inbounds nuw i8, ptr %it.sroa.0.0325, i64 32
+  %second199 = getelementptr inbounds nuw i8, ptr %it.sroa.0.0327, i64 32
   %call200 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second199)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i192)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i193)
@@ -7293,14 +7296,14 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit210: ; preds = %for.b
   br label %for.inc211
 
 if.else203:                                       ; preds = %lor.rhs191
-  %second205 = getelementptr inbounds nuw i8, ptr %it.sroa.0.0325, i64 32
+  %second205 = getelementptr inbounds nuw i8, ptr %it.sroa.0.0327, i64 32
   %call206 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second205)
   call fastcc void @_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s(i64 noundef %call206, ptr noundef nonnull %z)
   call fastcc void @_ZN3netL6WriteZERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10ZDataClassEP10z_stream_s(ptr noundef nonnull align 8 dereferenceable(16) %second205, i32 noundef 2, ptr noundef nonnull %z)
   br label %for.inc211
 
 for.inc211:                                       ; preds = %if.then.i.i.i173, %for.end130, %if.else203, %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit210
-  %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0325, align 8
+  %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0327, align 8
   %cmp.i.not = icmp eq ptr %it.sroa.0.0, %list_.i.i
   br i1 %cmp.i.not, label %if.end224, label %for.body, !llvm.loop !25
 

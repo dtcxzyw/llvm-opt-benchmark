@@ -224,7 +224,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IiEEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -251,7 +251,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IiEEEEEEEERT_PKc.exit: ; preds = %entry
@@ -278,7 +278,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227originalDataWindowAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -308,7 +308,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227originalDataWindowAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -416,7 +416,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix44IfEEEEEERKT_PKc.exit: ; preds = %entry
@@ -443,7 +443,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix44IfEEEEEERT_PKc.exit: ; preds = %entry
@@ -470,7 +470,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_222worldToCameraAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -500,7 +500,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_222worldToCameraAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -603,7 +603,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix44IfEEEEEERKT_PKc.exit: ; preds = %entry
@@ -630,7 +630,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix44IfEEEEEERT_PKc.exit: ; preds = %entry
@@ -657,7 +657,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_219worldToNDCAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -685,7 +685,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_219worldToNDCAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -791,7 +791,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEERKT_PKc.exit: ; preds = %entry
@@ -818,7 +818,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEERT_PKc.exit: ; preds = %entry
@@ -845,7 +845,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227sensorCenterOffsetAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -875,7 +875,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227sensorCenterOffsetAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -978,7 +978,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEERKT_PKc.exit: ; preds = %entry
@@ -1005,7 +1005,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEERT_PKc.exit: ; preds = %entry
@@ -1032,7 +1032,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_232sensorOverallDimensionsAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -1060,7 +1060,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_232sensorOverallDimensionsAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -1166,7 +1166,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -1193,7 +1193,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -1220,7 +1220,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_229sensorPhotositePitchAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -1250,7 +1250,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_229sensorPhotositePitchAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -1353,7 +1353,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IiEEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -1380,7 +1380,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IiEEEEEEEERT_PKc.exit: ; preds = %entry
@@ -1407,7 +1407,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_235sensorAcquisitionRectangleAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -1435,7 +1435,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_235sensorAcquisitionRectangleAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -1541,7 +1541,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -1568,7 +1568,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -1595,7 +1595,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_231ascFramingDecisionListAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -1625,7 +1625,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_231ascFramingDecisionListAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -1728,7 +1728,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -1755,7 +1755,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -1782,7 +1782,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217xDensityAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -1810,7 +1810,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217xDensityAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -1911,7 +1911,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -1938,7 +1938,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -1965,7 +1965,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_218longitudeAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -1993,7 +1993,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_218longitudeAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -2094,7 +2094,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -2121,7 +2121,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -2148,7 +2148,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217latitudeAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -2176,7 +2176,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217latitudeAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -2277,7 +2277,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -2304,7 +2304,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -2331,7 +2331,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217altitudeAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -2359,7 +2359,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217altitudeAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -2460,7 +2460,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -2487,7 +2487,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -2514,7 +2514,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_219cameraMakeAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -2542,7 +2542,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_219cameraMakeAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -2643,7 +2643,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -2670,7 +2670,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -2697,7 +2697,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_220cameraModelAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -2725,7 +2725,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_220cameraModelAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -2826,7 +2826,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -2853,7 +2853,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -2880,7 +2880,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227cameraSerialNumberAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -2908,7 +2908,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227cameraSerialNumberAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -3009,7 +3009,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -3036,7 +3036,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -3063,7 +3063,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_230cameraFirmwareVersionAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -3091,7 +3091,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_230cameraFirmwareVersionAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -3192,7 +3192,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -3219,7 +3219,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -3246,7 +3246,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_219cameraUuidAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -3274,7 +3274,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_219cameraUuidAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -3375,7 +3375,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -3402,7 +3402,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -3429,7 +3429,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_220cameraLabelAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -3457,7 +3457,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_220cameraLabelAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -3558,7 +3558,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -3585,7 +3585,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -3612,7 +3612,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_225cameraCCTSettingAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -3640,7 +3640,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_225cameraCCTSettingAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -3741,7 +3741,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -3768,7 +3768,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -3795,7 +3795,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_226cameraTintSettingAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -3823,7 +3823,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_226cameraTintSettingAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -3924,7 +3924,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEERKT_PKc.exit: ; preds = %entry
@@ -3951,7 +3951,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEERT_PKc.exit: ; preds = %entry
@@ -3978,7 +3978,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227cameraColorBalanceAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -4006,7 +4006,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227cameraColorBalanceAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -4107,7 +4107,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -4134,7 +4134,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -4161,7 +4161,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217isoSpeedAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -4189,7 +4189,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217isoSpeedAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -4290,7 +4290,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -4317,7 +4317,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -4344,7 +4344,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_216expTimeAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -4372,7 +4372,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_216expTimeAttributeERNS_6HeaderE.exit:  ; preds = %entry
@@ -4473,7 +4473,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -4500,7 +4500,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -4527,7 +4527,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_221shutterAngleAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -4555,7 +4555,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_221shutterAngleAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -4661,7 +4661,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_8RationalEEEEERKT_PKc.exit: ; preds = %entry
@@ -4688,7 +4688,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_8RationalEEEEERT_PKc.exit: ; preds = %entry
@@ -4715,7 +4715,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_220captureRateAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -4745,7 +4745,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_220captureRateAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -4848,7 +4848,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -4875,7 +4875,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -4902,7 +4902,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217lensMakeAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -4930,7 +4930,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217lensMakeAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -5031,7 +5031,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -5058,7 +5058,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -5085,7 +5085,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_218lensModelAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -5113,7 +5113,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_218lensModelAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -5214,7 +5214,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -5241,7 +5241,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -5268,7 +5268,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_225lensSerialNumberAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -5296,7 +5296,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_225lensSerialNumberAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -5397,7 +5397,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -5424,7 +5424,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -5451,7 +5451,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_228lensFirmwareVersionAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -5479,7 +5479,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_228lensFirmwareVersionAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -5580,7 +5580,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -5607,7 +5607,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -5634,7 +5634,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227nominalFocalLengthAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -5662,7 +5662,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227nominalFocalLengthAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -5763,7 +5763,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -5790,7 +5790,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -5817,7 +5817,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227pinholeFocalLengthAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -5845,7 +5845,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227pinholeFocalLengthAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -5946,7 +5946,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -5973,7 +5973,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -6000,7 +6000,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_229effectiveFocalLengthAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -6028,7 +6028,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_229effectiveFocalLengthAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -6129,7 +6129,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -6156,7 +6156,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -6183,7 +6183,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_228entrancePupilOffsetAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -6211,7 +6211,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_228entrancePupilOffsetAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -6312,7 +6312,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -6339,7 +6339,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -6366,7 +6366,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217apertureAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -6394,7 +6394,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217apertureAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -6495,7 +6495,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -6522,7 +6522,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -6549,7 +6549,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214tStopAttributeERKNS_6HeaderE.exit:   ; preds = %entry
@@ -6577,7 +6577,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214tStopAttributeERNS_6HeaderE.exit:    ; preds = %entry
@@ -6678,7 +6678,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -6705,7 +6705,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -6732,7 +6732,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214focusAttributeERKNS_6HeaderE.exit:   ; preds = %entry
@@ -6760,7 +6760,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214focusAttributeERNS_6HeaderE.exit:    ; preds = %entry
@@ -6861,7 +6861,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -6888,7 +6888,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -6915,7 +6915,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214ownerAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -6943,7 +6943,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214ownerAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -7044,7 +7044,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -7071,7 +7071,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -7098,7 +7098,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217commentsAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -7126,7 +7126,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217commentsAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -7227,7 +7227,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -7254,7 +7254,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -7281,7 +7281,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_216capDateAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -7309,7 +7309,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_216capDateAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -7410,7 +7410,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -7437,7 +7437,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -7464,7 +7464,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_218utcOffsetAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -7492,7 +7492,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_218utcOffsetAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -7598,7 +7598,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_7KeyCodeEEEEERKT_PKc.exit: ; preds = %entry
@@ -7625,7 +7625,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_7KeyCodeEEEEERT_PKc.exit: ; preds = %entry
@@ -7652,7 +7652,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_216keyCodeAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -7682,7 +7682,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_216keyCodeAttributeERNS_6HeaderE.exit:  ; preds = %entry
@@ -7790,7 +7790,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_8TimeCodeEEEEERKT_PKc.exit: ; preds = %entry
@@ -7817,7 +7817,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_8TimeCodeEEEEERT_PKc.exit: ; preds = %entry
@@ -7844,7 +7844,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217timeCodeAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -7874,7 +7874,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217timeCodeAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -7977,7 +7977,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_8RationalEEEEERKT_PKc.exit: ; preds = %entry
@@ -8004,7 +8004,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_8RationalEEEEERT_PKc.exit: ; preds = %entry
@@ -8031,7 +8031,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_224framesPerSecondAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -8059,7 +8059,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_224framesPerSecondAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -8165,7 +8165,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIiEEEERKT_PKc.exit: ; preds = %entry
@@ -8192,7 +8192,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIiEEEERT_PKc.exit: ; preds = %entry
@@ -8219,7 +8219,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_221imageCounterAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -8249,7 +8249,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_221imageCounterAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -8352,7 +8352,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -8379,7 +8379,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -8406,7 +8406,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217reelNameAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -8434,7 +8434,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_217reelNameAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -8540,7 +8540,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_14ChromaticitiesEEEEERKT_PKc.exit: ; preds = %entry
@@ -8567,7 +8567,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_14ChromaticitiesEEEEERT_PKc.exit: ; preds = %entry
@@ -8594,7 +8594,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_223chromaticitiesAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -8624,7 +8624,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_223chromaticitiesAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -8727,7 +8727,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -8754,7 +8754,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -8781,7 +8781,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_223whiteLuminanceAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -8809,7 +8809,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_223whiteLuminanceAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -8910,7 +8910,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEERKT_PKc.exit: ; preds = %entry
@@ -8937,7 +8937,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEERT_PKc.exit: ; preds = %entry
@@ -8964,7 +8964,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_223adoptedNeutralAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -8992,7 +8992,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_223adoptedNeutralAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -9093,7 +9093,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -9120,7 +9120,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -9147,7 +9147,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227renderingTransformAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -9175,7 +9175,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_227renderingTransformAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -9276,7 +9276,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -9303,7 +9303,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -9330,7 +9330,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_225lookModTransformAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -9358,7 +9358,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_225lookModTransformAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -9464,7 +9464,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_6EnvmapEEEEERKT_PKc.exit: ; preds = %entry
@@ -9491,7 +9491,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_6EnvmapEEEEERT_PKc.exit: ; preds = %entry
@@ -9518,7 +9518,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_215envmapAttributeERKNS_6HeaderE.exit:  ; preds = %entry
@@ -9548,7 +9548,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_215envmapAttributeERNS_6HeaderE.exit:   ; preds = %entry
@@ -9651,7 +9651,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %entry
@@ -9678,7 +9678,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %entry
@@ -9705,7 +9705,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_218wrapmodesAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -9733,7 +9733,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_218wrapmodesAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -9839,7 +9839,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEEERKT_PKc.exit: ; preds = %entry
@@ -9866,7 +9866,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEEERT_PKc.exit: ; preds = %entry
@@ -9893,7 +9893,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_218multiViewAttributeB5cxx11ERKNS_6HeaderE.exit: ; preds = %entry
@@ -9923,7 +9923,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_218multiViewAttributeB5cxx11ERNS_6HeaderE.exit: ; preds = %entry
@@ -10031,7 +10031,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_14DeepImageStateEEEEERKT_PKc.exit: ; preds = %entry
@@ -10058,7 +10058,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_14DeepImageStateEEEEERT_PKc.exit: ; preds = %entry
@@ -10085,7 +10085,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_223deepImageStateAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -10115,7 +10115,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_223deepImageStateAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -10218,7 +10218,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; preds = %entry
@@ -10245,7 +10245,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeIfEEEERT_PKc.exit: ; preds = %entry
@@ -10272,7 +10272,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_228dwaCompressionLevelAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -10300,7 +10300,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_228dwaCompressionLevelAttributeERNS_6HeaderE.exit: ; preds = %entry
@@ -10406,7 +10406,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZNK7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_20CompressedIDManifestEEEEERKT_PKc.exit: ; preds = %entry
@@ -10433,7 +10433,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_26Header14typedAttributeINS_14TypedAttributeINS_20CompressedIDManifestEEEEERT_PKc.exit: ; preds = %entry
@@ -10460,7 +10460,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_219idManifestAttributeERKNS_6HeaderE.exit: ; preds = %entry
@@ -10490,7 +10490,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #11
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #11
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_219idManifestAttributeERNS_6HeaderE.exit: ; preds = %entry

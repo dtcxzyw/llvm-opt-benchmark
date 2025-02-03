@@ -6922,7 +6922,7 @@ invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i130.i
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i130.i
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i.i) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i.i) #29
   br label %ehcleanup252.i.i
 
 invoke.cont84.i.i:                                ; preds = %for.body77.i.i
@@ -6954,7 +6954,7 @@ invoke.cont.i.i341.i.i:                           ; preds = %if.then.i.i338.i.i
 lpad.i.i340.i.i:                                  ; preds = %if.then.i.i338.i.i
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i339.i.i) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i339.i.i) #29
   br label %ehcleanup252.i.i
 
 invoke.cont91.i.i:                                ; preds = %invoke.cont84.i.i
@@ -11914,7 +11914,7 @@ land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i,
   br i1 %call6.i.i.i.i.i.i, label %while.body.i.i.i.i, label %"_ZSt6all_ofIN5boost9iterators18transform_iteratorINS0_12range_detail21select_second_mutableISt3mapIjN3ue211RoseProgramESt4lessIjESaISt4pairIKjS7_EEEEESt17_Rb_tree_iteratorISC_ENS0_11use_defaultESI_EEZNS6_13addPredBlocksERSE_jRS7_E3$_0EbT_SN_T0_.exit"
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
-  %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.018.i.i.i.i) #31
+  %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.018.i.i.i.i) #31
   %cmp.i.i.i.i.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i, %add.ptr.i.i
   br i1 %cmp.i.i.i.i.not.i.i.i.i, label %do.end, label %land.rhs.i.i.i.i, !llvm.loop !269
 
@@ -13714,7 +13714,7 @@ invoke.cont:                                      ; preds = %if.then6
 lpad:                                             ; preds = %if.then6
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #29
   br label %eh.resume
 
 if.end7:                                          ; preds = %if.end
@@ -14436,7 +14436,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #29
   br label %ehcleanup
 
 invoke.cont25:                                    ; preds = %if.then18
@@ -14873,7 +14873,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #29
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #29
   br label %lpad13.body
 
 invoke.cont14:                                    ; preds = %invoke.cont11
@@ -15442,7 +15442,7 @@ common.resume:                                    ; preds = %_ZNKSt14default_del
 lpad.i.i:                                         ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #29
   br label %common.resume
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %cond.false
@@ -15794,7 +15794,7 @@ common.resume:                                    ; preds = %_ZNSt10unique_ptrIN
 lpad.i.i:                                         ; preds = %if.then.i.i51
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #29
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #29
   br label %common.resume
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %if.else

@@ -2559,12 +2559,12 @@ if.else.i:                                        ; preds = %if.end17.i70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21.i) #24
   %call24.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %ss.i, i8 noundef signext 10, i64 noundef 0) #24
   %222 = and i64 %call24.i, 4294967295
-  %cmp26.not97.i = icmp eq i64 %222, 4294967295
-  br i1 %cmp26.not97.i, label %while.end.i, label %while.body.i
+  %cmp26.not96.i = icmp eq i64 %222, 4294967295
+  br i1 %cmp26.not96.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.else.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i"
-  %line.0.in98.i = phi i64 [ %call55.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i" ], [ %call24.i, %if.else.i ]
-  %sext19.i = shl i64 %line.0.in98.i, 32
+  %line.0.in97.i = phi i64 [ %call55.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i" ], [ %call24.i, %if.else.i ]
+  %sext19.i = shl i64 %line.0.in97.i, 32
   %conv28.i = ashr exact i64 %sext19.i, 32
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp27.i, ptr noundef nonnull align 8 dereferenceable(32) %ss.i, i64 noundef 0, i64 noundef %conv28.i) #24
   %call29.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %l.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27.i) #24
@@ -2780,25 +2780,17 @@ _ZN4node10JSONWriter7advanceEv.exit.i.i82.i:      ; preds = %for.body.i.i.i78.i,
   %call.i.i83.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %244, i8 noundef signext 125) #24
   %245 = load i32, ptr %indent_.i, align 4
   %cmp.i.i84.i = icmp eq i32 %245, 0
-  br i1 %cmp.i.i84.i, label %if.then.i.i87.i, label %_ZN4node10JSONWriter14json_objectendEv.exit.i85.i
+  br i1 %cmp.i.i84.i, label %if.then.i.i86.i, label %cleanup98.i.i
 
-if.then.i.i87.i:                                  ; preds = %_ZN4node10JSONWriter7advanceEv.exit.i.i82.i
+if.then.i.i86.i:                                  ; preds = %_ZN4node10JSONWriter7advanceEv.exit.i.i82.i
   %246 = load ptr, ptr %writer, align 8
-  %call3.i.i88.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %246, i8 noundef signext 10) #24
-  br label %_ZN4node10JSONWriter14json_objectendEv.exit.i85.i
-
-_ZN4node10JSONWriter14json_objectendEv.exit.i85.i: ; preds = %if.then.i.i87.i, %_ZN4node10JSONWriter7advanceEv.exit.i.i82.i
-  store i32 1, ptr %state_.i, align 8
+  %call3.i.i87.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %246, i8 noundef signext 10) #24
   br label %cleanup98.i.i
 
 if.end.i53.i:                                     ; preds = %if.then.i52.i
   %call27.i54.i = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call19.i.i) #24
   %cmp53.not.i.i = icmp eq i32 %call27.i54.i, 0
   br i1 %cmp53.not.i.i, label %cleanup98.thread.i.i, label %for.body.lr.ph.i55.i
-
-cleanup98.thread.i.i:                             ; preds = %if.end.i53.i
-  call void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i.i) #24
-  br label %if.end101.i.i
 
 for.body.lr.ph.i55.i:                             ; preds = %if.end.i53.i
   %buf_.i.i.i.i = getelementptr inbounds nuw i8, ptr %k.i.i, i64 16
@@ -2888,13 +2880,18 @@ if.then.i.i27.i.i:                                ; preds = %cleanup.i.i
 for.inc.i.i:                                      ; preds = %if.then.i.i27.i.i, %cleanup.i.i, %lor.rhs61.i.i, %if.end44.i.i, %if.end.i.i60.i, %lor.rhs.i.i, %for.body.i57.i
   %inc.i59.i = add nuw i32 %i.054.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i59.i, %call27.i54.i
-  br i1 %exitcond.not.i.i, label %cleanup98.i.i, label %for.body.i57.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i, label %cleanup98.thread.i.i, label %for.body.i57.i, !llvm.loop !25
 
-cleanup98.i.i:                                    ; preds = %for.inc.i.i, %_ZN4node10JSONWriter14json_objectendEv.exit.i85.i
+cleanup98.thread.i.i:                             ; preds = %for.inc.i.i, %if.end.i53.i
   call void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i.i) #24
-  br i1 %cmp.i.i235.not.i.i, label %_ZN4node6reportL30PrintJavaScriptErrorPropertiesEPNS_10JSONWriterEPN2v87IsolateENS3_5LocalINS3_5ValueEEE.exit.i, label %if.end101.i.i
+  br label %if.end101.i.i
 
-if.end101.i.i:                                    ; preds = %cleanup98.i.i, %cleanup98.thread.i.i, %if.end57.i
+cleanup98.i.i:                                    ; preds = %if.then.i.i86.i, %_ZN4node10JSONWriter7advanceEv.exit.i.i82.i
+  store i32 1, ptr %state_.i, align 8
+  call void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i.i) #24
+  br label %_ZN4node6reportL30PrintJavaScriptErrorPropertiesEPNS_10JSONWriterEPN2v87IsolateENS3_5LocalINS3_5ValueEEE.exit.i
+
+if.end101.i.i:                                    ; preds = %cleanup98.thread.i.i, %if.end57.i
   %263 = load i8, ptr %compact_.i, align 8
   %tobool.i.i30.i38.i = trunc i8 %263 to i1
   br i1 %tobool.i.i30.i38.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit.i34.i42.i, label %if.end.i.i31.i39.i

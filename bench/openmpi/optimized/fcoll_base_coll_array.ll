@@ -238,7 +238,7 @@ define i32 @ompi_fcoll_base_coll_gatherv_array(ptr noundef %0, i32 noundef %1, p
 
 .split.us:                                        ; preds = %72, %58
   %.us-phi = phi i32 [ %.2.us, %58 ], [ %76, %72 ]
-  tail call void @free(ptr noundef %30) #4
+  tail call void @free(ptr noundef nonnull %30) #4
   br label %81
 
 .sink.split:                                      ; preds = %68, %.lr.ph.split
@@ -254,7 +254,7 @@ define i32 @ompi_fcoll_base_coll_gatherv_array(ptr noundef %0, i32 noundef %1, p
 ._crit_edge:                                      ; preds = %78, %59, %.preheader
   %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %80 = tail call i32 %79(i64 noundef %28, ptr noundef nonnull %30, ptr noundef null) #4
-  tail call void @free(ptr noundef %30) #4
+  tail call void @free(ptr noundef nonnull %30) #4
   br label %81
 
 81:                                               ; preds = %22, %16, %._crit_edge, %.split.us, %18
@@ -316,7 +316,7 @@ define i32 @ompi_fcoll_base_coll_bcast_array(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not43, label %34, label %33
 
 33:                                               ; preds = %29
-  tail call void @free(ptr noundef %19) #4
+  tail call void @free(ptr noundef nonnull %19) #4
   br label %37
 
 34:                                               ; preds = %29, %27
@@ -327,7 +327,7 @@ define i32 @ompi_fcoll_base_coll_bcast_array(ptr noundef %0, i32 noundef %1, ptr
 ._crit_edge:                                      ; preds = %34, %.preheader
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %36 = tail call i32 %35(i64 noundef %17, ptr noundef nonnull %19, ptr noundef null) #4
-  tail call void @free(ptr noundef %19) #4
+  tail call void @free(ptr noundef nonnull %19) #4
   br label %37
 
 37:                                               ; preds = %16, %._crit_edge, %33, %12
@@ -516,7 +516,7 @@ define i32 @ompi_fcoll_base_coll_scatterv_array(ptr noundef %0, ptr noundef read
 
 .split.us:                                        ; preds = %65, %95, %45
   %.us-phi = phi i32 [ %49, %45 ], [ %.3, %95 ], [ %69, %65 ]
-  tail call void @free(ptr noundef %30) #4
+  tail call void @free(ptr noundef nonnull %30) #4
   br label %99
 
 96:                                               ; preds = %.thread, %95
@@ -527,7 +527,7 @@ define i32 @ompi_fcoll_base_coll_scatterv_array(ptr noundef %0, ptr noundef read
 ._crit_edge:                                      ; preds = %71, %96, %51, %.preheader
   %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %98 = tail call i32 %97(i64 noundef %28, ptr noundef nonnull %30, ptr noundef null) #4
-  tail call void @free(ptr noundef %30) #4
+  tail call void @free(ptr noundef nonnull %30) #4
   br label %99
 
 99:                                               ; preds = %22, %16, %18, %._crit_edge, %.split.us
@@ -666,7 +666,7 @@ define i32 @ompi_fcoll_base_coll_gather_array(ptr noundef %0, i32 noundef %1, pt
 
 .split.us:                                        ; preds = %51, %36
   %.us-phi = phi i32 [ %39, %36 ], [ %.1, %51 ]
-  tail call void @free(ptr noundef %29) #4
+  tail call void @free(ptr noundef nonnull %29) #4
   br label %56
 
 52:                                               ; preds = %51
@@ -678,7 +678,7 @@ define i32 @ompi_fcoll_base_coll_gather_array(ptr noundef %0, i32 noundef %1, pt
 ._crit_edge:                                      ; preds = %52, %40, %.preheader
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %55 = tail call i32 %54(i64 noundef %27, ptr noundef nonnull %29, ptr noundef null) #4
-  tail call void @free(ptr noundef %29) #4
+  tail call void @free(ptr noundef nonnull %29) #4
   br label %56
 
 56:                                               ; preds = %19, %._crit_edge, %.split.us, %15

@@ -7421,7 +7421,7 @@ invoke.cont7:                                     ; preds = %if.then
 lpad:                                             ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %eh.resume unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -7789,7 +7789,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN18btStaticPlaneShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -7899,7 +7899,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN10btBoxShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -8026,7 +8026,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN13btSphereShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -8134,7 +8134,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN14btCapsuleShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -8244,7 +8244,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN14btCapsuleShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -8354,7 +8354,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN14btCapsuleShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -8472,7 +8472,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN16btCylinderShapeXdlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -8590,7 +8590,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN15btCylinderShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -8708,7 +8708,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN16btCylinderShapeZdlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -8818,7 +8818,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN11btConeShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -8928,7 +8928,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN11btConeShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -9038,7 +9038,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN11btConeShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -9255,7 +9255,7 @@ _ZN20btAlignedObjectArrayIP14btOptimizedBvhE9push_backERKS1_.exit: ; preds = %in
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN14btOptimizedBvhdlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -9514,7 +9514,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %if.then
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i8)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i8)
           to label %eh.resume unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -9615,7 +9615,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit50: ; preds =
 lpad9:                                            ; preds = %if.end
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i8)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i8)
           to label %eh.resume unwind label %terminate.lpad.i51
 
 terminate.lpad.i51:                               ; preds = %lpad9
@@ -9737,7 +9737,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN17btConvexHullShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -9847,7 +9847,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN15btCompoundShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -9957,7 +9957,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN28btScaledBvhTriangleMeshShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -10067,7 +10067,7 @@ _ZN20btAlignedObjectArrayIP16btCollisionShapeE9push_backERKS1_.exit: ; preds = %
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN18btMultiSphereShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad

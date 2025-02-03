@@ -692,7 +692,7 @@ define linkonce_odr noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #14
+  tail call void @__cxa_free_exception(ptr nonnull %12) #14
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %2
@@ -742,7 +742,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #14
+  tail call void @__cxa_free_exception(ptr nonnull %12) #14
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %2

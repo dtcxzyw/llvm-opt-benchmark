@@ -500,7 +500,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingAux(ptr noundef %0
 23:                                               ; preds = %.lr.ph439, %32
   %.1437 = phi i32 [ %1, %.lr.ph439 ], [ %.0, %32 ]
   %24 = add nsw i32 %.1437, 1
-  %25 = tail call i32 @cuddZddSymmCheck(ptr noundef %0, i32 noundef %.1437, i32 noundef %24)
+  %25 = tail call i32 @cuddZddSymmCheck(ptr noundef nonnull %0, i32 noundef %.1437, i32 noundef %24)
   %.not376 = icmp eq i32 %25, 0
   br i1 %.not376, label %._crit_edge440, label %.preheader422
 

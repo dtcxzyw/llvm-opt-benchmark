@@ -689,12 +689,12 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool5.not, label %return, label %if.end7.thread
 
 if.end7:                                          ; preds = %if.end
-  %call9 = tail call i32 @ossl_prov_macctx_load_from_params(ptr noundef %0, ptr noundef %params, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call) #6
+  %call9 = tail call i32 @ossl_prov_macctx_load_from_params(ptr noundef nonnull %0, ptr noundef %params, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call) #6
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %if.end32
 
 if.end7.thread:                                   ; preds = %land.lhs.true
-  %call926 = tail call i32 @ossl_prov_macctx_load_from_params(ptr noundef %0, ptr noundef %params, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call) #6
+  %call926 = tail call i32 @ossl_prov_macctx_load_from_params(ptr noundef nonnull %0, ptr noundef %params, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call) #6
   %tobool10.not27 = icmp eq i32 %call926, 0
   br i1 %tobool10.not27, label %return, label %land.lhs.true14
 

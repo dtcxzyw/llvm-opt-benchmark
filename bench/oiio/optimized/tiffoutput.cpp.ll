@@ -1047,7 +1047,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN18OpenImageIO_v2_6_011ImageOutputdlEPv(ptr noundef %call) #27
+  tail call void @_ZN18OpenImageIO_v2_6_011ImageOutputdlEPv(ptr noundef nonnull %call) #27
   resume { ptr, i32 } %0
 }
 
@@ -2573,19 +2573,15 @@ for.body503:                                      ; preds = %for.body503.lr.ph, 
 for.end520:                                       ; preds = %for.body503, %invoke.cont498
   %115 = load ptr, ptr %m_tif.i, align 8
   %call526 = invoke i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %115, i32 noundef 338, i32 noundef %conv501, ptr noundef nonnull %extra.sroa.0.0)
-          to label %_ZNSt6vectorItSaItEED2Ev.exit unwind label %lpad524
+          to label %_ZNSt6vectorItSaItEED2Ev.exit unwind label %_ZNSt6vectorItSaItEED2Ev.exit175
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %for.end520
   call void @_ZdlPv(ptr noundef nonnull %extra.sroa.0.0) #28
   br label %if.end528
 
-lpad524:                                          ; preds = %for.end520
+_ZNSt6vectorItSaItEED2Ev.exit175:                 ; preds = %for.end520
   %116 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i.i173 = icmp eq ptr %extra.sroa.0.0, null
-  br i1 %tobool.not.i.i.i173, label %eh.resume, label %if.then.i.i.i174
-
-if.then.i.i.i174:                                 ; preds = %lpad524
   call void @_ZdlPv(ptr noundef nonnull %extra.sroa.0.0) #28
   br label %eh.resume
 
@@ -3157,8 +3153,8 @@ return:                                           ; preds = %_ZN18OpenImageIO_v2
   %retval.0 = phi i1 [ false, %if.then12 ], [ true, %cond.end755 ], [ false, %if.then61 ], [ false, %_ZN18OpenImageIO_v2_6_010TIFFOutput8closetifEv.exit ]
   ret i1 %retval.0
 
-eh.resume:                                        ; preds = %if.then.i.i.i174, %lpad524, %lpad736, %lpad717, %lpad592, %ehcleanup
-  %.pn52 = phi { ptr, i32 } [ %166, %lpad736 ], [ %163, %lpad717 ], [ %135, %lpad592 ], [ %.pn, %ehcleanup ], [ %116, %lpad524 ], [ %116, %if.then.i.i.i174 ]
+eh.resume:                                        ; preds = %lpad736, %lpad717, %lpad592, %_ZNSt6vectorItSaItEED2Ev.exit175, %ehcleanup
+  %.pn52 = phi { ptr, i32 } [ %166, %lpad736 ], [ %163, %lpad717 ], [ %135, %lpad592 ], [ %116, %_ZNSt6vectorItSaItEED2Ev.exit175 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %.pn52
 }
 

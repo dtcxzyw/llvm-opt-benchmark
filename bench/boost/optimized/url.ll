@@ -563,7 +563,7 @@ define linkonce_odr hidden void @_ZN5boost19throw_with_locationINS_6system12syst
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #22
+  tail call void @__cxa_free_exception(ptr nonnull %3) #22
   resume { ptr, i32 } %6
 }
 

@@ -2042,7 +2042,7 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   br i1 %857, label %858, label %860
 
 858:                                              ; preds = %855
-  %859 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %852, ptr noundef nonnull @ei_sbus_telegram_not_acked) #4
+  %859 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %852, ptr noundef nonnull @ei_sbus_telegram_not_acked) #4
   br label %860
 
 860:                                              ; preds = %858, %855, %843
@@ -2109,7 +2109,7 @@ get_response_length.exit:                         ; preds = %703, %706, %708
 896:                                              ; preds = %602
   %.neg = add i32 %230, -2
   %897 = sub i32 %.neg, %.11084
-  %898 = call ptr @proto_tree_add_expert(ptr noundef %227, ptr noundef %1, ptr noundef nonnull @ei_sbus_telegram_not_implemented, ptr noundef %0, i32 noundef %.11084, i32 noundef %897) #4
+  %898 = call ptr @proto_tree_add_expert(ptr noundef %227, ptr noundef nonnull %1, ptr noundef nonnull @ei_sbus_telegram_not_implemented, ptr noundef %0, i32 noundef %.11084, i32 noundef %897) #4
   br label %.thread1138
 
 899:                                              ; preds = %.loopexit1145

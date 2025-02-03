@@ -1340,7 +1340,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   br label %249
 
 249:                                              ; preds = %Vec_PtrFreeFree.exit, %2
-  call void @free(ptr noundef %6) #25
+  call void @free(ptr noundef nonnull %6) #25
   ret void
 }
 

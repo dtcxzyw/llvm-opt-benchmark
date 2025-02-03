@@ -118,13 +118,13 @@ define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr n
   %64 = getelementptr inbounds i8, ptr %36, i64 %61
   %65 = load i32, ptr %8, align 4
   %66 = getelementptr inbounds nuw i8, ptr %43, i64 236
-  %67 = call i64 @FSE_buildCTable_wksp(ptr noundef %43, ptr noundef nonnull %54, i32 noundef %65, i32 noundef %53, ptr noundef nonnull %66, i64 noundef 164) #13
+  %67 = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %43, ptr noundef nonnull %54, i32 noundef %65, i32 noundef %53, ptr noundef nonnull %66, i64 noundef 164) #13
   %68 = icmp ult i64 %67, -119
   br i1 %68, label %69, label %HUF_compressWeights.exit.thread
 
 69:                                               ; preds = %63
   %gepdiff.i = sub nsw i64 %37, %61
-  %70 = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %64, i64 noundef %gepdiff.i, ptr noundef nonnull %38, i64 noundef range(i64 0, 256) %39, ptr noundef %43) #13
+  %70 = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %64, i64 noundef %gepdiff.i, ptr noundef nonnull %38, i64 noundef range(i64 0, 256) %39, ptr noundef nonnull %43) #13
   %71 = icmp ult i64 %70, -119
   br i1 %71, label %72, label %HUF_compressWeights.exit.thread
 
@@ -3044,9 +3044,9 @@ HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.
 .thread:                                          ; preds = %HUF_validateCTable.exit.thread.thread, %66, %HUF_validateCTable.exit.thread
   %87 = load i32, ptr %13, align 4
   %88 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1024
-  %89 = call i32 @HUF_optimalTableLog(i32 noundef %spec.store.select, i64 noundef %3, i32 noundef %87, ptr noundef nonnull %56, i64 noundef 4864, ptr noundef nonnull %88, ptr noundef %.0.i, i32 noundef %11)
+  %89 = call i32 @HUF_optimalTableLog(i32 noundef %spec.store.select, i64 noundef %3, i32 noundef %87, ptr noundef nonnull %56, i64 noundef 4864, ptr noundef nonnull %88, ptr noundef nonnull %.0.i, i32 noundef %11)
   %90 = load i32, ptr %13, align 4
-  %91 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %88, ptr noundef %.0.i, i32 noundef %90, i32 noundef %89, ptr noundef nonnull %56, i64 noundef 4864)
+  %91 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %88, ptr noundef nonnull %.0.i, i32 noundef %90, i32 noundef %89, ptr noundef nonnull %56, i64 noundef 4864)
   %92 = icmp ult i64 %91, -119
   br i1 %92, label %93, label %138
 

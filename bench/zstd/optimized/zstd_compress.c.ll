@@ -4273,7 +4273,7 @@ if.end45.i:                                       ; preds = %land.lhs.true.i, %i
 do.end68.i:                                       ; preds = %if.end45.i
   %conv69.i = trunc i64 %call53.i to i32
   %12 = load i32, ptr %maxSymbolValue.i, align 4
-  %call72.i = call i64 @HUF_estimateCompressedSize(ptr noundef nonnull %nextEntropy, ptr noundef %workspace, i32 noundef %12) #28
+  %call72.i = call i64 @HUF_estimateCompressedSize(ptr noundef nonnull %nextEntropy, ptr noundef nonnull %workspace, i32 noundef %12) #28
   %hufDesBuffer.i = getelementptr inbounds nuw i8, ptr %entropyMetadata, i64 4
   %13 = load i32, ptr %maxSymbolValue.i, align 4
   %call76.i = call i64 @HUF_writeCTable_wksp(ptr noundef nonnull %hufDesBuffer.i, i64 noundef 128, ptr noundef nonnull %nextEntropy, i32 noundef %13, i32 noundef %conv69.i, ptr noundef nonnull %add.ptr1.i28, i64 noundef %gepdiff.i29) #28
@@ -4282,7 +4282,7 @@ do.end68.i:                                       ; preds = %if.end45.i
 
 if.then79.i:                                      ; preds = %do.end68.i
   %14 = load i32, ptr %maxSymbolValue.i, align 4
-  %call82.i = call i64 @HUF_estimateCompressedSize(ptr noundef nonnull %prevEntropy, ptr noundef %workspace, i32 noundef %14) #28
+  %call82.i = call i64 @HUF_estimateCompressedSize(ptr noundef nonnull %prevEntropy, ptr noundef nonnull %workspace, i32 noundef %14) #28
   %cmp83.i = icmp ult i64 %call82.i, %sub.ptr.sub
   br i1 %cmp83.i, label %land.lhs.true85.i, label %if.end97.i
 
@@ -15692,7 +15692,7 @@ lor.lhs.false17:                                  ; preds = %if.end
   br i1 %or.cond, label %do.end26, label %if.end29
 
 do.end26:                                         ; preds = %lor.lhs.false17
-  tail call fastcc void @ZSTD_deriveBlockSplitsHelper(ptr noundef %splits, i64 noundef %startIdx.tr45, i64 noundef %div3546, ptr noundef %zc, ptr noundef %origSeqStore)
+  tail call fastcc void @ZSTD_deriveBlockSplitsHelper(ptr noundef %splits, i64 noundef %startIdx.tr45, i64 noundef %div3546, ptr noundef nonnull %zc, ptr noundef %origSeqStore)
   %conv = trunc i64 %div3546 to i32
   %1 = load ptr, ptr %splits, align 8
   %2 = load i64, ptr %idx, align 8
@@ -16129,7 +16129,7 @@ if.then75.i:                                      ; preds = %if.end72.i
 if.end81.i:                                       ; preds = %if.end72.i
   %incdec.ptr82.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 1
   %fse83.i = getelementptr inbounds nuw i8, ptr %prevEntropy, i64 2064
-  call fastcc void @ZSTD_buildSequencesStatistics(ptr noalias align 8 %stats.i, ptr noundef nonnull readonly %seqStorePtr, i64 noundef %sub.ptr.div.i, ptr noundef nonnull %fse83.i, ptr noundef nonnull %fse.i, ptr noundef nonnull %incdec.ptr82.i, ptr noundef nonnull %add.ptr.i, i32 noundef %0, ptr noundef %entropyWorkspace, ptr noundef nonnull %add.ptr8.i, i64 noundef 8708)
+  call fastcc void @ZSTD_buildSequencesStatistics(ptr noalias align 8 %stats.i, ptr noundef nonnull readonly %seqStorePtr, i64 noundef %sub.ptr.div.i, ptr noundef nonnull %fse83.i, ptr noundef nonnull %fse.i, ptr noundef nonnull %incdec.ptr82.i, ptr noundef nonnull %add.ptr.i, i32 noundef %0, ptr noundef nonnull %entropyWorkspace, ptr noundef nonnull %add.ptr8.i, i64 noundef 8708)
   %size.i = getelementptr inbounds nuw i8, ptr %stats.i, i64 16
   %13 = load i64, ptr %size.i, align 8
   %cmp.i69.i = icmp ult i64 %13, -119

@@ -3548,7 +3548,7 @@ define internal fastcc void @get_host(ptr noundef %0, i32 noundef range(i32 0, 2
 6:                                                ; preds = %5
   store ptr null, ptr %4, align 8
   store ptr null, ptr %3, align 8
-  br label %87
+  br label %88
 
 7:                                                ; preds = %5
   %8 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.330) #17
@@ -3589,36 +3589,36 @@ define internal fastcc void @get_host(ptr noundef %0, i32 noundef range(i32 0, 2
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %.not104 = icmp eq i32 %1, 0
-  br i1 %.not104, label %.preheader, label %.loopexit.thread
+  %.not96 = icmp eq i32 %1, 0
+  br i1 %.not96, label %.preheader, label %83
 
 .preheader:                                       ; preds = %.critedge, %21, %15, %12, %23
-  %.15990 = phi ptr [ %24, %23 ], [ %0, %12 ], [ %spec.select, %15 ], [ %0, %.critedge ], [ %22, %21 ]
-  %25 = tail call i64 @strcspn(ptr noundef nonnull %.15990, ptr noundef nonnull @.str.16) #17
-  %26 = getelementptr inbounds i8, ptr %.15990, i64 %25
-  %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.15990, i32 noundef 64) #17
+  %.15995 = phi ptr [ %24, %23 ], [ %0, %12 ], [ %spec.select, %15 ], [ %0, %.critedge ], [ %22, %21 ]
+  %25 = tail call i64 @strcspn(ptr noundef nonnull %.15995, ptr noundef nonnull @.str.16) #17
+  %26 = getelementptr inbounds i8, ptr %.15995, i64 %25
+  %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.15995, i32 noundef 64) #17
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit.thread96, label %.lr.ph.preheader
+  br i1 %28, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.not725 = icmp ne i64 %25, 0
+  %.not721 = icmp ne i64 %25, 0
   %29 = icmp ugt ptr %27, %26
-  %or.cond776 = select i1 %.not725, i1 %29, i1 false
-  br i1 %or.cond776, label %.loopexit.thread96, label %.lr.ph7
+  %or.cond772 = select i1 %.not721, i1 %29, i1 false
+  br i1 %or.cond772, label %.thread, label %.lr.ph3
 
 .lr.ph:                                           ; preds = %.critedge79
   %.not72 = icmp ne i64 %79, 0
   %30 = icmp ugt ptr %81, %80
   %or.cond77 = select i1 %.not72, i1 %30, i1 false
-  br i1 %or.cond77, label %.loopexit.thread96, label %.lr.ph7
+  br i1 %or.cond77, label %.thread, label %.lr.ph3
 
-.lr.ph7:                                          ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph3:                                          ; preds = %.lr.ph.preheader, %.lr.ph
   %31 = phi ptr [ %81, %.lr.ph ], [ %27, %.lr.ph.preheader ]
   %32 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 46) #17
   %.not73 = icmp eq ptr %32, null
   br i1 %.not73, label %.critedge79, label %33
 
-33:                                               ; preds = %.lr.ph7
+33:                                               ; preds = %.lr.ph3
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #17
   %35 = trunc i64 %34 to i32
   %36 = add i32 %35, -2
@@ -3687,30 +3687,30 @@ in_tld_set.exit:                                  ; preds = %72
   store i32 %77, ptr %2, align 4
   br label %.critedge79
 
-.critedge79:                                      ; preds = %72, %67, %61, %tld_hash.exit.i, %33, %.lr.ph7, %in_tld_set.exit
+.critedge79:                                      ; preds = %72, %67, %61, %tld_hash.exit.i, %33, %.lr.ph3, %in_tld_set.exit
   %78 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %79 = tail call i64 @strcspn(ptr noundef nonnull %78, ptr noundef nonnull @.str.16) #17
   %80 = getelementptr inbounds i8, ptr %78, i64 %79
   %81 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %78, i32 noundef 64) #17
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.loopexit.thread96, label %.lr.ph
+  br i1 %82, label %.thread, label %.lr.ph
 
-.loopexit.thread:                                 ; preds = %23
-  %83 = load i32, ptr %2, align 4
-  %84 = or i32 %83, 4
-  store i32 %84, ptr %2, align 4
-  %85 = tail call i64 @strcspn(ptr noundef nonnull %24, ptr noundef nonnull @.str.16) #17
-  %86 = getelementptr inbounds i8, ptr %24, i64 %85
-  br label %.loopexit.thread96
+83:                                               ; preds = %23
+  %84 = load i32, ptr %2, align 4
+  %85 = or i32 %84, 4
+  store i32 %85, ptr %2, align 4
+  %86 = tail call i64 @strcspn(ptr noundef nonnull %24, ptr noundef nonnull @.str.16) #17
+  %87 = getelementptr inbounds i8, ptr %24, i64 %86
+  br label %.thread
 
-.loopexit.thread96:                               ; preds = %.critedge79, %.lr.ph, %.preheader, %.lr.ph.preheader, %.loopexit.thread
-  %.394 = phi ptr [ %24, %.loopexit.thread ], [ %.15990, %.preheader ], [ %.15990, %.lr.ph.preheader ], [ %78, %.lr.ph ], [ %78, %.critedge79 ]
-  %.2 = phi ptr [ %86, %.loopexit.thread ], [ %26, %.preheader ], [ %26, %.lr.ph.preheader ], [ %80, %.lr.ph ], [ %80, %.critedge79 ]
-  store ptr %.394, ptr %3, align 8
+.thread:                                          ; preds = %.lr.ph, %.critedge79, %.lr.ph.preheader, %.preheader, %83
+  %.385 = phi ptr [ %24, %83 ], [ %.15995, %.preheader ], [ %.15995, %.lr.ph.preheader ], [ %78, %.critedge79 ], [ %78, %.lr.ph ]
+  %.2 = phi ptr [ %87, %83 ], [ %26, %.preheader ], [ %26, %.lr.ph.preheader ], [ %80, %.critedge79 ], [ %80, %.lr.ph ]
+  store ptr %.385, ptr %3, align 8
   store ptr %.2, ptr %4, align 8
-  br label %87
+  br label %88
 
-87:                                               ; preds = %.loopexit.thread96, %6
+88:                                               ; preds = %.thread, %6
   ret void
 }
 

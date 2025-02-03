@@ -5460,7 +5460,7 @@ define noundef zeroext i1 @_ZN15PacketListModel14recordLessThanEP16PacketListRec
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %22) #29
+  tail call void @__cxa_free_exception(ptr nonnull %22) #29
   br label %_ZN7QStringD2Ev.exit45
 
 26:                                               ; preds = %19

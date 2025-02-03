@@ -63871,7 +63871,7 @@ invoke.cont36:                                    ; preds = %invoke.cont30, %_ZN
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i19, %invoke.cont36, %invoke.cont16, %if.then25
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.0105) #30
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.0105) #30
   %cmp.i.not = icmp eq ptr %call.i, %1
   br i1 %cmp.i.not, label %for.end, label %invoke.cont, !llvm.loop !784
 
@@ -67761,7 +67761,7 @@ for.body20:                                       ; preds = %for.end, %for.inc25
           to label %for.inc25 unwind label %lpad.loopexit
 
 for.inc25:                                        ; preds = %for.body20
-  %call.i8 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i12.sroa.0.019) #30
+  %call.i8 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i12.sroa.0.019) #30
   %cmp.i4.not = icmp eq ptr %call.i8, %0
   br i1 %cmp.i4.not, label %for.end27, label %for.body20, !llvm.loop !858
 
@@ -143777,7 +143777,7 @@ invoke.cont36:                                    ; preds = %invoke.cont30, %_ZN
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i19, %invoke.cont36, %invoke.cont16, %if.then25
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.0105) #30
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.0105) #30
   %cmp.i.not = icmp eq ptr %call.i, %1
   br i1 %cmp.i.not, label %for.end, label %invoke.cont, !llvm.loop !1848
 
@@ -147656,7 +147656,7 @@ for.body20:                                       ; preds = %for.end, %for.inc25
           to label %for.inc25 unwind label %lpad.loopexit
 
 for.inc25:                                        ; preds = %for.body20
-  %call.i8 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i12.sroa.0.019) #30
+  %call.i8 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i12.sroa.0.019) #30
   %cmp.i4.not = icmp eq ptr %call.i8, %0
   br i1 %cmp.i4.not, label %for.end27, label %for.body20, !llvm.loop !1917
 

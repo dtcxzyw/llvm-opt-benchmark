@@ -1672,7 +1672,7 @@ define dso_local i32 @sacctmgr_list_assoc(i32 noundef %0, ptr noundef %1) local_
   %.0111154.i = phi i32 [ %41, %.thread.i ], [ -2, %49 ]
   %57 = call i32 @llvm.smax.i32(i32 %.0111154.i, i32 2)
   %58 = zext nneg i32 %57 to i64
-  %59 = call i32 @xstrncasecmp(ptr noundef %56, ptr noundef nonnull @.str.61, i64 noundef %58) #9
+  %59 = call i32 @xstrncasecmp(ptr noundef nonnull %56, ptr noundef nonnull @.str.61, i64 noundef %58) #9
   %.not122.i = icmp eq i32 %59, 0
   br i1 %.not122.i, label %60, label %61
 

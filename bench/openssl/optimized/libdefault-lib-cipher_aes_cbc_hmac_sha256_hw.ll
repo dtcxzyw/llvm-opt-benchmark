@@ -487,7 +487,7 @@ if.end21.i430:                                    ; preds = %if.then18.i435, %if
   br i1 %tobool22.not.i432, label %sha256_update.exit437, label %if.then23.i433
 
 if.then23.i433:                                   ; preds = %if.end21.i430
-  %call24.i434 = call i32 @SHA256_Update(ptr noundef nonnull %md, ptr noundef %ptr.1.i431, i64 noundef %rem.i417) #8
+  %call24.i434 = call i32 @SHA256_Update(ptr noundef nonnull %md, ptr noundef nonnull %ptr.1.i431, i64 noundef %rem.i417) #8
   br label %sha256_update.exit437
 
 sha256_update.exit437:                            ; preds = %if.end21.i430, %if.then23.i433
@@ -524,7 +524,7 @@ if.end4.i447:                                     ; preds = %if.then.i440, %if.t
 
 if.then7.i453:                                    ; preds = %if.end4.i447
   %div29.i454 = lshr i64 %len.addr.0.i448, 6
-  call void @sha256_block_data_order(ptr noundef nonnull %md, ptr noundef %ptr.0.i449, i64 noundef %div29.i454) #8
+  call void @sha256_block_data_order(ptr noundef nonnull %md, ptr noundef nonnull %ptr.0.i449, i64 noundef %div29.i454) #8
   %add.ptr8.i455 = getelementptr inbounds i8, ptr %ptr.0.i449, i64 %sub5.i451
   %shr.i456 = lshr i64 %len.addr.0.i448, 29
   %Nh.i457 = getelementptr inbounds nuw i8, ptr %vctx, i64 764
@@ -854,7 +854,7 @@ if.end4.i480:                                     ; preds = %if.end422
 if.then23.i499:                                   ; preds = %if.end422, %if.end4.i480
   %ptr.1.i497558 = phi ptr [ %add.ptr.i478, %if.end4.i480 ], [ %26, %if.end422 ]
   %rem.i483553557 = phi i64 [ %sub3.i479, %if.end4.i480 ], [ 32, %if.end422 ]
-  %call24.i500 = call i32 @SHA256_Update(ptr noundef nonnull %md, ptr noundef %ptr.1.i497558, i64 noundef %rem.i483553557) #8
+  %call24.i500 = call i32 @SHA256_Update(ptr noundef nonnull %md, ptr noundef nonnull %ptr.1.i497558, i64 noundef %rem.i483553557) #8
   br label %sha256_update.exit503
 
 sha256_update.exit503:                            ; preds = %if.end4.i480, %if.then23.i499
@@ -1254,7 +1254,7 @@ if.end4.i:                                        ; preds = %if.end33
 if.then23.i:                                      ; preds = %if.end33, %if.end4.i
   %ptr.1.i42 = phi ptr [ %add.ptr.i, %if.end4.i ], [ %aad_rec, %if.end33 ]
   %rem.i3741 = phi i64 [ %sub3.i, %if.end4.i ], [ 13, %if.end33 ]
-  %call24.i = tail call i32 @SHA256_Update(ptr noundef nonnull %md, ptr noundef %ptr.1.i42, i64 noundef %rem.i3741) #8
+  %call24.i = tail call i32 @SHA256_Update(ptr noundef nonnull %md, ptr noundef nonnull %ptr.1.i42, i64 noundef %rem.i3741) #8
   br label %sha256_update.exit
 
 sha256_update.exit:                               ; preds = %if.end4.i, %if.then23.i

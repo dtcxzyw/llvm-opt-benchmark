@@ -5227,7 +5227,7 @@ define internal fastcc void @_manage_editor_basics_update_list(ptr noundef %0) u
   br i1 %39, label %40, label %78
 
 40:                                               ; preds = %33
-  %41 = tail call i32 @dt_iop_is_hidden(ptr noundef %27) #16
+  %41 = tail call i32 @dt_iop_is_hidden(ptr noundef nonnull %27) #16
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %78
 

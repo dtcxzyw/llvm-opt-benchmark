@@ -5212,7 +5212,7 @@ _ZL25isFoldedOrDeadInstructionPKN4llvm11InstructionERKNS_20FunctionLoweringInfoE
   br i1 %.not171, label %_ZL25isFoldedOrDeadInstructionPKN4llvm11InstructionERKNS_20FunctionLoweringInfoE.exit264.thread, label %.lr.ph.i.i.i243, !llvm.loop !83
 
 _ZL25isFoldedOrDeadInstructionPKN4llvm11InstructionERKNS_20FunctionLoweringInfoE.exit264.thread: ; preds = %_ZL25isFoldedOrDeadInstructionPKN4llvm11InstructionERKNS_20FunctionLoweringInfoE.exit264, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPKNS_11InstructionEEEbRKT0_.exit.i261, %777, %.lr.ph.i.i.i243, %781, %781, %781, %798, %809
-  %.1479 = phi ptr [ %775, %809 ], [ %775, %_ZL25isFoldedOrDeadInstructionPKN4llvm11InstructionERKNS_20FunctionLoweringInfoE.exit264 ], [ %774, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPKNS_11InstructionEEEbRKT0_.exit.i261 ], [ %774, %777 ], [ %775, %.lr.ph.i.i.i243 ], [ %774, %781 ], [ %774, %781 ], [ %774, %781 ], [ %774, %798 ]
+  %.1479 = phi ptr [ %775, %809 ], [ %775, %_ZL25isFoldedOrDeadInstructionPKN4llvm11InstructionERKNS_20FunctionLoweringInfoE.exit264 ], [ %774, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPKNS_11InstructionEEEbRKT0_.exit.i261 ], [ %774, %777 ], [ %774, %.lr.ph.i.i.i243 ], [ %774, %781 ], [ %774, %781 ], [ %774, %781 ], [ %774, %798 ]
   %.not172 = icmp eq ptr %.1479, %692
   br i1 %.not172, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread, label %816
 

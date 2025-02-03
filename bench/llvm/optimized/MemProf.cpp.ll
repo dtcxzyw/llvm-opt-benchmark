@@ -3041,7 +3041,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %31, %35
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds nuw i8, ptr %56, i64 1152
-  call fastcc void @"_ZSt16__insertion_sortIPSt4pairImN4llvm11SmallVectorImLj6EEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_7memprof25CallStackRadixTreeBuilder5buildEONS1_9MapVectorImS3_NS1_8DenseMapImjNS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImjEEEENS2_IS4_Lj0EEEEERKSI_RNSC_ImNS9_9FrameStatESE_NSG_ImSO_EEEEE3$_0EEEvT_SU_T0_"(ptr noundef %56, ptr noundef nonnull %65, ptr nonnull %3)
+  call fastcc void @"_ZSt16__insertion_sortIPSt4pairImN4llvm11SmallVectorImLj6EEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_7memprof25CallStackRadixTreeBuilder5buildEONS1_9MapVectorImS3_NS1_8DenseMapImjNS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImjEEEENS2_IS4_Lj0EEEEERKSI_RNSC_ImNS9_9FrameStatESE_NSG_ImSO_EEEEE3$_0EEEvT_SU_T0_"(ptr noundef nonnull %56, ptr noundef nonnull %65, ptr nonnull %3)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %64
@@ -3052,7 +3052,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %31, %35
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorISt4pairImNS1_ImLj6EEEELj0EEEZNS_7memprof25CallStackRadixTreeBuilder5buildEONS_9MapVectorImS3_NS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEES5_EERKSG_RNSA_ImNS7_9FrameStatESC_NSE_ImSL_EEEEE3$_0EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !96
 
 67:                                               ; preds = %59
-  call fastcc void @"_ZSt16__insertion_sortIPSt4pairImN4llvm11SmallVectorImLj6EEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_7memprof25CallStackRadixTreeBuilder5buildEONS1_9MapVectorImS3_NS1_8DenseMapImjNS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImjEEEENS2_IS4_Lj0EEEEERKSI_RNSC_ImNS9_9FrameStatESE_NSG_ImSO_EEEEE3$_0EEEvT_SU_T0_"(ptr noundef %56, ptr noundef nonnull %58, ptr nonnull %3)
+  call fastcc void @"_ZSt16__insertion_sortIPSt4pairImN4llvm11SmallVectorImLj6EEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_7memprof25CallStackRadixTreeBuilder5buildEONS1_9MapVectorImS3_NS1_8DenseMapImjNS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImjEEEENS2_IS4_Lj0EEEEERKSI_RNSC_ImNS9_9FrameStatESE_NSG_ImSO_EEEEE3$_0EEEvT_SU_T0_"(ptr noundef nonnull %56, ptr noundef nonnull %58, ptr nonnull %3)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorISt4pairImNS1_ImLj6EEEELj0EEEZNS_7memprof25CallStackRadixTreeBuilder5buildEONS_9MapVectorImS3_NS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEES5_EERKSG_RNSA_ImNS7_9FrameStatESC_NSE_ImSL_EEEEE3$_0EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorISt4pairImNS1_ImLj6EEEELj0EEEZNS_7memprof25CallStackRadixTreeBuilder5buildEONS_9MapVectorImS3_NS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEES5_EERKSG_RNSA_ImNS7_9FrameStatESC_NSE_ImSL_EEEEE3$_0EEvOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %55, %67

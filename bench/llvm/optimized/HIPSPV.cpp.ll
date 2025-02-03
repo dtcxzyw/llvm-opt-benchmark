@@ -645,7 +645,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit8.i:         ; preds = %190, %189
   %192 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %17) #12, !noalias !7
   %193 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %193, align 8, !noalias !7
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %17, ptr noundef %167, ptr noundef nonnull %171)
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %17, ptr noundef nonnull %167, ptr noundef nonnull %171)
   %194 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %195 = getelementptr inbounds nuw i8, ptr %23, i64 33
   store i8 1, ptr %195, align 1, !noalias !7

@@ -4376,7 +4376,7 @@ _ZNKSt6vectorIN10open_spiel14colored_trails5BoardESaIS2_EE12_M_check_lenEmPKc.ex
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #24
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   invoke void @_ZN10open_spiel14colored_trails5BoardC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(112) %21, ptr noundef nonnull align 8 dereferenceable(112) %2)
-          to label %_ZNSt16allocator_traitsISaIN10open_spiel14colored_trails5BoardEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseIN10open_spiel14colored_trails5BoardESaIS2_EE13_M_deallocateEPS2_m.exit37
+          to label %_ZNSt16allocator_traitsISaIN10open_spiel14colored_trails5BoardEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit unwind label %107
 
 _ZNSt16allocator_traitsISaIN10open_spiel14colored_trails5BoardEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN10open_spiel14colored_trails5BoardESaIS2_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i = icmp eq ptr %6, %1
@@ -4536,32 +4536,32 @@ _ZNSt12_Vector_baseIN10open_spiel14colored_trails5BoardESaIS2_EE13_M_deallocateE
   store ptr %104, ptr %99, align 8
   ret void
 
-105:                                              ; preds = %_ZNSt12_Vector_baseIN10open_spiel14colored_trails5BoardESaIS2_EE13_M_deallocateEPS2_m.exit37
+105:                                              ; preds = %107
   %106 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %110 unwind label %111
+          to label %111 unwind label %112
 
-_ZNSt12_Vector_baseIN10open_spiel14colored_trails5BoardESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNKSt6vectorIN10open_spiel14colored_trails5BoardESaIS2_EE12_M_check_lenEmPKc.exit
-  %107 = landingpad { ptr, i32 }
+107:                                              ; preds = %_ZNKSt6vectorIN10open_spiel14colored_trails5BoardESaIS2_EE12_M_check_lenEmPKc.exit
+  %108 = landingpad { ptr, i32 }
           catch ptr null
-  %108 = extractvalue { ptr, i32 } %107, 0
-  %109 = tail call ptr @__cxa_begin_catch(ptr %108) #25
+  %109 = extractvalue { ptr, i32 } %108, 0
+  %110 = tail call ptr @__cxa_begin_catch(ptr %109) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #26
   invoke void @__cxa_rethrow() #23
-          to label %114 unwind label %105
-
-110:                                              ; preds = %105
-  resume { ptr, i32 } %106
+          to label %115 unwind label %105
 
 111:                                              ; preds = %105
-  %112 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %106
+
+112:                                              ; preds = %105
+  %113 = landingpad { ptr, i32 }
           catch ptr null
-  %113 = extractvalue { ptr, i32 } %112, 0
-  tail call void @__clang_call_terminate(ptr %113) #27
+  %114 = extractvalue { ptr, i32 } %113, 0
+  tail call void @__clang_call_terminate(ptr %114) #27
   unreachable
 
-114:                                              ; preds = %_ZNSt12_Vector_baseIN10open_spiel14colored_trails5BoardESaIS2_EE13_M_deallocateEPS2_m.exit37
+115:                                              ; preds = %107
   unreachable
 }
 

@@ -1158,7 +1158,11 @@ from_words52.exit560:                             ; preds = %for.body.i36.i508, 
   %conv48 = sext i32 %conv47 to i64
   %call.i561 = call i64 @bn_sub_words(ptr noundef nonnull %call13, ptr noundef %res1, ptr noundef %m1, i32 noundef %conv47) #5
   %cmp5.not.i.i = icmp ult i32 %factor_size, 64
-  br i1 %cmp5.not.i.i, label %err, label %for.body.lr.ph.i.i
+  br i1 %cmp5.not.i.i, label %bn_reduce_once_in_place.exit.thread, label %for.body.lr.ph.i.i
+
+bn_reduce_once_in_place.exit.thread:              ; preds = %from_words52.exit560
+  %call.i564581 = call i64 @bn_sub_words(ptr noundef nonnull %call13, ptr noundef %res2, ptr noundef %m2, i32 noundef %conv47) #5
+  br label %if.then54
 
 for.body.lr.ph.i.i:                               ; preds = %from_words52.exit560
   %sub.i562 = sub i64 0, %call.i561
@@ -1203,19 +1207,15 @@ for.body.i.i569:                                  ; preds = %for.body.i.i569, %f
   %exitcond.not.i.i577 = icmp eq i64 %inc.i.i576, %conv48
   br i1 %exitcond.not.i.i577, label %if.then54, label %for.body.i.i569, !llvm.loop !15
 
-err:                                              ; preds = %from_words52.exit560
-  %call.i564581 = call i64 @bn_sub_words(ptr noundef nonnull %call13, ptr noundef %res2, ptr noundef %m2, i32 noundef %conv47) #5
-  br label %if.then54
-
-if.then54:                                        ; preds = %for.body.i.i569, %err, %sw.epilog.i, %to_words52.exit471
-  %ret.0592 = phi i32 [ 1, %err ], [ 0, %to_words52.exit471 ], [ 0, %sw.epilog.i ], [ 1, %for.body.i.i569 ]
+if.then54:                                        ; preds = %for.body.i.i569, %sw.epilog.i, %to_words52.exit471, %bn_reduce_once_in_place.exit.thread
+  %ret.0.ph = phi i32 [ 1, %bn_reduce_once_in_place.exit.thread ], [ 0, %to_words52.exit471 ], [ 0, %sw.epilog.i ], [ 1, %for.body.i.i569 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %call13, i64 noundef %conv12) #5
   call void @CRYPTO_free(ptr noundef nonnull %call13, ptr noundef nonnull @.str, i32 noundef 261) #5
   br label %if.end56
 
-if.end56:                                         ; preds = %sw.epilog, %entry, %if.then54
-  %ret.0586 = phi i32 [ %ret.0592, %if.then54 ], [ 0, %entry ], [ 0, %sw.epilog ]
-  ret i32 %ret.0586
+if.end56:                                         ; preds = %entry, %sw.epilog, %if.then54
+  %ret.0587 = phi i32 [ %ret.0.ph, %if.then54 ], [ 0, %entry ], [ 0, %sw.epilog ]
+  ret i32 %ret.0587
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

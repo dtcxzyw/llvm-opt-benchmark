@@ -685,7 +685,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cm6String5
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #18
+  tail call void @__cxa_free_exception(ptr nonnull %9) #18
   br label %33
 
 13:                                               ; preds = %3
@@ -764,7 +764,7 @@ define dso_local void @_ZNK2cm6String6substrEmm(ptr dead_on_unwind noalias writa
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #18
+  tail call void @__cxa_free_exception(ptr nonnull %9) #18
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %4

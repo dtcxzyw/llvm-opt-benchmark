@@ -4434,7 +4434,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds i8, ptr %23, i64 %19
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %.noexc unwind label %57
+          to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE11_M_allocateEm.exit
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdAPISchemaBaseE, i64 16), ptr %24, align 8
@@ -4464,117 +4464,103 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS
 38:                                               ; preds = %33, %28, %.noexc
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIE, i64 16), ptr %24, align 8
   %39 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIEPS1_ET0_T_S6_S5_(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %23)
-          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit unwind label %.thread
-
-.thread:                                          ; preds = %38
-  %40 = landingpad { ptr, i32 }
-          catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  %42 = tail call ptr @__cxa_begin_catch(ptr %41) #17
-  br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread
+          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit unwind label %51
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %44 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIEPS1_ET0_T_S6_S5_(ptr noundef %1, ptr noundef %6, ptr noundef nonnull %43)
-          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit31 unwind label %.thread45
-
-.thread45:                                        ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %45 = landingpad { ptr, i32 }
-          catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  %47 = tail call ptr @__cxa_begin_catch(ptr %46) #17
-  br label %63
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %41 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIEPS1_ET0_T_S6_S5_(ptr noundef %1, ptr noundef %6, ptr noundef nonnull %40)
+          to label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit31 unwind label %56
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit31: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %.not4.i.i.i = icmp eq ptr %7, %6
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit31, %.lr.ph.i.i.i
-  %.05.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i ], [ %7, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit31 ]
-  %48 = load ptr, ptr %.05.i.i.i, align 8
-  %49 = load ptr, ptr %48, align 8
-  tail call void %49(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #17
-  %50 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
-  %.not.i.i.i = icmp eq ptr %50, %6
+  %.05.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i ], [ %7, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit31 ]
+  %42 = load ptr, ptr %.05.i.i.i, align 8
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #17
+  %44 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
+  %.not.i.i.i = icmp eq ptr %44, %6
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit31
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i32 = icmp eq ptr %7, null
-  br i1 %.not.i32, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit, label %52
+  br i1 %.not.i32, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit, label %46
 
-52:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit
-  %53 = load ptr, ptr %51, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %55 = sub i64 %54, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %55) #18
+46:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit
+  %47 = load ptr, ptr %45, align 8
+  %48 = ptrtoint ptr %47 to i64
+  %49 = sub i64 %48, %9
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %49) #18
   br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit, %52
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit, %46
   store ptr %23, ptr %0, align 8
-  store ptr %44, ptr %5, align 8
-  %56 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::UsdPhysicsLimitAPI", ptr %23, i64 %17
-  store ptr %56, ptr %51, align 8
+  store ptr %41, ptr %5, align 8
+  %50 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::UsdPhysicsLimitAPI", ptr %23, i64 %17
+  store ptr %50, ptr %45, align 8
   ret void
 
-57:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE11_M_allocateEm.exit
-  %58 = landingpad { ptr, i32 }
+51:                                               ; preds = %38
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  %60 = tail call ptr @__cxa_begin_catch(ptr %59) #17
-  %.not = icmp eq ptr %23, null
-  br i1 %.not, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread, label %63
+  %52 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp, 0
+  %53 = tail call ptr @__cxa_begin_catch(ptr %52) #17
+  %54 = load ptr, ptr %24, align 8
+  %55 = load ptr, ptr %54, align 8
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
+  br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread
 
-_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread: ; preds = %57, %.thread
-  %61 = load ptr, ptr %24, align 8
-  %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
-  br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread50
+56:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE11_M_allocateEm.exit, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit
+  %.0.ph = phi ptr [ %40, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %23, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE11_M_allocateEm.exit ]
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          catch ptr null
+  %57 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
+  %58 = tail call ptr @__cxa_begin_catch(ptr %57) #17
+  %.not4.i.i.i33 = icmp eq ptr %23, %.0.ph
+  br i1 %.not4.i.i.i33, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread, label %.lr.ph.i.i.i34
 
-63:                                               ; preds = %.thread45, %57
-  %.048 = phi ptr [ %43, %.thread45 ], [ %23, %57 ]
-  %.not4.i.i.i33 = icmp eq ptr %23, %.048
-  br i1 %.not4.i.i.i33, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread50, label %.lr.ph.i.i.i34
-
-.lr.ph.i.i.i34:                                   ; preds = %63, %.lr.ph.i.i.i34
-  %.05.i.i.i35 = phi ptr [ %66, %.lr.ph.i.i.i34 ], [ %23, %63 ]
-  %64 = load ptr, ptr %.05.i.i.i35, align 8
-  %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i35) #17
-  %66 = getelementptr inbounds nuw i8, ptr %.05.i.i.i35, i64 32
-  %.not.i.i.i36 = icmp eq ptr %66, %.048
+.lr.ph.i.i.i34:                                   ; preds = %56, %.lr.ph.i.i.i34
+  %.05.i.i.i35 = phi ptr [ %61, %.lr.ph.i.i.i34 ], [ %23, %56 ]
+  %59 = load ptr, ptr %.05.i.i.i35, align 8
+  %60 = load ptr, ptr %59, align 8
+  tail call void %60(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i35) #17
+  %61 = getelementptr inbounds nuw i8, ptr %.05.i.i.i35, i64 32
+  %.not.i.i.i36 = icmp eq ptr %61, %.0.ph
   br i1 %.not.i.i.i36, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37, label %.lr.ph.i.i.i34, !llvm.loop !10
 
-67:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit39
-  %68 = landingpad { ptr, i32 }
+62:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit39
+  %63 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %70 unwind label %71
+          to label %65 unwind label %66
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37: ; preds = %.lr.ph.i.i.i34
   %.not.i38 = icmp eq ptr %23, null
-  br i1 %.not.i38, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit39, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread50
+  br i1 %.not.i38, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit39, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread
 
-_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread50: ; preds = %63, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37
-  %69 = shl nuw nsw i64 %17, 5
-  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %69) #18
+_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread: ; preds = %51, %56, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37
+  %64 = shl nuw nsw i64 %17, 5
+  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %64) #18
   br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit39
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit39: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread50, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit39: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37.thread, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIES1_EvT_S3_RSaIT0_E.exit37
   invoke void @__cxa_rethrow() #20
-          to label %74 unwind label %67
+          to label %69 unwind label %62
 
-70:                                               ; preds = %67
-  resume { ptr, i32 } %68
+65:                                               ; preds = %62
+  resume { ptr, i32 } %63
 
-71:                                               ; preds = %67
-  %72 = landingpad { ptr, i32 }
+66:                                               ; preds = %62
+  %67 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  tail call void @__clang_call_terminate(ptr %73) #19
+  %68 = extractvalue { ptr, i32 } %67, 0
+  tail call void @__clang_call_terminate(ptr %68) #19
   unreachable
 
-74:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit39
+69:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPIESaIS1_EE13_M_deallocateEPS1_m.exit39
   unreachable
 }
 

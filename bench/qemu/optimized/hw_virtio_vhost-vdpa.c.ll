@@ -2079,14 +2079,14 @@ if.end10.i:                                       ; preds = %if.end14.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %s.i.i)
   %29 = load ptr, ptr %dev, align 8
   %30 = load ptr, ptr %iova_tree.i, align 8
-  call void @vhost_svq_start(ptr noundef %26, ptr noundef %29, ptr noundef %call.i, ptr noundef %30) #12
+  call void @vhost_svq_start(ptr noundef nonnull %26, ptr noundef %29, ptr noundef %call.i, ptr noundef %30) #12
   %dev.val.i30 = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %device_region.i.i)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %driver_region.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %svq_addr.i.i)
-  %call.i34.i = call i64 @vhost_svq_device_area_size(ptr noundef %26) #12
-  %call3.i.i = call i64 @vhost_svq_driver_area_size(ptr noundef %26) #12
-  call void @vhost_svq_get_vring_addr(ptr noundef %26, ptr noundef nonnull %svq_addr.i.i) #12
+  %call.i34.i = call i64 @vhost_svq_device_area_size(ptr noundef nonnull %26) #12
+  %call3.i.i = call i64 @vhost_svq_driver_area_size(ptr noundef nonnull %26) #12
+  call void @vhost_svq_get_vring_addr(ptr noundef nonnull %26, ptr noundef nonnull %svq_addr.i.i) #12
   %31 = load i64, ptr %desc_user_addr.i.i, align 8
   %sub.i35.i = add i64 %call3.i.i, -1
   store i64 0, ptr %driver_region.i.i, align 8

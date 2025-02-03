@@ -403,13 +403,13 @@ lpad:                                             ; preds = %invoke.cont9, %invo
 lpad2:                                            ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef %call) #23
+  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %call) #23
   br label %ehcleanup113
 
 lpad8:                                            ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #23
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #23
   br label %ehcleanup113
 
 if.end:                                           ; preds = %invoke.cont6
@@ -983,7 +983,7 @@ lpad11:                                           ; preds = %if.end22, %invoke.c
 lpad20:                                           ; preds = %if.then19
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #23
+  call void @__cxa_free_exception(ptr nonnull %exception) #23
   br label %ehcleanup
 
 if.end22:                                         ; preds = %invoke.cont12

@@ -734,7 +734,7 @@ _ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit10.i.i: ; preds = %221
 234:                                              ; preds = %.critedge.i
   %235 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %224) #12
+  call void @__cxa_free_exception(ptr nonnull %224) #12
   br label %.body137
 
 236:                                              ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit10.i.i, %204
@@ -922,7 +922,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 296:                                              ; preds = %281
   %297 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %282) #12
+  call void @__cxa_free_exception(ptr nonnull %282) #12
   br label %299
 
 298:                                              ; preds = %280
@@ -1069,7 +1069,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 328:                                              ; preds = %313
   %329 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %314) #12
+  call void @__cxa_free_exception(ptr nonnull %314) #12
   br label %331
 
 330:                                              ; preds = %312

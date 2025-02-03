@@ -40829,7 +40829,7 @@ _ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit: ; preds = %20
   %42 = inttoptr i64 %41 to ptr
   %.not28 = icmp ne ptr %22, %42
   %spec.select = select i1 %.not28, i1 true, i1 %.022108
-  %43 = call fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE13TransformExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %24)
+  %43 = call fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE13TransformExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %24)
   %44 = icmp eq i64 %43, 1
   br i1 %44, label %48, label %45
 

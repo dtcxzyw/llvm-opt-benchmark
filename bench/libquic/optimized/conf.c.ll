@@ -999,9 +999,9 @@ if.then215:                                       ; preds = %if.end11
   %cmp217.not = icmp eq ptr %70, null
   br i1 %cmp217.not, label %return, label %return.sink.split
 
-if.then223:                                       ; preds = %if.end110, %if.end186, %if.then10, %if.end109, %if.then123, %if.then143, %if.then185, %if.then203, %if.then210, %CONF_VALUE_new.exit.thread, %if.then7
-  %v.0203.ph = phi ptr [ null, %CONF_VALUE_new.exit.thread ], [ null, %if.then10 ], [ %calloc.i, %if.then210 ], [ %calloc.i, %if.then203 ], [ %calloc.i, %if.then185 ], [ null, %if.then143 ], [ null, %if.then123 ], [ null, %if.end109 ], [ null, %if.then7 ], [ %calloc.i, %if.end186 ], [ null, %if.end110 ]
-  %eline.0201.ph = phi i64 [ %eline.2, %CONF_VALUE_new.exit.thread ], [ %eline.1.lcssa, %if.then10 ], [ %eline.2, %if.then210 ], [ %eline.2, %if.then203 ], [ %eline.2, %if.then185 ], [ %eline.2, %if.then143 ], [ %eline.2, %if.then123 ], [ %eline.2, %if.end109 ], [ 0, %if.then7 ], [ %eline.2, %if.end186 ], [ %eline.2, %if.end110 ]
+if.then223:                                       ; preds = %if.end110, %if.end186, %if.end109, %if.then123, %if.then143, %if.then185, %if.then203, %if.then210, %CONF_VALUE_new.exit.thread, %if.then7, %if.then10
+  %v.0203.ph = phi ptr [ null, %CONF_VALUE_new.exit.thread ], [ %calloc.i, %if.then210 ], [ %calloc.i, %if.then203 ], [ %calloc.i, %if.then185 ], [ null, %if.then143 ], [ null, %if.then123 ], [ null, %if.end109 ], [ null, %if.then7 ], [ null, %if.then10 ], [ %calloc.i, %if.end186 ], [ null, %if.end110 ]
+  %eline.0201.ph = phi i64 [ %eline.2, %CONF_VALUE_new.exit.thread ], [ %eline.2, %if.then210 ], [ %eline.2, %if.then203 ], [ %eline.2, %if.then185 ], [ %eline.2, %if.then143 ], [ %eline.2, %if.then123 ], [ %eline.2, %if.end109 ], [ 0, %if.then7 ], [ %eline.1.lcssa, %if.then10 ], [ %eline.2, %if.end186 ], [ %eline.2, %if.end110 ]
   %.pr.pr = load ptr, ptr %section, align 8
   call void @BUF_MEM_free(ptr noundef nonnull %call) #12
   %cmp225.not = icmp eq ptr %.pr.pr, null

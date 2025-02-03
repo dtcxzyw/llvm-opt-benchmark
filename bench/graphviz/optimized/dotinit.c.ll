@@ -1116,14 +1116,14 @@ remove_from_rank.exit.i:                          ; preds = %56, %._crit_edge.i.
   br label %removeFill.exit
 
 removeFill.exit:                                  ; preds = %._crit_edge.i, %18, %12
-  tail call void @dot_sameports(ptr noundef %0) #14
-  tail call void @dot_splines(ptr noundef %0) #14
-  %59 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.7) #14
+  tail call void @dot_sameports(ptr noundef nonnull %0) #14
+  tail call void @dot_splines(ptr noundef nonnull %0) #14
+  %59 = tail call ptr @agget(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
   %60 = tail call zeroext i1 @mapbool(ptr noundef %59) #14
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %removeFill.exit
-  tail call void @dot_compoundEdges(ptr noundef %0) #14
+  tail call void @dot_compoundEdges(ptr noundef nonnull %0) #14
   br label %62
 
 62:                                               ; preds = %61, %removeFill.exit, %11, %8, %5

@@ -48078,7 +48078,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #26
-  invoke void @_ZSt8_DestroyIPN6duckdb15AggregateObjectEEvT_S3_(ptr noundef %__result, ptr noundef %__cur.016)
+  invoke void @_ZSt8_DestroyIPN6duckdb15AggregateObjectEEvT_S3_(ptr noundef %__result, ptr noundef nonnull %__cur.016)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %lpad
@@ -54181,7 +54181,7 @@ lpad:                                             ; preds = %for.body
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #26
-  invoke void @_ZSt8_DestroyIPN6duckdb15AggregateObjectEEvT_S3_(ptr noundef %__result, ptr noundef %__cur.018)
+  invoke void @_ZSt8_DestroyIPN6duckdb15AggregateObjectEEvT_S3_(ptr noundef %__result, ptr noundef nonnull %__cur.018)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %lpad

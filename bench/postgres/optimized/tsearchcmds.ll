@@ -953,7 +953,7 @@ define dso_local { i64, i32 } @AlterTSDictionary(ptr noundef readonly captures(n
   br label %88
 
 88:                                               ; preds = %87, %80
-  call void @heap_freetuple(ptr noundef %84) #10
+  call void @heap_freetuple(ptr noundef nonnull %84) #10
   call void @ReleaseSysCache(ptr noundef nonnull %11) #10
   call void @table_close(ptr noundef nonnull %9, i32 noundef 3) #10
   %.sroa.244.0.insert.shift = shl nuw i64 %10, 32

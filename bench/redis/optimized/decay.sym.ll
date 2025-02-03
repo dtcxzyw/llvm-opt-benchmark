@@ -195,7 +195,7 @@ land.rhs.i:                                       ; preds = %entry
 
 if.then.i:                                        ; preds = %land.rhs.i
   tail call void @nstime_copy(ptr noundef nonnull %epoch.i, ptr noundef %new_time) #8
-  tail call void @decay_deadline_init(ptr noundef %decay)
+  tail call void @decay_deadline_init(ptr noundef nonnull %decay)
   br label %decay_maybe_update_time.exit
 
 decay_maybe_update_time.exit:                     ; preds = %entry, %land.rhs.i, %if.then.i
@@ -213,7 +213,7 @@ if.end:                                           ; preds = %decay_maybe_update_
   call void @nstime_copy(ptr noundef nonnull %delta, ptr noundef nonnull %interval) #8
   call void @nstime_imultiply(ptr noundef nonnull %delta, i64 noundef %call1) #8
   call void @nstime_add(ptr noundef nonnull %epoch, ptr noundef nonnull %delta) #8
-  call void @decay_deadline_init(ptr noundef %decay)
+  call void @decay_deadline_init(ptr noundef nonnull %decay)
   %cmp.i20 = icmp ugt i64 %call1, 199
   %backlog.i = getelementptr inbounds nuw i8, ptr %decay, i64 176
   br i1 %cmp.i20, label %if.then.i21, label %if.else.i

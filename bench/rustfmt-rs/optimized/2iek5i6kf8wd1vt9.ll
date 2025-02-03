@@ -4657,7 +4657,7 @@ define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$rustc_expand..modul
 11:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1101)
   %12 = load ptr, ptr %8, align 8, !alias.scope !1104, !noundef !4
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$rustc_errors..diagnostic..Diagnostic$GT$17h82548530f73337b7E.llvm.17249484671449717553"(ptr noalias noundef align 8 dereferenceable(256) %12)
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$rustc_errors..diagnostic..Diagnostic$GT$17h82548530f73337b7E.llvm.17249484671449717553"(ptr noalias noundef nonnull align 8 dereferenceable(256) %12)
           to label %"_ZN4core3ptr72drop_in_place$LT$rustc_errors..diagnostic_builder..DiagnosticBuilder$GT$17h2ff49e3d09da17a9E.exit" unwind label %13, !noalias !1101
 
 common.resume:                                    ; preds = %40, %55, %9, %13
@@ -35064,7 +35064,7 @@ _ZN15rustfmt_nightly7modules11ModResolver12peek_sub_mod17h49704d4d9f95198aE.exit
 779:                                              ; preds = %773
   call void @llvm.experimental.noalias.scope.decl(metadata !7569)
   %780 = load ptr, ptr %103, align 8, !alias.scope !7572, !noalias !7308, !noundef !4
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$rustc_errors..diagnostic..Diagnostic$GT$17h82548530f73337b7E.llvm.17249484671449717553"(ptr noalias noundef align 8 dereferenceable(256) %780)
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$rustc_errors..diagnostic..Diagnostic$GT$17h82548530f73337b7E.llvm.17249484671449717553"(ptr noalias noundef nonnull align 8 dereferenceable(256) %780)
           to label %785 unwind label %781, !noalias !7575
 
 781:                                              ; preds = %779

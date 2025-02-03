@@ -450,7 +450,7 @@ if.end.i.i:                                       ; preds = %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %entry1.i.i, ptr noundef nonnull align 8 dereferenceable(104) %tmp.i.i, i64 104, i1 false)
   %0 = load i32, ptr %entry1.i.i, align 8
   %conv.i.i = sext i32 %0 to i64
-  %call3.i.i = call fastcc i32 @merged_iter_advance_subiter(ptr noundef %p, i64 noundef %conv.i.i)
+  %call3.i.i = call fastcc i32 @merged_iter_advance_subiter(ptr noundef nonnull %p, i64 noundef %conv.i.i)
   %cmp.i.i = icmp slt i32 %call3.i.i, 0
   br i1 %cmp.i.i, label %merged_iter_next_entry.exit.thread.i, label %if.end6.i.i
 
@@ -471,7 +471,7 @@ if.end20.i.i:                                     ; preds = %while.body.i.i
   call void @merged_iter_pqueue_remove(ptr nonnull sret(%struct.pq_entry) align 8 %tmp22.i.i, ptr noundef nonnull %pq) #10
   %1 = load i32, ptr %top.i.i, align 8
   %conv24.i.i = sext i32 %1 to i64
-  %call25.i.i = call fastcc i32 @merged_iter_advance_subiter(ptr noundef %p, i64 noundef %conv24.i.i)
+  %call25.i.i = call fastcc i32 @merged_iter_advance_subiter(ptr noundef nonnull %p, i64 noundef %conv24.i.i)
   %cmp26.i.i = icmp slt i32 %call25.i.i, 0
   br i1 %cmp26.i.i, label %if.then33.i.i, label %if.end29.i.i
 

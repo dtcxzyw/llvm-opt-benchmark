@@ -85,7 +85,7 @@ oidcpy_with_padding.exit:                         ; preds = %if.then.i, %if.else
   store i32 %1, ptr %algo8.i, align 4
   %k1 = getelementptr inbounds nuw i8, ptr %call, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %k1, ptr noundef nonnull align 4 dereferenceable(36) %k, i64 36, i1 false)
-  %call2 = tail call ptr @cb_insert(ptr noundef %ot, ptr noundef %call, i64 noundef 36) #5
+  %call2 = tail call ptr @cb_insert(ptr noundef nonnull %ot, ptr noundef %call, i64 noundef 36) #5
   ret void
 }
 

@@ -25404,7 +25404,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN
   br label %_ZN5clang6interp5ScopeC2EON4llvm11SmallVectorINS1_5LocalELj8EEE.exit
 
 _ZN5clang6interp5ScopeC2EON4llvm11SmallVectorINS1_5LocalELj8EEE.exit: ; preds = %2, %10
-  call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5ScopeELb0EE19moveElementsForGrowEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %5)
+  call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5ScopeELb0EE19moveElementsForGrowEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %5)
   %12 = load i64, ptr %3, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = icmp eq ptr %13, %4
@@ -25415,7 +25415,7 @@ _ZN5clang6interp5ScopeC2EON4llvm11SmallVectorINS1_5LocalELj8EEE.exit: ; preds = 
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5ScopeELb0EE21takeAllocationForGrowEPS3_m.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5ScopeELb0EE21takeAllocationForGrowEPS3_m.exit: ; preds = %_ZN5clang6interp5ScopeC2EON4llvm11SmallVectorINS1_5LocalELj8EEE.exit, %15
-  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %5, i64 noundef %12) #14
+  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %5, i64 noundef %12) #14
   %16 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %17 = add i64 %16, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %17) #14

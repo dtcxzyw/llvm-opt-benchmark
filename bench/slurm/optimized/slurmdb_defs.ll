@@ -9918,61 +9918,58 @@ define noundef range(i32 -1, 1) i32 @slurmdb_add_accounting_to_tres_list(ptr nou
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @slurmdb_add_time_from_count_to_tres_list(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %30, label %4
+  br i1 %.not, label %29, label %4
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %1, align 8
   %.not17 = icmp eq ptr %5, null
-  br i1 %.not17, label %.thread, label %7
+  br i1 %.not17, label %9, label %6
 
-.thread:                                          ; preds = %4
-  %6 = tail call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_tres_rec) #20
-  store ptr %6, ptr %1, align 8
-  br label %10
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = tail call ptr @list_find_first(ptr noundef nonnull %5, ptr noundef nonnull @slurmdb_find_tres_in_list, ptr noundef nonnull %7) #20
+  %.not18 = icmp eq ptr %8, null
+  br i1 %.not18, label %.thread22, label %23
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = tail call ptr @list_find_first(ptr noundef nonnull %5, ptr noundef nonnull @slurmdb_find_tres_in_list, ptr noundef nonnull %8) #20
-  %.not18 = icmp eq ptr %9, null
-  br i1 %.not18, label %10, label %24
-
-10:                                               ; preds = %.thread, %7
+9:                                                ; preds = %4
+  %10 = tail call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_tres_rec) #20
+  store ptr %10, ptr %1, align 8
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %11, label %13
+  br i1 %.not.i, label %11, label %.thread22
 
-11:                                               ; preds = %10
+11:                                               ; preds = %9
   %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.179) #20
-  br label %30
+  br label %29
 
-13:                                               ; preds = %10
-  %14 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3487, ptr noundef nonnull @__func__.slurmdb_copy_tres_rec) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i64 48, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr @xstrdup(ptr noundef %16) #20
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr @xstrdup(ptr noundef %20) #20
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr %21, ptr %22, align 8
-  %23 = load ptr, ptr %1, align 8
-  tail call void @list_push(ptr noundef %23, ptr noundef nonnull %14) #20
-  br label %24
+.thread22:                                        ; preds = %6, %9
+  %13 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3487, ptr noundef nonnull @__func__.slurmdb_copy_tres_rec) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i64 48, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call ptr @xstrdup(ptr noundef %15) #20
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store ptr %16, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call ptr @xstrdup(ptr noundef %19) #20
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store ptr %20, ptr %21, align 8
+  %22 = load ptr, ptr %1, align 8
+  tail call void @list_push(ptr noundef %22, ptr noundef nonnull %13) #20
+  br label %23
 
-24:                                               ; preds = %13, %7
-  %.1 = phi ptr [ %9, %7 ], [ %14, %13 ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = mul i64 %26, %2
-  %28 = load i64, ptr %.1, align 8
-  %29 = add i64 %28, %27
-  store i64 %29, ptr %.1, align 8
-  br label %30
+23:                                               ; preds = %.thread22, %6
+  %.1 = phi ptr [ %8, %6 ], [ %13, %.thread22 ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = mul i64 %25, %2
+  %27 = load i64, ptr %.1, align 8
+  %28 = add i64 %27, %26
+  store i64 %28, ptr %.1, align 8
+  br label %29
 
-30:                                               ; preds = %3, %24, %11
-  %.013 = phi i32 [ 0, %24 ], [ -1, %11 ], [ 0, %3 ]
+29:                                               ; preds = %3, %23, %11
+  %.013 = phi i32 [ 0, %23 ], [ -1, %11 ], [ 0, %3 ]
   ret i32 %.013
 }
 

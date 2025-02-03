@@ -105,7 +105,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then35:                                        ; preds = %for.body
   %swapFn = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 8
   %6 = load ptr, ptr %swapFn, align 8
-  %call38 = call noundef i32 %6(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
+  %call38 = call noundef i32 %6(ptr noundef %ds, ptr noundef nonnull %inData, i32 noundef %length, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
   %7 = load i32, ptr %pErrorCode, align 4
   %cmp.i40 = icmp slt i32 %7, 1
   br i1 %cmp.i40, label %if.else63, label %if.then41

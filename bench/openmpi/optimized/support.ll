@@ -2819,7 +2819,7 @@ pmix_pointer_array_get_item.exit50:               ; preds = %.loopexit, %98
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %.lr.ph.split
-  call void @pmix_info_show_mca_version(ptr noundef %46, ptr noundef %2, ptr noundef %3)
+  call void @pmix_info_show_mca_version(ptr noundef nonnull %46, ptr noundef %2, ptr noundef %3)
   %.pre = load ptr, ptr %34, align 8
   br label %51
 

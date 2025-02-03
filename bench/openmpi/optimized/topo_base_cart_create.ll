@@ -53,7 +53,7 @@ define i32 @mca_topo_base_cart_create(ptr noundef %0, ptr noundef %1, i32 nounde
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_base_comm_cart_2_2_0_t_class, i64 40), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i.i.i = icmp eq ptr %22, null
-  br i1 %.not6.i.i.i, label %opal_obj_new.exit.thread110.i, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %19, %.lr.ph.i.i.i
   %23 = phi ptr [ %25, %.lr.ph.i.i.i ], [ %22, %19 ]
@@ -62,9 +62,9 @@ define i32 @mca_topo_base_cart_create(ptr noundef %0, ptr noundef %1, i32 nounde
   %24 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i, label %opal_obj_new.exit.thread110.i, label %.lr.ph.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread110.i:                    ; preds = %.lr.ph.i.i.i, %19
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %19
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -72,13 +72,13 @@ opal_obj_new.exit.thread110.i:                    ; preds = %.lr.ph.i.i.i, %19
   %30 = icmp sgt i32 %2, 0
   br i1 %30, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %opal_obj_new.exit.thread110.i
+.lr.ph.preheader.i:                               ; preds = %.loopexit.i
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %53 ]
-  %.082112.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %54, %53 ]
+  %.082111.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %54, %53 ]
   %31 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %32, 1
@@ -124,17 +124,17 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %40, %37
   br i1 %.not.i88.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %45
-  tail call void @free(ptr noundef %14) #9
+  tail call void @free(ptr noundef nonnull %14) #9
   br label %mca_topo_base_cart_allocate.exit.thread
 
 53:                                               ; preds = %.lr.ph.i
-  %54 = mul nuw nsw i32 %32, %.082112.i
+  %54 = mul nuw nsw i32 %32, %.082111.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %53, %opal_obj_new.exit.thread110.i
-  %.082.lcssa.i = phi i32 [ 1, %opal_obj_new.exit.thread110.i ], [ %54, %53 ]
+._crit_edge.i:                                    ; preds = %53, %.loopexit.i
+  %.082.lcssa.i = phi i32 [ 1, %.loopexit.i ], [ %54, %53 ]
   %55 = icmp slt i32 %27, %.082.lcssa.i
   br i1 %55, label %56, label %75
 
@@ -178,7 +178,7 @@ opal_thread_add_fetch_32.exit90.i:                ; preds = %62, %59
   br i1 %.not.i94.i, label %opal_obj_run_destructors.exit95.i, label %.lr.ph.i92.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit95.i:                ; preds = %.lr.ph.i92.i, %67
-  tail call void @free(ptr noundef %14) #9
+  tail call void @free(ptr noundef nonnull %14) #9
   br label %mca_topo_base_cart_allocate.exit.thread
 
 75:                                               ; preds = %._crit_edge.i
@@ -227,7 +227,7 @@ opal_thread_add_fetch_32.exit97.i:                ; preds = %82, %79
   br i1 %.not.i101.i, label %opal_obj_run_destructors.exit102.i, label %.lr.ph.i99.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit102.i:               ; preds = %.lr.ph.i99.i, %87
-  tail call void @free(ptr noundef %14) #9
+  tail call void @free(ptr noundef nonnull %14) #9
   br label %mca_topo_base_cart_allocate.exit
 
 95:                                               ; preds = %75
@@ -297,37 +297,37 @@ opal_thread_add_fetch_32.exit104.i:               ; preds = %116, %113
   br i1 %.not.i108.i, label %opal_obj_run_destructors.exit109.i, label %.lr.ph.i106.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit109.i:               ; preds = %.lr.ph.i106.i, %121
-  tail call void @free(ptr noundef %14) #9
+  tail call void @free(ptr noundef nonnull %14) #9
   br label %mca_topo_base_cart_allocate.exit.thread
 
 129:                                              ; preds = %108
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %101, ptr readonly align 4 %3, i64 %100, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %103, ptr readonly align 4 %4, i64 %100, i1 false)
-  br i1 %30, label %.lr.ph118.preheader.i, label %mca_topo_base_cart_allocate.exit
+  br i1 %30, label %.lr.ph117.preheader.i, label %mca_topo_base_cart_allocate.exit
 
-.lr.ph118.preheader.i:                            ; preds = %129
-  %wide.trip.count124.i = zext nneg i32 %2 to i64
-  br label %.lr.ph118.i
+.lr.ph117.preheader.i:                            ; preds = %129
+  %wide.trip.count123.i = zext nneg i32 %2 to i64
+  br label %.lr.ph117.i
 
-.lr.ph118.i:                                      ; preds = %.lr.ph118.i, %.lr.ph118.preheader.i
-  %indvars.iv121.i = phi i64 [ 0, %.lr.ph118.preheader.i ], [ %indvars.iv.next122.i, %.lr.ph118.i ]
-  %.0116.i = phi i32 [ %29, %.lr.ph118.preheader.i ], [ %137, %.lr.ph118.i ]
-  %.1114.i = phi i32 [ %.082.lcssa.i, %.lr.ph118.preheader.i ], [ %133, %.lr.ph118.i ]
+.lr.ph117.i:                                      ; preds = %.lr.ph117.i, %.lr.ph117.preheader.i
+  %indvars.iv120.i = phi i64 [ 0, %.lr.ph117.preheader.i ], [ %indvars.iv.next121.i, %.lr.ph117.i ]
+  %.0115.i = phi i32 [ %29, %.lr.ph117.preheader.i ], [ %137, %.lr.ph117.i ]
+  %.1113.i = phi i32 [ %.082.lcssa.i, %.lr.ph117.preheader.i ], [ %133, %.lr.ph117.i ]
   %130 = load ptr, ptr %102, align 8
-  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv121.i
+  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv120.i
   %132 = load i32, ptr %131, align 4
-  %133 = sdiv i32 %.1114.i, %132
-  %134 = sdiv i32 %.0116.i, %133
+  %133 = sdiv i32 %.1113.i, %132
+  %134 = sdiv i32 %.0115.i, %133
   %135 = load ptr, ptr %106, align 8
-  %136 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv121.i
+  %136 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv120.i
   store i32 %134, ptr %136, align 4
-  %137 = srem i32 %.0116.i, %133
-  %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
-  %exitcond125.not.i = icmp eq i64 %indvars.iv.next122.i, %wide.trip.count124.i
-  br i1 %exitcond125.not.i, label %mca_topo_base_cart_allocate.exit, label %.lr.ph118.i, !llvm.loop !8
+  %137 = srem i32 %.0115.i, %133
+  %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 1
+  %exitcond124.not.i = icmp eq i64 %indvars.iv.next121.i, %wide.trip.count123.i
+  br i1 %exitcond124.not.i, label %mca_topo_base_cart_allocate.exit, label %.lr.ph117.i, !llvm.loop !8
 
-mca_topo_base_cart_allocate.exit:                 ; preds = %.lr.ph118.i, %opal_obj_run_destructors.exit102.i, %opal_thread_add_fetch_32.exit97.i, %95, %129
-  %.041 = phi ptr [ null, %opal_obj_run_destructors.exit102.i ], [ null, %opal_thread_add_fetch_32.exit97.i ], [ %14, %95 ], [ %14, %129 ], [ %14, %.lr.ph118.i ]
+mca_topo_base_cart_allocate.exit:                 ; preds = %.lr.ph117.i, %opal_obj_run_destructors.exit102.i, %opal_thread_add_fetch_32.exit97.i, %95, %129
+  %.041 = phi ptr [ null, %opal_obj_run_destructors.exit102.i ], [ null, %opal_thread_add_fetch_32.exit97.i ], [ %14, %95 ], [ %14, %129 ], [ %14, %.lr.ph117.i ]
   %138 = load ptr, ptr %11, align 8
   %139 = tail call ptr @ompi_group_flatten(ptr noundef %138, i32 noundef %.082.lcssa.i) #9
   store ptr %139, ptr %9, align 8
@@ -375,7 +375,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %145, %148
   br i1 %.not.i23, label %opal_obj_run_destructors.exit, label %.lr.ph.i22, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i22, %153
-  tail call void @free(ptr noundef %.041) #9
+  tail call void @free(ptr noundef nonnull %.041) #9
   br label %mca_topo_base_cart_allocate.exit.thread
 
 161:                                              ; preds = %mca_topo_base_cart_allocate.exit
@@ -425,7 +425,7 @@ opal_thread_add_fetch_32.exit26:                  ; preds = %168, %171
   br i1 %.not.i30, label %opal_obj_run_destructors.exit32, label %.lr.ph.i28, !llvm.loop !6
 
 opal_obj_run_destructors.exit32:                  ; preds = %.lr.ph.i28, %176
-  call void @free(ptr noundef %.041) #9
+  call void @free(ptr noundef nonnull %.041) #9
   br label %mca_topo_base_cart_allocate.exit.thread
 
 184:                                              ; preds = %161

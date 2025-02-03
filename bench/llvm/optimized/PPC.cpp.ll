@@ -7307,7 +7307,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit558.thread1206:  ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvmeqENS_9StringRefES0_.exit566
 
 _ZN4llvmeqENS_9StringRefES0_.exit562:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit558.thread1206.thread1301, %_ZN4llvmeqENS_9StringRefES0_.exit554
-  %bcmp.i561 = tail call i32 @bcmp(ptr %3, ptr nonnull @.str.141, i64 %4)
+  %bcmp.i561 = tail call i32 @bcmp(ptr nonnull %3, ptr nonnull @.str.141, i64 %4)
   %257 = icmp eq i32 %bcmp.i561, 0
   br i1 %257, label %_ZN4llvmeqENS_9StringRefES0_.exit566.thread1212, label %_ZN4llvmeqENS_9StringRefES0_.exit570.thread1215
 
@@ -8663,7 +8663,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit142:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %28, label %_ZN4llvmeqENS_9StringRefES0_.exit158.thread381.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit158.thread381
 
 _ZN4llvmeqENS_9StringRefES0_.exit147:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i116, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit135.thread
-  %bcmp.i146 = tail call i32 @bcmp(ptr %2, ptr nonnull @.str.157, i64 %3)
+  %bcmp.i146 = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull @.str.157, i64 %3)
   %29 = icmp eq i32 %bcmp.i146, 0
   br i1 %29, label %_ZN4llvmeqENS_9StringRefES0_.exit147.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit158.thread381
 
@@ -8677,7 +8677,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit147.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvmeqENS_9StringRefES0_.exit158.thread381.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit153:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %bcmp.i152 = tail call i32 @bcmp(ptr %2, ptr nonnull @.str.165, i64 %3)
+  %bcmp.i152 = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull @.str.165, i64 %3)
   %34 = icmp eq i32 %bcmp.i152, 0
   br i1 %34, label %_ZN4llvmeqENS_9StringRefES0_.exit153.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit158.thread381
 
@@ -8687,7 +8687,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit153.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   br label %131
 
 _ZN4llvmeqENS_9StringRefES0_.exit158:             ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit135.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i124
-  %bcmp.i157 = tail call i32 @bcmp(ptr %2, ptr nonnull @.str.166, i64 %3)
+  %bcmp.i157 = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull @.str.166, i64 %3)
   %37 = icmp eq i32 %bcmp.i157, 0
   br i1 %37, label %_ZN4llvmeqENS_9StringRefES0_.exit158.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit158.thread381
 

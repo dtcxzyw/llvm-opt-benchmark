@@ -935,15 +935,11 @@ new.notnull:                                      ; preds = %if.end
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519CollationCacheEntryE, i64 16), ptr %call2, align 8
   %validLocale.i = getelementptr inbounds nuw i8, ptr %call2, i64 24
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale.i, ptr noundef nonnull align 8 dereferenceable(217) %actualLocale)
-          to label %invoke.cont.i unwind label %lpad.i
+          to label %if.then.i unwind label %lpad.i
 
-invoke.cont.i:                                    ; preds = %new.notnull
+if.then.i:                                        ; preds = %new.notnull
   %tailoring.i = getelementptr inbounds nuw i8, ptr %call2, i64 248
   store ptr %t, ptr %tailoring.i, align 8
-  %cmp.not.i = icmp eq ptr %t, null
-  br i1 %cmp.not.i, label %if.end5, label %if.then.i
-
-if.then.i:                                        ; preds = %invoke.cont.i
   invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %t)
           to label %if.end5 unwind label %lpad2.i
 
@@ -965,15 +961,15 @@ ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   resume { ptr, i32 } %.pn.i
 
 if.then4:                                         ; preds = %if.end
-  %cacheEntry = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr null, ptr %cacheEntry, align 8
+  %cacheEntry9 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  store ptr null, ptr %cacheEntry9, align 8
   store i32 7, ptr %errorCode, align 4
   tail call void @_ZNK6icu_7512SharedObject20deleteIfZeroRefCountEv(ptr noundef nonnull align 8 dereferenceable(24) %t)
   br label %return
 
-if.end5:                                          ; preds = %invoke.cont.i, %if.then.i
-  %cacheEntry9 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr %call2, ptr %cacheEntry9, align 8
+if.end5:                                          ; preds = %if.then.i
+  %cacheEntry = getelementptr inbounds nuw i8, ptr %this, i64 32
+  store ptr %call2, ptr %cacheEntry, align 8
   %data = getelementptr inbounds nuw i8, ptr %t, i64 24
   %3 = load ptr, ptr %data, align 8
   %data6 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -985,7 +981,7 @@ if.end5:                                          ; preds = %invoke.cont.i, %if.
   tail call void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %tailoring = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %t, ptr %tailoring, align 8
-  %5 = load ptr, ptr %cacheEntry9, align 8
+  %5 = load ptr, ptr %cacheEntry, align 8
   tail call void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   %validLocale = getelementptr inbounds nuw i8, ptr %this, i64 40
   %call11 = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef nonnull align 8 dereferenceable(217) %actualLocale)
@@ -1324,19 +1320,20 @@ lpad43:                                           ; preds = %if.end48
 
 if.end48:                                         ; preds = %invoke.cont42
   %call.i1618 = invoke noundef zeroext i1 @_ZNK6icu_7510UnicodeSeteqERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call40, ptr noundef nonnull align 8 dereferenceable(200) %call41)
-          to label %cleanup unwind label %lpad43
+          to label %delete.notnull.i unwind label %lpad43
 
-cleanup:                                          ; preds = %if.end48, %invoke.cont42
-  %retval.1 = phi i1 [ false, %invoke.cont42 ], [ %call.i1618, %if.end48 ]
+cleanup:                                          ; preds = %invoke.cont42
   %isnull.i = icmp eq ptr %call41, null
   br i1 %isnull.i, label %_ZN6icu_7512LocalPointerINS_10UnicodeSetEED2Ev.exit, label %delete.notnull.i
 
-delete.notnull.i:                                 ; preds = %cleanup
+delete.notnull.i:                                 ; preds = %if.end48, %cleanup
+  %retval.124 = phi i1 [ false, %cleanup ], [ %call.i1618, %if.end48 ]
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %call41) #18
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call41) #18
   br label %_ZN6icu_7512LocalPointerINS_10UnicodeSetEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_10UnicodeSetEED2Ev.exit: ; preds = %cleanup, %delete.notnull.i
+  %retval.125 = phi i1 [ false, %cleanup ], [ %retval.124, %delete.notnull.i ]
   %isnull.i19 = icmp eq ptr %call40, null
   br i1 %isnull.i19, label %return, label %delete.notnull.i20
 
@@ -1351,7 +1348,7 @@ ehcleanup:                                        ; preds = %lpad43, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %delete.notnull.i20, %_ZN6icu_7512LocalPointerINS_10UnicodeSetEED2Ev.exit, %if.then31, %if.end11, %if.end7, %if.end3, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ false, %if.end3 ], [ true, %if.end7 ], [ false, %if.end11 ], [ true, %if.then31 ], [ %retval.1, %_ZN6icu_7512LocalPointerINS_10UnicodeSetEED2Ev.exit ], [ %retval.1, %delete.notnull.i20 ]
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ false, %if.end3 ], [ true, %if.end7 ], [ false, %if.end11 ], [ true, %if.then31 ], [ %retval.125, %_ZN6icu_7512LocalPointerINS_10UnicodeSetEED2Ev.exit ], [ %retval.125, %delete.notnull.i20 ]
   ret i1 %retval.0
 }
 
@@ -2249,7 +2246,7 @@ if.end.i53:                                       ; preds = %if.end11
 
 new.notnull.i:                                    ; preds = %if.end.i53
   invoke void @_ZN6icu_7517CollationSettingsC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(852) %call1.i, ptr noundef nonnull align 8 dereferenceable(852) %12)
-          to label %_ZN6icu_7512SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit.thread67 unwind label %lpad.i
+          to label %if.end4.i unwind label %lpad.i
 
 lpad.i:                                           ; preds = %new.notnull.i
   %14 = landingpad { ptr, i32 }
@@ -2257,7 +2254,7 @@ lpad.i:                                           ; preds = %new.notnull.i
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %14
 
-_ZN6icu_7512SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit.thread67: ; preds = %new.notnull.i
+if.end4.i:                                        ; preds = %new.notnull.i
   tail call void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
   store ptr %call1.i, ptr %settings, align 8
   tail call void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %call1.i)
@@ -2267,8 +2264,8 @@ if.then15:                                        ; preds = %if.end.i53
   store i32 7, ptr %errorCode, align 4
   br label %if.end42
 
-if.end16:                                         ; preds = %if.end11, %_ZN6icu_7512SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit.thread67
-  %retval.0.i5470 = phi ptr [ %call1.i, %_ZN6icu_7512SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit.thread67 ], [ %12, %if.end11 ]
+if.end16:                                         ; preds = %if.end4.i, %if.end11
+  %retval.0.i54.ph = phi ptr [ %12, %if.end11 ], [ %call1.i, %if.end4.i ]
   switch i32 %attr, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb17
@@ -2283,37 +2280,37 @@ if.end16:                                         ; preds = %if.end11, %_ZN6icu_
 sw.bb:                                            ; preds = %if.end16
   %options = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = load i32, ptr %options, align 8
-  tail call void @_ZN6icu_7517CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i5470, i32 noundef 2048, i32 noundef %value, i32 noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZN6icu_7517CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i54.ph, i32 noundef 2048, i32 noundef %value, i32 noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %if.end16
   %options18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load i32, ptr %options18, align 8
-  tail call void @_ZN6icu_7517CollationSettings20setAlternateHandlingE18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i5470, i32 noundef %value, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZN6icu_7517CollationSettings20setAlternateHandlingE18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i54.ph, i32 noundef %value, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end16
   %options20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %17 = load i32, ptr %options20, align 8
-  tail call void @_ZN6icu_7517CollationSettings12setCaseFirstE18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i5470, i32 noundef %value, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZN6icu_7517CollationSettings12setCaseFirstE18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i54.ph, i32 noundef %value, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end16
   %options22 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %18 = load i32, ptr %options22, align 8
-  tail call void @_ZN6icu_7517CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i5470, i32 noundef 1024, i32 noundef %value, i32 noundef %18, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZN6icu_7517CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i54.ph, i32 noundef 1024, i32 noundef %value, i32 noundef %18, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %if.end16
   %options24 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %19 = load i32, ptr %options24, align 8
-  tail call void @_ZN6icu_7517CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i5470, i32 noundef 1, i32 noundef %value, i32 noundef %19, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZN6icu_7517CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i54.ph, i32 noundef 1, i32 noundef %value, i32 noundef %19, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %if.end16
   %options26 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %20 = load i32, ptr %options26, align 8
-  tail call void @_ZN6icu_7517CollationSettings11setStrengthEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i5470, i32 noundef %value, i32 noundef %20, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZN6icu_7517CollationSettings11setStrengthEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i54.ph, i32 noundef %value, i32 noundef %20, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end16
@@ -2330,7 +2327,7 @@ if.then32:                                        ; preds = %sw.bb27
 sw.bb34:                                          ; preds = %if.end16
   %options35 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %21 = load i32, ptr %options35, align 8
-  tail call void @_ZN6icu_7517CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i5470, i32 noundef 2, i32 noundef %value, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZN6icu_7517CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i54.ph, i32 noundef 2, i32 noundef %value, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %sw.epilog
 
 default.unreachable:                              ; preds = %if.end16
@@ -2344,9 +2341,9 @@ sw.epilog:                                        ; preds = %sw.bb27, %sw.bb27, 
 if.end39:                                         ; preds = %sw.epilog
   %data.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %22 = load ptr, ptr %data.i, align 8
-  %fastLatinPrimaries.i = getelementptr inbounds nuw i8, ptr %retval.0.i5470, i64 84
-  %call.i57 = tail call noundef i32 @_ZN6icu_7518CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i5470, ptr noundef nonnull %fastLatinPrimaries.i, i32 noundef 384)
-  %fastLatinOptions.i = getelementptr inbounds nuw i8, ptr %retval.0.i5470, i64 80
+  %fastLatinPrimaries.i = getelementptr inbounds nuw i8, ptr %retval.0.i54.ph, i64 84
+  %call.i57 = tail call noundef i32 @_ZN6icu_7518CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i54.ph, ptr noundef nonnull %fastLatinPrimaries.i, i32 noundef 384)
+  %fastLatinOptions.i = getelementptr inbounds nuw i8, ptr %retval.0.i54.ph, i64 80
   store i32 %call.i57, ptr %fastLatinOptions.i, align 8
   %shl.i58 = shl nuw nsw i32 1, %attr
   br i1 %cmp8, label %if.then41, label %if.else
@@ -2502,7 +2499,7 @@ if.end.i:                                         ; preds = %if.end20
 
 new.notnull.i:                                    ; preds = %if.end.i
   invoke void @_ZN6icu_7517CollationSettingsC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(852) %call1.i, ptr noundef nonnull align 8 dereferenceable(852) %12)
-          to label %_ZN6icu_7512SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit.thread52 unwind label %lpad.i
+          to label %if.end4.i unwind label %lpad.i
 
 lpad.i:                                           ; preds = %new.notnull.i
   %13 = landingpad { ptr, i32 }
@@ -2510,7 +2507,7 @@ lpad.i:                                           ; preds = %new.notnull.i
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %13
 
-_ZN6icu_7512SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit.thread52: ; preds = %new.notnull.i
+if.end4.i:                                        ; preds = %new.notnull.i
   tail call void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
   store ptr %call1.i, ptr %settings3947, align 8
   tail call void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %call1.i)
@@ -2520,8 +2517,8 @@ if.then24:                                        ; preds = %if.end.i
   store i32 7, ptr %errorCode, align 4
   br label %return
 
-if.end25:                                         ; preds = %if.end20, %_ZN6icu_7512SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit.thread52
-  %retval.0.i55 = phi ptr [ %call1.i, %_ZN6icu_7512SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit.thread52 ], [ %12, %if.end20 ]
+if.end25:                                         ; preds = %if.end4.i, %if.end20
+  %retval.0.i.ph = phi ptr [ %12, %if.end20 ], [ %call1.i, %if.end4.i ]
   br i1 %cmp, label %if.then27, label %if.end29
 
 if.then27:                                        ; preds = %if.end25
@@ -2539,18 +2536,18 @@ if.end29:                                         ; preds = %if.then27, %if.end2
   %call30 = tail call noundef i32 @_ZNK6icu_7513CollationData22getLastPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140) %15, i32 noundef %group.addr.0)
   %options = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load i32, ptr %options, align 8
-  tail call void @_ZN6icu_7517CollationSettings14setMaxVariableEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i55, i32 noundef %value.03848, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZN6icu_7517CollationSettings14setMaxVariableEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i.ph, i32 noundef %value.03848, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %17 = load i32, ptr %errorCode, align 4
   %cmp.i25 = icmp slt i32 %17, 1
   br i1 %cmp.i25, label %if.end34, label %return
 
 if.end34:                                         ; preds = %if.end29
-  %variableTop = getelementptr inbounds nuw i8, ptr %retval.0.i55, i64 28
+  %variableTop = getelementptr inbounds nuw i8, ptr %retval.0.i.ph, i64 28
   store i32 %call30, ptr %variableTop, align 4
   %18 = load ptr, ptr %data, align 8
-  %fastLatinPrimaries.i = getelementptr inbounds nuw i8, ptr %retval.0.i55, i64 84
-  %call.i27 = tail call noundef i32 @_ZN6icu_7518CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i55, ptr noundef nonnull %fastLatinPrimaries.i, i32 noundef 384)
-  %fastLatinOptions.i = getelementptr inbounds nuw i8, ptr %retval.0.i55, i64 80
+  %fastLatinPrimaries.i = getelementptr inbounds nuw i8, ptr %retval.0.i.ph, i64 84
+  %call.i27 = tail call noundef i32 @_ZN6icu_7518CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i.ph, ptr noundef nonnull %fastLatinPrimaries.i, i32 noundef 384)
+  %fastLatinOptions.i = getelementptr inbounds nuw i8, ptr %retval.0.i.ph, i64 80
   store i32 %call.i27, ptr %fastLatinOptions.i, align 8
   %explicitlySetAttributes.i28 = getelementptr inbounds nuw i8, ptr %this, i64 264
   %19 = load i32, ptr %explicitlySetAttributes.i28, align 8

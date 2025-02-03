@@ -74,7 +74,7 @@ define void @_ZN5ZXing11TextEncoder8GetBytesERKNSt7__cxx1112basic_stringIcSt11ch
 32:                                               ; preds = %27, %15
   %.sink = phi ptr [ %25, %27 ], [ %13, %15 ]
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %16, %15 ]
-  call void @__cxa_free_exception(ptr %.sink) #4
+  call void @__cxa_free_exception(ptr nonnull %.sink) #4
   resume { ptr, i32 } %.pn
 }
 

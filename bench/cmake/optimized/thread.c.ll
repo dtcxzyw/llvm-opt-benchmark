@@ -697,7 +697,7 @@ define dso_local void @uv_sem_destroy(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 uv_cond_destroy.exit.i:                           ; preds = %3
-  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef %.val) #10
+  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %.val) #10
   %.not.i4.i = icmp eq i32 %7, 0
   br i1 %.not.i4.i, label %uv__custom_sem_destroy.exit, label %8
 
@@ -706,7 +706,7 @@ uv_cond_destroy.exit.i:                           ; preds = %3
   unreachable
 
 uv__custom_sem_destroy.exit:                      ; preds = %uv_cond_destroy.exit.i
-  tail call void @uv__free(ptr noundef %.val) #10
+  tail call void @uv__free(ptr noundef nonnull %.val) #10
   br label %uv__sem_destroy.exit
 
 9:                                                ; preds = %1

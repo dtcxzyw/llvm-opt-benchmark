@@ -508,7 +508,7 @@ unpack_trees_start.exit:                          ; preds = %if.then.i95, %if.el
   %38 = load i64, ptr %size.i24.i, align 8
   call void @init_tree_desc(ptr noundef nonnull %add.ptr27.i, ptr noundef %37, i64 noundef %38) #22
   %add.ptr29.i = getelementptr inbounds nuw i8, ptr %t.i, i64 144
-  %call.i.i25.i = call i32 @parse_tree_gently(ptr noundef %merge.addr.0, i32 noundef 0) #22
+  %call.i.i25.i = call i32 @parse_tree_gently(ptr noundef nonnull %merge.addr.0, i32 noundef 0) #22
   %buffer.i26.i = getelementptr inbounds nuw i8, ptr %merge.addr.0, i64 40
   %39 = load ptr, ptr %buffer.i26.i, align 8
   %size.i27.i = getelementptr inbounds nuw i8, ptr %merge.addr.0, i64 48
@@ -5095,7 +5095,7 @@ while.cond.i.i:                                   ; preds = %dir_rename_find_ent
   br i1 %tobool.not.i.i, label %check_dir_renamed.exit.thread.i, label %dir_rename_find_entry.exit.i.i
 
 check_dir_renamed.exit.thread.i:                  ; preds = %while.cond.i.i
-  call void @free(ptr noundef %call.i.i) #22
+  call void @free(ptr noundef nonnull %call.i.i) #22
   br label %for.inc.i
 
 dir_rename_find_entry.exit.i.i:                   ; preds = %while.cond.i.i
@@ -5111,7 +5111,7 @@ dir_rename_find_entry.exit.i.i:                   ; preds = %while.cond.i.i
   br i1 %tobool4.not.i.i, label %while.cond.i.i, label %if.end8.i, !llvm.loop !27
 
 if.end8.i:                                        ; preds = %dir_rename_find_entry.exit.i.i
-  call void @free(ptr noundef %call.i.i) #22
+  call void @free(ptr noundef nonnull %call.i.i) #22
   %6 = load ptr, ptr %two.i, align 8
   %path10.i = getelementptr inbounds nuw i8, ptr %6, i64 40
   %7 = load ptr, ptr %path10.i, align 8
@@ -5211,7 +5211,7 @@ while.cond.i.i56:                                 ; preds = %dir_rename_find_ent
   br i1 %tobool.not.i.i58, label %check_dir_renamed.exit.thread.i67, label %dir_rename_find_entry.exit.i.i59
 
 check_dir_renamed.exit.thread.i67:                ; preds = %while.cond.i.i56
-  call void @free(ptr noundef %call.i.i53) #22
+  call void @free(ptr noundef nonnull %call.i.i53) #22
   br label %check_for_directory_rename.exit
 
 dir_rename_find_entry.exit.i.i59:                 ; preds = %while.cond.i.i56
@@ -5227,7 +5227,7 @@ dir_rename_find_entry.exit.i.i59:                 ; preds = %while.cond.i.i56
   br i1 %tobool4.not.i.i62, label %while.cond.i.i56, label %if.end.i63, !llvm.loop !27
 
 if.end.i63:                                       ; preds = %dir_rename_find_entry.exit.i.i59
-  call void @free(ptr noundef %call.i.i53) #22
+  call void @free(ptr noundef nonnull %call.i.i53) #22
   %buf.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i61, i64 48
   %18 = load ptr, ptr %buf.i, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %key.i.i51)
@@ -7159,7 +7159,7 @@ if.end33:                                         ; preds = %_.exit111, %if.else
   %36 = load ptr, ptr %priv.i, align 8
   %37 = load i32, ptr %36, align 8
   %mul = shl nsw i32 %37, 1
-  %call37 = call fastcc i32 @merge_mode_and_contents(ptr noundef %opt, ptr noundef nonnull %null, ptr noundef %a.tr, ptr noundef %b.tr, ptr noundef %collide_path, ptr noundef %branch1.tr, ptr noundef %branch2.tr, i32 noundef %mul, ptr noundef %mfi)
+  %call37 = call fastcc i32 @merge_mode_and_contents(ptr noundef nonnull %opt, ptr noundef nonnull %null, ptr noundef %a.tr, ptr noundef %b.tr, ptr noundef nonnull %collide_path, ptr noundef %branch1.tr, ptr noundef %branch2.tr, i32 noundef %mul, ptr noundef %mfi)
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.end40, label %return
 
@@ -7197,7 +7197,7 @@ land.lhs.true:                                    ; preds = %if.end51
   br i1 %tobool59.not, label %land.lhs.true60, label %if.end64
 
 land.lhs.true60:                                  ; preds = %land.lhs.true
-  %call61 = call fastcc i32 @update_stages(ptr noundef nonnull %opt, ptr noundef %collide_path, ptr noundef null, ptr noundef %a.tr, ptr noundef %b.tr)
+  %call61 = call fastcc i32 @update_stages(ptr noundef nonnull %opt, ptr noundef nonnull %collide_path, ptr noundef null, ptr noundef %a.tr, ptr noundef %b.tr)
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %land.lhs.true60.if.end64_crit_edge, label %return
 
@@ -8685,7 +8685,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %8 = load i64, ptr %len.i, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %7, i64 %8
   store i8 0, ptr %arrayidx3.i, align 1
-  %call.i = tail call i32 @repo_parse_commit_gently(ptr noundef %repo, ptr noundef %commit, i32 noundef 0) #22
+  %call.i = tail call i32 @repo_parse_commit_gently(ptr noundef %repo, ptr noundef nonnull %commit, i32 noundef 0) #22
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %if.else9, label %if.then6
 
@@ -8705,7 +8705,7 @@ _.exit:                                           ; preds = %if.then6, %if.end3.
   br label %if.end16
 
 if.else9:                                         ; preds = %strbuf_addch.exit
-  %call10 = tail call ptr @repo_get_commit_buffer(ptr noundef %repo, ptr noundef %commit, ptr noundef null) #22
+  %call10 = tail call ptr @repo_get_commit_buffer(ptr noundef %repo, ptr noundef nonnull %commit, ptr noundef null) #22
   %call11 = call i32 @find_commit_subject(ptr noundef %call10, ptr noundef nonnull %title) #22
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end, label %if.then13
@@ -8716,7 +8716,7 @@ if.then13:                                        ; preds = %if.else9
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.else9
-  call void @repo_unuse_commit_buffer(ptr noundef %repo, ptr noundef %commit, ptr noundef %call10) #22
+  call void @repo_unuse_commit_buffer(ptr noundef %repo, ptr noundef nonnull %commit, ptr noundef %call10) #22
   br label %if.end16
 
 if.end16:                                         ; preds = %_.exit, %if.end, %if.then

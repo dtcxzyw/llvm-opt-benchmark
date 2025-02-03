@@ -1304,7 +1304,7 @@ hwloc__nolibxml_export_update_buffer.exit.i:      ; preds = %22, %5
   store i32 0, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store i32 0, ptr %40, align 8
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %29, i64 noundef %27, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6) #20
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %29, i64 noundef %27, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6) #20
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %hwloc__nolibxml_export_new_child.exit
 
@@ -1855,7 +1855,7 @@ hwloc__nolibxml_export_update_buffer.exit.i:      ; preds = %21, %4
   store i32 0, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i32 0, ptr %39, align 8
-  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %28, i64 noundef %26, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.44) #20
+  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %28, i64 noundef %26, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.44) #20
   %41 = icmp sgt i32 %40, -1
   br i1 %41, label %42, label %hwloc__nolibxml_export_new_child.exit
 

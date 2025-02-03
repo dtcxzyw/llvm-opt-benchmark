@@ -33168,7 +33168,7 @@ common.resume:                                    ; preds = %if.then.i.i.i721, %
 lpad:                                             ; preds = %sw.default
   %854 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #19
   br label %common.resume
 
 dynamic_cast.end.i292:                            ; preds = %tailrecurse
@@ -65406,7 +65406,7 @@ invoke.cont:                                      ; preds = %sw.default
 lpad:                                             ; preds = %sw.default
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #19
   resume { ptr, i32 } %4
 
 return:                                           ; preds = %entry, %entry, %entry, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb9, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3

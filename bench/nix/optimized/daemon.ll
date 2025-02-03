@@ -3395,7 +3395,7 @@ _ZN3nix8SysErrorC2IJA39_cEEEDpRKT_.exit.cont.i:   ; preds = %_ZN3nix8SysErrorC2I
 97:                                               ; preds = %92
   %98 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %93) #33
+  call void @__cxa_free_exception(ptr nonnull %93) #33
   br label %168
 
 99:                                               ; preds = %90
@@ -3424,7 +3424,7 @@ _ZN3nix8SysErrorC2IJA39_cEEEDpRKT_.exit.cont.i:   ; preds = %_ZN3nix8SysErrorC2I
 109:                                              ; preds = %105
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %106) #33
+  call void @__cxa_free_exception(ptr nonnull %106) #33
   br label %168
 
 111:                                              ; preds = %104
@@ -3489,7 +3489,7 @@ _ZN3nix8SysErrorC2IJA39_cEEEDpRKT_.exit.cont.i:   ; preds = %_ZN3nix8SysErrorC2I
 129:                                              ; preds = %125
   %130 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %126) #33
+  call void @__cxa_free_exception(ptr nonnull %126) #33
   br label %168
 
 131:                                              ; preds = %124
@@ -4655,7 +4655,7 @@ define internal fastcc void @_ZL10daemonLoopSt8optionalIN3nix11TrustedFlagEE(i16
 68:                                               ; preds = %65
   %69 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %66) #33
+  tail call void @__cxa_free_exception(ptr nonnull %66) #33
   br label %1146
 
 70:                                               ; preds = %1
@@ -5032,7 +5032,7 @@ _ZN3nix8SysErrorC2IJA24_cEEEDpRKT_.exit:          ; preds = %183
 187:                                              ; preds = %183
   %188 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %184) #33
+  call void @__cxa_free_exception(ptr nonnull %184) #33
   br label %.body
 
 _ZL16setSigChldActionb.exit:                      ; preds = %178
@@ -5224,7 +5224,7 @@ _ZN3nix8SysErrorC2IJA21_cEEEDpRKT_.exit:          ; preds = %281
           cleanup
           catch ptr @_ZTIN3nix11InterruptedE
           catch ptr @_ZTIN3nix5ErrorE
-  call void @__cxa_free_exception(ptr %282) #33
+  call void @__cxa_free_exception(ptr nonnull %282) #33
   br label %1071
 
 286:                                              ; preds = %272
@@ -5283,7 +5283,7 @@ _ZN3nix8SysErrorC2IJA25_cEEEDpRKT_.exit:          ; preds = %297
           cleanup
           catch ptr @_ZTIN3nix11InterruptedE
           catch ptr @_ZTIN3nix5ErrorE
-  call void @__cxa_free_exception(ptr %298) #33, !noalias !20
+  call void @__cxa_free_exception(ptr nonnull %298) #33, !noalias !20
   br label %.body91
 
 303:                                              ; preds = %294
@@ -13118,7 +13118,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #33
+  tail call void @__cxa_free_exception(ptr nonnull %2) #33
   resume { ptr, i32 } %5
 }
 
@@ -14007,7 +14007,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE7ret
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #33
+  tail call void @__cxa_free_exception(ptr nonnull %2) #33
   resume { ptr, i32 } %5
 }
 
@@ -14894,7 +14894,7 @@ _ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaI
 
 181:                                              ; preds = %177
   %182 = getelementptr inbounds %"struct.boost::io::detail::format_item", ptr %144, i64 %2
-  invoke void @_ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES7_EvT_S9_RSaIT0_E(ptr noundef %144, ptr noundef nonnull %182, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  invoke void @_ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES7_EvT_S9_RSaIT0_E(ptr noundef nonnull %144, ptr noundef nonnull %182, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE13_M_deallocateEPS7_m.exit111 unwind label %183
 
 183:                                              ; preds = %_ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE13_M_deallocateEPS7_m.exit111, %181
@@ -16041,7 +16041,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRK
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #33
+  tail call void @__cxa_free_exception(ptr nonnull %2) #33
   resume { ptr, i32 } %5
 }
 
@@ -16879,7 +16879,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE7rethrow
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #33
+  tail call void @__cxa_free_exception(ptr nonnull %2) #33
   resume { ptr, i32 } %5
 }
 
@@ -18558,7 +18558,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io12too_few_argsEEEvRKT
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #33
+  tail call void @__cxa_free_exception(ptr nonnull %2) #33
   resume { ptr, i32 } %5
 }
 
@@ -18696,7 +18696,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io12too_few_argsEE7rethrowE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #33
+  tail call void @__cxa_free_exception(ptr nonnull %2) #33
   resume { ptr, i32 } %5
 }
 
@@ -21542,7 +21542,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZL10daemonLoopSt8optionalIN3
 19:                                               ; preds = %14
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #33
+  call void @__cxa_free_exception(ptr nonnull %15) #33
   br label %common.resume.i.i.i
 
 21:                                               ; preds = %11
@@ -21573,7 +21573,7 @@ common.resume.i.i.i:                              ; preds = %_ZNKSt14default_del
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #33
+  call void @__cxa_free_exception(ptr nonnull %27) #33
   br label %common.resume.i.i.i
 
 _ZL16setSigChldActionb.exit.i.i.i:                ; preds = %21
@@ -23153,7 +23153,7 @@ _ZNSt10shared_ptrIN3nix7CommandEEC2ERKS2_.exit.i: ; preds = %31, %28, %_ZNSt10sh
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %35) #33
+  tail call void @__cxa_free_exception(ptr nonnull %35) #33
   br label %.body
 
 39:                                               ; preds = %36
@@ -23385,7 +23385,7 @@ _ZNSt10shared_ptrI9CmdDaemonEC2ERKS1_.exit.i:     ; preds = %8
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #33
+  tail call void @__cxa_free_exception(ptr nonnull %17) #33
   br label %.body
 
 21:                                               ; preds = %18
@@ -26644,7 +26644,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   %26 = tail call ptr @__cxa_begin_catch(ptr %25) #33
-  invoke void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_(ptr noundef %13, ptr noundef %.013.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_(ptr noundef %13, ptr noundef nonnull %.013.i.i.i.i)
           to label %27 unwind label %28
 
 27:                                               ; preds = %23

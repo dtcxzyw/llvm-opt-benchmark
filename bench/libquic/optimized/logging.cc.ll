@@ -1150,7 +1150,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 delete.notnull:                                   ; preds = %invoke.cont3
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result) #21
-  tail call void @_ZdlPv(ptr noundef %result) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %result) #22
   ret void
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont, %entry
@@ -1185,7 +1185,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 delete.notnull:                                   ; preds = %invoke.cont3
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result) #21
-  tail call void @_ZdlPv(ptr noundef %result) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %result) #22
   ret void
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont, %entry

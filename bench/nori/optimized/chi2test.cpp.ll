@@ -1577,7 +1577,7 @@ _ZNSt8functionIFdddEED2Ev.exit:                   ; preds = %264, %266
 348:                                              ; preds = %345
   %349 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %346) #22
+  call void @__cxa_free_exception(ptr nonnull %346) #22
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit70
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit67: ; preds = %342
@@ -5337,7 +5337,7 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #22
+  tail call void @__cxa_free_exception(ptr nonnull %6) #22
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2

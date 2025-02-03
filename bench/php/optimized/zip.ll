@@ -1369,7 +1369,7 @@ phar_find_eocd.exit:                              ; preds = %.thread71.i
   br i1 %.not1452, label %623, label %622
 
 622:                                              ; preds = %619
-  call void @free(ptr noundef %.pre1853) #15
+  call void @free(ptr noundef nonnull %.pre1853) #15
   br label %624
 
 623:                                              ; preds = %619
@@ -1939,7 +1939,7 @@ phar_find_eocd.exit:                              ; preds = %.thread71.i
 
 878:                                              ; preds = %617, %614
   %879 = zext i32 %615 to i64
-  call void @phar_add_virtual_dirs(ptr noundef %99, ptr noundef %.pre1853, i64 noundef %879) #15
+  call void @phar_add_virtual_dirs(ptr noundef nonnull %99, ptr noundef %.pre1853, i64 noundef %879) #15
   %880 = load i16, ptr %216, align 1
   %.not1491 = icmp eq i16 %880, 0
   br i1 %.not1491, label %932, label %881
@@ -3635,7 +3635,7 @@ phar_find_eocd.exit:                              ; preds = %.thread71.i
   br i1 %.not1637, label %1596, label %1595
 
 1595:                                             ; preds = %1593
-  call void @free(ptr noundef %1580) #15
+  call void @free(ptr noundef nonnull %1580) #15
   br label %1597
 
 1596:                                             ; preds = %1593

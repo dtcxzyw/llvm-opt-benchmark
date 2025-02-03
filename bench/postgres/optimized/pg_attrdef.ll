@@ -195,7 +195,7 @@ define dso_local i32 @StoreAttrDefault(ptr noundef readonly captures(none) %0, i
 118:                                              ; preds = %108, %115, %43
   %.0 = phi ptr [ %37, %43 ], [ %111, %108 ], [ %111, %115 ]
   call void @table_close(ptr noundef %34, i32 noundef 3) #5
-  call void @heap_freetuple(ptr noundef %.0) #5
+  call void @heap_freetuple(ptr noundef nonnull %.0) #5
   store i32 1259, ptr %7, align 4
   %119 = load i32, ptr %18, align 8
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 4

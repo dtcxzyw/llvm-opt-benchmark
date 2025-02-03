@@ -50,7 +50,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #13
   resume { ptr, i32 } %0
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_EC2EPKci.exit: ; preds = %entry
@@ -78,7 +78,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #13
   resume { ptr, i32 } %0
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_EC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %entry

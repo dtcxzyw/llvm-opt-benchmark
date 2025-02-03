@@ -1716,7 +1716,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
 
 755:                                              ; preds = %746, %752, %550
   %.146 = phi i1 [ %.045193, %550 ], [ false, %752 ], [ %.045193, %746 ]
-  %756 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0143.0192) #26
+  %756 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0143.0192) #26
   %.not153 = icmp eq ptr %756, %79
   br i1 %.not153, label %._crit_edge196, label %.lr.ph195
 
@@ -1784,7 +1784,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %778 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.108", ptr %777, i64 %.fca.0.extract.i.i.i, i32 0, i32 1
   store double %764, ptr %778, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #24
-  %779 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0137.0199) #26
+  %779 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0137.0199) #26
   %.not154 = icmp eq ptr %779, %79
   br i1 %.not154, label %._crit_edge202, label %.lr.ph201
 

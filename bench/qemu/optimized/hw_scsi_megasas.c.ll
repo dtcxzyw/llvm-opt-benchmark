@@ -4667,7 +4667,7 @@ trace_megasas_qf_update.exit:                     ; preds = %if.then24, %land.lh
   fence seq_cst
   %call.i.i.i.i.i68 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i50, i64 noundef %26, i32 1, ptr noundef nonnull %val.addr.i.i66, i64 noundef range(i64 1, 256) 4, i1 noundef zeroext true) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i66)
-  %call38 = call i32 @msix_enabled(ptr noundef %call.i) #14
+  %call38 = call i32 @msix_enabled(ptr noundef nonnull %call.i) #14
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %if.else41, label %if.then40
 
@@ -4706,11 +4706,11 @@ if.else.i.i78:                                    ; preds = %if.then.i.i76
 
 trace_megasas_msix_raise.exit:                    ; preds = %if.then40, %land.lhs.true5.i.i73, %if.then8.i.i79, %if.else.i.i78
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i69)
-  call void @msix_notify(ptr noundef %call.i, i32 noundef 0) #14
+  call void @msix_notify(ptr noundef nonnull %call.i, i32 noundef 0) #14
   br label %if.end52
 
 if.else41:                                        ; preds = %trace_megasas_qf_update.exit
-  %call42 = call zeroext i1 @msi_enabled(ptr noundef %call.i) #14
+  %call42 = call zeroext i1 @msi_enabled(ptr noundef nonnull %call.i) #14
   br i1 %call42, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %if.else41
@@ -4748,7 +4748,7 @@ if.else.i.i92:                                    ; preds = %if.then.i.i90
 
 trace_megasas_msi_raise.exit:                     ; preds = %if.then43, %land.lhs.true5.i.i87, %if.then8.i.i93, %if.else.i.i92
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i83)
-  call void @msi_notify(ptr noundef %call.i, i32 noundef 0) #14
+  call void @msi_notify(ptr noundef nonnull %call.i, i32 noundef 0) #14
   br label %if.end52
 
 if.else44:                                        ; preds = %if.else41
@@ -4794,7 +4794,7 @@ if.else.i.i106:                                   ; preds = %if.then.i.i104
 
 trace_megasas_irq_raise.exit:                     ; preds = %if.then47, %land.lhs.true5.i.i101, %if.then8.i.i107, %if.else.i.i106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i97)
-  call void @pci_set_irq(ptr noundef %call.i, i32 noundef 1) #14
+  call void @pci_set_irq(ptr noundef nonnull %call.i, i32 noundef 1) #14
   br label %if.end52
 
 if.else51:                                        ; preds = %if.end22

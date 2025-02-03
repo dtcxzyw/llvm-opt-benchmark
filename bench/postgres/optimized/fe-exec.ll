@@ -2341,17 +2341,17 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br i1 %45, label %.loopexit, label %46
 
 46:                                               ; preds = %.loopexit111, %19
-  %47 = tail call i32 @pqPutMsgStart(i8 noundef signext 66, ptr noundef %0) #26
+  %47 = tail call i32 @pqPutMsgStart(i8 noundef signext 66, ptr noundef nonnull %0) #26
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %.loopexit, label %49
 
 49:                                               ; preds = %46
-  %50 = tail call i32 @pqPuts(ptr noundef nonnull @.str.29, ptr noundef %0) #26
+  %50 = tail call i32 @pqPuts(ptr noundef nonnull @.str.29, ptr noundef nonnull %0) #26
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %49
-  %53 = tail call i32 @pqPuts(ptr noundef %2, ptr noundef %0) #26
+  %53 = tail call i32 @pqPuts(ptr noundef %2, ptr noundef nonnull %0) #26
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %.loopexit, label %55
 
@@ -2362,7 +2362,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br i1 %or.cond3, label %58, label %66
 
 58:                                               ; preds = %55
-  %59 = tail call i32 @pqPutInt(i32 noundef %3, i64 noundef 2, ptr noundef %0) #26
+  %59 = tail call i32 @pqPutInt(i32 noundef %3, i64 noundef 2, ptr noundef nonnull %0) #26
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %.loopexit, label %.preheader107.preheader
 
@@ -2379,17 +2379,17 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   %indvars.iv123 = phi i64 [ 0, %.preheader107.preheader ], [ %indvars.iv.next124, %61 ]
   %62 = getelementptr i32, ptr %7, i64 %indvars.iv123
   %63 = load i32, ptr %62, align 4
-  %64 = tail call i32 @pqPutInt(i32 noundef %63, i64 noundef 2, ptr noundef %0) #26
+  %64 = tail call i32 @pqPutInt(i32 noundef %63, i64 noundef 2, ptr noundef nonnull %0) #26
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %.loopexit, label %61
 
 66:                                               ; preds = %55
-  %67 = tail call i32 @pqPutInt(i32 noundef 0, i64 noundef 2, ptr noundef %0) #26
+  %67 = tail call i32 @pqPutInt(i32 noundef 0, i64 noundef 2, ptr noundef nonnull %0) #26
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %.loopexit, label %.loopexit108
 
 .loopexit108:                                     ; preds = %61, %66
-  %69 = tail call i32 @pqPutInt(i32 noundef %3, i64 noundef 2, ptr noundef %0) #26
+  %69 = tail call i32 @pqPutInt(i32 noundef %3, i64 noundef 2, ptr noundef nonnull %0) #26
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %.loopexit, label %.preheader
 
@@ -2408,7 +2408,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %73
   %.2115.us = phi i32 [ %74, %73 ], [ 0, %.lr.ph ]
-  %71 = tail call i32 @pqPutInt(i32 noundef -1, i64 noundef 4, ptr noundef %0) #26
+  %71 = tail call i32 @pqPutInt(i32 noundef -1, i64 noundef 4, ptr noundef nonnull %0) #26
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %.loopexit, label %73
 
@@ -2442,7 +2442,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br label %89
 
 85:                                               ; preds = %81
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.57) #26
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.57) #26
   br label %.loopexit
 
 86:                                               ; preds = %78, %77
@@ -2452,19 +2452,19 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
 
 89:                                               ; preds = %86, %82
   %.0 = phi i32 [ %84, %82 ], [ %88, %86 ]
-  %90 = tail call i32 @pqPutInt(i32 noundef %.0, i64 noundef 4, ptr noundef %0) #26
+  %90 = tail call i32 @pqPutInt(i32 noundef %.0, i64 noundef 4, ptr noundef nonnull %0) #26
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %.loopexit, label %92
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %75, align 8
   %94 = sext i32 %.0 to i64
-  %95 = tail call i32 @pqPutnchar(ptr noundef %93, i64 noundef %94, ptr noundef %0) #26
+  %95 = tail call i32 @pqPutnchar(ptr noundef %93, i64 noundef %94, ptr noundef nonnull %0) #26
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %.loopexit, label %100
 
 97:                                               ; preds = %.lr.ph.split
-  %98 = tail call i32 @pqPutInt(i32 noundef -1, i64 noundef 4, ptr noundef %0) #26
+  %98 = tail call i32 @pqPutInt(i32 noundef -1, i64 noundef 4, ptr noundef nonnull %0) #26
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %.loopexit, label %100
 
@@ -2474,57 +2474,57 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %100, %73, %.preheader
-  %101 = tail call i32 @pqPutInt(i32 noundef 1, i64 noundef 2, ptr noundef %0) #26
+  %101 = tail call i32 @pqPutInt(i32 noundef 1, i64 noundef 2, ptr noundef nonnull %0) #26
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %.loopexit, label %103
 
 103:                                              ; preds = %._crit_edge
-  %104 = tail call i32 @pqPutInt(i32 noundef %8, i64 noundef 2, ptr noundef %0) #26
+  %104 = tail call i32 @pqPutInt(i32 noundef %8, i64 noundef 2, ptr noundef nonnull %0) #26
   %.not98 = icmp eq i32 %104, 0
   br i1 %.not98, label %105, label %.loopexit
 
 105:                                              ; preds = %103
-  %106 = tail call i32 @pqPutMsgEnd(ptr noundef %0) #26
+  %106 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #26
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %.loopexit, label %108
 
 108:                                              ; preds = %105
-  %109 = tail call i32 @pqPutMsgStart(i8 noundef signext 68, ptr noundef %0) #26
+  %109 = tail call i32 @pqPutMsgStart(i8 noundef signext 68, ptr noundef nonnull %0) #26
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %.loopexit, label %111
 
 111:                                              ; preds = %108
-  %112 = tail call i32 @pqPutc(i8 noundef signext 80, ptr noundef %0) #26
+  %112 = tail call i32 @pqPutc(i8 noundef signext 80, ptr noundef nonnull %0) #26
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %.loopexit, label %114
 
 114:                                              ; preds = %111
-  %115 = tail call i32 @pqPuts(ptr noundef nonnull @.str.29, ptr noundef %0) #26
+  %115 = tail call i32 @pqPuts(ptr noundef nonnull @.str.29, ptr noundef nonnull %0) #26
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %.loopexit, label %117
 
 117:                                              ; preds = %114
-  %118 = tail call i32 @pqPutMsgEnd(ptr noundef %0) #26
+  %118 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #26
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %.loopexit, label %120
 
 120:                                              ; preds = %117
-  %121 = tail call i32 @pqPutMsgStart(i8 noundef signext 69, ptr noundef %0) #26
+  %121 = tail call i32 @pqPutMsgStart(i8 noundef signext 69, ptr noundef nonnull %0) #26
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %.loopexit, label %123
 
 123:                                              ; preds = %120
-  %124 = tail call i32 @pqPuts(ptr noundef nonnull @.str.29, ptr noundef %0) #26
+  %124 = tail call i32 @pqPuts(ptr noundef nonnull @.str.29, ptr noundef nonnull %0) #26
   %125 = icmp slt i32 %124, 0
   br i1 %125, label %.loopexit, label %126
 
 126:                                              ; preds = %123
-  %127 = tail call i32 @pqPutInt(i32 noundef 0, i64 noundef 4, ptr noundef %0) #26
+  %127 = tail call i32 @pqPutInt(i32 noundef 0, i64 noundef 4, ptr noundef nonnull %0) #26
   %128 = icmp slt i32 %127, 0
   br i1 %128, label %.loopexit, label %129
 
 129:                                              ; preds = %126
-  %130 = tail call i32 @pqPutMsgEnd(ptr noundef %0) #26
+  %130 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #26
   %131 = icmp slt i32 %130, 0
   br i1 %131, label %.loopexit, label %132
 
@@ -5098,7 +5098,7 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly %0
 
 52:                                               ; preds = %47
   %53 = trunc nuw nsw i64 %indvars.iv83 to i32
-  tail call void @free(ptr noundef %26) #26
+  tail call void @free(ptr noundef nonnull %26) #26
   br label %.loopexit64
 
 54:                                               ; preds = %47
@@ -6782,7 +6782,7 @@ thread-pre-split.backedge:                        ; preds = %get_hex.exit97, %31
   br i1 %.not90, label %80, label %81
 
 80:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef %.072) #26
+  tail call void @free(ptr noundef nonnull %.072) #26
   br label %82
 
 81:                                               ; preds = %.loopexit

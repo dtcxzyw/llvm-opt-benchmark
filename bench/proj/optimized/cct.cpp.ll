@@ -769,7 +769,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 130:                                              ; preds = %.thread, %125
   %131 = load ptr, ptr @stderr, align 8
   %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.6, ptr noundef nonnull %123) #28
-  tail call void @free(ptr noundef %10) #25
+  tail call void @free(ptr noundef nonnull %10) #25
   br label %255
 
 133:                                              ; preds = %.thread

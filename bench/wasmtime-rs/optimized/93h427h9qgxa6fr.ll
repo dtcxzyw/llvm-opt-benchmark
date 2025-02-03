@@ -541,7 +541,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h9a7f42c6692dcaabE.llvm
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !161
   %86 = extractvalue { i32, ptr } %85, 0
   %87 = extractvalue { i32, ptr } %85, 1
-  %88 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %87, i32 noundef %86)
+  %88 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %87, i32 noundef %86)
   %89 = load i32, ptr %76, align 4, !alias.scope !166, !noundef !12
   %.not.i.i31 = icmp eq i32 %89, -1
   br i1 %.not.i.i31, label %.noexc32, label %.noexc37
@@ -570,7 +570,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h9a7f42c6692dcaabE.llvm
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !169
   %95 = extractvalue { i32, ptr } %94, 0
   %96 = extractvalue { i32, ptr } %94, 1
-  %97 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %96, i32 noundef %95)
+  %97 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %96, i32 noundef %95)
   %98 = load i32, ptr %76, align 4, !alias.scope !174, !noundef !12
   %.not.i.i43 = icmp eq i32 %98, -1
   br i1 %.not.i.i43, label %.noexc44, label %.noexc47
@@ -596,7 +596,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h9a7f42c6692dcaabE.llvm
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !177
   %105 = extractvalue { i32, ptr } %104, 0
   %106 = extractvalue { i32, ptr } %104, 1
-  %107 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %106, i32 noundef %105)
+  %107 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %106, i32 noundef %105)
   %108 = load i32, ptr %76, align 4, !alias.scope !186, !noundef !12
   %.not.i.i51 = icmp eq i32 %108, -1
   br i1 %.not.i.i51, label %.noexc52, label %.noexc55
@@ -622,7 +622,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h9a7f42c6692dcaabE.llvm
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !189
   %115 = extractvalue { i32, ptr } %114, 0
   %116 = extractvalue { i32, ptr } %114, 1
-  %117 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %116, i32 noundef %115)
+  %117 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %116, i32 noundef %115)
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder4isub17hae8a58eab1fde497E.exit
 
 118:                                              ; preds = %_ZN17cranelift_codegen2ir7builder11InstBuilder4isub17hae8a58eab1fde497E.exit
@@ -661,7 +661,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder7uextend17h2dcd26178e33c185E.exit.
   %.sink = phi { i32, ptr } [ %162, %.noexc90 ], [ %140, %.noexc69 ]
   %133 = extractvalue { i32, ptr } %.sink, 0
   %134 = extractvalue { i32, ptr } %.sink, 1
-  %135 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %134, i32 noundef %133)
+  %135 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %134, i32 noundef %133)
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder7uextend17h2dcd26178e33c185E.exit
 
 _ZN17cranelift_codegen2ir7builder11InstBuilder7uextend17h2dcd26178e33c185E.exit: ; preds = %_ZN17cranelift_codegen2ir7builder11InstBuilder7uextend17h2dcd26178e33c185E.exit.sink.split, %118

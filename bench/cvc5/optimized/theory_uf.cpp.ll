@@ -3510,7 +3510,7 @@ invoke.cont50:                                    ; preds = %sw.bb48
 lpad49:                                           ; preds = %sw.bb48
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #25
+  call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %eh.resume
 
 sw.default:                                       ; preds = %if.end
@@ -7807,7 +7807,7 @@ invoke.cont269:                                   ; preds = %lor.rhs.i714, %if.t
           to label %for.inc272 unwind label %lpad.loopexit.split-lp
 
 for.inc272:                                       ; preds = %invoke.cont269
-  %call.i727 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin3239.sroa.0.0916) #30
+  %call.i727 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3239.sroa.0.0916) #30
   %cmp.i579.not = icmp eq ptr %call.i727, %2
   br i1 %cmp.i579.not, label %for.end274, label %cond.true252
 

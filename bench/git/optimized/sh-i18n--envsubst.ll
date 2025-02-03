@@ -373,7 +373,7 @@ if.then11.i.i:                                    ; preds = %while.end.i.i, %if.
   br i1 %cmp15.i.i, label %if.then65.critedge.i, label %if.else71.i
 
 if.then65.critedge.i:                             ; preds = %if.else.i.i, %if.then11.i.i
-  %call66.i = tail call ptr @getenv(ptr noundef %41) #10
+  %call66.i = tail call ptr @getenv(ptr noundef nonnull %41) #10
   %tobool67.not.i = icmp eq ptr %call66.i, null
   br i1 %tobool67.not.i, label %for.cond.i.backedge, label %if.then68.i
 

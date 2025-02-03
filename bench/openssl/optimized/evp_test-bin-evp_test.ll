@@ -4618,7 +4618,7 @@ if.end:                                           ; preds = %entry
   %buflen = getelementptr inbounds nuw i8, ptr %call, i64 8
   %call2 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef %call, ptr noundef nonnull %buflen)
   %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %err, label %if.end5
+  br i1 %tobool3.not, label %if.then.i, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %count = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -4646,11 +4646,11 @@ if.end10:                                         ; preds = %land.lhs.true.if.en
   %tobool12.not = icmp eq i32 %call.i8, 0
   br i1 %tobool12.not, label %if.then.i, label %return
 
-err:                                              ; preds = %if.end, %entry
+err:                                              ; preds = %entry
   %cmp.not.i = icmp eq ptr %call, null
   br i1 %cmp.not.i, label %return, label %if.then.i
 
-if.then.i:                                        ; preds = %land.lhs.true, %if.end10, %err
+if.then.i:                                        ; preds = %if.end, %land.lhs.true, %if.end10, %err
   %2 = load ptr, ptr %call, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.27, i32 noundef 145) #11
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.27, i32 noundef 146) #11

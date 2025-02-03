@@ -25323,7 +25323,7 @@ invoke.cont102:                                   ; preds = %if.then92
   %36 = load ptr, ptr %27, align 8
   %idx.ext108 = and i64 %indvars.iv109, 4294967295
   %add.ptr109 = getelementptr inbounds nuw i8, ptr %36, i64 %idx.ext108
-  invoke void @_ZN26ImGuiInputTextCallbackData11InsertCharsEiPKcS1_(ptr noundef nonnull align 8 dereferenceable(64) %data, i32 noundef %35, ptr noundef %36, ptr noundef nonnull %add.ptr109)
+  invoke void @_ZN26ImGuiInputTextCallbackData11InsertCharsEiPKcS1_(ptr noundef nonnull align 8 dereferenceable(64) %data, i32 noundef %35, ptr noundef nonnull %36, ptr noundef nonnull %add.ptr109)
           to label %if.end111 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 if.end111:                                        ; preds = %invoke.cont102, %for.end90

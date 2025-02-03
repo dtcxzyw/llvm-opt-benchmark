@@ -1743,7 +1743,7 @@ if.end233:                                        ; preds = %for.inc135, %invoke
           to label %for.inc236 unwind label %lpad49.loopexit.split-lp.loopexit.split-lp
 
 for.inc236:                                       ; preds = %if.end233
-  %call.i98 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0141) #18
+  %call.i98 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.0141) #18
   %cmp.i42.not = icmp eq ptr %call.i98, %add.ptr.i.i
   br i1 %cmp.i42.not, label %for.end238, label %for.body, !llvm.loop !22
 

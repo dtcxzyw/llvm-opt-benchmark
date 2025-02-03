@@ -708,9 +708,9 @@ dupset.exit.thread:                               ; preds = %16, %22, %40, %dups
   tail call void @Curl_dyn_free(ptr noundef nonnull %137) #12
   %138 = getelementptr inbounds nuw i8, ptr %3, i64 2664
   tail call void @Curl_hsts_cleanup(ptr noundef nonnull %138) #12
-  tail call void @Curl_freeset(ptr noundef %3) #12
+  tail call void @Curl_freeset(ptr noundef nonnull %3) #12
   %139 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %139(ptr noundef %3) #12
+  tail call void %139(ptr noundef nonnull %3) #12
   br label %.critedge
 
 .critedge:                                        ; preds = %dupset.exit.thread, %1, %129

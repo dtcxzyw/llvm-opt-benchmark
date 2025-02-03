@@ -544,7 +544,7 @@ define noundef ptr @mca_coll_sync_comm_query(ptr noundef readnone captures(none)
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sync_component, i64 288), align 8
   %6 = icmp eq i32 %5, 0
   %or.cond = select i1 %4, i1 %6, i1 false
-  br i1 %or.cond, label %opal_obj_new.exit.thread, label %7
+  br i1 %or.cond, label %opal_obj_new.exit, label %7
 
 7:                                                ; preds = %2
   %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sync_module_t_class, i64 56), align 8
@@ -560,7 +560,7 @@ define noundef ptr @mca_coll_sync_comm_query(ptr noundef readnone captures(none)
 
 13:                                               ; preds = %12, %7
   %.not9.i = icmp eq ptr %9, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %14
+  br i1 %.not9.i, label %opal_obj_new.exit, label %14
 
 14:                                               ; preds = %13
   store ptr @mca_coll_sync_module_t_class, ptr %9, align 8
@@ -569,7 +569,7 @@ define noundef ptr @mca_coll_sync_comm_query(ptr noundef readnone captures(none)
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sync_module_t_class, i64 40), align 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i.i = icmp eq ptr %17, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread23, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.i
   %18 = phi ptr [ %20, %.lr.ph.i.i ], [ %17, %14 ]
@@ -578,9 +578,9 @@ define noundef ptr @mca_coll_sync_comm_query(ptr noundef readnone captures(none)
   %19 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread23, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !6
 
-opal_obj_new.exit.thread23:                       ; preds = %.lr.ph.i.i, %14
+.loopexit:                                        ; preds = %.lr.ph.i.i, %14
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sync_component, i64 280), align 8
   store i32 %21, ptr %1, align 4
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -605,10 +605,10 @@ opal_obj_new.exit.thread23:                       ; preds = %.lr.ph.i.i, %14
   store ptr @mca_coll_sync_scatter, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 152
   store ptr @mca_coll_sync_scatterv, ptr %32, align 8
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %13, %2, %opal_obj_new.exit.thread23
-  %.0 = phi ptr [ %9, %opal_obj_new.exit.thread23 ], [ null, %2 ], [ null, %13 ]
+opal_obj_new.exit:                                ; preds = %13, %2, %.loopexit
+  %.0 = phi ptr [ %9, %.loopexit ], [ null, %2 ], [ null, %13 ]
   ret ptr %.0
 }
 

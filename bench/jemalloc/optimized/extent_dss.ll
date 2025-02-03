@@ -218,7 +218,7 @@ land.lhs.true:                                    ; preds = %if.end57
 if.then62:                                        ; preds = %land.lhs.true
   %17 = getelementptr inbounds nuw i8, ptr %edata, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %17, i8 0, i64 104, i1 false)
-  %call64 = tail call ptr @arena_get_ehooks(ptr noundef %arena) #6
+  %call64 = tail call ptr @arena_get_ehooks(ptr noundef nonnull %arena) #6
   %arena.val56 = load i32, ptr %5, align 32
   %tobool66.not = icmp eq i64 %size, 0
   %18 = and i8 %8, 1

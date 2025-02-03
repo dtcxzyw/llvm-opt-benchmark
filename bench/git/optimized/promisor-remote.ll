@@ -605,7 +605,7 @@ for.body.i18:                                     ; preds = %for.cond.i13
   br i1 %tobool1.not.i21, label %if.end23.thread, label %for.cond.i13, !llvm.loop !7
 
 if.end23.thread:                                  ; preds = %for.body.i18
-  call void @free(ptr noundef %call18) #9
+  call void @free(ptr noundef nonnull %call18) #9
   br label %if.end26
 
 if.end23:                                         ; preds = %for.cond.i13

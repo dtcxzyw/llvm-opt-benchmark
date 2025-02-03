@@ -1151,41 +1151,41 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr noundef capture
   store ptr %.3.lcssa, ptr %1, align 8
   %287 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %287, null
-  br i1 %.not, label %288, label %.thread345
+  br i1 %.not, label %288, label %.thread349
 
 288:                                              ; preds = %286
   store ptr %.1, ptr %0, align 8
-  br label %.thread345
+  br label %.thread349
 
 289:                                              ; preds = %282, %.split.us, %270, %207, %193, %183, %170, %155, %140, %126, %119, %108, %89, %76, %67, %55, %42, %23
   %.0210.ph = phi ptr [ null, %23 ], [ null, %67 ], [ null, %55 ], [ null, %89 ], [ null, %119 ], [ null, %140 ], [ null, %155 ], [ null, %170 ], [ %213, %282 ], [ %213, %.split.us ], [ null, %270 ], [ null, %207 ], [ null, %193 ], [ null, %183 ], [ null, %126 ], [ null, %108 ], [ null, %76 ], [ null, %42 ]
   %.pr = load ptr, ptr %0, align 8
   %290 = icmp eq ptr %.pr, null
-  br i1 %290, label %291, label %.thread345
+  br i1 %290, label %291, label %298
 
 291:                                              ; preds = %289
   %292 = call i32 @H5S_close(ptr noundef nonnull %.1) #14
   %293 = icmp slt i32 %292, 0
-  br i1 %293, label %294, label %.thread345
+  br i1 %293, label %294, label %298
 
 294:                                              ; preds = %291
   %295 = load i64, ptr @H5E_DATASPACE_g, align 8
   %296 = load i64, ptr @H5E_CANTFREE_g, align 8
   %297 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__point_deserialize, i32 noundef 1527, i64 noundef %295, i64 noundef %296, ptr noundef nonnull @.str.42) #14
-  br label %.thread345
+  br label %298
 
-.thread345:                                       ; preds = %288, %286, %291, %294, %289
-  %.0210348 = phi ptr [ %.0210.ph, %294 ], [ %.0210.ph, %291 ], [ %.0210.ph, %289 ], [ %213, %286 ], [ %213, %288 ]
-  %.1200 = phi i32 [ -1, %294 ], [ -1, %291 ], [ -1, %289 ], [ 0, %286 ], [ 0, %288 ]
-  %.not240 = icmp eq ptr %.0210348, null
-  br i1 %.not240, label %300, label %298
+298:                                              ; preds = %291, %294, %289
+  %.not240 = icmp eq ptr %.0210.ph, null
+  br i1 %.not240, label %300, label %.thread349
 
-298:                                              ; preds = %.thread345
-  %299 = call ptr @H5MM_xfree(ptr noundef nonnull %.0210348) #14
+.thread349:                                       ; preds = %286, %288, %298
+  %.1200354 = phi i32 [ -1, %298 ], [ 0, %288 ], [ 0, %286 ]
+  %.0210348353 = phi ptr [ %.0210.ph, %298 ], [ %213, %288 ], [ %213, %286 ]
+  %299 = call ptr @H5MM_xfree(ptr noundef nonnull %.0210348353) #14
   br label %300
 
-300:                                              ; preds = %.thread266, %298, %.thread345
-  %.1200270 = phi i32 [ -1, %.thread266 ], [ %.1200, %298 ], [ %.1200, %.thread345 ]
+300:                                              ; preds = %.thread266, %.thread349, %298
+  %.1200270 = phi i32 [ -1, %.thread266 ], [ %.1200354, %.thread349 ], [ -1, %298 ]
   ret i32 %.1200270
 }
 

@@ -255,7 +255,7 @@ if.then.i.i77:                                    ; preds = %invoke.cont63
 lpad.i.i:                                         ; preds = %if.then.i.i77
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #15
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #15
   br label %lpad62.body
 
 invoke.cont76:                                    ; preds = %invoke.cont63

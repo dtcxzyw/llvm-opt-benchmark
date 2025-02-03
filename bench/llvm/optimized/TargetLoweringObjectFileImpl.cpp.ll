@@ -4215,7 +4215,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK4llvm9StringRef
 
 41:                                               ; preds = %33
   %42 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef %.sroa.0.0.copyload.i, ptr noundef %42)
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull %.sroa.0.0.copyload.i, ptr noundef %42)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 892
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 128

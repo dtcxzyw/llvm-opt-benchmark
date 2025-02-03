@@ -14495,7 +14495,7 @@ if.end16:                                         ; preds = %invoke.cont12
 
 if.then17:                                        ; preds = %if.end16
   %call20 = invoke noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %call.i6, ptr noundef %serialized_value)
-          to label %cleanup unwind label %lpad4
+          to label %cleanup.thread unwind label %lpad4
 
 if.else21:                                        ; preds = %if.end16
   %vtable = load ptr, ptr %call.i6, align 8
@@ -14552,18 +14552,18 @@ if.end39:                                         ; preds = %invoke.cont23
   %call42 = invoke noundef zeroext i1 @_ZNK6google8protobuf11MessageLite14AppendToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %call.i6, ptr noundef %serialized_value)
           to label %cleanup.thread unwind label %lpad4
 
-cleanup.thread:                                   ; preds = %if.end39, %invoke.cont38
+cleanup.thread:                                   ; preds = %if.then17, %if.end39, %invoke.cont38
+  %retval.1.ph = phi i1 [ true, %if.then17 ], [ true, %if.end39 ], [ false, %invoke.cont38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sub_delimiter) #36
   br label %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i
 
-cleanup:                                          ; preds = %if.then17, %invoke.cont12, %invoke.cont5
-  %retval.1 = phi i1 [ false, %invoke.cont5 ], [ false, %invoke.cont12 ], [ true, %if.then17 ]
+cleanup:                                          ; preds = %invoke.cont12, %invoke.cont5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sub_delimiter) #36
   %cmp.not.i = icmp eq ptr %call.i6, null
   br i1 %cmp.not.i, label %cleanup46, label %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i: ; preds = %cleanup.thread, %cleanup
-  %retval.120 = phi i1 [ %call24, %cleanup.thread ], [ %retval.1, %cleanup ]
+  %retval.120 = phi i1 [ %retval.1.ph, %cleanup.thread ], [ false, %cleanup ]
   %vtable.i.i = load ptr, ptr %call.i6, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %17 = load ptr, ptr %vfn.i.i, align 8
@@ -14585,7 +14585,7 @@ _ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i9: ; preds = %eh
   br label %ehcleanup47
 
 cleanup46:                                        ; preds = %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i, %cleanup, %invoke.cont
-  %retval.0 = phi i1 [ false, %invoke.cont ], [ %retval.1, %cleanup ], [ %retval.120, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i ]
+  %retval.0 = phi i1 [ false, %invoke.cont ], [ false, %cleanup ], [ %retval.120, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i ]
   call void @_ZN6google8protobuf21DynamicMessageFactoryD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %factory) #36
   ret i1 %retval.0
 

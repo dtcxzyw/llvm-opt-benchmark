@@ -646,7 +646,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 30:                                               ; preds = %25
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %26) #12
+  tail call void @__cxa_free_exception(ptr nonnull %26) #12
   br label %33
 
 32:                                               ; preds = %20, %16
@@ -818,7 +818,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #12
+  tail call void @__cxa_free_exception(ptr nonnull %25) #12
   br label %32
 
 29:                                               ; preds = %26

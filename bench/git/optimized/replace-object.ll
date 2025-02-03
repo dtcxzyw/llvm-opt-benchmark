@@ -85,7 +85,7 @@ entry:
   br i1 %tobool4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef %call1) #8
+  tail call void @free(ptr noundef nonnull %call1) #8
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %0, 0
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
@@ -110,7 +110,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %objects, align 8
   %replace_map = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3 = load ptr, ptr %replace_map, align 8
-  %call6 = tail call ptr @oidmap_put(ptr noundef %3, ptr noundef %call1) #8
+  %call6 = tail call ptr @oidmap_put(ptr noundef %3, ptr noundef nonnull %call1) #8
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %return, label %if.then8
 

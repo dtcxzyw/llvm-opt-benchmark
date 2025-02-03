@@ -368,7 +368,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit79: ; preds = %_ZN12Disa
   br i1 %31, label %32, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit80
 
 32:                                               ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit79
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 179, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 179, ptr noundef nonnull %0) #7
   %.pre97 = load i8, ptr @PrintInterpreter, align 1
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit80
 
@@ -378,7 +378,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit80: ; preds = %_ZN12Disa
   br i1 %34, label %35, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit81
 
 35:                                               ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit80
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 180, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 180, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit81
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit81: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit80, %35
@@ -406,7 +406,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit81: ; preds = %_ZN12Disa
   br i1 %46, label %47, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit82
 
 47:                                               ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit81
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 181, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 181, ptr noundef nonnull %0) #7
   %.pre98 = load i8, ptr @PrintInterpreter, align 1
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit82
 
@@ -416,7 +416,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit82: ; preds = %_ZN12Disa
   br i1 %49, label %50, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit83
 
 50:                                               ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit82
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 182, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 182, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit83
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit83: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit82, %50
@@ -444,7 +444,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit83: ; preds = %_ZN12Disa
   br i1 %61, label %62, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit84
 
 62:                                               ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit83
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 183, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 183, ptr noundef nonnull %0) #7
   %.pre99 = load i8, ptr @PrintInterpreter, align 1
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit84
 
@@ -454,7 +454,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit84: ; preds = %_ZN12Disa
   br i1 %64, label %65, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit85
 
 65:                                               ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit84
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 184, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 184, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit85
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit85: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit84, %65
@@ -752,7 +752,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit73: ; preds = %19, %22
   br i1 %26, label %27, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit74
 
 27:                                               ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit73
-  tail call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 256, ptr noundef %0) #7
+  tail call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 256, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit74
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit74: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit73, %27
@@ -1198,7 +1198,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit244: ; preds = %76, %75
   br i1 %85, label %86, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit245
 
 86:                                               ; preds = %83
-  tail call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 390, ptr noundef %0) #7
+  tail call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 390, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit245
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit245: ; preds = %83, %86
@@ -1209,7 +1209,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit245: ; preds = %83, %86
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit246.sink.split: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit245, %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit243
   %.sink = phi i32 [ 383, %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit243 ], [ 391, %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit245 ]
-  tail call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef %.sink, ptr noundef %0) #7
+  tail call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef %.sink, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit246
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit246: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit246.sink.split, %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit243, %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit245, %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit244
@@ -1232,7 +1232,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit246: ; preds = %_ZN12Dis
   br i1 %97, label %98, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit247
 
 98:                                               ; preds = %92
-  tail call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 396, ptr noundef %0) #7
+  tail call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 396, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit247
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit247: ; preds = %92, %98
@@ -1247,7 +1247,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit247: ; preds = %92, %98
   br i1 %102, label %103, label %_ZN13MethodHandles21load_klass_from_ClassEP14MacroAssembler8Register.exit
 
 103:                                              ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit247
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 61, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 61, ptr noundef nonnull %0) #7
   br label %_ZN13MethodHandles21load_klass_from_ClassEP14MacroAssembler8Register.exit
 
 _ZN13MethodHandles21load_klass_from_ClassEP14MacroAssembler8Register.exit: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit247, %103
@@ -1276,7 +1276,7 @@ _ZN13MethodHandles21load_klass_from_ClassEP14MacroAssembler8Register.exit: ; pre
   br i1 %114, label %115, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit248
 
 115:                                              ; preds = %_ZN13MethodHandles21load_klass_from_ClassEP14MacroAssembler8Register.exit
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 398, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 398, ptr noundef nonnull %0) #7
   %.pre = load i8, ptr @PrintInterpreter, align 1
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit248
 
@@ -1286,7 +1286,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit248: ; preds = %_ZN13Met
   br i1 %117, label %118, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit249
 
 118:                                              ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit248
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 399, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 399, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit249
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit249: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit248, %118
@@ -1296,7 +1296,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit249: ; preds = %_ZN12Dis
   br i1 %120, label %121, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit250
 
 121:                                              ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit249
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 401, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 401, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit250
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit250: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit249, %121
@@ -1306,7 +1306,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit250: ; preds = %_ZN12Dis
   br i1 %123, label %124, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit251
 
 124:                                              ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit250
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 402, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 402, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit251
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit251: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit250, %124
@@ -1334,7 +1334,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit251: ; preds = %_ZN12Dis
   br i1 %131, label %132, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit252
 
 132:                                              ; preds = %129
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 423, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 423, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit252
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit252: ; preds = %129, %132
@@ -1350,7 +1350,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit252: ; preds = %129, %13
   br i1 %138, label %139, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit253
 
 139:                                              ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit252
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 424, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 424, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit253
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit253: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit252, %139
@@ -1385,7 +1385,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit254: ; preds = %144, %14
   br i1 %153, label %154, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit255
 
 154:                                              ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit254
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 432, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 432, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit255
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit255: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit254, %154
@@ -1404,7 +1404,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit255: ; preds = %_ZN12Dis
   br i1 %161, label %162, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit256
 
 162:                                              ; preds = %159
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 446, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 446, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit256
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit256: ; preds = %159, %162
@@ -1432,7 +1432,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit256: ; preds = %159, %16
   br i1 %174, label %175, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit257
 
 175:                                              ; preds = %169
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 450, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 450, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit257
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit257: ; preds = %169, %175
@@ -1442,7 +1442,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit257: ; preds = %169, %17
   br i1 %177, label %178, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit258
 
 178:                                              ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit257
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 451, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 451, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit258
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit258: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit257, %178
@@ -1452,7 +1452,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit258: ; preds = %_ZN12Dis
   br i1 %180, label %181, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit259
 
 181:                                              ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit258
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 452, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 452, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit259
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit259: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit258, %181
@@ -1462,7 +1462,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit259: ; preds = %_ZN12Dis
   br i1 %183, label %184, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit260
 
 184:                                              ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit259
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 453, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 453, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit260
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit260: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit259, %184
@@ -1475,7 +1475,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit260: ; preds = %_ZN12Dis
   br i1 %187, label %188, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit261
 
 188:                                              ; preds = %185
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 460, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 460, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit261
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit261: ; preds = %185, %188
@@ -1488,7 +1488,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit261: ; preds = %185, %18
   br i1 %191, label %192, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit262
 
 192:                                              ; preds = %189
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 473, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 473, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit262
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit262: ; preds = %189, %192
@@ -1505,7 +1505,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit262: ; preds = %189, %19
   br i1 %198, label %199, label %_ZN13MethodHandles21load_klass_from_ClassEP14MacroAssembler8Register.exit263
 
 199:                                              ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit262
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 61, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 61, ptr noundef nonnull %0) #7
   br label %_ZN13MethodHandles21load_klass_from_ClassEP14MacroAssembler8Register.exit263
 
 _ZN13MethodHandles21load_klass_from_ClassEP14MacroAssembler8Register.exit263: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit262, %199
@@ -1635,11 +1635,11 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit270: ; preds = %237, %24
   br i1 %246, label %247, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit271
 
 247:                                              ; preds = %244
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 508, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 508, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit271
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit271: ; preds = %244, %247
-  call void @_ZN13MethodHandles23jump_from_method_handleEP14MacroAssembler8RegisterS2_b(ptr noundef %0, i32 3, i32 poison, i1 noundef zeroext %4)
+  call void @_ZN13MethodHandles23jump_from_method_handleEP14MacroAssembler8RegisterS2_b(ptr noundef nonnull %0, i32 3, i32 poison, i1 noundef zeroext %4)
   %248 = icmp eq i32 %1, 401
   br i1 %248, label %249, label %262
 
@@ -1649,7 +1649,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit271: ; preds = %244, %24
   br i1 %251, label %252, label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit272
 
 252:                                              ; preds = %249
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 512, ptr noundef %0) #7
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str.4, i32 noundef 512, ptr noundef nonnull %0) #7
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit272
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit272: ; preds = %249, %252

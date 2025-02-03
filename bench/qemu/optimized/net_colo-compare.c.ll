@@ -2264,7 +2264,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
   br i1 %tobool2.not, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %call4 = tail call ptr @g_queue_pop_tail(ptr noundef %conn) #16
+  %call4 = tail call ptr @g_queue_pop_tail(ptr noundef nonnull %conn) #16
   %call6 = tail call ptr @g_queue_find_custom(ptr noundef nonnull %secondary_list, ptr noundef %call4, ptr noundef %HandlePacket) #16
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %if.else, label %if.then
@@ -2274,7 +2274,7 @@ if.then:                                          ; preds = %while.body
   %0 = load ptr, ptr %call6, align 8
   tail call void @packet_destroy(ptr noundef %0, ptr noundef null) #16
   tail call void @g_queue_delete_link(ptr noundef nonnull %secondary_list, ptr noundef nonnull %call6) #16
-  %call = tail call i32 @g_queue_is_empty(ptr noundef %conn) #16
+  %call = tail call i32 @g_queue_is_empty(ptr noundef nonnull %conn) #16
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.rhs, label %while.end, !llvm.loop !19
 
@@ -2313,7 +2313,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_colo_compare_main.exit:                     ; preds = %if.else, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  tail call void @g_queue_push_tail(ptr noundef %conn, ptr noundef %call4) #16
+  tail call void @g_queue_push_tail(ptr noundef nonnull %conn, ptr noundef %call4) #16
   tail call fastcc void @colo_compare_inconsistency_notify(ptr noundef %s)
   br label %while.end
 
@@ -3183,7 +3183,7 @@ if.then8:                                         ; preds = %if.end5
   br i1 %tobool12.not, label %return, label %out
 
 out:                                              ; preds = %if.then8, %if.then
-  tail call fastcc void @colo_compare_inconsistency_notify(ptr noundef %s)
+  tail call fastcc void @colo_compare_inconsistency_notify(ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then8, %out

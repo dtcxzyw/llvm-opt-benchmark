@@ -92,7 +92,7 @@ common.resume:                                    ; preds = %_ZNSt15__allocated_
 lpad:                                             ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #15
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #15
   br label %common.resume
 
 if.end:                                           ; preds = %entry

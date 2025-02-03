@@ -742,7 +742,7 @@ _incr_script_cnt.exit:                            ; preds = %43, %37
   unreachable
 
 58:                                               ; preds = %53
-  %59 = call i32 @pthread_cond_wait(ptr noundef %.0, ptr noundef nonnull %54) #11
+  %59 = call i32 @pthread_cond_wait(ptr noundef nonnull %.0, ptr noundef nonnull %54) #11
   %.not21.i = icmp eq i32 %59, 0
   br i1 %.not21.i, label %63, label %60
 

@@ -355,7 +355,7 @@ RequiresSetenv.exit:                              ; preds = %92, %86, %75, %80
   ]
 
 123:                                              ; preds = %120, %120
-  call void @JLI_MemFree(ptr noundef %110) #12
+  call void @JLI_MemFree(ptr noundef nonnull %110) #12
   br label %141
 
 124:                                              ; preds = %116, %120

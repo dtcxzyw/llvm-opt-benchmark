@@ -1879,7 +1879,7 @@ for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i
 
 if.then6.i.i:                                     ; preds = %.noexc
   %add.ptr.i.i37 = getelementptr inbounds nuw i8, ptr %5, i64 1120
-  invoke void @_ZN5eastl14insertion_sortIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEENS_4lessIS5_EEEEvT_S9_T0_(ptr noundef %5, ptr noundef nonnull %add.ptr.i.i37)
+  invoke void @_ZN5eastl14insertion_sortIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEENS_4lessIS5_EEEEvT_S9_T0_(ptr noundef nonnull %5, ptr noundef nonnull %add.ptr.i.i37)
           to label %.noexc38 unwind label %lpad37.loopexit.split-lp
 
 .noexc38:                                         ; preds = %if.then6.i.i

@@ -173,7 +173,7 @@ define hidden void @_ZN7nanogui7TextureC2ERKNSt7__cxx1112basic_stringIcSt11char_
 42:                                               ; preds = %40
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #7
+  call void @__cxa_free_exception(ptr nonnull %41) #7
   br label %60
 
 44:                                               ; preds = %.invoke, %55, %switch.lookup
@@ -210,7 +210,7 @@ switch.lookup:                                    ; preds = %37
 53:                                               ; preds = %50
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %51) #7
+  call void @__cxa_free_exception(ptr nonnull %51) #7
   br label %60
 
 55:                                               ; preds = %47
@@ -331,7 +331,7 @@ define hidden noundef range(i64 1, 17) i64 @_ZNK7nanogui7Texture15bytes_per_pixe
 common.resume:                                    ; preds = %16, %8
   %.sink = phi ptr [ %14, %16 ], [ %6, %8 ]
   %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %9, %8 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #7
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #7
   resume { ptr, i32 } %common.resume.op
 
 8:                                                ; preds = %5
@@ -395,7 +395,7 @@ define hidden noundef range(i64 1, 5) i64 @_ZNK7nanogui7Texture8channelsEv(ptr n
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #7
+  tail call void @__cxa_free_exception(ptr nonnull %6) #7
   resume { ptr, i32 } %9
 
 switch.lookup:                                    ; preds = %1

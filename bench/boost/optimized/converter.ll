@@ -1379,7 +1379,7 @@ _ZN5boost6locale3utf10utf_traitsIwLi4EE6encodeISt20back_insert_iteratorINSt7__cx
 36:                                               ; preds = %.split.us
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %32) #17
+  call void @__cxa_free_exception(ptr nonnull %32) #17
   br label %.loopexit
 
 38:                                               ; preds = %31

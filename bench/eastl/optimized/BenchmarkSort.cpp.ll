@@ -9898,7 +9898,7 @@ for.body.i.i.i:                                   ; preds = %for.body41.i, %for.
 _ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i:        ; preds = %for.body.i.i.i
   %24 = shl nuw i32 %i.05.i.i.i, 1
   %mul.i.i = zext i32 %24 to i64
-  invoke void @_ZN5eastl8Internal22quick_sort_impl_helperIPjlNS_4lessIjEEKjEEvT_S6_T0_T1_(ptr noundef %begin.0512.i, ptr noundef nonnull %add.ptr.i, i64 noundef %mul.i.i)
+  invoke void @_ZN5eastl8Internal22quick_sort_impl_helperIPjlNS_4lessIjEEKjEEvT_S6_T0_T1_(ptr noundef nonnull %begin.0512.i, ptr noundef nonnull %add.ptr.i, i64 noundef %mul.i.i)
           to label %.noexc.i unwind label %lpad30.loopexit.split-lp.loopexit.i
 
 .noexc.i:                                         ; preds = %_ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i
@@ -10505,7 +10505,7 @@ call.i.i.i224.noexc.i:                            ; preds = %if.then.i223.i
   store ptr %call.i.i.i224227.i, ptr %first.addr.i.i.i.i.i, align 8
   %80 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i.i.i, i32 0, i64 %sub.ptr.div.i.i.i.i.i, ptr %call.i.i.i224227.i) #13, !srcloc !22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i.i.i)
-  %call.i.i13.i228.i = invoke noundef i32 @_ZN5eastl11MergeSorterIPjjNS_4lessIjEElLi16EE9sort_implES1_S1_S1_lS3_(ptr noundef %begin107.0504.i, ptr noundef nonnull %add.ptr113.i, ptr noundef %call.i.i.i224227.i, i64 noundef 0)
+  %call.i.i13.i228.i = invoke noundef i32 @_ZN5eastl11MergeSorterIPjjNS_4lessIjEElLi16EE9sort_implES1_S1_S1_lS3_(ptr noundef nonnull %begin107.0504.i, ptr noundef nonnull %add.ptr113.i, ptr noundef %call.i.i.i224227.i, i64 noundef 0)
           to label %call.i.i13.i.noexc.i unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 call.i.i13.i.noexc.i:                             ; preds = %call.i.i.i224.noexc.i
@@ -10513,7 +10513,7 @@ call.i.i13.i.noexc.i:                             ; preds = %call.i.i.i224.noexc
   br i1 %cmp.i.i.i225.not.i, label %if.end.i.i.i.i.i.i.i.i, label %_ZN5eastl17merge_sort_bufferIPjjNS_4lessIjEEEEvT_S4_PT0_T1_.exit.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %call.i.i13.i.noexc.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %begin107.0504.i, ptr align 4 %call.i.i.i224227.i, i64 %add.ptr205.idx.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %begin107.0504.i, ptr align 4 %call.i.i.i224227.i, i64 %add.ptr205.idx.i, i1 false)
   br label %_ZN5eastl17merge_sort_bufferIPjjNS_4lessIjEEEEvT_S4_PT0_T1_.exit.i.i
 
 _ZN5eastl17merge_sort_bufferIPjjNS_4lessIjEEEEvT_S4_PT0_T1_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i, %call.i.i13.i.noexc.i
@@ -10992,7 +10992,7 @@ for.body204.i:                                    ; preds = %invoke.cont198.i, %
 
 if.then.i450.i:                                   ; preds = %for.body204.i
   %sub.ptr.rhs.cast.i452.i = ptrtoint ptr %begin199.0492.i to i64
-  invoke void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIjEEEEEvT_S8_T0_T1_(ptr noundef %begin199.0492.i, ptr noundef nonnull %add.ptr205.i, i64 noundef %mul.i456.i)
+  invoke void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIjEEEEEvT_S8_T0_T1_(ptr noundef nonnull %begin199.0492.i, ptr noundef nonnull %add.ptr205.i, i64 noundef %mul.i456.i)
           to label %.noexc463.i unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc463.i:                                      ; preds = %if.then.i450.i
@@ -11168,7 +11168,7 @@ if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.
   br i1 %cmp1.not.i.i.i.i.i, label %if.then2.i.i396.i, label %while.body.i.i.i.i.i, !llvm.loop !42
 
 if.then2.i.i396.i:                                ; preds = %if.end4.i.i.i.i.i, %for.body219.i
-  invoke void @_ZSt21__inplace_stable_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIjEEEEEvT_S8_T0_(ptr noundef %begin214.0490.i, ptr noundef nonnull %add.ptr220.i)
+  invoke void @_ZSt21__inplace_stable_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIjEEEEEvT_S8_T0_(ptr noundef nonnull %begin214.0490.i, ptr noundef nonnull %add.ptr220.i)
           to label %if.end10.i.i.i unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.else.i.i397.i, %if.then2.i.i396.i
@@ -11179,7 +11179,7 @@ lpad.i.i.i:                                       ; preds = %if.else.i.i397.i, %
   br label %lpad30.body.i
 
 if.else.i.i397.i:                                 ; preds = %while.body.i.i.i.i.i
-  invoke void @_ZSt22__stable_sort_adaptiveIPjS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIjEEEEEvT_S8_T0_T1_T2_(ptr noundef %begin214.0490.i, ptr noundef nonnull %add.ptr220.i, ptr noundef nonnull %call.i.i.i.i.i, i64 noundef %storemerge27.i.i.i.i.i)
+  invoke void @_ZSt22__stable_sort_adaptiveIPjS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIjEEEEEvT_S8_T0_T1_T2_(ptr noundef nonnull %begin214.0490.i, ptr noundef nonnull %add.ptr220.i, ptr noundef nonnull %call.i.i.i.i.i, i64 noundef %storemerge27.i.i.i.i.i)
           to label %if.end10.i.i.i unwind label %lpad.i.i.i
 
 if.end10.i.i.i:                                   ; preds = %if.else.i.i397.i, %if.then2.i.i396.i
@@ -12665,7 +12665,7 @@ call.i.i.i218.noexc.i:                            ; preds = %if.then.i217.i
   br i1 %cmp.not.i.i.i.i188, label %_ZN5eastl17merge_sort_bufferIPiiN12_GLOBAL__N_111SlowCompareIiEEEEvT_S5_PT0_T1_.exit.i.i, label %if.end.i.i.i.i.i.i.i.i189
 
 if.end.i.i.i.i.i.i.i.i189:                        ; preds = %call.i.i.i218.noexc.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %begin104.0694.i, ptr align 4 %call.i.i.i218219.i, i64 %add.ptr202.idx.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %begin104.0694.i, ptr align 4 %call.i.i.i218219.i, i64 %add.ptr202.idx.i, i1 false)
   br label %_ZN5eastl17merge_sort_bufferIPiiN12_GLOBAL__N_111SlowCompareIiEEEEvT_S5_PT0_T1_.exit.i.i
 
 _ZN5eastl17merge_sort_bufferIPiiN12_GLOBAL__N_111SlowCompareIiEEEEvT_S5_PT0_T1_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i189, %call.i.i.i218.noexc.i
@@ -13731,7 +13731,7 @@ if.end4.i.i.i.i.i159:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp1.not.i.i.i.i.i160, label %if.then2.i.i403.i, label %while.body.i.i.i.i.i152, !llvm.loop !78
 
 if.then2.i.i403.i:                                ; preds = %if.end4.i.i.i.i.i159, %for.body216.i
-  invoke fastcc void @_ZSt21__inplace_stable_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEEvT_S8_T0_(ptr noundef %begin211.0680.i, ptr noundef nonnull %add.ptr217.i)
+  invoke fastcc void @_ZSt21__inplace_stable_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEEvT_S8_T0_(ptr noundef nonnull %begin211.0680.i, ptr noundef nonnull %add.ptr217.i)
           to label %if.end10.i.i.i149 unwind label %lpad.i.i.i147
 
 lpad.i.i.i147:                                    ; preds = %if.else.i.i404.i, %if.then2.i.i403.i
@@ -13742,7 +13742,7 @@ lpad.i.i.i147:                                    ; preds = %if.else.i.i404.i, %
   br label %lpad27.body.i
 
 if.else.i.i404.i:                                 ; preds = %while.body.i.i.i.i.i152
-  invoke fastcc void @_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEEvT_S8_T0_T1_T2_(ptr noundef %begin211.0680.i, ptr noundef nonnull %add.ptr217.i, ptr noundef nonnull %call.i.i.i.i.i157, i64 noundef %storemerge27.i.i.i.i.i155)
+  invoke fastcc void @_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEEvT_S8_T0_T1_T2_(ptr noundef nonnull %begin211.0680.i, ptr noundef nonnull %add.ptr217.i, ptr noundef nonnull %call.i.i.i.i.i157, i64 noundef %storemerge27.i.i.i.i.i155)
           to label %if.end10.i.i.i149 unwind label %lpad.i.i.i147
 
 if.end10.i.i.i149:                                ; preds = %if.else.i.i404.i, %if.then2.i.i403.i

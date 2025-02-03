@@ -8599,7 +8599,7 @@ _ZN3hir9semantics13SemanticsImpl16wrap_node_infile17heabd0ab192a5fa52E.llvm.1168
   %26 = extractvalue { ptr, i32 } %15, 1
   %27 = extractvalue { ptr, ptr } %24, 0
   %28 = extractvalue { ptr, ptr } %24, 1
-  %29 = call { ptr, i32 } @"_ZN10hir_expand5files40InFileWrapper$LT$span..HirFileId$C$N$GT$24original_ast_node_rooted17h82d59bce463a4911E"(ptr noundef nonnull %18, i32 noundef %26, ptr noundef nonnull align 1 %27, ptr noalias noundef readonly align 8 dereferenceable(24) %28)
+  %29 = call { ptr, i32 } @"_ZN10hir_expand5files40InFileWrapper$LT$span..HirFileId$C$N$GT$24original_ast_node_rooted17h82d59bce463a4911E"(ptr noundef nonnull %18, i32 noundef %26, ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = icmp eq ptr %30, null
   br i1 %31, label %60, label %32
@@ -8758,7 +8758,7 @@ _ZN3hir9semantics13SemanticsImpl16wrap_node_infile17ha8f31eabb8199d10E.llvm.1168
 27:                                               ; preds = %_ZN3hir9semantics13SemanticsImpl16wrap_node_infile17ha8f31eabb8199d10E.llvm.11687988487834292117.exit
   %28 = extractvalue { ptr, ptr } %26, 0
   %29 = extractvalue { ptr, ptr } %26, 1
-  call void @"_ZN10hir_expand5files40InFileWrapper$LT$span..HirFileId$C$N$GT$24original_ast_node_rooted17hf522330b0c29c2b9E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 1 %28, ptr noalias noundef readonly align 8 dereferenceable(24) %29)
+  call void @"_ZN10hir_expand5files40InFileWrapper$LT$span..HirFileId$C$N$GT$24original_ast_node_rooted17hf522330b0c29c2b9E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %30 = load i64, ptr %7, align 8, !range !1393, !noundef !10
   %31 = icmp eq i64 %30, 36
@@ -14648,7 +14648,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9ed2b62a2b6f04beE.exit": ; preds = %51
   %53 = extractvalue { ptr, ptr } %29, 1
   %54 = extractvalue { ptr, ptr } %29, 0
-  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %14, ptr noundef nonnull align 1 %54, ptr noalias noundef readonly align 8 dereferenceable(24) %53, i64 %52)
+  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %14, ptr noundef nonnull align 1 %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %53, i64 %52)
           to label %55 unwind label %25
 
 55:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9ed2b62a2b6f04beE.exit"
@@ -15300,7 +15300,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 51:                                               ; preds = %_ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit
   %52 = extractvalue { ptr, ptr } %29, 1
   %53 = extractvalue { ptr, ptr } %29, 0
-  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %14, ptr noundef nonnull align 1 %53, ptr noalias noundef readonly align 8 dereferenceable(24) %52, i64 %3)
+  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %14, ptr noundef nonnull align 1 %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52, i64 %3)
           to label %54 unwind label %25
 
 54:                                               ; preds = %51
@@ -15956,7 +15956,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3210230c6b10a58cE.exit": ; preds = %51
   %53 = extractvalue { ptr, ptr } %29, 1
   %54 = extractvalue { ptr, ptr } %29, 0
-  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %14, ptr noundef nonnull align 1 %54, ptr noalias noundef readonly align 8 dereferenceable(24) %53, i64 %52)
+  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %14, ptr noundef nonnull align 1 %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %53, i64 %52)
           to label %55 unwind label %25
 
 55:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3210230c6b10a58cE.exit"

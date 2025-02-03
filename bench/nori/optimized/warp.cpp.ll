@@ -110,7 +110,7 @@ define hidden void @_ZN4nori4Warp12squareToTentERKNS_6TPointIfLi2EEE(ptr dead_on
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #12
+  tail call void @__cxa_free_exception(ptr nonnull %3) #12
   resume { ptr, i32 } %6
 }
 
@@ -183,7 +183,7 @@ define hidden noundef float @_ZN4nori4Warp15squareToTentPdfERKNS_6TPointIfLi2EEE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #12
+  tail call void @__cxa_free_exception(ptr nonnull %2) #12
   resume { ptr, i32 } %5
 }
 
@@ -200,7 +200,7 @@ define hidden void @_ZN4nori4Warp19squareToUniformDiskERKNS_6TPointIfLi2EEE(ptr 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #12
+  tail call void @__cxa_free_exception(ptr nonnull %3) #12
   resume { ptr, i32 } %6
 }
 
@@ -217,7 +217,7 @@ define hidden noundef float @_ZN4nori4Warp22squareToUniformDiskPdfERKNS_6TPointI
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #12
+  tail call void @__cxa_free_exception(ptr nonnull %2) #12
   resume { ptr, i32 } %5
 }
 
@@ -234,7 +234,7 @@ define hidden void @_ZN4nori4Warp21squareToUniformSphereERKNS_6TPointIfLi2EEE(pt
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #12
+  tail call void @__cxa_free_exception(ptr nonnull %3) #12
   resume { ptr, i32 } %6
 }
 
@@ -251,7 +251,7 @@ define hidden noundef float @_ZN4nori4Warp24squareToUniformSpherePdfERKNS_7TVect
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #12
+  tail call void @__cxa_free_exception(ptr nonnull %2) #12
   resume { ptr, i32 } %5
 }
 
@@ -268,7 +268,7 @@ define hidden void @_ZN4nori4Warp25squareToUniformHemisphereERKNS_6TPointIfLi2EE
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #12
+  tail call void @__cxa_free_exception(ptr nonnull %3) #12
   resume { ptr, i32 } %6
 }
 
@@ -285,7 +285,7 @@ define hidden noundef float @_ZN4nori4Warp28squareToUniformHemispherePdfERKNS_7T
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #12
+  tail call void @__cxa_free_exception(ptr nonnull %2) #12
   resume { ptr, i32 } %5
 }
 
@@ -302,7 +302,7 @@ define hidden void @_ZN4nori4Warp24squareToCosineHemisphereERKNS_6TPointIfLi2EEE
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #12
+  tail call void @__cxa_free_exception(ptr nonnull %3) #12
   resume { ptr, i32 } %6
 }
 
@@ -319,7 +319,7 @@ define hidden noundef float @_ZN4nori4Warp27squareToCosineHemispherePdfERKNS_7TV
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #12
+  tail call void @__cxa_free_exception(ptr nonnull %2) #12
   resume { ptr, i32 } %5
 }
 
@@ -336,7 +336,7 @@ define hidden void @_ZN4nori4Warp16squareToBeckmannERKNS_6TPointIfLi2EEEf(ptr de
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #12
+  tail call void @__cxa_free_exception(ptr nonnull %4) #12
   resume { ptr, i32 } %7
 }
 
@@ -353,7 +353,7 @@ define hidden noundef float @_ZN4nori4Warp19squareToBeckmannPdfERKNS_7TVectorIfL
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #12
+  tail call void @__cxa_free_exception(ptr nonnull %3) #12
   resume { ptr, i32 } %6
 }
 

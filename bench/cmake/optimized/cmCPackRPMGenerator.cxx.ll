@@ -1749,7 +1749,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 
 142:                                              ; preds = %.critedge209
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
-  %143 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0388.0486) #19
+  %143 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0388.0486) #19
   %.not413 = icmp eq ptr %143, %90
   br i1 %.not413, label %.loopexit442, label %.lr.ph488, !llvm.loop !19
 
@@ -1879,7 +1879,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 
 183:                                              ; preds = %.critedge211
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
-  %184 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0383.0480) #19
+  %184 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0383.0480) #19
   %.not411 = icmp eq ptr %184, %148
   br i1 %.not411, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
@@ -2023,7 +2023,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
   br label %.loopexit.split-lp
 
 229:                                              ; preds = %214, %.lr.ph484
-  %230 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0377.0482) #19
+  %230 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0377.0482) #19
   %.not412 = icmp eq ptr %230, %188
   br i1 %.not412, label %.loopexit442, label %.lr.ph484, !llvm.loop !21
 
@@ -2925,7 +2925,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit330:             ; preds = %509
 
 513:                                              ; preds = %_ZN10cmCPackLog3LogEiPKciS1_.exit330
   %514 = and i32 %512, %.9520
-  %515 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0345.0519) #19
+  %515 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0345.0519) #19
   %.not415 = icmp eq ptr %515, %497
   br i1 %.not415, label %._crit_edge523, label %499, !llvm.loop !25
 
@@ -3062,7 +3062,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit332:             ; preds = %546
 
 565:                                              ; preds = %.lr.ph535
   %566 = and i32 %564, %.12533
-  %567 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0335.0532) #19
+  %567 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0335.0532) #19
   %.not417 = icmp eq ptr %567, %562
   br i1 %.not417, label %.loopexit, label %.lr.ph535, !llvm.loop !27
 

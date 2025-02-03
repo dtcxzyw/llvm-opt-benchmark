@@ -278,7 +278,7 @@ gv_calloc.exit224.i:                              ; preds = %gv_calloc.exit.i
   %129 = shl nuw i64 %122, 3
   %130 = icmp ne i64 %122, 0
   call void @llvm.assume(i1 %130)
-  %131 = call ptr @realloc(ptr noundef %.0167230.us277.i, i64 noundef range(i64 0, -7) %129) #20
+  %131 = call ptr @realloc(ptr noundef nonnull %.0167230.us277.i, i64 noundef range(i64 0, -7) %129) #20
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %136
 
@@ -371,7 +371,7 @@ gv_recalloc.exit115:                              ; preds = %138, %136, %115
   %175 = shl nuw i64 %168, 3
   %176 = icmp ne i64 %168, 0
   call void @llvm.assume(i1 %176)
-  %177 = call ptr @realloc(ptr noundef %.0167230265.i, i64 noundef range(i64 0, -7) %175) #20
+  %177 = call ptr @realloc(ptr noundef nonnull %.0167230265.i, i64 noundef range(i64 0, -7) %175) #20
   %178 = icmp eq ptr %177, null
   br i1 %178, label %179, label %182
 
@@ -431,7 +431,7 @@ gv_recalloc.exit113:                              ; preds = %184, %182, %161
   %205 = shl nuw i64 %198, 3
   %206 = icmp ne i64 %198, 0
   call void @llvm.assume(i1 %206)
-  %207 = call ptr @realloc(ptr noundef %.0167.lcssa.i, i64 noundef range(i64 0, -7) %205) #20
+  %207 = call ptr @realloc(ptr noundef nonnull %.0167.lcssa.i, i64 noundef range(i64 0, -7) %205) #20
   %208 = icmp eq ptr %207, null
   br i1 %208, label %209, label %212
 
@@ -550,11 +550,11 @@ gv_recalloc.exit111:                              ; preds = %214, %212, %.crited
   br i1 %256, label %257, label %258
 
 257:                                              ; preds = %253
-  call void @free(ptr noundef %.0165292.i175) #14
+  call void @free(ptr noundef nonnull %.0165292.i175) #14
   br label %gv_recalloc.exit109
 
 258:                                              ; preds = %253
-  %259 = call ptr @realloc(ptr noundef %.0165292.i175, i64 noundef range(i64 0, -7) %255) #20
+  %259 = call ptr @realloc(ptr noundef nonnull %.0165292.i175, i64 noundef range(i64 0, -7) %255) #20
   %260 = icmp eq ptr %259, null
   br i1 %260, label %261, label %264
 
@@ -617,7 +617,7 @@ gv_recalloc.exit109:                              ; preds = %266, %264, %257, %2
   %288 = shl nuw i64 %281, 3
   %289 = icmp ne i64 %281, 0
   call void @llvm.assume(i1 %289)
-  %290 = call ptr @realloc(ptr noundef %.0165292.i.lcssa, i64 noundef range(i64 0, -7) %288) #20
+  %290 = call ptr @realloc(ptr noundef nonnull %.0165292.i.lcssa, i64 noundef range(i64 0, -7) %288) #20
   %291 = icmp eq ptr %290, null
   br i1 %291, label %292, label %295
 

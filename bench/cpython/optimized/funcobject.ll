@@ -4788,7 +4788,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @func_get_annotations(ptr noundef captures(none) %op, ptr readnone captures(none) %_unused_ignored) #0 {
+define internal noundef ptr @func_get_annotations(ptr noundef captures(none) %op, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %func_annotations = getelementptr inbounds nuw i8, ptr %op, i64 112
   %0 = load ptr, ptr %func_annotations, align 8
@@ -4806,7 +4806,7 @@ if.end.i:                                         ; preds = %entry, %if.then
   %2 = getelementptr i8, ptr %1, i64 8
   %.val15.i = load ptr, ptr %2, align 8
   %cmp.i16.not.i = icmp eq ptr %.val15.i, @PyTuple_Type
-  br i1 %cmp.i16.not.i, label %if.then2.i, label %func_get_annotation_dict.exitthread-pre-split
+  br i1 %cmp.i16.not.i, label %if.then2.i, label %func_get_annotation_dict.exit
 
 if.then2.i:                                       ; preds = %if.end.i
   %call4.i = tail call ptr @PyDict_New() #7
@@ -4846,28 +4846,25 @@ do.body.i:                                        ; preds = %for.cond.i, %for.co
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 2147483648
   %cmp.i21.not.i = icmp eq i64 %8, 0
-  br i1 %cmp.i21.not.i, label %if.end.i.i, label %func_get_annotation_dict.exit
+  br i1 %cmp.i21.not.i, label %if.end.i.i, label %if.then.i.i
 
 if.end.i.i:                                       ; preds = %do.body.i
   %dec.i.i = add i64 %7, -1
   store i64 %dec.i.i, ptr %6, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %func_get_annotation_dict.exitthread-pre-split
+  br i1 %cmp.i.i, label %if.then1.i.i, label %func_get_annotation_dict.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %6) #7
-  br label %func_get_annotation_dict.exitthread-pre-split
-
-func_get_annotation_dict.exitthread-pre-split:    ; preds = %if.then1.i.i, %if.end.i.i, %if.end.i
-  %.pr = load ptr, ptr %func_annotations, align 8
   br label %func_get_annotation_dict.exit
 
-func_get_annotation_dict.exit:                    ; preds = %func_get_annotation_dict.exitthread-pre-split, %do.body.i
-  %9 = phi ptr [ %.pr, %func_get_annotation_dict.exitthread-pre-split ], [ %call4.i, %do.body.i ]
-  %cmp.not.i.i = icmp eq ptr %9, null
+func_get_annotation_dict.exit:                    ; preds = %if.end.i, %if.end.i.i, %if.then1.i.i
+  %.pr = load ptr, ptr %func_annotations, align 8
+  %cmp.not.i.i = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %func_get_annotation_dict.exit
+if.then.i.i:                                      ; preds = %do.body.i, %func_get_annotation_dict.exit
+  %9 = phi ptr [ %.pr, %func_get_annotation_dict.exit ], [ %call4.i, %do.body.i ]
   %10 = load i32, ptr %9, align 8
   %add.i.i.i = add i32 %10, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0

@@ -627,7 +627,7 @@ if.end:                                           ; preds = %entry
   %scratch_buffer_2 = getelementptr inbounds nuw i8, ptr %decode, i64 176
   %scratch_alloc_size_2 = getelementptr inbounds nuw i8, ptr %decode, i64 184
   %add = add i64 %call, 139264
-  %call2 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %decode, i32 noundef 4, ptr noundef nonnull %scratch_buffer_2, ptr noundef nonnull %scratch_alloc_size_2, i64 noundef %add) #5
+  %call2 = tail call i32 @internal_decode_alloc_buffer(ptr noundef nonnull %decode, i32 noundef 4, ptr noundef nonnull %scratch_buffer_2, ptr noundef nonnull %scratch_alloc_size_2, i64 noundef %add) #5
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %if.end5, label %return
 
@@ -733,7 +733,7 @@ if.end54:                                         ; preds = %if.end45
   %6 = load ptr, ptr %scratch_buffer_1, align 8
   %add.ptr56 = getelementptr inbounds nuw i8, ptr %src, i64 %add41
   %div102 = lshr i64 %outsz, 1
-  %call58 = tail call i32 @internal_huf_decompress(ptr noundef %decode, ptr noundef nonnull %add.ptr56, i64 noundef %conv49, ptr noundef %6, i64 noundef %div102, ptr noundef nonnull %0, i64 noundef %call) #5
+  %call58 = tail call i32 @internal_huf_decompress(ptr noundef nonnull %decode, ptr noundef nonnull %add.ptr56, i64 noundef %conv49, ptr noundef %6, i64 noundef %div102, ptr noundef nonnull %0, i64 noundef %call) #5
   %cmp59.not = icmp eq i32 %call58, 0
   br i1 %cmp59.not, label %if.end62, label %return
 

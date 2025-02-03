@@ -178,7 +178,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i45
 
 if.then.i45:                                      ; preds = %if.end5
-  call void @malloc_mutex_lock_slow(ptr noundef %add.ptr.i) #3
+  call void @malloc_mutex_lock_slow(ptr noundef nonnull %add.ptr.i) #3
   %locked.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 104
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i

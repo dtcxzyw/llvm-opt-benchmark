@@ -238,7 +238,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i89, %51
 71:                                               ; preds = %67
   %72 = load ptr, ptr @prte_tool_basename, align 8
   %73 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 0, ptr noundef %72, ptr noundef nonnull %68, ptr noundef %72) #9
-  tail call void @free(ptr noundef %68) #9
+  tail call void @free(ptr noundef nonnull %68) #9
   %.not83 = icmp eq ptr %73, null
   br i1 %.not83, label %145, label %74
 
@@ -248,7 +248,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i89, %51
   br label %145
 
 76:                                               ; preds = %67
-  tail call void @free(ptr noundef %68) #9
+  tail call void @free(ptr noundef nonnull %68) #9
   br label %77
 
 77:                                               ; preds = %65, %76

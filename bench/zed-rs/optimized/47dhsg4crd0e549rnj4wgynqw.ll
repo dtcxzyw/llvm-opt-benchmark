@@ -93200,7 +93200,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h0b356b770ed41
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %19
+  br i1 %18, label %45, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -93221,10 +93221,10 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h0b356b770ed41
   %33 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %30)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = icmp ne i64 %34, 7366064318087714227
-  %37 = icmp ne i64 %35, 6641448495039534262
-  %.sroa.0.0.i.i.not42 = select i1 %36, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.i.not42, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %45
+  %36 = icmp eq i64 %34, 7366064318087714227
+  %37 = icmp eq i64 %35, 6641448495039534262
+  %.sroa.0.0.i.i = select i1 %36, i1 %37, i1 false
+  br i1 %.sroa.0.0.i.i, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit", label %45
 
 38:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -93254,21 +93254,21 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h0b356b770ed41
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.233) #40
   unreachable
 
-"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread": ; preds = %19, %16
+45:                                               ; preds = %16, %19
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.226) #40
   unreachable
 
-45:                                               ; preds = %19
+"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit": ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %46 = cmpxchg ptr %30, i32 0, i32 1 acquire monotonic, align 4, !noalias !21373
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i, label %48, label %47
 
-47:                                               ; preds = %45
+47:                                               ; preds = %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %30), !noalias !21373
   br label %48
 
-48:                                               ; preds = %47, %45
+48:                                               ; preds = %47, %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   %49 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE monotonic, align 8, !noalias !21373
   %50 = and i64 %49, 9223372036854775807
   %51 = icmp eq i64 %50, 0
@@ -93457,7 +93457,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h253020b7ed4e3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %19
+  br i1 %18, label %45, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -93478,10 +93478,10 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h253020b7ed4e3
   %33 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %30)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = icmp ne i64 %34, 7366064318087714227
-  %37 = icmp ne i64 %35, 6641448495039534262
-  %.sroa.0.0.i.i.not42 = select i1 %36, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.i.not42, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %45
+  %36 = icmp eq i64 %34, 7366064318087714227
+  %37 = icmp eq i64 %35, 6641448495039534262
+  %.sroa.0.0.i.i = select i1 %36, i1 %37, i1 false
+  br i1 %.sroa.0.0.i.i, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit", label %45
 
 38:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -93511,21 +93511,21 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h253020b7ed4e3
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.233) #40
   unreachable
 
-"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread": ; preds = %19, %16
+45:                                               ; preds = %16, %19
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.226) #40
   unreachable
 
-45:                                               ; preds = %19
+"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit": ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %46 = cmpxchg ptr %30, i32 0, i32 1 acquire monotonic, align 4, !noalias !21416
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i, label %48, label %47
 
-47:                                               ; preds = %45
+47:                                               ; preds = %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %30), !noalias !21416
   br label %48
 
-48:                                               ; preds = %47, %45
+48:                                               ; preds = %47, %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   %49 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE monotonic, align 8, !noalias !21416
   %50 = and i64 %49, 9223372036854775807
   %51 = icmp eq i64 %50, 0
@@ -93714,7 +93714,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h4b62fd2df2bca
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %19
+  br i1 %18, label %45, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -93735,10 +93735,10 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h4b62fd2df2bca
   %33 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %30)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = icmp ne i64 %34, 7366064318087714227
-  %37 = icmp ne i64 %35, 6641448495039534262
-  %.sroa.0.0.i.i.not42 = select i1 %36, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.i.not42, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %45
+  %36 = icmp eq i64 %34, 7366064318087714227
+  %37 = icmp eq i64 %35, 6641448495039534262
+  %.sroa.0.0.i.i = select i1 %36, i1 %37, i1 false
+  br i1 %.sroa.0.0.i.i, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit", label %45
 
 38:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -93768,21 +93768,21 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h4b62fd2df2bca
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.233) #40
   unreachable
 
-"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread": ; preds = %19, %16
+45:                                               ; preds = %16, %19
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.226) #40
   unreachable
 
-45:                                               ; preds = %19
+"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit": ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %46 = cmpxchg ptr %30, i32 0, i32 1 acquire monotonic, align 4, !noalias !21459
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i, label %48, label %47
 
-47:                                               ; preds = %45
+47:                                               ; preds = %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %30), !noalias !21459
   br label %48
 
-48:                                               ; preds = %47, %45
+48:                                               ; preds = %47, %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   %49 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE monotonic, align 8, !noalias !21459
   %50 = and i64 %49, 9223372036854775807
   %51 = icmp eq i64 %50, 0
@@ -93971,7 +93971,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h5644f1ad6cca6
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %19
+  br i1 %18, label %45, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -93992,10 +93992,10 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h5644f1ad6cca6
   %33 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %30)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = icmp ne i64 %34, 7366064318087714227
-  %37 = icmp ne i64 %35, 6641448495039534262
-  %.sroa.0.0.i.i.not42 = select i1 %36, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.i.not42, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %45
+  %36 = icmp eq i64 %34, 7366064318087714227
+  %37 = icmp eq i64 %35, 6641448495039534262
+  %.sroa.0.0.i.i = select i1 %36, i1 %37, i1 false
+  br i1 %.sroa.0.0.i.i, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit", label %45
 
 38:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -94025,21 +94025,21 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h5644f1ad6cca6
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.233) #40
   unreachable
 
-"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread": ; preds = %19, %16
+45:                                               ; preds = %16, %19
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.226) #40
   unreachable
 
-45:                                               ; preds = %19
+"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit": ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %46 = cmpxchg ptr %30, i32 0, i32 1 acquire monotonic, align 4, !noalias !21502
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i, label %48, label %47
 
-47:                                               ; preds = %45
+47:                                               ; preds = %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %30), !noalias !21502
   br label %48
 
-48:                                               ; preds = %47, %45
+48:                                               ; preds = %47, %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   %49 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE monotonic, align 8, !noalias !21502
   %50 = and i64 %49, 9223372036854775807
   %51 = icmp eq i64 %50, 0
@@ -94228,7 +94228,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h84ca92a0cb156
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %19
+  br i1 %18, label %45, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -94249,10 +94249,10 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h84ca92a0cb156
   %33 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %30)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = icmp ne i64 %34, 7366064318087714227
-  %37 = icmp ne i64 %35, 6641448495039534262
-  %.sroa.0.0.i.i.not42 = select i1 %36, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.i.not42, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %45
+  %36 = icmp eq i64 %34, 7366064318087714227
+  %37 = icmp eq i64 %35, 6641448495039534262
+  %.sroa.0.0.i.i = select i1 %36, i1 %37, i1 false
+  br i1 %.sroa.0.0.i.i, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit", label %45
 
 38:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -94282,21 +94282,21 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h84ca92a0cb156
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.233) #40
   unreachable
 
-"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread": ; preds = %19, %16
+45:                                               ; preds = %16, %19
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.226) #40
   unreachable
 
-45:                                               ; preds = %19
+"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit": ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %46 = cmpxchg ptr %30, i32 0, i32 1 acquire monotonic, align 4, !noalias !21545
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i, label %48, label %47
 
-47:                                               ; preds = %45
+47:                                               ; preds = %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %30), !noalias !21545
   br label %48
 
-48:                                               ; preds = %47, %45
+48:                                               ; preds = %47, %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   %49 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE monotonic, align 8, !noalias !21545
   %50 = and i64 %49, 9223372036854775807
   %51 = icmp eq i64 %50, 0
@@ -94485,7 +94485,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h917ce151b194c
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %19
+  br i1 %18, label %45, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -94506,10 +94506,10 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h917ce151b194c
   %33 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %30)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = icmp ne i64 %34, 7366064318087714227
-  %37 = icmp ne i64 %35, 6641448495039534262
-  %.sroa.0.0.i.i.not42 = select i1 %36, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.i.not42, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %45
+  %36 = icmp eq i64 %34, 7366064318087714227
+  %37 = icmp eq i64 %35, 6641448495039534262
+  %.sroa.0.0.i.i = select i1 %36, i1 %37, i1 false
+  br i1 %.sroa.0.0.i.i, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit", label %45
 
 38:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -94539,21 +94539,21 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h917ce151b194c
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.233) #40
   unreachable
 
-"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread": ; preds = %19, %16
+45:                                               ; preds = %16, %19
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.226) #40
   unreachable
 
-45:                                               ; preds = %19
+"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit": ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %46 = cmpxchg ptr %30, i32 0, i32 1 acquire monotonic, align 4, !noalias !21588
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i, label %48, label %47
 
-47:                                               ; preds = %45
+47:                                               ; preds = %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %30), !noalias !21588
   br label %48
 
-48:                                               ; preds = %47, %45
+48:                                               ; preds = %47, %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   %49 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE monotonic, align 8, !noalias !21588
   %50 = and i64 %49, 9223372036854775807
   %51 = icmp eq i64 %50, 0
@@ -94742,7 +94742,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h9941766819ac9
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %19
+  br i1 %18, label %45, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -94763,10 +94763,10 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h9941766819ac9
   %33 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %30)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = icmp ne i64 %34, 7366064318087714227
-  %37 = icmp ne i64 %35, 6641448495039534262
-  %.sroa.0.0.i.i.not42 = select i1 %36, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.i.not42, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %45
+  %36 = icmp eq i64 %34, 7366064318087714227
+  %37 = icmp eq i64 %35, 6641448495039534262
+  %.sroa.0.0.i.i = select i1 %36, i1 %37, i1 false
+  br i1 %.sroa.0.0.i.i, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit", label %45
 
 38:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -94796,21 +94796,21 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h9941766819ac9
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.233) #40
   unreachable
 
-"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread": ; preds = %19, %16
+45:                                               ; preds = %16, %19
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.226) #40
   unreachable
 
-45:                                               ; preds = %19
+"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit": ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %46 = cmpxchg ptr %30, i32 0, i32 1 acquire monotonic, align 4, !noalias !21631
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i, label %48, label %47
 
-47:                                               ; preds = %45
+47:                                               ; preds = %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %30), !noalias !21631
   br label %48
 
-48:                                               ; preds = %47, %45
+48:                                               ; preds = %47, %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   %49 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE monotonic, align 8, !noalias !21631
   %50 = and i64 %49, 9223372036854775807
   %51 = icmp eq i64 %50, 0
@@ -94999,7 +94999,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17ha2fa347ae666f
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %19
+  br i1 %18, label %45, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -95020,10 +95020,10 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17ha2fa347ae666f
   %33 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %30)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = icmp ne i64 %34, 7366064318087714227
-  %37 = icmp ne i64 %35, 6641448495039534262
-  %.sroa.0.0.i.i.not42 = select i1 %36, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.i.not42, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %45
+  %36 = icmp eq i64 %34, 7366064318087714227
+  %37 = icmp eq i64 %35, 6641448495039534262
+  %.sroa.0.0.i.i = select i1 %36, i1 %37, i1 false
+  br i1 %.sroa.0.0.i.i, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit", label %45
 
 38:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -95053,21 +95053,21 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17ha2fa347ae666f
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.233) #40
   unreachable
 
-"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread": ; preds = %19, %16
+45:                                               ; preds = %16, %19
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.226) #40
   unreachable
 
-45:                                               ; preds = %19
+"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit": ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %46 = cmpxchg ptr %30, i32 0, i32 1 acquire monotonic, align 4, !noalias !21674
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i, label %48, label %47
 
-47:                                               ; preds = %45
+47:                                               ; preds = %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %30), !noalias !21674
   br label %48
 
-48:                                               ; preds = %47, %45
+48:                                               ; preds = %47, %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   %49 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE monotonic, align 8, !noalias !21674
   %50 = and i64 %49, 9223372036854775807
   %51 = icmp eq i64 %50, 0
@@ -95256,7 +95256,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17ha858f1dbc6cd7
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %19
+  br i1 %18, label %45, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -95277,10 +95277,10 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17ha858f1dbc6cd7
   %33 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %30)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = icmp ne i64 %34, 7366064318087714227
-  %37 = icmp ne i64 %35, 6641448495039534262
-  %.sroa.0.0.i.i.not42 = select i1 %36, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.i.not42, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %45
+  %36 = icmp eq i64 %34, 7366064318087714227
+  %37 = icmp eq i64 %35, 6641448495039534262
+  %.sroa.0.0.i.i = select i1 %36, i1 %37, i1 false
+  br i1 %.sroa.0.0.i.i, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit", label %45
 
 38:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -95310,21 +95310,21 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17ha858f1dbc6cd7
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.233) #40
   unreachable
 
-"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread": ; preds = %19, %16
+45:                                               ; preds = %16, %19
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.226) #40
   unreachable
 
-45:                                               ; preds = %19
+"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit": ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %46 = cmpxchg ptr %30, i32 0, i32 1 acquire monotonic, align 4, !noalias !21717
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i, label %48, label %47
 
-47:                                               ; preds = %45
+47:                                               ; preds = %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %30), !noalias !21717
   br label %48
 
-48:                                               ; preds = %47, %45
+48:                                               ; preds = %47, %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   %49 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE monotonic, align 8, !noalias !21717
   %50 = and i64 %49, 9223372036854775807
   %51 = icmp eq i64 %50, 0
@@ -95513,7 +95513,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hb374a135d9ed0
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %19
+  br i1 %18, label %45, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -95534,10 +95534,10 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hb374a135d9ed0
   %33 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %30)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = icmp ne i64 %34, 7366064318087714227
-  %37 = icmp ne i64 %35, 6641448495039534262
-  %.sroa.0.0.i.i.not42 = select i1 %36, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.i.not42, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %45
+  %36 = icmp eq i64 %34, 7366064318087714227
+  %37 = icmp eq i64 %35, 6641448495039534262
+  %.sroa.0.0.i.i = select i1 %36, i1 %37, i1 false
+  br i1 %.sroa.0.0.i.i, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit", label %45
 
 38:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -95567,21 +95567,21 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hb374a135d9ed0
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.233) #40
   unreachable
 
-"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread": ; preds = %19, %16
+45:                                               ; preds = %16, %19
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.226) #40
   unreachable
 
-45:                                               ; preds = %19
+"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit": ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %46 = cmpxchg ptr %30, i32 0, i32 1 acquire monotonic, align 4, !noalias !21760
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i, label %48, label %47
 
-47:                                               ; preds = %45
+47:                                               ; preds = %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %30), !noalias !21760
   br label %48
 
-48:                                               ; preds = %47, %45
+48:                                               ; preds = %47, %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   %49 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE monotonic, align 8, !noalias !21760
   %50 = and i64 %49, 9223372036854775807
   %51 = icmp eq i64 %50, 0
@@ -95770,7 +95770,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hc4bf4eabec51e
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %19
+  br i1 %18, label %45, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -95791,10 +95791,10 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hc4bf4eabec51e
   %33 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %30)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = icmp ne i64 %34, 7366064318087714227
-  %37 = icmp ne i64 %35, 6641448495039534262
-  %.sroa.0.0.i.i.not42 = select i1 %36, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.i.not42, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %45
+  %36 = icmp eq i64 %34, 7366064318087714227
+  %37 = icmp eq i64 %35, 6641448495039534262
+  %.sroa.0.0.i.i = select i1 %36, i1 %37, i1 false
+  br i1 %.sroa.0.0.i.i, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit", label %45
 
 38:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -95824,21 +95824,21 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hc4bf4eabec51e
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.233) #40
   unreachable
 
-"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread": ; preds = %19, %16
+45:                                               ; preds = %16, %19
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.226) #40
   unreachable
 
-45:                                               ; preds = %19
+"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit": ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %46 = cmpxchg ptr %30, i32 0, i32 1 acquire monotonic, align 4, !noalias !21803
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i, label %48, label %47
 
-47:                                               ; preds = %45
+47:                                               ; preds = %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %30), !noalias !21803
   br label %48
 
-48:                                               ; preds = %47, %45
+48:                                               ; preds = %47, %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   %49 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE monotonic, align 8, !noalias !21803
   %50 = and i64 %49, 9223372036854775807
   %51 = icmp eq i64 %50, 0
@@ -96027,7 +96027,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hf367d95ea2e3e
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %19
+  br i1 %18, label %45, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -96048,10 +96048,10 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hf367d95ea2e3e
   %33 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %30)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = icmp ne i64 %34, 7366064318087714227
-  %37 = icmp ne i64 %35, 6641448495039534262
-  %.sroa.0.0.i.i.not42 = select i1 %36, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.i.not42, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread", label %45
+  %36 = icmp eq i64 %34, 7366064318087714227
+  %37 = icmp eq i64 %35, 6641448495039534262
+  %.sroa.0.0.i.i = select i1 %36, i1 %37, i1 false
+  br i1 %.sroa.0.0.i.i, label %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit", label %45
 
 38:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -96081,21 +96081,21 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hf367d95ea2e3e
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.233) #40
   unreachable
 
-"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit.thread": ; preds = %19, %16
+45:                                               ; preds = %16, %19
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.226) #40
   unreachable
 
-45:                                               ; preds = %19
+"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit": ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %46 = cmpxchg ptr %30, i32 0, i32 1 acquire monotonic, align 4, !noalias !21846
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %46, 1
   br i1 %.sroa.18.0.in.i.i, label %48, label %47
 
-47:                                               ; preds = %45
+47:                                               ; preds = %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %30), !noalias !21846
   br label %48
 
-48:                                               ; preds = %47, %45
+48:                                               ; preds = %47, %"_ZN91_$LT$wayland_client..protocol..wl_registry..WlRegistry$u20$as$u20$wayland_client..Proxy$GT$4data17h8cb74dba12d74136E.exit"
   %49 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE monotonic, align 8, !noalias !21846
   %50 = and i64 %49, 9223372036854775807
   %51 = icmp eq i64 %50, 0
@@ -137366,7 +137366,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.2840939845381089846.exit.
   %82 = getelementptr i8, ptr %81, i64 %.idx29.i
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %84 = load i64, ptr %83, align 8, !noalias !30584, !noundef !4
-  invoke void @"_ZN4slab13Slab$LT$T$GT$9insert_at17h4714d394b4127a6bE"(ptr noalias noundef align 8 dereferenceable(40) %82, i64 noundef %84, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) null, ptr undef)
+  invoke void @"_ZN4slab13Slab$LT$T$GT$9insert_at17h4714d394b4127a6bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %82, i64 noundef %84, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) null, ptr undef)
           to label %85 unwind label %58, !noalias !30584
 
 85:                                               ; preds = %80

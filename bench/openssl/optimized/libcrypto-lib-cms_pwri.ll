@@ -701,7 +701,7 @@ lor.lhs.false:                                    ; preds = %if.end8
 lor.lhs.false25:                                  ; preds = %lor.lhs.false
   %0 = trunc nsw i64 %inlen to i32
   %conv26 = sub i32 %0, %call
-  %call27 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %call4, ptr noundef nonnull %outl, ptr noundef %in, i32 noundef %conv26) #4
+  %call27 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %call4, ptr noundef nonnull %outl, ptr noundef nonnull %in, i32 noundef %conv26) #4
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %err, label %lor.lhs.false29
 

@@ -13152,7 +13152,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit162.i.i:         ; preds = %452
   br i1 %455, label %_ZN4llvmeqENS_9StringRefES0_.exit158.thread.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit162.thread128.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit158.thread.i.i:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit162.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit158.i.i
-  %456 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116DWARFObjInMemory21mapNameToDWARFSectionEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1816) %71, ptr %.sroa.043.0.copyload.i.i, i64 %.sroa.244.0.copyload.i.i), !noalias !252
+  %456 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116DWARFObjInMemory21mapNameToDWARFSectionEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1816) %71, ptr nonnull %.sroa.043.0.copyload.i.i, i64 %.sroa.244.0.copyload.i.i), !noalias !252
   %.not103.i.i = icmp eq ptr %456, null
   br i1 %.not103.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit162.thread128.i.i, label %457
 
@@ -26975,7 +26975,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm6object10SectionRefESt4pa
   br i1 %36, label %_ZNSt8_Rb_treeIN4llvm6object10SectionRefESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE24_M_get_insert_unique_posERS4_.exit, label %37
 
 37:                                               ; preds = %33
-  %38 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #29
+  %38 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #29
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = tail call i32 @memcmp(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef 8) #29
   %41 = icmp slt i32 %40, 0
@@ -27040,7 +27040,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm6object10SectionRefESt4pa
   br i1 %64, label %_ZNSt8_Rb_treeIN4llvm6object10SectionRefESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE24_M_get_insert_unique_posERS4_.exit, label %65
 
 65:                                               ; preds = %61
-  %66 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #29
+  %66 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #29
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = tail call i32 @memcmp(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 noundef 8) #29
   %69 = icmp slt i32 %68, 0

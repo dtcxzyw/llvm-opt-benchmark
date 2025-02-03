@@ -861,7 +861,7 @@ opal_obj_run_destructors.exit10:                  ; preds = %.lr.ph.i7, %opal_ob
   br i1 %.not.i14, label %opal_obj_run_destructors.exit15, label %.lr.ph.i12, !llvm.loop !9
 
 opal_obj_run_destructors.exit15:                  ; preds = %.lr.ph.i12, %opal_obj_run_destructors.exit10
-  tail call void @free(ptr noundef %0) #9
+  tail call void @free(ptr noundef nonnull %0) #9
   ret i32 0
 }
 

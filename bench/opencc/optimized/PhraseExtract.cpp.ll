@@ -2734,7 +2734,7 @@ _ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE9push_backERKS2_.exit: ; p
 90:                                               ; preds = %87
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %88) #24
+  call void @__cxa_free_exception(ptr nonnull %88) #24
   br label %common.resume.i.i.i.i
 
 common.resume.i.i.i.i:                            ; preds = %116, %.loopexit.split-lp16.i.i.i.i, %.loopexit15.i.i.i.i, %90, %.loopexit.split-lp.i.i.i.i, %.loopexit.i.i.i.i
@@ -2800,7 +2800,7 @@ _ZN6opencc13PhraseExtract8DictType3GetERKNS_19UTF8StringSliceBaseIhEE.exit6.i.i.
 116:                                              ; preds = %113
   %117 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %114) #24
+  call void @__cxa_free_exception(ptr nonnull %114) #24
   br label %common.resume.i.i.i.i
 
 118:                                              ; preds = %115
@@ -4845,7 +4845,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN6opencc1
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #24
+  call void @__cxa_free_exception(ptr nonnull %27) #24
   br label %31
 
 31:                                               ; preds = %29, %24
@@ -5719,7 +5719,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4has
 85:                                               ; preds = %80
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %81) #24
+  call void @__cxa_free_exception(ptr nonnull %81) #24
   br label %92
 
 87:                                               ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEE4findERSB_.exit
@@ -9838,7 +9838,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 191:                                              ; preds = %188
   %192 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %189) #24
+  call void @__cxa_free_exception(ptr nonnull %189) #24
   br label %common.resume.i.i
 
 common.resume.i.i:                                ; preds = %286, %.loopexit.split-lp41.i.i, %.loopexit40.i.i, %260, %.loopexit.split-lp.i.i, %.loopexit.i.i, %216, %.loopexit.split-lp51.i.i, %.loopexit50.i.i, %191, %.loopexit.split-lp46.i.i, %.loopexit45.i.i
@@ -9903,7 +9903,7 @@ _ZN6opencc13PhraseExtract8DictType3GetERKNS_19UTF8StringSliceBaseIhEE.exit15.i.i
 216:                                              ; preds = %213
   %217 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %214) #24
+  call void @__cxa_free_exception(ptr nonnull %214) #24
   br label %common.resume.i.i
 
 218:                                              ; preds = %215
@@ -10001,7 +10001,7 @@ _ZN6opencc13PhraseExtract8DictType3GetERKNS_19UTF8StringSliceBaseIhEE.exit.i.i: 
 260:                                              ; preds = %257
   %261 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %258) #24
+  call void @__cxa_free_exception(ptr nonnull %258) #24
   br label %common.resume.i.i
 
 262:                                              ; preds = %259
@@ -10061,7 +10061,7 @@ _ZN6opencc13PhraseExtract8DictType3GetERKNS_19UTF8StringSliceBaseIhEE.exit19.i.i
 286:                                              ; preds = %283
   %287 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %284) #24
+  call void @__cxa_free_exception(ptr nonnull %284) #24
   br label %common.resume.i.i
 
 288:                                              ; preds = %285
@@ -10420,7 +10420,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBas
 55:                                               ; preds = %52
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %53) #24
+  call void @__cxa_free_exception(ptr nonnull %53) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %81, %.loopexit.split-lp34, %.loopexit33, %55, %.loopexit.split-lp, %.loopexit
@@ -10486,7 +10486,7 @@ _ZN6opencc13PhraseExtract8DictType3GetERKNS_19UTF8StringSliceBaseIhEE.exit10: ; 
 81:                                               ; preds = %78
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %79) #24
+  call void @__cxa_free_exception(ptr nonnull %79) #24
   br label %common.resume
 
 83:                                               ; preds = %80

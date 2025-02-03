@@ -27045,8 +27045,8 @@ if.end.i:                                         ; preds = %_ZN2OT4glyf21has_va
   %loca = getelementptr inbounds nuw i8, ptr %face, i64 192
   %call.i = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4locaE22hb_table_lazy_loader_tIS1_Lj14ELb1EE9hb_face_tLj14E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %loca)
   store ptr %call.i, ptr %loca_table, align 8
-  %call.i10 = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #19
-  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1735162214) #19
+  %call.i10 = tail call i32 @hb_face_get_glyph_count(ptr noundef nonnull %face) #19
+  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef nonnull %face, i32 noundef 1735162214) #19
   %call.i.i.i11 = tail call ptr @hb_blob_reference(ptr noundef %call2.i) #19
   %data.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 16
   %10 = load ptr, ptr %data.i.i.i.i, align 8

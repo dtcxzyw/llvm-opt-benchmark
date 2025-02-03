@@ -342,7 +342,7 @@ lpad40.i:                                         ; preds = %if.then38.i
   %17 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt13runtime_error
-  tail call void @__cxa_free_exception(ptr %exception39.i) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception39.i) #25
   br label %ehcleanup67.i
 
 lpad43.i:                                         ; preds = %invoke.cont41.i
@@ -377,7 +377,7 @@ lpad51.i:                                         ; preds = %if.then49.i
   %19 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt13runtime_error
-  call void @__cxa_free_exception(ptr %exception50.i) #25
+  call void @__cxa_free_exception(ptr nonnull %exception50.i) #25
   br label %ehcleanup62.i
 
 lpad54.i:                                         ; preds = %if.end55.i, %invoke.cont52.i
@@ -671,7 +671,7 @@ lpad.i:                                           ; preds = %if.then.i
   %13 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @__cxa_free_exception(ptr %exception.i) #25
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #25
   br label %lpad13.body
 
 if.end.i:                                         ; preds = %_ZNK5folly5RangeIPKcE4findEc.exit.i
@@ -781,7 +781,7 @@ lpad7.i:                                          ; preds = %if.then5.i
   %20 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @__cxa_free_exception(ptr %exception6.i) #25
+  call void @__cxa_free_exception(ptr nonnull %exception6.i) #25
   br label %lpad13.body
 
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit.i:         ; preds = %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i.i

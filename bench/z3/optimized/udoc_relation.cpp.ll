@@ -2393,7 +2393,7 @@ for.cond.i:                                       ; preds = %call3.i.noexc
   %3 = load i32, ptr %m_pos.i.i.i, align 8
   %4 = zext i32 %3 to i64
   %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %4
-  br i1 %cmp.i, label %for.body.i, label %invoke.cont4, !llvm.loop !18
+  br i1 %cmp.i, label %for.body.i, label %if.then.i, !llvm.loop !18
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %entry ]
@@ -2404,14 +2404,14 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
           to label %call3.i.noexc unwind label %lpad
 
 call3.i.noexc:                                    ; preds = %for.body.i
-  br i1 %call3.i1, label %invoke.cont4, label %for.cond.i
+  br i1 %call3.i1, label %if.then.i, label %for.cond.i
 
-invoke.cont4:                                     ; preds = %call3.i.noexc, %for.cond.i, %entry
-  %cmp.lcssa.i = phi i1 [ false, %entry ], [ %call3.i1, %for.cond.i ], [ %call3.i1, %call3.i.noexc ]
+invoke.cont4:                                     ; preds = %entry
   %tobool.not.i = icmp eq ptr %call, null
   br i1 %tobool.not.i, label %_ZN7doc_refD2Ev.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %invoke.cont4
+if.then.i:                                        ; preds = %for.cond.i, %call3.i.noexc, %invoke.cont4
+  %cmp.lcssa.i5 = phi i1 [ false, %invoke.cont4 ], [ %call3.i1, %call3.i.noexc ], [ %call3.i1, %for.cond.i ]
   invoke void @_ZN11doc_manager10deallocateEP3doc(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef nonnull %call)
           to label %_ZN7doc_refD2Ev.exit unwind label %terminate.lpad.i
 
@@ -2423,7 +2423,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN7doc_refD2Ev.exit:                             ; preds = %invoke.cont4, %if.then.i
-  ret i1 %cmp.lcssa.i
+  %cmp.lcssa.i6 = phi i1 [ false, %invoke.cont4 ], [ %cmp.lcssa.i5, %if.then.i ]
+  ret i1 %cmp.lcssa.i6
 
 lpad:                                             ; preds = %for.body.i
   %9 = landingpad { ptr, i32 }

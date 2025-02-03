@@ -2690,27 +2690,27 @@ lor.lhs.false34:                                  ; preds = %lor.lhs.false31
   br i1 %tobool36.not, label %lor.lhs.false37, label %if.then
 
 lor.lhs.false37:                                  ; preds = %lor.lhs.false34
-  %call38 = tail call i32 @starts_with(ptr noundef %0, ptr noundef nonnull @.str.64) #25
+  %call38 = tail call i32 @starts_with(ptr noundef nonnull %0, ptr noundef nonnull @.str.64) #25
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %lor.lhs.false40, label %if.then
 
 lor.lhs.false40:                                  ; preds = %lor.lhs.false37
-  %call41 = tail call i32 @starts_with(ptr noundef %0, ptr noundef nonnull @.str.65) #25
+  %call41 = tail call i32 @starts_with(ptr noundef nonnull %0, ptr noundef nonnull @.str.65) #25
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %lor.lhs.false43, label %if.then
 
 lor.lhs.false43:                                  ; preds = %lor.lhs.false40
-  %call44 = tail call i32 @starts_with(ptr noundef %0, ptr noundef nonnull @.str.66) #25
+  %call44 = tail call i32 @starts_with(ptr noundef nonnull %0, ptr noundef nonnull @.str.66) #25
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %lor.lhs.false46, label %if.then
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false43
-  %call47 = tail call i32 @starts_with(ptr noundef %0, ptr noundef nonnull @.str.67) #25
+  %call47 = tail call i32 @starts_with(ptr noundef nonnull %0, ptr noundef nonnull @.str.67) #25
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %lor.lhs.false49, label %if.then
 
 lor.lhs.false49:                                  ; preds = %lor.lhs.false46
-  %call50 = tail call i32 @starts_with(ptr noundef %0, ptr noundef nonnull @.str.68) #25
+  %call50 = tail call i32 @starts_with(ptr noundef nonnull %0, ptr noundef nonnull @.str.68) #25
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %if.end, label %if.then
 

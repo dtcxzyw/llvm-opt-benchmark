@@ -5383,7 +5383,7 @@ if.then48:                                        ; preds = %if.end44
   unreachable
 
 if.end51:                                         ; preds = %if.end44, %if.then36
-  call void @free(ptr noundef %call.i24) #20
+  call void @free(ptr noundef nonnull %call.i24) #20
   call void @free(ptr noundef %call.i) #20
   call void @strbuf_release(ptr noundef nonnull %plist) #20
   call void @strbuf_release(ptr noundef nonnull %plist2) #20

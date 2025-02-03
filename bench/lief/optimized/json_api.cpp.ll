@@ -1099,7 +1099,7 @@ _ZSt10_ConstructIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__c
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #18
-  invoke void @_ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEEEEvT_SG_(ptr noundef %13, ptr noundef %.0.i19)
+  invoke void @_ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEEEEvT_SG_(ptr noundef %13, ptr noundef nonnull %.0.i19)
           to label %25 unwind label %26
 
 25:                                               ; preds = %21
@@ -2224,7 +2224,7 @@ _ZNSt6vectorIN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapS_NSt7__cxx1112basic
           to label %65 unwind label %.loopexit.split-lp70.loopexit
 
 65:                                               ; preds = %64, %57
-  %66 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.060.092) #24
+  %66 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.060.092) #24
   %.not = icmp eq ptr %66, %51
   br i1 %.not, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEES6_ISG_SaISG_EEEESt20back_insert_iteratorISJ_EET0_T_SO_SN_.exit, label %53
 
@@ -2403,7 +2403,7 @@ _ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_210basic_jsonISt3mapSt6vectorNSt7__cxx
           to label %136 unwind label %.loopexit.split-lp
 
 136:                                              ; preds = %135, %128
-  %137 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.056.097) #24
+  %137 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.056.097) #24
   %.not67 = icmp eq ptr %137, %124
   br i1 %.not67, label %._crit_edge.loopexit, label %.lr.ph98
 

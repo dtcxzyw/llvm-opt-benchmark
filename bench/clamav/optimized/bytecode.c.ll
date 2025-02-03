@@ -3328,7 +3328,7 @@ readString.exit.i163:                             ; preds = %825, %820, %readTyp
   br i1 %exitcond.not.i, label %parseApis.exit, label %.lr.ph.i154
 
 parseApis.exit:                                   ; preds = %845, %.preheader.i153
-  call void @free(ptr noundef %742) #25
+  call void @free(ptr noundef nonnull %742) #25
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.304, i32 noundef %.032.i65129133.i, i32 noundef %.032.i123.i) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
@@ -6478,7 +6478,7 @@ readNumber.exit517.thread.i:                      ; preds = %2118, %2108, %2103
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.36.i)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.86.i)
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.28, i32 noundef %444) #25
-  call void @free(ptr noundef %420) #25
+  call void @free(ptr noundef nonnull %420) #25
   br label %2195
 
 2132:                                             ; preds = %.loopexit.i277
@@ -6542,7 +6542,7 @@ parseLSig.exit:                                   ; preds = %442, %parseFunction
 
 .outer._crit_edge:                                ; preds = %parseLSig.exit, %.backedge, %parseLSig.exit.thread, %.preheader
   %.0105.ph.lcssa1019 = phi i32 [ 0, %.preheader ], [ %.0105.ph1056, %parseLSig.exit.thread ], [ %.0105.ph1056, %.backedge ], [ %.1106, %parseLSig.exit ]
-  call void @free(ptr noundef %420) #25
+  call void @free(ptr noundef nonnull %420) #25
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32, i32 noundef %.0105.ph.lcssa1019) #25
   %.not127 = icmp eq i32 %4, 0
   br i1 %.not127, label %sigperf_events_init.exit, label %2156

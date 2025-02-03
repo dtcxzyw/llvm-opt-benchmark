@@ -16016,7 +16016,7 @@ define linkonce_odr void @_ZN4llvm4yaml7yamlizeISt8multimapImSt4pairINSt7__cxx11
 _ZN4llvm4yaml2IO11mapRequiredINS_13TypeIdSummaryEEEvPKcRT_.exit.i: ; preds = %25, %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %37 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.06.010.i) #24
+  %37 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.010.i) #24
   %.not.i = icmp eq ptr %37, %18
   br i1 %.not.i, label %_ZN4llvm4yaml19CustomMappingTraitsISt8multimapImSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13TypeIdSummaryEESt4lessImESaIS3_IKmSB_EEEE6outputERNS0_2IOERSH_.exit, label %.lr.ph.i
 
@@ -25522,7 +25522,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %29, %_ZN4llvmeqENS_
   br label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread24:       ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.018.031) #24
+  %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.018.031) #24
   %.not = icmp eq ptr %32, %.sroa.3.0.i.i
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -40514,7 +40514,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %37
   br i1 %38, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread29
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread29:       ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.019.036) #24
+  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.036) #24
   %.not = icmp eq ptr %39, %.sroa.3.0.i.i
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

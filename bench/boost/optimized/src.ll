@@ -21450,7 +21450,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt9bad_allocEEvRKT_R
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #48
+  tail call void @__cxa_free_exception(ptr nonnull %3) #48
   resume { ptr, i32 } %6
 }
 
@@ -33696,7 +33696,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_6system12system_e
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #48
+  tail call void @__cxa_free_exception(ptr nonnull %3) #48
   resume { ptr, i32 } %6
 }
 
@@ -35688,7 +35688,7 @@ define linkonce_odr hidden void @_ZN5boost19throw_with_locationINS_6system12syst
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #48
+  tail call void @__cxa_free_exception(ptr nonnull %3) #48
   resume { ptr, i32 } %6
 }
 
@@ -37196,7 +37196,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt9bad_allocE7rethrowEv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #48
+  tail call void @__cxa_free_exception(ptr nonnull %2) #48
   resume { ptr, i32 } %5
 }
 
@@ -58583,7 +58583,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_6system12system_error
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #48
+  tail call void @__cxa_free_exception(ptr nonnull %2) #48
   resume { ptr, i32 } %5
 }
 

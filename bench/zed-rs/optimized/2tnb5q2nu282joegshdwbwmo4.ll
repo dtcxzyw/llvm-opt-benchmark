@@ -2202,7 +2202,7 @@ define hidden void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h9f35537c
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
   %8 = load ptr, ptr %7, align 8, !alias.scope !282, !noundef !13
-  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h9f35537c7e821543E.llvm.5596008357701127451"(ptr noalias noundef align 8 dereferenceable(56) %8)
+  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h9f35537c7e821543E.llvm.5596008357701127451"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8)
           to label %"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$ignore..Error$GT$$GT$17h7112d260fd409084E.exit" unwind label %9, !noalias !282
 
 common.resume:                                    ; preds = %50, %20, %9
@@ -2242,7 +2242,7 @@ common.resume:                                    ; preds = %50, %20, %9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !309)
   %19 = load ptr, ptr %18, align 8, !alias.scope !309, !noundef !13
-  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h9f35537c7e821543E.llvm.5596008357701127451"(ptr noalias noundef align 8 dereferenceable(56) %19)
+  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h9f35537c7e821543E.llvm.5596008357701127451"(ptr noalias noundef nonnull align 8 dereferenceable(56) %19)
           to label %"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$ignore..Error$GT$$GT$17h7112d260fd409084E.exit4" unwind label %20, !noalias !309
 
 20:                                               ; preds = %17
@@ -2334,7 +2334,7 @@ common.resume:                                    ; preds = %50, %20, %9
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !389)
   %49 = load ptr, ptr %48, align 8, !alias.scope !389, !noundef !13
-  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h9f35537c7e821543E.llvm.5596008357701127451"(ptr noalias noundef align 8 dereferenceable(56) %49)
+  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h9f35537c7e821543E.llvm.5596008357701127451"(ptr noalias noundef nonnull align 8 dereferenceable(56) %49)
           to label %"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$ignore..Error$GT$$GT$17h7112d260fd409084E.exit9" unwind label %50, !noalias !389
 
 50:                                               ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17ha65f74bc659dfceaE.exit"

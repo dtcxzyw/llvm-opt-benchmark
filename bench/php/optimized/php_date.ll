@@ -14316,7 +14316,7 @@ define internal fastcc void @php_date_interval_initialize_from_hash(ptr captures
 49:                                               ; preds = %46, %36
   %50 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   store ptr %42, ptr %50, align 8
-  call void @timelib_time_dtor(ptr noundef %21) #25
+  call void @timelib_time_dtor(ptr noundef nonnull %21) #25
   %51 = load ptr, ptr %2, align 8
   call void @timelib_error_container_dtor(ptr noundef %51) #25
   br label %369

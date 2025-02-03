@@ -8038,7 +8038,7 @@ if.then4:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.end5, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then4
-  tail call void @virtio_notify_config(ptr noundef %vdev)
+  tail call void @virtio_notify_config(ptr noundef nonnull %vdev)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then.i, %if.then4, %entry

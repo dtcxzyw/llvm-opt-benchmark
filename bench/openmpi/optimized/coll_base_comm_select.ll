@@ -511,7 +511,7 @@ opal_thread_add_fetch_32.exit127.i:               ; preds = %186, %183
   br i1 %.not.i131.i, label %opal_obj_run_destructors.exit132.i, label %.lr.ph.i129.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit132.i:               ; preds = %.lr.ph.i129.i, %191
-  call void @free(ptr noundef %.04.i) #9
+  call void @free(ptr noundef nonnull %.04.i) #9
   br label %199
 
 199:                                              ; preds = %opal_obj_run_destructors.exit132.i, %opal_thread_add_fetch_32.exit127.i, %178, %opal_obj_new.exit125.i, %118, %component_in_argv.exit.i
@@ -567,7 +567,7 @@ opal_thread_add_fetch_32.exit134.i:               ; preds = %211, %208
   br i1 %.not.i138.i, label %opal_obj_run_destructors.exit139.i, label %.lr.ph.i136.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit139.i:               ; preds = %.lr.ph.i136.i, %216
-  call void @free(ptr noundef %90) #9
+  call void @free(ptr noundef nonnull %90) #9
   br label %224
 
 224:                                              ; preds = %opal_obj_run_destructors.exit139.i, %opal_thread_add_fetch_32.exit134.i
@@ -7762,7 +7762,7 @@ opal_thread_add_fetch_32.exit2047:                ; preds = %3757, %3760
   br i1 %.not.i2051, label %opal_obj_run_destructors.exit2053, label %.lr.ph.i2049, !llvm.loop !4
 
 opal_obj_run_destructors.exit2053:                ; preds = %.lr.ph.i2049, %3765
-  call void @free(ptr noundef %.011312068) #9
+  call void @free(ptr noundef nonnull %.011312068) #9
   br label %opal_thread_add_fetch_32.exit2037
 
 opal_thread_add_fetch_32.exit2037:                ; preds = %3726, %3724, %opal_thread_add_fetch_32.exit2027, %opal_thread_add_fetch_32.exit2047, %opal_obj_run_destructors.exit2053
@@ -7826,7 +7826,7 @@ opal_thread_add_fetch_32.exit2057:                ; preds = %3787, %3790
   br i1 %.not.i2061, label %opal_obj_run_destructors.exit2063, label %.lr.ph.i2059, !llvm.loop !4
 
 opal_obj_run_destructors.exit2063:                ; preds = %.lr.ph.i2059, %3795
-  call void @free(ptr noundef %.094.i) #9
+  call void @free(ptr noundef nonnull %.094.i) #9
   br label %3803
 
 3803:                                             ; preds = %opal_thread_add_fetch_32.exit2057, %opal_obj_run_destructors.exit2063

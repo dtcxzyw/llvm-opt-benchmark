@@ -469,7 +469,7 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %65 = tail call i64 @g_strlcpy(ptr noundef nonnull %64, ptr noundef %1, i64 noundef 512) #19
+  %65 = tail call i64 @g_strlcpy(ptr noundef nonnull %64, ptr noundef nonnull %1, i64 noundef 512) #19
   br label %66
 
 66:                                               ; preds = %63, %62, %58, %54, %50, %46, %39, %35, %31, %27, %23, %19, %15, %11
@@ -612,7 +612,7 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(
 
 130:                                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %132 = tail call i64 @g_strlcpy(ptr noundef nonnull %131, ptr noundef %1, i64 noundef 512) #19
+  %132 = tail call i64 @g_strlcpy(ptr noundef nonnull %131, ptr noundef nonnull %1, i64 noundef 512) #19
   br label %133
 
 133:                                              ; preds = %130, %129, %125, %121, %117, %113, %106, %102, %98, %94, %90, %86, %82, %78

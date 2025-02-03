@@ -13064,7 +13064,7 @@ sw.bb13:                                          ; preds = %_ZNR5folly8Expected
 ehcleanup:                                        ; preds = %lpad11, %lpad
   %exception10.sink = phi ptr [ %exception10, %lpad11 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %6, %lpad11 ], [ %5, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception10.sink) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception10.sink) #30
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ret) #30
   resume { ptr, i32 } %.pn
 

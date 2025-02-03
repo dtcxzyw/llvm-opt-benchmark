@@ -879,11 +879,11 @@ _ZN6marisa8grimoire6vector6VectorIjE5clearEv.exit: ; preds = %63, %._crit_edge10
   %66 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %45, i1 true)
   %67 = shl nuw nsw i64 %66, 1
   %68 = xor i64 %67, 126
-  invoke void @_ZSt16__introsort_loopIPSt4pairIjjElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_(ptr noundef %.sroa.0.089128, ptr noundef nonnull %64, i64 noundef %68)
+  invoke void @_ZSt16__introsort_loopIPSt4pairIjjElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_(ptr noundef nonnull %.sroa.0.089128, ptr noundef nonnull %64, i64 noundef %68)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %65
-  invoke void @_ZSt22__final_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef %.sroa.0.089128, ptr noundef nonnull %64)
+  invoke void @_ZSt22__final_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef nonnull %.sroa.0.089128, ptr noundef nonnull %64)
           to label %.preheader95.lr.ph unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .preheader95.lr.ph:                               ; preds = %.noexc

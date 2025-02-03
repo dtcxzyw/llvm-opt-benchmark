@@ -868,7 +868,7 @@ uart_putxmitchar.exit:                            ; preds = %.split178, %up_irq_
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 48
   %221 = load ptr, ptr %220, align 8
-  call void %221(ptr noundef %11, i1 noundef zeroext true) #5
+  call void %221(ptr noundef nonnull %11, i1 noundef zeroext true) #5
   %222 = call i32 @nxmutex_unlock(ptr noundef nonnull %12) #5
   br label %223
 
@@ -999,7 +999,7 @@ up_irq_restore.exit:                              ; preds = %uart_irqwrite.exit,
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 72
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef %10, i1 noundef zeroext false) #5
+  tail call void %63(ptr noundef nonnull %10, i1 noundef zeroext false) #5
   %.not4886 = icmp eq i64 %2, 0
   br i1 %.not4886, label %.loopexit80, label %.lr.ph
 

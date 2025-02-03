@@ -1812,7 +1812,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13CallGraphNodeELb1EE9push_backES2_.exit: 
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_SC_T0_"(ptr noundef %26, ptr noundef nonnull %35)
+  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_SC_T0_"(ptr noundef nonnull %26, ptr noundef nonnull %35)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %34
@@ -1874,7 +1874,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i.i.i.i.i: ; p
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_13CallGraphNodeELj16EEEZNKS_9CallGraph5printERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !30
 
 55:                                               ; preds = %29
-  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_SC_T0_"(ptr noundef %26, ptr noundef nonnull %28)
+  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_SC_T0_"(ptr noundef nonnull %26, ptr noundef nonnull %28)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_13CallGraphNodeELj16EEEZNKS_9CallGraph5printERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorIPNS_13CallGraphNodeELj16EEEZNKS_9CallGraph5printERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %._crit_edge, %55

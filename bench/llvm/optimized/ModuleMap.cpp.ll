@@ -5703,7 +5703,7 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt
 
 29:                                               ; preds = %.lr.ph, %43
   %.033 = phi ptr [ %24, %.lr.ph ], [ %44, %43 ]
-  %30 = call noundef ptr @_ZNK5clang9ModuleMap15resolveModuleIdERKN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14SourceLocationEELj2EEEPNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull align 8 dereferenceable(96) %.033, ptr noundef %5, i1 noundef zeroext %2)
+  %30 = call noundef ptr @_ZNK5clang9ModuleMap15resolveModuleIdERKN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14SourceLocationEELj2EEEPNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull align 8 dereferenceable(96) %.033, ptr noundef nonnull %5, i1 noundef zeroext %2)
   %.not19 = icmp eq ptr %30, null
   br i1 %.not19, label %42, label %31
 
@@ -12079,19 +12079,19 @@ define internal fastcc void @_ZL18inferFrameworkLinkPN5clang6ModuleE(ptr noundef
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   %.not.i.i = icmp ult i64 %6, 8
-  br i1 %.not.i.i, label %_ZN4llvm9StringRef12consume_backES0_.exit, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i
+  br i1 %.not.i.i, label %_ZN4llvm9StringRef12consume_backES0_.exit, label %_ZN4llvm9StringRef12consume_backES0_.exit.thread
 
-_ZNK4llvm9StringRef9ends_withES0_.exit.i:         ; preds = %1
+_ZN4llvm9StringRef12consume_backES0_.exit.thread: ; preds = %1
   %7 = getelementptr inbounds i8, ptr %5, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %8, ptr noundef nonnull dereferenceable(8) @.str.37, i64 8)
   %9 = icmp eq i32 %bcmp.i.i, 0
   %10 = add i64 %6, -8
   %spec.select = select i1 %9, i64 %10, i64 %6
-  br label %_ZN4llvm9StringRef12consume_backES0_.exit
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  br label %12
 
-_ZN4llvm9StringRef12consume_backES0_.exit:        ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i, %1
-  %.sroa.3.0 = phi i64 [ %6, %1 ], [ %spec.select, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ]
+_ZN4llvm9StringRef12consume_backES0_.exit:        ; preds = %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %11, label %12
@@ -12100,9 +12100,10 @@ _ZN4llvm9StringRef12consume_backES0_.exit:        ; preds = %_ZNK4llvm9StringRef
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
 
-12:                                               ; preds = %_ZN4llvm9StringRef12consume_backES0_.exit
+12:                                               ; preds = %_ZN4llvm9StringRef12consume_backES0_.exit.thread, %_ZN4llvm9StringRef12consume_backES0_.exit
+  %.sroa.3.07 = phi i64 [ %spec.select, %_ZN4llvm9StringRef12consume_backES0_.exit.thread ], [ %6, %_ZN4llvm9StringRef12consume_backES0_.exit ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #21, !noalias !166
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %5, i64 noundef %.sroa.3.0, ptr noundef nonnull align 1 dereferenceable(1) %2) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %5, i64 noundef %.sroa.3.07, ptr noundef nonnull align 1 dereferenceable(1) %2) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #21
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
 
@@ -13729,7 +13730,7 @@ _ZN4llvm15SmallVectorImplIN5clang6Module20UnresolvedExportDeclEE5clearEv.exit: ;
   br i1 %31, label %_ZNK5clang9ModuleMap13resolveExportEPNS_6ModuleERKNS1_20UnresolvedExportDeclEb.exit.thread.thread, label %32
 
 32:                                               ; preds = %29
-  %33 = call noundef ptr @_ZNK5clang9ModuleMap15resolveModuleIdERKN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14SourceLocationEELj2EEEPNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef %1, i1 noundef zeroext %2)
+  %33 = call noundef ptr @_ZNK5clang9ModuleMap15resolveModuleIdERKN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14SourceLocationEELj2EEEPNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull %1, i1 noundef zeroext %2)
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %_ZNK5clang9ModuleMap13resolveExportEPNS_6ModuleERKNS1_20UnresolvedExportDeclEb.exit.thread.thread36, label %_ZNK5clang9ModuleMap13resolveExportEPNS_6ModuleERKNS1_20UnresolvedExportDeclEb.exit
 

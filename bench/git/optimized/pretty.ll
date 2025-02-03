@@ -220,7 +220,7 @@ if.then9:                                         ; preds = %do.body.i19, %lor.l
   %arg.addr.0 = phi ptr [ %arg, %if.end3 ], [ %arg, %lor.lhs.false6 ], [ %scevgep49, %do.body.i19 ]
   %6 = load ptr, ptr @user_format, align 8
   tail call void @free(ptr noundef %6) #18
-  %call.i29 = tail call ptr @xstrdup(ptr noundef %arg.addr.0) #18
+  %call.i29 = tail call ptr @xstrdup(ptr noundef nonnull %arg.addr.0) #18
   store ptr %call.i29, ptr @user_format, align 8
   %bf.load.i = load i32, ptr %use_terminator, align 4
   %bf.set.i = or i32 %bf.load.i, 1024

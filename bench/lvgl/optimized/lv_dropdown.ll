@@ -2270,7 +2270,7 @@ get_label.exit:                                   ; preds = %19
   %50 = call ptr @lv_label_get_text(ptr noundef nonnull %24) #7
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %50, ptr %51, align 8, !tbaa !51
-  call void @lv_draw_label(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %49) #7
+  call void @lv_draw_label(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %49) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %52

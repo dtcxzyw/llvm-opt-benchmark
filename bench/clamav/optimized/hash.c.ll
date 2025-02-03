@@ -1075,7 +1075,7 @@ define dso_local range(i32 -1, 21) i32 @onas_ht_add_hierarchy(ptr noundef %0, pt
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %6, label %.thread117
+  br i1 %or.cond, label %6, label %.thread112
 
 6:                                                ; preds = %2
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
@@ -1127,16 +1127,16 @@ onas_get_parent.exit.thread:                      ; preds = %6, %21, %onas_get_p
   store ptr null, ptr %25, align 8
   %26 = call ptr @fts_open(ptr noundef nonnull %3, i32 noundef 80, ptr noundef null) #19
   %.not61 = icmp eq ptr %26, null
-  br i1 %.not61, label %.thread107, label %.preheader120
+  br i1 %.not61, label %.thread, label %.preheader120
 
 .preheader120:                                    ; preds = %onas_get_parent.exit.thread
   %27 = call ptr @fts_read(ptr noundef nonnull %26) #19
   %.not62143 = icmp eq ptr %27, null
-  br i1 %.not62143, label %.thread114, label %.lr.ph
+  br i1 %.not62143, label %._crit_edge, label %.lr.ph
 
-.thread107:                                       ; preds = %onas_get_parent.exit.thread
+.thread:                                          ; preds = %onas_get_parent.exit.thread
   %28 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #19
-  br label %.thread117
+  br label %.thread112
 
 .lr.ph:                                           ; preds = %.preheader120, %.backedge
   %29 = phi ptr [ %32, %.backedge ], [ %27, %.preheader120 ]
@@ -1148,12 +1148,12 @@ onas_get_parent.exit.thread:                      ; preds = %6, %21, %onas_get_p
 .backedge:                                        ; preds = %.lr.ph, %117
   %32 = call ptr @fts_read(ptr noundef nonnull %26) #19
   %.not62 = icmp eq ptr %32, null
-  br i1 %.not62, label %.thread114, label %.lr.ph
+  br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 33:                                               ; preds = %.lr.ph
   %calloc.i = call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   %.not.i70 = icmp eq ptr %calloc.i, null
-  br i1 %.not.i70, label %onas_hashnode_init.exit.thread, label %34
+  br i1 %.not.i70, label %onas_hashnode_init.exit.thread.thread, label %34
 
 34:                                               ; preds = %33
   %calloc.i.i = call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
@@ -1164,7 +1164,7 @@ onas_get_parent.exit.thread:                      ; preds = %6, %21, %onas_get_p
 
 onas_free_hashnode.exit.i:                        ; preds = %34
   call void @free(ptr noundef nonnull %calloc.i) #19
-  br label %onas_hashnode_init.exit.thread
+  br label %onas_hashnode_init.exit.thread.thread
 
 36:                                               ; preds = %34
   %calloc.i15.i = call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
@@ -1198,7 +1198,7 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
   %45 = load ptr, ptr %44, align 8
   call void @free(ptr noundef %45) #19
   call void @free(ptr noundef nonnull %calloc.i) #19
-  br label %onas_hashnode_init.exit.thread
+  br label %onas_hashnode_init.exit.thread.thread
 
 46:                                               ; preds = %36
   %47 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 8
@@ -1330,7 +1330,7 @@ onas_free_hashnode.exit:                          ; preds = %onas_free_listnode.
   %103 = load ptr, ptr %78, align 8
   call void @free(ptr noundef %103) #19
   call void @free(ptr noundef nonnull %calloc.i) #19
-  br label %onas_hashnode_init.exit.thread
+  br label %onas_hashnode_init.exit.thread.thread
 
 onas_add_hashnode_child.exit.thread:              ; preds = %90, %85, %.preheader
   %104 = getelementptr inbounds nuw i8, ptr %.050, i64 16
@@ -1374,7 +1374,7 @@ onas_free_hashnode.exit94:                        ; preds = %onas_free_hashnode.
   %116 = load ptr, ptr %78, align 8
   call void @free(ptr noundef %116) #19
   call void @free(ptr noundef nonnull %calloc.i) #19
-  br label %onas_hashnode_init.exit.thread
+  br label %onas_hashnode_init.exit.thread.thread
 
 117:                                              ; preds = %.loopexit
   %118 = sext i32 %107 to i64
@@ -1391,19 +1391,19 @@ onas_free_hashnode.exit94:                        ; preds = %onas_free_hashnode.
 
 120:                                              ; preds = %117
   call void @onas_free_element(ptr noundef nonnull %108)
-  br label %onas_hashnode_init.exit.thread
+  br label %onas_hashnode_init.exit.thread.thread
 
-.thread114:                                       ; preds = %.backedge, %.preheader120
+onas_hashnode_init.exit.thread.thread:            ; preds = %33, %onas_free_hashnode.exit, %onas_free_hashnode.exit94, %120, %onas_free_hashnode.exit22.i, %onas_free_hashnode.exit.i
+  %.049111 = phi i32 [ 20, %onas_free_hashnode.exit.i ], [ 20, %onas_free_hashnode.exit ], [ -1, %120 ], [ 20, %onas_free_hashnode.exit94 ], [ 20, %onas_free_hashnode.exit22.i ], [ 20, %33 ]
   %121 = call i32 @fts_close(ptr noundef nonnull %26) #19
-  br label %.thread117
+  br label %.thread112
 
-onas_hashnode_init.exit.thread:                   ; preds = %33, %onas_free_hashnode.exit, %onas_free_hashnode.exit94, %120, %onas_free_hashnode.exit22.i, %onas_free_hashnode.exit.i
-  %.049 = phi i32 [ 20, %onas_free_hashnode.exit ], [ -1, %120 ], [ 20, %onas_free_hashnode.exit94 ], [ 20, %onas_free_hashnode.exit22.i ], [ 20, %onas_free_hashnode.exit.i ], [ 20, %33 ]
+._crit_edge:                                      ; preds = %.backedge, %.preheader120
   %122 = call i32 @fts_close(ptr noundef nonnull %26) #19
-  br label %.thread117
+  br label %.thread112
 
-.thread117:                                       ; preds = %.thread114, %onas_hashnode_init.exit.thread, %.thread107, %2
-  %.0 = phi i32 [ 2, %2 ], [ 3, %.thread107 ], [ %.049, %onas_hashnode_init.exit.thread ], [ 0, %.thread114 ]
+.thread112:                                       ; preds = %.thread, %._crit_edge, %onas_hashnode_init.exit.thread.thread, %2
+  %.0 = phi i32 [ 2, %2 ], [ 0, %._crit_edge ], [ %.049111, %onas_hashnode_init.exit.thread.thread ], [ 3, %.thread ]
   ret i32 %.0
 }
 

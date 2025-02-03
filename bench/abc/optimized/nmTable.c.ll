@@ -272,14 +272,14 @@ Nm_HashString.exit.i34:                           ; preds = %.lr.ph.i.i30, %94
   %137 = getelementptr inbounds nuw ptr, ptr %119, i64 %136
   %.02235.i = load ptr, ptr %137, align 8
   %.not36.i = icmp eq ptr %.02235.i, null
-  br i1 %.not36.i, label %Nm_ManTableLookupName.exit.thread, label %.lr.ph40.split.us.i
+  br i1 %.not36.i, label %.loopexit, label %.lr.ph40.split.us.i
 
 .lr.ph40.split.us.i:                              ; preds = %Nm_HashString.exit.i34, %.loopexit.us.i
   %.02237.us.i = phi ptr [ %.022.us.i, %.loopexit.us.i ], [ %.02235.i, %Nm_HashString.exit.i34 ]
   %138 = getelementptr inbounds nuw i8, ptr %.02237.us.i, i64 32
   %139 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull readonly dereferenceable(1) %117) #13
   %.not26.us.i = icmp eq i32 %139, 0
-  br i1 %.not26.us.i, label %Nm_ManTableLookupName.exit.thread41, label %140
+  br i1 %.not26.us.i, label %Nm_ManTableLookupName.exit, label %140
 
 140:                                              ; preds = %.lr.ph40.split.us.i
   %141 = getelementptr inbounds nuw i8, ptr %.02237.us.i, i64 24
@@ -293,7 +293,7 @@ Nm_HashString.exit.i34:                           ; preds = %.lr.ph.i.i30, %94
   %144 = getelementptr inbounds nuw i8, ptr %.02237.us.i, i64 16
   %.022.us.i = load ptr, ptr %144, align 8
   %.not.us.i = icmp eq ptr %.022.us.i, null
-  br i1 %.not.us.i, label %Nm_ManTableLookupName.exit.thread, label %.lr.ph40.split.us.i, !llvm.loop !12
+  br i1 %.not.us.i, label %.loopexit, label %.lr.ph40.split.us.i, !llvm.loop !12
 
 .lr.ph.us.i:                                      ; preds = %140, %147
   %.033.us.us.i = phi ptr [ %149, %147 ], [ %142, %140 ]
@@ -308,28 +308,24 @@ Nm_HashString.exit.i34:                           ; preds = %.lr.ph.i.i30, %94
   %.not27.us.us.i = icmp eq ptr %149, %.02237.us.i
   br i1 %.not27.us.us.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !13
 
-Nm_ManTableLookupName.exit:                       ; preds = %.lr.ph.us.i
-  %.not = icmp eq ptr %.033.us.us.i, null
-  br i1 %.not, label %Nm_ManTableLookupName.exit.thread, label %Nm_ManTableLookupName.exit.thread41
-
-Nm_ManTableLookupName.exit.thread41:              ; preds = %.lr.ph40.split.us.i, %Nm_ManTableLookupName.exit
-  %.023.i44 = phi ptr [ %.033.us.us.i, %Nm_ManTableLookupName.exit ], [ %.02237.us.i, %.lr.ph40.split.us.i ]
-  %150 = getelementptr inbounds nuw i8, ptr %.023.i44, i64 24
+Nm_ManTableLookupName.exit:                       ; preds = %.lr.ph40.split.us.i, %.lr.ph.us.i
+  %.023.i = phi ptr [ %.033.us.us.i, %.lr.ph.us.i ], [ %.02237.us.i, %.lr.ph40.split.us.i ]
+  %150 = getelementptr inbounds nuw i8, ptr %.023.i, i64 24
   %151 = load ptr, ptr %150, align 8
   %.not28 = icmp eq ptr %151, null
-  %. = select i1 %.not28, ptr %.023.i44, ptr %151
+  %. = select i1 %.not28, ptr %.023.i, ptr %151
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %., ptr %152, align 8
   store ptr %1, ptr %150, align 8
   br label %171
 
-Nm_ManTableLookupName.exit.thread:                ; preds = %.loopexit.us.i, %Nm_HashString.exit.i34, %Nm_ManTableLookupName.exit
+.loopexit:                                        ; preds = %.loopexit.us.i, %Nm_HashString.exit.i34
   br i1 %.not12.i.i29, label %Nm_HashString.exit, label %.lr.ph.i36
 
-.lr.ph.i36:                                       ; preds = %Nm_ManTableLookupName.exit.thread, %.lr.ph.i36
-  %153 = phi i8 [ %165, %.lr.ph.i36 ], [ %121, %Nm_ManTableLookupName.exit.thread ]
-  %.014.i = phi i32 [ %161, %.lr.ph.i36 ], [ 0, %Nm_ManTableLookupName.exit.thread ]
-  %.01013.i = phi i32 [ %162, %.lr.ph.i36 ], [ 0, %Nm_ManTableLookupName.exit.thread ]
+.lr.ph.i36:                                       ; preds = %.loopexit, %.lr.ph.i36
+  %153 = phi i8 [ %165, %.lr.ph.i36 ], [ %121, %.loopexit ]
+  %.014.i = phi i32 [ %161, %.lr.ph.i36 ], [ 0, %.loopexit ]
+  %.01013.i = phi i32 [ %162, %.lr.ph.i36 ], [ 0, %.loopexit ]
   %154 = sext i8 %153 to i32
   %155 = urem i32 %.01013.i, 10
   %156 = zext nneg i32 %155 to i64
@@ -345,8 +341,8 @@ Nm_ManTableLookupName.exit.thread:                ; preds = %.loopexit.us.i, %Nm
   %.not.i37 = icmp eq i8 %165, 0
   br i1 %.not.i37, label %Nm_HashString.exit, label %.lr.ph.i36, !llvm.loop !9
 
-Nm_HashString.exit:                               ; preds = %.lr.ph.i36, %Nm_ManTableLookupName.exit.thread
-  %.0.lcssa.i = phi i32 [ 0, %Nm_ManTableLookupName.exit.thread ], [ %161, %.lr.ph.i36 ]
+Nm_HashString.exit:                               ; preds = %.lr.ph.i36, %.loopexit
+  %.0.lcssa.i = phi i32 [ 0, %.loopexit ], [ %161, %.lr.ph.i36 ]
   %166 = urem i32 %.0.lcssa.i, %120
   %167 = zext i32 %166 to i64
   %168 = getelementptr inbounds nuw ptr, ptr %119, i64 %167
@@ -356,7 +352,7 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i36, %Nm_Man
   store ptr %1, ptr %168, align 8
   br label %171
 
-171:                                              ; preds = %Nm_HashString.exit, %Nm_ManTableLookupName.exit.thread41
+171:                                              ; preds = %Nm_HashString.exit, %Nm_ManTableLookupName.exit
   %172 = load i32, ptr %4, align 4
   %173 = add nsw i32 %172, 1
   store i32 %173, ptr %4, align 4

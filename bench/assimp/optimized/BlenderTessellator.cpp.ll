@@ -134,7 +134,7 @@ common.resume:                                    ; preds = %ehcleanup14, %lpad.
 lpad.i.i:                                         ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #23
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #23
   br label %common.resume
 
 if.then.i.i:                                      ; preds = %entry
@@ -530,7 +530,7 @@ invoke.cont.i:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #23
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #23
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -1086,7 +1086,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i
 common.resume:                                    ; preds = %lpad.i.i24, %lpad.i.i13, %lpad.i.i
   %exception.i.i23.sink = phi ptr [ %exception.i.i23, %lpad.i.i24 ], [ %exception.i.i12, %lpad.i.i13 ], [ %exception.i.i, %lpad.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i.i24 ], [ %9, %lpad.i.i13 ], [ %6, %lpad.i.i ]
-  call void @__cxa_free_exception(ptr %exception.i.i23.sink) #23
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i23.sink) #23
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i

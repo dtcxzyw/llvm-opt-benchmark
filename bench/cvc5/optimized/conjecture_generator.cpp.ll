@@ -36204,7 +36204,7 @@ _ZN4cvc58internal6theory11quantifiers13TermGenerator13resetMatchingEPNS2_10TermG
   store i32 %72, ptr %d_match_mode.i, align 8
   %77 = load ptr, ptr %eqc, align 8
   store ptr %77, ptr %agg.tmp390, align 8
-  %call393 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator12getNextMatchEPNS2_10TermGenEnvENS0_12NodeTemplateILb0EEERSt3mapINS0_8TypeNodeES8_IjS7_St4lessIjESaISt4pairIKjS7_EEESA_IS9_ESaISC_IKS9_SG_EEERS8_IS7_bSA_IS7_ESaISC_IKS7_bEEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %s, ptr noundef nonnull %agg.tmp390, ptr noundef nonnull align 8 dereferenceable(48) %subs, ptr noundef nonnull align 8 dereferenceable(48) %rev_subs)
+  %call393 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator12getNextMatchEPNS2_10TermGenEnvENS0_12NodeTemplateILb0EEERSt3mapINS0_8TypeNodeES8_IjS7_St4lessIjESaISt4pairIKjS7_EEESA_IS9_ESaISC_IKS9_SG_EEERS8_IS7_bSA_IS7_ESaISC_IKS7_bEEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp390, ptr noundef nonnull align 8 dereferenceable(48) %subs, ptr noundef nonnull align 8 dereferenceable(48) %rev_subs)
   br label %return
 
 if.else395:                                       ; preds = %if.else264

@@ -1333,7 +1333,7 @@ if.end154:                                        ; preds = %do.body151, %if.the
   br label %if.end156
 
 if.end156:                                        ; preds = %if.then133, %if.end154, %if.end129
-  call void @free(ptr noundef %call111) #12
+  call void @free(ptr noundef nonnull %call111) #12
   br label %return
 
 return:                                           ; preds = %if.end53, %if.end156, %if.then115, %if.then127, %if.then99, %if.then101

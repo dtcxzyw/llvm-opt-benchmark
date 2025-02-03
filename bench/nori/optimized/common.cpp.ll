@@ -495,7 +495,7 @@ define hidden noundef zeroext i1 @_ZN4nori6toBoolERKNSt7__cxx1112basic_stringIcS
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %11) #29
+  call void @__cxa_free_exception(ptr nonnull %11) #29
   br label %16
 
 15:                                               ; preds = %7, %1
@@ -600,7 +600,7 @@ define hidden noundef i32 @_ZN4nori5toIntERKNSt7__cxx1112basic_stringIcSt11char_
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #29
+  tail call void @__cxa_free_exception(ptr nonnull %8) #29
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %1
@@ -637,7 +637,7 @@ define hidden noundef i32 @_ZN4nori6toUIntERKNSt7__cxx1112basic_stringIcSt11char
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #29
+  tail call void @__cxa_free_exception(ptr nonnull %8) #29
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %1
@@ -671,7 +671,7 @@ define hidden noundef float @_ZN4nori7toFloatERKNSt7__cxx1112basic_stringIcSt11c
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #29
+  tail call void @__cxa_free_exception(ptr nonnull %8) #29
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %1
@@ -745,7 +745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 23:                                               ; preds = %17
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #29
+  call void @__cxa_free_exception(ptr nonnull %18) #29
   br label %.body16
 
 25:                                               ; preds = %.invoke
@@ -782,7 +782,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 36:                                               ; preds = %33
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %34) #29
+  call void @__cxa_free_exception(ptr nonnull %34) #29
   br label %.body16
 
 38:                                               ; preds = %.preheader
@@ -2773,7 +2773,7 @@ _ZNKSt6vectorIN10filesystem4pathESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %63 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %105 unwind label %64
+          to label %.thread unwind label %64
 
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
@@ -2833,7 +2833,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN10filesystem4pathES2_SaIS1_EET0_T_S5_
   %89 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %108 unwind label %90
+          to label %107 unwind label %90
 
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
@@ -2900,47 +2900,47 @@ _ZNSt12_Vector_baseIN10filesystem4pathESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   store ptr %104, ptr %103, align 8
   ret void
 
-105:                                              ; preds = %62
-  %106 = extractvalue { ptr, i32 } %63, 0
-  %107 = tail call ptr @__cxa_begin_catch(ptr %106) #29
+.thread:                                          ; preds = %62
+  %105 = extractvalue { ptr, i32 } %63, 0
+  %106 = tail call ptr @__cxa_begin_catch(ptr %105) #29
   tail call void @_ZNSt16allocator_traitsISaIN10filesystem4pathEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %24) #29
   br label %113
 
-108:                                              ; preds = %88
-  %109 = extractvalue { ptr, i32 } %89, 0
-  %110 = tail call ptr @__cxa_begin_catch(ptr %109) #29
+107:                                              ; preds = %88
+  %108 = extractvalue { ptr, i32 } %89, 0
+  %109 = tail call ptr @__cxa_begin_catch(ptr %108) #29
   invoke void @_ZSt8_DestroyIPN10filesystem4pathES1_EvT_S3_RSaIT0_E(ptr noundef %23, ptr noundef nonnull %68, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %113 unwind label %111
+          to label %112 unwind label %110
 
-111:                                              ; preds = %_ZNSt12_Vector_baseIN10filesystem4pathESaIS1_EE13_M_deallocateEPS1_m.exit39, %108
-  %112 = landingpad { ptr, i32 }
+110:                                              ; preds = %_ZNSt12_Vector_baseIN10filesystem4pathESaIS1_EE13_M_deallocateEPS1_m.exit39, %107
+  %111 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %115 unwind label %116
+          to label %114 unwind label %115
 
-113:                                              ; preds = %108, %105
+112:                                              ; preds = %107
   %.not.i38 = icmp eq ptr %23, null
-  br i1 %.not.i38, label %_ZNSt12_Vector_baseIN10filesystem4pathESaIS1_EE13_M_deallocateEPS1_m.exit39, label %114
+  br i1 %.not.i38, label %_ZNSt12_Vector_baseIN10filesystem4pathESaIS1_EE13_M_deallocateEPS1_m.exit39, label %113
 
-114:                                              ; preds = %113
+113:                                              ; preds = %.thread, %112
   tail call void @_ZdlPv(ptr noundef nonnull %23) #31
   br label %_ZNSt12_Vector_baseIN10filesystem4pathESaIS1_EE13_M_deallocateEPS1_m.exit39
 
-_ZNSt12_Vector_baseIN10filesystem4pathESaIS1_EE13_M_deallocateEPS1_m.exit39: ; preds = %114, %113
+_ZNSt12_Vector_baseIN10filesystem4pathESaIS1_EE13_M_deallocateEPS1_m.exit39: ; preds = %113, %112
   invoke void @__cxa_rethrow() #30
-          to label %119 unwind label %111
+          to label %118 unwind label %110
 
-115:                                              ; preds = %111
-  resume { ptr, i32 } %112
+114:                                              ; preds = %110
+  resume { ptr, i32 } %111
 
-116:                                              ; preds = %111
-  %117 = landingpad { ptr, i32 }
+115:                                              ; preds = %110
+  %116 = landingpad { ptr, i32 }
           catch ptr null
-  %118 = extractvalue { ptr, i32 } %117, 0
-  tail call void @__clang_call_terminate(ptr %118) #34
+  %117 = extractvalue { ptr, i32 } %116, 0
+  tail call void @__clang_call_terminate(ptr %117) #34
   unreachable
 
-119:                                              ; preds = %_ZNSt12_Vector_baseIN10filesystem4pathESaIS1_EE13_M_deallocateEPS1_m.exit39
+118:                                              ; preds = %_ZNSt12_Vector_baseIN10filesystem4pathESaIS1_EE13_M_deallocateEPS1_m.exit39
   unreachable
 }
 

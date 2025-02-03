@@ -8034,7 +8034,7 @@ onig_node_free.exit739:                           ; preds = %373
 
 385:                                              ; preds = %381
   %386 = load ptr, ptr %55, align 8
-  %387 = tail call i32 %386(ptr noundef %365, ptr noundef %4) #25
+  %387 = tail call i32 %386(ptr noundef %365, ptr noundef nonnull %4) #25
   %388 = load ptr, ptr %51, align 8
   %389 = tail call i32 %388(ptr noundef %365) #25
   %390 = sext i32 %389 to i64
@@ -8043,7 +8043,7 @@ onig_node_free.exit739:                           ; preds = %373
   br label %392
 
 392:                                              ; preds = %385, %381
-  %393 = call fastcc i32 @fetch_token(ptr noundef nonnull %1, ptr noundef %14, ptr noundef %4, ptr noundef nonnull %5)
+  %393 = call fastcc i32 @fetch_token(ptr noundef nonnull %1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %394 = icmp slt i32 %393, 0
   br i1 %394, label %onig_node_free.exit740, label %395
 
@@ -8053,7 +8053,7 @@ onig_node_free.exit740:                           ; preds = %392
   br label %prs_bag.exit.thread
 
 395:                                              ; preds = %392
-  %396 = call fastcc i32 @prs_alts(ptr noundef nonnull %13, ptr noundef nonnull %1, i32 noundef 15, ptr noundef %14, ptr noundef %4, ptr noundef nonnull %5, i32 noundef 1)
+  %396 = call fastcc i32 @prs_alts(ptr noundef nonnull %13, ptr noundef nonnull %1, i32 noundef 15, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
   %397 = icmp slt i32 %396, 0
   br i1 %397, label %onig_node_free.exit741, label %399
 

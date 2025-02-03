@@ -518,7 +518,7 @@ if.end8.i:                                        ; preds = %for.body.i.i.i
   br i1 %11, label %if.then10.i, label %if.else24.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i.i, %if.end8.i
-  %transaction.064.i = phi ptr [ %arrayidx.i.i.i, %if.end8.i ], [ %arrayidx.i.i, %land.lhs.true.i.i ]
+  %transaction.05268.i = phi ptr [ %arrayidx.i.i.i, %if.end8.i ], [ %arrayidx.i.i, %land.lhs.true.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %packet, i64 5
   %packet.val21.i = load i8, ptr %12, align 1
   %13 = getelementptr inbounds nuw i8, ptr %packet, i64 6
@@ -527,14 +527,14 @@ if.then10.i:                                      ; preds = %land.lhs.true.i.i, 
   %shl.i.i = shl nuw i16 %conv.i24.i, 8
   %conv3.i.i = zext i8 %packet.val22.i to i16
   %or5.i.i = or disjoint i16 %shl.i.i, %conv3.i.i
-  %resp_bcnt.i = getelementptr inbounds nuw i8, ptr %transaction.064.i, i64 4
+  %resp_bcnt.i = getelementptr inbounds nuw i8, ptr %transaction.05268.i, i64 4
   store i16 %or5.i.i, ptr %resp_bcnt.i, align 4
-  %resp_size.i = getelementptr inbounds nuw i8, ptr %transaction.064.i, i64 6
+  %resp_size.i = getelementptr inbounds nuw i8, ptr %transaction.05268.i, i64 6
   store i16 57, ptr %resp_size.i, align 2
   br i1 %cmp.i, label %if.then15.i, label %if.end27.i
 
 if.then15.i:                                      ; preds = %if.then10.i
-  %nonce.i = getelementptr inbounds nuw i8, ptr %transaction.064.i, i64 8
+  %nonce.i = getelementptr inbounds nuw i8, ptr %transaction.05268.i, i64 8
   %data17.i = getelementptr inbounds nuw i8, ptr %packet, i64 7
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %nonce.i, ptr noundef nonnull dereferenceable(8) %data17.i, i64 8)
   %cmp20.not.i = icmp eq i32 %bcmp.i, 0

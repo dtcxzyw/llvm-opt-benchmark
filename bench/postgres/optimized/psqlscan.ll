@@ -1724,7 +1724,7 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   br i1 %796, label %797, label %798
 
 797:                                              ; preds = %792
-  tail call void @free(ptr noundef %794) #27
+  tail call void @free(ptr noundef nonnull %794) #27
   store ptr null, ptr %104, align 8
   store i32 1, ptr %78, align 4
   br label %805

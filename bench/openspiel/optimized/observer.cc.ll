@@ -176,8 +176,6 @@ $_ZN10open_spiel10SpanTensorD2Ev = comdat any
 
 $_ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ = comdat any
 
-$_ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE7destroyIS1_EEvRS2_PT_ = comdat any
-
 $_ZNSt6vectorIfSaIfEE17_M_default_appendEm = comdat any
 
 $_ZNSt16allocator_traitsISaIN10open_spiel10SpanTensorEEE7destroyIS1_EEvRS2_PT_ = comdat any
@@ -4975,7 +4973,7 @@ _ZSt10_ConstructIN10open_spiel14SpanTensorInfoEJRKS1_EEvPT_DpOT0_.exit: ; preds 
   %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
   %12 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #26
-  invoke void @_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoEEvT_S3_(ptr noundef %2, ptr noundef %.016)
+  invoke void @_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoEEvT_S3_(ptr noundef %2, ptr noundef nonnull %.016)
           to label %14 unwind label %15
 
 14:                                               ; preds = %.body
@@ -6109,7 +6107,7 @@ _ZNSt12_Vector_baseIN10open_spiel14SpanTensorInfoESaIS1_EE11_M_allocateEm.exit: 
   %27 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %23) #26
-  br label %.body
+  br label %53
 
 _ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %.noexc
   %.not10.i.i.i = icmp eq ptr %6, %1
@@ -6184,68 +6182,35 @@ _ZNSt12_Vector_baseIN10open_spiel14SpanTensorInfoESaIS1_EE13_M_deallocateEPS1_m.
 49:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel14SpanTensorInfoESaIS1_EE11_M_allocateEm.exit
   %50 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  br label %53
 
-.body:                                            ; preds = %26, %49
-  %eh.lpad-body = phi { ptr, i32 } [ %50, %49 ], [ %27, %26 ]
-  %51 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %52 = tail call ptr @__cxa_begin_catch(ptr %51) #26
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread, label %55
-
-.thread:                                          ; preds = %.body
-  tail call void @_ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %23) #26
-  br label %_ZNSt12_Vector_baseIN10open_spiel14SpanTensorInfoESaIS1_EE13_M_deallocateEPS1_m.exit37
-
-53:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel14SpanTensorInfoESaIS1_EE13_M_deallocateEPS1_m.exit37
-  %54 = landingpad { ptr, i32 }
+51:                                               ; preds = %53
+  %52 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %57 unwind label %58
 
-55:                                               ; preds = %.body
+53:                                               ; preds = %49, %26
+  %eh.lpad-body = phi { ptr, i32 } [ %50, %49 ], [ %27, %26 ]
+  %54 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %55 = tail call ptr @__cxa_begin_catch(ptr %54) #26
   %56 = mul nuw nsw i64 %16, 56
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %56) #25
-  br label %_ZNSt12_Vector_baseIN10open_spiel14SpanTensorInfoESaIS1_EE13_M_deallocateEPS1_m.exit37
-
-_ZNSt12_Vector_baseIN10open_spiel14SpanTensorInfoESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %55, %.thread
   invoke void @__cxa_rethrow() #24
-          to label %61 unwind label %53
+          to label %61 unwind label %51
 
-57:                                               ; preds = %53
-  resume { ptr, i32 } %54
+57:                                               ; preds = %51
+  resume { ptr, i32 } %52
 
-58:                                               ; preds = %53
+58:                                               ; preds = %51
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
   tail call void @__clang_call_terminate(ptr %60) #27
   unreachable
 
-61:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel14SpanTensorInfoESaIS1_EE13_M_deallocateEPS1_m.exit37
+61:                                               ; preds = %53
   unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = load i64, ptr %3, align 8
-  %5 = and i64 %4, 1
-  %.not.i.i.i.i.i = icmp eq i64 %5, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN10open_spiel14SpanTensorInfoEE7destroyIS1_EEvPT_.exit, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %10 = load i64, ptr %9, align 8
-  %11 = shl i64 %10, 2
-  tail call void @_ZdlPvm(ptr noundef %8, i64 noundef %11) #25
-  br label %_ZNSt15__new_allocatorIN10open_spiel14SpanTensorInfoEE7destroyIS1_EEvPT_.exit
-
-_ZNSt15__new_allocatorIN10open_spiel14SpanTensorInfoEE7destroyIS1_EEvPT_.exit: ; preds = %2, %6
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #26
-  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7050,7 +7015,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclE
   br i1 %59, label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERKS7_SA_.exit21.thread50, label %60
 
 60:                                               ; preds = %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERKS7_SA_.exit13.thread
-  %61 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #29
+  %61 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #29
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i14 unwind label %64
@@ -7166,7 +7131,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclE
   br i1 %109, label %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERKS7_SA_.exit21.thread50, label %110
 
 110:                                              ; preds = %_ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERKS7_SA_.exit21.thread
-  %111 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #29
+  %111 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #29
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %113 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %112)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i22 unwind label %114

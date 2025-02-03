@@ -1296,7 +1296,7 @@ define dso_local noundef nonnull ptr @_ZN5clang7CodeGen20CreateMacObjCRuntimeERN
 
 _ZN12_GLOBAL__N_122CGObjCNonFragileABIMacC2ERN5clang7CodeGen13CodeGenModuleE.exit: ; preds = %347, %350
   %.sroa.0.0.i.i.i.i = phi i64 [ %351, %350 ], [ %349, %347 ]
-  %352 = call noundef ptr @_ZN5clang9FieldDecl6CreateERKNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES6_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoEPNS_4ExprEbNS_16InClassInitStyleE(ptr noundef nonnull align 8 dereferenceable(23096) %326, ptr noundef %341, i32 0, i32 0, ptr noundef null, i64 %.sroa.0.0.i.i.i.i, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i32 noundef 0) #25
+  %352 = call noundef ptr @_ZN5clang9FieldDecl6CreateERKNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES6_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoEPNS_4ExprEbNS_16InClassInitStyleE(ptr noundef nonnull align 8 dereferenceable(23096) %326, ptr noundef nonnull %339, i32 0, i32 0, ptr noundef null, i64 %.sroa.0.0.i.i.i.i, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i32 noundef 0) #25
   call void @_ZN5clang11DeclContext7addDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(32) %339, ptr noundef %352) #25
   %353 = load ptr, ptr %338, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 104
@@ -6601,7 +6601,7 @@ _ZNK5clang10ASTContext16getObjCClassTypeEv.exit:  ; preds = %155, %158
   %185 = inttoptr i64 %184 to ptr
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.sroa.0.0.copyload = load i64, ptr %186, align 8
-  call fastcc void @_ZN12_GLOBAL__N_115CGObjCCommonMac15EmitMessageSendERN5clang7CodeGen15CodeGenFunctionENS2_15ReturnValueSlotENS1_8QualTypeENS1_8SelectorEPN4llvm5ValueES6_bRKNS2_11CallArgListEPKNS1_14ObjCMethodDeclEPKNS1_17ObjCInterfaceDeclERKNS_21ObjCCommonTypesHelperE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1968) %1, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr noundef nonnull byval(%"class.clang::CodeGen::ReturnValueSlot") align 8 %3, i64 %4, i64 %5, ptr noundef %185, i64 %.sroa.0.0.copyload, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(1496) %10, ptr noundef %11, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(184) %160)
+  call fastcc void @_ZN12_GLOBAL__N_115CGObjCCommonMac15EmitMessageSendERN5clang7CodeGen15CodeGenFunctionENS2_15ReturnValueSlotENS1_8QualTypeENS1_8SelectorEPN4llvm5ValueES6_bRKNS2_11CallArgListEPKNS1_14ObjCMethodDeclEPKNS1_17ObjCInterfaceDeclERKNS_21ObjCCommonTypesHelperE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1968) %1, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr noundef nonnull byval(%"class.clang::CodeGen::ReturnValueSlot") align 8 %3, i64 %4, i64 %5, ptr noundef %185, i64 %.sroa.0.0.copyload, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(1496) %10, ptr noundef %11, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(184) %160)
   ret void
 }
 
@@ -10850,7 +10850,7 @@ _ZNK5clang10ASTContext16getObjCClassTypeEv.exit:  ; preds = %95, %98
   %.sroa.0.0.i.i43 = phi i64 [ %99, %98 ], [ %97, %95 ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %102 = tail call noundef ptr @_ZN5clang9FieldDecl6CreateERKNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES6_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoEPNS_4ExprEbNS_16InClassInitStyleE(ptr noundef nonnull align 8 dereferenceable(23096) %13, ptr noundef %82, i32 0, i32 0, ptr noundef null, i64 %.sroa.0.0.i.i43, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i32 noundef 0) #25
+  %102 = tail call noundef ptr @_ZN5clang9FieldDecl6CreateERKNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES6_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoEPNS_4ExprEbNS_16InClassInitStyleE(ptr noundef nonnull align 8 dereferenceable(23096) %13, ptr noundef nonnull %80, i32 0, i32 0, ptr noundef null, i64 %.sroa.0.0.i.i43, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i32 noundef 0) #25
   tail call void @_ZN5clang11DeclContext7addDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef %102) #25
   %103 = load ptr, ptr %79, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 104
@@ -37105,19 +37105,22 @@ _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i: ; preds = %387
   %398 = and i32 %396, 15
   %399 = add nsw i32 %398, -7
   %spec.select.i.i.i.i14.i.i = icmp ult i32 %399, 2
-  br i1 %spec.select.i.i.i.i14.i.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i16.i.i, label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.i.i
+  br i1 %spec.select.i.i.i.i14.i.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i16.i.i, label %.lr.ph.i.i.i.preheader
 
 _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i16.i.i: ; preds = %394
   %400 = or i32 %397, 16384
   store i32 %400, ptr %395, align 8
-  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.i.i
+  br label %.lr.ph.i.i.i.preheader
 
-_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.i.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i16.i.i, %394, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i, %387, %_ZN5clang7CodeGen36ConstantAggregateBuilderTemplateBaseINS0_20ConstantArrayBuilderENS0_25ConstantInitBuilderTraitsEE11beginStructEPN4llvm10StructTypeE.exit.i
+_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.i.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i, %387, %_ZN5clang7CodeGen36ConstantAggregateBuilderTemplateBaseINS0_20ConstantArrayBuilderENS0_25ConstantInitBuilderTraitsEE11beginStructEPN4llvm10StructTypeE.exit.i
   %.not4.i.i.i = icmp eq ptr %361, null
-  br i1 %.not4.i.i.i, label %_ZN12_GLOBAL__N_122CGObjCNonFragileABIMac28isClassLayoutKnownStaticallyEPKN5clang17ObjCInterfaceDeclE.exit.thread.i.i, label %.lr.ph.i.i.i
+  br i1 %.not4.i.i.i, label %_ZN12_GLOBAL__N_122CGObjCNonFragileABIMac28isClassLayoutKnownStaticallyEPKN5clang17ObjCInterfaceDeclE.exit.thread.i.i, label %.lr.ph.i.i.i.preheader
 
-.lr.ph.i.i.i:                                     ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.i.i, %414
-  %.055.i.i.i = phi ptr [ %415, %414 ], [ %361, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.i.i ]
+.lr.ph.i.i.i.preheader:                           ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.i.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i16.i.i, %394
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %414
+  %.055.i.i.i = phi ptr [ %415, %414 ], [ %361, %.lr.ph.i.i.i.preheader ]
   %401 = getelementptr inbounds nuw i8, ptr %.055.i.i.i, i64 40
   %402 = load i64, ptr %401, align 8
   %403 = and i64 %402, 7

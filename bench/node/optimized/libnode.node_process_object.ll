@@ -1768,7 +1768,7 @@ _ZNSt10shared_ptrIN4node15ExclusiveAccessINS0_8HostPortENS0_9MutexBaseINS0_16Lib
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %31, i64 32
   %shl.i = shl nuw nsw i64 %conv.i, 32
   store i64 %shl.i, ptr %arrayidx.i, align 8
-  tail call void @uv_mutex_unlock(ptr noundef %12) #19
+  tail call void @uv_mutex_unlock(ptr noundef nonnull %12) #19
   br i1 %cmp.not.i.i.i.i, label %_ZN4node15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEE6ScopedD2Ev.exit, label %if.then.i.i.i.i25
 
 if.then.i.i.i.i25:                                ; preds = %_ZNSt10shared_ptrIN4node15ExclusiveAccessINS0_8HostPortENS0_9MutexBaseINS0_16LibuvMutexTraitsEEEEEED2Ev.exit

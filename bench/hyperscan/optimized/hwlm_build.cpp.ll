@@ -638,7 +638,7 @@ invoke.cont37:                                    ; preds = %if.then35
 lpad36:                                           ; preds = %if.then35
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #19
+  call void @__cxa_free_exception(ptr nonnull %exception) #19
   br label %ehcleanup
 
 if.end38:                                         ; preds = %if.end31
@@ -928,7 +928,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #19
   br label %eh.resume
 
 for.cond:                                         ; preds = %if.end24
@@ -957,7 +957,7 @@ invoke.cont13:                                    ; preds = %if.then10
 lpad12:                                           ; preds = %if.then10
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception11) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception11) #19
   br label %eh.resume
 
 if.end14:                                         ; preds = %for.body
@@ -980,7 +980,7 @@ invoke.cont23:                                    ; preds = %if.then20
 lpad22:                                           ; preds = %if.then20
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception21) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception21) #19
   br label %eh.resume
 
 if.end24:                                         ; preds = %if.end14
@@ -1298,7 +1298,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #19
-  invoke void @_ZSt8_DestroyIPN3ue211hwlmLiteralEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef %__cur.010.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3ue211hwlmLiteralEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef nonnull %__cur.010.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i

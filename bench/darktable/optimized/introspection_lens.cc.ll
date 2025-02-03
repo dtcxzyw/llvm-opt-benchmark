@@ -7352,7 +7352,7 @@ define void @reload_defaults(ptr noundef %0) local_unnamed_addr #3 {
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 32
   %202 = load float, ptr %201, align 8, !tbaa !267
   store float %202, ptr %40, align 4, !tbaa !332
-  %203 = call reassoc nsz arcp contract afn fastcc noundef float @_ZL17_get_autoscale_lfP15dt_iop_module_tP20dt_iop_lens_params_tPK8lfCamera(ptr noundef %0, ptr noundef %7, ptr noundef %200)
+  %203 = call reassoc nsz arcp contract afn fastcc noundef float @_ZL17_get_autoscale_lfP15dt_iop_module_tP20dt_iop_lens_params_tPK8lfCamera(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %200)
   store float %203, ptr %47, align 4, !tbaa !274
   call void @lf_free(ptr noundef nonnull %127)
   br label %204

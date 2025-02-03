@@ -1371,7 +1371,7 @@ read_intra_mode_uv.exit.i:                        ; preds = %update_cdf.exit.i.i
 
 586:                                              ; preds = %read_intra_mode_uv.exit.i
   %587 = getelementptr inbounds nuw i8, ptr %21, i64 100
-  %588 = call fastcc zeroext i8 @read_cfl_alphas(ptr noundef %28, ptr noundef %2, ptr noundef nonnull %587)
+  %588 = call fastcc zeroext i8 @read_cfl_alphas(ptr noundef nonnull %28, ptr noundef %2, ptr noundef nonnull %587)
   %589 = getelementptr inbounds nuw i8, ptr %21, i64 101
   store i8 %588, ptr %589, align 1
   br label %590
@@ -8470,7 +8470,7 @@ define internal fastcc i32 @read_mv_component(ptr noundef %0, ptr noundef %1, i3
   br label %aom_read_symbol_.exit
 
 aom_read_symbol_.exit:                            ; preds = %4, %._crit_edge.loopexit.i.i
-  %39 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 11) #9
+  %39 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %6, ptr noundef nonnull %1, i32 noundef 11) #9
   %40 = load i8, ptr %8, align 8
   %.not.i42 = icmp eq i8 %40, 0
   br i1 %.not.i42, label %aom_read_symbol_.exit51, label %41

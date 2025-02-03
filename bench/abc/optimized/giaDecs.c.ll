@@ -1345,7 +1345,7 @@ Abc_TtOr.exit.i:                                  ; preds = %.lr.ph.i.i
 
 Gia_ManCountBidec.exit:                           ; preds = %.lr.ph.i18.i, %Gia_ManCountBidec.exit.thread
   %38 = phi i32 [ %25, %Gia_ManCountBidec.exit.thread ], [ %31, %.lr.ph.i18.i ]
-  %39 = tail call i32 @Kit_IsopNodeNum(ptr noundef %.val57, ptr noundef nonnull %23, i32 noundef %.val, ptr noundef null) #14
+  %39 = tail call i32 @Kit_IsopNodeNum(ptr noundef nonnull %.val57, ptr noundef nonnull %23, i32 noundef %.val, ptr noundef null) #14
   %40 = tail call i32 @Gia_ManCountBdd(ptr noundef %8, i32 noundef %.val, i32 poison)
   br label %.thread
 

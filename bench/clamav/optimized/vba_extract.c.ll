@@ -3903,7 +3903,7 @@ ole_copy_file_data.exit:                          ; preds = %.lr.ph.i, %71, %66
   br label %85
 
 85:                                               ; preds = %82, %84, %77, %ole_copy_file_data.exit
-  call void @free(ptr noundef %61) #17
+  call void @free(ptr noundef nonnull %61) #17
   br label %read_uint32.exit.thread
 
 read_uint32.exit.thread:                          ; preds = %54, %9, %skip_past_nul.exit49.thread, %skip_past_nul.exit.thread, %59, %52, %49, %skip_past_nul.exit49, %skip_past_nul.exit, %22, %12, %2, %85, %65

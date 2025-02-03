@@ -186,13 +186,13 @@ define hidden i32 @mbedtls_psa_ecp_export_key(i16 noundef zeroext %0, ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load ptr, ptr @mbedtls_psa_random_state, align 8
-  %15 = tail call i32 @mbedtls_ecp_mul(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @mbedtls_ctr_drbg_random, ptr noundef %14) #6
+  %15 = tail call i32 @mbedtls_ecp_mul(ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @mbedtls_ctr_drbg_random, ptr noundef %14) #6
   %16 = tail call i32 @mbedtls_to_psa_error(i32 noundef %15) #6
   %.not31 = icmp eq i32 %16, 0
   br i1 %.not31, label %17, label %36
 
 17:                                               ; preds = %11, %8
-  %18 = tail call i32 @mbedtls_ecp_point_write_binary(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %4, ptr noundef %2, i64 noundef %3) #6
+  %18 = tail call i32 @mbedtls_ecp_point_write_binary(ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %4, ptr noundef %2, i64 noundef %3) #6
   %19 = tail call i32 @mbedtls_to_psa_error(i32 noundef %18) #6
   %.not32 = icmp eq i32 %19, 0
   br i1 %.not32, label %36, label %20

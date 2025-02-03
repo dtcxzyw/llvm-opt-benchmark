@@ -495,7 +495,7 @@ define void @_ZN5osgeo4proj11coordinates18CoordinateMetadata6createERKN7dropbox6
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #18
+  tail call void @__cxa_free_exception(ptr nonnull %7) #18
   br label %27
 
 11:                                               ; preds = %2
@@ -1243,7 +1243,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEED2Ev.exit: ; preds = %_ZN7dropb
 238:                                              ; preds = %.critedge
   %239 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %236) #18
+  call void @__cxa_free_exception(ptr nonnull %236) #18
   br label %256
 
 240:                                              ; preds = %_ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEED2Ev.exit, %4

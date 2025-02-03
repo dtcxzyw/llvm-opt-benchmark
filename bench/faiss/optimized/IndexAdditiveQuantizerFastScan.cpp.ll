@@ -237,7 +237,7 @@ define void @_ZNK5faiss30IndexAdditiveQuantizerFastScan6searchElPKflPfPlPKNS_16S
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #10
+  call void @__cxa_free_exception(ptr nonnull %20) #10
   br label %59
 
 26:                                               ; preds = %7
@@ -275,7 +275,7 @@ define void @_ZNK5faiss30IndexAdditiveQuantizerFastScan6searchElPKflPfPlPKNS_16S
 41:                                               ; preds = %34
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %37) #10
+  call void @__cxa_free_exception(ptr nonnull %37) #10
   br label %59
 
 43:                                               ; preds = %26
@@ -550,7 +550,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %41
 81:                                               ; preds = %74
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %77) #10
+  call void @__cxa_free_exception(ptr nonnull %77) #10
   br label %83
 
 83:                                               ; preds = %81, %79
@@ -677,7 +677,7 @@ define void @_ZN5faiss30IndexAdditiveQuantizerFastScan4initEPNS_17AdditiveQuanti
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #10
+  call void @__cxa_free_exception(ptr nonnull %19) #10
   br label %125
 
 25:                                               ; preds = %4
@@ -719,7 +719,7 @@ define void @_ZN5faiss30IndexAdditiveQuantizerFastScan4initEPNS_17AdditiveQuanti
 44:                                               ; preds = %37
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %40) #10
+  call void @__cxa_free_exception(ptr nonnull %40) #10
   br label %125
 
 46:                                               ; preds = %25
@@ -758,7 +758,7 @@ define void @_ZN5faiss30IndexAdditiveQuantizerFastScan4initEPNS_17AdditiveQuanti
 62:                                               ; preds = %55
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %58) #10
+  call void @__cxa_free_exception(ptr nonnull %58) #10
   br label %125
 
 64:                                               ; preds = %46
@@ -807,7 +807,7 @@ define void @_ZN5faiss30IndexAdditiveQuantizerFastScan4initEPNS_17AdditiveQuanti
 84:                                               ; preds = %77
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %80) #10
+  call void @__cxa_free_exception(ptr nonnull %80) #10
   br label %125
 
 86:                                               ; preds = %64
@@ -846,7 +846,7 @@ define void @_ZN5faiss30IndexAdditiveQuantizerFastScan4initEPNS_17AdditiveQuanti
 101:                                              ; preds = %94
   %102 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %97) #10
+  call void @__cxa_free_exception(ptr nonnull %97) #10
   br label %125
 
 103:                                              ; preds = %86
@@ -1190,7 +1190,7 @@ define void @_ZN5faiss30IndexAdditiveQuantizerFastScan19estimate_norm_scaleElPKf
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #10
+  call void @__cxa_free_exception(ptr nonnull %21) #10
   br label %27
 
 27:                                               ; preds = %25, %23

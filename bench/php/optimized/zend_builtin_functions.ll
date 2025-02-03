@@ -8428,7 +8428,7 @@ define hidden void @zif_get_extension_funcs(ptr noundef readonly captures(none) 
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %11
-  %16 = call ptr @zend_string_tolower_ex(ptr noundef %12, i1 noundef zeroext false) #13
+  %16 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %12, i1 noundef zeroext false) #13
   %17 = call ptr @zend_hash_find(ptr noundef nonnull @module_registry, ptr noundef %16) #13
   %.not66 = icmp eq ptr %17, null
   br i1 %.not66, label %20, label %18

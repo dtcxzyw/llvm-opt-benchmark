@@ -1689,7 +1689,7 @@ define void @_ZN2mu14ParserByteCode6AddFunENS_21generic_callable_typeEib(ptr nou
 150:                                              ; preds = %147
   %151 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %148) #24
+  tail call void @__cxa_free_exception(ptr nonnull %148) #24
   resume { ptr, i32 } %151
 
 ._crit_edge.i.i:                                  ; preds = %90, %88, %74, %72, %60, %58, %48, %46, %38, %36, %134, %122, %111, %101, %92

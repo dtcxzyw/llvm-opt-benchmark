@@ -5350,7 +5350,7 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento12ExplodedNodeEE5eraseES5_.exit._crit_ed
 
 312:                                              ; preds = %307
   %313 = getelementptr inbounds nuw i8, ptr %304, i64 256
-  call fastcc void @_ZSt16__insertion_sortIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_T0_(ptr noundef %304, ptr noundef nonnull %313, ptr nonnull readonly %60), !noalias !123
+  call fastcc void @_ZSt16__insertion_sortIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_T0_(ptr noundef nonnull %304, ptr noundef nonnull %313, ptr nonnull readonly %60), !noalias !123
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %312
@@ -5361,7 +5361,7 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento12ExplodedNodeEE5eraseES5_.exit._crit_ed
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm4sortIRNS_11SmallVectorISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS4_12ExplodedNodeEELj32EEEN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEvOT_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !138
 
 315:                                              ; preds = %307
-  call fastcc void @_ZSt16__insertion_sortIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_T0_(ptr noundef %304, ptr noundef nonnull %306, ptr nonnull readonly %60), !noalias !123
+  call fastcc void @_ZSt16__insertion_sortIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_T0_(ptr noundef nonnull %304, ptr noundef nonnull %306, ptr nonnull readonly %60), !noalias !123
   br label %_ZN4llvm4sortIRNS_11SmallVectorISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS4_12ExplodedNodeEELj32EEEN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEvOT_T0_.exit.i.i
 
 _ZN4llvm4sortIRNS_11SmallVectorISt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS4_12ExplodedNodeEELj32EEEN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEvOT_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %315, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento12ExplodedNodeEE5eraseES5_.exit._crit_edge.i.i

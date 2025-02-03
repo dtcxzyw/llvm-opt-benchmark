@@ -520,7 +520,7 @@ if.end46:                                         ; preds = %if.end26
   br i1 %cmp50.not, label %return, label %if.then52
 
 if.then52:                                        ; preds = %if.end46
-  call void @OPENSSL_cleanse(ptr noundef %out, i64 noundef %inlen) #6
+  call void @OPENSSL_cleanse(ptr noundef nonnull %out, i64 noundef %inlen) #6
   br label %return
 
 return:                                           ; preds = %if.end46, %entry, %if.then52, %if.then45, %if.then25, %if.then13

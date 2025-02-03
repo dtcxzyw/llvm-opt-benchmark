@@ -7040,25 +7040,25 @@ _ZNK4llvm11Instruction19isSpecialTerminatorEv.exit: ; preds = %switch.hole_check
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %.023, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %.023, i64 48
-  %.sroa.032.037 = load ptr, ptr %24, align 8
-  %.not3638 = icmp eq ptr %.sroa.032.037, %25
-  br i1 %.not3638, label %_ZNK4llvm11Instruction19isSpecialTerminatorEv.exit.thread, label %.lr.ph.preheader
+  %.sroa.032.038 = load ptr, ptr %24, align 8
+  %.not3639 = icmp eq ptr %.sroa.032.038, %25
+  br i1 %.not3639, label %_ZNK4llvm11Instruction19isSpecialTerminatorEv.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %23
   %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19MaxNumInsnsPerBlock, i64 128), align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %.sroa.032.040 = phi ptr [ %.sroa.032.0, %46 ], [ %.sroa.032.037, %.lr.ph.preheader ]
-  %.02439 = phi i32 [ %.1, %46 ], [ %26, %.lr.ph.preheader ]
-  %27 = icmp eq ptr %.sroa.032.040, null
-  %28 = getelementptr inbounds i8, ptr %.sroa.032.040, i64 -24
+  %.sroa.032.041 = phi ptr [ %.sroa.032.0, %46 ], [ %.sroa.032.038, %.lr.ph.preheader ]
+  %.02440 = phi i32 [ %.1, %46 ], [ %26, %.lr.ph.preheader ]
+  %27 = icmp eq ptr %.sroa.032.041, null
+  %28 = getelementptr inbounds i8, ptr %.sroa.032.041, i64 -24
   %29 = select i1 %27, ptr null, ptr %28
   %30 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction19isDebugOrPseudoInstEv(ptr noundef nonnull align 8 dereferenceable(72) %29) #26
   br i1 %30, label %46, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = add i32 %.02439, -1
+  %32 = add i32 %.02440, -1
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %_ZNK4llvm11Instruction19isSpecialTerminatorEv.exit.thread, label %34
 
@@ -7078,12 +7078,12 @@ _ZNK4llvm11Instruction19isSpecialTerminatorEv.exit: ; preds = %switch.hole_check
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef zeroext i1 @_ZN4llvm29InstructionPrecedenceTracking31isPreceededBySpecialInstructionEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull %29) #25
-  %spec.select = select i1 %45, ptr null, ptr %29
+  %spec.select = select i1 %45, ptr null, ptr %28
   br label %_ZNK4llvm11Instruction19isSpecialTerminatorEv.exit.thread
 
 46:                                               ; preds = %34, %.lr.ph
-  %.1 = phi i32 [ %.02439, %.lr.ph ], [ %32, %34 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.032.040, i64 8
+  %.1 = phi i32 [ %.02440, %.lr.ph ], [ %32, %34 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.032.041, i64 8
   %.sroa.032.0 = load ptr, ptr %47, align 8
   %.not36 = icmp eq ptr %.sroa.032.0, %25
   br i1 %.not36, label %_ZNK4llvm11Instruction19isSpecialTerminatorEv.exit.thread, label %.lr.ph

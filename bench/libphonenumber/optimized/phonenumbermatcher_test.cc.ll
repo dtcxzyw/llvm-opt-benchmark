@@ -37960,7 +37960,7 @@ _ZSt10_ConstructIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEJRKS3_EEvPT_DpOT
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
   %12 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #18
-  tail call fastcc void @_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvT_S5_(ptr noundef %2, ptr noundef %.018.i.i.i)
+  tail call fastcc void @_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvT_S5_(ptr noundef %2, ptr noundef nonnull %.018.i.i.i)
   invoke void @__cxa_rethrow() #21
           to label %20 unwind label %14
 
@@ -38029,7 +38029,7 @@ _ZNKSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #20
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   invoke void @_ZN4i18n12phonenumbers11PhoneNumberC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull align 8 dereferenceable(72) %2)
-          to label %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers11PhoneNumberEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EE13_M_deallocateEPS2_m.exit37
+          to label %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers11PhoneNumberEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit unwind label %32
 
 _ZNSt16allocator_traitsISaIN4i18n12phonenumbers11PhoneNumberEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i = icmp eq ptr %6, %1
@@ -38076,32 +38076,32 @@ _ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EE13_M_deallocateEPS
   store ptr %29, ptr %28, align 8
   ret void
 
-30:                                               ; preds = %_ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EE13_M_deallocateEPS2_m.exit37
+30:                                               ; preds = %32
   %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %35 unwind label %36
+          to label %36 unwind label %37
 
-_ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNKSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNKSt6vectorIN4i18n12phonenumbers11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  %34 = tail call ptr @__cxa_begin_catch(ptr %33) #18
+  %34 = extractvalue { ptr, i32 } %33, 0
+  %35 = tail call ptr @__cxa_begin_catch(ptr %34) #18
   tail call void @_ZdlPv(ptr noundef nonnull %20) #19
   invoke void @__cxa_rethrow() #21
-          to label %39 unwind label %30
-
-35:                                               ; preds = %30
-  resume { ptr, i32 } %31
+          to label %40 unwind label %30
 
 36:                                               ; preds = %30
-  %37 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %31
+
+37:                                               ; preds = %30
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #22
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #22
   unreachable
 
-39:                                               ; preds = %_ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EE13_M_deallocateEPS2_m.exit37
+40:                                               ; preds = %32
   unreachable
 }
 

@@ -187,7 +187,7 @@ invoke.cont3:                                     ; preds = %if.end
 
 invoke.cont7:                                     ; preds = %invoke.cont3
   %add.ptr = getelementptr inbounds i8, ptr %s.coerce1, i64 %s.coerce0
-  %call10 = invoke ptr @uriEscapeExA(ptr noundef %s.coerce1, ptr noundef nonnull %add.ptr, ptr noundef nonnull %call8, i32 noundef 0, i32 noundef 0)
+  %call10 = invoke ptr @uriEscapeExA(ptr noundef nonnull %s.coerce1, ptr noundef nonnull %add.ptr, ptr noundef nonnull %call8, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont9 unwind label %lpad2
 
 invoke.cont9:                                     ; preds = %invoke.cont7

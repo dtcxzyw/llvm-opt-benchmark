@@ -1775,7 +1775,7 @@ _ZN5folly7PromiseIbED2Ev.exit.i:                  ; preds = %.noexc.i.i, %for.bo
   br i1 %cmp.not.wide.i, label %_ZN5folly7futures7Barrier16freeControlBlockEPNS1_12ControlBlockE.exit, label %for.body.i70, !llvm.loop !118
 
 _ZN5folly7futures7Barrier16freeControlBlockEPNS1_12ControlBlockE.exit: ; preds = %_ZN5folly7PromiseIbED2Ev.exit.i, %if.then35
-  call void @_ZdlPvSt11align_val_t(ptr noundef %atomic-temp.0.i.i, i64 noundef 8) #20
+  call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %atomic-temp.0.i.i, i64 noundef 8) #20
   br label %nrvo.skipdtor
 
 nrvo.skipdtor:                                    ; preds = %_ZN5folly7futures7Barrier16freeControlBlockEPNS1_12ControlBlockE.exit, %if.end

@@ -1973,7 +1973,7 @@ common.resume:                                    ; preds = %26, %.body, %11
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #29
+  tail call void @__cxa_free_exception(ptr nonnull %9) #29
   br label %common.resume
 
 13:                                               ; preds = %4
@@ -2037,7 +2037,7 @@ _ZN7msgpack2v26detail12parse_helperINS1_21create_object_visitorEE7executeEPKcmRm
 35:                                               ; preds = %31
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %33) #29
+  call void @__cxa_free_exception(ptr nonnull %33) #29
   br label %.body
 
 37:                                               ; preds = %_ZN7msgpack2v26detail12parse_helperINS1_21create_object_visitorEE7executeEPKcmRm.exit
@@ -5789,7 +5789,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #29
+  tail call void @__cxa_free_exception(ptr nonnull %9) #29
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %3
@@ -6379,7 +6379,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v26detail21create_object_visitor
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #29
+  tail call void @__cxa_free_exception(ptr nonnull %4) #29
   resume { ptr, i32 } %7
 }
 
@@ -6403,7 +6403,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #29
+  tail call void @__cxa_free_exception(ptr nonnull %9) #29
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %3
@@ -6528,7 +6528,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #29
+  tail call void @__cxa_free_exception(ptr nonnull %9) #29
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %3
@@ -7793,7 +7793,7 @@ _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE9push_backERKS3_.exit: ; preds = %78, 
 101:                                              ; preds = %27, %10
   %.sink = phi ptr [ %25, %27 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %11, %10 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #29
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #29
   resume { ptr, i32 } %.pn
 }
 
@@ -8039,7 +8039,7 @@ _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE9push_backEOS3_.exit: ; preds = %78, %
 101:                                              ; preds = %27, %10
   %.sink = phi ptr [ %25, %27 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %11, %10 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #29
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #29
   resume { ptr, i32 } %.pn
 }
 
@@ -9248,7 +9248,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v14type14define_map_impISt5tuple
 39:                                               ; preds = %36
   %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %37) #29
+  tail call void @__cxa_free_exception(ptr nonnull %37) #29
   resume { ptr, i32 } %40
 
 _ZN7msgpack2v16packerINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE4packINS2_12basic_stringIcS5_S6_EEEERS8_RKT_.exit: ; preds = %2
@@ -9298,7 +9298,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v14type14define_map_impISt5tuple
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %22) #29
+  tail call void @__cxa_free_exception(ptr nonnull %22) #29
   resume { ptr, i32 } %25
 
 _ZN7msgpack2v16packerINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE4packINS2_12basic_stringIcS5_S6_EEEERS8_RKT_.exit: ; preds = %2
@@ -11465,7 +11465,7 @@ _ZSt8_DestroyIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11c
   %30 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %57 unwind label %31
+          to label %_ZSt8_DestroyIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESB_EvT_SD_RSaIT0_E.exit49.thread unwind label %31
 
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
@@ -11519,7 +11519,7 @@ _ZSt8_DestroyIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11c
   %42 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %60 unwind label %43
+          to label %59 unwind label %43
 
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
@@ -11532,11 +11532,11 @@ _ZSt8_DestroyIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11c
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESC_SaISB_EET0_T_SF_SE_RT1_.exit43.loopexit: ; preds = %_ZSt10_ConstructIN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i37
-  %.ptr63.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i30.add
+  %.ptr60.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i30.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESC_SaISB_EET0_T_SF_SE_RT1_.exit43
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESC_SaISB_EET0_T_SF_SE_RT1_.exit43: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESC_SaISB_EET0_T_SF_SE_RT1_.exit43.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESC_SaISB_EET0_T_SF_SE_RT1_.exit
-  %.0.lcssa.i.i.i.i.i39 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESC_SaISB_EET0_T_SF_SE_RT1_.exit ], [ %.ptr63.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESC_SaISB_EET0_T_SF_SE_RT1_.exit43.loopexit ]
+  %.0.lcssa.i.i.i.i.i39 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESC_SaISB_EET0_T_SF_SE_RT1_.exit ], [ %.ptr60.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESC_SaISB_EET0_T_SF_SE_RT1_.exit43.loopexit ]
   %.not.i2.i.i = icmp eq ptr %6, %5
   br i1 %.not.i2.i.i, label %_ZSt8_DestroyIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESB_EvT_SD_RSaIT0_E.exit, label %.lr.ph.i.i
 
@@ -11573,47 +11573,47 @@ _ZNSt12_Vector_baseIN7msgpack2v14type13basic_variantIN5boost16basic_string_refIc
   %56 = tail call ptr @__cxa_begin_catch(ptr %55) #29
   br label %_ZNSt12_Vector_baseIN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESaISB_EE13_M_deallocateEPSB_m.exit51
 
-57:                                               ; preds = %29
-  %58 = extractvalue { ptr, i32 } %30, 0
-  %59 = tail call ptr @__cxa_begin_catch(ptr %58) #29
+_ZSt8_DestroyIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESB_EvT_SD_RSaIT0_E.exit49.thread: ; preds = %29
+  %57 = extractvalue { ptr, i32 } %30, 0
+  %58 = tail call ptr @__cxa_begin_catch(ptr %57) #29
   tail call void @_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISC_SF_SH_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE15destroy_contentEv(ptr noundef nonnull align 8 dereferenceable(40) %21) #29
   br label %_ZNSt12_Vector_baseIN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESaISB_EE13_M_deallocateEPSB_m.exit51
 
-60:                                               ; preds = %41
-  %61 = extractvalue { ptr, i32 } %42, 0
-  %62 = tail call ptr @__cxa_begin_catch(ptr %61) #29
+59:                                               ; preds = %41
+  %60 = extractvalue { ptr, i32 } %42, 0
+  %61 = tail call ptr @__cxa_begin_catch(ptr %60) #29
   %.not.i2.i.i45 = icmp eq ptr %20, %.ptr
   br i1 %.not.i2.i.i45, label %_ZNSt12_Vector_baseIN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESaISB_EE13_M_deallocateEPSB_m.exit51, label %.lr.ph.i.i46
 
-.lr.ph.i.i46:                                     ; preds = %60, %.lr.ph.i.i46
-  %.0.i3.i.i47 = phi ptr [ %63, %.lr.ph.i.i46 ], [ %20, %60 ]
+.lr.ph.i.i46:                                     ; preds = %59, %.lr.ph.i.i46
+  %.0.i3.i.i47 = phi ptr [ %62, %.lr.ph.i.i46 ], [ %20, %59 ]
   tail call void @_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISC_SF_SH_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE15destroy_contentEv(ptr noundef nonnull align 8 dereferenceable(40) %.0.i3.i.i47) #29
-  %63 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i47, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i47, i64 40
   %.not.i.i.i48 = icmp eq ptr %.0.i3.i.i47, %.0.lcssa.i.i.i.i.i
   br i1 %.not.i.i.i48, label %_ZNSt12_Vector_baseIN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESaISB_EE13_M_deallocateEPSB_m.exit51, label %.lr.ph.i.i46, !llvm.loop !63
 
-64:                                               ; preds = %_ZNSt12_Vector_baseIN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESaISB_EE13_M_deallocateEPSB_m.exit51
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZNSt12_Vector_baseIN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESaISB_EE13_M_deallocateEPSB_m.exit51
+  %64 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %66 unwind label %67
+          to label %65 unwind label %66
 
-_ZNSt12_Vector_baseIN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESaISB_EE13_M_deallocateEPSB_m.exit51: ; preds = %.lr.ph.i.i46, %.thread, %60, %57
+_ZNSt12_Vector_baseIN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESaISB_EE13_M_deallocateEPSB_m.exit51: ; preds = %.lr.ph.i.i46, %_ZSt8_DestroyIPN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESB_EvT_SD_RSaIT0_E.exit49.thread, %.thread, %59
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #33
   invoke void @__cxa_rethrow() #31
-          to label %70 unwind label %64
+          to label %69 unwind label %63
 
-66:                                               ; preds = %64
-  resume { ptr, i32 } %65
+65:                                               ; preds = %63
+  resume { ptr, i32 } %64
 
-67:                                               ; preds = %64
-  %68 = landingpad { ptr, i32 }
+66:                                               ; preds = %63
+  %67 = landingpad { ptr, i32 }
           catch ptr null
-  %69 = extractvalue { ptr, i32 } %68, 0
-  tail call void @__clang_call_terminate(ptr %69) #32
+  %68 = extractvalue { ptr, i32 } %67, 0
+  tail call void @__clang_call_terminate(ptr %68) #32
   unreachable
 
-70:                                               ; preds = %_ZNSt12_Vector_baseIN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESaISB_EE13_M_deallocateEPSB_m.exit51
+69:                                               ; preds = %_ZNSt12_Vector_baseIN7msgpack2v14type13basic_variantIN5boost16basic_string_refIcSt11char_traitsIcEEENS2_7raw_refENS2_7ext_refEEESaISB_EE13_M_deallocateEPSB_m.exit51
   unreachable
 }
 
@@ -13376,7 +13376,7 @@ define linkonce_odr dso_local void @_ZNK5boost10wrapexceptINS_7bad_getEE7rethrow
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -14171,7 +14171,7 @@ define linkonce_odr dso_local void @_ZNKR5boost7variantIN7msgpack2v14type5nil_tE
 40:                                               ; preds = %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %38) #29
+  tail call void @__cxa_free_exception(ptr nonnull %38) #29
   resume { ptr, i32 } %41
 
 _ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorIKN7msgpack2v17adaptor6detail20object_with_zone_impELb0EEEPKvNS_16basic_string_refIcSt11char_traitsIcEEENS_7variantINS5_4type5nil_tEJblmdNSt7__cxx1112basic_stringIcSF_SaIcEEESG_St6vectorIcSM_ENSI_7raw_refENSI_3extENSI_7ext_refENS_17recursive_wrapperISO_INSI_13basic_variantISG_SQ_SS_EESaISV_EEEENST_ISt3mapISV_SV_St4lessISV_ESaISt4pairIKSV_SV_EEEEENST_ISt8multimapISV_SV_S11_S15_EEEEE18has_fallback_type_EEENT_11result_typeEiRS1D_T0_PT1_T2_i.exit: ; preds = %33
@@ -14273,7 +14273,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v17adaptor16object_with_zoneINS
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #29
+  tail call void @__cxa_free_exception(ptr nonnull %8) #29
   resume { ptr, i32 } %11
 
 _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
@@ -14364,7 +14364,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v17adaptor16object_with_zoneISt
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #29
+  tail call void @__cxa_free_exception(ptr nonnull %12) #29
   resume { ptr, i32 } %15
 
 _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
@@ -14556,7 +14556,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v17adaptor16object_with_zoneISt
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %20) #29
+  tail call void @__cxa_free_exception(ptr nonnull %20) #29
   resume { ptr, i32 } %23
 
 _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %13
@@ -14704,7 +14704,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v17adaptor16object_with_zoneISt
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #29
+  tail call void @__cxa_free_exception(ptr nonnull %17) #29
   resume { ptr, i32 } %20
 
 _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %14
@@ -14873,7 +14873,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v17adaptor16object_with_zoneISt
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #29
+  tail call void @__cxa_free_exception(ptr nonnull %17) #29
   resume { ptr, i32 } %20
 
 _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %14

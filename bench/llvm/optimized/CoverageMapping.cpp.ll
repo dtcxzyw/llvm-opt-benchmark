@@ -8367,7 +8367,7 @@ _ZN4llvm5ErrorD2Ev.exit65:                        ; preds = %81
 
 135:                                              ; preds = %130
   %136 = getelementptr inbounds nuw i8, ptr %127, i64 640
-  call fastcc void @"_ZSt16__insertion_sortIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_T0_"(ptr noundef %127, ptr noundef nonnull %136)
+  call fastcc void @"_ZSt16__insertion_sortIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_T0_"(ptr noundef nonnull %127, ptr noundef nonnull %136)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %135
@@ -8378,7 +8378,7 @@ _ZN4llvm5ErrorD2Ev.exit65:                        ; preds = %81
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorINS1_IhLj10EEELj1EEEZNS_8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES8_RNS_3vfs10FileSystemES9_S8_PKNS_6object14BuildIDFetcherEbE3$_1EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !249
 
 138:                                              ; preds = %130
-  call fastcc void @"_ZSt16__insertion_sortIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_T0_"(ptr noundef %127, ptr noundef nonnull %129)
+  call fastcc void @"_ZSt16__insertion_sortIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_T0_"(ptr noundef nonnull %127, ptr noundef nonnull %129)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorINS1_IhLj10EEELj1EEEZNS_8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES8_RNS_3vfs10FileSystemES9_S8_PKNS_6object14BuildIDFetcherEbE3$_1EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorINS1_IhLj10EEELj1EEEZNS_8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES8_RNS_3vfs10FileSystemES9_S8_PKNS_6object14BuildIDFetcherEbE3$_1EEvOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %126, %138
@@ -10021,7 +10021,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 1280
-  call fastcc void @_ZSt16__insertion_sortIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_T0_(ptr noundef %1, ptr noundef nonnull %15)
+  call fastcc void @_ZSt16__insertion_sortIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_T0_(ptr noundef nonnull %1, ptr noundef nonnull %15)
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i, %14
@@ -10112,7 +10112,7 @@ _ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__op
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !302
 
 _ZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit.thread14: ; preds = %9
-  call fastcc void @_ZSt16__insertion_sortIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_T0_(ptr noundef %1, ptr noundef nonnull %8)
+  call fastcc void @_ZSt16__insertion_sortIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_T0_(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %_ZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit
 
 _ZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit: ; preds = %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit.thread14
@@ -26031,7 +26031,7 @@ _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit.i.i.i:  ; preds = %27, %24
   br label %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit15.i.i.i
 
 _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit15.i.i.i: ; preds = %30, %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit.i.i.i
-  call fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %19, ptr noundef %8)
+  call fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_T2_"(ptr noundef nonnull %0, i64 noundef %.013.i.i.i, i64 noundef %19, ptr noundef %8)
   %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(34) %8) #28
   %33 = load ptr, ptr %8, align 8
   %34 = icmp eq ptr %33, %23

@@ -2430,8 +2430,8 @@ for.cond.preheader:                               ; preds = %invoke.cont8
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %c.042 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
-  %1 = and i32 %c.042, 2095104
+  %c.046 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
+  %1 = and i32 %c.046, 2095104
   %or.cond = icmp eq i32 %1, 55296
   br i1 %or.cond, label %for.inc, label %invoke.cont16
 
@@ -2457,7 +2457,7 @@ invoke.cont16:                                    ; preds = %for.body
   %vtable = load ptr, ptr %call13, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %5 = load ptr, ptr %vfn, align 8
-  %call19 = invoke noundef signext i8 %5(ptr noundef nonnull align 8 dereferenceable(8) %call13, i32 noundef %c.042, ptr noundef nonnull align 8 dereferenceable(64) %decomposition)
+  %call19 = invoke noundef signext i8 %5(ptr noundef nonnull align 8 dereferenceable(8) %call13, i32 noundef %c.046, ptr noundef nonnull align 8 dereferenceable(64) %decomposition)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
@@ -2491,7 +2491,7 @@ invoke.cont32:                                    ; preds = %if.end28
   br i1 %cmp34, label %cleanup, label %if.end36
 
 if.end36:                                         ; preds = %invoke.cont32
-  %cmp37.not = icmp eq i32 %c.042, %call33
+  %cmp37.not = icmp eq i32 %c.046, %call33
   br i1 %cmp37.not, label %if.end41, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
@@ -2539,7 +2539,7 @@ cleanup:                                          ; preds = %if.end47, %invoke.c
   br label %for.inc
 
 for.inc:                                          ; preds = %cleanup, %for.body
-  %inc = add nuw nsw i32 %c.042, 1
+  %inc = add nuw nsw i32 %c.046, 1
   %exitcond.not = icmp eq i32 %inc, 1114112
   br i1 %exitcond.not, label %invoke.cont65, label %for.body, !llvm.loop !14
 
@@ -2559,7 +2559,7 @@ invoke.cont65:                                    ; preds = %for.inc
   %fUnion2.i28 = getelementptr inbounds nuw i8, ptr %canonicalCompositionTrie, i64 8
   store i16 2, ptr %fUnion2.i28, align 8
   %call72 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7517UCharsTrieBuilder18buildUnicodeStringE22UStringTrieBuildOptionRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %call1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(64) %canonicalCompositionTrie, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i)
-          to label %invoke.cont71 unwind label %lpad66
+          to label %invoke.cont71 unwind label %ehcleanup82.thread
 
 invoke.cont71:                                    ; preds = %invoke.cont65
   %12 = load i16, ptr %fUnion2.i28, align 8
@@ -2590,12 +2590,12 @@ invoke.cont75:                                    ; preds = %if.else9.i, %if.the
   %17 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i30, i32 %17, i32 %shr.i.i
   invoke void @usrc_writeArray(ptr noundef nonnull %call, ptr noundef nonnull @.str.44, ptr noundef %retval.0.i, i32 noundef 16, i32 noundef %cond.i, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
-          to label %invoke.cont77 unwind label %lpad66
+          to label %invoke.cont77 unwind label %ehcleanup82.thread
 
 invoke.cont77:                                    ; preds = %invoke.cont75
   %call79 = call i32 @fclose(ptr noundef nonnull %call)
   invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull @.str.43)
-          to label %_ZN6icu_7512LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit unwind label %lpad66
+          to label %_ZN6icu_7512LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit unwind label %ehcleanup82.thread
 
 _ZN6icu_7512LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit: ; preds = %invoke.cont77
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %canonicalCompositionTrie) #26
@@ -2606,17 +2606,18 @@ _ZN6icu_7512LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit: ; preds = %invoke.co
   call void @_ZN6icu_7516IcuToolErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %status) #26
   ret void
 
-lpad66:                                           ; preds = %invoke.cont77, %invoke.cont75, %invoke.cont65
+ehcleanup82.thread:                               ; preds = %invoke.cont65, %invoke.cont75, %invoke.cont77
   %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %canonicalCompositionTrie) #26
-  br label %ehcleanup82
+  br label %delete.notnull.i32
 
-ehcleanup82:                                      ; preds = %lpad66, %ehcleanup, %lpad9
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad9 ], [ %19, %lpad66 ]
+ehcleanup82:                                      ; preds = %ehcleanup, %lpad9
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad9 ]
   br i1 %new.isnull, label %ehcleanup83, label %delete.notnull.i32
 
-delete.notnull.i32:                               ; preds = %ehcleanup82
+delete.notnull.i32:                               ; preds = %ehcleanup82.thread, %ehcleanup82
+  %.pn.pn44 = phi { ptr, i32 } [ %19, %ehcleanup82.thread ], [ %.pn.pn, %ehcleanup82 ]
   %vtable.i33 = load ptr, ptr %call1, align 8
   %vfn.i34 = getelementptr inbounds nuw i8, ptr %vtable.i33, i64 8
   %20 = load ptr, ptr %vfn.i34, align 8
@@ -2624,7 +2625,7 @@ delete.notnull.i32:                               ; preds = %ehcleanup82
   br label %ehcleanup83
 
 ehcleanup83:                                      ; preds = %delete.notnull.i32, %ehcleanup82, %lpad2, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad2 ], [ %.pn.pn, %ehcleanup82 ], [ %.pn.pn, %delete.notnull.i32 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad2 ], [ %.pn.pn, %ehcleanup82 ], [ %.pn.pn44, %delete.notnull.i32 ]
   call void @_ZN6icu_7516IcuToolErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %status) #26
   resume { ptr, i32 } %.pn.pn.pn
 }

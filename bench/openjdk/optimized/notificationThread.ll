@@ -149,85 +149,88 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLockerC
   %21 = or i1 %18, %20
   %22 = tail call noundef zeroext i1 @_ZN10GCNotifier9has_eventEv() #4
   %23 = or i1 %22, %21
-  br i1 %23, label %._crit_edge, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !7
+  br i1 %23, label %._crit_edge.thread, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  %.lcssa18 = phi i1 [ %11, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ], [ %18, %_ZN13MonitorLocker4waitEl.exit ]
-  %.lcssa17 = phi i1 [ %13, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ], [ %20, %_ZN13MonitorLocker4waitEl.exit ]
-  %.lcssa = phi i1 [ %15, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ], [ %22, %_ZN13MonitorLocker4waitEl.exit ]
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %24
+._crit_edge:                                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %._crit_edge.thread
 
-24:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %_ZN13MonitorLocker4waitEl.exit, %._crit_edge
+  %.lcssa31 = phi i1 [ %15, %._crit_edge ], [ %22, %_ZN13MonitorLocker4waitEl.exit ]
+  %.lcssa1729 = phi i1 [ %13, %._crit_edge ], [ %20, %_ZN13MonitorLocker4waitEl.exit ]
+  %.lcssa1827 = phi i1 [ %11, %._crit_edge ], [ %18, %_ZN13MonitorLocker4waitEl.exit ]
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #4
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %24
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %._crit_edge.thread
+  %.lcssa32 = phi i1 [ %15, %._crit_edge ], [ %.lcssa31, %._crit_edge.thread ]
+  %.lcssa1730 = phi i1 [ %13, %._crit_edge ], [ %.lcssa1729, %._crit_edge.thread ]
+  %.lcssa1828 = phi i1 [ %11, %._crit_edge ], [ %.lcssa1827, %._crit_edge.thread ]
   store volatile i32 6, ptr %4, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
-  %25 = load volatile i64, ptr %5, align 8
+  %24 = load volatile i64, ptr %5, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
-  %26 = and i64 %25, 1
-  %.not.i.i9 = icmp eq i64 %26, 0
-  br i1 %.not.i.i9, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %27
+  %25 = and i64 %24, 1
+  %.not.i.i9 = icmp eq i64 %25, 0
+  br i1 %.not.i.i9, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %26
 
-27:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  %28 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %28, 0
-  br i1 %.not5.i.i, label %29, label %34
+26:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
+  %27 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
+  %.not5.i.i = icmp eq i32 %27, 0
+  br i1 %.not5.i.i, label %28, label %33
 
-29:                                               ; preds = %27
-  %30 = tail call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %6, i1 noundef zeroext false, i1 noundef zeroext false) #4
-  br i1 %30, label %34, label %31
+28:                                               ; preds = %26
+  %29 = tail call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %6, i1 noundef zeroext false, i1 noundef zeroext false) #4
+  br i1 %29, label %33, label %30
 
-31:                                               ; preds = %29
-  %32 = tail call noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaThread(ptr noundef nonnull %0) #4
-  br i1 %32, label %33, label %34
+30:                                               ; preds = %28
+  %31 = tail call noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaThread(ptr noundef nonnull %0) #4
+  br i1 %31, label %32, label %33
 
-33:                                               ; preds = %31
+32:                                               ; preds = %30
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %0) #4
   br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
 
-34:                                               ; preds = %31, %29, %27
-  %35 = load volatile i64, ptr %5, align 8
+33:                                               ; preds = %30, %28, %26
+  %34 = load volatile i64, ptr %5, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
-  %36 = and i64 %35, 1
-  %.not.i1.i = icmp eq i64 %36, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %37
+  %35 = and i64 %34, 1
+  %.not.i1.i = icmp eq i64 %35, 0
+  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %36
 
-37:                                               ; preds = %34
+36:                                               ; preds = %33
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false) #4
   br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN13MonitorLockerD2Ev.exit, %33, %34, %37
-  br i1 %.lcssa18, label %38, label %39
+_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN13MonitorLockerD2Ev.exit, %32, %33, %36
+  br i1 %.lcssa1828, label %37, label %38
 
-38:                                               ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+37:                                               ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
   tail call void @_ZN17LowMemoryDetector22process_sensor_changesEP10JavaThread(ptr noundef nonnull %0) #4
-  br label %39
+  br label %38
 
-39:                                               ; preds = %38, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
-  br i1 %.lcssa, label %40, label %42
+38:                                               ; preds = %37, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br i1 %.lcssa32, label %39, label %41
 
-40:                                               ; preds = %39
+39:                                               ; preds = %38
   tail call void @_ZN10GCNotifier16sendNotificationEP10JavaThread(ptr noundef %1) #4
-  %41 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %41, null
-  br i1 %.not, label %42, label %45
+  %40 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %40, null
+  br i1 %.not, label %41, label %44
 
-42:                                               ; preds = %40, %39
-  br i1 %.lcssa17, label %43, label %.backedge
+41:                                               ; preds = %39, %38
+  br i1 %.lcssa1730, label %42, label %.backedge
 
-43:                                               ; preds = %42
+42:                                               ; preds = %41
   tail call void @_ZN11DCmdFactory17send_notificationEP10JavaThread(ptr noundef %1) #4
-  %44 = load ptr, ptr %7, align 8
-  %.not16 = icmp eq ptr %44, null
-  br i1 %.not16, label %.backedge, label %45
+  %43 = load ptr, ptr %7, align 8
+  %.not16 = icmp eq ptr %43, null
+  br i1 %.not16, label %.backedge, label %44
 
-.backedge:                                        ; preds = %43, %42
+.backedge:                                        ; preds = %42, %41
   br label %8, !llvm.loop !10
 
-45:                                               ; preds = %43, %40
+44:                                               ; preds = %42, %39
   ret void
 }
 

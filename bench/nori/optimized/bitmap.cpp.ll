@@ -3426,7 +3426,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit155: ;
 187:                                              ; preds = %182
   %188 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %183) #28
+  call void @__cxa_free_exception(ptr nonnull %183) #28
   br label %214
 
 189:                                              ; preds = %178

@@ -552,7 +552,7 @@ _ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit: ;
   %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE12_M_check_lenEmPKc.exit ]
   %23 = getelementptr inbounds i8, ptr %22, i64 %18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(120) %23, ptr noundef nonnull align 8 dereferenceable(120) %2)
-          to label %24 unwind label %39
+          to label %24 unwind label %41
 
 24:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -610,43 +610,32 @@ _ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.e
   store ptr %38, ptr %37, align 8
   ret void
 
-39:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit
+39:                                               ; preds = %41
   %40 = landingpad { ptr, i32 }
-          catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  %42 = tail call ptr @__cxa_begin_catch(ptr %41) #15
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread, label %45
-
-.thread:                                          ; preds = %39
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %23) #15
-  br label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
-
-43:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
-  %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %46 unwind label %47
+          to label %45 unwind label %46
+
+41:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit
+  %42 = landingpad { ptr, i32 }
+          catch ptr null
+  %43 = extractvalue { ptr, i32 } %42, 0
+  %44 = tail call ptr @__cxa_begin_catch(ptr %43) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %22) #16
+  invoke void @__cxa_rethrow() #18
+          to label %49 unwind label %39
 
 45:                                               ; preds = %39
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #16
-  br label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
+  resume { ptr, i32 } %40
 
-_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %45, %.thread
-  invoke void @__cxa_rethrow() #18
-          to label %50 unwind label %43
-
-46:                                               ; preds = %43
-  resume { ptr, i32 } %44
-
-47:                                               ; preds = %43
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %39
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #17
+  %48 = extractvalue { ptr, i32 } %47, 0
+  tail call void @__clang_call_terminate(ptr %48) #17
   unreachable
 
-50:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
+49:                                               ; preds = %41
   unreachable
 }
 

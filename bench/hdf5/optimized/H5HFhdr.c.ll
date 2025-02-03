@@ -1326,7 +1326,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_update_iter(ptr noundef %0, i64 noundef %
   br i1 %86, label %87, label %94
 
 87:                                               ; preds = %.lr.ph
-  %88 = call i32 @H5HF__man_iblock_root_double(ptr noundef %0, i64 noundef %1) #6
+  %88 = call i32 @H5HF__man_iblock_root_double(ptr noundef nonnull %0, i64 noundef %1) #6
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %90, label %108
 
@@ -1348,7 +1348,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_update_iter(ptr noundef %0, i64 noundef %
   br label %.loopexit
 
 101:                                              ; preds = %94
-  %102 = call i32 @H5HF__man_iter_next(ptr noundef %0, ptr noundef nonnull %21, i32 noundef 1) #6
+  %102 = call i32 @H5HF__man_iter_next(ptr noundef nonnull %0, ptr noundef nonnull %21, i32 noundef 1) #6
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %104, label %108
 
@@ -1548,7 +1548,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %10 = load i64, ptr %9, align 8
-  %11 = tail call i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %10) #6
+  %11 = tail call i32 @H5HF__man_iter_start_offset(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %10) #6
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %17
 

@@ -2476,7 +2476,7 @@ thread-pre-split:                                 ; preds = %.critedge, %26, %29
 
 throwUnixException.exit:                          ; preds = %38, %35, %43, %50
   %.1 = phi ptr [ %49, %50 ], [ null, %43 ], [ null, %35 ], [ null, %38 ]
-  call void @free(ptr noundef %12) #11
+  call void @free(ptr noundef nonnull %12) #11
   br label %56
 
 56:                                               ; preds = %throwUnixException.exit, %14
@@ -2703,7 +2703,7 @@ switch.hole_check:                                ; preds = %.critedge.thread
 
 throwUnixException.exit:                          ; preds = %switch.hole_check, %37, %35, %42
   %.1 = phi i32 [ %44, %42 ], [ -1, %35 ], [ -1, %37 ], [ -1, %switch.hole_check ]
-  call void @free(ptr noundef %12) #11
+  call void @free(ptr noundef nonnull %12) #11
   br label %45
 
 45:                                               ; preds = %throwUnixException.exit, %14
@@ -2804,12 +2804,12 @@ thread-pre-split:                                 ; preds = %.critedge, %27, %30
 
 throwUnixException.exit.thread:                   ; preds = %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread, %41, %34, %36
   %.1.ph = phi i32 [ -1, %36 ], [ -1, %34 ], [ %43, %41 ], [ -1, %.critedge.thread ], [ -1, %.critedge.thread ], [ -1, %.critedge.thread ], [ -1, %.critedge.thread ], [ -1, %.critedge.thread ]
-  call void @free(ptr noundef %17) #11
+  call void @free(ptr noundef nonnull %17) #11
   br label %46
 
 throwUnixException.exit:                          ; preds = %.critedge.thread
   %indvars.iv.next = add nsw i64 %indvars.iv, 1024
-  call void @free(ptr noundef %17) #11
+  call void @free(ptr noundef nonnull %17) #11
   store ptr null, ptr %5, align 8
   %44 = call noalias ptr @malloc(i64 noundef %indvars.iv.next) #14
   %45 = icmp eq ptr %44, null

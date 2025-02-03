@@ -2858,7 +2858,7 @@ define internal void @recv_files(i32 %0, ptr readnone captures(none) %1, ptr nou
   %101 = call noalias ptr @strdup(ptr noundef nonnull %96) #15
   %102 = getelementptr inbounds nuw i8, ptr %.1, i64 296
   store ptr %101, ptr %102, align 8
-  call void @free(ptr noundef %96) #15
+  call void @free(ptr noundef nonnull %96) #15
   %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 832), align 8
   %104 = call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef %103, ptr noundef %100, ptr noundef null) #15
   %105 = getelementptr inbounds nuw i8, ptr %.1, i64 304

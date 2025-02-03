@@ -334,7 +334,7 @@ define i16 @_ZN7memif_t11read_uint16Em(ptr noundef nonnull align 8 dereferenceab
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #9
+  tail call void @__cxa_free_exception(ptr nonnull %6) #9
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2
@@ -366,7 +366,7 @@ define i16 @_ZN7memif_t10read_int16Em(ptr noundef nonnull align 8 dereferenceabl
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #9
+  tail call void @__cxa_free_exception(ptr nonnull %6) #9
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2
@@ -398,7 +398,7 @@ define void @_ZN7memif_t12write_uint16Em13target_endianItE(ptr noundef nonnull a
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #9
+  tail call void @__cxa_free_exception(ptr nonnull %7) #9
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3
@@ -429,7 +429,7 @@ define void @_ZN7memif_t11write_int16Em13target_endianIsE(ptr noundef nonnull al
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #9
+  tail call void @__cxa_free_exception(ptr nonnull %7) #9
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3
@@ -460,7 +460,7 @@ define i32 @_ZN7memif_t11read_uint32Em(ptr noundef nonnull align 8 dereferenceab
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #9
+  tail call void @__cxa_free_exception(ptr nonnull %6) #9
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2
@@ -492,7 +492,7 @@ define i32 @_ZN7memif_t10read_int32Em(ptr noundef nonnull align 8 dereferenceabl
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #9
+  tail call void @__cxa_free_exception(ptr nonnull %6) #9
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2
@@ -524,7 +524,7 @@ define void @_ZN7memif_t12write_uint32Em13target_endianIjE(ptr noundef nonnull a
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #9
+  tail call void @__cxa_free_exception(ptr nonnull %7) #9
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3
@@ -555,7 +555,7 @@ define void @_ZN7memif_t11write_int32Em13target_endianIiE(ptr noundef nonnull al
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #9
+  tail call void @__cxa_free_exception(ptr nonnull %7) #9
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3
@@ -586,7 +586,7 @@ define i64 @_ZN7memif_t11read_uint64Em(ptr noundef nonnull align 8 dereferenceab
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #9
+  tail call void @__cxa_free_exception(ptr nonnull %6) #9
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2
@@ -618,7 +618,7 @@ define i64 @_ZN7memif_t10read_int64Em(ptr noundef nonnull align 8 dereferenceabl
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #9
+  tail call void @__cxa_free_exception(ptr nonnull %6) #9
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2
@@ -650,7 +650,7 @@ define void @_ZN7memif_t12write_uint64Em13target_endianImE(ptr noundef nonnull a
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #9
+  tail call void @__cxa_free_exception(ptr nonnull %7) #9
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3
@@ -681,7 +681,7 @@ define void @_ZN7memif_t11write_int64Em13target_endianIlE(ptr noundef nonnull al
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #9
+  tail call void @__cxa_free_exception(ptr nonnull %7) #9
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3

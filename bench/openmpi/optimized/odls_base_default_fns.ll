@@ -2538,7 +2538,7 @@ define void @prte_odls_base_spawn_proc(i32 %0, i16 signext %1, ptr noundef initi
 27:                                               ; preds = %.lr.ph
   %28 = tail call ptr @prte_strerror(i32 noundef -5) #14
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %28, ptr noundef nonnull @.str.1, i32 noundef 961) #14
-  tail call void @free(ptr noundef %24) #14
+  tail call void @free(ptr noundef nonnull %24) #14
   br label %266
 
 29:                                               ; preds = %.lr.ph
@@ -2547,7 +2547,7 @@ define void @prte_odls_base_spawn_proc(i32 %0, i16 signext %1, ptr noundef initi
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %31, ptr %5, align 8
   %32 = tail call i32 @PMIx_Setenv(ptr noundef nonnull %24, ptr noundef nonnull %31, i1 noundef zeroext true, ptr noundef nonnull %19) #14
-  tail call void @free(ptr noundef %24) #14
+  tail call void @free(ptr noundef nonnull %24) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load ptr, ptr %20, align 8
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.next

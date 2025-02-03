@@ -18565,7 +18565,7 @@ define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnviro
 
 34:                                               ; preds = %32
   call void @_ZN4Luau15SubtypingResultD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %9) #25
-  %35 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.028.034) #28
+  %35 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.028.034) #28
   %.not31 = icmp eq ptr %35, %26
   br i1 %.not31, label %.loopexit, label %.lr.ph
 
@@ -37423,7 +37423,7 @@ _ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph
   %30 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %57 unwind label %31
+          to label %_ZSt8_DestroyIPN4Luau15SubtypingResultES1_EvT_S3_RSaIT0_E.exit49.thread unwind label %31
 
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
@@ -37477,7 +37477,7 @@ _ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i36: ; preds = %.lr.
   %42 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %60 unwind label %43
+          to label %59 unwind label %43
 
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
@@ -37490,11 +37490,11 @@ _ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i36: ; preds = %.lr.
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit43.loopexit: ; preds = %_ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i37
-  %.ptr63.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i30.add
+  %.ptr60.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i30.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit43
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit43: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit43.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %.0.lcssa.i.i.i.i.i39 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %.ptr63.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit43.loopexit ]
+  %.0.lcssa.i.i.i.i.i39 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %.ptr60.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit43.loopexit ]
   %.not4.i.i.i = icmp eq ptr %6, %5
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4Luau15SubtypingResultES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -37531,47 +37531,47 @@ _ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit: 
   %56 = tail call ptr @__cxa_begin_catch(ptr %55) #25
   br label %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit51
 
-57:                                               ; preds = %29
-  %58 = extractvalue { ptr, i32 } %30, 0
-  %59 = tail call ptr @__cxa_begin_catch(ptr %58) #25
+_ZSt8_DestroyIPN4Luau15SubtypingResultES1_EvT_S3_RSaIT0_E.exit49.thread: ; preds = %29
+  %57 = extractvalue { ptr, i32 } %30, 0
+  %58 = tail call ptr @__cxa_begin_catch(ptr %57) #25
   tail call void @_ZN4Luau15SubtypingResultD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %21) #25
   br label %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit51
 
-60:                                               ; preds = %41
-  %61 = extractvalue { ptr, i32 } %42, 0
-  %62 = tail call ptr @__cxa_begin_catch(ptr %61) #25
+59:                                               ; preds = %41
+  %60 = extractvalue { ptr, i32 } %42, 0
+  %61 = tail call ptr @__cxa_begin_catch(ptr %60) #25
   %.not4.i.i.i45 = icmp eq ptr %20, %.ptr
   br i1 %.not4.i.i.i45, label %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit51, label %.lr.ph.i.i.i46
 
-.lr.ph.i.i.i46:                                   ; preds = %60, %.lr.ph.i.i.i46
-  %.05.i.i.i47 = phi ptr [ %63, %.lr.ph.i.i.i46 ], [ %20, %60 ]
+.lr.ph.i.i.i46:                                   ; preds = %59, %.lr.ph.i.i.i46
+  %.05.i.i.i47 = phi ptr [ %62, %.lr.ph.i.i.i46 ], [ %20, %59 ]
   tail call void @_ZN4Luau15SubtypingResultD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i47) #25
-  %63 = getelementptr inbounds nuw i8, ptr %.05.i.i.i47, i64 120
+  %62 = getelementptr inbounds nuw i8, ptr %.05.i.i.i47, i64 120
   %.not.i.i.i48 = icmp eq ptr %.05.i.i.i47, %.0.lcssa.i.i.i.i.i
   br i1 %.not.i.i.i48, label %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit51, label %.lr.ph.i.i.i46, !llvm.loop !24
 
-64:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit51
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit51
+  %64 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %66 unwind label %67
+          to label %65 unwind label %66
 
-_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit51: ; preds = %.lr.ph.i.i.i46, %.thread, %60, %57
+_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit51: ; preds = %.lr.ph.i.i.i46, %_ZSt8_DestroyIPN4Luau15SubtypingResultES1_EvT_S3_RSaIT0_E.exit49.thread, %.thread, %59
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #24
   invoke void @__cxa_rethrow() #26
-          to label %70 unwind label %64
+          to label %69 unwind label %63
 
-66:                                               ; preds = %64
-  resume { ptr, i32 } %65
+65:                                               ; preds = %63
+  resume { ptr, i32 } %64
 
-67:                                               ; preds = %64
-  %68 = landingpad { ptr, i32 }
+66:                                               ; preds = %63
+  %67 = landingpad { ptr, i32 }
           catch ptr null
-  %69 = extractvalue { ptr, i32 } %68, 0
-  tail call void @__clang_call_terminate(ptr %69) #23
+  %68 = extractvalue { ptr, i32 } %67, 0
+  tail call void @__clang_call_terminate(ptr %68) #23
   unreachable
 
-70:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit51
+69:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit51
   unreachable
 }
 
@@ -37788,7 +37788,7 @@ _ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph
   %62 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %86 unwind label %63
+          to label %_ZSt8_DestroyIPN4Luau15SubtypingResultES1_EvT_S3_RSaIT0_E.exit51.thread unwind label %63
 
 63:                                               ; preds = %61
   %64 = landingpad { ptr, i32 }
@@ -37842,7 +37842,7 @@ _ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i39: ; preds = %.lr.
   %74 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %89 unwind label %75
+          to label %88 unwind label %75
 
 75:                                               ; preds = %73
   %76 = landingpad { ptr, i32 }
@@ -37855,11 +37855,11 @@ _ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i39: ; preds = %.lr.
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit45.loopexit: ; preds = %_ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i40
-  %.ptr61.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i33.add
+  %.ptr62.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i33.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit45
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit45: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit45.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %.0.lcssa.i.i.i.i.i42 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %.ptr61.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit45.loopexit ]
+  %.0.lcssa.i.i.i.i.i42 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %.ptr62.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit45.loopexit ]
   %.not4.i.i.i = icmp eq ptr %6, %5
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4Luau15SubtypingResultES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -37889,47 +37889,47 @@ _ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit: 
   store ptr %85, ptr %80, align 8
   ret void
 
-86:                                               ; preds = %61
-  %87 = extractvalue { ptr, i32 } %62, 0
-  %88 = tail call ptr @__cxa_begin_catch(ptr %87) #25
+_ZSt8_DestroyIPN4Luau15SubtypingResultES1_EvT_S3_RSaIT0_E.exit51.thread: ; preds = %61
+  %86 = extractvalue { ptr, i32 } %62, 0
+  %87 = tail call ptr @__cxa_begin_catch(ptr %86) #25
   tail call void @_ZN4Luau15SubtypingResultD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %21) #25
   br label %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit53
 
-89:                                               ; preds = %73
-  %90 = extractvalue { ptr, i32 } %74, 0
-  %91 = tail call ptr @__cxa_begin_catch(ptr %90) #25
+88:                                               ; preds = %73
+  %89 = extractvalue { ptr, i32 } %74, 0
+  %90 = tail call ptr @__cxa_begin_catch(ptr %89) #25
   %.not4.i.i.i47 = icmp eq ptr %20, %.ptr
   br i1 %.not4.i.i.i47, label %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit53, label %.lr.ph.i.i.i48
 
-.lr.ph.i.i.i48:                                   ; preds = %89, %.lr.ph.i.i.i48
-  %.05.i.i.i49 = phi ptr [ %92, %.lr.ph.i.i.i48 ], [ %20, %89 ]
+.lr.ph.i.i.i48:                                   ; preds = %88, %.lr.ph.i.i.i48
+  %.05.i.i.i49 = phi ptr [ %91, %.lr.ph.i.i.i48 ], [ %20, %88 ]
   tail call void @_ZN4Luau15SubtypingResultD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i49) #25
-  %92 = getelementptr inbounds nuw i8, ptr %.05.i.i.i49, i64 120
+  %91 = getelementptr inbounds nuw i8, ptr %.05.i.i.i49, i64 120
   %.not.i.i.i50 = icmp eq ptr %.05.i.i.i49, %.0.lcssa.i.i.i.i.i
   br i1 %.not.i.i.i50, label %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit53, label %.lr.ph.i.i.i48, !llvm.loop !24
 
-93:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit53
-  %94 = landingpad { ptr, i32 }
+92:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit53
+  %93 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %95 unwind label %96
+          to label %94 unwind label %95
 
-_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit53: ; preds = %.lr.ph.i.i.i48, %.thread, %89, %86
+_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit53: ; preds = %.lr.ph.i.i.i48, %_ZSt8_DestroyIPN4Luau15SubtypingResultES1_EvT_S3_RSaIT0_E.exit51.thread, %.thread, %88
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #24
   invoke void @__cxa_rethrow() #26
-          to label %99 unwind label %93
+          to label %98 unwind label %92
 
-95:                                               ; preds = %93
-  resume { ptr, i32 } %94
+94:                                               ; preds = %92
+  resume { ptr, i32 } %93
 
-96:                                               ; preds = %93
-  %97 = landingpad { ptr, i32 }
+95:                                               ; preds = %92
+  %96 = landingpad { ptr, i32 }
           catch ptr null
-  %98 = extractvalue { ptr, i32 } %97, 0
-  tail call void @__clang_call_terminate(ptr %98) #23
+  %97 = extractvalue { ptr, i32 } %96, 0
+  tail call void @__clang_call_terminate(ptr %97) #23
   unreachable
 
-99:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit53
+98:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit53
   unreachable
 }
 
@@ -40088,7 +40088,7 @@ _ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph
   %42 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %66 unwind label %43
+          to label %_ZSt8_DestroyIPN4Luau15SubtypingResultES1_EvT_S3_RSaIT0_E.exit50.thread unwind label %43
 
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
@@ -40142,7 +40142,7 @@ _ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i38: ; preds = %.lr.
   %54 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %69 unwind label %55
+          to label %68 unwind label %55
 
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
@@ -40155,11 +40155,11 @@ _ZSt8_DestroyIPN4Luau15SubtypingResultEEvT_S3_.exit.i.i.i.i.i38: ; preds = %.lr.
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit44.loopexit: ; preds = %_ZSt10_ConstructIN4Luau15SubtypingResultEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i39
-  %.ptr60.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i32.add
+  %.ptr61.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i32.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit44
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit44: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit44.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %.0.lcssa.i.i.i.i.i41 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %.ptr60.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit44.loopexit ]
+  %.0.lcssa.i.i.i.i.i41 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %.ptr61.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau15SubtypingResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit44.loopexit ]
   %.not4.i.i.i = icmp eq ptr %5, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4Luau15SubtypingResultES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -40189,47 +40189,47 @@ _ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit: 
   store ptr %65, ptr %60, align 8
   ret void
 
-66:                                               ; preds = %41
-  %67 = extractvalue { ptr, i32 } %42, 0
-  %68 = tail call ptr @__cxa_begin_catch(ptr %67) #25
+_ZSt8_DestroyIPN4Luau15SubtypingResultES1_EvT_S3_RSaIT0_E.exit50.thread: ; preds = %41
+  %66 = extractvalue { ptr, i32 } %42, 0
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #25
   tail call void @_ZN4Luau15SubtypingResultD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %20) #25
   br label %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit52
 
-69:                                               ; preds = %53
-  %70 = extractvalue { ptr, i32 } %54, 0
-  %71 = tail call ptr @__cxa_begin_catch(ptr %70) #25
+68:                                               ; preds = %53
+  %69 = extractvalue { ptr, i32 } %54, 0
+  %70 = tail call ptr @__cxa_begin_catch(ptr %69) #25
   %.not4.i.i.i46 = icmp eq ptr %19, %.ptr
   br i1 %.not4.i.i.i46, label %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit52, label %.lr.ph.i.i.i47
 
-.lr.ph.i.i.i47:                                   ; preds = %69, %.lr.ph.i.i.i47
-  %.05.i.i.i48 = phi ptr [ %72, %.lr.ph.i.i.i47 ], [ %19, %69 ]
+.lr.ph.i.i.i47:                                   ; preds = %68, %.lr.ph.i.i.i47
+  %.05.i.i.i48 = phi ptr [ %71, %.lr.ph.i.i.i47 ], [ %19, %68 ]
   tail call void @_ZN4Luau15SubtypingResultD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i48) #25
-  %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 120
+  %71 = getelementptr inbounds nuw i8, ptr %.05.i.i.i48, i64 120
   %.not.i.i.i49 = icmp eq ptr %.05.i.i.i48, %.0.lcssa.i.i.i.i.i
   br i1 %.not.i.i.i49, label %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit52, label %.lr.ph.i.i.i47, !llvm.loop !24
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit52
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit52
+  %73 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %75 unwind label %76
+          to label %74 unwind label %75
 
-_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit52: ; preds = %.lr.ph.i.i.i47, %.thread, %69, %66
+_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit52: ; preds = %.lr.ph.i.i.i47, %_ZSt8_DestroyIPN4Luau15SubtypingResultES1_EvT_S3_RSaIT0_E.exit50.thread, %.thread, %68
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %18) #24
   invoke void @__cxa_rethrow() #26
-          to label %79 unwind label %73
+          to label %78 unwind label %72
 
-75:                                               ; preds = %73
-  resume { ptr, i32 } %74
+74:                                               ; preds = %72
+  resume { ptr, i32 } %73
 
-76:                                               ; preds = %73
-  %77 = landingpad { ptr, i32 }
+75:                                               ; preds = %72
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %78 = extractvalue { ptr, i32 } %77, 0
-  tail call void @__clang_call_terminate(ptr %78) #23
+  %77 = extractvalue { ptr, i32 } %76, 0
+  tail call void @__clang_call_terminate(ptr %77) #23
   unreachable
 
-79:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit52
+78:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau15SubtypingResultESaIS1_EE13_M_deallocateEPS1_m.exit52
   unreachable
 }
 

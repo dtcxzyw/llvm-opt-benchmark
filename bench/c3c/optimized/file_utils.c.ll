@@ -633,7 +633,7 @@ define dso_local ptr @find_lib_dir() local_unnamed_addr #5 {
 
 41:                                               ; preds = %38, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15
   %.0 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ null, %38 ], [ null, %35 ]
-  tail call void @free(ptr noundef %1) #17
+  tail call void @free(ptr noundef nonnull %1) #17
   ret ptr %.0
 }
 

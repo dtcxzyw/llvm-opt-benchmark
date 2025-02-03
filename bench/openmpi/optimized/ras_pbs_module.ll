@@ -295,7 +295,7 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %96, 
   br label %121
 
 120:                                              ; preds = %76, %71, %66
-  call void @free(ptr noundef %46) #12
+  call void @free(ptr noundef nonnull %46) #12
   br label %121
 
 121:                                              ; preds = %120, %pmix_obj_new_tma.exit.i

@@ -117,12 +117,12 @@ if.then4:                                         ; preds = %if.end
   br i1 %tobool6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.then4
-  tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr, ptr noundef nonnull @chr_can_read, ptr noundef nonnull @chr_read, ptr noundef null, ptr noundef nonnull @chr_be_change, ptr noundef %call.i9, ptr noundef null, i1 noundef zeroext true) #5
+  tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr, ptr noundef nonnull @chr_can_read, ptr noundef nonnull @chr_read, ptr noundef null, ptr noundef nonnull @chr_be_change, ptr noundef nonnull %call.i9, ptr noundef null, i1 noundef zeroext true) #5
   %call9 = tail call i32 @virtio_serial_open(ptr noundef nonnull %call.i) #5
   br label %if.end12
 
 if.else:                                          ; preds = %if.then4
-  tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr, ptr noundef nonnull @chr_can_read, ptr noundef nonnull @chr_read, ptr noundef nonnull @chr_event, ptr noundef nonnull @chr_be_change, ptr noundef %call.i9, ptr noundef null, i1 noundef zeroext false) #5
+  tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr, ptr noundef nonnull @chr_can_read, ptr noundef nonnull @chr_read, ptr noundef nonnull @chr_event, ptr noundef nonnull @chr_be_change, ptr noundef nonnull %call.i9, ptr noundef null, i1 noundef zeroext false) #5
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then7, %if.else, %if.end, %if.then
@@ -274,7 +274,7 @@ if.then2:                                         ; preds = %if.end
   %0 = load i8, ptr %is_console, align 8
   %tobool5 = trunc i8 %0 to i1
   %cond = select i1 %tobool5, ptr null, ptr @chr_event
-  tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr, ptr noundef nonnull @chr_can_read, ptr noundef nonnull @chr_read, ptr noundef %cond, ptr noundef nonnull @chr_be_change, ptr noundef %call.i, ptr noundef null, i1 noundef zeroext false) #5
+  tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr, ptr noundef nonnull @chr_can_read, ptr noundef nonnull @chr_read, ptr noundef %cond, ptr noundef nonnull @chr_be_change, ptr noundef nonnull %call.i, ptr noundef null, i1 noundef zeroext false) #5
   br label %if.end7
 
 if.else:                                          ; preds = %if.end

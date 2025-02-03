@@ -692,7 +692,7 @@ _ZN3nix8SysErrorC2IJA33_cEEEDpRKT_.exit:          ; preds = %5
 11:                                               ; preds = %5
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #24
+  tail call void @__cxa_free_exception(ptr nonnull %6) #24
   br label %17
 
 13:                                               ; preds = %4
@@ -805,7 +805,7 @@ define void @_ZN3nix22createUnixDomainSocketERKNSt7__cxx1112basic_stringIcSt11ch
 16:                                               ; preds = %10
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %11) #24
+  tail call void @__cxa_free_exception(ptr nonnull %11) #24
   br label %31
 
 18:                                               ; preds = %6
@@ -835,7 +835,7 @@ _ZN3nix8SysErrorC2IJA30_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
 28:                                               ; preds = %23
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %24) #24
+  tail call void @__cxa_free_exception(ptr nonnull %24) #24
   br label %31
 
 30:                                               ; preds = %20
@@ -1165,7 +1165,7 @@ _ZN3nix8SysErrorC2IJA28_cSt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112
 110:                                              ; preds = %106
   %111 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %108) #24
+  call void @__cxa_free_exception(ptr nonnull %108) #24
   br label %113
 
 112:                                              ; preds = %104
@@ -1206,7 +1206,7 @@ _ZNSt8functionIFvvEED2Ev.exit35.i:                ; preds = %113, %88, %.body.i,
 123:                                              ; preds = %120
   %124 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %121) #24
+  call void @__cxa_free_exception(ptr nonnull %121) #24
   br label %common.resume.i
 
 125:                                              ; preds = %_ZN3nix8SysErrorC2IJA28_cSt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS5_SaIcEEEEEEDpRKT_.exit.i, %82
@@ -1556,7 +1556,7 @@ _ZN3nix8SysErrorC2IJA28_cSt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112
 108:                                              ; preds = %104
   %109 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %106) #24
+  call void @__cxa_free_exception(ptr nonnull %106) #24
   br label %111
 
 110:                                              ; preds = %102
@@ -1597,7 +1597,7 @@ _ZNSt8functionIFvvEED2Ev.exit35.i:                ; preds = %111, %86, %.body.i,
 121:                                              ; preds = %118
   %122 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %119) #24
+  call void @__cxa_free_exception(ptr nonnull %119) #24
   br label %common.resume.i
 
 123:                                              ; preds = %_ZN3nix8SysErrorC2IJA28_cSt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS5_SaIcEEEEEEDpRKT_.exit.i, %80
@@ -5993,7 +5993,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -7225,7 +7225,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE7ret
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -8114,7 +8114,7 @@ _ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaI
 
 181:                                              ; preds = %177
   %182 = getelementptr inbounds %"struct.boost::io::detail::format_item", ptr %144, i64 %2
-  invoke void @_ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES7_EvT_S9_RSaIT0_E(ptr noundef %144, ptr noundef nonnull %182, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  invoke void @_ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES7_EvT_S9_RSaIT0_E(ptr noundef nonnull %144, ptr noundef nonnull %182, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE13_M_deallocateEPS7_m.exit111 unwind label %183
 
 183:                                              ; preds = %_ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE13_M_deallocateEPS7_m.exit111, %181
@@ -9193,7 +9193,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRK
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -10031,7 +10031,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE7rethrow
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -11710,7 +11710,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io12too_few_argsEEEvRKT
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -11848,7 +11848,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io12too_few_argsEE7rethrowE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -12851,7 +12851,7 @@ _ZN3nix8SysErrorC2IJA21_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
   %28 = landingpad { ptr, i32 }
           catch ptr @_ZTIN3nix8SysErrorE
           catch ptr null
-  call void @__cxa_free_exception(ptr %22) #24
+  call void @__cxa_free_exception(ptr nonnull %22) #24
   br label %99
 
 29:                                               ; preds = %31, %_ZN3nix8SysErrorC2IJA21_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDpRKT_.exit.i.i.i
@@ -12963,7 +12963,7 @@ _ZN3nix8SysErrorC2IJA28_cSt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112
   %78 = landingpad { ptr, i32 }
           catch ptr @_ZTIN3nix8SysErrorE
           catch ptr null
-  call void @__cxa_free_exception(ptr %71) #24
+  call void @__cxa_free_exception(ptr nonnull %71) #24
   br label %98
 
 79:                                               ; preds = %85, %81, %_ZN3nix8SysErrorC2IJA28_cSt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS5_SaIcEEEEEEDpRKT_.exit.i.i.i
@@ -14142,7 +14142,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_16bad_lexical_castEEEvRK
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -14280,7 +14280,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_16bad_lexical_castEE7rethrow
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #24
+  tail call void @__cxa_free_exception(ptr nonnull %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -14899,7 +14899,7 @@ _ZN3nix8SysErrorC2IJA21_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
   %28 = landingpad { ptr, i32 }
           catch ptr @_ZTIN3nix8SysErrorE
           catch ptr null
-  call void @__cxa_free_exception(ptr %22) #24
+  call void @__cxa_free_exception(ptr nonnull %22) #24
   br label %100
 
 29:                                               ; preds = %31, %_ZN3nix8SysErrorC2IJA21_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDpRKT_.exit.i.i.i
@@ -15020,7 +15020,7 @@ _ZN3nix8SysErrorC2IJA28_cSt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112
   %81 = landingpad { ptr, i32 }
           catch ptr @_ZTIN3nix8SysErrorE
           catch ptr null
-  call void @__cxa_free_exception(ptr %72) #24
+  call void @__cxa_free_exception(ptr nonnull %72) #24
   br label %99
 
 82:                                               ; preds = %69

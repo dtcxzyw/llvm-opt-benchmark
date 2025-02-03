@@ -1512,7 +1512,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13MemCpyOptPass6moveUpEPNS_9StoreIn
 74:                                               ; preds = %69
   %75 = load ptr, ptr %28, align 8
   store i8 0, ptr %55, align 8
-  %76 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(56) %24)
+  %76 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull %72, ptr noundef nonnull align 8 dereferenceable(56) %24)
   %.not229 = icmp eq i8 %76, 0
   %77 = load ptr, ptr %17, align 8
   %78 = load i32, ptr %56, align 8
@@ -1581,7 +1581,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull readonly align 8 dereferenceable(48) %.02950.i.i.i.i.i.i, i64 48, i1 false)
   store i8 1, ptr %59, align 8
-  %112 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val30.val.i.i.i.i.i.i, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(56) %13)
+  %112 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val30.val.i.i.i.i.i.i, ptr noundef nonnull %72, ptr noundef nonnull align 8 dereferenceable(56) %13)
   %.not45.i.i.i.i.i.i = icmp eq i8 %112, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
   br i1 %.not45.i.i.i.i.i.i, label %113, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj8EEEZNS_13MemCpyOptPass6moveUpEPNS_9StoreInstEPNS_11InstructionEPKNS_8LoadInstEE3$_1EEbOT_T0_.exit"
@@ -1592,7 +1592,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull readonly align 8 dereferenceable(48) %114, i64 48, i1 false)
   store i8 1, ptr %60, align 8
-  %115 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val32.val.i.i.i.i.i.i, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(56) %12)
+  %115 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val32.val.i.i.i.i.i.i, ptr noundef nonnull %72, ptr noundef nonnull align 8 dereferenceable(56) %12)
   %.not46.i.i.i.i.i.i = icmp eq i8 %115, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12)
   br i1 %.not46.i.i.i.i.i.i, label %116, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj8EEEZNS_13MemCpyOptPass6moveUpEPNS_9StoreInstEPNS_11InstructionEPKNS_8LoadInstEE3$_1EEbOT_T0_.exit"
@@ -1603,7 +1603,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull readonly align 8 dereferenceable(48) %117, i64 48, i1 false)
   store i8 1, ptr %61, align 8
-  %118 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val34.val.i.i.i.i.i.i, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(56) %11)
+  %118 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val34.val.i.i.i.i.i.i, ptr noundef nonnull %72, ptr noundef nonnull align 8 dereferenceable(56) %11)
   %.not47.i.i.i.i.i.i = icmp eq i8 %118, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
   br i1 %.not47.i.i.i.i.i.i, label %119, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj8EEEZNS_13MemCpyOptPass6moveUpEPNS_9StoreInstEPNS_11InstructionEPKNS_8LoadInstEE3$_1EEbOT_T0_.exit"
@@ -1614,7 +1614,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull readonly align 8 dereferenceable(48) %120, i64 48, i1 false)
   store i8 1, ptr %62, align 8
-  %121 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val36.val.i.i.i.i.i.i, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(56) %10)
+  %121 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val36.val.i.i.i.i.i.i, ptr noundef nonnull %72, ptr noundef nonnull align 8 dereferenceable(56) %10)
   %.not48.i.i.i.i.i.i = icmp eq i8 %121, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   br i1 %.not48.i.i.i.i.i.i, label %122, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj8EEEZNS_13MemCpyOptPass6moveUpEPNS_9StoreInstEPNS_11InstructionEPKNS_8LoadInstEE3$_1EEbOT_T0_.exit"
@@ -1645,7 +1645,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull readonly align 8 dereferenceable(48) %.029.lcssa.i.i.i.i.i.i, i64 48, i1 false)
   store i8 1, ptr %63, align 8
-  %128 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val38.val.i.i.i.i.i.i, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(56) %9)
+  %128 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val38.val.i.i.i.i.i.i, ptr noundef nonnull %72, ptr noundef nonnull align 8 dereferenceable(56) %9)
   %.not.i.i.i.i.i.i = icmp eq i8 %128, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   br i1 %.not.i.i.i.i.i.i, label %129, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj8EEEZNS_13MemCpyOptPass6moveUpEPNS_9StoreInstEPNS_11InstructionEPKNS_8LoadInstEE3$_1EEbOT_T0_.exit"
@@ -1660,7 +1660,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull readonly align 8 dereferenceable(48) %.1.i.i.i.i.i.i, i64 48, i1 false)
   store i8 1, ptr %64, align 8
-  %132 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val40.val.i.i.i.i.i.i, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(56) %8)
+  %132 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val40.val.i.i.i.i.i.i, ptr noundef nonnull %72, ptr noundef nonnull align 8 dereferenceable(56) %8)
   %.not43.i.i.i.i.i.i = icmp eq i8 %132, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   br i1 %.not43.i.i.i.i.i.i, label %133, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj8EEEZNS_13MemCpyOptPass6moveUpEPNS_9StoreInstEPNS_11InstructionEPKNS_8LoadInstEE3$_1EEbOT_T0_.exit"
@@ -1675,7 +1675,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.2.i.i.i.i.i.i, i64 48, i1 false)
   store i8 1, ptr %65, align 8
-  %136 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val42.val.i.i.i.i.i.i, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(56) %7)
+  %136 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %.val42.val.i.i.i.i.i.i, ptr noundef nonnull %72, ptr noundef nonnull align 8 dereferenceable(56) %7)
   %.not44.i.i.i.i.i.i = icmp eq i8 %136, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   br i1 %.not44.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj8EEEZNS_13MemCpyOptPass6moveUpEPNS_9StoreInstEPNS_11InstructionEPKNS_8LoadInstEE3$_1EEbOT_T0_.exit.thread", label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj8EEEZNS_13MemCpyOptPass6moveUpEPNS_9StoreInstEPNS_11InstructionEPKNS_8LoadInstEE3$_1EEbOT_T0_.exit"
@@ -1699,7 +1699,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   %.02963.i.i.i.i.i.i = phi ptr [ %154, %153 ], [ %137, %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj8EEEZNS_13MemCpyOptPass6moveUpEPNS_9StoreInstEPNS_11InstructionEPKNS_8LoadInstEE3$_1EEbOT_T0_.exit.thread" ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02963.i.i.i.i.i.i, align 8
   %.val30.val.i.i.i.i.i.i90 = load ptr, ptr %28, align 8
-  %143 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val30.val.i.i.i.i.i.i90, ptr noundef %72, ptr noundef %.029.val.i.i.i.i.i.i) #18
+  %143 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val30.val.i.i.i.i.i.i90, ptr noundef nonnull %72, ptr noundef %.029.val.i.i.i.i.i.i) #18
   %.not49.i.i.i.i.i.i = icmp eq i8 %143, 0
   br i1 %.not49.i.i.i.i.i.i, label %144, label %.loopexit237
 
@@ -1707,7 +1707,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   %145 = getelementptr inbounds nuw i8, ptr %.02963.i.i.i.i.i.i, i64 8
   %.val33.i.i.i.i.i.i = load ptr, ptr %145, align 8
   %.val32.val.i.i.i.i.i.i91 = load ptr, ptr %28, align 8
-  %146 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val32.val.i.i.i.i.i.i91, ptr noundef %72, ptr noundef %.val33.i.i.i.i.i.i) #18
+  %146 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val32.val.i.i.i.i.i.i91, ptr noundef nonnull %72, ptr noundef %.val33.i.i.i.i.i.i) #18
   %.not50.i.i.i.i.i.i = icmp eq i8 %146, 0
   br i1 %.not50.i.i.i.i.i.i, label %147, label %.loopexit237.loopexit.split.loop.exit312
 
@@ -1715,7 +1715,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   %148 = getelementptr inbounds nuw i8, ptr %.02963.i.i.i.i.i.i, i64 16
   %.val36.i.i.i.i.i.i = load ptr, ptr %148, align 8
   %.val35.val.i.i.i.i.i.i = load ptr, ptr %28, align 8
-  %149 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val35.val.i.i.i.i.i.i, ptr noundef %72, ptr noundef %.val36.i.i.i.i.i.i) #18
+  %149 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val35.val.i.i.i.i.i.i, ptr noundef nonnull %72, ptr noundef %.val36.i.i.i.i.i.i) #18
   %.not51.i.i.i.i.i.i = icmp eq i8 %149, 0
   br i1 %.not51.i.i.i.i.i.i, label %150, label %.loopexit237.loopexit.split.loop.exit310
 
@@ -1723,7 +1723,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   %151 = getelementptr inbounds nuw i8, ptr %.02963.i.i.i.i.i.i, i64 24
   %.val39.i.i.i.i.i.i = load ptr, ptr %151, align 8
   %.val38.val.i.i.i.i.i.i92 = load ptr, ptr %28, align 8
-  %152 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val38.val.i.i.i.i.i.i92, ptr noundef %72, ptr noundef %.val39.i.i.i.i.i.i) #18
+  %152 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val38.val.i.i.i.i.i.i92, ptr noundef nonnull %72, ptr noundef %.val39.i.i.i.i.i.i) #18
   %.not52.i.i.i.i.i.i = icmp eq i8 %152, 0
   br i1 %.not52.i.i.i.i.i.i, label %153, label %.loopexit237.loopexit.split.loop.exit
 
@@ -1751,7 +1751,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
 158:                                              ; preds = %._crit_edge.i.i.i.i.i.i81
   %.029.val42.i.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i.i82, align 8
   %.val41.val.i.i.i.i.i.i = load ptr, ptr %28, align 8
-  %159 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val41.val.i.i.i.i.i.i, ptr noundef %72, ptr noundef %.029.val42.i.i.i.i.i.i) #18
+  %159 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val41.val.i.i.i.i.i.i, ptr noundef nonnull %72, ptr noundef %.029.val42.i.i.i.i.i.i) #18
   %.not.i.i.i.i.i.i88 = icmp eq i8 %159, 0
   br i1 %.not.i.i.i.i.i.i88, label %160, label %.loopexit237
 
@@ -1763,7 +1763,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   %.1.i.i.i.i.i.i86 = phi ptr [ %.029.lcssa.i.i.i.i.i.i82, %._crit_edge.i.i.i.i.i.i81 ], [ %161, %160 ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i86, align 8
   %.val44.val.i.i.i.i.i.i = load ptr, ptr %28, align 8
-  %163 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val44.val.i.i.i.i.i.i, ptr noundef %72, ptr noundef %.1.val.i.i.i.i.i.i) #18
+  %163 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val44.val.i.i.i.i.i.i, ptr noundef nonnull %72, ptr noundef %.1.val.i.i.i.i.i.i) #18
   %.not47.i.i.i.i.i.i87 = icmp eq i8 %163, 0
   br i1 %.not47.i.i.i.i.i.i87, label %164, label %.loopexit237
 
@@ -1775,7 +1775,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   %.2.i.i.i.i.i.i83 = phi ptr [ %.029.lcssa.i.i.i.i.i.i82, %._crit_edge.i.i.i.i.i.i81 ], [ %165, %164 ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i83, align 8
   %.val46.val.i.i.i.i.i.i = load ptr, ptr %28, align 8
-  %167 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val46.val.i.i.i.i.i.i, ptr noundef %72, ptr noundef %.2.val.i.i.i.i.i.i) #18
+  %167 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %.val46.val.i.i.i.i.i.i, ptr noundef nonnull %72, ptr noundef %.2.val.i.i.i.i.i.i) #18
   %.not48.i.i.i.i.i.i84 = icmp eq i8 %167, 0
   br i1 %.not48.i.i.i.i.i.i84, label %.thread212, label %.loopexit237
 
@@ -1803,7 +1803,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEm
   %172 = load ptr, ptr %28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false)
   store i8 1, ptr %66, align 8
-  %173 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %172, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(56) %25)
+  %173 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %172, ptr noundef nonnull %72, ptr noundef nonnull align 8 dereferenceable(56) %25)
   %174 = and i8 %173, 2
   %.not232 = icmp eq i8 %174, 0
   br i1 %.not232, label %175, label %.loopexit
@@ -2466,11 +2466,11 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %42
   %51 = icmp eq i8 %50, 0
   %52 = and i64 %45, 1073741824
   %.not.i.i113 = icmp ne i64 %52, 0
-  %or.cond.not204 = or i1 %.not.i.i113, %51
+  %or.cond.not209 = or i1 %.not.i.i113, %51
   %53 = and i8 %49, 48
   %.not180 = icmp eq i8 %53, 0
-  %or.cond202 = or i1 %or.cond.not204, %.not180
-  br i1 %or.cond202, label %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread, label %54
+  %or.cond207 = or i1 %or.cond.not209, %.not180
+  br i1 %or.cond207, label %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread, label %54
 
 54:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit, %39
   call void @_ZN4llvm14MemoryLocation3getEPKNS_8LoadInstE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MemoryLocation") align 8 %7, ptr noundef nonnull %2) #18
@@ -2502,24 +2502,23 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %42
   %66 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEE(ptr noundef nonnull align 8 dereferenceable(56) %65, ptr noundef nonnull %64, ptr noundef nonnull align 8 dereferenceable(56) %8)
   %67 = and i8 %66, 2
   %.not182 = icmp eq i8 %67, 0
-  br i1 %.not182, label %59, label %._crit_edge
+  br i1 %.not182, label %59, label %68
 
-._crit_edge:                                      ; preds = %59, %61
-  %.0100 = phi ptr [ %1, %59 ], [ %64, %61 ]
-  %.not107 = icmp eq ptr %.0100, null
-  br i1 %.not107, label %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread, label %68
+._crit_edge:                                      ; preds = %59
+  %.not107 = icmp eq ptr %1, null
+  br i1 %.not107, label %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread, label %select.unfold
 
-68:                                               ; preds = %._crit_edge
-  %.not108 = icmp eq ptr %.0100, %1
+68:                                               ; preds = %61
+  %.not108 = icmp eq ptr %63, %1
   br i1 %.not108, label %select.unfold, label %69
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr %6, align 8
-  %71 = call noundef zeroext i1 @_ZN4llvm13MemCpyOptPass6moveUpEPNS_9StoreInstEPNS_11InstructionEPKNS_8LoadInstE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef nonnull %.0100, ptr noundef %70)
+  %71 = call noundef zeroext i1 @_ZN4llvm13MemCpyOptPass6moveUpEPNS_9StoreInstEPNS_11InstructionEPKNS_8LoadInstE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef nonnull %63, ptr noundef %70)
   br i1 %71, label %select.unfold, label %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread
 
-select.unfold:                                    ; preds = %54, %69, %68
-  %.0100197200 = phi ptr [ %.0100, %69 ], [ %.0100, %68 ], [ %1, %54 ]
+select.unfold:                                    ; preds = %._crit_edge, %54, %69, %68
+  %.0100197200 = phi ptr [ %63, %69 ], [ %63, %68 ], [ %1, %54 ], [ %1, %._crit_edge ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)

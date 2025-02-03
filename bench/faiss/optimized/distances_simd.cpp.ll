@@ -2171,7 +2171,7 @@ _ZN5faiss12_GLOBAL__N_116pq2_8cents_tableILb1EEEvPKNS_12simd8float32ES2_Pfmm.exi
 324:                                              ; preds = %317
   %325 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %320) #15
+  call void @__cxa_free_exception(ptr nonnull %320) #15
   br label %326
 
 326:                                              ; preds = %324, %322

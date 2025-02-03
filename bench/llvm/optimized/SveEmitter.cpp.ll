@@ -4622,7 +4622,7 @@ define dso_local void @_ZN5clang15EmitSveBuiltinsERN4llvm12RecordKeeperERNS0_11r
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef %.val.i.i, ptr noundef nonnull %28)
+  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %28)
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %27
@@ -4633,7 +4633,7 @@ define dso_local void @_ZN5clang15EmitSveBuiltinsERN4llvm12RecordKeeperERNS0_11r
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter14createBuiltinsERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !22
 
 30:                                               ; preds = %22
-  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef %.val.i.i, ptr noundef nonnull %21)
+  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %21)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter14createBuiltinsERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i"
 
 "_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter14createBuiltinsERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %30, %._crit_edge.i
@@ -5165,7 +5165,7 @@ define dso_local void @_ZN5clang16EmitSveBuiltinCGERN4llvm12RecordKeeperERNS0_11
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef %.val.i.i, ptr noundef nonnull %28)
+  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %28)
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %27
@@ -5176,7 +5176,7 @@ define dso_local void @_ZN5clang16EmitSveBuiltinCGERN4llvm12RecordKeeperERNS0_11
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter16createCodeGenMapERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !24
 
 30:                                               ; preds = %22
-  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef %.val.i.i, ptr noundef nonnull %21)
+  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %21)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter16createCodeGenMapERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i"
 
 "_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter16createCodeGenMapERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %30, %._crit_edge.i
@@ -5552,7 +5552,7 @@ define dso_local void @_ZN5clang18EmitSveRangeChecksERN4llvm12RecordKeeperERNS0_
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef %.val.i.i, ptr noundef nonnull %25)
+  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %25)
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %24
@@ -5563,7 +5563,7 @@ define dso_local void @_ZN5clang18EmitSveRangeChecksERN4llvm12RecordKeeperERNS0_
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter17createRangeChecksERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !31
 
 27:                                               ; preds = %19
-  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef %.val.i.i, ptr noundef nonnull %18)
+  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %18)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter17createRangeChecksERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i"
 
 "_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter17createRangeChecksERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %27, %._crit_edge.i
@@ -7362,7 +7362,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit96:               ; preds = %200, %202
 
 _ZN4llvm11raw_ostreamlsEPKc.exit99:               ; preds = %216, %218
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
-  %221 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0118.0167) #24
+  %221 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0118.0167) #24
   %.not159 = icmp eq ptr %221, %152
   br i1 %.not159, label %._crit_edge170, label %.lr.ph169
 
@@ -8384,7 +8384,7 @@ define dso_local void @_ZN5clang15EmitSmeBuiltinsERN4llvm12RecordKeeperERNS0_11r
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef %.val.i.i, ptr noundef nonnull %23)
+  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %23)
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %22
@@ -8395,7 +8395,7 @@ define dso_local void @_ZN5clang15EmitSmeBuiltinsERN4llvm12RecordKeeperERNS0_11r
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter17createSMEBuiltinsERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !36
 
 25:                                               ; preds = %17
-  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef %.val.i.i, ptr noundef nonnull %16)
+  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %16)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter17createSMEBuiltinsERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i"
 
 "_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter17createSMEBuiltinsERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %25, %._crit_edge.i
@@ -8668,7 +8668,7 @@ define dso_local void @_ZN5clang16EmitSmeBuiltinCGERN4llvm12RecordKeeperERNS0_11
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef %.val.i.i, ptr noundef nonnull %24)
+  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %24)
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %23
@@ -8679,7 +8679,7 @@ define dso_local void @_ZN5clang16EmitSmeBuiltinCGERN4llvm12RecordKeeperERNS0_11
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter19createSMECodeGenMapERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !37
 
 26:                                               ; preds = %18
-  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef %.val.i.i, ptr noundef nonnull %17)
+  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %17)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter19createSMECodeGenMapERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i"
 
 "_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter19createSMECodeGenMapERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %26, %._crit_edge.i
@@ -9037,7 +9037,7 @@ define dso_local void @_ZN5clang18EmitSmeRangeChecksERN4llvm12RecordKeeperERNS0_
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef %.val.i.i, ptr noundef nonnull %25)
+  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %25)
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %24
@@ -9048,7 +9048,7 @@ define dso_local void @_ZN5clang18EmitSmeRangeChecksERN4llvm12RecordKeeperERNS0_
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter20createSMERangeChecksERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !38
 
 27:                                               ; preds = %19
-  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef %.val.i.i, ptr noundef nonnull %18)
+  call fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_SG_T0_"(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %18)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter20createSMERangeChecksERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i"
 
 "_ZN4llvm4sortIRNS_11SmallVectorISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS4_EELj128EEEZNS3_10SVEEmitter20createSMERangeChecksERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %27, %._crit_edge.i
@@ -9884,7 +9884,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %206, %205, %203
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit61.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit61.i:             ; preds = %218, %216
-  %222 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.074.0118.i) #24
+  %222 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.074.0118.i) #24
   %.not108.i = icmp eq ptr %222, %180
   br i1 %.not108.i, label %._crit_edge121.i, label %.lr.ph120.i
 
@@ -9935,7 +9935,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit64.i:             ; preds = %231, %229
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit67.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit67.i:             ; preds = %247, %245
-  %250 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.078.0123.i) #24
+  %250 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.078.0123.i) #24
   %.not107.i = icmp eq ptr %250, %30
   br i1 %.not107.i, label %._crit_edge125.i, label %.lr.ph124.i
 
@@ -20621,7 +20621,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %38, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3setIS5_St4lessIS5_ESaIS5_EEESt10_Select1stISD_ESA_SaISD_EE24_M_get_insert_unique_posERS7_.exit, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #24
+  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #24
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %2) #21
   %43 = icmp slt i32 %42, 0
@@ -20687,7 +20687,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %67, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3setIS5_St4lessIS5_ESaIS5_EEESt10_Select1stISD_ESA_SaISD_EE24_M_get_insert_unique_posERS7_.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #24
+  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #24
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %70) #21
   %72 = icmp slt i32 %71, 0

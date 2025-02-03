@@ -2631,7 +2631,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i:         ; preds = %16
 
 20:                                               ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i
   %21 = add i64 %2, -8
-  %22 = tail call noundef ptr @_ZN5clang12HeaderSearch12lookupModuleEN4llvm9StringRefES2_NS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(2192) %0, ptr %1, i64 %2, ptr %1, i64 %21, i32 poison, i1 noundef zeroext %5)
+  %22 = tail call noundef ptr @_ZN5clang12HeaderSearch12lookupModuleEN4llvm9StringRefES2_NS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(2192) %0, ptr nonnull %1, i64 %2, ptr nonnull %1, i64 %21, i32 poison, i1 noundef zeroext %5)
   %.not37 = icmp eq ptr %22, null
   br i1 %.not37, label %.thread, label %.thread57
 
@@ -2650,7 +2650,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i40:       ; preds = %_ZNK4llvm9StringRef
 
 26:                                               ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i40
   %27 = add i64 %.sroa.5.05664, -7
-  %28 = tail call noundef ptr @_ZN5clang12HeaderSearch12lookupModuleEN4llvm9StringRefES2_NS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(2192) %0, ptr %1, i64 %2, ptr %1, i64 %27, i32 poison, i1 noundef zeroext %5)
+  %28 = tail call noundef ptr @_ZN5clang12HeaderSearch12lookupModuleEN4llvm9StringRefES2_NS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(2192) %0, ptr nonnull %1, i64 %2, ptr nonnull %1, i64 %27, i32 poison, i1 noundef zeroext %5)
   br label %.thread57
 
 .thread57:                                        ; preds = %.thread, %_ZNK4llvm9StringRef9ends_withES0_.exit.i40, %14, %20, %26, %9, %6
@@ -9518,7 +9518,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNK4llvm9StringRef
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %96 = load ptr, ptr %95, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @_ZN5clang11FileManager15getDirectoryRefEN4llvm9StringRefEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.712") align 8 %10, ptr noundef nonnull align 8 dereferenceable(808) %96, ptr %90, i64 %91, i1 noundef zeroext true) #22
+  call void @_ZN5clang11FileManager15getDirectoryRefEN4llvm9StringRefEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.712") align 8 %10, ptr noundef nonnull align 8 dereferenceable(808) %96, ptr nonnull %90, i64 %91, i1 noundef zeroext true) #22
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %98 = load i8, ptr %97, align 8
   %99 = trunc i8 %98 to i1
@@ -11720,7 +11720,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit32:         ; preds = %70
   br i1 %75, label %76, label %.critedge4thread-pre-split
 
 76:                                               ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit32
-  %77 = call { ptr, i64 } @_ZN4llvm3sys4path4stemENS_9StringRefENS1_5StyleE(ptr %.sroa.05.0.copyload.pre55, i64 %66, i32 noundef 0) #22
+  %77 = call { ptr, i64 } @_ZN4llvm3sys4path4stemENS_9StringRefENS1_5StyleE(ptr nonnull %.sroa.05.0.copyload.pre55, i64 %66, i32 noundef 0) #22
   %78 = extractvalue { ptr, i64 } %77, 0
   %79 = extractvalue { ptr, i64 } %77, 1
   %.sroa.09.0.copyload = load ptr, ptr %40, align 8

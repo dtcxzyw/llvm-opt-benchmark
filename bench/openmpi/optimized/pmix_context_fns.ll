@@ -60,7 +60,7 @@ define range(i32 -190, 1) i32 @pmix_util_check_context_app(ptr noundef captures(
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %8 = icmp eq i64 %6, %7
-  tail call void @free(ptr noundef %5) #7
+  tail call void @free(ptr noundef nonnull %5) #7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
@@ -69,7 +69,7 @@ define range(i32 -190, 1) i32 @pmix_util_check_context_app(ptr noundef captures(
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef %4) #7
+  tail call void @free(ptr noundef nonnull %4) #7
   store ptr %10, ptr %0, align 8
   br label %15
 

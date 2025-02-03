@@ -2923,7 +2923,7 @@ common.resume:                                    ; preds = %.body.i, %75
   call void @llvm.experimental.noalias.scope.decl(metadata !418)
   call void @llvm.experimental.noalias.scope.decl(metadata !421)
   %175 = load ptr, ptr %19, align 8, !alias.scope !424, !noalias !366, !noundef !7
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$ockam_core..error..inner..ErrorData$GT$17ha93e5454dd05e87aE"(ptr noalias noundef align 8 dereferenceable(104) %175)
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$ockam_core..error..inner..ErrorData$GT$17ha93e5454dd05e87aE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %175)
           to label %217 unwind label %176, !noalias !424
 
 176:                                              ; preds = %174
@@ -3684,7 +3684,7 @@ common.resume:                                    ; preds = %.body.i, %75
   call void @llvm.experimental.noalias.scope.decl(metadata !506)
   call void @llvm.experimental.noalias.scope.decl(metadata !509)
   %175 = load ptr, ptr %19, align 8, !alias.scope !512, !noalias !455, !noundef !7
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$ockam_core..error..inner..ErrorData$GT$17ha93e5454dd05e87aE"(ptr noalias noundef align 8 dereferenceable(104) %175)
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$ockam_core..error..inner..ErrorData$GT$17ha93e5454dd05e87aE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %175)
           to label %217 unwind label %176, !noalias !512
 
 176:                                              ; preds = %174

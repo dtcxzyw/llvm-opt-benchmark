@@ -185,7 +185,7 @@ invoke.cont:                                      ; preds = %if.then
 ehcleanup.thread:                                 ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #13
   br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit10
 
 if.end:                                           ; preds = %entry

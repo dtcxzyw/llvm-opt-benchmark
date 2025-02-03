@@ -12397,7 +12397,7 @@ common.resume:                                    ; preds = %399, %406, %411, %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2442)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2445)
   %302 = load ptr, ptr %0, align 8, !alias.scope !2448, !noundef !11
-  invoke void @"_ZN4core3ptr58drop_in_place$LT$liquid_core..error..error..InnerError$GT$17he05db96d0bc78eb9E.llvm.4616129397091597767"(ptr noalias noundef align 8 dereferenceable(64) %302)
+  invoke void @"_ZN4core3ptr58drop_in_place$LT$liquid_core..error..error..InnerError$GT$17he05db96d0bc78eb9E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(64) %302)
           to label %"_ZN4core3ptr60drop_in_place$LT$milli..prompt..error..RenderPromptError$GT$17hc84980f4d807c0aeE.exit" unwind label %303, !noalias !2448
 
 303:                                              ; preds = %301
@@ -13134,7 +13134,7 @@ common.resume:                                    ; preds = %167, %"_ZN63_$LT$al
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2660)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2663)
   %76 = load ptr, ptr %75, align 8, !alias.scope !2666, !noundef !11
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$csv..error..ErrorKind$GT$17hd5beb95e0210bbeeE.llvm.4616129397091597767"(ptr noalias noundef align 8 dereferenceable(88) %76)
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$csv..error..ErrorKind$GT$17hd5beb95e0210bbeeE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(88) %76)
           to label %"_ZN4core3ptr38drop_in_place$LT$csv..error..Error$GT$17h9b369cc3c31678bfE.exit.i" unwind label %77, !noalias !2666
 
 77:                                               ; preds = %74
@@ -40966,7 +40966,7 @@ _ZN3csv11byte_record6Bounds3end17heba7b7859073d037E.exit.thread: ; preds = %"_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !6291)
   call void @llvm.experimental.noalias.scope.decl(metadata !6294)
   %123 = load ptr, ptr %35, align 8, !alias.scope !6297, !noundef !11
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$csv..byte_record..ByteRecordInner$GT$17h97603f266bdc7069E"(ptr noalias noundef align 8 dereferenceable(88) %123)
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$csv..byte_record..ByteRecordInner$GT$17h97603f266bdc7069E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %123)
           to label %"_ZN4core3ptr49drop_in_place$LT$csv..byte_record..ByteRecord$GT$17h60619d672a0026f7E.exit.i" unwind label %124, !noalias !6297
 
 124:                                              ; preds = %122
@@ -41799,7 +41799,7 @@ _ZN10serde_json3ser9to_writer17ha6ace2fa7ae18a66E.exit: ; preds = %_ZN10serde_js
   call void @llvm.experimental.noalias.scope.decl(metadata !6547)
   call void @llvm.experimental.noalias.scope.decl(metadata !6550)
   %440 = load ptr, ptr %35, align 8, !alias.scope !6553, !noundef !11
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$csv..byte_record..ByteRecordInner$GT$17h97603f266bdc7069E"(ptr noalias noundef align 8 dereferenceable(88) %440)
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$csv..byte_record..ByteRecordInner$GT$17h97603f266bdc7069E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %440)
           to label %"_ZN4core3ptr49drop_in_place$LT$csv..byte_record..ByteRecord$GT$17h60619d672a0026f7E.exit.i164" unwind label %441, !noalias !6553
 
 441:                                              ; preds = %439

@@ -6314,7 +6314,7 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZN7mitsuba7variantIJbldN5d
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #28
+  tail call void @__cxa_free_exception(ptr nonnull %25) #28
   resume { ptr, i32 } %28
 
 _ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE5visitINS_12_GLOBAL__N_119PropertyTypeVisitorEEEDTclfp1_clL_ZNS5_7declvalB8ne190000IbEEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSX_.exit: ; preds = %0, %2, %4, %6, %8, %10, %12, %14, %16, %18, %20, %22
@@ -8267,7 +8267,7 @@ _ZN7mitsuba12_GLOBAL__N_113StreamVisitorclERKNS_3refINS_6ObjectEEE.exit.i.i.i.i.
 138:                                              ; preds = %135
   %139 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %136) #28
+  tail call void @__cxa_free_exception(ptr nonnull %136) #28
   br label %common.resume.i.i.i.i
 
 _ZN7mitsuba6detail14variant_helperIJPKvEE5visitINS_12_GLOBAL__N_113StreamVisitorEEEDTclfp1_clL_ZNSt3__17declvalB8ne190000IS3_EEDTclsr3stdE9__declvalIT_ELi0EEEvEEEEPKSt9type_infoPvRSA_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %133
@@ -13026,7 +13026,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 

@@ -20663,7 +20663,7 @@ if.end31:                                         ; preds = %if.end27
   tail call void @_ZN5nlsat6solver3imp3logEv(ptr noundef nonnull align 8 dereferenceable(728) %this)
   br label %while.body10, !llvm.loop !140
 
-while.end:                                        ; preds = %if.else17, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit.i33, %if.then13, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit.i, %for.cond.i41, %for.cond.i
+while.end:                                        ; preds = %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit.i, %if.then13, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit.i33, %if.else17, %for.cond.i41, %for.cond.i
   %89 = load i32, ptr %m_xk, align 4
   %cmp33 = icmp eq i32 %89, -1
   br i1 %cmp33, label %if.then34, label %if.else42

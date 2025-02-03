@@ -168,7 +168,7 @@ define hidden i32 @mbedtls_hmac_drbg_seed_buf(ptr noundef %0, ptr noundef %1, pt
   %12 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %1) #12
   %13 = zext i8 %12 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %7, i8 1, i64 %13, i1 false)
-  %14 = tail call i32 @mbedtls_hmac_drbg_update(ptr noundef %0, ptr noundef %2, i64 noundef %3)
+  %14 = tail call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3)
   br label %15
 
 15:                                               ; preds = %11, %6, %4

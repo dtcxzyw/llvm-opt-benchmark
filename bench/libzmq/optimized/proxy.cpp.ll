@@ -540,22 +540,16 @@ delete.notnull259:                                ; preds = %do.end252
   call void @_ZdlPv(ptr noundef nonnull %call2) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11
   call void @_ZdlPv(ptr noundef nonnull %call13) #12
-  br i1 %cmp76, label %delete.notnull268, label %delete.end269
+  br i1 %cmp76, label %delete.notnull268, label %delete.end272
 
 delete.notnull268:                                ; preds = %delete.notnull259
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_send_blocked.0) #12
-  br label %delete.end269
-
-delete.end269:                                    ; preds = %delete.notnull268, %delete.notnull259
-  br i1 %cmp78, label %delete.notnull271, label %delete.end272
-
-delete.notnull271:                                ; preds = %delete.end269
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
-  call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
   br label %delete.end272
 
-delete.end272:                                    ; preds = %delete.notnull271, %delete.end269
+delete.end272:                                    ; preds = %delete.notnull268, %delete.notnull259
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
+  call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
   %isnull273 = icmp eq ptr %poller_frontend_only.0, null
   br i1 %isnull273, label %delete.end275, label %delete.notnull274
 
@@ -589,22 +583,16 @@ delete.notnull289:                                ; preds = %do.end282
   call void @_ZdlPv(ptr noundef nonnull %call2) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11
   call void @_ZdlPv(ptr noundef nonnull %call13) #12
-  br i1 %cmp76, label %delete.notnull298, label %delete.end299
+  br i1 %cmp76, label %delete.notnull298, label %delete.end302
 
 delete.notnull298:                                ; preds = %delete.notnull289
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_send_blocked.0) #12
-  br label %delete.end299
-
-delete.end299:                                    ; preds = %delete.notnull298, %delete.notnull289
-  br i1 %cmp78, label %delete.notnull301, label %delete.end302
-
-delete.notnull301:                                ; preds = %delete.end299
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
-  call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
   br label %delete.end302
 
-delete.end302:                                    ; preds = %delete.notnull301, %delete.end299
+delete.end302:                                    ; preds = %delete.notnull298, %delete.notnull289
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
+  call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
   %isnull303 = icmp eq ptr %poller_frontend_only.0, null
   br i1 %isnull303, label %delete.end305, label %delete.notnull304
 
@@ -629,9 +617,9 @@ do.end309:                                        ; preds = %delete.end305, %del
 do.end312:                                        ; preds = %do.end282
   %call313 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0, ptr noundef %backend_, ptr noundef null, i16 noundef signext 2)
   %cmp315 = icmp slt i32 %call313, 0
-  br i1 %cmp315, label %delete.notnull319, label %do.end342
+  br i1 %cmp315, label %delete.end332, label %do.end342
 
-delete.notnull319:                                ; preds = %do.end312
+delete.end332:                                    ; preds = %do.end312
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call1) #11
   call void @_ZdlPv(ptr noundef nonnull %call1) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call2) #11
@@ -639,15 +627,9 @@ delete.notnull319:                                ; preds = %do.end312
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11
   call void @_ZdlPv(ptr noundef nonnull %call13) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0) #11
-  call void @_ZdlPv(ptr noundef %poller_send_blocked.0) #12
-  br i1 %cmp78, label %delete.notnull331, label %delete.end332
-
-delete.notnull331:                                ; preds = %delete.notnull319
+  call void @_ZdlPv(ptr noundef nonnull %poller_send_blocked.0) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
-  br label %delete.end332
-
-delete.end332:                                    ; preds = %delete.notnull331, %delete.notnull319
   %isnull333 = icmp eq ptr %poller_frontend_only.0, null
   br i1 %isnull333, label %delete.end335, label %delete.notnull334
 
@@ -682,9 +664,9 @@ delete.notnull349:                                ; preds = %do.end342
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11
   call void @_ZdlPv(ptr noundef nonnull %call13) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0) #11
-  call void @_ZdlPv(ptr noundef %poller_send_blocked.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_send_blocked.0) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
-  call void @_ZdlPv(ptr noundef %poller_both_blocked.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
   %isnull363 = icmp eq ptr %poller_frontend_only.0, null
   br i1 %isnull363, label %delete.end365, label %delete.notnull364
 
@@ -719,9 +701,9 @@ delete.notnull379:                                ; preds = %do.end372
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11
   call void @_ZdlPv(ptr noundef nonnull %call13) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0) #11
-  call void @_ZdlPv(ptr noundef %poller_send_blocked.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_send_blocked.0) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
-  call void @_ZdlPv(ptr noundef %poller_both_blocked.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
   %isnull393 = icmp eq ptr %poller_frontend_only.0, null
   br i1 %isnull393, label %delete.end395, label %delete.notnull394
 
@@ -756,9 +738,9 @@ delete.notnull409:                                ; preds = %do.end402
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11
   call void @_ZdlPv(ptr noundef nonnull %call13) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0) #11
-  call void @_ZdlPv(ptr noundef %poller_send_blocked.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_send_blocked.0) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
-  call void @_ZdlPv(ptr noundef %poller_both_blocked.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
   %isnull423 = icmp eq ptr %poller_frontend_only.0, null
   br i1 %isnull423, label %delete.end425, label %delete.notnull424
 
@@ -793,11 +775,11 @@ delete.notnull439:                                ; preds = %do.end432
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11
   call void @_ZdlPv(ptr noundef nonnull %call13) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0) #11
-  call void @_ZdlPv(ptr noundef %poller_send_blocked.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_send_blocked.0) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
-  call void @_ZdlPv(ptr noundef %poller_both_blocked.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_frontend_only.0) #11
-  call void @_ZdlPv(ptr noundef %poller_frontend_only.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_frontend_only.0) #12
   %isnull456 = icmp eq ptr %poller_backend_only.0, null
   br i1 %isnull456, label %do.end459, label %delete.notnull457
 
@@ -823,13 +805,13 @@ delete.notnull469:                                ; preds = %do.end462
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11
   call void @_ZdlPv(ptr noundef nonnull %call13) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0) #11
-  call void @_ZdlPv(ptr noundef %poller_send_blocked.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_send_blocked.0) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
-  call void @_ZdlPv(ptr noundef %poller_both_blocked.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_frontend_only.0) #11
-  call void @_ZdlPv(ptr noundef %poller_frontend_only.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_frontend_only.0) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_backend_only.0) #11
-  call void @_ZdlPv(ptr noundef %poller_backend_only.0) #12
+  call void @_ZdlPv(ptr noundef nonnull %poller_backend_only.0) #12
   %call490 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %msg, i32 noundef -1)
   br label %return
 
@@ -987,23 +969,17 @@ do.end582:                                        ; preds = %delete.end578, %del
 do.end585:                                        ; preds = %do.end555
   %call586 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0, ptr noundef nonnull %control_, ptr noundef null, i16 noundef signext 1)
   %cmp588 = icmp slt i32 %call586, 0
-  br i1 %cmp588, label %delete.notnull592, label %do.end615
+  br i1 %cmp588, label %delete.end602, label %do.end615
 
-delete.notnull592:                                ; preds = %do.end585
+delete.end602:                                    ; preds = %do.end585
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call1) #11
   call void @_ZdlPv(ptr noundef nonnull %call1) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call2) #11
   call void @_ZdlPv(ptr noundef nonnull %call2) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11
   call void @_ZdlPv(ptr noundef nonnull %call13) #12
-  br i1 %cmp76, label %delete.notnull601, label %delete.end602
-
-delete.notnull601:                                ; preds = %delete.notnull592
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_send_blocked.0) #12
-  br label %delete.end602
-
-delete.end602:                                    ; preds = %delete.notnull601, %delete.notnull592
   br i1 %cmp78, label %delete.notnull604, label %delete.end605
 
 delete.notnull604:                                ; preds = %delete.end602
@@ -1036,31 +1012,19 @@ do.end612:                                        ; preds = %delete.end608, %del
 do.end615:                                        ; preds = %do.end585
   %call616 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0, ptr noundef nonnull %control_, ptr noundef null, i16 noundef signext 1)
   %cmp618 = icmp slt i32 %call616, 0
-  br i1 %cmp618, label %delete.notnull622, label %do.end645
+  br i1 %cmp618, label %delete.end635, label %do.end645
 
-delete.notnull622:                                ; preds = %do.end615
+delete.end635:                                    ; preds = %do.end615
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call1) #11
   call void @_ZdlPv(ptr noundef nonnull %call1) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call2) #11
   call void @_ZdlPv(ptr noundef nonnull %call2) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11
   call void @_ZdlPv(ptr noundef nonnull %call13) #12
-  br i1 %cmp76, label %delete.notnull631, label %delete.end632
-
-delete.notnull631:                                ; preds = %delete.notnull622
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_send_blocked.0) #12
-  br label %delete.end632
-
-delete.end632:                                    ; preds = %delete.notnull631, %delete.notnull622
-  br i1 %cmp78, label %delete.notnull634, label %delete.end635
-
-delete.notnull634:                                ; preds = %delete.end632
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
-  br label %delete.end635
-
-delete.end635:                                    ; preds = %delete.notnull634, %delete.end632
   %isnull636 = icmp eq ptr %poller_frontend_only.0, null
   br i1 %isnull636, label %delete.end638, label %delete.notnull637
 
@@ -1085,40 +1049,21 @@ do.end642:                                        ; preds = %delete.end638, %del
 do.end645:                                        ; preds = %do.end615
   %call646 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %poller_frontend_only.0, ptr noundef nonnull %control_, ptr noundef null, i16 noundef signext 1)
   %cmp648 = icmp slt i32 %call646, 0
-  br i1 %cmp648, label %delete.notnull652, label %do.end675
+  br i1 %cmp648, label %delete.end668, label %do.end675
 
-delete.notnull652:                                ; preds = %do.end645
+delete.end668:                                    ; preds = %do.end645
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call1) #11
   call void @_ZdlPv(ptr noundef nonnull %call1) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call2) #11
   call void @_ZdlPv(ptr noundef nonnull %call2) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11
   call void @_ZdlPv(ptr noundef nonnull %call13) #12
-  br i1 %cmp76, label %delete.notnull661, label %delete.end662
-
-delete.notnull661:                                ; preds = %delete.notnull652
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_send_blocked.0) #12
-  br label %delete.end662
-
-delete.end662:                                    ; preds = %delete.notnull661, %delete.notnull652
-  br i1 %cmp78, label %delete.notnull664, label %delete.end665
-
-delete.notnull664:                                ; preds = %delete.end662
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
-  br label %delete.end665
-
-delete.end665:                                    ; preds = %delete.notnull664, %delete.end662
-  %isnull666 = icmp eq ptr %poller_frontend_only.0, null
-  br i1 %isnull666, label %delete.end668, label %delete.notnull667
-
-delete.notnull667:                                ; preds = %delete.end665
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_frontend_only.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_frontend_only.0) #12
-  br label %delete.end668
-
-delete.end668:                                    ; preds = %delete.notnull667, %delete.end665
   %isnull669 = icmp eq ptr %poller_backend_only.0, null
   br i1 %isnull669, label %do.end672, label %delete.notnull670
 
@@ -1134,49 +1079,23 @@ do.end672:                                        ; preds = %delete.end668, %del
 do.end675:                                        ; preds = %do.end645
   %call676 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %poller_backend_only.0, ptr noundef nonnull %control_, ptr noundef null, i16 noundef signext 1)
   %cmp678 = icmp slt i32 %call676, 0
-  br i1 %cmp678, label %delete.notnull682, label %if.end706
+  br i1 %cmp678, label %do.end702, label %if.end706
 
-delete.notnull682:                                ; preds = %do.end675
+do.end702:                                        ; preds = %do.end675
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call1) #11
   call void @_ZdlPv(ptr noundef nonnull %call1) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call2) #11
   call void @_ZdlPv(ptr noundef nonnull %call2) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11
   call void @_ZdlPv(ptr noundef nonnull %call13) #12
-  br i1 %cmp76, label %delete.notnull691, label %delete.end692
-
-delete.notnull691:                                ; preds = %delete.notnull682
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_send_blocked.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_send_blocked.0) #12
-  br label %delete.end692
-
-delete.end692:                                    ; preds = %delete.notnull691, %delete.notnull682
-  br i1 %cmp78, label %delete.notnull694, label %delete.end695
-
-delete.notnull694:                                ; preds = %delete.end692
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_both_blocked.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_both_blocked.0) #12
-  br label %delete.end695
-
-delete.end695:                                    ; preds = %delete.notnull694, %delete.end692
-  %isnull696 = icmp eq ptr %poller_frontend_only.0, null
-  br i1 %isnull696, label %delete.end698, label %delete.notnull697
-
-delete.notnull697:                                ; preds = %delete.end695
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_frontend_only.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_frontend_only.0) #12
-  br label %delete.end698
-
-delete.end698:                                    ; preds = %delete.notnull697, %delete.end695
-  %isnull699 = icmp eq ptr %poller_backend_only.0, null
-  br i1 %isnull699, label %do.end702, label %delete.notnull700
-
-delete.notnull700:                                ; preds = %delete.end698
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller_backend_only.0) #11
   call void @_ZdlPv(ptr noundef nonnull %poller_backend_only.0) #12
-  br label %do.end702
-
-do.end702:                                        ; preds = %delete.end698, %delete.notnull700
   %call703 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %msg, i32 noundef -1)
   br label %return
 
@@ -1329,7 +1248,7 @@ for.inc.us:                                       ; preds = %if.then821.us, %if.
 
 delete.notnull757:                                ; preds = %land.lhs.true747
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call1) #11
-  call void @_ZdlPv(ptr noundef %call1) #12
+  call void @_ZdlPv(ptr noundef nonnull %call1) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call2) #11
   call void @_ZdlPv(ptr noundef %call2) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call13) #11

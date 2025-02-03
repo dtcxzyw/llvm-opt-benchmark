@@ -52036,7 +52036,7 @@ define void @"_ZN82_$LT$hir_def..DefWithBodyId$u20$as$u20$hir_def..child_by_sour
 66:                                               ; preds = %"_ZN55_$LT$hir_def..BlockId$u20$as$u20$hir_expand..Lookup$GT$6lookup17heea60bf2c935c95eE.exit"
   %67 = extractvalue { ptr, ptr } %65, 0
   %68 = extractvalue { ptr, ptr } %65, 1
-  %69 = invoke noundef nonnull ptr @"_ZN10hir_expand5files71InFileWrapper$LT$span..HirFileId$C$span..ast_id..FileAstId$LT$N$GT$$GT$7to_node17h5576b95dad92d24aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6, ptr noundef nonnull align 1 %67, ptr noalias noundef readonly align 8 dereferenceable(24) %68)
+  %69 = invoke noundef nonnull ptr @"_ZN10hir_expand5files71InFileWrapper$LT$span..HirFileId$C$span..ast_id..FileAstId$LT$N$GT$$GT$7to_node17h5576b95dad92d24aE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6, ptr noundef nonnull align 1 %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %68)
           to label %70 unwind label %.loopexit21
 
 70:                                               ; preds = %66

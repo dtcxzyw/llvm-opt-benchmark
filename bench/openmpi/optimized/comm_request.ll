@@ -369,7 +369,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %62, %65
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %70
-  call void @free(ptr noundef %.0.i) #8
+  call void @free(ptr noundef nonnull %.0.i) #8
   br label %88
 
 78:                                               ; preds = %27
@@ -547,7 +547,7 @@ define range(i32 -5, 1) i32 @ompi_comm_request_schedule_append(ptr noundef %0, p
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_comm_request_item_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i.i = icmp eq ptr %16, null
-  br i1 %.not6.i.i.i, label %opal_obj_new.exit.thread20.i, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %13, %.lr.ph.i.i.i
   %17 = phi ptr [ %19, %.lr.ph.i.i.i ], [ %16, %13 ]
@@ -556,9 +556,9 @@ define range(i32 -5, 1) i32 @ompi_comm_request_schedule_append(ptr noundef %0, p
   %18 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i, label %opal_obj_new.exit.thread20.i, label %.lr.ph.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread20.i:                     ; preds = %.lr.ph.i.i.i, %13
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %13
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -566,14 +566,14 @@ opal_obj_new.exit.thread20.i:                     ; preds = %.lr.ph.i.i.i, %13
   %22 = icmp sgt i32 %3, 0
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %opal_obj_new.exit.thread20.i
+.lr.ph.i:                                         ; preds = %.loopexit.i
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %24 = zext nneg i32 %3 to i64
   %25 = shl nuw nsw i64 %24, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr readonly align 8 %2, i64 %25, i1 false)
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %opal_obj_new.exit.thread20.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.loopexit.i
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 68
   store i32 %3, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -601,7 +601,7 @@ ompi_comm_request_schedule_append_w_flags.exit:   ; preds = %4, %12, %._crit_edg
 ; Function Attrs: nounwind uwtable
 define range(i32 -5, 1) i32 @ompi_comm_request_schedule_append_w_flags(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %3, 2
-  br i1 %6, label %opal_obj_new.exit.thread, label %7
+  br i1 %6, label %opal_obj_new.exit, label %7
 
 7:                                                ; preds = %5
   %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_comm_request_item_t_class, i64 56), align 8
@@ -617,7 +617,7 @@ define range(i32 -5, 1) i32 @ompi_comm_request_schedule_append_w_flags(ptr nound
 
 13:                                               ; preds = %12, %7
   %.not9.i = icmp eq ptr %9, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %14
+  br i1 %.not9.i, label %opal_obj_new.exit, label %14
 
 14:                                               ; preds = %13
   store ptr @ompi_comm_request_item_t_class, ptr %9, align 8
@@ -626,7 +626,7 @@ define range(i32 -5, 1) i32 @ompi_comm_request_schedule_append_w_flags(ptr nound
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_comm_request_item_t_class, i64 40), align 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i.i = icmp eq ptr %17, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread20, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.i
   %18 = phi ptr [ %20, %.lr.ph.i.i ], [ %17, %14 ]
@@ -635,9 +635,9 @@ define range(i32 -5, 1) i32 @ompi_comm_request_schedule_append_w_flags(ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread20, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread20:                       ; preds = %.lr.ph.i.i, %14
+.loopexit:                                        ; preds = %.lr.ph.i.i, %14
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -645,14 +645,14 @@ opal_obj_new.exit.thread20:                       ; preds = %.lr.ph.i.i, %14
   %23 = icmp sgt i32 %3, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %opal_obj_new.exit.thread20
+.lr.ph:                                           ; preds = %.loopexit
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %25 = zext nneg i32 %3 to i64
   %26 = shl nuw nsw i64 %25, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %2, i64 %26, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %opal_obj_new.exit.thread20
+._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 68
   store i32 %3, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -670,9 +670,9 @@ opal_obj_new.exit.thread20:                       ; preds = %.lr.ph.i.i, %14
   %36 = load volatile i64, ptr %35, align 8
   %37 = add i64 %36, 1
   store volatile i64 %37, ptr %35, align 8
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %13, %5, %._crit_edge
+opal_obj_new.exit:                                ; preds = %13, %5, %._crit_edge
   %.017 = phi i32 [ 0, %._crit_edge ], [ -5, %5 ], [ -2, %13 ]
   ret i32 %.017
 }
@@ -1226,7 +1226,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %36, %39
   br i1 %.not.i29, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %44
-  tail call void @free(ptr noundef %.02435) #8
+  tail call void @free(ptr noundef nonnull %.02435) #8
   br label %52
 
 52:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit

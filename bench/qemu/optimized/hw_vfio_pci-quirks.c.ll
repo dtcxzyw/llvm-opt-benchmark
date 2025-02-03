@@ -3322,7 +3322,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void @g_free(ptr noundef %call) #10
+  tail call void @g_free(ptr noundef nonnull %call) #10
   br label %return
 
 if.end4:                                          ; preds = %if.end

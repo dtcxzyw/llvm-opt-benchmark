@@ -2816,7 +2816,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i) #36
   store ptr %now.addr, ptr %ref.tmp9.i, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i) #36
-  %call12.i188 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKj17LBMContentMappingESt10_Select1stIS3_ESt4lessIjESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %m_lbm_lookup81, ptr %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  %call12.i188 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKj17LBMContentMappingESt10_Select1stIS3_ESt4lessIjESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %m_lbm_lookup81, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %call12.i.noexc unwind label %lpad82
 
 call12.i.noexc:                                   ; preds = %if.then.i
@@ -2889,7 +2889,7 @@ if.then.i216:                                     ; preds = %lor.rhs.i211, %_ZNS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i193) #36
   store ptr %time38, ptr %ref.tmp9.i193, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i194) #36
-  %call12.i219 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKj17LBMContentMappingESt10_Select1stIS3_ESt4lessIjESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %m_lbm_lookup, ptr %__y.addr.0.lcssa.i.i.i24.i217, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i193, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i194)
+  %call12.i219 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKj17LBMContentMappingESt10_Select1stIS3_ESt4lessIjESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %m_lbm_lookup, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i217, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i193, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i194)
           to label %call12.i.noexc218 unwind label %lpad56
 
 call12.i.noexc218:                                ; preds = %if.then.i216
@@ -21866,7 +21866,7 @@ if.then.i.i164:                                   ; preds = %lor.rhs.i.i157, %_Z
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i138) #36
   store ptr %id.addr.i140, ptr %ref.tmp9.i.i138, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i.i139) #36
-  %call12.i.i166167 = invoke ptr @_ZNSt8_Rb_treeItSt4pairIKt12StaticObjectESt10_Select1stIS3_ESt4lessItESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %m_active.i141, ptr %__y.addr.0.lcssa.i.i.i24.i.i165, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i.i138, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i.i139)
+  %call12.i.i166167 = invoke ptr @_ZNSt8_Rb_treeItSt4pairIKt12StaticObjectESt10_Select1stIS3_ESt4lessItESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %m_active.i141, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i.i165, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i.i138, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i.i139)
           to label %call12.i.i166.noexc unwind label %lpad43
 
 call12.i.i166.noexc:                              ; preds = %if.then.i.i164

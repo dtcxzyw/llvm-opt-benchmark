@@ -4876,7 +4876,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt10unique_ptrIN4Luau6detail4Nod
   %.07.i.i = phi ptr [ %.0.i.i, %.noexc ], [ %.06.i.i, %1 ]
   %15 = load ptr, ptr %.07.i.i, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 512
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPSt10unique_ptrIN4Luau6detail4NodeESt14default_deleteIS5_EEEEvT_SA_(ptr noundef %15, ptr noundef nonnull %16)
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPSt10unique_ptrIN4Luau6detail4NodeESt14default_deleteIS5_EEEEvT_SA_(ptr noundef nonnull %15, ptr noundef nonnull %16)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i

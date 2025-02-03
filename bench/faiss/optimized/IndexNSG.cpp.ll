@@ -175,7 +175,7 @@ define void @_ZN5faiss8IndexNSG5trainElPKf(ptr noundef nonnull align 8 captures(
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #10
+  call void @__cxa_free_exception(ptr nonnull %16) #10
   br label %22
 
 22:                                               ; preds = %20, %18
@@ -245,7 +245,7 @@ define void @_ZN5faiss8IndexNSG3addElPKf(ptr noundef nonnull align 8 dereference
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #10
+  call void @__cxa_free_exception(ptr nonnull %26) #10
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -290,7 +290,7 @@ define void @_ZN5faiss8IndexNSG3addElPKf(ptr noundef nonnull align 8 dereference
 50:                                               ; preds = %43
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #10
+  call void @__cxa_free_exception(ptr nonnull %46) #10
   br label %52
 
 52:                                               ; preds = %50, %48
@@ -341,7 +341,7 @@ define void @_ZN5faiss8IndexNSG3addElPKf(ptr noundef nonnull align 8 dereference
 74:                                               ; preds = %67
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %70) #10
+  call void @__cxa_free_exception(ptr nonnull %70) #10
   br label %76
 
 76:                                               ; preds = %74, %72
@@ -429,7 +429,7 @@ define void @_ZN5faiss8IndexNSG3addElPKf(ptr noundef nonnull align 8 dereference
 115:                                              ; preds = %108
   %116 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %111) #10
+  call void @__cxa_free_exception(ptr nonnull %111) #10
   br label %117
 
 117:                                              ; preds = %115, %113
@@ -661,7 +661,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %118, %_ZNSt12_Vecto
 223:                                              ; preds = %216
   %224 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %219) #10
+  call void @__cxa_free_exception(ptr nonnull %219) #10
   br label %225
 
 225:                                              ; preds = %223, %221
@@ -913,7 +913,7 @@ define void @_ZNK5faiss8IndexNSG6searchElPKflPfPlPKNS_16SearchParametersE(ptr no
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #10
+  call void @__cxa_free_exception(ptr nonnull %25) #10
   br label %75
 
 31:                                               ; preds = %7
@@ -953,7 +953,7 @@ define void @_ZNK5faiss8IndexNSG6searchElPKflPfPlPKNS_16SearchParametersE(ptr no
 47:                                               ; preds = %40
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %43) #10
+  call void @__cxa_free_exception(ptr nonnull %43) #10
   br label %75
 
 49:                                               ; preds = %31
@@ -1797,7 +1797,7 @@ define void @_ZN5faiss8IndexNSG5buildElPKfPli(ptr noundef nonnull align 8 derefe
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #10
+  call void @__cxa_free_exception(ptr nonnull %20) #10
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -1848,7 +1848,7 @@ define void @_ZN5faiss8IndexNSG5buildElPKfPli(ptr noundef nonnull align 8 derefe
 48:                                               ; preds = %41
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %44) #10
+  call void @__cxa_free_exception(ptr nonnull %44) #10
   br label %50
 
 50:                                               ; preds = %48, %46
@@ -1984,7 +1984,7 @@ define void @_ZNK5faiss8IndexNSG15check_knn_graphEPKlli(ptr nonnull readnone ali
 33:                                               ; preds = %26
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #10
+  call void @__cxa_free_exception(ptr nonnull %29) #10
   br label %35
 
 35:                                               ; preds = %33, %31

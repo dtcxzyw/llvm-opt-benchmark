@@ -10171,7 +10171,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer18excerpt_containing17h61fb7ca
   %11 = extractvalue { ptr, ptr } %10, 0
   %12 = extractvalue { ptr, ptr } %10, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %13 = invoke noundef i64 @"_ZN71_$LT$multi_buffer..anchor..Anchor$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h4dea993c55ea10c3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(48) %11)
+  %13 = invoke noundef i64 @"_ZN71_$LT$multi_buffer..anchor..Anchor$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h4dea993c55ea10c3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %11)
           to label %19 unwind label %17
 
 "_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17h1a58810812a8fd6fE.exit": ; preds = %48, %45, %17
@@ -10420,7 +10420,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer18excerpt_containing17hd9f6da6
   %14 = extractvalue { ptr, ptr } %13, 0
   %15 = extractvalue { ptr, ptr } %13, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %16 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %11, ptr noalias noundef readonly align 8 dereferenceable(48) %14)
+  %16 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %14)
           to label %22 unwind label %20
 
 "_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17h1a58810812a8fd6fE.exit": ; preds = %51, %48, %20
@@ -10667,7 +10667,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer18excerpt_containing17heded6ae
   %12 = extractvalue { ptr, ptr } %11, 0
   %13 = extractvalue { ptr, ptr } %11, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %14 = invoke noundef i64 @"_ZN48_$LT$usize$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17hcf5f4c41519a80d7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef readonly align 8 dereferenceable(48) %12)
+  %14 = invoke noundef i64 @"_ZN48_$LT$usize$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17hcf5f4c41519a80d7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %12)
           to label %20 unwind label %18
 
 "_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17h1a58810812a8fd6fE.exit": ; preds = %49, %46, %18
@@ -18984,7 +18984,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer22point_to_buffer_offset17h529
   %.sink.sroa.gep53 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink.sroa.gep55 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.sink.sroa.gep56 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %17 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %12, ptr noalias noundef readonly align 8 dereferenceable(48) %15)
+  %17 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15)
           to label %23 unwind label %21
 
 "_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17h1a58810812a8fd6fE.exit": ; preds = %52, %.body, %21
@@ -19364,7 +19364,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer22point_to_buffer_offset17hee7
   %.sink.sroa.gep53 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sink.sroa.gep55 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sink.sroa.gep56 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %14 = invoke noundef i64 @"_ZN71_$LT$multi_buffer..anchor..Anchor$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h4dea993c55ea10c3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(48) %12)
+  %14 = invoke noundef i64 @"_ZN71_$LT$multi_buffer..anchor..Anchor$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h4dea993c55ea10c3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %12)
           to label %20 unwind label %18
 
 "_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17h1a58810812a8fd6fE.exit": ; preds = %49, %.body, %18
@@ -19746,7 +19746,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer22point_to_buffer_offset17hf39
   %.sink.sroa.gep53 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sink.sroa.gep55 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sink.sroa.gep56 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %15 = invoke noundef i64 @"_ZN48_$LT$usize$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17hcf5f4c41519a80d7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noalias noundef readonly align 8 dereferenceable(48) %13)
+  %15 = invoke noundef i64 @"_ZN48_$LT$usize$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17hcf5f4c41519a80d7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %13)
           to label %21 unwind label %19
 
 "_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17h1a58810812a8fd6fE.exit": ; preds = %50, %.body, %19
@@ -20128,7 +20128,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer22range_to_buffer_ranges17h1a5
   %.sink.sroa.gep186 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink.sroa.gep188 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sink.sroa.gep189 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %17 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(48) %15)
+  %17 = invoke noundef i64 @"_ZN61_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h7baec24587da8c77E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15)
           to label %24 unwind label %22
 
 18:                                               ; preds = %22, %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17h1a58810812a8fd6fE.exit"
@@ -20627,7 +20627,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer22range_to_buffer_ranges17ha2c
   %.sink.sroa.gep186 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink.sroa.gep188 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sink.sroa.gep189 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %17 = invoke noundef i64 @"_ZN71_$LT$multi_buffer..anchor..Anchor$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h4dea993c55ea10c3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(48) %15)
+  %17 = invoke noundef i64 @"_ZN71_$LT$multi_buffer..anchor..Anchor$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17h4dea993c55ea10c3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15)
           to label %24 unwind label %22
 
 18:                                               ; preds = %22, %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17h1a58810812a8fd6fE.exit"
@@ -21130,7 +21130,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer22range_to_buffer_ranges17heba
   %.sink.sroa.gep186 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink.sroa.gep188 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sink.sroa.gep189 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %20 = invoke noundef i64 @"_ZN48_$LT$usize$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17hcf5f4c41519a80d7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noalias noundef readonly align 8 dereferenceable(48) %18)
+  %20 = invoke noundef i64 @"_ZN48_$LT$usize$u20$as$u20$multi_buffer..ToOffset$GT$9to_offset17hcf5f4c41519a80d7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %18)
           to label %27 unwind label %25
 
 21:                                               ; preds = %25, %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17h1a58810812a8fd6fE.exit"
@@ -21772,7 +21772,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer24text_anchor_for_position17h3
   %9 = extractvalue { ptr, ptr } %8, 0
   %10 = extractvalue { ptr, ptr } %8, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  invoke void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h790d604f6d5f1019E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(48) %9, i64 noundef %2, i1 noundef zeroext false)
+  invoke void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h790d604f6d5f1019E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, i64 noundef %2, i1 noundef zeroext false)
           to label %13 unwind label %11
 
 11:                                               ; preds = %22, %4
@@ -21925,7 +21925,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer24text_anchor_for_position17ha
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = extractvalue { ptr, ptr } %9, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
-  invoke void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17hda3b08e5b276a1d0E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(48) %10, i32 noundef %2, i32 noundef %3, i1 noundef zeroext false)
+  invoke void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17hda3b08e5b276a1d0E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, i32 noundef %2, i32 noundef %3, i1 noundef zeroext false)
           to label %14 unwind label %12
 
 12:                                               ; preds = %23, %5

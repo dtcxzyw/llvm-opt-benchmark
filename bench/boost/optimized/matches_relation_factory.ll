@@ -5863,7 +5863,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt13runtime_errorEEv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -6002,7 +6002,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt13runtime_errorE7rethr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -35456,7 +35456,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_11regex_errorEEEv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -35593,7 +35593,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_11regex_errorEE7rethr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -54914,7 +54914,7 @@ _ZNK5boost16cpp_regex_traitsIwE18escape_syntax_typeEw.exit.thread: ; preds = %.n
   %143 = phi ptr [ %.pre105, %.noexc49._ZNK5boost16cpp_regex_traitsIwE18escape_syntax_typeEw.exit.thread_crit_edge ], [ %60, %_ZNK5boost16cpp_regex_traitsIwE18escape_syntax_typeEw.exit ]
   %144 = phi ptr [ %.pre104, %.noexc49._ZNK5boost16cpp_regex_traitsIwE18escape_syntax_typeEw.exit.thread_crit_edge ], [ %119, %_ZNK5boost16cpp_regex_traitsIwE18escape_syntax_typeEw.exit ]
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
-  %146 = invoke noundef i32 @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIwE16lookup_classnameEPKwS4_(ptr noundef nonnull align 8 dereferenceable(232) %143, ptr noundef %144, ptr noundef nonnull %145)
+  %146 = invoke noundef i32 @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIwE16lookup_classnameEPKwS4_(ptr noundef nonnull align 8 dereferenceable(232) %143, ptr noundef nonnull %144, ptr noundef nonnull %145)
           to label %_ZNK5boost16cpp_regex_traitsIwE16lookup_classnameEPKwS3_.exit unwind label %147
 
 _ZNK5boost16cpp_regex_traitsIwE16lookup_classnameEPKwS3_.exit: ; preds = %_ZNK5boost16cpp_regex_traitsIwE18escape_syntax_typeEw.exit.thread
@@ -55010,7 +55010,7 @@ _ZNK5boost16cpp_regex_traitsIwE18escape_syntax_typeEw.exit68.thread77: ; preds =
   %180 = phi ptr [ %.pre102, %.noexc67._ZNK5boost16cpp_regex_traitsIwE18escape_syntax_typeEw.exit68.thread77_crit_edge ], [ %154, %_ZNK5boost16cpp_regex_traitsIwE18escape_syntax_typeEw.exit68 ]
   %181 = phi ptr [ %.pre108, %.noexc67._ZNK5boost16cpp_regex_traitsIwE18escape_syntax_typeEw.exit68.thread77_crit_edge ], [ %156, %_ZNK5boost16cpp_regex_traitsIwE18escape_syntax_typeEw.exit68 ]
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  %183 = invoke noundef i32 @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIwE16lookup_classnameEPKwS4_(ptr noundef nonnull align 8 dereferenceable(232) %180, ptr noundef %181, ptr noundef nonnull %182)
+  %183 = invoke noundef i32 @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIwE16lookup_classnameEPKwS4_(ptr noundef nonnull align 8 dereferenceable(232) %180, ptr noundef nonnull %181, ptr noundef nonnull %182)
           to label %_ZNK5boost16cpp_regex_traitsIwE16lookup_classnameEPKwS3_.exit70 unwind label %184
 
 _ZNK5boost16cpp_regex_traitsIwE16lookup_classnameEPKwS3_.exit70: ; preds = %_ZNK5boost16cpp_regex_traitsIwE18escape_syntax_typeEw.exit68.thread77
@@ -77686,7 +77686,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt16invalid_argument
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -77822,7 +77822,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt16invalid_argumentE7re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -79660,7 +79660,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt11logic_errorEEvRK
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -79795,7 +79795,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt11logic_errorE7rethrow
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -87370,7 +87370,7 @@ _ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIP
   %42 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %106 unwind label %43
+          to label %.thread unwind label %43
 
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
@@ -87422,7 +87422,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost13re_detail_50014recursion_info
   %61 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %109 unwind label %62
+          to label %108 unwind label %62
 
 62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
@@ -87532,52 +87532,52 @@ _ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIP
 104:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEESaISA_EE11_M_allocateEm.exit
   %105 = landingpad { ptr, i32 }
           catch ptr null
-  br label %109
+  br label %108
 
-106:                                              ; preds = %41
-  %107 = extractvalue { ptr, i32 } %42, 0
-  %108 = tail call ptr @__cxa_begin_catch(ptr %107) #28
+.thread:                                          ; preds = %41
+  %106 = extractvalue { ptr, i32 } %42, 0
+  %107 = tail call ptr @__cxa_begin_catch(ptr %106) #28
   tail call void @_ZNSt16allocator_traitsISaIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEEEE7destroyISA_EEvRSB_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23) #28
   br label %114
 
-109:                                              ; preds = %104, %60
+108:                                              ; preds = %104, %60
   %.0.lpad-body.ph = phi ptr [ %47, %60 ], [ %22, %104 ]
   %eh.lpad-body.ph = phi { ptr, i32 } [ %61, %60 ], [ %105, %104 ]
-  %110 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
-  %111 = tail call ptr @__cxa_begin_catch(ptr %110) #28
+  %109 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
+  %110 = tail call ptr @__cxa_begin_catch(ptr %109) #28
   invoke void @_ZSt8_DestroyIPN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEESA_EvT_SC_RSaIT0_E(ptr noundef %22, ptr noundef nonnull %.0.lpad-body.ph, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %114 unwind label %112
+          to label %113 unwind label %111
 
-112:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40, %109
-  %113 = landingpad { ptr, i32 }
+111:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40, %108
+  %112 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %117 unwind label %118
+          to label %116 unwind label %117
 
-114:                                              ; preds = %109, %106
+113:                                              ; preds = %108
   %.not.i39 = icmp eq ptr %22, null
-  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40, label %115
+  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40, label %114
 
-115:                                              ; preds = %114
-  %116 = mul nuw nsw i64 %16, 112
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %116) #32
+114:                                              ; preds = %.thread, %113
+  %115 = mul nuw nsw i64 %16, 112
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %115) #32
   br label %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40
 
-_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40: ; preds = %115, %114
+_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40: ; preds = %114, %113
   invoke void @__cxa_rethrow() #30
-          to label %121 unwind label %112
+          to label %120 unwind label %111
 
-117:                                              ; preds = %112
-  resume { ptr, i32 } %113
+116:                                              ; preds = %111
+  resume { ptr, i32 } %112
 
-118:                                              ; preds = %112
-  %119 = landingpad { ptr, i32 }
+117:                                              ; preds = %111
+  %118 = landingpad { ptr, i32 }
           catch ptr null
-  %120 = extractvalue { ptr, i32 } %119, 0
-  tail call void @__clang_call_terminate(ptr %120) #29
+  %119 = extractvalue { ptr, i32 } %118, 0
+  tail call void @__clang_call_terminate(ptr %119) #29
   unreachable
 
-121:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40
+120:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40
   unreachable
 }
 
@@ -98967,7 +98967,7 @@ _ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIP
   %42 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %106 unwind label %43
+          to label %.thread unwind label %43
 
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
@@ -99019,7 +99019,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost13re_detail_50014recursion_info
   %61 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %109 unwind label %62
+          to label %108 unwind label %62
 
 62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
@@ -99129,52 +99129,52 @@ _ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIP
 104:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEESaISA_EE11_M_allocateEm.exit
   %105 = landingpad { ptr, i32 }
           catch ptr null
-  br label %109
+  br label %108
 
-106:                                              ; preds = %41
-  %107 = extractvalue { ptr, i32 } %42, 0
-  %108 = tail call ptr @__cxa_begin_catch(ptr %107) #28
+.thread:                                          ; preds = %41
+  %106 = extractvalue { ptr, i32 } %42, 0
+  %107 = tail call ptr @__cxa_begin_catch(ptr %106) #28
   tail call void @_ZNSt16allocator_traitsISaIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEEEE7destroyISA_EEvRSB_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23) #28
   br label %114
 
-109:                                              ; preds = %104, %60
+108:                                              ; preds = %104, %60
   %.0.lpad-body.ph = phi ptr [ %47, %60 ], [ %22, %104 ]
   %eh.lpad-body.ph = phi { ptr, i32 } [ %61, %60 ], [ %105, %104 ]
-  %110 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
-  %111 = tail call ptr @__cxa_begin_catch(ptr %110) #28
+  %109 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
+  %110 = tail call ptr @__cxa_begin_catch(ptr %109) #28
   invoke void @_ZSt8_DestroyIPN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEESA_EvT_SC_RSaIT0_E(ptr noundef %22, ptr noundef nonnull %.0.lpad-body.ph, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %114 unwind label %112
+          to label %113 unwind label %111
 
-112:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40, %109
-  %113 = landingpad { ptr, i32 }
+111:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40, %108
+  %112 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %117 unwind label %118
+          to label %116 unwind label %117
 
-114:                                              ; preds = %109, %106
+113:                                              ; preds = %108
   %.not.i39 = icmp eq ptr %22, null
-  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40, label %115
+  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40, label %114
 
-115:                                              ; preds = %114
-  %116 = mul nuw nsw i64 %16, 112
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %116) #32
+114:                                              ; preds = %.thread, %113
+  %115 = mul nuw nsw i64 %16, 112
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %115) #32
   br label %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40
 
-_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40: ; preds = %115, %114
+_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40: ; preds = %114, %113
   invoke void @__cxa_rethrow() #30
-          to label %121 unwind label %112
+          to label %120 unwind label %111
 
-117:                                              ; preds = %112
-  resume { ptr, i32 } %113
+116:                                              ; preds = %111
+  resume { ptr, i32 } %112
 
-118:                                              ; preds = %112
-  %119 = landingpad { ptr, i32 }
+117:                                              ; preds = %111
+  %118 = landingpad { ptr, i32 }
           catch ptr null
-  %120 = extractvalue { ptr, i32 } %119, 0
-  tail call void @__clang_call_terminate(ptr %120) #29
+  %119 = extractvalue { ptr, i32 } %118, 0
+  tail call void @__clang_call_terminate(ptr %119) #29
   unreachable
 
-121:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40
+120:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS0_9sub_matchIS5_EEEEEEESaISA_EE13_M_deallocateEPSA_m.exit40
   unreachable
 }
 

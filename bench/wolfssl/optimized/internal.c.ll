@@ -673,19 +673,18 @@ if.then4:                                         ; preds = %if.then
 if.end6:                                          ; preds = %entry
   %2 = load i32, ptr %isZero, align 4
   %tobool7.not = icmp eq i32 %2, 0
-  br i1 %tobool7.not, label %return, label %do.end
+  br i1 %tobool7.not, label %return, label %if.then12
 
-do.end:                                           ; preds = %if.end6
-  call void @SSL_CtxResourceFree(ptr noundef %ctx)
+if.then12:                                        ; preds = %if.end6
+  call void @SSL_CtxResourceFree(ptr noundef nonnull %ctx)
   call void @wolfSSL_RefFree(ptr noundef nonnull %ref) #26
-  %tobool11.not = icmp eq ptr %ctx, null
-  br i1 %tobool11.not, label %return, label %return.sink.split
+  br label %return.sink.split
 
-return.sink.split:                                ; preds = %do.end, %if.then4
+return.sink.split:                                ; preds = %if.then4, %if.then12
   call void @wolfSSL_Free(ptr noundef nonnull %ctx) #26
   br label %return
 
-return:                                           ; preds = %return.sink.split, %do.end, %if.end6, %if.then
+return:                                           ; preds = %return.sink.split, %if.end6, %if.then
   ret void
 }
 
@@ -5120,14 +5119,14 @@ if.then4.i:                                       ; preds = %if.then.i
 if.end6.i:                                        ; preds = %if.then3
   %3 = load i32, ptr %isZero.i, align 4
   %tobool7.not.i = icmp eq i32 %3, 0
-  br i1 %tobool7.not.i, label %FreeSSL_Ctx.exit, label %do.end.i
+  br i1 %tobool7.not.i, label %FreeSSL_Ctx.exit, label %if.then12.i
 
-do.end.i:                                         ; preds = %if.end6.i
+if.then12.i:                                      ; preds = %if.end6.i
   call void @SSL_CtxResourceFree(ptr noundef nonnull %0)
   call void @wolfSSL_RefFree(ptr noundef nonnull %ref.i) #26
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %do.end.i, %if.then4.i
+return.sink.split.i:                              ; preds = %if.then12.i, %if.then4.i
   call void @wolfSSL_Free(ptr noundef nonnull %0) #26
   br label %FreeSSL_Ctx.exit
 
@@ -8600,7 +8599,7 @@ do.end184:                                        ; preds = %if.end132, %if.end1
   br label %sw.epilog331
 
 do.end188:                                        ; preds = %if.end180
-  %call189 = tail call i32 @DoHelloVerifyRequest(ptr noundef nonnull %ssl, ptr noundef %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
+  %call189 = tail call i32 @DoHelloVerifyRequest(ptr noundef nonnull %ssl, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
   %22 = load i8, ptr %encryptionOn, align 4
   %tobool.not.i = icmp eq i8 %22, 0
   br i1 %tobool.not.i, label %sw.epilog331, label %IsEncryptionOn.exit
@@ -8646,23 +8645,23 @@ if.end220:                                        ; preds = %if.else
   br label %sw.epilog331
 
 do.end228:                                        ; preds = %if.end180
-  %call229 = tail call i32 @DoServerHello(ptr noundef nonnull %ssl, ptr noundef %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
+  %call229 = tail call i32 @DoServerHello(ptr noundef nonnull %ssl, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
   br label %sw.epilog331
 
 do.end232:                                        ; preds = %if.end180
-  %call233 = tail call fastcc i32 @DoCertificateRequest(ptr noundef nonnull %ssl, ptr noundef %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
+  %call233 = tail call fastcc i32 @DoCertificateRequest(ptr noundef nonnull %ssl, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
   br label %sw.epilog331
 
 do.end236:                                        ; preds = %if.end180
-  %call237 = tail call fastcc i32 @DoServerKeyExchange(ptr noundef nonnull %ssl, ptr noundef %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
+  %call237 = tail call fastcc i32 @DoServerKeyExchange(ptr noundef nonnull %ssl, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
   br label %sw.epilog331
 
 do.end240:                                        ; preds = %if.end180
-  %call.i154 = tail call i32 @ProcessPeerCerts(ptr noundef nonnull %ssl, ptr noundef %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
+  %call.i154 = tail call i32 @ProcessPeerCerts(ptr noundef nonnull %ssl, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
   br label %sw.epilog331
 
 do.end244:                                        ; preds = %if.end180
-  %call245 = tail call fastcc i32 @DoCertificateStatus(ptr noundef nonnull %ssl, ptr noundef %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
+  %call245 = tail call fastcc i32 @DoCertificateStatus(ptr noundef nonnull %ssl, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
   br label %return
 
 do.end248:                                        ; preds = %if.end180
@@ -8698,11 +8697,11 @@ if.then264:                                       ; preds = %if.then253
   br label %land.lhs.true334
 
 do.end271:                                        ; preds = %if.end180
-  %call272 = tail call i32 @DoFinished(ptr noundef nonnull %ssl, ptr noundef %input, ptr noundef nonnull %inOutIdx, i32 noundef %size, i32 noundef %totalSz, i32 noundef 0)
+  %call272 = tail call i32 @DoFinished(ptr noundef nonnull %ssl, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %size, i32 noundef %totalSz, i32 noundef 0)
   br label %sw.epilog331
 
 do.end275:                                        ; preds = %if.end180
-  %call276 = tail call i32 @DoClientHello(ptr noundef nonnull %ssl, ptr noundef %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
+  %call276 = tail call i32 @DoClientHello(ptr noundef nonnull %ssl, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
   %34 = load i8, ptr %encryptionOn, align 4
   %tobool.not.i165 = icmp eq i8 %34, 0
   br i1 %tobool.not.i165, label %sw.epilog331, label %IsEncryptionOn.exit171
@@ -8774,11 +8773,11 @@ if.end315:                                        ; preds = %if.else305.if.end31
   br label %sw.epilog331
 
 do.end323:                                        ; preds = %if.end180
-  %call324 = tail call fastcc i32 @DoClientKeyExchange(ptr noundef nonnull %ssl, ptr noundef %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
+  %call324 = tail call fastcc i32 @DoClientKeyExchange(ptr noundef nonnull %ssl, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
   br label %sw.epilog331
 
 do.end327:                                        ; preds = %if.end180
-  %call328 = tail call fastcc i32 @DoCertificateVerify(ptr noundef nonnull %ssl, ptr noundef %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
+  %call328 = tail call fastcc i32 @DoCertificateVerify(ptr noundef nonnull %ssl, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %size)
   br label %sw.epilog331
 
 sw.epilog331:                                     ; preds = %do.end275, %do.end188, %IsEncryptionOn.exit171, %if.end315, %if.end300, %IsEncryptionOn.exit, %if.end220, %if.end209, %do.end327, %do.end323, %do.end271, %do.end240, %do.end236, %do.end232, %do.end228, %do.end184

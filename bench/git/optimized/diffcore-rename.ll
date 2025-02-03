@@ -1680,7 +1680,7 @@ cond.false.i106.i:                                ; preds = %if.end57.i
 
 get_dirname.exit108.i:                            ; preds = %cond.false.i106.i, %cond.true.i100.i
   %cond.i105.i = phi ptr [ %call1.i104.i, %cond.true.i100.i ], [ %call2.i107.i, %cond.false.i106.i ]
-  call void @free(ptr noundef %dir.0.i) #14
+  call void @free(ptr noundef nonnull %dir.0.i) #14
   br label %while.body47.i
 
 while.end59.i:                                    ; preds = %strintmap_get.exit97.i

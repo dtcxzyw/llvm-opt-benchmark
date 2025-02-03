@@ -5026,7 +5026,7 @@ _ZSt10_ConstructI25cmXcFrameworkPlistLibraryJRKS0_EEvPT_DpOT0_.exit.i.i.i.i: ; p
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #23
-  invoke void @_ZSt8_DestroyIP25cmXcFrameworkPlistLibraryEvT_S2_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIP25cmXcFrameworkPlistLibraryEvT_S2_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22

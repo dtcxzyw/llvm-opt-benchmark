@@ -297,7 +297,7 @@ define void @_ZN5faiss11IndexIVFPQR10merge_fromERNS_5IndexEl(ptr noundef nonnull
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #18
+  call void @__cxa_free_exception(ptr nonnull %15) #18
   br label %21
 
 21:                                               ; preds = %19, %17

@@ -5414,7 +5414,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool10.not, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %if.end
-  call void @free(ptr noundef %6) #16
+  call void @free(ptr noundef nonnull %6) #16
   %7 = load ptr, ptr %buf7, align 8
   %call14 = call ptr @xstrdup(ptr noundef %7) #16
   store ptr %call14, ptr %branch, align 8

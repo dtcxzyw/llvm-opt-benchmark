@@ -811,7 +811,7 @@ pmix_obj_run_destructors.exit292:                 ; preds = %.lr.ph.i289, %337
 376:                                              ; preds = %.lr.ph325
   %377 = getelementptr inbounds nuw i8, ptr %372, i64 256
   %378 = load ptr, ptr %377, align 8
-  %379 = call i32 %378(ptr noundef %9) #10
+  %379 = call i32 %378(ptr noundef nonnull %9) #10
   switch i32 %379, label %381 [
     i32 0, label %380
     i32 -46, label %425

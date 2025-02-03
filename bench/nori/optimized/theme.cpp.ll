@@ -2666,7 +2666,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i623:         ; preds = %_ZN7nanogui5ArrayIf
 925:                                              ; preds = %920
   %926 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %921) #9
+  tail call void @__cxa_free_exception(ptr nonnull %921) #9
   br label %928
 
 927:                                              ; preds = %911

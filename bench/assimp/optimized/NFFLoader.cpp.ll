@@ -2206,7 +2206,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 lpad6:                                            ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #25
+  call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont4
@@ -4428,7 +4428,7 @@ invoke.cont379:                                   ; preds = %if.then376
 lpad378:                                          ; preds = %if.then376
   %133 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception377) #25
+  call void @__cxa_free_exception(ptr nonnull %exception377) #25
   br label %ehcleanup692
 
 if.end381:                                        ; preds = %do.end374
@@ -5882,7 +5882,7 @@ invoke.cont688:                                   ; preds = %if.then685
 lpad687:                                          ; preds = %if.then685
   %263 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception686) #25
+  call void @__cxa_free_exception(ptr nonnull %exception686) #25
   br label %if.then.i.i.i1550
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %if.end679
@@ -11220,7 +11220,7 @@ invoke.cont2329:                                  ; preds = %if.then2326
 lpad2328:                                         ; preds = %if.then2326
   %827 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception2327) #25
+  call void @__cxa_free_exception(ptr nonnull %exception2327) #25
   br label %ehcleanup2667
 
 if.end2331:                                       ; preds = %if.end2323
@@ -13284,7 +13284,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %6 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %if.then unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.end.thread unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
@@ -13373,7 +13373,7 @@ _ZNSt12_Vector_baseIN6Assimp11NFFImporter11ShadingInfoESaIS2_EE13_M_deallocateEP
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 
-if.then:                                          ; preds = %lpad2.i.i.i.i.i
+if.end.thread:                                    ; preds = %lpad2.i.i.i.i.i
   %15 = extractvalue { ptr, i32 } %6, 0
   %16 = tail call ptr @__cxa_begin_catch(ptr %15) #25
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i) #25
@@ -13392,7 +13392,7 @@ lpad19:                                           ; preds = %invoke.cont21, %if.
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-invoke.cont21:                                    ; preds = %if.else, %if.then
+invoke.cont21:                                    ; preds = %if.end.thread, %if.else
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i) #28
   invoke void @__cxa_rethrow() #27
           to label %unreachable unwind label %lpad19
@@ -14738,7 +14738,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %8 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %if.then unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.end.thread unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
@@ -14836,7 +14836,7 @@ _ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE13_M_deallocateEPS2_m
   store ptr %add.ptr31, ptr %_M_end_of_storage, align 8
   ret void
 
-if.then:                                          ; preds = %lpad2.i.i.i.i.i
+if.end.thread:                                    ; preds = %lpad2.i.i.i.i.i
   %17 = extractvalue { ptr, i32 } %8, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #25
   tail call void @_ZN6Assimp11NFFImporter8MeshInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(452) %add.ptr) #25
@@ -14861,7 +14861,7 @@ lpad21:                                           ; preds = %invoke.cont23
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-invoke.cont23:                                    ; preds = %for.body.i.i.i45, %if.else, %if.then
+invoke.cont23:                                    ; preds = %for.body.i.i.i45, %if.end.thread, %if.else
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i) #28
   invoke void @__cxa_rethrow() #27
           to label %unreachable unwind label %lpad21
@@ -15354,7 +15354,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %7 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %if.then unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.end.thread unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %8 = landingpad { ptr, i32 }
@@ -15452,7 +15452,7 @@ _ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE13_M_deallocateEPS2_m
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 
-if.then:                                          ; preds = %lpad2.i.i.i.i.i
+if.end.thread:                                    ; preds = %lpad2.i.i.i.i.i
   %16 = extractvalue { ptr, i32 } %7, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #25
   tail call void @_ZN6Assimp11NFFImporter8MeshInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(452) %add.ptr) #25
@@ -15477,7 +15477,7 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-invoke.cont21:                                    ; preds = %for.body.i.i.i45, %if.else, %if.then
+invoke.cont21:                                    ; preds = %for.body.i.i.i45, %if.end.thread, %if.else
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i) #28
   invoke void @__cxa_rethrow() #27
           to label %unreachable unwind label %lpad19

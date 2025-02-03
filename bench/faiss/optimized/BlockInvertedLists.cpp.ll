@@ -178,7 +178,7 @@ define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZN5fai
 26:                                               ; preds = %19
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %22) #22
+  call void @__cxa_free_exception(ptr nonnull %22) #22
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -291,7 +291,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %42, %43, %45, %47
 92:                                               ; preds = %85
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %88) #22
+  call void @__cxa_free_exception(ptr nonnull %88) #22
   br label %94
 
 94:                                               ; preds = %92, %90
@@ -575,7 +575,7 @@ define void @_ZNK5faiss24BlockInvertedListsIOHook5writeEPKNS_13InvertedListsEPNS
 42:                                               ; preds = %32
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %38) #22
+  call void @__cxa_free_exception(ptr nonnull %38) #22
   br label %310
 
 44:                                               ; preds = %3
@@ -634,7 +634,7 @@ define void @_ZNK5faiss24BlockInvertedListsIOHook5writeEPKNS_13InvertedListsEPNS
 76:                                               ; preds = %66
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %72) #22
+  call void @__cxa_free_exception(ptr nonnull %72) #22
   br label %310
 
 78:                                               ; preds = %48
@@ -684,7 +684,7 @@ define void @_ZNK5faiss24BlockInvertedListsIOHook5writeEPKNS_13InvertedListsEPNS
 105:                                              ; preds = %95
   %106 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %101) #22
+  call void @__cxa_free_exception(ptr nonnull %101) #22
   br label %310
 
 107:                                              ; preds = %78
@@ -734,7 +734,7 @@ define void @_ZNK5faiss24BlockInvertedListsIOHook5writeEPKNS_13InvertedListsEPNS
 134:                                              ; preds = %124
   %135 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %130) #22
+  call void @__cxa_free_exception(ptr nonnull %130) #22
   br label %310
 
 136:                                              ; preds = %107
@@ -794,7 +794,7 @@ define void @_ZNK5faiss24BlockInvertedListsIOHook5writeEPKNS_13InvertedListsEPNS
 166:                                              ; preds = %156
   %167 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %162) #22
+  call void @__cxa_free_exception(ptr nonnull %162) #22
   br label %310
 
 168:                                              ; preds = %275
@@ -860,7 +860,7 @@ define void @_ZNK5faiss24BlockInvertedListsIOHook5writeEPKNS_13InvertedListsEPNS
 207:                                              ; preds = %197
   %208 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %203) #22
+  call void @__cxa_free_exception(ptr nonnull %203) #22
   br label %310
 
 209:                                              ; preds = %172
@@ -916,7 +916,7 @@ define void @_ZNK5faiss24BlockInvertedListsIOHook5writeEPKNS_13InvertedListsEPNS
 242:                                              ; preds = %231
   %243 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %238) #22
+  call void @__cxa_free_exception(ptr nonnull %238) #22
   br label %310
 
 244:                                              ; preds = %209
@@ -969,7 +969,7 @@ define void @_ZNK5faiss24BlockInvertedListsIOHook5writeEPKNS_13InvertedListsEPNS
 273:                                              ; preds = %263
   %274 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %269) #22
+  call void @__cxa_free_exception(ptr nonnull %269) #22
   br label %310
 
 275:                                              ; preds = %244
@@ -1025,7 +1025,7 @@ define void @_ZNK5faiss24BlockInvertedListsIOHook5writeEPKNS_13InvertedListsEPNS
 308:                                              ; preds = %297
   %309 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %304) #22
+  call void @__cxa_free_exception(ptr nonnull %304) #22
   br label %310
 
 ._crit_edge:                                      ; preds = %168, %.preheader
@@ -1112,7 +1112,7 @@ define noundef nonnull ptr @_ZNK5faiss24BlockInvertedListsIOHook4readEPNS_8IORea
 46:                                               ; preds = %34
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %40) #22
+  call void @__cxa_free_exception(ptr nonnull %40) #22
   br label %48
 
 48:                                               ; preds = %46, %44
@@ -1167,7 +1167,7 @@ define noundef nonnull ptr @_ZNK5faiss24BlockInvertedListsIOHook4readEPNS_8IORea
 76:                                               ; preds = %66
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %72) #22
+  call void @__cxa_free_exception(ptr nonnull %72) #22
   br label %78
 
 78:                                               ; preds = %76, %74
@@ -1222,7 +1222,7 @@ define noundef nonnull ptr @_ZNK5faiss24BlockInvertedListsIOHook4readEPNS_8IORea
 106:                                              ; preds = %96
   %107 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %102) #22
+  call void @__cxa_free_exception(ptr nonnull %102) #22
   br label %108
 
 108:                                              ; preds = %106, %104
@@ -1277,7 +1277,7 @@ define noundef nonnull ptr @_ZNK5faiss24BlockInvertedListsIOHook4readEPNS_8IORea
 136:                                              ; preds = %126
   %137 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %132) #22
+  call void @__cxa_free_exception(ptr nonnull %132) #22
   br label %138
 
 138:                                              ; preds = %136, %134
@@ -1428,7 +1428,7 @@ _ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit: ; preds = %16
 207:                                              ; preds = %197
   %208 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %203) #22
+  call void @__cxa_free_exception(ptr nonnull %203) #22
   br label %209
 
 209:                                              ; preds = %207, %205
@@ -1472,7 +1472,7 @@ _ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit: ; preds = %16
 226:                                              ; preds = %219
   %227 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %222) #22
+  call void @__cxa_free_exception(ptr nonnull %222) #22
   br label %228
 
 228:                                              ; preds = %226, %224
@@ -1564,7 +1564,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %240, %242, %244, %2
 279:                                              ; preds = %268
   %280 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %275) #22
+  call void @__cxa_free_exception(ptr nonnull %275) #22
   br label %281
 
 281:                                              ; preds = %279, %277
@@ -1618,7 +1618,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %240, %242, %244, %2
 308:                                              ; preds = %298
   %309 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %304) #22
+  call void @__cxa_free_exception(ptr nonnull %304) #22
   br label %310
 
 310:                                              ; preds = %308, %306
@@ -1662,7 +1662,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %240, %242, %244, %2
 327:                                              ; preds = %320
   %328 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %323) #22
+  call void @__cxa_free_exception(ptr nonnull %323) #22
   br label %329
 
 329:                                              ; preds = %327, %325
@@ -1726,7 +1726,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %240, %242, %244, %2
 365:                                              ; preds = %354
   %366 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %361) #22
+  call void @__cxa_free_exception(ptr nonnull %361) #22
   br label %367
 
 367:                                              ; preds = %365, %363

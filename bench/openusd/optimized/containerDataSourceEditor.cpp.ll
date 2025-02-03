@@ -2846,7 +2846,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 83:                                               ; preds = %78
   %84 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 896
-  tail call void @_ZSt16__insertion_sortIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_(ptr noundef %spec.select.i.i, ptr noundef nonnull %84, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_LongerLocatorIsLessERKNS_19HdDataSourceLocatorES3_)
+  tail call void @_ZSt16__insertion_sortIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_(ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull %84, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_LongerLocatorIsLessERKNS_19HdDataSourceLocatorES3_)
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %83, %.lr.ph.i.i.i.i
@@ -2857,7 +2857,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i.i.i26, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 86:                                               ; preds = %78
-  tail call void @_ZSt16__insertion_sortIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_(ptr noundef %spec.select.i.i, ptr noundef nonnull %77, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_LongerLocatorIsLessERKNS_19HdDataSourceLocatorES3_)
+  tail call void @_ZSt16__insertion_sortIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_(ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull %77, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_LongerLocatorIsLessERKNS_19HdDataSourceLocatorES3_)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %86, %70

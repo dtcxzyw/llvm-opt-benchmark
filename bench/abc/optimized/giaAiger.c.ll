@@ -5365,7 +5365,7 @@ Abc_UtilStrsav.exit.i:                            ; preds = %30, %29
   %41 = tail call noalias ptr @malloc(i64 noundef %40) #22
   %42 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %35) #23
   store ptr %41, ptr %23, align 8
-  tail call void @free(ptr noundef %35) #23
+  tail call void @free(ptr noundef nonnull %35) #23
   br i1 %.not.i.i, label %Abc_UtilStrsav.exit35, label %43
 
 43:                                               ; preds = %38

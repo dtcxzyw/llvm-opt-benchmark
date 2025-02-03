@@ -2720,12 +2720,12 @@ megacostat_had_request.exit.thread:               ; preds = %30, %.thread57, %me
 
 106:                                              ; preds = %72, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86
   %.sink = phi ptr [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %72 ]
-  call void @time_stat_update(ptr noundef %.sink, ptr noundef nonnull %6, ptr noundef %1) #9
+  call void @time_stat_update(ptr noundef %.sink, ptr noundef nonnull %6, ptr noundef nonnull %1) #9
   %107 = load ptr, ptr %73, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr i8, ptr %109, i64 720
-  call void @time_stat_update(ptr noundef %110, ptr noundef nonnull %6, ptr noundef %1) #9
+  call void @time_stat_update(ptr noundef %110, ptr noundef nonnull %6, ptr noundef nonnull %1) #9
   br label %111
 
 111:                                              ; preds = %22, %26, %megacostat_had_request.exit.thread, %106, %megacostat_is_duplicate_reply.exit, %5, %9

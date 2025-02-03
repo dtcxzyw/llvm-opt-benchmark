@@ -6025,11 +6025,11 @@ if.then.i.i232:                                   ; preds = %if.then92
   %96 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %idx.ext.i229, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %96, 1
   %mul.i.i233 = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterI6ast_ltEEEvT_S8_T0_T1_(ptr noundef %.pre305, ptr noundef nonnull %add.ptr.i230, i64 noundef %mul.i.i233)
+  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterI6ast_ltEEEvT_S8_T0_T1_(ptr noundef nonnull %.pre305, ptr noundef nonnull %add.ptr.i230, i64 noundef %mul.i.i233)
           to label %.noexc234 unwind label %lpad.loopexit.split-lp
 
 .noexc234:                                        ; preds = %if.then.i.i232
-  invoke void @_ZSt22__final_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI6ast_ltEEEvT_S8_T0_(ptr noundef %.pre305, ptr noundef nonnull %add.ptr.i230)
+  invoke void @_ZSt22__final_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI6ast_ltEEEvT_S8_T0_(ptr noundef nonnull %.pre305, ptr noundef nonnull %add.ptr.i230)
           to label %.noexc234.if.end98_crit_edge unwind label %lpad.loopexit.split-lp
 
 .noexc234.if.end98_crit_edge:                     ; preds = %.noexc234
@@ -7455,11 +7455,11 @@ if.then.i.i85:                                    ; preds = %if.then47
   %44 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %idx.ext.i82, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %44, 1
   %mul.i.i86 = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterI6ast_ltEEEvT_S8_T0_T1_(ptr noundef %42, ptr noundef nonnull %add.ptr.i83, i64 noundef %mul.i.i86)
+  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterI6ast_ltEEEvT_S8_T0_T1_(ptr noundef nonnull %42, ptr noundef nonnull %add.ptr.i83, i64 noundef %mul.i.i86)
           to label %.noexc87 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc87:                                         ; preds = %if.then.i.i85
-  invoke void @_ZSt22__final_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI6ast_ltEEEvT_S8_T0_(ptr noundef %42, ptr noundef nonnull %add.ptr.i83)
+  invoke void @_ZSt22__final_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI6ast_ltEEEvT_S8_T0_(ptr noundef nonnull %42, ptr noundef nonnull %add.ptr.i83)
           to label %if.end53 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end53:                                         ; preds = %.noexc87, %if.then44

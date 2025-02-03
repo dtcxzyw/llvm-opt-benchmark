@@ -3002,7 +3002,7 @@ define dso_local noundef ptr @_Z15GetOutputStreamv() local_unnamed_addr #5 perso
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #28
+  tail call void @__cxa_free_exception(ptr nonnull %9) #28
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %5, %3
@@ -3092,7 +3092,7 @@ common.resume:                                    ; preds = %30, %13
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %11) #28
+  tail call void @__cxa_free_exception(ptr nonnull %11) #28
   br label %common.resume
 
 _Z15GetOutputStreamv.exit:                        ; preds = %5, %7
@@ -3287,7 +3287,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 58:                                               ; preds = %55
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %56) #28
+  call void @__cxa_free_exception(ptr nonnull %56) #28
   br label %71
 
 60:                                               ; preds = %53
@@ -3347,7 +3347,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 77:                                               ; preds = %74
   %78 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %75) #28
+  call void @__cxa_free_exception(ptr nonnull %75) #28
   br label %common.resume
 
 79:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread51
@@ -3381,7 +3381,7 @@ common.resume:                                    ; preds = %71, %77, %.body, %9
 90:                                               ; preds = %87
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %88) #28
+  call void @__cxa_free_exception(ptr nonnull %88) #28
   br label %common.resume
 
 _Z15GetOutputStreamv.exit:                        ; preds = %82, %84

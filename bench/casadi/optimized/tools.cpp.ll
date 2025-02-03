@@ -1629,7 +1629,7 @@ _ZN6casadilsERSoRKNS_11GenericTypeE.exit:         ; preds = %19
   resume { ptr, i32 } %lpad.phi
 
 27:                                               ; preds = %_ZN6casadilsERSoRKNS_11GenericTypeE.exit, %24
-  %28 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.08.012) #20
+  %28 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.012) #20
   %.not = icmp eq ptr %28, %10
   br i1 %.not, label %._crit_edge, label %12
 

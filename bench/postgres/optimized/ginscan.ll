@@ -668,7 +668,7 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   store i32 %98, ptr %17, align 8
   %99 = load i16, ptr %33, align 8
   %100 = load i32, ptr %32, align 4
-  %101 = tail call fastcc ptr @ginFillScanEntry(ptr noundef %0, i16 noundef zeroext %99, i16 noundef zeroext 0, i32 noundef %100, i64 noundef 0, i8 noundef signext %.sink103, i1 noundef zeroext false, ptr noundef null)
+  %101 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %99, i16 noundef zeroext 0, i32 noundef %100, i64 noundef 0, i8 noundef signext %.sink103, i1 noundef zeroext false, ptr noundef null)
   %102 = load ptr, ptr %24, align 8
   %103 = sext i32 %97 to i64
   %104 = getelementptr ptr, ptr %102, i64 %103

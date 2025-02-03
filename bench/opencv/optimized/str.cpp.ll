@@ -393,7 +393,7 @@ _ZN5zxing3RefINS_6StringEEC2EPS1_.exit:           ; preds = %4
   store i32 %10, ptr %6, align 8
   store ptr %5, ptr %0, align 8
   %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, i8 noundef signext %1)
-          to label %_ZN5zxing6String6appendEc.exit unwind label %29
+          to label %_ZN5zxing6String6appendEc.exit unwind label %28
 
 _ZN5zxing6String6appendEc.exit:                   ; preds = %_ZN5zxing3RefINS_6StringEEC2EPS1_.exit
   %12 = load ptr, ptr %2, align 8
@@ -410,78 +410,72 @@ _ZN5zxing6String6appendEc.exit:                   ; preds = %_ZN5zxing3RefINS_6S
 _ZN5zxing3RefINS_6StringEEC2ERKS2_.exit:          ; preds = %_ZN5zxing6String6appendEc.exit, %13
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %_ZN5zxing6String6appendENS_3RefIS0_EE.exit unwind label %31
+          to label %_ZN5zxing6String6appendENS_3RefIS0_EE.exit unwind label %30
 
 _ZN5zxing6String6appendENS_3RefIS0_EE.exit:       ; preds = %_ZN5zxing3RefINS_6StringEEC2ERKS2_.exit
-  br i1 %.not.i.i, label %_ZN5zxing3RefINS_6StringEED2Ev.exit, label %19
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %20 = load i32, ptr %19, align 8
+  %21 = add i32 %20, -1
+  store i32 %21, ptr %19, align 8
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %_ZN5zxing3RefINS_6StringEED2Ev.exit
 
-19:                                               ; preds = %_ZN5zxing6String6appendENS_3RefIS0_EE.exit
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %21 = load i32, ptr %20, align 8
-  %22 = add i32 %21, -1
-  store i32 %22, ptr %20, align 8
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %_ZN5zxing3RefINS_6StringEED2Ev.exit
-
-24:                                               ; preds = %19
-  store i32 -559026175, ptr %20, align 8
-  %25 = load ptr, ptr %12, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(12) %12) #10
+23:                                               ; preds = %_ZN5zxing6String6appendENS_3RefIS0_EE.exit
+  store i32 -559026175, ptr %19, align 8
+  %24 = load ptr, ptr %12, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(12) %12) #10
   br label %_ZN5zxing3RefINS_6StringEED2Ev.exit
 
-_ZN5zxing3RefINS_6StringEED2Ev.exit:              ; preds = %_ZN5zxing6String6appendENS_3RefIS0_EE.exit, %19, %24
-  %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, i8 noundef signext %3)
-          to label %_ZN5zxing6String6appendEc.exit10 unwind label %29
+_ZN5zxing3RefINS_6StringEED2Ev.exit:              ; preds = %_ZN5zxing6String6appendENS_3RefIS0_EE.exit, %23
+  %27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, i8 noundef signext %3)
+          to label %_ZN5zxing6String6appendEc.exit10 unwind label %28
 
-29:                                               ; preds = %_ZN5zxing3RefINS_6StringEED2Ev.exit, %_ZN5zxing3RefINS_6StringEEC2EPS1_.exit
-  %30 = landingpad { ptr, i32 }
+28:                                               ; preds = %_ZN5zxing3RefINS_6StringEED2Ev.exit, %_ZN5zxing3RefINS_6StringEEC2EPS1_.exit
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5zxing3RefINS_6StringEED2Ev.exit12
 
-31:                                               ; preds = %_ZN5zxing3RefINS_6StringEEC2ERKS2_.exit
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %_ZN5zxing3RefINS_6StringEEC2ERKS2_.exit
+  %31 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i, label %_ZN5zxing3RefINS_6StringEED2Ev.exit12, label %33
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %33 = load i32, ptr %32, align 8
+  %34 = add i32 %33, -1
+  store i32 %34, ptr %32, align 8
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %_ZN5zxing3RefINS_6StringEED2Ev.exit12
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %35 = load i32, ptr %34, align 8
-  %36 = add i32 %35, -1
-  store i32 %36, ptr %34, align 8
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %_ZN5zxing3RefINS_6StringEED2Ev.exit12
-
-38:                                               ; preds = %33
-  store i32 -559026175, ptr %34, align 8
-  %39 = load ptr, ptr %12, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(12) %12) #10
+36:                                               ; preds = %30
+  store i32 -559026175, ptr %32, align 8
+  %37 = load ptr, ptr %12, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(12) %12) #10
   br label %_ZN5zxing3RefINS_6StringEED2Ev.exit12
 
 _ZN5zxing6String6appendEc.exit10:                 ; preds = %_ZN5zxing3RefINS_6StringEED2Ev.exit
   ret void
 
-_ZN5zxing3RefINS_6StringEED2Ev.exit12:            ; preds = %29, %31, %33, %38
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %32, %31 ], [ %32, %33 ], [ %32, %38 ]
-  %42 = load i32, ptr %6, align 8
-  %43 = add i32 %42, -1
-  store i32 %43, ptr %6, align 8
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %_ZN5zxing3RefINS_6StringEED2Ev.exit14
+_ZN5zxing3RefINS_6StringEED2Ev.exit12:            ; preds = %28, %30, %36
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ], [ %31, %36 ]
+  %40 = load i32, ptr %6, align 8
+  %41 = add i32 %40, -1
+  store i32 %41, ptr %6, align 8
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %_ZN5zxing3RefINS_6StringEED2Ev.exit14
 
-45:                                               ; preds = %_ZN5zxing3RefINS_6StringEED2Ev.exit12
+43:                                               ; preds = %_ZN5zxing3RefINS_6StringEED2Ev.exit12
   store i32 -559026175, ptr %6, align 8
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(12) %5) #10
+  %44 = load ptr, ptr %5, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load ptr, ptr %45, align 8
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(12) %5) #10
   br label %_ZN5zxing3RefINS_6StringEED2Ev.exit14
 
-_ZN5zxing3RefINS_6StringEED2Ev.exit14:            ; preds = %45, %_ZN5zxing3RefINS_6StringEED2Ev.exit12, %.body
-  %.pn.pn = phi { ptr, i32 } [ %8, %.body ], [ %.pn, %_ZN5zxing3RefINS_6StringEED2Ev.exit12 ], [ %.pn, %45 ]
+_ZN5zxing3RefINS_6StringEED2Ev.exit14:            ; preds = %43, %_ZN5zxing3RefINS_6StringEED2Ev.exit12, %.body
+  %.pn.pn = phi { ptr, i32 } [ %8, %.body ], [ %.pn, %_ZN5zxing3RefINS_6StringEED2Ev.exit12 ], [ %.pn, %43 ]
   resume { ptr, i32 } %.pn.pn
 }
 

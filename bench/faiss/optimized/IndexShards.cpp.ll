@@ -550,7 +550,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEE12add_with_idsEl
 26:                                               ; preds = %19
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %22) #22
+  call void @__cxa_free_exception(ptr nonnull %22) #22
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -595,7 +595,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEE12add_with_idsEl
 44:                                               ; preds = %37
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %40) #22
+  call void @__cxa_free_exception(ptr nonnull %40) #22
   br label %46
 
 46:                                               ; preds = %44, %42
@@ -650,7 +650,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEE12add_with_idsEl
 71:                                               ; preds = %64
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %67) #22
+  call void @__cxa_free_exception(ptr nonnull %67) #22
   br label %73
 
 73:                                               ; preds = %71, %69
@@ -862,7 +862,7 @@ define weak_odr void @_ZNK5faiss19IndexShardsTemplateINS_5IndexEE6searchElPKflPf
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #22
+  call void @__cxa_free_exception(ptr nonnull %23) #22
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -905,7 +905,7 @@ define weak_odr void @_ZNK5faiss19IndexShardsTemplateINS_5IndexEE6searchElPKflPf
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #22
+  call void @__cxa_free_exception(ptr nonnull %41) #22
   br label %47
 
 47:                                               ; preds = %45, %43
@@ -1389,7 +1389,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
 43:                                               ; preds = %34
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %39) #22
+  call void @__cxa_free_exception(ptr nonnull %39) #22
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -1437,7 +1437,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
 65:                                               ; preds = %58
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %61) #22
+  call void @__cxa_free_exception(ptr nonnull %61) #22
   br label %67
 
 67:                                               ; preds = %65, %63
@@ -1487,7 +1487,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
 84:                                               ; preds = %77
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %80) #22
+  call void @__cxa_free_exception(ptr nonnull %80) #22
   br label %86
 
 86:                                               ; preds = %84, %82
@@ -1685,7 +1685,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEE18syncWithSubInd
 52:                                               ; preds = %45
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %48) #22
+  call void @__cxa_free_exception(ptr nonnull %48) #22
   br label %98
 
 54:                                               ; preds = %.lr.ph
@@ -1725,7 +1725,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEE18syncWithSubInd
 71:                                               ; preds = %64
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %67) #22
+  call void @__cxa_free_exception(ptr nonnull %67) #22
   br label %98
 
 73:                                               ; preds = %54
@@ -1767,7 +1767,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEE18syncWithSubInd
 92:                                               ; preds = %85
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %88) #22
+  call void @__cxa_free_exception(ptr nonnull %88) #22
   br label %98
 
 94:                                               ; preds = %73
@@ -1916,7 +1916,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEE12add_wit
 26:                                               ; preds = %19
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %22) #22
+  call void @__cxa_free_exception(ptr nonnull %22) #22
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -1961,7 +1961,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEE12add_wit
 44:                                               ; preds = %37
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %40) #22
+  call void @__cxa_free_exception(ptr nonnull %40) #22
   br label %46
 
 46:                                               ; preds = %44, %42
@@ -2016,7 +2016,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEE12add_wit
 71:                                               ; preds = %64
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %67) #22
+  call void @__cxa_free_exception(ptr nonnull %67) #22
   br label %73
 
 73:                                               ; preds = %71, %69
@@ -2230,7 +2230,7 @@ define weak_odr void @_ZNK5faiss19IndexShardsTemplateINS_11IndexBinaryEE6searchE
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #22
+  call void @__cxa_free_exception(ptr nonnull %23) #22
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -2273,7 +2273,7 @@ define weak_odr void @_ZNK5faiss19IndexShardsTemplateINS_11IndexBinaryEE6searchE
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #22
+  call void @__cxa_free_exception(ptr nonnull %41) #22
   br label %47
 
 47:                                               ; preds = %45, %43
@@ -2741,7 +2741,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE8addIndexEP
 43:                                               ; preds = %34
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %39) #22
+  call void @__cxa_free_exception(ptr nonnull %39) #22
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -2789,7 +2789,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE8addIndexEP
 65:                                               ; preds = %58
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %61) #22
+  call void @__cxa_free_exception(ptr nonnull %61) #22
   br label %67
 
 67:                                               ; preds = %65, %63
@@ -2839,7 +2839,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE8addIndexEP
 84:                                               ; preds = %77
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %80) #22
+  call void @__cxa_free_exception(ptr nonnull %80) #22
   br label %86
 
 86:                                               ; preds = %84, %82
@@ -3045,7 +3045,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEE18syncWit
 60:                                               ; preds = %53
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %56) #22
+  call void @__cxa_free_exception(ptr nonnull %56) #22
   br label %106
 
 62:                                               ; preds = %40
@@ -3085,7 +3085,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEE18syncWit
 79:                                               ; preds = %72
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %75) #22
+  call void @__cxa_free_exception(ptr nonnull %75) #22
   br label %106
 
 81:                                               ; preds = %62
@@ -3127,7 +3127,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEE18syncWit
 100:                                              ; preds = %93
   %101 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %96) #22
+  call void @__cxa_free_exception(ptr nonnull %96) #22
   br label %106
 
 102:                                              ; preds = %81
@@ -6128,7 +6128,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(p
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #22
+  call void @__cxa_free_exception(ptr nonnull %16) #22
   br label %22
 
 22:                                               ; preds = %20, %18

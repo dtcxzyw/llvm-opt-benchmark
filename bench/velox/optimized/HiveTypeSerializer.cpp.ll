@@ -570,7 +570,7 @@ invoke.cont67:                                    ; preds = %sw.default
 lpad66:                                           ; preds = %sw.default
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #9
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #9
   br label %eh.resume
 
 return:                                           ; preds = %invoke.cont63, %invoke.cont53, %invoke.cont45, %invoke.cont37, %invoke.cont33, %invoke.cont29, %invoke.cont25, %invoke.cont21, %invoke.cont17, %invoke.cont13, %invoke.cont9, %invoke.cont5, %invoke.cont

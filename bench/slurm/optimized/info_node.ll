@@ -566,7 +566,7 @@ define dso_local void @scontrol_print_node_list(ptr noundef %0, i32 noundef %1, 
 
 .loopexit94:                                      ; preds = %101, %.preheader93, %110
   %.254 = phi i32 [ %114, %110 ], [ %.052, %.preheader93 ], [ %.052, %101 ]
-  call void @free(ptr noundef %99) #9
+  call void @free(ptr noundef nonnull %99) #9
   %115 = load i32, ptr %93, align 8
   %.not77 = icmp ult i32 %.254, %115
   br i1 %.not77, label %98, label %116, !llvm.loop !11

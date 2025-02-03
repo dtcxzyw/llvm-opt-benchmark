@@ -307,7 +307,7 @@ define hidden void @nwk_key_storage_add_entry(ptr noundef readonly captures(none
 14:                                               ; preds = %10
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %7, ptr noundef nonnull readonly dereferenceable(16) %0, i64 16)
   %15 = icmp eq i32 %bcmp.i, 0
-  br i1 %15, label %.critedge, label %16
+  br i1 %15, label %nwk_key_storage_get_entry_by_key.exit.thread, label %16
 
 16:                                               ; preds = %14, %10, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -317,7 +317,7 @@ define hidden void @nwk_key_storage_add_entry(ptr noundef readonly captures(none
 nwk_key_storage_get_entry_by_key.exit:            ; preds = %nwk_key_storage_get_entry_by_key.exit.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.critedge, label %nwk_key_storage_get_entry_by_key.exit.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %nwk_key_storage_get_entry_by_key.exit.thread, label %nwk_key_storage_get_entry_by_key.exit.preheader, !llvm.loop !11
 
 nwk_key_storage_get_entry_by_key.exit.preheader:  ; preds = %16, %nwk_key_storage_get_entry_by_key.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %nwk_key_storage_get_entry_by_key.exit ], [ 0, %16 ]
@@ -339,9 +339,9 @@ nwk_key_storage_get_entry_by_key.exit.preheader:  ; preds = %16, %nwk_key_storag
   store i32 1, ptr %21, align 4
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 %4, ptr %25, align 8
-  br label %.critedge
+  br label %nwk_key_storage_get_entry_by_key.exit.thread
 
-.critedge:                                        ; preds = %14, %nwk_key_storage_get_entry_by_key.exit, %20
+nwk_key_storage_get_entry_by_key.exit.thread:     ; preds = %14, %nwk_key_storage_get_entry_by_key.exit, %20
   ret void
 }
 

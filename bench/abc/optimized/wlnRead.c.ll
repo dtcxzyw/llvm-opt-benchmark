@@ -4965,7 +4965,7 @@ define noalias noundef ptr @Rtl_NtkReadFile(ptr noundef %0, ptr noundef %1) loca
 
 5:                                                ; preds = %2
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, ptr noundef %0)
-  br label %106
+  br label %105
 
 7:                                                ; preds = %2
   %8 = tail call noalias dereferenceable_or_null(1000000) ptr @malloc(i64 noundef 1000000) #35
@@ -5198,22 +5198,22 @@ Vec_IntPush.exit40:                               ; preds = %.Vec_IntGrow.exit10
 .backedge:                                        ; preds = %Vec_IntPush.exit40, %.lr.ph, %Rtl_TokenUnspace.exit
   %102 = tail call ptr @fgets(ptr noundef nonnull %8, i32 noundef 1000000, ptr noundef nonnull %3)
   %.not = icmp eq ptr %102, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !52
 
-._crit_edge:                                      ; preds = %.backedge, %7
+._crit_edge:                                      ; preds = %7
   %.not26 = icmp eq ptr %8, null
-  br i1 %.not26, label %104, label %103
+  br i1 %.not26, label %103, label %._crit_edge.thread
 
-103:                                              ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %.backedge, %._crit_edge
   tail call void @free(ptr noundef nonnull %8) #37
-  br label %104
+  br label %103
 
-104:                                              ; preds = %._crit_edge, %103
-  %105 = tail call i32 @fclose(ptr noundef nonnull %3)
-  br label %106
+103:                                              ; preds = %._crit_edge, %._crit_edge.thread
+  %104 = tail call i32 @fclose(ptr noundef nonnull %3)
+  br label %105
 
-106:                                              ; preds = %104, %5
-  %.0 = phi ptr [ null, %5 ], [ %10, %104 ]
+105:                                              ; preds = %103, %5
+  %.0 = phi ptr [ null, %5 ], [ %10, %103 ]
   ret ptr %.0
 }
 

@@ -116,8 +116,6 @@ $_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__
 
 $_ZNSt6vectorIN2cv8datasets10PascalPartESaIS2_EEC2ERKS4_ = comdat any
 
-$_ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE7destroyIS2_EEvRS3_PT_ = comdat any
-
 $_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_ = comdat any
 
 $_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN2cv8datasets9PascalObjESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_ = comdat any
@@ -4114,7 +4112,7 @@ _ZNSt12_Vector_baseIN2cv8datasets10PascalPartESaIS2_EE11_M_allocateEm.exit: ; pr
   %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorIN2cv8datasets10PascalPartESaIS2_EE12_M_check_lenEmPKc.exit ]
   %23 = getelementptr inbounds i8, ptr %22, i64 %18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %2)
-          to label %24 unwind label %39
+          to label %24 unwind label %41
 
 24:                                               ; preds = %_ZNSt12_Vector_baseIN2cv8datasets10PascalPartESaIS2_EE11_M_allocateEm.exit
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -4172,43 +4170,32 @@ _ZNSt12_Vector_baseIN2cv8datasets10PascalPartESaIS2_EE13_M_deallocateEPS2_m.exit
   store ptr %38, ptr %37, align 8
   ret void
 
-39:                                               ; preds = %_ZNSt12_Vector_baseIN2cv8datasets10PascalPartESaIS2_EE11_M_allocateEm.exit
+39:                                               ; preds = %41
   %40 = landingpad { ptr, i32 }
-          catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  %42 = tail call ptr @__cxa_begin_catch(ptr %41) #17
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread, label %45
-
-.thread:                                          ; preds = %39
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %23) #17
-  br label %_ZNSt12_Vector_baseIN2cv8datasets10PascalPartESaIS2_EE13_M_deallocateEPS2_m.exit35
-
-43:                                               ; preds = %_ZNSt12_Vector_baseIN2cv8datasets10PascalPartESaIS2_EE13_M_deallocateEPS2_m.exit35
-  %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %46 unwind label %47
+          to label %45 unwind label %46
+
+41:                                               ; preds = %_ZNSt12_Vector_baseIN2cv8datasets10PascalPartESaIS2_EE11_M_allocateEm.exit
+  %42 = landingpad { ptr, i32 }
+          catch ptr null
+  %43 = extractvalue { ptr, i32 } %42, 0
+  %44 = tail call ptr @__cxa_begin_catch(ptr %43) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %22) #18
+  invoke void @__cxa_rethrow() #19
+          to label %49 unwind label %39
 
 45:                                               ; preds = %39
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #18
-  br label %_ZNSt12_Vector_baseIN2cv8datasets10PascalPartESaIS2_EE13_M_deallocateEPS2_m.exit35
+  resume { ptr, i32 } %40
 
-_ZNSt12_Vector_baseIN2cv8datasets10PascalPartESaIS2_EE13_M_deallocateEPS2_m.exit35: ; preds = %45, %.thread
-  invoke void @__cxa_rethrow() #19
-          to label %50 unwind label %43
-
-46:                                               ; preds = %43
-  resume { ptr, i32 } %44
-
-47:                                               ; preds = %43
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %39
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #22
+  %48 = extractvalue { ptr, i32 } %47, 0
+  tail call void @__clang_call_terminate(ptr %48) #22
   unreachable
 
-50:                                               ; preds = %_ZNSt12_Vector_baseIN2cv8datasets10PascalPartESaIS2_EE13_M_deallocateEPS2_m.exit35
+49:                                               ; preds = %41
   unreachable
 }
 
@@ -4371,7 +4358,7 @@ _ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE11_M_allocateEm.exit: ; pred
   %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorIN2cv8datasets9PascalObjESaIS2_EE12_M_check_lenEmPKc.exit ]
   %23 = getelementptr inbounds i8, ptr %22, i64 %18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(112) %23, ptr noundef nonnull align 8 dereferenceable(112) %2)
-          to label %.noexc unwind label %.body
+          to label %.noexc unwind label %76
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE11_M_allocateEm.exit
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -4394,12 +4381,17 @@ _ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE11_M_allocateEm.exit: ; pred
 33:                                               ; preds = %.noexc
   %34 = landingpad { ptr, i32 }
           catch ptr null
-  br label %80
+  br label %37
 
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #17
+  br label %37
+
+37:                                               ; preds = %35, %33
+  %.pn.i.i.i = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %23) #17
   br label %80
 
 _ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %28
@@ -4407,128 +4399,114 @@ _ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE9constructIS2_JRKS2_EEEvRS3
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i ], [ %22, %_ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
-  %.0911.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
+  %.012.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i ], [ %22, %_ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
+  %.0911.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(112) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %.0911.i.i.i.i) #17
-  %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !alias.scope !56
-  %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 48
-  %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 48
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40) #17
-  %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 80
-  %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %41, ptr noundef nonnull align 8 dereferenceable(3) %42, i64 3, i1 false), !alias.scope !56
-  %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 88
-  %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 88
-  %45 = load ptr, ptr %44, align 8, !alias.scope !54, !noalias !51
-  store ptr %45, ptr %43, align 8, !alias.scope !51, !noalias !54
-  %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 96
-  %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 96
-  %48 = load ptr, ptr %47, align 8, !alias.scope !54, !noalias !51
-  store ptr %48, ptr %46, align 8, !alias.scope !51, !noalias !54
-  %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 104
-  %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 104
-  %51 = load ptr, ptr %50, align 8, !alias.scope !54, !noalias !51
-  store ptr %51, ptr %49, align 8, !alias.scope !51, !noalias !54
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !54, !noalias !51
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #17
+  %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !alias.scope !56
+  %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 48
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %41) #17
+  %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %42, ptr noundef nonnull align 8 dereferenceable(3) %43, i64 3, i1 false), !alias.scope !56
+  %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 88
+  %46 = load ptr, ptr %45, align 8, !alias.scope !54, !noalias !51
+  store ptr %46, ptr %44, align 8, !alias.scope !51, !noalias !54
+  %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 96
+  %49 = load ptr, ptr %48, align 8, !alias.scope !54, !noalias !51
+  store ptr %49, ptr %47, align 8, !alias.scope !51, !noalias !54
+  %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 104
+  %52 = load ptr, ptr %51, align 8, !alias.scope !54, !noalias !51
+  store ptr %52, ptr %50, align 8, !alias.scope !51, !noalias !54
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false), !alias.scope !54, !noalias !51
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.0911.i.i.i.i) #17
-  %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 112
-  %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 112
-  %.not.i.i.i.i = icmp eq ptr %52, %1
+  %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 112
+  %.not.i.i.i.i = icmp eq ptr %53, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %53, %.lr.ph.i.i.i.i ]
-  %54 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 112
+  %.0.lcssa.i.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %54, %.lr.ph.i.i.i.i ]
+  %55 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 112
   %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i.i27
-  %.012.i.i.i.i28 = phi ptr [ %71, %.lr.ph.i.i.i.i27 ], [ %54, %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  %.0911.i.i.i.i29 = phi ptr [ %70, %.lr.ph.i.i.i.i27 ], [ %1, %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.012.i.i.i.i28 = phi ptr [ %72, %.lr.ph.i.i.i.i27 ], [ %55, %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.0911.i.i.i.i29 = phi ptr [ %71, %.lr.ph.i.i.i.i27 ], [ %1, %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(112) %.012.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(112) %.0911.i.i.i.i29) #17
-  %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
-  %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !alias.scope !63
-  %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 48
-  %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 48
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %58) #17
-  %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 80
-  %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %59, ptr noundef nonnull align 8 dereferenceable(3) %60, i64 3, i1 false), !alias.scope !63
-  %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 88
-  %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 88
-  %63 = load ptr, ptr %62, align 8, !alias.scope !61, !noalias !58
-  store ptr %63, ptr %61, align 8, !alias.scope !58, !noalias !61
-  %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 96
-  %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 96
-  %66 = load ptr, ptr %65, align 8, !alias.scope !61, !noalias !58
-  store ptr %66, ptr %64, align 8, !alias.scope !58, !noalias !61
-  %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 104
-  %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 104
-  %69 = load ptr, ptr %68, align 8, !alias.scope !61, !noalias !58
-  store ptr %69, ptr %67, align 8, !alias.scope !58, !noalias !61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false), !alias.scope !61, !noalias !58
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #17
+  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !alias.scope !63
+  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 48
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %59) #17
+  %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %60, ptr noundef nonnull align 8 dereferenceable(3) %61, i64 3, i1 false), !alias.scope !63
+  %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 88
+  %63 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 88
+  %64 = load ptr, ptr %63, align 8, !alias.scope !61, !noalias !58
+  store ptr %64, ptr %62, align 8, !alias.scope !58, !noalias !61
+  %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 96
+  %67 = load ptr, ptr %66, align 8, !alias.scope !61, !noalias !58
+  store ptr %67, ptr %65, align 8, !alias.scope !58, !noalias !61
+  %68 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 104
+  %69 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 104
+  %70 = load ptr, ptr %69, align 8, !alias.scope !61, !noalias !58
+  store ptr %70, ptr %68, align 8, !alias.scope !58, !noalias !61
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false), !alias.scope !61, !noalias !58
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.0911.i.i.i.i29) #17
-  %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 112
-  %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 112
-  %.not.i.i.i.i30 = icmp eq ptr %70, %5
+  %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 112
+  %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 112
+  %.not.i.i.i.i30 = icmp eq ptr %71, %5
   br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !57
 
 _ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  %.0.lcssa.i.i.i.i31 = phi ptr [ %54, %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %71, %.lr.ph.i.i.i.i27 ]
+  %.0.lcssa.i.i.i.i31 = phi ptr [ %55, %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %72, %.lr.ph.i.i.i.i27 ]
   %.not.i33 = icmp eq ptr %6, null
-  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE13_M_deallocateEPS2_m.exit, label %72
+  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE13_M_deallocateEPS2_m.exit, label %73
 
-72:                                               ; preds = %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32
+73:                                               ; preds = %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32
   tail call void @_ZdlPv(ptr noundef nonnull %6) #18
   br label %_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %72
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN2cv8datasets9PascalObjESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %73
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8
-  %74 = getelementptr inbounds nuw %"struct.cv::datasets::PascalObj", ptr %22, i64 %16
-  store ptr %74, ptr %73, align 8
+  %75 = getelementptr inbounds nuw %"struct.cv::datasets::PascalObj", ptr %22, i64 %16
+  store ptr %75, ptr %74, align 8
   ret void
 
-.body:                                            ; preds = %_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE11_M_allocateEm.exit
-  %75 = landingpad { ptr, i32 }
+76:                                               ; preds = %_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE11_M_allocateEm.exit
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %76 = extractvalue { ptr, i32 } %75, 0
-  %77 = tail call ptr @__cxa_begin_catch(ptr %76) #17
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread, label %.thread44
+  br label %80
 
-.thread:                                          ; preds = %.body
-  tail call void @_ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %23) #17
-  br label %_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE13_M_deallocateEPS2_m.exit35
-
-78:                                               ; preds = %_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE13_M_deallocateEPS2_m.exit35
+78:                                               ; preds = %80
   %79 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %83 unwind label %84
 
-80:                                               ; preds = %33, %35
-  %.pn.i.i.i = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %23) #17
-  %81 = extractvalue { ptr, i32 } %.pn.i.i.i, 0
+80:                                               ; preds = %76, %37
+  %eh.lpad-body = phi { ptr, i32 } [ %77, %76 ], [ %.pn.i.i.i, %37 ]
+  %81 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %82 = tail call ptr @__cxa_begin_catch(ptr %81) #17
-  br label %.thread44
-
-.thread44:                                        ; preds = %.body, %80
   tail call void @_ZdlPv(ptr noundef nonnull %22) #18
-  br label %_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE13_M_deallocateEPS2_m.exit35
-
-_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE13_M_deallocateEPS2_m.exit35: ; preds = %.thread44, %.thread
   invoke void @__cxa_rethrow() #19
           to label %87 unwind label %78
 
@@ -4542,7 +4520,7 @@ _ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE13_M_deallocateEPS2_m.exit35
   tail call void @__clang_call_terminate(ptr %86) #22
   unreachable
 
-87:                                               ; preds = %_ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE13_M_deallocateEPS2_m.exit35
+87:                                               ; preds = %80
   unreachable
 }
 
@@ -4650,42 +4628,6 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv8datasets10Pas
 
 _ZNSt12_Vector_baseIN2cv8datasets10PascalPartESaIS2_EED2Ev.exit: ; preds = %37, %.body
   resume { ptr, i32 } %31
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv8datasets9PascalObjEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %6 = load ptr, ptr %5, align 8
-  %.not4.i.i.i.i.i.i = icmp eq ptr %4, %6
-  br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv8datasets10PascalPartES2_EvT_S4_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %2, %.lr.ph.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i.i.i ], [ %4, %2 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.05.i.i.i.i.i.i) #17
-  %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 48
-  %.not.i.i.i.i.i.i = icmp eq ptr %7, %6
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv8datasets10PascalPartES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !8
-
-_ZSt8_DestroyIPN2cv8datasets10PascalPartES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.pr.i.i.i = load ptr, ptr %3, align 8
-  br label %_ZSt8_DestroyIPN2cv8datasets10PascalPartES2_EvT_S4_RSaIT0_E.exit.i.i.i
-
-_ZSt8_DestroyIPN2cv8datasets10PascalPartES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN2cv8datasets10PascalPartES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i, %2
-  %8 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPN2cv8datasets10PascalPartES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %4, %2 ]
-  %.not.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN2cv8datasets9PascalObjEE7destroyIS2_EEvPT_.exit, label %9
-
-9:                                                ; preds = %_ZSt8_DestroyIPN2cv8datasets10PascalPartES2_EvT_S4_RSaIT0_E.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #18
-  br label %_ZNSt15__new_allocatorIN2cv8datasets9PascalObjEE7destroyIS2_EEvPT_.exit
-
-_ZNSt15__new_allocatorIN2cv8datasets9PascalObjEE7destroyIS2_EEvPT_.exit: ; preds = %_ZSt8_DestroyIPN2cv8datasets10PascalPartES2_EvT_S4_RSaIT0_E.exit.i.i.i, %9
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %1) #17
-  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4818,7 +4760,7 @@ _ZSt10_ConstructIN2cv8datasets9PascalObjEJRKS2_EEvPT_DpOT0_.exit: ; preds = %8
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %.pn.i.i, %17 ]
   %22 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %23 = tail call ptr @__cxa_begin_catch(ptr %22) #17
-  invoke void @_ZSt8_DestroyIPN2cv8datasets9PascalObjEEvT_S4_(ptr noundef %2, ptr noundef %.019)
+  invoke void @_ZSt8_DestroyIPN2cv8datasets9PascalObjEEvT_S4_(ptr noundef %2, ptr noundef nonnull %.019)
           to label %24 unwind label %25
 
 24:                                               ; preds = %.body
@@ -4909,7 +4851,7 @@ _ZSt10_ConstructIN2cv8datasets9PascalObjEJRS2_EEvPT_DpOT0_.exit: ; preds = %8
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %.pn.i.i, %17 ]
   %22 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %23 = tail call ptr @__cxa_begin_catch(ptr %22) #17
-  invoke void @_ZSt8_DestroyIPN2cv8datasets9PascalObjEEvT_S4_(ptr noundef %2, ptr noundef %.021)
+  invoke void @_ZSt8_DestroyIPN2cv8datasets9PascalObjEEvT_S4_(ptr noundef %2, ptr noundef nonnull %.021)
           to label %24 unwind label %25
 
 24:                                               ; preds = %.body

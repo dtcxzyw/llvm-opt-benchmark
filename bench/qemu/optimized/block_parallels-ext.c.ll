@@ -120,16 +120,16 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i, %i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.parallels_parse_format_extension, ptr noundef nonnull @.str.4) #8
   br label %for.end.i
 
-if.then22.i:                                      ; preds = %parallels_load_bitmap.exit.i, %while.cond.preheader.i
-  %bitmaps.1.lcssa.i = phi ptr [ null, %while.cond.preheader.i ], [ %call51.i, %parallels_load_bitmap.exit.i ]
-  %remaining.0.lcssa.i = phi i32 [ %sub.i, %while.cond.preheader.i ], [ %sub26.i, %parallels_load_bitmap.exit.i ]
+if.then22.i:                                      ; preds = %if.end50.i, %while.cond.preheader.i
+  %bitmaps.1.lcssa.i = phi ptr [ null, %while.cond.preheader.i ], [ %call51.i, %if.end50.i ]
+  %remaining.0.lcssa.i = phi i32 [ %sub.i, %while.cond.preheader.i ], [ %sub26.i, %if.end50.i ]
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.parallels_parse_format_extension, ptr noundef nonnull @.str.5, i32 noundef %remaining.0.lcssa.i, i64 noundef 24) #8
   br label %fail.i
 
-if.end23.i:                                       ; preds = %parallels_load_bitmap.exit.i, %if.end23.lr.ph.i
-  %remaining.0104.i = phi i32 [ %sub.i, %if.end23.lr.ph.i ], [ %sub26.i, %parallels_load_bitmap.exit.i ]
-  %pos.0103.i = phi ptr [ %add.ptr.i, %if.end23.lr.ph.i ], [ %add.ptr56.i, %parallels_load_bitmap.exit.i ]
-  %bitmaps.1102.i = phi ptr [ null, %if.end23.lr.ph.i ], [ %call51.i, %parallels_load_bitmap.exit.i ]
+if.end23.i:                                       ; preds = %if.end50.i, %if.end23.lr.ph.i
+  %remaining.0104.i = phi i32 [ %sub.i, %if.end23.lr.ph.i ], [ %sub26.i, %if.end50.i ]
+  %pos.0103.i = phi ptr [ %add.ptr.i, %if.end23.lr.ph.i ], [ %add.ptr56.i, %if.end50.i ]
+  %bitmaps.1102.i = phi ptr [ null, %if.end23.lr.ph.i ], [ %call51.i, %if.end50.i ]
   %fh.sroa.0.0.copyload.i = load i64, ptr %pos.0103.i, align 1
   %fh.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pos.0103.i, i64 8
   %fh.sroa.5.0.copyload.i = load i64, ptr %fh.sroa.5.0..sroa_idx.i, align 1
@@ -300,7 +300,7 @@ if.end36.i.i:                                     ; preds = %for.inc.i.i.i, %if.
   %16 = load i32, ptr %bs, align 8
   %and.i.i = and i32 %16, 2
   %tobool37.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %tobool37.not.i.i, label %parallels_load_bitmap.exit.i, label %if.else.i.i
+  br i1 %tobool37.not.i.i, label %if.end50.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end36.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @__PRETTY_FUNCTION__.parallels_load_bitmap) #9
@@ -313,7 +313,7 @@ parallels_load_bitmap.exit.thread.i:              ; preds = %if.end16.i.i, %if.t
   call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %uuidstr.i.i)
   br label %fail.i
 
-parallels_load_bitmap.exit.i:                     ; preds = %if.end36.i.i
+if.end50.i:                                       ; preds = %if.end36.i.i
   call void @bdrv_dirty_bitmap_set_readonly(ptr noundef nonnull %call20.i.i, i1 noundef zeroext true) #8
   call void @g_free(ptr noundef %call25.i.i) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i.i)

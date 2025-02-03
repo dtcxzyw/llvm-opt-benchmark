@@ -4879,7 +4879,7 @@ invoke.cont2.lr.ph:                               ; preds = %_ZN15ref_vector_cor
 
 invoke.cont2:                                     ; preds = %invoke.cont2.lr.ph, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit66
   %10 = phi ptr [ %9, %invoke.cont2.lr.ph ], [ %65, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit66 ]
-  %modified.094 = phi i1 [ false, %invoke.cont2.lr.ph ], [ %modified.1106, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit66 ]
+  %modified.094 = phi i1 [ false, %invoke.cont2.lr.ph ], [ %modified.1, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit66 ]
   %arrayidx.i.i18 = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i18, align 4
   %cmp3.i.i = icmp eq i32 %11, 0
@@ -4943,7 +4943,7 @@ invoke.cont16:                                    ; preds = %invoke.cont16.prehe
           to label %invoke.cont18 unwind label %lpad8.loopexit
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  br i1 %call19, label %for.end.loopexit.split.loop.exit113, label %for.inc
+  br i1 %call19, label %for.end.loopexit.split.loop.exit109, label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4970,12 +4970,12 @@ lpad8.loopexit.split-lp:                          ; preds = %if.then.invoke, %in
           cleanup
   br label %ehcleanup
 
-for.end.loopexit.split.loop.exit113:              ; preds = %invoke.cont18
+for.end.loopexit.split.loop.exit109:              ; preds = %invoke.cont18
   %28 = trunc nuw i64 %indvars.iv to i32
   br label %for.end
 
-for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit113, %invoke.cont9
-  %i.0.lcssa = phi i32 [ 0, %invoke.cont9 ], [ %28, %for.end.loopexit.split.loop.exit113 ], [ %23, %for.inc ]
+for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit109, %invoke.cont9
+  %i.0.lcssa = phi i32 [ 0, %invoke.cont9 ], [ %28, %for.end.loopexit.split.loop.exit109 ], [ %23, %for.inc ]
   %m_uninterp_cnt.i.i = getelementptr inbounds nuw i8, ptr %22, i64 68
   %29 = load i32, ptr %m_uninterp_cnt.i.i, align 4
   %m_tail.i.i31 = getelementptr inbounds nuw i8, ptr %22, i64 80
@@ -5203,7 +5203,7 @@ _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %if.end59, %
   br i1 %cmp45.not, label %if.then.i.i63, label %for.body46
 
 if.then.i.i63:                                    ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, %if.then.invoke, %invoke.cont38, %_ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit
-  %modified.1106 = phi i1 [ true, %_ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit ], [ true, %invoke.cont38 ], [ %modified.094, %if.then.invoke ], [ true, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
+  %modified.1 = phi i1 [ true, %_ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit ], [ true, %invoke.cont38 ], [ %modified.094, %if.then.invoke ], [ true, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
   %62 = load ptr, ptr %m_manager.i, align 8
   invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %62, ptr noundef nonnull %22)
           to label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit66 unwind label %terminate.lpad.i65
@@ -5227,7 +5227,7 @@ ehcleanup:                                        ; preds = %lpad8.loopexit, %lp
 
 while.end:                                        ; preds = %invoke.cont2, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit66
   %66 = phi ptr [ %10, %invoke.cont2 ], [ null, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit66 ]
-  %modified.0.lcssa = phi i1 [ %modified.094, %invoke.cont2 ], [ %modified.1106, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit66 ]
+  %modified.0.lcssa = phi i1 [ %modified.094, %invoke.cont2 ], [ %modified.1, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit66 ]
   br i1 %modified.0.lcssa, label %if.then62, label %if.end64
 
 if.then62:                                        ; preds = %while.end
@@ -5291,8 +5291,8 @@ terminate.lpad.i.i:                               ; preds = %for.body.i.i.i
   unreachable
 
 _ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE9push_backEPS1_.exit, %if.end64, %invoke.cont6.i.i, %if.then.i.i.i.i.i
-  %modified.0.lcssa109112 = phi i1 [ %modified.0.lcssa, %if.end64 ], [ %modified.0.lcssa, %invoke.cont6.i.i ], [ %modified.0.lcssa, %if.then.i.i.i.i.i ], [ false, %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE9push_backEPS1_.exit ]
-  ret i1 %modified.0.lcssa109112
+  %modified.0.lcssa105108 = phi i1 [ %modified.0.lcssa, %if.end64 ], [ %modified.0.lcssa, %invoke.cont6.i.i ], [ %modified.0.lcssa, %if.then.i.i.i.i.i ], [ false, %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE9push_backEPS1_.exit ]
+  ret i1 %modified.0.lcssa105108
 
 ehcleanup67:                                      ; preds = %lpad.loopexit75, %lpad.loopexit.split-lp76, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit77, %lpad.loopexit75 ], [ %lpad.loopexit.split-lp78, %lpad.loopexit.split-lp76 ]
@@ -5850,7 +5850,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont3
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit22
   %rit.049 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit22 ]
-  %done_something.048 = phi i1 [ false, %for.body.lr.ph ], [ %done_something.1396171, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit22 ]
+  %done_something.048 = phi i1 [ false, %for.body.lr.ph ], [ %done_something.1396177, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit22 ]
   %5 = load ptr, ptr %rit.049, align 8
   %6 = load ptr, ptr %m_rm, align 8
   store ptr %5, ptr %r, align 8
@@ -5917,12 +5917,12 @@ lpad.loopexit.split-lp33:                         ; preds = %if.end.i.i
   br label %ehcleanup40
 
 lpad13.loopexit.loopexit:                         ; preds = %land.rhs
-  %lpad.loopexit80 = landingpad { ptr, i32 }
+  %lpad.loopexit86 = landingpad { ptr, i32 }
           cleanup
   br label %lpad13
 
 lpad13.loopexit.loopexit.split-lp:                ; preds = %if.then.i3.i, %if.then.i.i11
-  %lpad.loopexit.split-lp81 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp87 = landingpad { ptr, i32 }
           cleanup
   br label %lpad13
 
@@ -5932,7 +5932,7 @@ lpad13.loopexit.split-lp:                         ; preds = %if.end
   br label %lpad13
 
 lpad13:                                           ; preds = %lpad13.loopexit.loopexit, %lpad13.loopexit.loopexit.split-lp, %lpad13.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad13.loopexit.split-lp ], [ %lpad.loopexit80, %lpad13.loopexit.loopexit ], [ %lpad.loopexit.split-lp81, %lpad13.loopexit.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad13.loopexit.split-lp ], [ %lpad.loopexit86, %lpad13.loopexit.loopexit ], [ %lpad.loopexit.split-lp87, %lpad13.loopexit.loopexit.split-lp ]
   call void @_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %replacement) #21
   call void @_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %r) #21
   br label %ehcleanup40
@@ -5960,13 +5960,13 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i16
 
 _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %invoke.cont9.thread, %cleanup, %if.then.i.i16
   %done_something.13961.ph = phi i1 [ %done_something.048, %invoke.cont9.thread ], [ %done_something.146, %if.then.i.i16 ], [ %done_something.146, %cleanup ]
-  %.pr68 = load ptr, ptr %r, align 8
-  %tobool.not.i.i18 = icmp eq ptr %.pr68, null
+  %.pr74 = load ptr, ptr %r, align 8
+  %tobool.not.i.i18 = icmp eq ptr %.pr74, null
   br i1 %tobool.not.i.i18, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit22, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit
   %12 = load ptr, ptr %m_manager.i, align 8
-  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %12, ptr noundef nonnull %.pr68)
+  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %12, ptr noundef nonnull %.pr74)
           to label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit22 unwind label %terminate.lpad.i21
 
 terminate.lpad.i21:                               ; preds = %if.then.i.i19
@@ -5977,13 +5977,13 @@ terminate.lpad.i21:                               ; preds = %if.then.i.i19
   unreachable
 
 _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit22: ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEE7dec_refEv.exit.i, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, %if.then.i.i19
-  %done_something.1396171 = phi i1 [ %done_something.13961.ph, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ], [ %done_something.13961.ph, %if.then.i.i19 ], [ true, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEE7dec_refEv.exit.i ]
+  %done_something.1396177 = phi i1 [ %done_something.13961.ph, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ], [ %done_something.13961.ph, %if.then.i.i19 ], [ true, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEE7dec_refEv.exit.i ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %rit.049, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !37
 
 for.end:                                          ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit22
-  br i1 %done_something.1396171, label %if.then32, label %if.end.i.i27
+  br i1 %done_something.1396177, label %if.then32, label %if.end.i.i27
 
 if.then32:                                        ; preds = %for.end
   store ptr null, ptr %res, align 8

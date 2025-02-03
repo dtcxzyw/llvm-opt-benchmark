@@ -3336,7 +3336,7 @@ _ZNKSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeES
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #30
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   invoke void @_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeC1EOS4_(ptr noundef nonnull align 16 dereferenceable(48) %add.ptr, ptr noundef nonnull align 16 dereferenceable(48) %__args)
-          to label %invoke.cont unwind label %lpad.body
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE12_M_check_lenEmPKc.exit
   %cmp.i.i.not8.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -3473,7 +3473,7 @@ _ZNSt12_Vector_baseIN8facebook5velox10expression9calculate6Parser17stack_symbol_
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 
-lpad.body:                                        ; preds = %_ZNKSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE12_M_check_lenEmPKc.exit
+lpad:                                             ; preds = %_ZNKSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeESaIS5_EE12_M_check_lenEmPKc.exit
   %17 = landingpad { ptr, i32 }
           catch ptr null
   br label %if.else
@@ -3501,12 +3501,12 @@ if.end.thread:                                    ; preds = %sw.bb2.i.i.i.i.i, %
   store i8 0, ptr %add.ptr, align 1
   br label %invoke.cont21
 
-if.else:                                          ; preds = %lpad7.i.i.i.i.i25, %lpad.body
-  %.sink60 = phi { ptr, i32 } [ %17, %lpad.body ], [ %12, %lpad7.i.i.i.i.i25 ]
-  %__new_finish.0.lpad-body52 = phi ptr [ %call5.i.i.i, %lpad.body ], [ %incdec.ptr, %lpad7.i.i.i.i.i25 ]
-  %22 = extractvalue { ptr, i32 } %.sink60, 0
+if.else:                                          ; preds = %lpad, %lpad7.i.i.i.i.i25
+  %__new_finish.0.lpad-body.ph = phi ptr [ %incdec.ptr, %lpad7.i.i.i.i.i25 ], [ %call5.i.i.i, %lpad ]
+  %eh.lpad-body.ph = phi { ptr, i32 } [ %12, %lpad7.i.i.i.i.i25 ], [ %17, %lpad ]
+  %22 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
   %23 = tail call ptr @__cxa_begin_catch(ptr %22) #27
-  invoke void @_ZSt8_DestroyIPN8facebook5velox10expression9calculate6Parser17stack_symbol_typeES5_EvT_S7_RSaIT0_E(ptr noundef nonnull %call5.i.i.i, ptr noundef nonnull %__new_finish.0.lpad-body52, ptr noundef nonnull align 1 dereferenceable(1) %this)
+  invoke void @_ZSt8_DestroyIPN8facebook5velox10expression9calculate6Parser17stack_symbol_typeES5_EvT_S7_RSaIT0_E(ptr noundef nonnull %call5.i.i.i, ptr noundef nonnull %__new_finish.0.lpad-body.ph, ptr noundef nonnull align 1 dereferenceable(1) %this)
           to label %invoke.cont21 unwind label %lpad19
 
 lpad19:                                           ; preds = %invoke.cont21, %if.else

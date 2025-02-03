@@ -2493,7 +2493,7 @@ _Z11do_per_stepll.exit.thread:                    ; preds = %1226, %_Z11do_per_s
   %1266 = load ptr, ptr %483, align 8
   %1267 = load i64, ptr %29, align 8
   %1268 = load ptr, ptr %268, align 8
-  invoke void @_Z10print_timeP8_IO_FILEP23gmx_walltime_accountinglPK10t_inputrecPK9t_commrec(ptr noundef %1265, ptr noundef %1266, i64 noundef %1267, ptr noundef %60, ptr noundef %1268)
+  invoke void @_Z10print_timeP8_IO_FILEP23gmx_walltime_accountinglPK10t_inputrecPK9t_commrec(ptr noundef %1265, ptr noundef %1266, i64 noundef %1267, ptr noundef nonnull %60, ptr noundef %1268)
           to label %1269 unwind label %.loopexit.split-lp.loopexit
 
 1269:                                             ; preds = %1264, %1260, %1252

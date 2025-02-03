@@ -463,7 +463,7 @@ common.resume:                                    ; preds = %_ZNSt10unique_ptrIP
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #18
+  tail call void @__cxa_free_exception(ptr nonnull %4) #18
   br label %common.resume
 
 _ZN6gmxapi12_GLOBAL__N_117validCommunicatorERKP10tmpi_comm_.exit: ; preds = %2
@@ -494,7 +494,7 @@ _ZN6gmxapi12_GLOBAL__N_117validCommunicatorERKP10tmpi_comm_.exit: ; preds = %2
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #18
+  tail call void @__cxa_free_exception(ptr nonnull %12) #18
   br label %.body
 
 16:                                               ; preds = %9
@@ -551,7 +551,7 @@ define noundef ptr @_ZNK6gmxapi17MpiContextManager12communicatorEv(ptr noundef n
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #18
+  tail call void @__cxa_free_exception(ptr nonnull %4) #18
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %1
@@ -1007,7 +1007,7 @@ define void @_ZN6gmxapi13createContextERKNS_18ResourceAssignmentE(ptr dead_on_un
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #18, !noalias !10
+  tail call void @__cxa_free_exception(ptr nonnull %9) #18, !noalias !10
   resume { ptr, i32 } %12
 
 _ZN6gmxapiL13createContextERKNS_18ResourceAssignmentERKSt17integral_constantIbLb0EE.exit: ; preds = %2
@@ -1399,7 +1399,7 @@ define void @_ZN6gmxapi11ContextImplC2EONS_17MpiContextManagerE(ptr noundef nonn
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %11) #18
+  tail call void @__cxa_free_exception(ptr nonnull %11) #18
   br label %.body
 
 15:                                               ; preds = %5
@@ -1431,7 +1431,7 @@ define void @_ZN6gmxapi11ContextImplC2EONS_17MpiContextManagerE(ptr noundef nonn
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %22) #18
+  call void @__cxa_free_exception(ptr nonnull %22) #18
   br label %.body9
 
 26:                                               ; preds = %19
@@ -3147,7 +3147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 86:                                               ; preds = %81
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %82) #18
+  call void @__cxa_free_exception(ptr nonnull %82) #18
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit164
 
 .thread:                                          ; preds = %._crit_edge.i.i.i.i.i, %.loopexit221
@@ -3744,7 +3744,7 @@ _ZNSt6vectorIPcSaIS0_EEC2EmRKS0_RKS1_.exit:       ; preds = %.noexc133, %_ZNSt6v
 316:                                              ; preds = %313
   %317 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %314) #18
+  call void @__cxa_free_exception(ptr nonnull %314) #18
   br label %.body139
 
 318:                                              ; preds = %310
@@ -4358,7 +4358,7 @@ _ZNSt10unique_ptrIN6gmxapi17NodeSpecificationESt14default_deleteIS1_EED2Ev.exit1
 577:                                              ; preds = %574
   %578 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %575) #18
+  tail call void @__cxa_free_exception(ptr nonnull %575) #18
   br label %648
 
 579:                                              ; preds = %576
@@ -5063,7 +5063,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #20
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
+          to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit unwind label %32
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i = icmp eq ptr %6, %1
@@ -5112,32 +5112,32 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %29, ptr %28, align 8
   ret void
 
-30:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
+30:                                               ; preds = %32
   %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %35 unwind label %36
+          to label %36 unwind label %37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  %34 = tail call ptr @__cxa_begin_catch(ptr %33) #18
+  %34 = extractvalue { ptr, i32 } %33, 0
+  %35 = tail call ptr @__cxa_begin_catch(ptr %34) #18
   tail call void @_ZdlPv(ptr noundef nonnull %20) #21
   invoke void @__cxa_rethrow() #19
-          to label %39 unwind label %30
-
-35:                                               ; preds = %30
-  resume { ptr, i32 } %31
+          to label %40 unwind label %30
 
 36:                                               ; preds = %30
-  %37 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %31
+
+37:                                               ; preds = %30
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #22
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #22
   unreachable
 
-39:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
+40:                                               ; preds = %32
   unreachable
 }
 
@@ -5713,7 +5713,7 @@ define void @_ZN6gmxapi7ContextC2ESt10shared_ptrINS_11ContextImplEE(ptr noundef 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #18
+  tail call void @__cxa_free_exception(ptr nonnull %9) #18
   br label %16
 
 13:                                               ; preds = %10

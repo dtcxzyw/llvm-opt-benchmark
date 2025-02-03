@@ -735,7 +735,7 @@ remove_option.exit.i.i:                           ; preds = %191, %192, %175
 
 208:                                              ; preds = %.preheader, %remove_option.exit.i67.i
   %.026.i.i = phi ptr [ %215, %remove_option.exit.i67.i ], [ %206, %.preheader ]
-  %209 = call i64 @strspn(ptr noundef %.026.i.i, ptr noundef nonnull @.str.46) #21
+  %209 = call i64 @strspn(ptr noundef nonnull %.026.i.i, ptr noundef nonnull @.str.46) #21
   %210 = getelementptr inbounds i8, ptr %.026.i.i, i64 %209
   %211 = load i8, ptr %210, align 1
   %212 = icmp eq i8 %211, 0

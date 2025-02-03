@@ -586,26 +586,26 @@ if.end6:                                          ; preds = %if.end
 
 for.cond.preheader:                               ; preds = %if.end6
   %2 = load ptr, ptr %a, align 8
-  %call1271 = tail call i64 @sk_num(ptr noundef %2) #8
-  %cmp1372.not = icmp eq i64 %call1271, 0
-  br i1 %cmp1372.not, label %for.end, label %for.body
+  %call1267 = tail call i64 @sk_num(ptr noundef %2) #8
+  %cmp1368.not = icmp eq i64 %call1267, 0
+  br i1 %cmp1368.not, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %if.end39
-  %inc = add nuw i64 %i.075, 1
+  %inc = add nuw i64 %i.071, 1
   %3 = load ptr, ptr %a, align 8
   %call12 = tail call i64 @sk_num(ptr noundef %3) #8
   %cmp13 = icmp ult i64 %inc, %call12
   br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !11
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %i.075 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %set.074 = phi i32 [ %set.1, %for.cond ], [ -1, %for.cond.preheader ]
-  %entries.073 = phi ptr [ %entries.1, %for.cond ], [ null, %for.cond.preheader ]
+  %i.071 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
+  %set.070 = phi i32 [ %set.1, %for.cond ], [ -1, %for.cond.preheader ]
+  %entries.069 = phi ptr [ %entries.1, %for.cond ], [ null, %for.cond.preheader ]
   %4 = load ptr, ptr %a, align 8
-  %call15 = tail call ptr @sk_value(ptr noundef %4, i64 noundef %i.075) #8
+  %call15 = tail call ptr @sk_value(ptr noundef %4, i64 noundef %i.071) #8
   %set16 = getelementptr inbounds nuw i8, ptr %call15, i64 16
   %5 = load i32, ptr %set16, align 8
-  %cmp17.not = icmp eq i32 %5, %set.074
+  %cmp17.not = icmp eq i32 %5, %set.070
   br i1 %cmp17.not, label %if.end28, label %if.then18
 
 if.then18:                                        ; preds = %for.body
@@ -627,8 +627,8 @@ if.end26:                                         ; preds = %if.end22
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end26, %for.body
-  %entries.1 = phi ptr [ %call19, %if.end26 ], [ %entries.073, %for.body ]
-  %set.1 = phi i32 [ %6, %if.end26 ], [ %set.074, %for.body ]
+  %entries.1 = phi ptr [ %call19, %if.end26 ], [ %entries.069, %for.body ]
+  %set.1 = phi i32 [ %6, %if.end26 ], [ %set.070, %for.body ]
   %call.i = tail call ptr @ASN1_item_new(ptr noundef nonnull @X509_NAME_ENTRY_it) #8
   %cmp30 = icmp eq ptr %call.i, null
   br i1 %cmp30, label %if.then57, label %if.end32
@@ -860,17 +860,17 @@ i2d_name_canon.exit49:                            ; preds = %for.body.i37, %if.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i34)
   br label %if.then57
 
-if.then54:                                        ; preds = %if.end39, %if.end4.i, %asn1_string_canon.exit
+if.then54:                                        ; preds = %if.end4.i, %asn1_string_canon.exit, %if.end39
   tail call void @ASN1_item_free(ptr noundef nonnull %call.i, ptr noundef nonnull @X509_NAME_ENTRY_it) #8
   br label %if.then57
 
 if.then57:                                        ; preds = %if.end28, %if.then18, %if.then54, %if.then25, %i2d_name_canon.exit49, %i2d_name_canon.exit
-  %ret.058 = phi i32 [ 0, %if.then54 ], [ 0, %i2d_name_canon.exit ], [ 1, %i2d_name_canon.exit49 ], [ 0, %if.then25 ], [ 0, %if.then18 ], [ 0, %if.end28 ]
+  %ret.05860 = phi i32 [ 0, %if.then25 ], [ 1, %i2d_name_canon.exit49 ], [ 0, %i2d_name_canon.exit ], [ 0, %if.then54 ], [ 0, %if.then18 ], [ 0, %if.end28 ]
   call void @sk_pop_free(ptr noundef nonnull %call7, ptr noundef nonnull @local_sk_X509_NAME_ENTRY_pop_free) #8
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then57, %if.then5
-  %retval.0 = phi i32 [ 1, %if.then5 ], [ %ret.058, %if.then57 ], [ 0, %if.end6 ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ %ret.05860, %if.then57 ], [ 0, %if.end6 ]
   ret i32 %retval.0
 }
 

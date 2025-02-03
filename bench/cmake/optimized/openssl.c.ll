@@ -5435,7 +5435,7 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
 
 .thread.i.i.i:                                    ; preds = %713, %.preheader.i.i.i
   call void @X509_free(ptr noundef nonnull %709) #13
-  br label %723
+  br label %747
 
 .lr.ph.i220.i.i:                                  ; preds = %.preheader.i.i.i, %713
   %.019.i.i.i = phi i32 [ %714, %713 ], [ 0, %.preheader.i.i.i ]
@@ -5449,68 +5449,68 @@ infof_certstack.exit.i.i:                         ; preds = %671, %652
   %722 = call ptr @OCSP_cert_to_id(ptr noundef %721, ptr noundef nonnull %709, ptr noundef %717) #13
   call void @X509_free(ptr noundef nonnull %709) #13
   %.not68.i.i.i = icmp eq ptr %722, null
-  br i1 %.not68.i.i.i, label %723, label %724
+  br i1 %.not68.i.i.i, label %747, label %723
 
-723:                                              ; preds = %720, %.thread.i.i.i
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.205) #13
-  br label %verifystatus.exit.i.i
-
-724:                                              ; preds = %720
-  %725 = call i32 @OCSP_resp_find_status(ptr noundef nonnull %695, ptr noundef nonnull %722, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #13
+723:                                              ; preds = %720
+  %724 = call i32 @OCSP_resp_find_status(ptr noundef nonnull %695, ptr noundef nonnull %722, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #13
   call void @OCSP_CERTID_free(ptr noundef nonnull %722) #13
-  %.not69.i.i.i = icmp eq i32 %725, 1
-  br i1 %.not69.i.i.i, label %727, label %726
+  %.not69.i.i.i = icmp eq i32 %724, 1
+  br i1 %.not69.i.i.i, label %726, label %725
 
-726:                                              ; preds = %724
+725:                                              ; preds = %723
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.206) #13
   br label %verifystatus.exit.i.i
 
-727:                                              ; preds = %724
-  %728 = load ptr, ptr %11, align 8
-  %729 = load ptr, ptr %12, align 8
-  %730 = call i32 @OCSP_check_validity(ptr noundef %728, ptr noundef %729, i64 noundef 300, i64 noundef -1) #13
-  %.not70.i.i.i = icmp eq i32 %730, 0
-  br i1 %.not70.i.i.i, label %731, label %732
+726:                                              ; preds = %723
+  %727 = load ptr, ptr %11, align 8
+  %728 = load ptr, ptr %12, align 8
+  %729 = call i32 @OCSP_check_validity(ptr noundef %727, ptr noundef %728, i64 noundef 300, i64 noundef -1) #13
+  %.not70.i.i.i = icmp eq i32 %729, 0
+  br i1 %.not70.i.i.i, label %730, label %731
 
-731:                                              ; preds = %727
+730:                                              ; preds = %726
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.207) #13
   br label %verifystatus.exit.i.i
 
-732:                                              ; preds = %727
-  %733 = load i64, ptr %293, align 2
-  %734 = and i64 %733, 268435456
-  %.not72.i.i.i = icmp eq i64 %734, 0
-  br i1 %.not72.i.i.i, label %740, label %735
+731:                                              ; preds = %726
+  %732 = load i64, ptr %293, align 2
+  %733 = and i64 %732, 268435456
+  %.not72.i.i.i = icmp eq i64 %733, 0
+  br i1 %.not72.i.i.i, label %739, label %734
 
-735:                                              ; preds = %732
-  %736 = load i32, ptr %8, align 4
-  %737 = sext i32 %736 to i64
-  %738 = call ptr @OCSP_cert_status_str(i64 noundef %737) #13
-  %739 = load i32, ptr %8, align 4
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.208, ptr noundef %738, i32 noundef %739) #13
-  br label %740
+734:                                              ; preds = %731
+  %735 = load i32, ptr %8, align 4
+  %736 = sext i32 %735 to i64
+  %737 = call ptr @OCSP_cert_status_str(i64 noundef %736) #13
+  %738 = load i32, ptr %8, align 4
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.208, ptr noundef %737, i32 noundef %738) #13
+  br label %739
 
-740:                                              ; preds = %735, %732
-  %741 = load i32, ptr %8, align 4
-  switch i32 %741, label %747 [
+739:                                              ; preds = %734, %731
+  %740 = load i32, ptr %8, align 4
+  switch i32 %740, label %746 [
     i32 0, label %verifystatus.exit.i.i
-    i32 1, label %742
+    i32 1, label %741
   ]
 
-742:                                              ; preds = %740
-  %743 = load i32, ptr %9, align 4
-  %744 = sext i32 %743 to i64
-  %745 = call ptr @OCSP_crl_reason_str(i64 noundef %744) #13
-  %746 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.209, ptr noundef %745, i32 noundef %746) #13
+741:                                              ; preds = %739
+  %742 = load i32, ptr %9, align 4
+  %743 = sext i32 %742 to i64
+  %744 = call ptr @OCSP_crl_reason_str(i64 noundef %743) #13
+  %745 = load i32, ptr %9, align 4
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.209, ptr noundef %744, i32 noundef %745) #13
   br label %verifystatus.exit.i.i
 
-747:                                              ; preds = %740
+746:                                              ; preds = %739
+  br label %verifystatus.exit.i.i
+
+747:                                              ; preds = %720, %.thread.i.i.i
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.205) #13
   br label %verifystatus.exit.i.i
 
 verifystatus.exit.thread.i.i:                     ; preds = %696, %691, %688, %685
-  %.0528.i.ph.i.i = phi ptr [ null, %685 ], [ null, %688 ], [ %687, %696 ], [ %687, %691 ]
-  call void @OCSP_RESPONSE_free(ptr noundef %.0528.i.ph.i.i) #13
+  %.05210.i.ph.i.i = phi ptr [ null, %685 ], [ null, %688 ], [ %687, %696 ], [ %687, %691 ]
+  call void @OCSP_RESPONSE_free(ptr noundef %.05210.i.ph.i.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -5520,9 +5520,9 @@ verifystatus.exit.thread.i.i:                     ; preds = %696, %691, %688, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %748
 
-verifystatus.exit.i.i:                            ; preds = %747, %742, %740, %731, %726, %723, %712, %706, %700
-  %.not202.i.i = phi i1 [ false, %706 ], [ false, %712 ], [ false, %700 ], [ false, %726 ], [ false, %747 ], [ false, %742 ], [ true, %740 ], [ false, %731 ], [ false, %723 ]
-  %.05118.i.i.i = phi i32 [ 91, %706 ], [ 91, %712 ], [ 91, %700 ], [ 91, %726 ], [ 91, %747 ], [ 91, %742 ], [ %741, %740 ], [ 91, %731 ], [ 91, %723 ]
+verifystatus.exit.i.i:                            ; preds = %747, %746, %741, %739, %730, %725, %712, %706, %700
+  %.not202.i.i = phi i1 [ false, %747 ], [ false, %700 ], [ false, %712 ], [ false, %730 ], [ true, %739 ], [ false, %741 ], [ false, %746 ], [ false, %725 ], [ false, %706 ]
+  %.05111.i.i.i = phi i32 [ 91, %747 ], [ 91, %700 ], [ 91, %712 ], [ 91, %730 ], [ %740, %739 ], [ 91, %741 ], [ 91, %746 ], [ 91, %725 ], [ 91, %706 ]
   call void @OCSP_BASICRESP_free(ptr noundef nonnull %695) #13
   call void @OCSP_RESPONSE_free(ptr noundef nonnull %687) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5535,7 +5535,7 @@ verifystatus.exit.i.i:                            ; preds = %747, %742, %740, %7
   br i1 %.not202.i.i, label %761, label %748
 
 748:                                              ; preds = %verifystatus.exit.i.i, %verifystatus.exit.thread.i.i
-  %.0519.i231.i.i = phi i32 [ 91, %verifystatus.exit.thread.i.i ], [ %.05118.i.i.i, %verifystatus.exit.i.i ]
+  %.05112.i231.i.i = phi i32 [ 91, %verifystatus.exit.thread.i.i ], [ %.05111.i.i.i, %verifystatus.exit.i.i ]
   %749 = call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef nonnull %0) #13
   br i1 %749, label %759, label %750
 
@@ -5657,7 +5657,7 @@ servercert.exit.thread.i:                         ; preds = %616, %607, %599, %5
   br label %ossl_connect_step3.exit.thread
 
 servercert.exit.i:                                ; preds = %789, %759
-  %.0.i.i = phi i32 [ %.4.i.i, %789 ], [ %.0519.i231.i.i, %759 ]
+  %.0.i.i = phi i32 [ %.4.i.i, %789 ], [ %.05112.i231.i.i, %759 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)

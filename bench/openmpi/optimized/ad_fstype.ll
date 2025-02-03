@@ -111,7 +111,7 @@ define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 41:                                               ; preds = %39, %35
   %.sink.i.i = phi ptr [ %36, %39 ], [ %1, %35 ]
-  %42 = call ptr @ADIOI_Strdup(ptr noundef %.sink.i.i) #9
+  %42 = call ptr @ADIOI_Strdup(ptr noundef nonnull %.sink.i.i) #9
   call void @ADIOI_Free_fn(ptr noundef %36, i32 noundef 257, ptr noundef nonnull @.str.2) #9
   br label %43
 

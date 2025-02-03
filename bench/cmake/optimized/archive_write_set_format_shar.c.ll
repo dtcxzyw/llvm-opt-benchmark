@@ -359,7 +359,7 @@ shar_quote.exit132:                               ; preds = %114, %99
   br label %119
 
 118:                                              ; preds = %57
-  tail call void @free(ptr noundef %58) #8
+  tail call void @free(ptr noundef nonnull %58) #8
   br label %119
 
 119:                                              ; preds = %118, %shar_quote.exit124, %98, %shar_quote.exit132, %90, %64, %shar_quote.exit

@@ -2283,11 +2283,12 @@ invoke.cont9.i:                                   ; preds = %entry
   call void @_ZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEm(ptr nonnull sret(%"class.folly::Expected.14") align 8 %headerSize.i, ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef 0, i64 noundef %call10.i) #25, !noalias !28
   %1 = load i8, ptr %headerSize.i, align 8, !noalias !28
   %cmp.i.i = icmp eq i8 %1, 2
-  br i1 %cmp.i.i, label %if.then.i, label %if.end.i
+  br i1 %cmp.i.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, label %if.end.i
 
-if.then.i:                                        ; preds = %invoke.cont9.i
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread: ; preds = %invoke.cont9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
+  br label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
 if.end.i:                                         ; preds = %invoke.cont9.i
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -2295,7 +2296,7 @@ if.end.i:                                         ; preds = %invoke.cont9.i
 
 invoke.cont12.i:                                  ; preds = %if.end.i
   %cond.i = icmp eq i8 %1, 1
-  br i1 %cond.i, label %invoke.cont14.i, label %if.end.i.i.i.i
+  br i1 %cond.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #12
@@ -2304,32 +2305,29 @@ if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
 .noexc3.i:                                        ; preds = %if.end.i.i.i.i
   unreachable
 
-invoke.cont14.i:                                  ; preds = %invoke.cont12.i
+terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i, %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #26
+  unreachable
+
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
   %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %headerSize.i, i64 16
-  %2 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !28
-  %add.i = add i64 %2, %call10.i
+  %4 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !28
+  %add.i = add i64 %4, %call10.i
   store i8 1, ptr %agg.result, align 8, !alias.scope !28
   %error_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %error_.i.i.i, align 8, !alias.scope !28
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 %add.i, ptr %value_.i.i.i, align 8, !alias.scope !28
   %.pre = load ptr, ptr %agg.tmp, align 8
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
-
-terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i, %entry
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #26
-  unreachable
-
-_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %if.then.i, %invoke.cont14.i
-  %5 = phi ptr [ %.cast, %if.then.i ], [ %.pre, %invoke.cont14.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
-  %cmp.not.i = icmp eq ptr %5, null
+  %cmp.not.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  %5 = phi ptr [ %.cast, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread ], [ %.pre, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit ]
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #25
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %5) #25
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
@@ -2356,11 +2354,12 @@ invoke.cont9.i:                                   ; preds = %entry
   call void @_ZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEm(ptr nonnull sret(%"class.folly::Expected.14") align 8 %headerSize.i, ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef 1, i64 noundef %call10.i) #25, !noalias !31
   %1 = load i8, ptr %headerSize.i, align 8, !noalias !31
   %cmp.i.i = icmp eq i8 %1, 2
-  br i1 %cmp.i.i, label %if.then.i, label %if.end.i
+  br i1 %cmp.i.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, label %if.end.i
 
-if.then.i:                                        ; preds = %invoke.cont9.i
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread: ; preds = %invoke.cont9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
+  br label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
 if.end.i:                                         ; preds = %invoke.cont9.i
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -2368,7 +2367,7 @@ if.end.i:                                         ; preds = %invoke.cont9.i
 
 invoke.cont12.i:                                  ; preds = %if.end.i
   %cond.i = icmp eq i8 %1, 1
-  br i1 %cond.i, label %invoke.cont14.i, label %if.end.i.i.i.i
+  br i1 %cond.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #12
@@ -2377,32 +2376,29 @@ if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
 .noexc3.i:                                        ; preds = %if.end.i.i.i.i
   unreachable
 
-invoke.cont14.i:                                  ; preds = %invoke.cont12.i
+terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i, %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #26
+  unreachable
+
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
   %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %headerSize.i, i64 16
-  %2 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !31
-  %add.i = add i64 %2, %call10.i
+  %4 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !31
+  %add.i = add i64 %4, %call10.i
   store i8 1, ptr %agg.result, align 8, !alias.scope !31
   %error_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %error_.i.i.i, align 8, !alias.scope !31
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 %add.i, ptr %value_.i.i.i, align 8, !alias.scope !31
   %.pre = load ptr, ptr %agg.tmp, align 8
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
-
-terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i, %entry
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #26
-  unreachable
-
-_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %if.then.i, %invoke.cont14.i
-  %5 = phi ptr [ %.cast, %if.then.i ], [ %.pre, %invoke.cont14.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
-  %cmp.not.i = icmp eq ptr %5, null
+  %cmp.not.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  %5 = phi ptr [ %.cast, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread ], [ %.pre, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit ]
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #25
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %5) #25
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
@@ -3267,11 +3263,12 @@ invoke.cont9.i:                                   ; preds = %invoke.cont10
   call void @_ZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEm(ptr nonnull sret(%"class.folly::Expected.14") align 8 %headerSize.i, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef 3, i64 noundef %call10.i) #25, !noalias !43
   %135 = load i8, ptr %headerSize.i, align 8, !noalias !43
   %cmp.i.i = icmp eq i8 %135, 2
-  br i1 %cmp.i.i, label %if.then.i29, label %if.end.i
+  br i1 %cmp.i.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, label %if.end.i
 
-if.then.i29:                                      ; preds = %invoke.cont9.i
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread: ; preds = %invoke.cont9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
+  br label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
 if.end.i:                                         ; preds = %invoke.cont9.i
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp9, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -3279,7 +3276,7 @@ if.end.i:                                         ; preds = %invoke.cont9.i
 
 invoke.cont12.i:                                  ; preds = %if.end.i
   %cond.i = icmp eq i8 %135, 1
-  br i1 %cond.i, label %invoke.cont14.i26, label %if.end.i.i.i.i
+  br i1 %cond.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #12
@@ -3288,32 +3285,29 @@ if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
 .noexc3.i:                                        ; preds = %if.end.i.i.i.i
   unreachable
 
-invoke.cont14.i26:                                ; preds = %invoke.cont12.i
+terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i, %invoke.cont10
+  %136 = landingpad { ptr, i32 }
+          catch ptr null
+  %137 = extractvalue { ptr, i32 } %136, 0
+  call void @__clang_call_terminate(ptr %137) #26
+  unreachable
+
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
   %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %headerSize.i, i64 16
-  %136 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !43
-  %add.i = add i64 %136, %call10.i
+  %138 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !43
+  %add.i = add i64 %138, %call10.i
   store i8 1, ptr %agg.result, align 8, !alias.scope !43
   %error_.i.i.i27 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %error_.i.i.i27, align 8, !alias.scope !43
   %value_.i.i.i28 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 %add.i, ptr %value_.i.i.i28, align 8, !alias.scope !43
   %.pre47 = load ptr, ptr %agg.tmp9, align 8
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
-
-terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i, %invoke.cont10
-  %137 = landingpad { ptr, i32 }
-          catch ptr null
-  %138 = extractvalue { ptr, i32 } %137, 0
-  call void @__clang_call_terminate(ptr %138) #26
-  unreachable
-
-_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %if.then.i29, %invoke.cont14.i26
-  %139 = phi ptr [ %134, %if.then.i29 ], [ %.pre47, %invoke.cont14.i26 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
-  %cmp.not.i = icmp eq ptr %139, null
+  %cmp.not.i = icmp eq ptr %.pre47, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  %139 = phi ptr [ %134, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread ], [ %.pre47, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit ]
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %139) #25
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %139) #25
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
@@ -6103,11 +6097,12 @@ invoke.cont9.i:                                   ; preds = %invoke.cont10
   call void @_ZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEm(ptr nonnull sret(%"class.folly::Expected.14") align 8 %headerSize.i, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef 7, i64 noundef %call10.i) #25, !noalias !70
   %135 = load i8, ptr %headerSize.i, align 8, !noalias !70
   %cmp.i.i = icmp eq i8 %135, 2
-  br i1 %cmp.i.i, label %if.then.i29, label %if.end.i
+  br i1 %cmp.i.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, label %if.end.i
 
-if.then.i29:                                      ; preds = %invoke.cont9.i
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread: ; preds = %invoke.cont9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
+  br label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
 if.end.i:                                         ; preds = %invoke.cont9.i
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp9, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -6115,7 +6110,7 @@ if.end.i:                                         ; preds = %invoke.cont9.i
 
 invoke.cont12.i:                                  ; preds = %if.end.i
   %cond.i = icmp eq i8 %135, 1
-  br i1 %cond.i, label %invoke.cont14.i26, label %if.end.i.i.i.i
+  br i1 %cond.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #12
@@ -6124,32 +6119,29 @@ if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
 .noexc3.i:                                        ; preds = %if.end.i.i.i.i
   unreachable
 
-invoke.cont14.i26:                                ; preds = %invoke.cont12.i
+terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i, %invoke.cont10
+  %136 = landingpad { ptr, i32 }
+          catch ptr null
+  %137 = extractvalue { ptr, i32 } %136, 0
+  call void @__clang_call_terminate(ptr %137) #26
+  unreachable
+
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
   %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %headerSize.i, i64 16
-  %136 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !70
-  %add.i = add i64 %136, %call10.i
+  %138 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !70
+  %add.i = add i64 %138, %call10.i
   store i8 1, ptr %agg.result, align 8, !alias.scope !70
   %error_.i.i.i27 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %error_.i.i.i27, align 8, !alias.scope !70
   %value_.i.i.i28 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 %add.i, ptr %value_.i.i.i28, align 8, !alias.scope !70
   %.pre47 = load ptr, ptr %agg.tmp9, align 8
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
-
-terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i, %invoke.cont10
-  %137 = landingpad { ptr, i32 }
-          catch ptr null
-  %138 = extractvalue { ptr, i32 } %137, 0
-  call void @__clang_call_terminate(ptr %138) #26
-  unreachable
-
-_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %if.then.i29, %invoke.cont14.i26
-  %139 = phi ptr [ %134, %if.then.i29 ], [ %.pre47, %invoke.cont14.i26 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
-  %cmp.not.i = icmp eq ptr %139, null
+  %cmp.not.i = icmp eq ptr %.pre47, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  %139 = phi ptr [ %134, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread ], [ %.pre47, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit ]
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %139) #25
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %139) #25
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
@@ -7150,11 +7142,12 @@ invoke.cont9.i:                                   ; preds = %invoke.cont10
   call void @_ZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEm(ptr nonnull sret(%"class.folly::Expected.14") align 8 %headerSize.i, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef 13, i64 noundef %call10.i) #25, !noalias !82
   %135 = load i8, ptr %headerSize.i, align 8, !noalias !82
   %cmp.i.i = icmp eq i8 %135, 2
-  br i1 %cmp.i.i, label %if.then.i29, label %if.end.i
+  br i1 %cmp.i.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, label %if.end.i
 
-if.then.i29:                                      ; preds = %invoke.cont9.i
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread: ; preds = %invoke.cont9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
+  br label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
 if.end.i:                                         ; preds = %invoke.cont9.i
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp9, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -7162,7 +7155,7 @@ if.end.i:                                         ; preds = %invoke.cont9.i
 
 invoke.cont12.i:                                  ; preds = %if.end.i
   %cond.i = icmp eq i8 %135, 1
-  br i1 %cond.i, label %invoke.cont14.i26, label %if.end.i.i.i.i
+  br i1 %cond.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #12
@@ -7171,32 +7164,29 @@ if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
 .noexc3.i:                                        ; preds = %if.end.i.i.i.i
   unreachable
 
-invoke.cont14.i26:                                ; preds = %invoke.cont12.i
+terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i, %invoke.cont10
+  %136 = landingpad { ptr, i32 }
+          catch ptr null
+  %137 = extractvalue { ptr, i32 } %136, 0
+  call void @__clang_call_terminate(ptr %137) #26
+  unreachable
+
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
   %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %headerSize.i, i64 16
-  %136 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !82
-  %add.i = add i64 %136, %call10.i
+  %138 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !82
+  %add.i = add i64 %138, %call10.i
   store i8 1, ptr %agg.result, align 8, !alias.scope !82
   %error_.i.i.i27 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %error_.i.i.i27, align 8, !alias.scope !82
   %value_.i.i.i28 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 %add.i, ptr %value_.i.i.i28, align 8, !alias.scope !82
   %.pre47 = load ptr, ptr %agg.tmp9, align 8
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
-
-terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i, %invoke.cont10
-  %137 = landingpad { ptr, i32 }
-          catch ptr null
-  %138 = extractvalue { ptr, i32 } %137, 0
-  call void @__clang_call_terminate(ptr %138) #26
-  unreachable
-
-_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %if.then.i29, %invoke.cont14.i26
-  %139 = phi ptr [ %134, %if.then.i29 ], [ %.pre47, %invoke.cont14.i26 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
-  %cmp.not.i = icmp eq ptr %139, null
+  %cmp.not.i = icmp eq ptr %.pre47, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  %139 = phi ptr [ %134, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread ], [ %.pre47, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit ]
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %139) #25
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %139) #25
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
@@ -7855,11 +7845,12 @@ invoke.cont9.i:                                   ; preds = %invoke.cont16
   call void @_ZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEm(ptr nonnull sret(%"class.folly::Expected.14") align 8 %headerSize.i, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef 63232, i64 noundef %call10.i) #25, !noalias !95
   %80 = load i8, ptr %headerSize.i, align 8, !noalias !95
   %cmp.i.i = icmp eq i8 %80, 2
-  br i1 %cmp.i.i, label %if.then.i19, label %if.end.i16
+  br i1 %cmp.i.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, label %if.end.i16
 
-if.then.i19:                                      ; preds = %invoke.cont9.i
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread: ; preds = %invoke.cont9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
+  br label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
 if.end.i16:                                       ; preds = %invoke.cont9.i
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp15, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -7867,7 +7858,7 @@ if.end.i16:                                       ; preds = %invoke.cont9.i
 
 invoke.cont12.i:                                  ; preds = %if.end.i16
   %cond.i = icmp eq i8 %80, 1
-  br i1 %cond.i, label %invoke.cont14.i, label %if.end.i.i.i.i
+  br i1 %cond.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #12
@@ -7876,32 +7867,29 @@ if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
 .noexc3.i:                                        ; preds = %if.end.i.i.i.i
   unreachable
 
-invoke.cont14.i:                                  ; preds = %invoke.cont12.i
+terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i16, %invoke.cont16
+  %81 = landingpad { ptr, i32 }
+          catch ptr null
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #26
+  unreachable
+
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
   %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %headerSize.i, i64 16
-  %81 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !95
-  %add.i = add i64 %81, %call10.i
+  %83 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !95
+  %add.i = add i64 %83, %call10.i
   store i8 1, ptr %agg.result, align 8, !alias.scope !95
   %error_.i.i.i17 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %error_.i.i.i17, align 8, !alias.scope !95
   %value_.i.i.i18 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 %add.i, ptr %value_.i.i.i18, align 8, !alias.scope !95
   %.pre31 = load ptr, ptr %agg.tmp15, align 8
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
-
-terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i16, %invoke.cont16
-  %82 = landingpad { ptr, i32 }
-          catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #26
-  unreachable
-
-_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %if.then.i19, %invoke.cont14.i
-  %84 = phi ptr [ %79, %if.then.i19 ], [ %.pre31, %invoke.cont14.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
-  %cmp.not.i20 = icmp eq ptr %84, null
+  %cmp.not.i20 = icmp eq ptr %.pre31, null
   br i1 %cmp.not.i20, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  %84 = phi ptr [ %79, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread ], [ %.pre31, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit ]
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %84) #25
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %84) #25
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
@@ -8504,11 +8492,12 @@ invoke.cont9.i:                                   ; preds = %invoke.cont16
   call void @_ZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEm(ptr nonnull sret(%"class.folly::Expected.14") align 8 %headerSize.i, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef 63233, i64 noundef %call10.i) #25, !noalias !107
   %80 = load i8, ptr %headerSize.i, align 8, !noalias !107
   %cmp.i.i = icmp eq i8 %80, 2
-  br i1 %cmp.i.i, label %if.then.i19, label %if.end.i16
+  br i1 %cmp.i.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, label %if.end.i16
 
-if.then.i19:                                      ; preds = %invoke.cont9.i
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread: ; preds = %invoke.cont9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %headerSize.i, i64 24, i1 false)
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
+  br label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
 if.end.i16:                                       ; preds = %invoke.cont9.i
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp15, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -8516,7 +8505,7 @@ if.end.i16:                                       ; preds = %invoke.cont9.i
 
 invoke.cont12.i:                                  ; preds = %if.end.i16
   %cond.i = icmp eq i8 %80, 1
-  br i1 %cond.i, label %invoke.cont14.i, label %if.end.i.i.i.i
+  br i1 %cond.i, label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #12
@@ -8525,32 +8514,29 @@ if.end.i.i.i.i:                                   ; preds = %invoke.cont12.i
 .noexc3.i:                                        ; preds = %if.end.i.i.i.i
   unreachable
 
-invoke.cont14.i:                                  ; preds = %invoke.cont12.i
+terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i16, %invoke.cont16
+  %81 = landingpad { ptr, i32 }
+          catch ptr null
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #26
+  unreachable
+
+_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
   %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %headerSize.i, i64 16
-  %81 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !107
-  %add.i = add i64 %81, %call10.i
+  %83 = load i64, ptr %value_.i.i.i.i, align 8, !noalias !107
+  %add.i = add i64 %83, %call10.i
   store i8 1, ptr %agg.result, align 8, !alias.scope !107
   %error_.i.i.i17 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %error_.i.i.i17, align 8, !alias.scope !107
   %value_.i.i.i18 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 %add.i, ptr %value_.i.i.i18, align 8, !alias.scope !107
   %.pre31 = load ptr, ptr %agg.tmp15, align 8
-  br label %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
-
-terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i16, %invoke.cont16
-  %82 = landingpad { ptr, i32 }
-          catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #26
-  unreachable
-
-_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %if.then.i19, %invoke.cont14.i
-  %84 = phi ptr [ %79, %if.then.i19 ], [ %.pre31, %invoke.cont14.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %headerSize.i)
-  %cmp.not.i20 = icmp eq ptr %84, null
+  %cmp.not.i20 = icmp eq ptr %.pre31, null
   br i1 %cmp.not.i20, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit
+  %84 = phi ptr [ %79, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit.thread ], [ %.pre31, %_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit ]
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %84) #25
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %84) #25
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit

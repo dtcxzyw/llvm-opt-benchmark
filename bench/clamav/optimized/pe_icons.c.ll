@@ -1724,7 +1724,7 @@ define internal fastcc void @makebmp(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %59
 
 59:                                               ; preds = %57, %54
-  tail call void @free(ptr noundef %13) #13
+  tail call void @free(ptr noundef nonnull %13) #13
   br label %60
 
 60:                                               ; preds = %12, %5, %59, %39, %16

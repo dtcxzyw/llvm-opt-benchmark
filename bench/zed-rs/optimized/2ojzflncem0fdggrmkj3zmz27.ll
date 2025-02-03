@@ -4231,7 +4231,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdf
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !670)
   %5 = load ptr, ptr %4, align 8, !alias.scope !670, !noundef !5
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef align 8 dereferenceable(56) %5)
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5)
           to label %"_ZN4core3ptr65drop_in_place$LT$alloc..boxed..Box$LT$vim..motion..Motion$GT$$GT$17h0a0a5645729ddf13E.llvm.16422900337870965792.exit" unwind label %6, !noalias !670
 
 common.resume:                                    ; preds = %11, %6
@@ -4253,7 +4253,7 @@ common.resume:                                    ; preds = %11, %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !676)
   %10 = load ptr, ptr %9, align 8, !alias.scope !676, !noundef !5
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef align 8 dereferenceable(56) %10)
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10)
           to label %"_ZN4core3ptr65drop_in_place$LT$alloc..boxed..Box$LT$vim..motion..Motion$GT$$GT$17h0a0a5645729ddf13E.llvm.16422900337870965792.exit1" unwind label %11, !noalias !676
 
 11:                                               ; preds = %8
@@ -4727,7 +4727,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$$u5b$vim..state..Operator$u5
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..boxed..Box$LT$vim..motion..Motion$GT$$GT$17h0a0a5645729ddf13E.llvm.16422900337870965792"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef align 8 dereferenceable(56) %2)
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
@@ -18900,7 +18900,7 @@ define hidden void @_ZN3vim6normal6repeat8Replayer4next17h83e0a5561f85e7e7E(ptr 
 120:                                              ; preds = %116
   %121 = extractvalue { ptr, ptr } %119, 0
   %122 = extractvalue { ptr, ptr } %119, 1
-  invoke void @_ZN4gpui6window13WindowContext15dispatch_action17h64a9388a79727572E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 %121, ptr noalias noundef readonly align 8 dereferenceable(56) %122)
+  invoke void @_ZN4gpui6window13WindowContext15dispatch_action17h64a9388a79727572E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 %121, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %122)
           to label %123 unwind label %159
 
 123:                                              ; preds = %120
@@ -28171,7 +28171,7 @@ default.unreachable77:                            ; preds = %"_ZN4core6option15O
   %102 = call { ptr, ptr } @_ZN6editor21selections_collection20SelectionsCollection6buffer17h1cdaf7da7af217ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(320) %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %100), !noalias !5739
   %103 = extractvalue { ptr, ptr } %102, 0
   %104 = extractvalue { ptr, ptr } %102, 1
-  invoke void @"_ZN4text9selection18Selection$LT$T$GT$3map17h0336300ef292b75bE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %101, ptr noalias noundef readonly align 8 dereferenceable(48) %103)
+  invoke void @"_ZN4text9selection18Selection$LT$T$GT$3map17h0336300ef292b75bE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %101, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %103)
           to label %_ZN6editor21selections_collection20SelectionsCollection6newest17h07a248c4eacf0f47E.exit.i unwind label %105
 
 common.resume:                                    ; preds = %368, %370, %373, %264, %294, %241, %243, %246, %105, %.body.i, %212

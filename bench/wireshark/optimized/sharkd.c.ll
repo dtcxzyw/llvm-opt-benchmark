@@ -529,42 +529,42 @@ process_packet.exit.i:                            ; preds = %70, %66, %64, %.thr
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 248), align 8
   %78 = call i32 @wtap_read(ptr noundef %77, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %.not21.i = icmp eq i32 %78, 0
-  br i1 %.not21.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !5
+  br i1 %.not21.i, label %.loopexit.thread.i, label %.lr.ph.split.i, !llvm.loop !5
 
-.loopexit.i:                                      ; preds = %76, %31, %.split.us.i, %14
+.loopexit.i:                                      ; preds = %31, %.split.us.i, %14
   %.not23.i = icmp eq ptr %.fr.i, null
-  br i1 %.not23.i, label %80, label %79
+  br i1 %.not23.i, label %79, label %.loopexit.thread.i
 
-79:                                               ; preds = %.loopexit.i
+.loopexit.thread.i:                               ; preds = %76, %.loopexit.i
   call void @epan_dissect_free(ptr noundef nonnull %.fr.i) #9
-  br label %80
+  br label %79
 
-80:                                               ; preds = %79, %.loopexit.i
+79:                                               ; preds = %.loopexit.thread.i, %.loopexit.i
   call void @wtap_rec_cleanup(ptr noundef nonnull %5) #9
   call void @ws_buffer_free(ptr noundef nonnull %6) #9
-  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 248), align 8
-  call void @wtap_sequential_close(ptr noundef %81) #9
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 248), align 8
+  call void @wtap_sequential_close(ptr noundef %80) #9
   call void @postseq_cleanup_all_protocols() #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @cfile, i64 264), i8 0, i64 16, i1 false)
-  %82 = load i32, ptr %2, align 4
-  %.not24.i = icmp eq i32 %82, 0
-  br i1 %.not24.i, label %load_cap_file.exit, label %83
+  %81 = load i32, ptr %2, align 4
+  %.not24.i = icmp eq i32 %81, 0
+  br i1 %.not24.i, label %load_cap_file.exit, label %82
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 16), align 8
-  %85 = load ptr, ptr %3, align 8
-  call void @cfile_read_failure_message(ptr noundef %84, i32 noundef %82, ptr noundef %85) #9
+82:                                               ; preds = %79
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 16), align 8
+  %84 = load ptr, ptr %3, align 8
+  call void @cfile_read_failure_message(ptr noundef %83, i32 noundef %81, ptr noundef %84) #9
   %.pre.i = load i32, ptr %2, align 4
   br label %load_cap_file.exit
 
-load_cap_file.exit:                               ; preds = %80, %83
-  %86 = phi i32 [ %.pre.i, %83 ], [ 0, %80 ]
+load_cap_file.exit:                               ; preds = %79, %82
+  %85 = phi i32 [ %.pre.i, %82 ], [ 0, %79 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  ret i32 %86
+  ret i32 %85
 }
 
 ; Function Attrs: nounwind uwtable

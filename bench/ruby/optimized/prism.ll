@@ -21400,7 +21400,7 @@ context_recoverable.exit.thread:                  ; preds = %2329, %2327, %conte
   br label %2356
 
 2355:                                             ; preds = %context_recoverable.exit.thread
-  tail call fastcc void @pm_parser_err_prefix(ptr noundef %0, i32 noundef %3)
+  tail call fastcc void @pm_parser_err_prefix(ptr noundef nonnull %0, i32 noundef %3)
   br label %2356
 
 2356:                                             ; preds = %2347, %2355, %2336
@@ -37675,8 +37675,8 @@ pm_parser_local_add_constant.exit:                ; preds = %.lr.ph, %88, %92
   %96 = add nsw i64 %79, -1
   %97 = getelementptr [9 x ptr], ptr @pm_numbered_parameter_names, i64 0, i64 %96
   %98 = load ptr, ptr %97, align 8
-  %99 = tail call fastcc i32 @pm_parser_local_add_constant(ptr noundef %0, ptr noundef %98)
-  %100 = tail call fastcc ptr @pm_local_variable_read_node_create_constant_id(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %99, i32 noundef 0)
+  %99 = tail call fastcc i32 @pm_parser_local_add_constant(ptr noundef nonnull %0, ptr noundef %98)
+  %100 = tail call fastcc ptr @pm_local_variable_read_node_create_constant_id(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %99, i32 noundef 0)
   br label %pm_token_is_numbered_parameter.exit.thread
 
 pm_token_is_numbered_parameter.exit.thread:       ; preds = %28, %35, %38, %pm_parser_local_depth.exit.thread, %25, %pm_token_is_numbered_parameter.exit, %54, %outer_scope_using_numbered_parameters_p.exit, %47, %._crit_edge, %19

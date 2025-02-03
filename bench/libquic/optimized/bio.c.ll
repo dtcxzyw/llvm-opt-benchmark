@@ -1301,7 +1301,7 @@ if.end9.i:                                        ; preds = %if.end6.i, %if.end3
   %5 = load ptr, ptr %out, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %done.039.i
   %conv.i = trunc i64 %sub.i to i32
-  %call.i.i = call fastcc i32 @bio_io(ptr noundef %bio, ptr noundef %add.ptr.i, i32 noundef %conv.i, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %num_read.i)
+  %call.i.i = call fastcc i32 @bio_io(ptr noundef nonnull %bio, ptr noundef %add.ptr.i, i32 noundef %conv.i, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %num_read.i)
   switch i32 %call.i.i, label %if.end18.i [
     i32 0, label %if.then13.i
     i32 -1, label %if.then16.i
@@ -1356,7 +1356,7 @@ if.end24:                                         ; preds = %if.else
 
 if.end30:                                         ; preds = %if.end24
   %add.ptr = getelementptr inbounds nuw i8, ptr %header, i64 2
-  %call.i45 = call fastcc i32 @bio_io(ptr noundef %bio, ptr noundef nonnull %add.ptr, i32 noundef %and13, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %num_read.i)
+  %call.i45 = call fastcc i32 @bio_io(ptr noundef nonnull %bio, ptr noundef nonnull %add.ptr, i32 noundef %and13, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %num_read.i)
   %cmp35.not = icmp eq i32 %call.i45, %and13
   br i1 %cmp35.not, label %for.body.preheader, label %return
 

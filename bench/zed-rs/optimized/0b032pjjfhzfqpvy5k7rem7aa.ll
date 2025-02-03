@@ -2358,7 +2358,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %6 = load ptr, ptr %5, align 8, !alias.scope !832, !noalias !830, !nonnull !7, !noundef !7
   %.promoted.i.i = load ptr, ptr %1, align 8, !alias.scope !832, !noalias !830
   %7 = icmp eq ptr %.promoted.i.i, %6
-  br i1 %7, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43d07ff939b14ecfE.llvm.8558902862996176100.exit.thread", label %.lr.ph.i.i
+  br i1 %7, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2401,9 +2401,9 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2a9f128e76c8f6e8E.exit.backedge.i.i": ; preds = %25, %18
   %30 = icmp eq ptr %20, %6
-  br i1 %30, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43d07ff939b14ecfE.llvm.8558902862996176100.exit.thread", label %18
+  br i1 %30, label %.loopexit, label %18
 
-"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43d07ff939b14ecfE.llvm.8558902862996176100.exit.thread": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2a9f128e76c8f6e8E.exit.backedge.i.i", %2
+.loopexit:                                        ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2a9f128e76c8f6e8E.exit.backedge.i.i", %2
   store i64 2, ptr %0, align 8
   br label %40
 
@@ -2436,7 +2436,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   store i64 %35, ptr %.sroa.5.0..sroa_idx, align 8
   br label %40
 
-40:                                               ; preds = %"_ZN67_$LT$language..LanguageServerName$u20$as$u20$core..clone..Clone$GT$5clone17h802d8f71f7317b33E.llvm.8558902862996176100.exit", %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43d07ff939b14ecfE.llvm.8558902862996176100.exit.thread"
+40:                                               ; preds = %"_ZN67_$LT$language..LanguageServerName$u20$as$u20$core..clone..Clone$GT$5clone17h802d8f71f7317b33E.llvm.8558902862996176100.exit", %.loopexit
   ret void
 }
 

@@ -5478,8 +5478,8 @@ phar_set_inode.exit:                              ; preds = %155, %165
 
 248:                                              ; preds = %246, %242
   %249 = phi ptr [ %247, %246 ], [ %243, %242 ]
-  %250 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %8, i64 noundef 0, ptr noundef nonnull @.str.258, ptr noundef %230, ptr noundef nonnull %249) #19
-  call void @_efree(ptr noundef %230) #19
+  %250 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %8, i64 noundef 0, ptr noundef nonnull @.str.258, ptr noundef nonnull %230, ptr noundef nonnull %249) #19
+  call void @_efree(ptr noundef nonnull %230) #19
   %251 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %223) #21
   %252 = sub i64 %251, %229
   %253 = call noalias ptr @_estrndup(ptr noundef nonnull %223, i64 noundef %252) #19

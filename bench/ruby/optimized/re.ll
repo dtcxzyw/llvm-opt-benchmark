@@ -8005,7 +8005,7 @@ rb_enc_asciicompat.exit:                          ; preds = %6
   br label %.loopexit
 
 rb_enc_asciicompat.exit.thread:                   ; preds = %37, %.lr.ph.split, %26, %25, %6, %15, %rb_enc_asciicompat.exit
-  %44 = call i32 @rb_enc_unicode_p(ptr noundef %3) #27
+  %44 = call i32 @rb_enc_unicode_p(ptr noundef nonnull %3) #27
   %45 = icmp ult ptr %1, %11
   br i1 %45, label %.lr.ph95, label %.loopexit
 
@@ -8017,7 +8017,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %37, %.lr.ph.split, 
 
 48:                                               ; preds = %.lr.ph95, %.backedge
   %.292 = phi ptr [ %1, %.lr.ph95 ], [ %.2.be, %.backedge ]
-  %49 = call i32 @rb_enc_ascget(ptr noundef %.292, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef %3) #28
+  %49 = call i32 @rb_enc_ascget(ptr noundef %.292, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %3) #28
   switch i32 %49, label %75 [
     i32 92, label %50
     i32 -1, label %61
@@ -8031,7 +8031,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %37, %.lr.ph.split, 
   br i1 %54, label %55, label %75
 
 55:                                               ; preds = %50
-  %56 = call i32 @rb_enc_mbclen(ptr noundef %53, ptr noundef nonnull %11, ptr noundef %3) #28
+  %56 = call i32 @rb_enc_mbclen(ptr noundef %53, ptr noundef nonnull %11, ptr noundef nonnull %3) #28
   %57 = add i32 %56, %51
   %58 = sext i32 %57 to i64
   %59 = call i64 @rb_str_cat(i64 noundef %0, ptr noundef %.292, i64 noundef %58) #28
@@ -8044,7 +8044,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %37, %.lr.ph.split, 
   br i1 %60, label %48, label %.loopexit, !llvm.loop !174
 
 61:                                               ; preds = %48
-  %62 = call i32 @rb_enc_precise_mbclen(ptr noundef %.292, ptr noundef nonnull %11, ptr noundef %3) #28
+  %62 = call i32 @rb_enc_precise_mbclen(ptr noundef %.292, ptr noundef nonnull %11, ptr noundef nonnull %3) #28
   store i32 %62, ptr %8, align 4
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %67, label %64
@@ -8060,7 +8060,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %37, %.lr.ph.split, 
 
 68:                                               ; preds = %67
   %69 = load ptr, ptr %46, align 8
-  %70 = call i32 %69(ptr noundef %.292, ptr noundef nonnull %11, ptr noundef %3) #28
+  %70 = call i32 %69(ptr noundef %.292, ptr noundef nonnull %11, ptr noundef nonnull %3) #28
   %71 = call i32 @rb_str_buf_cat_escaped_char(i64 noundef %0, i32 noundef %70, i32 noundef %44) #28
   br label %99
 
@@ -8083,7 +8083,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %37, %.lr.ph.split, 
 
 82:                                               ; preds = %75
   %83 = load ptr, ptr %47, align 8
-  %84 = call i32 %83(i32 noundef range(i32 0, -1) %49, i32 noundef 7, ptr noundef %3) #28
+  %84 = call i32 %83(i32 noundef range(i32 0, -1) %49, i32 noundef 7, ptr noundef nonnull %3) #28
   %.not89 = icmp eq i32 %84, 0
   br i1 %.not89, label %89, label %85
 

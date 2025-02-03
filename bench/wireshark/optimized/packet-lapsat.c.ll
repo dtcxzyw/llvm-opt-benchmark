@@ -333,9 +333,9 @@ define internal i32 @dissect_lapsat(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 73:                                               ; preds = %67, %63, %48
   %74 = load ptr, ptr %8, align 8
-  tail call void @col_add_str(ptr noundef %74, i32 noundef 25, ptr noundef %42) #3
+  tail call void @col_add_str(ptr noundef %74, i32 noundef 25, ptr noundef nonnull %42) #3
   %75 = load i32, ptr @hf_lapsat_ctl, align 4
-  %76 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %75, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef %45, ptr noundef nonnull @.str.119, ptr noundef %42, i32 noundef %45) #3
+  %76 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %75, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef %45, ptr noundef nonnull @.str.119, ptr noundef nonnull %42, i32 noundef %45) #3
   %77 = load i32, ptr @ett_lapsat_control, align 4
   %78 = tail call ptr @proto_item_add_subtree(ptr noundef %76, i32 noundef %77) #3
   %.not71.i = icmp eq i16 %46, 0

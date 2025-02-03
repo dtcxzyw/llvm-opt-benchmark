@@ -7106,7 +7106,7 @@ common.resume:                                    ; preds = %.thread55, %91
   br label %428
 
 464:                                              ; preds = %.noexc36, %.noexc34
-  %.0.i = phi ptr [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc34 ], [ %457, %.noexc36 ]
+  %.0.i = phi ptr [ %457, %.noexc36 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1404
   store ptr %.018104, ptr %45, align 8, !alias.scope !1401, !noalias !1415
   %465 = getelementptr inbounds nuw i8, ptr %45, i64 8

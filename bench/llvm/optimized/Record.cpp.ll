@@ -1377,7 +1377,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm11RecordRecTy3getERNS_12RecordKeep
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm6RecordEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11RecordRecTy3getERNS0_12RecordKeeperENS0_8ArrayRefIS2_EEE3$_0EEEvT_SE_T0_"(ptr noundef %18, ptr noundef nonnull %27)
+  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm6RecordEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11RecordRecTy3getERNS0_12RecordKeeperENS0_8ArrayRefIS2_EEE3$_0EEEvT_SE_T0_"(ptr noundef nonnull %18, ptr noundef nonnull %27)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm6RecordEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_11RecordRecTy3getERNS0_12RecordKeeperENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %26
@@ -1421,7 +1421,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm11RecordRecTy3getERNS_12RecordKeep
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_6RecordELj4EEEZNS_11RecordRecTy3getERNS_12RecordKeeperENS_8ArrayRefIS3_EEE3$_0EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !31
 
 42:                                               ; preds = %21
-  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm6RecordEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11RecordRecTy3getERNS0_12RecordKeeperENS0_8ArrayRefIS2_EEE3$_0EEEvT_SE_T0_"(ptr noundef %18, ptr noundef nonnull %20)
+  call fastcc void @"_ZSt16__insertion_sortIPPN4llvm6RecordEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11RecordRecTy3getERNS0_12RecordKeeperENS0_8ArrayRefIS2_EEE3$_0EEEvT_SE_T0_"(ptr noundef nonnull %18, ptr noundef nonnull %20)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_6RecordELj4EEEZNS_11RecordRecTy3getERNS_12RecordKeeperENS_8ArrayRefIS3_EEE3$_0EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorIPNS_6RecordELj4EEEZNS_11RecordRecTy3getERNS_12RecordKeeperENS_8ArrayRefIS3_EEE3$_0EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm6RecordEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_11RecordRecTy3getERNS0_12RecordKeeperENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %14, %42
@@ -25384,7 +25384,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %38, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN4llvm6RecordESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIvESaISE_EE24_M_get_insert_unique_posERS7_.exit, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #29
+  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #29
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %43 = icmp slt i32 %42, 0
@@ -25450,7 +25450,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %67, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN4llvm6RecordESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIvESaISE_EE24_M_get_insert_unique_posERS7_.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #29
+  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #29
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %70) #25
   %72 = icmp slt i32 %71, 0

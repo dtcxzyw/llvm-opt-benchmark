@@ -2081,7 +2081,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit478:             ; preds = %294
   br i1 %296, label %_ZN4llvmeqENS_9StringRefES0_.exit474.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit482:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit474
-  %bcmp.i481 = call i32 @bcmp(ptr %.sroa.02413.0.copyload.pre.pre.pre, ptr nonnull @.str.40, i64 %.sroa.73.0.copyload)
+  %bcmp.i481 = call i32 @bcmp(ptr nonnull %.sroa.02413.0.copyload.pre.pre.pre, ptr nonnull @.str.40, i64 %.sroa.73.0.copyload)
   %297 = icmp eq i32 %bcmp.i481, 0
   br i1 %297, label %_ZN4llvmeqENS_9StringRefES0_.exit474.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 

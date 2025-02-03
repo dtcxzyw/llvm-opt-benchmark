@@ -4035,7 +4035,7 @@ define hidden void @"_ZN4core3ptr155drop_in_place$LT$core..result..Result$LT$all
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !982)
   %6 = load ptr, ptr %5, align 8, !alias.scope !982, !noundef !9
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$tracing_opentelemetry..OtelData$GT$17hc6a879bba941f086E"(ptr noalias noundef align 8 dereferenceable(312) %6)
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$tracing_opentelemetry..OtelData$GT$17hc6a879bba941f086E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %6)
           to label %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$tracing_opentelemetry..OtelData$GT$$GT$17h96b601c9033affc3E.llvm.2123743330159991533.exit" unwind label %7, !noalias !982
 
 common.resume:                                    ; preds = %13, %7
@@ -4311,7 +4311,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$$RF$ockam_core..routing..mes
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$tracing_opentelemetry..OtelData$GT$$GT$17h96b601c9033affc3E.llvm.2123743330159991533"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !9
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$tracing_opentelemetry..OtelData$GT$17hc6a879bba941f086E"(ptr noalias noundef align 8 dereferenceable(312) %2)
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$tracing_opentelemetry..OtelData$GT$17hc6a879bba941f086E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %2)
           to label %5 unwind label %3
 
 3:                                                ; preds = %1

@@ -994,36 +994,53 @@ define hidden void @_ZN16JfrThreadSampler21on_javathread_suspendEP10JavaThread(p
 5:                                                ; preds = %1
   %6 = load ptr, ptr @JfrThreadSampler_lock, align 8
   %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %7
+  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
 
-7:                                                ; preds = %5
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 764
+  store volatile i32 1, ptr %7, align 4
+  %8 = load volatile i32, ptr %2, align 8
+  %9 = and i32 %8, 4
+  %.not.i58 = icmp eq i32 %9, 0
+  br i1 %.not.i58, label %._crit_edge, label %_ZN13MonitorLocker4waitEl.exit.preheader
+
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread: ; preds = %5
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #18
-  br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 764
+  store volatile i32 1, ptr %10, align 4
+  %11 = load volatile i32, ptr %2, align 8
+  %12 = and i32 %11, 4
+  %.not.i589 = icmp eq i32 %12, 0
+  br i1 %.not.i589, label %._crit_edge.thread10, label %_ZN13MonitorLocker4waitEl.exit.preheader
 
-_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %5, %7
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 764
-  store volatile i32 1, ptr %8, align 4
-  %9 = load volatile i32, ptr %2, align 8
-  %10 = and i32 %9, 4
-  %.not.i58 = icmp eq i32 %10, 0
-  br i1 %.not.i58, label %._crit_edge, label %_ZN13MonitorLocker4waitEl.exit
+._crit_edge.thread10:                             ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
+  store volatile i32 0, ptr %10, align 4
+  br label %17
 
-_ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %_ZN13MonitorLocker4waitEl.exit
-  %11 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %6, i64 noundef 0) #18
-  %12 = load volatile i32, ptr %2, align 8
-  %13 = and i32 %12, 4
-  %.not.i5 = icmp eq i32 %13, 0
-  br i1 %.not.i5, label %._crit_edge, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !15
+_ZN13MonitorLocker4waitEl.exit.preheader:         ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  %13 = phi ptr [ %10, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread ], [ %7, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ]
+  br label %_ZN13MonitorLocker4waitEl.exit
 
-._crit_edge:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  store volatile i32 0, ptr %8, align 4
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %14
+_ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLocker4waitEl.exit.preheader, %_ZN13MonitorLocker4waitEl.exit
+  %14 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %6, i64 noundef 0) #18
+  %15 = load volatile i32, ptr %2, align 8
+  %16 = and i32 %15, 4
+  %.not.i5 = icmp eq i32 %16, 0
+  br i1 %.not.i5, label %._crit_edge.thread, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !15
 
-14:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %_ZN13MonitorLocker4waitEl.exit
+  store volatile i32 0, ptr %13, align 4
+  br label %17
+
+._crit_edge:                                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  store volatile i32 0, ptr %7, align 4
+  br label %_ZN13MonitorLockerD2Ev.exit
+
+17:                                               ; preds = %._crit_edge.thread10, %._crit_edge.thread
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #18
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %14, %._crit_edge, %1
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %17, %1
   ret void
 }
 
@@ -1979,36 +1996,53 @@ define hidden void @_ZN17JfrThreadSampling21on_javathread_suspendEP10JavaThread(
 5:                                                ; preds = %1
   %6 = load ptr, ptr @JfrThreadSampler_lock, align 8
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i, label %7
+  br i1 %.not.i.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i
 
-7:                                                ; preds = %5
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i: ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 764
+  store volatile i32 1, ptr %7, align 4
+  %8 = load volatile i32, ptr %2, align 8
+  %9 = and i32 %8, 4
+  %.not.i58.i = icmp eq i32 %9, 0
+  br i1 %.not.i58.i, label %._crit_edge.i, label %_ZN13MonitorLocker4waitEl.exit.preheader.i
+
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i: ; preds = %5
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #18
-  br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 764
+  store volatile i32 1, ptr %10, align 4
+  %11 = load volatile i32, ptr %2, align 8
+  %12 = and i32 %11, 4
+  %.not.i589.i = icmp eq i32 %12, 0
+  br i1 %.not.i589.i, label %._crit_edge.thread10.i, label %_ZN13MonitorLocker4waitEl.exit.preheader.i
 
-_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i: ; preds = %7, %5
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 764
-  store volatile i32 1, ptr %8, align 4
-  %9 = load volatile i32, ptr %2, align 8
-  %10 = and i32 %9, 4
-  %.not.i58.i = icmp eq i32 %10, 0
-  br i1 %.not.i58.i, label %._crit_edge.i, label %_ZN13MonitorLocker4waitEl.exit.i
+._crit_edge.thread10.i:                           ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i
+  store volatile i32 0, ptr %10, align 4
+  br label %17
 
-_ZN13MonitorLocker4waitEl.exit.i:                 ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i, %_ZN13MonitorLocker4waitEl.exit.i
-  %11 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %6, i64 noundef 0) #18
-  %12 = load volatile i32, ptr %2, align 8
-  %13 = and i32 %12, 4
-  %.not.i5.i = icmp eq i32 %13, 0
-  br i1 %.not.i5.i, label %._crit_edge.i, label %_ZN13MonitorLocker4waitEl.exit.i, !llvm.loop !15
+_ZN13MonitorLocker4waitEl.exit.preheader.i:       ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i
+  %13 = phi ptr [ %10, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i ], [ %7, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i ]
+  br label %_ZN13MonitorLocker4waitEl.exit.i
 
-._crit_edge.i:                                    ; preds = %_ZN13MonitorLocker4waitEl.exit.i, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i
-  store volatile i32 0, ptr %8, align 4
-  br i1 %.not.i.i.i, label %_ZN16JfrThreadSampler21on_javathread_suspendEP10JavaThread.exit, label %14
+_ZN13MonitorLocker4waitEl.exit.i:                 ; preds = %_ZN13MonitorLocker4waitEl.exit.i, %_ZN13MonitorLocker4waitEl.exit.preheader.i
+  %14 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %6, i64 noundef 0) #18
+  %15 = load volatile i32, ptr %2, align 8
+  %16 = and i32 %15, 4
+  %.not.i5.i = icmp eq i32 %16, 0
+  br i1 %.not.i5.i, label %._crit_edge.thread.i, label %_ZN13MonitorLocker4waitEl.exit.i, !llvm.loop !15
 
-14:                                               ; preds = %._crit_edge.i
+._crit_edge.thread.i:                             ; preds = %_ZN13MonitorLocker4waitEl.exit.i
+  store volatile i32 0, ptr %13, align 4
+  br label %17
+
+._crit_edge.i:                                    ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.i
+  store volatile i32 0, ptr %7, align 4
+  br label %_ZN16JfrThreadSampler21on_javathread_suspendEP10JavaThread.exit
+
+17:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.thread10.i
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #18
   br label %_ZN16JfrThreadSampler21on_javathread_suspendEP10JavaThread.exit
 
-_ZN16JfrThreadSampler21on_javathread_suspendEP10JavaThread.exit: ; preds = %1, %._crit_edge.i, %14
+_ZN16JfrThreadSampler21on_javathread_suspendEP10JavaThread.exit: ; preds = %1, %._crit_edge.i, %17
   ret void
 }
 

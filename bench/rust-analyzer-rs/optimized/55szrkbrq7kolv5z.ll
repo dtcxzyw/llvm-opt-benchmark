@@ -1717,7 +1717,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 15:                                               ; preds = %11
   %16 = extractvalue { ptr, i64 } %7, 0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !401
-  invoke void @_ZN10hir_expand4name4Name11to_smol_str17h99d8aed792dba183E(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %16)
+  invoke void @_ZN10hir_expand4name4Name11to_smol_str17h99d8aed792dba183E(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
           to label %"_ZN7hir_def7nameres9collector12DefCollector19seed_with_top_level28_$u7b$$u7b$closure$u7d$$u7d$17hfcb1ab6dd738f854E.llvm.15956212377945586164.exit.i" unwind label %8
 
 17:                                               ; preds = %8
@@ -7740,8 +7740,6 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$L
 
 23:                                               ; preds = %13
   %24 = mul nsw i64 %.8.val, 24
-  %25 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %25)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %24, i64 noundef 8) #49
   resume { ptr, i32 } %16
 }
@@ -8077,7 +8075,7 @@ define hidden void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$
 14:                                               ; preds = %10
   %15 = extractvalue { ptr, i64 } %6, 0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3764
-  invoke void @_ZN10hir_expand4name4Name11to_smol_str17h99d8aed792dba183E(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %15)
+  invoke void @_ZN10hir_expand4name4Name11to_smol_str17h99d8aed792dba183E(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %"_ZN7hir_def7nameres9collector12DefCollector19seed_with_top_level28_$u7b$$u7b$closure$u7d$$u7d$17hfcb1ab6dd738f854E.llvm.15956212377945586164.exit" unwind label %7
 
 16:                                               ; preds = %7
@@ -46410,7 +46408,7 @@ define hidden { i32, i32 } @"_ZN7hir_def2db19include_macro_invoc28_$u7b$$u7b$clo
 16:                                               ; preds = %3
   %17 = extractvalue { ptr, ptr } %13, 0
   %18 = extractvalue { ptr, ptr } %13, 1
-  %19 = invoke { i32, i32 } @_ZN10hir_expand12MacroCallLoc15include_file_id17hd0940473addc4325E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noundef nonnull align 1 %17, ptr noalias noundef readonly align 8 dereferenceable(24) %18, i32 noundef %8)
+  %19 = invoke { i32, i32 } @_ZN10hir_expand12MacroCallLoc15include_file_id17hd0940473addc4325E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noundef nonnull align 1 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, i32 noundef %8)
           to label %20 unwind label %14
 
 20:                                               ; preds = %16
@@ -53434,7 +53432,7 @@ _ZN7hir_def9item_tree5lower3Ctx8span_map17h45c35593ec05e314E.exit: ; preds = %.n
   %65 = extractvalue { ptr, ptr } %26, 0
   %66 = extractvalue { i64, ptr } %63, 0
   %67 = extractvalue { i64, ptr } %63, 1
-  %68 = invoke noundef ptr @_ZN10hir_expand5attrs8RawAttrs3new17ha617572fd635b9d0E(ptr noundef nonnull align 1 %65, ptr noalias noundef readonly align 8 dereferenceable(24) %64, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9168b999b9c224f989ddd06513bde793.219, i64 noundef %66, ptr noundef %67)
+  %68 = invoke noundef ptr @_ZN10hir_expand5attrs8RawAttrs3new17ha617572fd635b9d0E(ptr noundef nonnull align 1 %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9168b999b9c224f989ddd06513bde793.219, i64 noundef %66, ptr noundef %67)
           to label %71 unwind label %16
 
 69:                                               ; preds = %71
@@ -54287,7 +54285,7 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
   %88 = getelementptr inbounds nuw [0 x { { { i8, [23 x i8] } }, ptr, { i32, i32 }, i32, i32 }], ptr %83, i64 0, i64 %61
   %89 = extractvalue { ptr, ptr } %86, 0
   %90 = extractvalue { ptr, ptr } %86, 1
-  %91 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %88, ptr noundef nonnull align 1 %89, ptr noalias noundef readonly align 8 dereferenceable(24) %90)
+  %91 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %88, ptr noundef nonnull align 1 %89, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %90)
           to label %92 unwind label %79
 
 92:                                               ; preds = %87
@@ -54363,7 +54361,7 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
   %122 = getelementptr inbounds nuw [0 x { { { i8, [23 x i8] } }, i32, { i32, [2 x i32] } }], ptr %119, i64 0, i64 %104
   %123 = extractvalue { ptr, ptr } %120, 0
   %124 = extractvalue { ptr, ptr } %120, 1
-  %125 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %122, ptr noundef nonnull align 1 %123, ptr noalias noundef readonly align 8 dereferenceable(24) %124)
+  %125 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %122, ptr noundef nonnull align 1 %123, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %124)
           to label %126 unwind label %109
 
 126:                                              ; preds = %121
@@ -59576,7 +59574,7 @@ define hidden void @"_ZN7hir_def7nameres9collector12DefCollector19seed_with_top_
 13:                                               ; preds = %10
   %14 = extractvalue { ptr, i64 } %6, 0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  invoke void @_ZN10hir_expand4name4Name11to_smol_str17h99d8aed792dba183E(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %14)
+  invoke void @_ZN10hir_expand4name4Name11to_smol_str17h99d8aed792dba183E(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %16 unwind label %7
 
 15:                                               ; preds = %10

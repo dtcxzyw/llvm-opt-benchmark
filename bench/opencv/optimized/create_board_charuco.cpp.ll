@@ -596,7 +596,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 179:                                              ; preds = %164
   %180 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %165) #11
+  call void @__cxa_free_exception(ptr nonnull %165) #11
   br label %182
 
 181:                                              ; preds = %163

@@ -72626,12 +72626,12 @@ _ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit: ; pr
   %.not164 = icmp eq i32 %53, 0
   br i1 %.not164, label %110, label %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit.thread
 
-.loopexit169:                                     ; preds = %231, %245
+.loopexit169:                                     ; preds = %230, %244
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit65
 
-.loopexit.split-lp.loopexit:                      ; preds = %137, %135, %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS3_IKiS7_EEEEE5resetEPSE_.exit.i.i70, %121
+.loopexit.split-lp.loopexit:                      ; preds = %136, %134, %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS3_IKiS7_EEEEE5resetEPSE_.exit.i.i70, %121
   %lpad.loopexit170 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit65
@@ -72870,141 +72870,137 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIiSt4pairIP20
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %130) #52
   %.not165 = icmp eq ptr %storemerge, %131
-  br i1 %.not165, label %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit.thread, label %132
+  br i1 %.not165, label %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit.thread, label %_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS3_IKiS7_EEEEE8isSharedEv.exit.i
 
-132:                                              ; preds = %.lr.ph.i.i.i
-  %133 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %storemerge) #52
-  %.not.i108 = icmp eq ptr %129, null
-  br i1 %.not.i108, label %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE5eraseENS5_14const_iteratorE.exit, label %_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS3_IKiS7_EEEEE8isSharedEv.exit.i
+_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS3_IKiS7_EEEEE8isSharedEv.exit.i: ; preds = %.lr.ph.i.i.i
+  %132 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %storemerge) #52
+  %133 = load atomic i32, ptr %129 monotonic, align 4
+  %.not10.i = icmp eq i32 %133, 1
+  br i1 %.not10.i, label %134, label %136
 
-_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS3_IKiS7_EEEEE8isSharedEv.exit.i: ; preds = %132
-  %134 = load atomic i32, ptr %129 monotonic, align 4
-  %.not10.i = icmp eq i32 %134, 1
-  br i1 %.not10.i, label %135, label %137
-
-135:                                              ; preds = %_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS3_IKiS7_EEEEE8isSharedEv.exit.i
-  %136 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiS0_IP20QCPAbstractPlottable16QCPDataSelectionEESt10_Select1stIS6_ESt4lessIiESaIS6_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS6_ESE_(ptr noundef nonnull align 8 dereferenceable(48) %136, ptr %storemerge, ptr %133)
+134:                                              ; preds = %_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS3_IKiS7_EEEEE8isSharedEv.exit.i
+  %135 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiS0_IP20QCPAbstractPlottable16QCPDataSelectionEESt10_Select1stIS6_ESt4lessIiESaIS6_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS6_ESE_(ptr noundef nonnull align 8 dereferenceable(48) %135, ptr %storemerge, ptr %132)
           to label %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE5eraseENS5_14const_iteratorE.exit unwind label %.loopexit.split-lp.loopexit
 
-137:                                              ; preds = %_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS3_IKiS7_EEEEE8isSharedEv.exit.i
-  %138 = invoke { ptr, ptr } @_ZNK8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEE5eraseESt23_Rb_tree_const_iteratorIS9_ESE_(ptr noundef nonnull align 8 dereferenceable(56) %129, ptr %storemerge, ptr %133)
+136:                                              ; preds = %_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS3_IKiS7_EEEEE8isSharedEv.exit.i
+  %137 = invoke { ptr, ptr } @_ZNK8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEE5eraseESt23_Rb_tree_const_iteratorIS9_ESE_(ptr noundef nonnull align 8 dereferenceable(56) %129, ptr %storemerge, ptr %132)
           to label %.noexc111 unwind label %.loopexit.split-lp.loopexit
 
-.noexc111:                                        ; preds = %137
-  %139 = extractvalue { ptr, ptr } %138, 0
-  %140 = extractvalue { ptr, ptr } %138, 1
-  %141 = load ptr, ptr %6, align 8
-  %.not.i9.i = icmp eq ptr %141, null
-  br i1 %.not.i9.i, label %154, label %142
+.noexc111:                                        ; preds = %136
+  %138 = extractvalue { ptr, ptr } %137, 0
+  %139 = extractvalue { ptr, ptr } %137, 1
+  %140 = load ptr, ptr %6, align 8
+  %.not.i9.i = icmp eq ptr %140, null
+  br i1 %.not.i9.i, label %153, label %141
 
-142:                                              ; preds = %.noexc111
-  %143 = atomicrmw sub ptr %141, i32 1 seq_cst, align 4
-  %.not5.i.i = icmp eq i32 %143, 1
-  br i1 %.not5.i.i, label %144, label %154
+141:                                              ; preds = %.noexc111
+  %142 = atomicrmw sub ptr %140, i32 1 seq_cst, align 4
+  %.not5.i.i = icmp eq i32 %142, 1
+  br i1 %.not5.i.i, label %143, label %153
 
-144:                                              ; preds = %142
-  %145 = load ptr, ptr %6, align 8
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %154, label %147
+143:                                              ; preds = %141
+  %144 = load ptr, ptr %6, align 8
+  %145 = icmp eq ptr %144, null
+  br i1 %145, label %153, label %146
 
-147:                                              ; preds = %144
-  %148 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %149 = getelementptr inbounds nuw i8, ptr %145, i64 24
-  %150 = load ptr, ptr %149, align 8
-  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiS0_IP20QCPAbstractPlottable16QCPDataSelectionEESt10_Select1stIS6_ESt4lessIiESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %148, ptr noundef %150)
-          to label %_ZN8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEED2Ev.exit.i.i109 unwind label %151
+146:                                              ; preds = %143
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  %149 = load ptr, ptr %148, align 8
+  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiS0_IP20QCPAbstractPlottable16QCPDataSelectionEESt10_Select1stIS6_ESt4lessIiESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %147, ptr noundef %149)
+          to label %_ZN8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEED2Ev.exit.i.i109 unwind label %150
 
-151:                                              ; preds = %147
-  %152 = landingpad { ptr, i32 }
+150:                                              ; preds = %146
+  %151 = landingpad { ptr, i32 }
           catch ptr null
-  %153 = extractvalue { ptr, i32 } %152, 0
-  call void @__clang_call_terminate(ptr %153) #49
+  %152 = extractvalue { ptr, i32 } %151, 0
+  call void @__clang_call_terminate(ptr %152) #49
   unreachable
 
-_ZN8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEED2Ev.exit.i.i109: ; preds = %147
-  call void @_ZdlPv(ptr noundef nonnull %145) #50
-  br label %154
+_ZN8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEED2Ev.exit.i.i109: ; preds = %146
+  call void @_ZdlPv(ptr noundef nonnull %144) #50
+  br label %153
 
-154:                                              ; preds = %_ZN8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEED2Ev.exit.i.i109, %144, %142, %.noexc111
-  store ptr %139, ptr %6, align 8
-  %.not4.i.i = icmp eq ptr %139, null
-  br i1 %.not4.i.i, label %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE5eraseENS5_14const_iteratorE.exit, label %155
+153:                                              ; preds = %_ZN8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEED2Ev.exit.i.i109, %143, %141, %.noexc111
+  store ptr %138, ptr %6, align 8
+  %.not4.i.i = icmp eq ptr %138, null
+  br i1 %.not4.i.i, label %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE5eraseENS5_14const_iteratorE.exit, label %154
 
-155:                                              ; preds = %154
-  %156 = atomicrmw add ptr %139, i32 1 seq_cst, align 4
+154:                                              ; preds = %153
+  %155 = atomicrmw add ptr %138, i32 1 seq_cst, align 4
   br label %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE5eraseENS5_14const_iteratorE.exit
 
-_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE5eraseENS5_14const_iteratorE.exit: ; preds = %155, %154, %132, %135
-  %.sroa.0.0.i = phi ptr [ null, %132 ], [ %140, %154 ], [ %140, %155 ], [ %133, %135 ]
+_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE5eraseENS5_14const_iteratorE.exit: ; preds = %154, %153, %134
+  %.sroa.0.0.i = phi ptr [ %139, %153 ], [ %139, %154 ], [ %132, %134 ]
   %.pr = load ptr, ptr %6, align 8
   br label %119
 
 _ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit.thread: ; preds = %.lr.ph.i.i.i, %110, %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit, %_ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit
-  %157 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sroa.0.0.copyload.i = load i32, ptr %157, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %159 = load i32, ptr %158, align 4
-  %.not.i.i75 = icmp eq i32 %159, 0
-  %160 = and i32 %159, %.sroa.0.0.copyload.i
-  %161 = icmp eq i32 %160, %159
-  %162 = icmp eq i32 %.sroa.0.0.copyload.i, 0
-  %163 = select i1 %.not.i.i75, i1 %162, i1 %161
-  br i1 %163, label %223, label %164
+  %156 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sroa.0.0.copyload.i = load i32, ptr %156, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 316
+  %158 = load i32, ptr %157, align 4
+  %.not.i.i75 = icmp eq i32 %158, 0
+  %159 = and i32 %158, %.sroa.0.0.copyload.i
+  %160 = icmp eq i32 %159, %158
+  %161 = icmp eq i32 %.sroa.0.0.copyload.i, 0
+  %162 = select i1 %.not.i.i75, i1 %161, i1 %160
+  br i1 %162, label %222, label %163
 
-164:                                              ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit.thread
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %166 = load ptr, ptr %165, align 8, !noalias !663
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %168 = load ptr, ptr %167, align 8, !noalias !663
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %170 = load i64, ptr %169, align 8, !noalias !663
-  %.not.i.i.i.i.i76 = icmp eq ptr %166, null
-  br i1 %.not.i.i.i.i.i76, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP8QCPLayerEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %171
+163:                                              ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit.thread
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %165 = load ptr, ptr %164, align 8, !noalias !663
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %167 = load ptr, ptr %166, align 8, !noalias !663
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %169 = load i64, ptr %168, align 8, !noalias !663
+  %.not.i.i.i.i.i76 = icmp eq ptr %165, null
+  br i1 %.not.i.i.i.i.i76, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP8QCPLayerEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %170
 
-171:                                              ; preds = %164
-  %172 = atomicrmw add ptr %166, i32 1 seq_cst, align 4, !noalias !663
+170:                                              ; preds = %163
+  %171 = atomicrmw add ptr %165, i32 1 seq_cst, align 4, !noalias !663
   br label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP8QCPLayerEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
 
-_ZN9QtPrivate21qMakeForeachContainerIR5QListIP8QCPLayerEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %164, %171
-  %173 = getelementptr ptr, ptr %168, i64 %170
-  %.idx.mask193 = and i64 %170, 2305843009213693951
+_ZN9QtPrivate21qMakeForeachContainerIR5QListIP8QCPLayerEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %163, %170
+  %172 = getelementptr ptr, ptr %167, i64 %169
+  %.idx.mask193 = and i64 %169, 2305843009213693951
   %.not166187 = icmp eq i64 %.idx.mask193, 0
   br i1 %.not166187, label %._crit_edge191, label %.lr.ph190
 
 ._crit_edge191:                                   ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP8QCPLayerEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
   %.3.lcssa = phi i8 [ 0, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP8QCPLayerEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ], [ %.4.lcssa, %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit ]
-  br i1 %.not.i.i.i.i.i76, label %223, label %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i
+  br i1 %.not.i.i.i.i.i76, label %222, label %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i
 
 _ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i: ; preds = %._crit_edge191
-  %174 = atomicrmw sub ptr %166, i32 1 seq_cst, align 4
-  %.not.i.i.i78 = icmp eq i32 %174, 1
-  br i1 %.not.i.i.i78, label %175, label %223
+  %173 = atomicrmw sub ptr %165, i32 1 seq_cst, align 4
+  %.not.i.i.i78 = icmp eq i32 %173, 1
+  br i1 %.not.i.i.i78, label %174, label %222
 
-175:                                              ; preds = %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %166, i64 noundef 8, i64 noundef 8) #48
-  br label %223
+174:                                              ; preds = %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %165, i64 noundef 8, i64 noundef 8) #48
+  br label %222
 
 .lr.ph190:                                        ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP8QCPLayerEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit
   %.3189 = phi i8 [ %.4.lcssa, %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit ], [ 0, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP8QCPLayerEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
-  %.sroa.9136.0188 = phi ptr [ %188, %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit ], [ %168, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP8QCPLayerEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
-  %176 = load ptr, ptr %.sroa.9136.0188, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 56
-  %178 = load ptr, ptr %177, align 8, !noalias !666
-  %179 = getelementptr inbounds nuw i8, ptr %176, i64 64
-  %180 = load ptr, ptr %179, align 8, !noalias !666
-  %181 = getelementptr inbounds nuw i8, ptr %176, i64 72
-  %182 = load i64, ptr %181, align 8, !noalias !666
-  %.not.i.i.i.i79 = icmp eq ptr %178, null
-  br i1 %.not.i.i.i.i79, label %_ZN5QListIP12QCPLayerableED2Ev.exit, label %183
+  %.sroa.9136.0188 = phi ptr [ %187, %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit ], [ %167, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP8QCPLayerEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
+  %175 = load ptr, ptr %.sroa.9136.0188, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 56
+  %177 = load ptr, ptr %176, align 8, !noalias !666
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 64
+  %179 = load ptr, ptr %178, align 8, !noalias !666
+  %180 = getelementptr inbounds nuw i8, ptr %175, i64 72
+  %181 = load i64, ptr %180, align 8, !noalias !666
+  %.not.i.i.i.i79 = icmp eq ptr %177, null
+  br i1 %.not.i.i.i.i79, label %_ZN5QListIP12QCPLayerableED2Ev.exit, label %182
 
-183:                                              ; preds = %.lr.ph190
-  %184 = atomicrmw add ptr %178, i32 1 seq_cst, align 4, !noalias !666
+182:                                              ; preds = %.lr.ph190
+  %183 = atomicrmw add ptr %177, i32 1 seq_cst, align 4, !noalias !666
   br label %_ZN5QListIP12QCPLayerableED2Ev.exit
 
-_ZN5QListIP12QCPLayerableED2Ev.exit:              ; preds = %.lr.ph190, %183
-  %185 = getelementptr ptr, ptr %180, i64 %182
-  %.idx.mask194 = and i64 %182, 2305843009213693951
+_ZN5QListIP12QCPLayerableED2Ev.exit:              ; preds = %.lr.ph190, %182
+  %184 = getelementptr ptr, ptr %179, i64 %181
+  %.idx.mask194 = and i64 %181, 2305843009213693951
   %.not167182 = icmp eq i64 %.idx.mask194, 0
   br i1 %.not167182, label %._crit_edge186, label %.lr.ph185
 
@@ -73013,248 +73009,248 @@ _ZN5QListIP12QCPLayerableED2Ev.exit:              ; preds = %.lr.ph190, %183
   br i1 %.not.i.i.i.i79, label %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit, label %_ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i
 
 _ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i: ; preds = %._crit_edge186
-  %186 = atomicrmw sub ptr %178, i32 1 seq_cst, align 4
-  %.not.i.i.i83 = icmp eq i32 %186, 1
-  br i1 %.not.i.i.i83, label %187, label %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit
+  %185 = atomicrmw sub ptr %177, i32 1 seq_cst, align 4
+  %.not.i.i.i83 = icmp eq i32 %185, 1
+  br i1 %.not.i.i.i83, label %186, label %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit
 
-187:                                              ; preds = %_ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %178, i64 noundef 8, i64 noundef 8) #48
+186:                                              ; preds = %_ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %177, i64 noundef 8, i64 noundef 8) #48
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit
 
-_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit: ; preds = %._crit_edge186, %_ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i, %187
-  %188 = getelementptr i8, ptr %.sroa.9136.0188, i64 8
-  %.not166 = icmp eq ptr %188, %173
+_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit: ; preds = %._crit_edge186, %_ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i, %186
+  %187 = getelementptr i8, ptr %.sroa.9136.0188, i64 8
+  %.not166 = icmp eq ptr %187, %172
   br i1 %.not166, label %._crit_edge191, label %.lr.ph190, !llvm.loop !669
 
-189:                                              ; preds = %213, %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93.thread
-  %190 = landingpad { ptr, i32 }
+188:                                              ; preds = %212, %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93.thread
+  %189 = landingpad { ptr, i32 }
           cleanup
   br i1 %.not.i.i.i.i79, label %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit91, label %_ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i89
 
-_ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i89: ; preds = %189
-  %191 = atomicrmw sub ptr %178, i32 1 seq_cst, align 4
-  %.not.i.i.i90 = icmp eq i32 %191, 1
-  br i1 %.not.i.i.i90, label %192, label %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit91
+_ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i89: ; preds = %188
+  %190 = atomicrmw sub ptr %177, i32 1 seq_cst, align 4
+  %.not.i.i.i90 = icmp eq i32 %190, 1
+  br i1 %.not.i.i.i90, label %191, label %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit91
 
-192:                                              ; preds = %_ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i89
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %178, i64 noundef 8, i64 noundef 8) #48
+191:                                              ; preds = %_ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i89
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %177, i64 noundef 8, i64 noundef 8) #48
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit91
 
 .lr.ph185:                                        ; preds = %_ZN5QListIP12QCPLayerableED2Ev.exit, %.critedge
   %.4184 = phi i8 [ %.5, %.critedge ], [ %.3189, %_ZN5QListIP12QCPLayerableED2Ev.exit ]
-  %.sroa.7127.0183 = phi ptr [ %220, %.critedge ], [ %180, %_ZN5QListIP12QCPLayerableED2Ev.exit ]
-  %193 = load ptr, ptr %.sroa.7127.0183, align 8
-  %194 = load ptr, ptr %6, align 8
-  %.not.i92 = icmp eq ptr %194, null
+  %.sroa.7127.0183 = phi ptr [ %219, %.critedge ], [ %179, %_ZN5QListIP12QCPLayerableED2Ev.exit ]
+  %192 = load ptr, ptr %.sroa.7127.0183, align 8
+  %193 = load ptr, ptr %6, align 8
+  %.not.i92 = icmp eq ptr %193, null
   br i1 %.not.i92, label %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93.thread, label %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93
 
 _ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93: ; preds = %.lr.ph185
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 48
-  %196 = load i64, ptr %195, align 8
-  %197 = icmp eq i64 %196, 0
-  br i1 %197, label %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93.thread, label %198
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 48
+  %195 = load i64, ptr %194, align 8
+  %196 = icmp eq i64 %195, 0
+  br i1 %196, label %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93.thread, label %197
 
-198:                                              ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93
-  %199 = getelementptr inbounds nuw i8, ptr %194, i64 32
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 40
-  %202 = load ptr, ptr %201, align 8
-  %.not33 = icmp eq ptr %202, %193
+197:                                              ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93
+  %198 = getelementptr inbounds nuw i8, ptr %193, i64 32
+  %199 = load ptr, ptr %198, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 40
+  %201 = load ptr, ptr %200, align 8
+  %.not33 = icmp eq ptr %201, %192
   br i1 %.not33, label %.critedge, label %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93.thread
 
-_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93.thread: ; preds = %.lr.ph185, %198, %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93
-  %203 = load ptr, ptr %193, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 112
-  %205 = load ptr, ptr %204, align 8
-  %206 = invoke noundef i32 %205(ptr noundef nonnull align 8 dereferenceable(57) %193)
-          to label %207 unwind label %189
+_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93.thread: ; preds = %.lr.ph185, %197, %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93
+  %202 = load ptr, ptr %192, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 112
+  %204 = load ptr, ptr %203, align 8
+  %205 = invoke noundef i32 %204(ptr noundef nonnull align 8 dereferenceable(57) %192)
+          to label %206 unwind label %188
 
-207:                                              ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93.thread
-  %.not.i.i95 = icmp eq i32 %206, 0
-  %208 = load i32, ptr %17, align 8
-  %209 = and i32 %208, %206
-  %210 = icmp eq i32 %209, %206
-  %211 = icmp eq i32 %208, 0
-  %212 = select i1 %.not.i.i95, i1 %211, i1 %210
-  br i1 %212, label %213, label %.critedge
+206:                                              ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit93.thread
+  %.not.i.i95 = icmp eq i32 %205, 0
+  %207 = load i32, ptr %17, align 8
+  %208 = and i32 %207, %205
+  %209 = icmp eq i32 %208, %205
+  %210 = icmp eq i32 %207, 0
+  %211 = select i1 %.not.i.i95, i1 %210, i1 %209
+  br i1 %211, label %212, label %.critedge
 
-213:                                              ; preds = %207
+212:                                              ; preds = %206
   store i8 0, ptr %13, align 1
-  %214 = load ptr, ptr %193, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 152
-  %216 = load ptr, ptr %215, align 8
-  invoke void %216(ptr noundef nonnull align 8 dereferenceable(57) %193, ptr noundef nonnull %13)
-          to label %217 unwind label %189
+  %213 = load ptr, ptr %192, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 152
+  %215 = load ptr, ptr %214, align 8
+  invoke void %215(ptr noundef nonnull align 8 dereferenceable(57) %192, ptr noundef nonnull %13)
+          to label %216 unwind label %188
 
-217:                                              ; preds = %213
-  %218 = load i8, ptr %13, align 1
-  %219 = or i8 %218, %.4184
+216:                                              ; preds = %212
+  %217 = load i8, ptr %13, align 1
+  %218 = or i8 %217, %.4184
   br label %.critedge
 
-.critedge:                                        ; preds = %207, %217, %198
-  %.5 = phi i8 [ %219, %217 ], [ %.4184, %207 ], [ %.4184, %198 ]
-  %220 = getelementptr i8, ptr %.sroa.7127.0183, i64 8
-  %.not167 = icmp eq ptr %220, %185
+.critedge:                                        ; preds = %206, %216, %197
+  %.5 = phi i8 [ %218, %216 ], [ %.4184, %206 ], [ %.4184, %197 ]
+  %219 = getelementptr i8, ptr %.sroa.7127.0183, i64 8
+  %.not167 = icmp eq ptr %219, %184
   br i1 %.not167, label %._crit_edge186, label %.lr.ph185, !llvm.loop !670
 
-_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit91: ; preds = %192, %_ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i89, %189
+_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit91: ; preds = %191, %_ZN17QArrayDataPointerIP12QCPLayerableE5derefEv.exit.i.i.i89, %188
   br i1 %.not.i.i.i.i.i76, label %_ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit65, label %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i97
 
 _ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i97: ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit91
-  %221 = atomicrmw sub ptr %166, i32 1 seq_cst, align 4
-  %.not.i.i.i98 = icmp eq i32 %221, 1
-  br i1 %.not.i.i.i98, label %222, label %_ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit65
+  %220 = atomicrmw sub ptr %165, i32 1 seq_cst, align 4
+  %.not.i.i.i98 = icmp eq i32 %220, 1
+  br i1 %.not.i.i.i98, label %221, label %_ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit65
 
-222:                                              ; preds = %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i97
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %166, i64 noundef 8, i64 noundef 8) #48
+221:                                              ; preds = %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i97
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %165, i64 noundef 8, i64 noundef 8) #48
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit65
 
-223:                                              ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit.thread, %._crit_edge191, %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i, %175
-  %.2 = phi i8 [ 0, %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit.thread ], [ %.3.lcssa, %._crit_edge191 ], [ %.3.lcssa, %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i ], [ %.3.lcssa, %175 ]
-  %224 = load ptr, ptr %6, align 8
-  %.not.i.i100 = icmp eq ptr %224, null
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
-  %.sroa.0.0.i.i101 = select i1 %.not.i.i100, ptr null, ptr %225
-  br label %226
+222:                                              ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit.thread, %._crit_edge191, %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i, %174
+  %.2 = phi i8 [ 0, %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE7isEmptyEv.exit.thread ], [ %.3.lcssa, %._crit_edge191 ], [ %.3.lcssa, %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i ], [ %.3.lcssa, %174 ]
+  %223 = load ptr, ptr %6, align 8
+  %.not.i.i100 = icmp eq ptr %223, null
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
+  %.sroa.0.0.i.i101 = select i1 %.not.i.i100, ptr null, ptr %224
+  br label %225
 
-226:                                              ; preds = %256, %223
-  %227 = phi ptr [ %.pr161, %256 ], [ %224, %223 ]
-  %.sroa.0112.0 = phi ptr [ %232, %256 ], [ %.sroa.0.0.i.i101, %223 ]
-  %.6 = phi i8 [ %.7, %256 ], [ %.2, %223 ]
-  %.not.i.i102 = icmp eq ptr %227, null
-  br i1 %.not.i.i102, label %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE10constBeginEv.exit104, label %228
+225:                                              ; preds = %255, %222
+  %226 = phi ptr [ %.pr161, %255 ], [ %223, %222 ]
+  %.sroa.0112.0 = phi ptr [ %231, %255 ], [ %.sroa.0.0.i.i101, %222 ]
+  %.6 = phi i8 [ %.7, %255 ], [ %.2, %222 ]
+  %.not.i.i102 = icmp eq ptr %226, null
+  br i1 %.not.i.i102, label %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE10constBeginEv.exit104, label %227
 
-228:                                              ; preds = %226
-  %229 = getelementptr inbounds nuw i8, ptr %227, i64 32
-  %230 = load ptr, ptr %229, align 8
+227:                                              ; preds = %225
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 32
+  %229 = load ptr, ptr %228, align 8
   br label %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE10constBeginEv.exit104
 
-_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE10constBeginEv.exit104: ; preds = %228, %226
-  %.sroa.0.0.i.i103 = phi ptr [ %230, %228 ], [ null, %226 ]
+_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE10constBeginEv.exit104: ; preds = %227, %225
+  %.sroa.0.0.i.i103 = phi ptr [ %229, %227 ], [ null, %225 ]
   %.not168 = icmp eq ptr %.sroa.0112.0, %.sroa.0.0.i.i103
-  br i1 %.not168, label %.loopexit.loopexit, label %231
+  br i1 %.not168, label %.loopexit.loopexit, label %230
 
-231:                                              ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE10constBeginEv.exit104
-  %232 = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0112.0) #52
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 40
+230:                                              ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE10constBeginEv.exit104
+  %231 = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0112.0) #52
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 40
+  %233 = load ptr, ptr %232, align 8
   %234 = load ptr, ptr %233, align 8
-  %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 112
-  %237 = load ptr, ptr %236, align 8
-  %238 = invoke noundef i32 %237(ptr noundef nonnull align 8 dereferenceable(184) %234)
-          to label %239 unwind label %.loopexit169
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 112
+  %236 = load ptr, ptr %235, align 8
+  %237 = invoke noundef i32 %236(ptr noundef nonnull align 8 dereferenceable(184) %233)
+          to label %238 unwind label %.loopexit169
 
-239:                                              ; preds = %231
-  %.not.i.i105 = icmp eq i32 %238, 0
-  %240 = load i32, ptr %17, align 8
-  %241 = and i32 %240, %238
-  %242 = icmp eq i32 %241, %238
-  %243 = icmp eq i32 %240, 0
-  %244 = select i1 %.not.i.i105, i1 %243, i1 %242
-  br i1 %244, label %245, label %256
+238:                                              ; preds = %230
+  %.not.i.i105 = icmp eq i32 %237, 0
+  %239 = load i32, ptr %17, align 8
+  %240 = and i32 %239, %237
+  %241 = icmp eq i32 %240, %237
+  %242 = icmp eq i32 %239, 0
+  %243 = select i1 %.not.i.i105, i1 %242, i1 %241
+  br i1 %243, label %244, label %255
 
-245:                                              ; preds = %239
+244:                                              ; preds = %238
   store i8 0, ptr %14, align 1
-  %246 = load ptr, ptr %233, align 8
-  %247 = getelementptr inbounds nuw i8, ptr %232, i64 48
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(24) %247)
+  %245 = load ptr, ptr %232, align 8
+  %246 = getelementptr inbounds nuw i8, ptr %231, i64 48
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(24) %246)
           to label %_ZN8QVariant9fromValueI16QCPDataSelectionEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit unwind label %.loopexit169
 
-_ZN8QVariant9fromValueI16QCPDataSelectionEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit: ; preds = %245
-  %248 = load ptr, ptr %246, align 8
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 144
-  %250 = load ptr, ptr %249, align 8
-  invoke void %250(ptr noundef nonnull align 8 dereferenceable(184) %246, ptr noundef nonnull %3, i1 noundef zeroext %163, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %14)
-          to label %251 unwind label %254
+_ZN8QVariant9fromValueI16QCPDataSelectionEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit: ; preds = %244
+  %247 = load ptr, ptr %245, align 8
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 144
+  %249 = load ptr, ptr %248, align 8
+  invoke void %249(ptr noundef nonnull align 8 dereferenceable(184) %245, ptr noundef nonnull %3, i1 noundef zeroext %162, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %14)
+          to label %250 unwind label %253
 
-251:                                              ; preds = %_ZN8QVariant9fromValueI16QCPDataSelectionEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit
+250:                                              ; preds = %_ZN8QVariant9fromValueI16QCPDataSelectionEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #48
-  %252 = load i8, ptr %14, align 1
-  %253 = or i8 %252, %.6
-  br label %256
+  %251 = load i8, ptr %14, align 1
+  %252 = or i8 %251, %.6
+  br label %255
 
-254:                                              ; preds = %_ZN8QVariant9fromValueI16QCPDataSelectionEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit
-  %255 = landingpad { ptr, i32 }
+253:                                              ; preds = %_ZN8QVariant9fromValueI16QCPDataSelectionEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit
+  %254 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #48
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit65
 
-256:                                              ; preds = %251, %239
-  %.7 = phi i8 [ %253, %251 ], [ %.6, %239 ]
+255:                                              ; preds = %250, %238
+  %.7 = phi i8 [ %252, %250 ], [ %.6, %238 ]
   %.pr161 = load ptr, ptr %6, align 8
-  br label %226, !llvm.loop !671
+  br label %225, !llvm.loop !671
 
 .loopexit.loopexit:                               ; preds = %_ZNK9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEE10constBeginEv.exit104
-  %257 = trunc i8 %.6 to i1
+  %256 = trunc i8 %.6 to i1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %.loopexit.loopexit
-  %258 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %227, %.loopexit.loopexit ]
-  %.1 = phi i1 [ false, %..loopexit_crit_edge ], [ %257, %.loopexit.loopexit ]
-  %.not.i.i107 = icmp eq ptr %258, null
-  br i1 %.not.i.i107, label %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev.exit, label %259
+  %257 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %226, %.loopexit.loopexit ]
+  %.1 = phi i1 [ false, %..loopexit_crit_edge ], [ %256, %.loopexit.loopexit ]
+  %.not.i.i107 = icmp eq ptr %257, null
+  br i1 %.not.i.i107, label %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev.exit, label %258
 
-259:                                              ; preds = %.loopexit
-  %260 = atomicrmw sub ptr %258, i32 1 seq_cst, align 4
-  %.not2.i.i = icmp eq i32 %260, 1
-  br i1 %.not2.i.i, label %261, label %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev.exit
+258:                                              ; preds = %.loopexit
+  %259 = atomicrmw sub ptr %257, i32 1 seq_cst, align 4
+  %.not2.i.i = icmp eq i32 %259, 1
+  br i1 %.not2.i.i, label %260, label %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev.exit
 
-261:                                              ; preds = %259
-  %262 = load ptr, ptr %6, align 8
-  %263 = icmp eq ptr %262, null
-  br i1 %263, label %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev.exit, label %264
+260:                                              ; preds = %258
+  %261 = load ptr, ptr %6, align 8
+  %262 = icmp eq ptr %261, null
+  br i1 %262, label %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev.exit, label %263
 
-264:                                              ; preds = %261
-  %265 = getelementptr inbounds nuw i8, ptr %262, i64 8
-  %266 = getelementptr inbounds nuw i8, ptr %262, i64 24
-  %267 = load ptr, ptr %266, align 8
-  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiS0_IP20QCPAbstractPlottable16QCPDataSelectionEESt10_Select1stIS6_ESt4lessIiESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %265, ptr noundef %267)
-          to label %_ZN8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEED2Ev.exit.i.i unwind label %268
+263:                                              ; preds = %260
+  %264 = getelementptr inbounds nuw i8, ptr %261, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %261, i64 24
+  %266 = load ptr, ptr %265, align 8
+  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiS0_IP20QCPAbstractPlottable16QCPDataSelectionEESt10_Select1stIS6_ESt4lessIiESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %264, ptr noundef %266)
+          to label %_ZN8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEED2Ev.exit.i.i unwind label %267
 
-268:                                              ; preds = %264
-  %269 = landingpad { ptr, i32 }
+267:                                              ; preds = %263
+  %268 = landingpad { ptr, i32 }
           catch ptr null
-  %270 = extractvalue { ptr, i32 } %269, 0
-  call void @__clang_call_terminate(ptr %270) #49
+  %269 = extractvalue { ptr, i32 } %268, 0
+  call void @__clang_call_terminate(ptr %269) #49
   unreachable
 
-_ZN8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEED2Ev.exit.i.i: ; preds = %264
-  call void @_ZdlPv(ptr noundef nonnull %262) #50
+_ZN8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEED2Ev.exit.i.i: ; preds = %263
+  call void @_ZdlPv(ptr noundef nonnull %261) #50
   br label %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev.exit
 
-_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev.exit: ; preds = %.loopexit, %259, %261, %_ZN8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEED2Ev.exit.i.i
-  br i1 %.1, label %271, label %.critedge42
+_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev.exit: ; preds = %.loopexit, %258, %260, %_ZN8QMapDataISt8multimapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionESt4lessIiESaIS1_IKiS5_EEEED2Ev.exit.i.i
+  br i1 %.1, label %270, label %.critedge42
 
-_ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit65: ; preds = %.loopexit169, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %222, %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i97, %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit91, %109, %_ZN17QArrayDataPointerIP20QCPAbstractPlottableE5derefEv.exit.i.i.i63, %_ZN16QCPDataSelectionD2Ev.exit61, %254
-  %.pn37.pn.pn = phi { ptr, i32 } [ %255, %254 ], [ %.pn37.pn, %_ZN16QCPDataSelectionD2Ev.exit61 ], [ %.pn37.pn, %_ZN17QArrayDataPointerIP20QCPAbstractPlottableE5derefEv.exit.i.i.i63 ], [ %.pn37.pn, %109 ], [ %190, %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit91 ], [ %190, %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i97 ], [ %190, %222 ], [ %lpad.loopexit, %.loopexit169 ], [ %lpad.loopexit170, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp171, %.loopexit.split-lp.loopexit.split-lp ]
+_ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit65: ; preds = %.loopexit169, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %221, %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i97, %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit91, %109, %_ZN17QArrayDataPointerIP20QCPAbstractPlottableE5derefEv.exit.i.i.i63, %_ZN16QCPDataSelectionD2Ev.exit61, %253
+  %.pn37.pn.pn = phi { ptr, i32 } [ %254, %253 ], [ %.pn37.pn, %_ZN16QCPDataSelectionD2Ev.exit61 ], [ %.pn37.pn, %_ZN17QArrayDataPointerIP20QCPAbstractPlottableE5derefEv.exit.i.i.i63 ], [ %.pn37.pn, %109 ], [ %189, %_ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit91 ], [ %189, %_ZN17QArrayDataPointerIP8QCPLayerE5derefEv.exit.i.i.i97 ], [ %189, %221 ], [ %lpad.loopexit, %.loopexit169 ], [ %lpad.loopexit170, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp171, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #48
   resume { ptr, i32 } %.pn37.pn.pn
 
-271:                                              ; preds = %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev.exit
+270:                                              ; preds = %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev.exit
   call void @_ZN11QCustomPlot22selectionChangedByUserEv(ptr noundef nonnull align 8 dereferenceable(513) %0)
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 481
-  %273 = load i8, ptr %272, align 1
-  %274 = trunc i8 %273 to i1
-  br i1 %274, label %_ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit, label %275
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 481
+  %272 = load i8, ptr %271, align 1
+  %273 = trunc i8 %272 to i1
+  br i1 %273, label %_ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit, label %274
 
-275:                                              ; preds = %271
-  store i8 1, ptr %272, align 1
+274:                                              ; preds = %270
+  store i8 1, ptr %271, align 1
   call void @_ZN6QTimer10singleShotEiPK7QObjectPKc(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(513) %0, ptr noundef nonnull @.str.124)
   br label %_ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit
 
 .critedge42:                                      ; preds = %4, %_ZN9QMultiMapIiSt4pairIP20QCPAbstractPlottable16QCPDataSelectionEED2Ev.exit
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %277 = load ptr, ptr %276, align 8
-  %.not35 = icmp eq ptr %277, null
-  br i1 %.not35, label %_ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit, label %278
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %276 = load ptr, ptr %275, align 8
+  %.not35 = icmp eq ptr %276, null
+  br i1 %.not35, label %_ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit, label %277
 
-278:                                              ; preds = %.critedge42
-  %279 = getelementptr inbounds nuw i8, ptr %277, i64 48
-  %280 = load ptr, ptr %279, align 8
-  call void @_ZN8QCPLayer6replotEv(ptr noundef nonnull align 8 dereferenceable(104) %280)
+277:                                              ; preds = %.critedge42
+  %278 = getelementptr inbounds nuw i8, ptr %276, i64 48
+  %279 = load ptr, ptr %278, align 8
+  call void @_ZN8QCPLayer6replotEv(ptr noundef nonnull align 8 dereferenceable(104) %279)
   br label %_ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit
 
-_ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit: ; preds = %275, %271, %.critedge42, %278
+_ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit: ; preds = %274, %270, %.critedge42, %277
   ret void
 }
 
@@ -78861,7 +78857,7 @@ _ZNK4QMapId6QColorE10constBeginEv.exit.i:         ; preds = %_ZNK4QMapId6QColorE
   br i1 %34, label %_ZNK16QCPColorGradient13stopsUseAlphaEv.exit.loopexit, label %35
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.04.09.i) #52
+  %36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.09.i) #52
   %37 = load ptr, ptr %20, align 8
   %.not.i.i2.i = icmp eq ptr %37, null
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -80172,7 +80168,7 @@ _ZNK4QMapId6QColorE10constBeginEv.exit:           ; preds = %1, %4
   br i1 %10, label %._crit_edge, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.04.09) #52
+  %12 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.09) #52
   %13 = load ptr, ptr %2, align 8
   %.not.i.i2 = icmp eq ptr %13, null
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16

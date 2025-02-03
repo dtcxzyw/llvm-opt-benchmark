@@ -7413,7 +7413,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
   br label %ehcleanup349
 
 for.inc76:                                        ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i68, %if.else.i78, %invoke.cont67, %invoke.cont53
-  %call.i81 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it40.sroa.0.0698) #27
+  %call.i81 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it40.sroa.0.0698) #27
   %cmp.i46.not = icmp eq ptr %call.i81, %add.ptr.i.i.i45
   br i1 %cmp.i46.not, label %for.end78, label %invoke.cont53, !llvm.loop !63
 
@@ -7700,7 +7700,7 @@ lpad126:                                          ; preds = %lpad126.loopexit.sp
 
 for.inc168:                                       ; preds = %if.else.i.i, %if.then.i5.i, %invoke.cont160, %if.then13.i4.i, %invoke.cont144, %invoke.cont154, %invoke.cont127
   %maxDeg.1 = phi i32 [ %maxDeg.0695, %invoke.cont154 ], [ %maxDeg.0695, %invoke.cont144 ], [ %maxDeg.0695, %invoke.cont127 ], [ %68, %if.then13.i4.i ], [ %68, %invoke.cont160 ], [ %68, %if.then.i5.i ], [ %68, %if.else.i.i ]
-  %call.i155 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it114.sroa.0.0694) #27
+  %call.i155 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it114.sroa.0.0694) #27
   %cmp.i94.not = icmp eq ptr %call.i155, %add.ptr.i.i93
   br i1 %cmp.i94.not, label %for.end170, label %invoke.cont127, !llvm.loop !69
 
@@ -30612,7 +30612,7 @@ while.body.i:                                     ; preds = %if.end.i, %_ZSt22__
 
 while.cond5.i:                                    ; preds = %while.cond5.i, %while.body.i
   %__first.sroa.0.1.i = phi ptr [ %__first.sroa.0.0.i, %while.body.i ], [ %incdec.ptr.i.i, %while.cond5.i ]
-  %call.i5 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory2uf18sortInternalDegreeEEclINS_17__normal_iteratorIPNS3_12NodeTemplateILb1EEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr noundef nonnull align 8 dereferenceable(8) %__comp.i4, ptr %__first.sroa.0.1.i, ptr nonnull %__first.coerce)
+  %call.i5 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory2uf18sortInternalDegreeEEclINS_17__normal_iteratorIPNS3_12NodeTemplateILb1EEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr noundef nonnull align 8 dereferenceable(8) %__comp.i4, ptr nonnull %__first.sroa.0.1.i, ptr nonnull %__first.coerce)
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i, i64 8
   br i1 %call.i5, label %while.cond5.i, label %while.cond12.i, !llvm.loop !276
 

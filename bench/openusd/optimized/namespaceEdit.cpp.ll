@@ -2686,7 +2686,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEd
 
 16:                                               ; preds = %.critedge
   call void @_ZN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace5_NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #24
-  call void @_ZdlPvm(ptr noundef %6, i64 noundef 40) #25
+  call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 40) #25
   %17 = load i8, ptr %0, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %20
@@ -3196,7 +3196,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIPNS0_26SdfNamespace
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %.lr.ph
-  %20 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.07.013) #27
+  %20 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.013) #27
   %.not = icmp eq ptr %20, %6
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !27
 
@@ -3338,7 +3338,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIPNS0_26SdfNamespace
   br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %.lr.ph
-  %25 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.079.0110) #27
+  %25 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.079.0110) #27
   %.not = icmp eq ptr %25, %11
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !29
 
@@ -4760,7 +4760,7 @@ _ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7Sdf
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %_ZSt7advanceISt23_Rb_tree_const_iteratorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEmEvRT_T0_.exit.i
-  %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.0.i) #27
+  %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.0.i) #27
   %34 = xor i64 %26, -1
   %35 = add i64 %.06.i, %34
   br label %36

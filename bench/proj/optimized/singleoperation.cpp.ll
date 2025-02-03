@@ -3689,7 +3689,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit.thread: ; preds 
 58:                                               ; preds = %.thread
   %59 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %56) #39
+  tail call void @__cxa_free_exception(ptr nonnull %56) #39
   br label %621
 
 60:                                               ; preds = %66, %64, %62, %57
@@ -5443,7 +5443,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation19CoordinateOperationEEERKN
 34:                                               ; preds = %29
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %30) #39
+  call void @__cxa_free_exception(ptr nonnull %30) #39
   br label %_ZNKSt14default_deleteIN5osgeo4proj9operation21CoordinateTransformerEEclEPS3_.exit.i.i
 
 36:                                               ; preds = %23
@@ -8138,7 +8138,7 @@ define hidden void @_ZNK5osgeo4proj9operation14ParameterValue12_exportToWKTEPNS0
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %35) #39
+  tail call void @__cxa_free_exception(ptr nonnull %35) #39
   br label %85
 
 39:                                               ; preds = %29
@@ -8165,7 +8165,7 @@ define hidden void @_ZNK5osgeo4proj9operation14ParameterValue12_exportToWKTEPNS0
 49:                                               ; preds = %46
   %50 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %47) #39
+  tail call void @__cxa_free_exception(ptr nonnull %47) #39
   br label %85
 
 51:                                               ; preds = %41
@@ -8243,7 +8243,7 @@ define hidden void @_ZNK5osgeo4proj9operation14ParameterValue12_exportToWKTEPNS0
 83:                                               ; preds = %80
   %84 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %81) #39
+  tail call void @__cxa_free_exception(ptr nonnull %81) #39
   br label %85
 
 .thread:                                          ; preds = %51, %53, %39, %74, %77, %18, %25, %23, %16, %60, %62, %66, %71, %55
@@ -14427,7 +14427,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit.thread: ; preds 
 335:                                              ; preds = %333
   %336 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %334) #39
+  call void @__cxa_free_exception(ptr nonnull %334) #39
   br label %960
 
 337:                                              ; preds = %.invoke1374
@@ -14455,7 +14455,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit.thread: ; preds 
 342:                                              ; preds = %.thread1274
   %343 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %340) #39
+  call void @__cxa_free_exception(ptr nonnull %340) #39
   br label %960
 
 344:                                              ; preds = %339
@@ -15998,7 +15998,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 988:                                              ; preds = %984
   %989 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %985) #39
+  call void @__cxa_free_exception(ptr nonnull %985) #39
   br label %4339
 
 990:                                              ; preds = %981
@@ -16156,7 +16156,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit461.thread: ; pre
 1052:                                             ; preds = %1050
   %1053 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1051) #39
+  call void @__cxa_free_exception(ptr nonnull %1051) #39
   br label %1540
 
 1054:                                             ; preds = %.invoke1376
@@ -16184,7 +16184,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit461.thread: ; pre
 1059:                                             ; preds = %.thread1278
   %1060 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1057) #39
+  call void @__cxa_free_exception(ptr nonnull %1057) #39
   br label %1540
 
 1061:                                             ; preds = %1056
@@ -17297,7 +17297,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 1554:                                             ; preds = %1552
   %1555 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1553) #39
+  call void @__cxa_free_exception(ptr nonnull %1553) #39
   br label %4339
 
 1556:                                             ; preds = %1549
@@ -17455,7 +17455,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit614.thread: ; pre
 1618:                                             ; preds = %1616
   %1619 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1617) #39
+  call void @__cxa_free_exception(ptr nonnull %1617) #39
   br label %2106
 
 1620:                                             ; preds = %.invoke1378
@@ -17483,7 +17483,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit614.thread: ; pre
 1625:                                             ; preds = %.thread1282
   %1626 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1623) #39
+  call void @__cxa_free_exception(ptr nonnull %1623) #39
   br label %2106
 
 1627:                                             ; preds = %1622
@@ -18596,7 +18596,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 2120:                                             ; preds = %2118
   %2121 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2119) #39
+  call void @__cxa_free_exception(ptr nonnull %2119) #39
   br label %4339
 
 2122:                                             ; preds = %2115
@@ -18754,7 +18754,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit771.thread: ; pre
 2184:                                             ; preds = %2182
   %2185 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2183) #39
+  call void @__cxa_free_exception(ptr nonnull %2183) #39
   br label %2672
 
 2186:                                             ; preds = %.invoke1380
@@ -18782,7 +18782,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit771.thread: ; pre
 2191:                                             ; preds = %.thread1286
   %2192 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2189) #39
+  call void @__cxa_free_exception(ptr nonnull %2189) #39
   br label %2672
 
 2193:                                             ; preds = %2188
@@ -19903,7 +19903,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 2687:                                             ; preds = %2684
   %2688 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2685) #39
+  call void @__cxa_free_exception(ptr nonnull %2685) #39
   br label %4339
 
 2689:                                             ; preds = %2681
@@ -20061,7 +20061,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit928.thread: ; pre
 2751:                                             ; preds = %2749
   %2752 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2750) #39
+  call void @__cxa_free_exception(ptr nonnull %2750) #39
   br label %3239
 
 2753:                                             ; preds = %.invoke1382
@@ -20089,7 +20089,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit928.thread: ; pre
 2758:                                             ; preds = %.thread1290
   %2759 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2756) #39
+  call void @__cxa_free_exception(ptr nonnull %2756) #39
   br label %3239
 
 2760:                                             ; preds = %2755
@@ -21584,7 +21584,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1094.thread: ; pr
 3401:                                             ; preds = %3399
   %3402 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3400) #39
+  call void @__cxa_free_exception(ptr nonnull %3400) #39
   br label %3657
 
 3403:                                             ; preds = %.invoke1384
@@ -21612,7 +21612,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1094.thread: ; pr
 3408:                                             ; preds = %.thread1305
   %3409 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3406) #39
+  call void @__cxa_free_exception(ptr nonnull %3406) #39
   br label %3657
 
 3410:                                             ; preds = %3405
@@ -22557,7 +22557,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1168.thread: ; pr
 3797:                                             ; preds = %3795
   %3798 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3796) #39
+  call void @__cxa_free_exception(ptr nonnull %3796) #39
   br label %4053
 
 3799:                                             ; preds = %.invoke1386
@@ -22585,7 +22585,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1168.thread: ; pr
 3804:                                             ; preds = %.thread1315
   %3805 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3802) #39
+  call void @__cxa_free_exception(ptr nonnull %3802) #39
   br label %4053
 
 3806:                                             ; preds = %3801
@@ -27178,7 +27178,7 @@ define hidden void @_ZNK5osgeo4proj9operation15SingleOperation25exportTransforma
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #39
+  tail call void @__cxa_free_exception(ptr nonnull %8) #39
   br label %232
 
 12:                                               ; preds = %2
@@ -29178,7 +29178,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit1300.thread: ; preds = %626, %_
           cleanup
   %690 = extractvalue { ptr, i32 } %689, 0
   %691 = extractvalue { ptr, i32 } %689, 1
-  tail call void @__cxa_free_exception(ptr %686) #39
+  tail call void @__cxa_free_exception(ptr nonnull %686) #39
   br label %3359
 
 692:                                              ; preds = %555
@@ -29890,7 +29890,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit1372
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit1372: ; preds = %976, %981, %984
-  invoke fastcc void @_ZN5osgeo4proj9operationL26setupPROJGeodeticTargetCRSEPNS0_2io19PROJStringFormatterERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEEbPKc(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %8, i1 noundef zeroext %927, ptr noundef nonnull @.str.137)
+  invoke fastcc void @_ZN5osgeo4proj9operationL26setupPROJGeodeticTargetCRSEPNS0_2io19PROJStringFormatterERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEEbPKc(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %8, i1 noundef zeroext %927, ptr noundef nonnull @.str.137)
           to label %986 unwind label %987
 
 986:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit1372
@@ -30418,7 +30418,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv.exit1428: ; preds = %
           cleanup
   %1195 = extractvalue { ptr, i32 } %1194, 0
   %1196 = extractvalue { ptr, i32 } %1194, 1
-  call void @__cxa_free_exception(ptr %1191) #39
+  call void @__cxa_free_exception(ptr nonnull %1191) #39
   br label %3359
 
 1197:                                             ; preds = %1188
@@ -30505,7 +30505,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1440: ; preds = %
           cleanup
   %1228 = extractvalue { ptr, i32 } %1227, 0
   %1229 = extractvalue { ptr, i32 } %1227, 1
-  call void @__cxa_free_exception(ptr %1224) #39
+  call void @__cxa_free_exception(ptr nonnull %1224) #39
   br label %3359
 
 1230:                                             ; preds = %1221
@@ -30565,7 +30565,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1440: ; preds = %
   %1247 = load ptr, ptr %1222, align 8
   %1248 = getelementptr inbounds nuw i8, ptr %1247, i64 16
   %1249 = load ptr, ptr %1248, align 8
-  call void %1249(ptr noundef nonnull align 8 dereferenceable(24) %1222, ptr noundef %1)
+  call void %1249(ptr noundef nonnull align 8 dereferenceable(24) %1222, ptr noundef nonnull %1)
   br label %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit1386
 
 1250:                                             ; preds = %1157
@@ -30690,7 +30690,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 1291:                                             ; preds = %1286
   %1292 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1287) #39
+  call void @__cxa_free_exception(ptr nonnull %1287) #39
   br label %1351
 
 1293:                                             ; preds = %1288
@@ -30807,7 +30807,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 1332:                                             ; preds = %1327
   %1333 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1328) #39
+  call void @__cxa_free_exception(ptr nonnull %1328) #39
   br label %1349
 
 1334:                                             ; preds = %1346, %1345, %1344, %1343, %1339, %1337, %1336, %1329
@@ -30821,7 +30821,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 1337:                                             ; preds = %1336
   %1338 = load ptr, ptr %18, align 8
-  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %1338, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %1338, ptr noundef nonnull %1)
           to label %1339 unwind label %1334
 
 1339:                                             ; preds = %1337
@@ -30848,7 +30848,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 1346:                                             ; preds = %1345, %1340
   %1347 = load ptr, ptr %21, align 8
-  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %1347, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %1347, ptr noundef nonnull %1)
           to label %1348 unwind label %1334
 
 1348:                                             ; preds = %1346
@@ -31048,7 +31048,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv.exit1494: ; preds = %
           cleanup
   %1418 = extractvalue { ptr, i32 } %1417, 0
   %1419 = extractvalue { ptr, i32 } %1417, 1
-  call void @__cxa_free_exception(ptr %1414) #39
+  call void @__cxa_free_exception(ptr nonnull %1414) #39
   br label %3359
 
 1420:                                             ; preds = %1412, %1380
@@ -31217,7 +31217,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1518: ; preds = %
           cleanup
   %1482 = extractvalue { ptr, i32 } %1481, 0
   %1483 = extractvalue { ptr, i32 } %1481, 1
-  call void @__cxa_free_exception(ptr %1478) #39
+  call void @__cxa_free_exception(ptr nonnull %1478) #39
   br label %3359
 
 1484:                                             ; preds = %1476, %1444
@@ -31240,7 +31240,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1518: ; preds = %
   br label %1489
 
 1489:                                             ; preds = %1484, %1488
-  call void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %.0868, ptr noundef %1)
+  call void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %.0868, ptr noundef nonnull %1)
   br label %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit1386
 
 1490:                                             ; preds = %1250
@@ -31407,7 +31407,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv.exit1542: ; preds = %
           cleanup
   %1551 = extractvalue { ptr, i32 } %1550, 0
   %1552 = extractvalue { ptr, i32 } %1550, 1
-  call void @__cxa_free_exception(ptr %1547) #39
+  call void @__cxa_free_exception(ptr nonnull %1547) #39
   br label %3359
 
 1553:                                             ; preds = %1545, %1517
@@ -31572,7 +31572,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1566: ; preds = %
           cleanup
   %1611 = extractvalue { ptr, i32 } %1610, 0
   %1612 = extractvalue { ptr, i32 } %1610, 1
-  call void @__cxa_free_exception(ptr %1607) #39
+  call void @__cxa_free_exception(ptr nonnull %1607) #39
   br label %3359
 
 1613:                                             ; preds = %1605, %1577
@@ -31595,7 +31595,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1566: ; preds = %
   br label %1618
 
 1618:                                             ; preds = %1613, %1617
-  call void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %.0874, ptr noundef %1)
+  call void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %.0874, ptr noundef nonnull %1)
   br label %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit1386
 
 1619:                                             ; preds = %1250
@@ -31763,7 +31763,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1590: ; preds = %
           to label %1683 unwind label %1678
 
 1683:                                             ; preds = %1682
-  invoke void @_ZNK5osgeo4proj3crs12ProjectedCRS25addUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterEb(ptr noundef nonnull align 8 dereferenceable(104) %1651, ptr noundef %1, i1 noundef zeroext false)
+  invoke void @_ZNK5osgeo4proj3crs12ProjectedCRS25addUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterEb(ptr noundef nonnull align 8 dereferenceable(104) %1651, ptr noundef nonnull %1, i1 noundef zeroext false)
           to label %1684 unwind label %1678
 
 1684:                                             ; preds = %1683
@@ -32006,7 +32006,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1614: ; preds = %
           cleanup
   %1786 = extractvalue { ptr, i32 } %1785, 0
   %1787 = extractvalue { ptr, i32 } %1785, 1
-  call void @__cxa_free_exception(ptr %1782) #39
+  call void @__cxa_free_exception(ptr nonnull %1782) #39
   br label %3359
 
 1788:                                             ; preds = %1780
@@ -32032,7 +32032,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1614: ; preds = %
           cleanup
   %1796 = extractvalue { ptr, i32 } %1795, 0
   %1797 = extractvalue { ptr, i32 } %1795, 1
-  call void @__cxa_free_exception(ptr %1792) #39
+  call void @__cxa_free_exception(ptr nonnull %1792) #39
   br label %3359
 
 1798:                                             ; preds = %1790
@@ -32244,7 +32244,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1638: ; preds = %
           cleanup
   %1891 = extractvalue { ptr, i32 } %1890, 0
   %1892 = extractvalue { ptr, i32 } %1890, 1
-  call void @__cxa_free_exception(ptr %1887) #39
+  call void @__cxa_free_exception(ptr nonnull %1887) #39
   br label %3359
 
 1893:                                             ; preds = %1885
@@ -32270,7 +32270,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1638: ; preds = %
           cleanup
   %1901 = extractvalue { ptr, i32 } %1900, 0
   %1902 = extractvalue { ptr, i32 } %1900, 1
-  call void @__cxa_free_exception(ptr %1897) #39
+  call void @__cxa_free_exception(ptr nonnull %1897) #39
   br label %3359
 
 1903:                                             ; preds = %1895
@@ -32358,7 +32358,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEEC2ENS0_3
   %1939 = load ptr, ptr %1936, align 8
   %1940 = getelementptr inbounds nuw i8, ptr %1939, i64 56
   %1941 = load ptr, ptr %1940, align 8
-  invoke void %1941(ptr noundef nonnull align 8 dereferenceable(24) %1936, ptr noundef %1)
+  invoke void %1941(ptr noundef nonnull align 8 dereferenceable(24) %1936, ptr noundef nonnull %1)
           to label %1950 unwind label %1948
 
 1942:                                             ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit
@@ -32699,7 +32699,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 2059:                                             ; preds = %2058
   %2060 = load ptr, ptr %47, align 8
-  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2060, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2060, ptr noundef nonnull %1)
           to label %2061 unwind label %2062
 
 2061:                                             ; preds = %2059
@@ -32814,7 +32814,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 2100:                                             ; preds = %2099
   %2101 = load ptr, ptr %51, align 8
-  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2101, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2101, ptr noundef nonnull %1)
           to label %2102 unwind label %2062
 
 2102:                                             ; preds = %2100, %2099
@@ -33095,7 +33095,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1694: ; preds = %
           cleanup
   %2194 = extractvalue { ptr, i32 } %2193, 0
   %2195 = extractvalue { ptr, i32 } %2193, 1
-  call void @__cxa_free_exception(ptr %2190) #39
+  call void @__cxa_free_exception(ptr nonnull %2190) #39
   br label %3359
 
 2196:                                             ; preds = %2180
@@ -33267,7 +33267,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1718: ; preds = %
           cleanup
   %2265 = extractvalue { ptr, i32 } %2264, 0
   %2266 = extractvalue { ptr, i32 } %2264, 1
-  call void @__cxa_free_exception(ptr %2253) #39
+  call void @__cxa_free_exception(ptr nonnull %2253) #39
   br label %3359
 
 2267:                                             ; preds = %2251
@@ -33296,7 +33296,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1718: ; preds = %
   call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.192)
   %2272 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16) %2135) #44
   %2273 = load ptr, ptr %2272, align 8
-  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2273, ptr noundef %1)
+  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2273, ptr noundef nonnull %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.193)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.187, ptr noundef nonnull align 8 dereferenceable(32) %2108)
   %2274 = select i1 %2250, ptr @.str.195, ptr @.str.196
@@ -33304,12 +33304,12 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1718: ; preds = %
   %2275 = select i1 %2250, ptr %2170, ptr %2135
   %2276 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16) %2275) #44
   %2277 = load ptr, ptr %2276, align 8
-  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2277, ptr noundef %1)
+  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2277, ptr noundef nonnull %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter14startInversionEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.192)
   %2278 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16) %2170) #44
   %2279 = load ptr, ptr %2278, align 8
-  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2279, ptr noundef %1)
+  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2279, ptr noundef nonnull %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter13stopInversionEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.197)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #39
@@ -33366,7 +33366,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1718: ; preds = %
   br label %3359
 
 2293:                                             ; preds = %2282, %2281
-  call void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2170, ptr noundef %1)
+  call void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2170, ptr noundef nonnull %1)
   br label %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit1386
 
 2294:                                             ; preds = %2107
@@ -33518,7 +33518,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv.exit1730: ; preds = %
           cleanup
   %2348 = extractvalue { ptr, i32 } %2347, 0
   %2349 = extractvalue { ptr, i32 } %2347, 1
-  call void @__cxa_free_exception(ptr %2340) #39
+  call void @__cxa_free_exception(ptr nonnull %2340) #39
   br label %3359
 
 2350:                                             ; preds = %2336
@@ -33665,7 +33665,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1742: ; preds = %
           cleanup
   %2401 = extractvalue { ptr, i32 } %2400, 0
   %2402 = extractvalue { ptr, i32 } %2400, 1
-  call void @__cxa_free_exception(ptr %2393) #39
+  call void @__cxa_free_exception(ptr nonnull %2393) #39
   br label %3359
 
 2403:                                             ; preds = %2389
@@ -33694,7 +33694,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1742: ; preds = %
           cleanup
   %2417 = extractvalue { ptr, i32 } %2416, 0
   %2418 = extractvalue { ptr, i32 } %2416, 1
-  call void @__cxa_free_exception(ptr %2413) #39
+  call void @__cxa_free_exception(ptr nonnull %2413) #39
   br label %3359
 
 2419:                                             ; preds = %2403
@@ -33910,7 +33910,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1766: ; preds = %
           cleanup
   %2496 = extractvalue { ptr, i32 } %2495, 0
   %2497 = extractvalue { ptr, i32 } %2495, 1
-  call void @__cxa_free_exception(ptr %2482) #39
+  call void @__cxa_free_exception(ptr nonnull %2482) #39
   br label %3359
 
 2498:                                             ; preds = %2480
@@ -33987,7 +33987,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1766: ; preds = %
   call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.192)
   %2531 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16) %2322) #44
   %2532 = load ptr, ptr %2531, align 8
-  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2532, ptr noundef %1)
+  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2532, ptr noundef nonnull %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.202)
   %2533 = getelementptr inbounds nuw i8, ptr %2335, i64 8
   %2534 = call noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %2533, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure4YEARE) #44
@@ -33999,12 +33999,12 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1766: ; preds = %
   %2538 = select i1 %2479, ptr %2375, ptr %2322
   %2539 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16) %2538) #44
   %2540 = load ptr, ptr %2539, align 8
-  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2540, ptr noundef %1)
+  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2540, ptr noundef nonnull %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter14startInversionEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.192)
   %2541 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16) %2375) #44
   %2542 = load ptr, ptr %2541, align 8
-  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2542, ptr noundef %1)
+  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2542, ptr noundef nonnull %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter13stopInversionEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %2530, label %2543, label %2551
 
@@ -34049,7 +34049,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1766: ; preds = %
   br label %2553
 
 2553:                                             ; preds = %2552, %2551
-  call void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2375, ptr noundef %1)
+  call void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2375, ptr noundef nonnull %1)
   br label %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit1386
 
 2554:                                             ; preds = %2294
@@ -34083,7 +34083,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1766: ; preds = %
           cleanup
   %2571 = extractvalue { ptr, i32 } %2570, 0
   %2572 = extractvalue { ptr, i32 } %2570, 1
-  call void @__cxa_free_exception(ptr %2567) #39
+  call void @__cxa_free_exception(ptr nonnull %2567) #39
   br label %3359
 
 2573:                                             ; preds = %2557
@@ -34268,7 +34268,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv.exit1778: ; preds = %
           cleanup
   %2629 = extractvalue { ptr, i32 } %2628, 0
   %2630 = extractvalue { ptr, i32 } %2628, 1
-  call void @__cxa_free_exception(ptr %2621) #39
+  call void @__cxa_free_exception(ptr nonnull %2621) #39
   br label %3359
 
 2631:                                             ; preds = %2617
@@ -34415,7 +34415,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1790: ; preds = %
           cleanup
   %2682 = extractvalue { ptr, i32 } %2681, 0
   %2683 = extractvalue { ptr, i32 } %2681, 1
-  call void @__cxa_free_exception(ptr %2674) #39
+  call void @__cxa_free_exception(ptr nonnull %2674) #39
   br label %3359
 
 2684:                                             ; preds = %2670
@@ -34456,19 +34456,19 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1790: ; preds = %
   call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.192)
   %2695 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16) %2574) #44
   %2696 = load ptr, ptr %2695, align 8
-  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2696, ptr noundef %1)
+  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2696, ptr noundef nonnull %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.202)
   %2697 = fsub double %2688, %2686
   call void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamEPKcd(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.203, double noundef %2697)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.187, ptr noundef nonnull align 8 dereferenceable(32) %2555)
   %2698 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16) %2574) #44
   %2699 = load ptr, ptr %2698, align 8
-  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2699, ptr noundef %1)
+  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2699, ptr noundef nonnull %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter14startInversionEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.192)
   %2700 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16) %2574) #44
   %2701 = load ptr, ptr %2700, align 8
-  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2701, ptr noundef %1)
+  call void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %2701, ptr noundef nonnull %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter13stopInversionEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.197)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %102) #39
@@ -34726,7 +34726,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 2779:                                             ; preds = %2778
   %2780 = load ptr, ptr %106, align 8
-  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2780, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2780, ptr noundef nonnull %1)
           to label %2781 unwind label %2783
 
 2781:                                             ; preds = %2779
@@ -34781,7 +34781,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 2796:                                             ; preds = %2795
   %2797 = load ptr, ptr %106, align 8
-  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2797, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2797, ptr noundef nonnull %1)
           to label %2798 unwind label %2783
 
 2798:                                             ; preds = %2796
@@ -35130,7 +35130,7 @@ thread-pre-split:                                 ; preds = %2900
 
 2918:                                             ; preds = %2917
   %2919 = load ptr, ptr %113, align 8
-  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2919, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2919, ptr noundef nonnull %1)
           to label %2920 unwind label %2922
 
 2920:                                             ; preds = %2918
@@ -35208,7 +35208,7 @@ thread-pre-split:                                 ; preds = %2900
 
 2946:                                             ; preds = %2945
   %2947 = load ptr, ptr %113, align 8
-  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2947, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %2947, ptr noundef nonnull %1)
           to label %2948 unwind label %2922
 
 2948:                                             ; preds = %2946
@@ -35790,7 +35790,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 3154:                                             ; preds = %3147
   %3155 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3148) #39
+  call void @__cxa_free_exception(ptr nonnull %3148) #39
   br label %3200
 
 3156:                                             ; preds = %3146
@@ -35799,7 +35799,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 3157:                                             ; preds = %3156
   %3158 = load ptr, ptr %129, align 8
-  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %3158, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %3158, ptr noundef nonnull %1)
           to label %3159 unwind label %3150
 
 3159:                                             ; preds = %3157
@@ -35832,7 +35832,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
   %3169 = load ptr, ptr %129, align 8
   %3170 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16) %3169) #44
   %3171 = load ptr, ptr %3170, align 8
-  invoke void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %3171, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %3171, ptr noundef nonnull %1)
           to label %3172 unwind label %3175
 
 3172:                                             ; preds = %3168
@@ -35871,7 +35871,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
   %3180 = load ptr, ptr %129, align 8
   %3181 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16) %3180) #44
   %3182 = load ptr, ptr %3181, align 8
-  invoke void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %3182, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj5datum9Ellipsoid19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %3182, ptr noundef nonnull %1)
           to label %3183 unwind label %3150
 
 3183:                                             ; preds = %3179
@@ -35888,7 +35888,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 3186:                                             ; preds = %3185
   %3187 = load ptr, ptr %140, align 8
-  invoke void @_ZNK5osgeo4proj5datum13PrimeMeridian19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %3187, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj5datum13PrimeMeridian19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64) %3187, ptr noundef nonnull %1)
           to label %3188 unwind label %3193
 
 3188:                                             ; preds = %3186
@@ -35926,7 +35926,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 3197:                                             ; preds = %.thread2226, %3188
   %3198 = load ptr, ptr %133, align 8
-  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %3198, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %3198, ptr noundef nonnull %1)
           to label %3199 unwind label %3150
 
 3199:                                             ; preds = %3197
@@ -36231,7 +36231,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEC2ERKS4_.exit1899: ; p
           to label %3298 unwind label %3306
 
 3298:                                             ; preds = %3297
-  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %3231, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %3231, ptr noundef nonnull %1)
           to label %3299 unwind label %3306
 
 3299:                                             ; preds = %3298
@@ -36290,7 +36290,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEC2ERKS4_.exit1899: ; p
           to label %3321 unwind label %3306
 
 3321:                                             ; preds = %3320, %3319
-  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %3266, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %3266, ptr noundef nonnull %1)
           to label %3322 unwind label %3306
 
 .thread2257:                                      ; preds = %3292, %_ZNSt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEC2ERKS4_.exit1899
@@ -37905,7 +37905,7 @@ define internal fastcc void @"_ZZNK5osgeo4proj9operation15SingleOperation25expor
 34:                                               ; preds = %31, %27, %16
   %.sink = phi ptr [ %29, %31 ], [ %25, %27 ], [ %14, %16 ]
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %28, %27 ], [ %17, %16 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #39
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #39
   resume { ptr, i32 } %.pn
 }
 
@@ -39854,7 +39854,7 @@ define void @_ZN5osgeo4proj9operation20PointMotionOperation6createERKNS0_4util11
 38:                                               ; preds = %35
   %39 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %36) #39
+  tail call void @__cxa_free_exception(ptr nonnull %36) #39
   br label %160
 
 40:                                               ; preds = %6
@@ -40372,7 +40372,7 @@ define void @_ZN5osgeo4proj9operation20PointMotionOperation6createERKNS0_4util11
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #39
+  call void @__cxa_free_exception(ptr nonnull %25) #39
   br label %204
 
 29:                                               ; preds = %26
@@ -43120,7 +43120,7 @@ define hidden void @_ZNK5osgeo4proj9operation20PointMotionOperation12_exportToWK
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #39
+  tail call void @__cxa_free_exception(ptr nonnull %8) #39
   br label %176
 
 12:                                               ; preds = %5
@@ -43502,7 +43502,7 @@ define hidden void @_ZNK5osgeo4proj9operation20PointMotionOperation19_exportToPR
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #39
+  tail call void @__cxa_free_exception(ptr nonnull %12) #39
   br label %143
 
 16:                                               ; preds = %2
@@ -43539,7 +43539,7 @@ define hidden void @_ZNK5osgeo4proj9operation20PointMotionOperation19_exportToPR
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %35) #39
+  tail call void @__cxa_free_exception(ptr nonnull %35) #39
   br label %143
 
 39:                                               ; preds = %23
@@ -43561,7 +43561,7 @@ define hidden void @_ZNK5osgeo4proj9operation20PointMotionOperation19_exportToPR
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %45) #39
+  tail call void @__cxa_free_exception(ptr nonnull %45) #39
   br label %143
 
 49:                                               ; preds = %39
@@ -43588,7 +43588,7 @@ define hidden void @_ZNK5osgeo4proj9operation20PointMotionOperation19_exportToPR
 58:                                               ; preds = %.thread
   %59 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %56) #39
+  tail call void @__cxa_free_exception(ptr nonnull %56) #39
   br label %143
 
 60:                                               ; preds = %54
@@ -43720,7 +43720,7 @@ define hidden void @_ZNK5osgeo4proj9operation20PointMotionOperation19_exportToPR
 120:                                              ; preds = %117
   %121 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %118) #39
+  call void @__cxa_free_exception(ptr nonnull %118) #39
   br label %143
 
 122:                                              ; preds = %105
@@ -43778,7 +43778,7 @@ define hidden void @_ZNK5osgeo4proj9operation20PointMotionOperation19_exportToPR
 140:                                              ; preds = %137
   %141 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %138) #39
+  tail call void @__cxa_free_exception(ptr nonnull %138) #39
   br label %143
 
 142:                                              ; preds = %125, %136

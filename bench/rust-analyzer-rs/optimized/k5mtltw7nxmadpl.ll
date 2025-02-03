@@ -27950,7 +27950,7 @@ default.unreachable183:                           ; preds = %70, %"_ZN4core3ptr6
   %111 = getelementptr inbounds nuw i8, ptr %97, i64 56
   %112 = extractvalue { ptr, ptr } %99, 0
   %113 = extractvalue { ptr, ptr } %99, 1
-  %114 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %111, ptr noundef nonnull align 1 %112, ptr noalias noundef readonly align 8 dereferenceable(24) %113)
+  %114 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %111, ptr noundef nonnull align 1 %112, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %113)
           to label %115 unwind label %102
 
 115:                                              ; preds = %110
@@ -28171,7 +28171,7 @@ default.unreachable183:                           ; preds = %70, %"_ZN4core3ptr6
 192:                                              ; preds = %179
   %193 = extractvalue { ptr, ptr } %181, 0
   %194 = extractvalue { ptr, ptr } %181, 1
-  %195 = invoke noundef i32 @"_ZN60_$LT$span..HirFileId$u20$as$u20$hir_expand..HirFileIdExt$GT$13original_file17h67a27b4acc55ad2bE"(i32 noundef %.sroa.0132.0, ptr noundef nonnull align 1 %193, ptr noalias noundef readonly align 8 dereferenceable(24) %194)
+  %195 = invoke noundef i32 @"_ZN60_$LT$span..HirFileId$u20$as$u20$hir_expand..HirFileIdExt$GT$13original_file17h67a27b4acc55ad2bE"(i32 noundef %.sroa.0132.0, ptr noundef nonnull align 1 %193, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %194)
           to label %196 unwind label %.loopexit
 
 196:                                              ; preds = %192
@@ -28441,7 +28441,7 @@ default.unreachable183:                           ; preds = %70, %"_ZN4core3ptr6
   %289 = getelementptr inbounds nuw i8, ptr %265, i64 56
   %290 = extractvalue { ptr, ptr } %267, 0
   %291 = extractvalue { ptr, ptr } %267, 1
-  %292 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %289, ptr noundef nonnull align 1 %290, ptr noalias noundef readonly align 8 dereferenceable(24) %291)
+  %292 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %289, ptr noundef nonnull align 1 %290, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %291)
           to label %293 unwind label %280
 
 293:                                              ; preds = %288

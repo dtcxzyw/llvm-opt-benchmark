@@ -884,25 +884,25 @@ define range(i32 -1, 1) i32 @spawn_resp_unpack(ptr noundef writeonly captures(no
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = tail call i32 @slurm_unpack32(ptr noundef nonnull %8, ptr noundef %1) #10
   %.not30 = icmp eq i32 %9, 0
-  br i1 %.not30, label %10, label %33
+  br i1 %.not30, label %10, label %.thread
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = tail call i32 @slurm_unpack16(ptr noundef nonnull %11, ptr noundef %1) #10
   %.not31 = icmp eq i32 %12, 0
-  br i1 %.not31, label %13, label %33
+  br i1 %.not31, label %13, label %.thread
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef nonnull %14, ptr noundef nonnull %4, ptr noundef %1) #10
   %.not32 = icmp eq i32 %15, 0
-  br i1 %.not32, label %16, label %33
+  br i1 %.not32, label %16, label %.thread
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %18 = call i32 @slurm_unpack32(ptr noundef nonnull %17, ptr noundef %1) #10
   %.not33 = icmp eq i32 %18, 0
-  br i1 %.not33, label %19, label %33
+  br i1 %.not33, label %19, label %.thread
 
 19:                                               ; preds = %16
   %20 = load i32, ptr %17, align 4
@@ -941,12 +941,12 @@ define range(i32 -1, 1) i32 @spawn_resp_unpack(ptr noundef writeonly captures(no
   store ptr %5, ptr %0, align 8
   br label %37
 
-.thread:                                          ; preds = %.lr.ph, %21
+.thread:                                          ; preds = %.lr.ph, %21, %16, %13, %10, %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
   br label %34
 
-33:                                               ; preds = %16, %13, %10, %7, %2
+33:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
   %.not.i = icmp eq ptr %5, null

@@ -10193,7 +10193,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %9
 
 26:                                               ; preds = %14
   %27 = load ptr, ptr %19, align 8
-  %28 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %21, ptr noundef %16, ptr noundef %27) #17
+  %28 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %21, ptr noundef nonnull %16, ptr noundef %27) #17
   %29 = icmp slt i32 %28, -1
   br i1 %29, label %30, label %61
 

@@ -3941,7 +3941,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal26CoordinateDescentMinimizer
   br label %.loopexit
 
 14:                                               ; preds = %.lr.ph
-  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.09.016) #27
+  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.09.016) #27
   %.not = icmp eq ptr %15, %7
   br i1 %.not, label %.loopexit, label %.lr.ph
 

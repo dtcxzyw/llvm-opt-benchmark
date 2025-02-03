@@ -334,7 +334,7 @@ define void @prte_data_server(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3, pt
   br label %58
 
 58:                                               ; preds = %52, %56
-  %59 = call i32 @pthread_mutex_lock(ptr noundef %53) #11
+  %59 = call i32 @pthread_mutex_lock(ptr noundef nonnull %53) #11
   %60 = icmp eq i32 %59, 35
   br i1 %60, label %61, label %63
 
@@ -350,7 +350,7 @@ define void @prte_data_server(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3, pt
   %65 = load i32, ptr %64, align 8
   %66 = add nsw i32 %65, -1
   store i32 %66, ptr %64, align 8
-  %67 = call i32 @pthread_mutex_unlock(ptr noundef %53) #11
+  %67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %53) #11
   %68 = icmp eq i32 %66, 0
   br i1 %68, label %69, label %83
 
@@ -366,7 +366,7 @@ define void @prte_data_server(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3, pt
 .lr.ph.i:                                         ; preds = %69, %.lr.ph.i
   %75 = phi ptr [ %77, %.lr.ph.i ], [ %74, %69 ]
   %.07.i = phi ptr [ %76, %.lr.ph.i ], [ %73, %69 ]
-  call void %75(ptr noundef %53) #11
+  call void %75(ptr noundef nonnull %53) #11
   %76 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not.i = icmp eq ptr %77, null
@@ -425,7 +425,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %69
   br label %99
 
 99:                                               ; preds = %95, %97
-  %100 = call i32 @pthread_mutex_lock(ptr noundef %53) #11
+  %100 = call i32 @pthread_mutex_lock(ptr noundef nonnull %53) #11
   %101 = icmp eq i32 %100, 35
   br i1 %101, label %102, label %104
 
@@ -441,7 +441,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %69
   %106 = load i32, ptr %105, align 8
   %107 = add nsw i32 %106, -1
   store i32 %107, ptr %105, align 8
-  %108 = call i32 @pthread_mutex_unlock(ptr noundef %53) #11
+  %108 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %53) #11
   %109 = icmp eq i32 %107, 0
   br i1 %109, label %110, label %124
 
@@ -457,7 +457,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %69
 .lr.ph.i663:                                      ; preds = %110, %.lr.ph.i663
   %116 = phi ptr [ %118, %.lr.ph.i663 ], [ %115, %110 ]
   %.07.i664 = phi ptr [ %117, %.lr.ph.i663 ], [ %114, %110 ]
-  call void %116(ptr noundef %53) #11
+  call void %116(ptr noundef nonnull %53) #11
   %117 = getelementptr inbounds nuw i8, ptr %.07.i664, i64 8
   %118 = load ptr, ptr %117, align 8
   %.not.i665 = icmp eq ptr %118, null
@@ -491,7 +491,7 @@ pmix_obj_run_destructors.exit666:                 ; preds = %.lr.ph.i663, %110
   store i32 -27, ptr %16, align 4
   %129 = call ptr @PMIx_Error_string(i32 noundef -27) #11
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %129, ptr noundef nonnull @.str.5, i32 noundef 270) #11
-  %130 = call i32 @pthread_mutex_lock(ptr noundef %53) #11
+  %130 = call i32 @pthread_mutex_lock(ptr noundef nonnull %53) #11
   %131 = icmp eq i32 %130, 35
   br i1 %131, label %132, label %134
 
@@ -507,7 +507,7 @@ pmix_obj_run_destructors.exit666:                 ; preds = %.lr.ph.i663, %110
   %136 = load i32, ptr %135, align 8
   %137 = add nsw i32 %136, -1
   store i32 %137, ptr %135, align 8
-  %138 = call i32 @pthread_mutex_unlock(ptr noundef %53) #11
+  %138 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %53) #11
   %139 = icmp eq i32 %137, 0
   br i1 %139, label %140, label %154
 
@@ -566,7 +566,7 @@ pmix_obj_run_destructors.exit672:                 ; preds = %.lr.ph.i669, %140
   br label %162
 
 162:                                              ; preds = %155, %160
-  %163 = call i32 @pthread_mutex_lock(ptr noundef %53) #11
+  %163 = call i32 @pthread_mutex_lock(ptr noundef nonnull %53) #11
   %164 = icmp eq i32 %163, 35
   br i1 %164, label %165, label %167
 
@@ -582,7 +582,7 @@ pmix_obj_run_destructors.exit672:                 ; preds = %.lr.ph.i669, %140
   %169 = load i32, ptr %168, align 8
   %170 = add nsw i32 %169, -1
   store i32 %170, ptr %168, align 8
-  %171 = call i32 @pthread_mutex_unlock(ptr noundef %53) #11
+  %171 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %53) #11
   %172 = icmp eq i32 %170, 0
   br i1 %172, label %173, label %187
 

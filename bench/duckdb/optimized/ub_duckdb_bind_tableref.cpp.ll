@@ -11274,7 +11274,7 @@ invoke.cont52:                                    ; preds = %for.cond.cleanup28
 lpad51:                                           ; preds = %for.cond.cleanup28
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #23
+  call void @__cxa_free_exception(ptr nonnull %exception) #23
   br label %ehcleanup54
 
 ehcleanup54:                                      ; preds = %lpad51, %ehcleanup, %lpad32.loopexit.split-lp, %lpad32.loopexit, %lpad11
@@ -41571,7 +41571,7 @@ lpad137.loopexit.split-lp:                        ; preds = %invoke.cont145
 lpad144:                                          ; preds = %if.then142
   %103 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception143) #23
+  call void @__cxa_free_exception(ptr nonnull %exception143) #23
   br label %ehcleanup196
 
 if.end147:                                        ; preds = %invoke.cont140

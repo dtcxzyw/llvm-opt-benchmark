@@ -6511,7 +6511,7 @@ define range(i32 -1, 1) i32 @assoc_mgr_info_unpack_msg(ptr noundef writeonly cap
   br i1 %57, label %.lr.ph52, label %.loopexit, !llvm.loop !52
 
 .loopexit43:                                      ; preds = %.lr.ph, %.lr.ph50, %.lr.ph52, %.loopexit44, %.loopexit46, %10, %3
-  call void @slurm_free_assoc_mgr_info_msg(ptr noundef %6) #20
+  call void @slurm_free_assoc_mgr_info_msg(ptr noundef nonnull %6) #20
   store ptr null, ptr %0, align 8
   br label %.loopexit
 

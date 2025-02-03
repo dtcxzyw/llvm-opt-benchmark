@@ -331,7 +331,7 @@ if.end:                                           ; preds = %entry
   %con = getelementptr inbounds nuw i8, ptr %call.i, i64 5232
   store ptr %call5, ptr %con, align 16
   %vram = getelementptr inbounds nuw i8, ptr %call.i, i64 2624
-  tail call void @pci_register_bar(ptr noundef %call.i, i32 noundef 0, i8 noundef zeroext 8, ptr noundef nonnull %vram) #4
+  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 0, i8 noundef zeroext 8, ptr noundef nonnull %vram) #4
   %flags = getelementptr inbounds nuw i8, ptr %call.i, i64 70720
   %1 = load i32, ptr %flags, align 16
   %and = and i32 %1, 2

@@ -30278,7 +30278,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph, %65
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPPN5clang13CXXRecordDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_SF_T0_"(ptr noundef %73, ptr noundef nonnull %81, ptr nonnull %7)
+  call fastcc void @"_ZSt16__insertion_sortIPPN5clang13CXXRecordDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_SF_T0_"(ptr noundef nonnull %73, ptr noundef nonnull %81, ptr nonnull %7)
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 72
   br label %83
 
@@ -31501,7 +31501,7 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIPN5clang13CXXRecordDeclELj4EEEZL36structHasUniqueObjectRepresentationsRKNS2_10ASTContextEPKNS2_10RecordDeclEbE3$_0EEvOT_T0_.exit", label %83, !llvm.loop !119
 
 701:                                              ; preds = %76
-  call fastcc void @"_ZSt16__insertion_sortIPPN5clang13CXXRecordDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_SF_T0_"(ptr noundef %73, ptr noundef nonnull %75, ptr nonnull %7)
+  call fastcc void @"_ZSt16__insertion_sortIPPN5clang13CXXRecordDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_SF_T0_"(ptr noundef nonnull %73, ptr noundef nonnull %75, ptr nonnull %7)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorIPN5clang13CXXRecordDeclELj4EEEZL36structHasUniqueObjectRepresentationsRKNS2_10ASTContextEPKNS2_10RecordDeclEbE3$_0EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorIPN5clang13CXXRecordDeclELj4EEEZL36structHasUniqueObjectRepresentationsRKNS2_10ASTContextEPKNS2_10RecordDeclEbE3$_0EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIPPN5clang13CXXRecordDeclEN9__gnu_cxx5__ops14_Val_comp_iterIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %._crit_edge, %701

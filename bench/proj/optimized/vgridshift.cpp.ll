@@ -887,7 +887,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_delet
 45:                                               ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %47 = load double, ptr %46, align 8
-  %48 = call noundef double @_ZN5osgeo4proj14pj_vgrid_valueEP8PJconstsRKSt6vectorISt10unique_ptrINS0_20VerticalShiftGridSetESt14default_deleteIS5_EESaIS8_EE5PJ_LPd(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %40, double %.sroa.01.0.copyload, double %.sroa.4.0.copyload, double noundef %47)
+  %48 = call noundef double @_ZN5osgeo4proj14pj_vgrid_valueEP8PJconstsRKSt6vectorISt10unique_ptrINS0_20VerticalShiftGridSetESt14default_deleteIS5_EESaIS8_EE5PJ_LPd(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %40, double %.sroa.01.0.copyload, double %.sroa.4.0.copyload, double noundef %47)
   %49 = fadd double %.sroa.5.0.copyload, %48
   br label %50
 
@@ -1027,7 +1027,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_delet
 45:                                               ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %47 = load double, ptr %46, align 8
-  %48 = call noundef double @_ZN5osgeo4proj14pj_vgrid_valueEP8PJconstsRKSt6vectorISt10unique_ptrINS0_20VerticalShiftGridSetESt14default_deleteIS5_EESaIS8_EE5PJ_LPd(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %40, double %.sroa.01.0.copyload, double %.sroa.4.0.copyload, double noundef %47)
+  %48 = call noundef double @_ZN5osgeo4proj14pj_vgrid_valueEP8PJconstsRKSt6vectorISt10unique_ptrINS0_20VerticalShiftGridSetESt14default_deleteIS5_EESaIS8_EE5PJ_LPd(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %40, double %.sroa.01.0.copyload, double %.sroa.4.0.copyload, double noundef %47)
   %49 = fsub double %.sroa.5.0.copyload, %48
   br label %50
 

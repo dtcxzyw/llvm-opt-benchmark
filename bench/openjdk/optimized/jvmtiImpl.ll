@@ -3009,7 +3009,7 @@ _ZL18can_be_deoptimizedP6vframe.exit:             ; preds = %142
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 88
   %212 = load ptr, ptr %211, align 8
-  call void %212(ptr noundef nonnull align 8 dereferenceable(5064) %209, ptr noundef %181) #17
+  call void %212(ptr noundef nonnull align 8 dereferenceable(5064) %209, ptr noundef nonnull %181) #17
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #17
   br label %272
 

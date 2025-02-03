@@ -28841,7 +28841,7 @@ arraydestroy.body.i.i:                            ; preds = %entry, %arraydestro
   br i1 %arraydestroy.done.i.i, label %_ZNKSt14default_deleteIN4mold9MultiGlob8TrieNodeEEclEPS2_.exit, label %arraydestroy.body.i.i
 
 _ZNKSt14default_deleteIN4mold9MultiGlob8TrieNodeEEclEPS2_.exit: ; preds = %arraydestroy.body.i.i
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN4mold9MultiGlob8TrieNodeEEclEPS2_.exit, %entry

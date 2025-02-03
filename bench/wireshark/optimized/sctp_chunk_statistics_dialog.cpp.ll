@@ -5186,7 +5186,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i14:    ; preds = %76
   br label %common.resume
 
 82:                                               ; preds = %_ZN7QStringD2Ev.exit
-  %83 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.017.0) #25
+  %83 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.0) #25
   %.pr = load ptr, ptr %30, align 8
   br label %44, !llvm.loop !75
 

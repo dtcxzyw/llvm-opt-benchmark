@@ -3596,7 +3596,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #23
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #23
   resume { ptr, i32 } %0
 
 return:                                           ; preds = %entry, %sw.bb2
@@ -3701,7 +3701,7 @@ invoke.cont.i:                                    ; preds = %sw.epilog.i
 lpad.i:                                           ; preds = %sw.epilog.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #23
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #23
   br label %_ZNSt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS2_EED2Ev.exit
 
 invoke.cont21:                                    ; preds = %land.lhs.true16, %sw.bb2.i, %if.end20
@@ -4140,7 +4140,7 @@ invoke.cont:                                      ; preds = %if.end
 lpad:                                             ; preds = %if.end
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #23
+  call void @__cxa_free_exception(ptr nonnull %exception) #23
   resume { ptr, i32 } %2
 }
 

@@ -2798,7 +2798,7 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i394.i, %st
   store i8 0, ptr %arrayidx3.i.i, align 1
   call void @strbuf_addbuf(ptr noundef nonnull @new_data, ptr noundef nonnull @parse_new_commit.msg) #24
   call void @free(ptr noundef %author.0.i) #24
-  call void @free(ptr noundef %call10.i43) #24
+  call void @free(ptr noundef nonnull %call10.i43) #24
   call void @free(ptr noundef %encoding.0.i) #24
   %294 = load i64, ptr @next_mark, align 8
   %call106.i = call fastcc i32 @store_object(i32 noundef 1, ptr noundef nonnull @new_data, ptr noundef null, ptr noundef nonnull %oid87.i, i64 noundef %294)
@@ -6164,7 +6164,7 @@ if.end25:                                         ; preds = %keep_pack.exit
   store ptr %call22, ptr %arrayidx, align 8
   %32 = load ptr, ptr @the_repository, align 8
   call void @install_packed_git(ptr noundef %32, ptr noundef nonnull %call22) #24
-  call void @free(ptr noundef %call23.i) #24
+  call void @free(ptr noundef nonnull %call23.i) #24
   %33 = load ptr, ptr @pack_edges, align 8
   %tobool26.not = icmp eq ptr %33, null
   br i1 %tobool26.not, label %if.end62, label %if.then27
@@ -7317,7 +7317,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br i1 %cmp, label %if.then5, label %if.end6
 
 for.end:                                          ; preds = %land.lhs.true
-  tail call void @free(ptr noundef %call3) #24
+  tail call void @free(ptr noundef nonnull %call3) #24
   br label %if.end30
 
 if.else:                                          ; preds = %do.cond.i21

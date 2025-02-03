@@ -1371,8 +1371,8 @@ files_downcast.exit:                              ; preds = %if.end.i
 for.cond.preheader:                               ; preds = %files_downcast.exit
   %nr = getelementptr inbounds nuw i8, ptr %transaction, i64 24
   %4 = load i64, ptr %nr, align 8
-  %cmp133.not = icmp eq i64 %4, 0
-  br i1 %cmp133.not, label %for.end, label %for.body.lr.ph
+  %cmp140.not = icmp eq i64 %4, 0
+  br i1 %cmp140.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %updates = getelementptr inbounds nuw i8, ptr %transaction, i64 8
@@ -1383,13 +1383,13 @@ if.then:                                          ; preds = %files_downcast.exit
   unreachable
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.034 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %i.041 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %5 = load ptr, ptr %updates, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %i.034
+  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %i.041
   %6 = load ptr, ptr %arrayidx, align 8
   %refname = getelementptr inbounds nuw i8, ptr %6, i64 112
   %call2 = call ptr @string_list_append(ptr noundef nonnull %affected_refnames, ptr noundef nonnull %refname) #19
-  %inc = add nuw i64 %i.034, 1
+  %inc = add nuw i64 %i.041, 1
   %7 = load i64, ptr %nr, align 8
   %cmp1 = icmp ult i64 %inc, %7
   br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !16
@@ -1418,17 +1418,17 @@ if.end9:                                          ; preds = %if.end5
 
 for.cond14.preheader:                             ; preds = %if.end9
   %9 = load i64, ptr %nr, align 8
-  %cmp1635.not = icmp eq i64 %9, 0
-  br i1 %cmp1635.not, label %for.end40, label %for.body17.lr.ph
+  %cmp1642.not = icmp eq i64 %9, 0
+  br i1 %cmp1642.not, label %for.end40, label %for.body17.lr.ph
 
 for.body17.lr.ph:                                 ; preds = %for.cond14.preheader
   %updates18 = getelementptr inbounds nuw i8, ptr %transaction, i64 8
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %if.end31
-  %i.136 = phi i64 [ 0, %for.body17.lr.ph ], [ %inc39, %if.end31 ]
+  %i.143 = phi i64 [ 0, %for.body17.lr.ph ], [ %inc39, %if.end31 ]
   %10 = load ptr, ptr %updates18, align 8
-  %arrayidx19 = getelementptr inbounds ptr, ptr %10, i64 %i.136
+  %arrayidx19 = getelementptr inbounds ptr, ptr %10, i64 %i.143
   %11 = load ptr, ptr %arrayidx19, align 8
   %flags = getelementptr inbounds nuw i8, ptr %11, i64 72
   %12 = load i32, ptr %flags, align 8
@@ -1480,7 +1480,7 @@ if.end31:                                         ; preds = %if.end24
   %and35 = and i32 %17, -9
   %old_oid36 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %call37 = call ptr @ref_transaction_add_update(ptr noundef nonnull %call10, ptr noundef nonnull %refname26, i32 noundef %and35, ptr noundef nonnull %11, ptr noundef nonnull %old_oid36, ptr noundef null) #19
-  %inc39 = add nuw i64 %i.136, 1
+  %inc39 = add nuw i64 %i.143, 1
   %18 = load i64, ptr %nr, align 8
   %cmp16 = icmp ult i64 %inc39, %18
   br i1 %cmp16, label %for.body17, label %for.end40, !llvm.loop !17
@@ -1499,13 +1499,13 @@ if.end45:                                         ; preds = %for.end40
   call void @packed_refs_unlock(ptr noundef %20) #19
   br label %if.then52
 
-if.then52:                                        ; preds = %if.end24, %if.end45, %for.end40
-  %ret.0 = phi i32 [ %spec.select, %if.end45 ], [ -2, %for.end40 ], [ -1, %if.end24 ]
+if.then52:                                        ; preds = %if.end24, %for.end40, %if.end45
+  %ret.038 = phi i32 [ -2, %for.end40 ], [ %spec.select, %if.end45 ], [ -1, %if.end24 ]
   call void @ref_transaction_free(ptr noundef nonnull %call10) #19
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end9, %for.end, %if.then52
-  %ret.032 = phi i32 [ %ret.0, %if.then52 ], [ -2, %for.end ], [ -2, %if.end9 ]
+  %ret.032 = phi i32 [ %ret.038, %if.then52 ], [ -2, %for.end ], [ -2, %if.end9 ]
   store i32 2, ptr %state, align 8
   call void @string_list_clear(ptr noundef nonnull %affected_refnames, i32 noundef 0) #19
   ret i32 %ret.032

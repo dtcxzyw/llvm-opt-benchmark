@@ -27048,7 +27048,7 @@ if.then.i.i.i25:                                  ; preds = %lpad8
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then, %invoke.cont9
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.037) #41
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.037) #41
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
@@ -38384,7 +38384,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   %26 = tail call ptr @__cxa_begin_catch(ptr %25) #37
-  invoke void @_ZSt8_DestroyIPN6duckdb18CatalogSearchEntryEEvT_S3_(ptr noundef %22, ptr noundef %__cur.016.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb18CatalogSearchEntryEEvT_S3_(ptr noundef %22, ptr noundef nonnull %__cur.016.i.i.i.i)
           to label %invoke.cont3.i.i.i.i unwind label %lpad2.i.i.i.i
 
 invoke.cont3.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -38470,7 +38470,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #37
-  invoke void @_ZSt8_DestroyIPN6duckdb18CatalogSearchEntryEEvT_S3_(ptr noundef %cond.i, ptr noundef %__cur.018.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb18CatalogSearchEntryEEvT_S3_(ptr noundef %cond.i, ptr noundef nonnull %__cur.018.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -39084,7 +39084,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #37
-  invoke void @_ZSt8_DestroyIPN6duckdb18CatalogSearchEntryEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef %__cur.018.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6duckdb18CatalogSearchEntryEEvT_S3_(ptr noundef %cond.i.i.i, ptr noundef nonnull %__cur.018.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -53255,7 +53255,7 @@ lpad.body:                                        ; preds = %lpad, %lpad.i.i
   %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %1, %lpad.i.i ]
   %4 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #37
-  invoke void @_ZSt8_DestroyIPN6duckdb14DependencyInfoEEvT_S3_(ptr noundef %__result, ptr noundef %__cur.018)
+  invoke void @_ZSt8_DestroyIPN6duckdb14DependencyInfoEEvT_S3_(ptr noundef %__result, ptr noundef nonnull %__cur.018)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %lpad.body

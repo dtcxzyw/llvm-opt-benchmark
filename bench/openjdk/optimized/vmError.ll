@@ -1874,7 +1874,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit:        ; preds = %305
 
 312:                                              ; preds = %311, %310
   %313 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  call void @_ZN7VMError18print_native_stackEP12outputStream5frameP6ThreadbiPci(ptr noundef %0, ptr noundef nonnull byval(%class.frame) align 8 %19, ptr noundef %313, i1 noundef zeroext false, i32 noundef -1, ptr noundef nonnull @_ZZN7VMError6reportEP12outputStreambE3buf, i32 noundef 2000)
+  call void @_ZN7VMError18print_native_stackEP12outputStream5frameP6ThreadbiPci(ptr noundef nonnull %0, ptr noundef nonnull byval(%class.frame) align 8 %19, ptr noundef %313, i1 noundef zeroext false, i32 noundef -1, ptr noundef nonnull @_ZZN7VMError6reportEP12outputStreambE3buf, i32 noundef 2000)
   store i8 1, ptr @_ZN7VMError24_print_native_stack_usedE, align 1
   br label %.critedge398
 
@@ -4510,7 +4510,7 @@ _ZL15expand_and_openPKcbPcmm.exit43.thread:       ; preds = %19, %_ZL15expand_an
 
 40:                                               ; preds = %34
   %..i45 = select i1 %2, i32 578, i32 194
-  %41 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %3, i32 noundef %..i45, i32 noundef 438) #21
+  %41 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %3, i32 noundef %..i45, i32 noundef 438) #21
   br label %_ZL15expand_and_openPKcbPcmm.exit46
 
 _ZL15expand_and_openPKcbPcmm.exit46:              ; preds = %_ZL15expand_and_openPKcbPcmm.exit, %40, %34, %_ZL15expand_and_openPKcbPcmm.exit43.thread, %29, %30, %_ZL15expand_and_openPKcbPcmm.exit43

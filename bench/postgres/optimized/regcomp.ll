@@ -23448,7 +23448,7 @@ default.unreachable:                              ; preds = %30
   tail call void @free(ptr noundef %81) #22
   %82 = load ptr, ptr %27, align 8
   tail call void @free(ptr noundef %82) #22
-  tail call void @free(ptr noundef %15) #22
+  tail call void @free(ptr noundef nonnull %15) #22
   br label %83
 
 83:                                               ; preds = %._crit_edge, %.loopexit, %78, %11

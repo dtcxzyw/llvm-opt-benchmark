@@ -399,7 +399,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit25:              ; preds = %100, %105, %112
           to label %117 unwind label %61
 
 117:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit25
-  invoke void @_ZN5Yosys5RTLIL6Design3addEPNS0_6ModuleE(ptr noundef nonnull align 8 dereferenceable(376) %2, ptr noundef %99)
+  invoke void @_ZN5Yosys5RTLIL6Design3addEPNS0_6ModuleE(ptr noundef nonnull align 8 dereferenceable(376) %2, ptr noundef nonnull %99)
           to label %118 unwind label %61
 
 118:                                              ; preds = %117
@@ -1583,7 +1583,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 22:                                               ; preds = %._crit_edge
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #20
+  call void @__cxa_free_exception(ptr nonnull %20) #20
   br label %24
 
 24:                                               ; preds = %22, %18

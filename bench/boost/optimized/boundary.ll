@@ -804,7 +804,7 @@ define hidden void @_ZN5boost6locale8boundary8impl_icu12get_iteratorENS1_13bound
 .thread:                                          ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #22
+  call void @__cxa_free_exception(ptr nonnull %18) #22
   br label %_ZNSt10unique_ptrIN6icu_7013BreakIteratorESt14default_deleteIS1_EED2Ev.exit
 
 21:                                               ; preds = %16
@@ -1760,7 +1760,7 @@ _ZNSt10unique_ptrI5UTextSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = %32
 46:                                               ; preds = %39
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %40) #22
+  call void @__cxa_free_exception(ptr nonnull %40) #22
   br label %62
 
 48:                                               ; preds = %38
@@ -2230,7 +2230,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx11
 18:                                               ; preds = %13
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #22
+  call void @__cxa_free_exception(ptr nonnull %14) #22
   br label %28
 
 20:                                               ; preds = %10

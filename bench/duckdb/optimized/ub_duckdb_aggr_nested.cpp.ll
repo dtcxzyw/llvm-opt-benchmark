@@ -11600,7 +11600,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
   %__y.0.lcssa49.i.i = phi ptr [ %__y.0.lcssa48.i.i, %if.else.i.i ], [ %__x.044.i.i, %while.end.i.i ]
   %__j.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.else.i.i ], [ %__x.044.i.i, %while.end.i.i ]
   %cmp.i28.i.i = icmp samesign ult i8 %41, %.pre.i
-  br i1 %cmp.i28.i.i, label %invoke.cont7.i.i, label %if.then.i23.i.i
+  br i1 %cmp.i28.i.i, label %if.then.i.i, label %if.then.i23.i.i
 
 if.else12.i:                                      ; preds = %call5.i.i.i.i.i.i.i.noexc
   %_M_storage.i.i.i91.i = getelementptr inbounds nuw i8, ptr %__y.addr.0.lcssa.i.i.i27.i, i64 32
@@ -11682,26 +11682,26 @@ if.end12.i158.i:                                  ; preds = %while.body.i149.i, 
   %cmp.i28.i162.not.not.i = icmp eq i8 %47, 0
   br i1 %cmp.i28.i162.not.not.i, label %if.then.i.i, label %if.then.i23.i.i
 
-invoke.cont7.i.i:                                 ; preds = %if.end12.i.i, %if.then.i126.i, %if.then.i.i11
-  %retval.sroa.12.2.i = phi ptr [ %__y.0.lcssa48.i.i, %if.then.i.i11 ], [ %43, %if.then.i126.i ], [ %__y.0.lcssa49.i.i, %if.end12.i.i ]
+invoke.cont7.i.i:                                 ; preds = %if.then.i126.i, %if.then.i.i11
+  %retval.sroa.12.2.i = phi ptr [ %__y.0.lcssa48.i.i, %if.then.i.i11 ], [ %43, %if.then.i126.i ]
   %tobool.not.i.i = icmp eq ptr %retval.sroa.12.2.i, null
   br i1 %tobool.not.i.i, label %if.then.i23.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.end12.i158.i, %if.then50.i, %land.lhs.true.i, %invoke.cont7.i.i
-  %retval.sroa.12.2.i28 = phi ptr [ %retval.sroa.12.2.i, %invoke.cont7.i.i ], [ %__y.addr.0.lcssa.i.i.i27.i, %if.then50.i ], [ %37, %land.lhs.true.i ], [ %__y.0.lcssa49.i159.i, %if.end12.i158.i ]
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.12.2.i28
+if.then.i.i:                                      ; preds = %if.end12.i158.i, %if.end12.i.i, %if.then50.i, %land.lhs.true.i, %invoke.cont7.i.i
+  %retval.sroa.12.2.i19 = phi ptr [ %retval.sroa.12.2.i, %invoke.cont7.i.i ], [ %__y.addr.0.lcssa.i.i.i27.i, %if.then50.i ], [ %37, %land.lhs.true.i ], [ %__y.0.lcssa49.i.i, %if.end12.i.i ], [ %__y.0.lcssa49.i159.i, %if.end12.i158.i ]
+  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.12.2.i19
   br i1 %cmp2.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.12.2.i28, i64 32
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.12.2.i19, i64 32
   %48 = load i8, ptr %_M_storage.i.i.i.i.i.i.i, align 1, !tbaa !250, !range !251, !noundef !252
   %cmp.i.i.i.i20.i = icmp samesign ult i8 %.pre.i, %48
   br label %cleanup.thread.i.i
 
 cleanup.thread.i.i:                               ; preds = %if.then.i169.i, %if.then18.i, %lor.rhs.i.i.i.i, %if.then.i.i
-  %retval.sroa.12.2.i2834 = phi ptr [ %retval.sroa.12.2.i28, %if.then.i.i ], [ %retval.sroa.12.2.i28, %lor.rhs.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i27.i, %if.then18.i ], [ %add.ptr.i.i.i.i, %if.then.i169.i ]
+  %retval.sroa.12.2.i1934 = phi ptr [ %retval.sroa.12.2.i19, %if.then.i.i ], [ %retval.sroa.12.2.i19, %lor.rhs.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i27.i, %if.then18.i ], [ %add.ptr.i.i.i.i, %if.then.i169.i ]
   %49 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i.i.i20.i, %lor.rhs.i.i.i.i ], [ true, %if.then18.i ], [ true, %if.then.i169.i ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %49, ptr noundef nonnull %call5.i.i.i.i.i.i.i57, ptr noundef nonnull %retval.sroa.12.2.i2834, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #23
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %49, ptr noundef nonnull %call5.i.i.i.i.i.i.i57, ptr noundef nonnull %retval.sroa.12.2.i1934, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #23
   %_M_node_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 40
   %50 = load i64, ptr %_M_node_count.i.i.i.i, align 8, !tbaa !244
   %inc.i.i.i.i = add i64 %50, 1
@@ -11709,12 +11709,12 @@ cleanup.thread.i.i:                               ; preds = %if.then.i169.i, %if
   br label %invoke.cont27
 
 if.then.i23.i.i:                                  ; preds = %while.end.i114.i, %if.else.i130.i, %if.end12.i158.i, %if.end12.i.i, %if.else44.i, %invoke.cont7.i.i
-  %retval.sroa.0.2.i18 = phi ptr [ null, %invoke.cont7.i.i ], [ %__x.044.i107.i, %while.end.i114.i ], [ %call.i.i131.i, %if.else.i130.i ], [ %__j.sroa.0.0.i160.i, %if.end12.i158.i ], [ %__j.sroa.0.0.i.i, %if.end12.i.i ], [ %__y.addr.0.lcssa.i.i.i27.i, %if.else44.i ]
+  %retval.sroa.0.2.i28 = phi ptr [ null, %invoke.cont7.i.i ], [ %__x.044.i107.i, %while.end.i114.i ], [ %call.i.i131.i, %if.else.i130.i ], [ %__j.sroa.0.0.i160.i, %if.end12.i158.i ], [ %__j.sroa.0.0.i.i, %if.end12.i.i ], [ %__y.addr.0.lcssa.i.i.i27.i, %if.else44.i ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i57) #25
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %if.then.i23.i.i, %cleanup.thread.i.i, %lor.rhs.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %call5.i.i.i.i.i.i.i57, %cleanup.thread.i.i ], [ %retval.sroa.0.2.i18, %if.then.i23.i.i ]
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %call5.i.i.i.i.i.i.i57, %cleanup.thread.i.i ], [ %retval.sroa.0.2.i28, %if.then.i23.i.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 40
   %51 = load i64, ptr %second.i, align 8, !tbaa !56
   %add = add i64 %51, %30
@@ -12842,7 +12842,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i8 %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !254
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !246
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIbSt4pairIKbmESt10_Select1stIS2_ESt4lessIbESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 1 dereferenceable(1) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIbSt4pairIKbmESt10_Select1stIS2_ESt4lessIbESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 1 dereferenceable(1) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIbSt4pairIKbmESt10_Select1stIS2_ESt4lessIbESaIS2_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -14779,7 +14779,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i8 %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !286
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !283
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIhSt4pairIKhmESt10_Select1stIS2_ESt4lessIhESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 1 dereferenceable(1) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIhSt4pairIKhmESt10_Select1stIS2_ESt4lessIhESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 1 dereferenceable(1) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIhSt4pairIKhmESt10_Select1stIS2_ESt4lessIhESaIS2_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -16655,7 +16655,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i16 %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !305
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !301
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtmESt10_Select1stIS2_ESt4lessItESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 2 dereferenceable(2) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtmESt10_Select1stIS2_ESt4lessItESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 2 dereferenceable(2) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeItSt4pairIKtmESt10_Select1stIS2_ESt4lessItESaIS2_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -18531,7 +18531,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i32 %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !323
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !320
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjmESt10_Select1stIS2_ESt4lessIjESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjmESt10_Select1stIS2_ESt4lessIjESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIjSt4pairIKjmESt10_Select1stIS2_ESt4lessIjESaIS2_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -20407,7 +20407,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !341
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !338
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -22281,7 +22281,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i8 %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !359
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !356
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIaSt4pairIKamESt10_Select1stIS2_ESt4lessIaESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 1 dereferenceable(1) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIaSt4pairIKamESt10_Select1stIS2_ESt4lessIaESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 1 dereferenceable(1) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIaSt4pairIKamESt10_Select1stIS2_ESt4lessIaESaIS2_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -24157,7 +24157,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i16 %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !377
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !374
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIsSt4pairIKsmESt10_Select1stIS2_ESt4lessIsESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 2 dereferenceable(2) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIsSt4pairIKsmESt10_Select1stIS2_ESt4lessIsESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 2 dereferenceable(2) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIsSt4pairIKsmESt10_Select1stIS2_ESt4lessIsESaIS2_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -26033,7 +26033,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i32 %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !395
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !392
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -27909,7 +27909,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !413
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !410
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIlSt4pairIKlmESt10_Select1stIS2_ESt4lessIlESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIlSt4pairIKlmESt10_Select1stIS2_ESt4lessIlESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIlSt4pairIKlmESt10_Select1stIS2_ESt4lessIlESaIS2_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -29785,7 +29785,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store float %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !433
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !428
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIfSt4pairIKfmESt10_Select1stIS2_ESt4lessIfESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIfSt4pairIKfmESt10_Select1stIS2_ESt4lessIfESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIfSt4pairIKfmESt10_Select1stIS2_ESt4lessIfESaIS2_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -31664,7 +31664,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store double %.pre, ptr %_M_storage.i.i.i.i.i18, align 8, !tbaa !453
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !448
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIdSt4pairIKdmESt10_Select1stIS2_ESt4lessIdESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i18)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIdSt4pairIKdmESt10_Select1stIS2_ESt4lessIdESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i27, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i18)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIdSt4pairIKdmESt10_Select1stIS2_ESt4lessIdESaIS2_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -36080,7 +36080,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i17, align 8, !tbaa !56
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !496
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb11timestamp_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb11timestamp_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIN6duckdb11timestamp_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -37956,7 +37956,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i17, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !515
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb14timestamp_tz_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb14timestamp_tz_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIN6duckdb14timestamp_tz_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -39832,7 +39832,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i17, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !533
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb15timestamp_sec_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb15timestamp_sec_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIN6duckdb15timestamp_sec_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -41708,7 +41708,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i17, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !551
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb14timestamp_ms_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb14timestamp_ms_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIN6duckdb14timestamp_ms_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -43584,7 +43584,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i17, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !569
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb14timestamp_ns_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb14timestamp_ns_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIN6duckdb14timestamp_ns_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -45460,7 +45460,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i17, align 8, !tbaa !56
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !587
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb7dtime_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb7dtime_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIN6duckdb7dtime_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -47336,7 +47336,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i17, align 8, !tbaa !56
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !606
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb10dtime_tz_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb10dtime_tz_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i17)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIN6duckdb10dtime_tz_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then
@@ -49212,7 +49212,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   store i32 %.pre, ptr %_M_storage.i.i.i.i.i17, align 8, !tbaa !61
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !625
-  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb6date_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i17)
+  %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6duckdb6date_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i26, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i17)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIN6duckdb6date_tESt4pairIKS1_mESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i
 
 invoke.cont7.i:                                   ; preds = %if.then

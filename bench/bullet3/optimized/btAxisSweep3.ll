@@ -3504,7 +3504,7 @@ if.then22.us:                                     ; preds = %if.then15.us
   %vtable24.us = load ptr, ptr %21, align 8
   %vfn25.us = getelementptr inbounds nuw i8, ptr %vtable24.us, i64 16
   %22 = load ptr, ptr %vfn25.us, align 8
-  %call26.us = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %add.ptr.i30.us, ptr noundef nonnull %add.ptr.i27.us)
+  %call26.us = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %add.ptr.i30.us, ptr noundef nonnull %add.ptr.i27.us)
   br label %if.end33.us
 
 if.end33.us:                                      ; preds = %if.then.us, %lor.lhs.false.i.us, %lor.lhs.false14.i.us, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us, %if.then15.us, %if.then22.us, %if.else.us
@@ -5447,7 +5447,7 @@ if.then20.us:                                     ; preds = %if.then13.us
   %vtable22.us = load ptr, ptr %20, align 8
   %vfn23.us = getelementptr inbounds nuw i8, ptr %vtable22.us, i64 16
   %21 = load ptr, ptr %vfn23.us, align 8
-  %call24.us = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %add.ptr.i30.us, ptr noundef nonnull %add.ptr.i27.us)
+  %call24.us = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %add.ptr.i30.us, ptr noundef nonnull %add.ptr.i27.us)
   br label %if.end31.us
 
 if.end31.us:                                      ; preds = %if.then.us, %lor.lhs.false.i.us, %lor.lhs.false11.i.us, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us, %if.then13.us, %if.then20.us, %if.else.us

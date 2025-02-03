@@ -112,11 +112,11 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   br i1 %cmp.i.us, label %if.then2.i.us, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %for.body.us
-  %call6.i.us = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i26, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %spec.select.i28.us) #8
+  %call6.i.us = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i26, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %spec.select.i28.us) #8
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPvES4_S4_S4_iS3_.exit.us
 
 if.then2.i.us:                                    ; preds = %for.body.us
-  %call4.i29.us = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i26, i64 noundef 1024, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef %0, ptr noundef nonnull %spec.select.i28.us) #8
+  %call4.i29.us = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i26, i64 noundef 1024, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull %0, ptr noundef nonnull %spec.select.i28.us) #8
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPvES4_S4_S4_iS3_.exit.us
 
 _ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPvES4_S4_S4_iS3_.exit.us: ; preds = %if.then2.i.us, %if.else.i.us

@@ -1418,7 +1418,7 @@ if.then31:                                        ; preds = %if.end25
 
 if.end32:                                         ; preds = %if.end25
   %8 = load i64, ptr %data_size, align 8
-  %call34 = call noalias ptr @CRYPTO_strndup(ptr noundef %5, i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 740) #7
+  %call34 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %5, i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 740) #7
   %cmp35 = icmp eq ptr %call34, null
   br i1 %cmp35, label %return, label %if.end38
 
@@ -1433,7 +1433,7 @@ if.end38:                                         ; preds = %if.end32
   %cipher_ctr = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %cipher_ctr, align 8
   call void @EVP_CIPHER_free(ptr noundef %11) #7
-  %call44 = call ptr @EVP_CIPHER_fetch(ptr noundef %call, ptr noundef %5, ptr noundef %propquery.0) #7
+  %call44 = call ptr @EVP_CIPHER_fetch(ptr noundef %call, ptr noundef nonnull %5, ptr noundef %propquery.0) #7
   store ptr %call44, ptr %cipher_ctr, align 8
   %call46 = call ptr @EVP_CIPHER_fetch(ptr noundef %call, ptr noundef nonnull %call34, ptr noundef %propquery.0) #7
   store ptr %call46, ptr %cipher_ecb, align 8

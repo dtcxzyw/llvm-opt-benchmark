@@ -1663,7 +1663,7 @@ _ZN3nix14checkInterruptEv.exit.us:                ; preds = %18, %_ZNKSt8functio
 27:                                               ; preds = %.split.us
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #35
+  call void @__cxa_free_exception(ptr nonnull %25) #35
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %.lr.ph.split
@@ -2081,7 +2081,7 @@ define noundef range(i32 0, -1) i32 @_ZN3nix12startProcessESt8functionIFvvEERKNS
 15:                                               ; preds = %11
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #35
+  tail call void @__cxa_free_exception(ptr nonnull %12) #35
   br label %46
 
 17:                                               ; preds = %_ZN3nix8SysErrorC2IJA15_cEEEDpRKT_.exit.invoke, %25
@@ -2127,7 +2127,7 @@ _ZN3nix8SysErrorC2IJA15_cEEEDpRKT_.exit.cont:     ; preds = %_ZN3nix8SysErrorC2I
 37:                                               ; preds = %32
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %33) #35
+  call void @__cxa_free_exception(ptr nonnull %33) #35
   br label %46
 
 39:                                               ; preds = %30
@@ -8941,7 +8941,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -10076,7 +10076,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE7ret
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -10965,7 +10965,7 @@ _ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaI
 
 181:                                              ; preds = %177
   %182 = getelementptr inbounds %"struct.boost::io::detail::format_item", ptr %144, i64 %2
-  invoke void @_ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES7_EvT_S9_RSaIT0_E(ptr noundef %144, ptr noundef nonnull %182, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  invoke void @_ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES7_EvT_S9_RSaIT0_E(ptr noundef nonnull %144, ptr noundef nonnull %182, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE13_M_deallocateEPS7_m.exit111 unwind label %183
 
 183:                                              ; preds = %_ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE13_M_deallocateEPS7_m.exit111, %181
@@ -11673,7 +11673,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRK
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -12511,7 +12511,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE7rethrow
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -14974,7 +14974,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io12too_few_argsEEEvRKT
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -15112,7 +15112,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io12too_few_argsEE7rethrowE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -16491,7 +16491,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3nix8killUserEjE3$_0E9_M_i
 23:                                               ; preds = %20, %9
   %.sink.i.i.i = phi ptr [ %17, %20 ], [ %7, %9 ]
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %20 ], [ %10, %9 ]
-  tail call void @__cxa_free_exception(ptr %.sink.i.i.i) #35
+  tail call void @__cxa_free_exception(ptr nonnull %.sink.i.i.i) #35
   resume { ptr, i32 } %.pn.i.i.i
 }
 
@@ -17107,7 +17107,7 @@ _ZN3nix8SysErrorC2IJA21_cEEEDpRKT_.exit.i.i.i:    ; preds = %16
   %21 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  tail call void @__cxa_free_exception(ptr %17) #35
+  tail call void @__cxa_free_exception(ptr nonnull %17) #35
   br label %24
 
 22:                                               ; preds = %45, %44, %_ZN3nix8SysErrorC2IJA21_cEEEDpRKT_.exit.i.i.i
@@ -18424,7 +18424,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace
 common.resume.i.sink.split.i.i:                   ; preds = %111, %96, %84, %69, %54, %39, %26
   %.sink.i.i = phi ptr [ %109, %111 ], [ %94, %96 ], [ %82, %84 ], [ %67, %69 ], [ %52, %54 ], [ %37, %39 ], [ %24, %26 ]
   %common.resume.op.i.ph.i.i = phi { ptr, i32 } [ %112, %111 ], [ %97, %96 ], [ %85, %84 ], [ %70, %69 ], [ %55, %54 ], [ %40, %39 ], [ %27, %26 ]
-  tail call void @__cxa_free_exception(ptr %.sink.i.i) #35
+  tail call void @__cxa_free_exception(ptr nonnull %.sink.i.i) #35
   br label %common.resume.i.i.i
 
 common.resume.i.i.i:                              ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i.i, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i.i.i.i, %.body.i.i.i, %.body.i.i.i.i, %common.resume.i.sink.split.i.i
@@ -18548,7 +18548,7 @@ _ZN3nix8SysErrorC2IJA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
 189:                                              ; preds = %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i.i.i
   %190 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %185) #35
+  call void @__cxa_free_exception(ptr nonnull %185) #35
   br label %.body.i.i.i
 
 .body.i.i.i:                                      ; preds = %189, %178, %_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit9.i.i.i.i.i.i

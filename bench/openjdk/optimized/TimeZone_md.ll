@@ -249,12 +249,12 @@ removeDuplicateSlashes.exit.i:                    ; preds = %.critedge2.i.i, %59
   br i1 %.not52.i, label %97, label %96
 
 96:                                               ; preds = %.critedge6.i
-  call void @free(ptr noundef %83) #14
+  call void @free(ptr noundef nonnull %83) #14
   br label %.thread25
 
 97:                                               ; preds = %.critedge6.i
   %98 = call fastcc ptr @findZoneinfoFile(ptr noundef nonnull %83, i64 noundef %82, ptr noundef nonnull @.str.14)
-  call void @free(ptr noundef %83) #14
+  call void @free(ptr noundef nonnull %83) #14
   br label %99
 
 .thread25:                                        ; preds = %25, %70, %37, %.critedge4.i, %85, %96

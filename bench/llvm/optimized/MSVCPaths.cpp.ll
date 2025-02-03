@@ -1571,7 +1571,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit78:
 101:                                              ; preds = %92
   %102 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %12) #9
   store i64 0, ptr %66, align 8
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(280) %12, ptr noundef %.sroa.0105.0.copyload, ptr noundef nonnull %93)
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(280) %12, ptr noundef nonnull %.sroa.0105.0.copyload, ptr noundef nonnull %93)
   store i8 1, ptr %76, align 1
   store ptr @.str.30, ptr %18, align 8
   store i8 3, ptr %75, align 8
@@ -1592,7 +1592,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit78:
   br i1 %108, label %109, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit84.thread
 
 109:                                              ; preds = %101
-  %110 = call { ptr, i64 } @_ZN4llvm3sys4path8filenameENS_9StringRefENS1_5StyleE(ptr %.sroa.0105.0.copyload, i64 %.sroa.7.0.copyload, i32 noundef 0) #9
+  %110 = call { ptr, i64 } @_ZN4llvm3sys4path8filenameENS_9StringRefENS1_5StyleE(ptr nonnull %.sroa.0105.0.copyload, i64 %.sroa.7.0.copyload, i32 noundef 0) #9
   %111 = extractvalue { ptr, i64 } %110, 0
   store ptr %111, ptr %23, align 8
   %112 = extractvalue { ptr, i64 } %110, 1
@@ -1606,7 +1606,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %109
   br i1 %115, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit79.thread, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread
 
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread: ; preds = %109, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit
-  %116 = call { ptr, i64 } @_ZN4llvm3sys4path11parent_pathENS_9StringRefENS1_5StyleE(ptr %.sroa.0105.0.copyload, i64 %.sroa.7.0.copyload, i32 noundef 0) #9
+  %116 = call { ptr, i64 } @_ZN4llvm3sys4path11parent_pathENS_9StringRefENS1_5StyleE(ptr nonnull %.sroa.0105.0.copyload, i64 %.sroa.7.0.copyload, i32 noundef 0) #9
   %117 = extractvalue { ptr, i64 } %116, 0
   %118 = extractvalue { ptr, i64 } %116, 1
   %119 = call { ptr, i64 } @_ZN4llvm3sys4path8filenameENS_9StringRefENS1_5StyleE(ptr %117, i64 %118, i32 noundef 0) #9
@@ -1716,8 +1716,8 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit84: ; preds = %_ZNK4llvm9StringR
   br label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit84.thread.sink.split
 
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit79.thread123: ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit79
-  call void @_ZN4llvm3sys4path6rbeginENS_9StringRefENS1_5StyleE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::sys::path::reverse_iterator") align 8 %30, ptr %.sroa.0105.0.copyload, i64 %.sroa.7.0.copyload, i32 noundef 0) #9
-  call void @_ZN4llvm3sys4path4rendENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::sys::path::reverse_iterator") align 8 %31, ptr %.sroa.0105.0.copyload, i64 %.sroa.7.0.copyload) #9
+  call void @_ZN4llvm3sys4path6rbeginENS_9StringRefENS1_5StyleE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::sys::path::reverse_iterator") align 8 %30, ptr nonnull %.sroa.0105.0.copyload, i64 %.sroa.7.0.copyload, i32 noundef 0) #9
+  call void @_ZN4llvm3sys4path4rendENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::sys::path::reverse_iterator") align 8 %31, ptr nonnull %.sroa.0105.0.copyload, i64 %.sroa.7.0.copyload) #9
   br label %160
 
 160:                                              ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit79.thread123, %164

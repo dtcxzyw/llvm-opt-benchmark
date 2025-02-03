@@ -263,7 +263,7 @@ cond.true:                                        ; preds = %land.lhs.true
 lpad9:                                            ; preds = %cond.true
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef %call8) #22
+  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %call8) #22
   resume { ptr, i32 } %1
 
 return.sink.split:                                ; preds = %entry, %sw.bb2
@@ -393,7 +393,7 @@ if.then3:                                         ; preds = %invoke.cont
 common.resume:                                    ; preds = %lpad9.i, %lpad
   %call8.i.sink = phi ptr [ %call8.i, %lpad9.i ], [ %call1, %lpad ]
   %common.resume.op = phi { ptr, i32 } [ %10, %lpad9.i ], [ %3, %lpad ]
-  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef %call8.i.sink) #22
+  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %call8.i.sink) #22
   resume { ptr, i32 } %common.resume.op
 
 lpad:                                             ; preds = %if.end

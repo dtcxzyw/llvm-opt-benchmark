@@ -170,13 +170,13 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
 
 .loopexit64:                                      ; preds = %.lr.ph, %28, %6
   %.0 = phi i32 [ %26, %6 ], [ %29, %28 ], [ %33, %.lr.ph ]
-  %36 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %10) #2
+  %36 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %10) #2
   %37 = load i32, ptr %10, align 4
   %.not62 = icmp eq i32 %37, 0
   br i1 %.not62, label %.loopexit, label %38
 
 38:                                               ; preds = %.loopexit64
-  %39 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %11) #2
+  %39 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %36, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %11) #2
   %40 = load i16, ptr %9, align 2
   %41 = add i16 %40, -1
   store i16 %41, ptr %9, align 2
@@ -186,7 +186,7 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
 .lr.ph69:                                         ; preds = %38, %.lr.ph69
   %.368 = phi i32 [ %43, %.lr.ph69 ], [ %39, %38 ]
   %42 = load i32, ptr @hf_oxid_oid, align 4
-  %43 = call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %.368, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %42, ptr noundef null) #2
+  %43 = call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %.368, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %42, ptr noundef null) #2
   %44 = load i16, ptr %9, align 2
   %45 = add i16 %44, -1
   store i16 %45, ptr %9, align 2

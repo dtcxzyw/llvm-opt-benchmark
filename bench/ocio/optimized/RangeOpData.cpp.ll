@@ -279,7 +279,7 @@ lpad:                                             ; preds = %invoke.cont20, %inv
 lpad10:                                           ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #18
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #18
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont8
@@ -738,7 +738,7 @@ invoke.cont.i:                                    ; preds = %if.then6.i
 common.resume:                                    ; preds = %lpad, %lpad10, %lpad21, %lpad29, %lpad38, %lpad53, %lpad61, %lpad78, %lpad94, %lpad.i
   %exception.sink = phi ptr [ %exception, %lpad ], [ %exception9, %lpad10 ], [ %exception20, %lpad21 ], [ %exception28, %lpad29 ], [ %exception37, %lpad38 ], [ %exception52, %lpad53 ], [ %exception60, %lpad61 ], [ %exception77, %lpad78 ], [ %exception93, %lpad94 ], [ %exception.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad10 ], [ %10, %lpad21 ], [ %11, %lpad29 ], [ %12, %lpad38 ], [ %13, %lpad53 ], [ %14, %lpad61 ], [ %17, %lpad78 ], [ %20, %lpad94 ], [ %22, %lpad.i ]
-  tail call void @__cxa_free_exception(ptr %exception.sink) #18
+  tail call void @__cxa_free_exception(ptr nonnull %exception.sink) #18
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then6.i
@@ -811,7 +811,7 @@ invoke.cont:                                      ; preds = %if.then6
 lpad:                                             ; preds = %if.then6
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #18
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #18
   resume { ptr, i32 } %5
 
 if.end:                                           ; preds = %if.else5
@@ -1277,7 +1277,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #18
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #18
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false

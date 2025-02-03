@@ -568,7 +568,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdResourceRegistryEEC2ERK
 27:                                               ; preds = %9
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @free(ptr noundef %8) #22
+  tail call void @free(ptr noundef nonnull %8) #22
   br label %29
 
 29:                                               ; preds = %27, %25

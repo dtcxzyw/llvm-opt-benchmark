@@ -325,7 +325,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br label %.sink.split
 
 83:                                               ; preds = %79
-  %84 = call fastcc noundef i32 @_ZL10nFloatSizeP16gmx_trr_header_t(ptr noundef %2)
+  %84 = call fastcc noundef i32 @_ZL10nFloatSizeP16gmx_trr_header_t(ptr noundef nonnull %2)
   %85 = icmp eq i32 %84, 8
   %86 = zext i1 %85 to i8
   store i8 %86, ptr %2, align 8

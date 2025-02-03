@@ -4172,7 +4172,7 @@ if.end108:                                        ; preds = %if.end104
 
 if.end113:                                        ; preds = %if.end108
   %sub = sub i64 %eticklen, %retval.0.i
-  %call114 = tail call i32 @ssl_hmac_update(ptr noundef nonnull %call, ptr noundef %etick, i64 noundef %sub)
+  %call114 = tail call i32 @ssl_hmac_update(ptr noundef nonnull %call, ptr noundef nonnull %etick, i64 noundef %sub)
   %cmp115 = icmp slt i32 %call114, 1
   br i1 %cmp115, label %if.then.i120, label %lor.lhs.false117
 
@@ -4183,7 +4183,7 @@ lor.lhs.false117:                                 ; preds = %if.end113
 
 if.end123:                                        ; preds = %lor.lhs.false117
   %add.ptr125 = getelementptr inbounds i8, ptr %etick, i64 %sub
-  %call126 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %tick_hmac, ptr noundef %add.ptr125, i64 noundef %retval.0.i) #15
+  %call126 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %tick_hmac, ptr noundef nonnull %add.ptr125, i64 noundef %retval.0.i) #15
   %tobool127.not = icmp eq i32 %call126, 0
   br i1 %tobool127.not, label %if.end129, label %if.then.i120
 

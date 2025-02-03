@@ -644,7 +644,7 @@ define void @_ZN6htif_t15parse_argumentsEiPPc(ptr noundef nonnull align 8 derefe
 45:                                               ; preds = %41
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %43) #32
+  call void @__cxa_free_exception(ptr nonnull %43) #32
   br label %419
 
 47:                                               ; preds = %.preheader
@@ -808,7 +808,7 @@ _ZNSt6vectorIP8device_tSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal
 112:                                              ; preds = %109
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %110) #32
+  call void @__cxa_free_exception(ptr nonnull %110) #32
   br label %419
 
 114:                                              ; preds = %.preheader
@@ -1107,7 +1107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
 210:                                              ; preds = %207
   %211 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %208) #32
+  call void @__cxa_free_exception(ptr nonnull %208) #32
   br label %419
 
 212:                                              ; preds = %.preheader
@@ -1527,7 +1527,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit175.thread2
 335:                                              ; preds = %333
   %336 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %334) #32
+  call void @__cxa_free_exception(ptr nonnull %334) #32
   br label %365
 
 337:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit175.thread230
@@ -1591,7 +1591,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit187.thread2
 354:                                              ; preds = %351
   %355 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %352) #32
+  call void @__cxa_free_exception(ptr nonnull %352) #32
   br label %365
 
 356:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit187.thread233
@@ -1777,7 +1777,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198: ; preds = %_Z
 416:                                              ; preds = %412
   %417 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %414) #32
+  call void @__cxa_free_exception(ptr nonnull %414) #32
   br label %419
 
 418:                                              ; preds = %._crit_edge
@@ -7034,7 +7034,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 16:                                               ; preds = %14
   %17 = extractvalue { ptr, ptr } %13, 0
-  %18 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.011.012, ptr noundef nonnull align 8 dereferenceable(32) %5) #32
+  %18 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.011.012, ptr noundef nonnull align 8 dereferenceable(32) %5) #32
   %19 = load i64, ptr %7, align 8
   %20 = add i64 %19, -1
   store i64 %20, ptr %7, align 8

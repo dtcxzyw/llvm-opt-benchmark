@@ -187,7 +187,7 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit24: ; preds = %_ZN6google8pro
 41:                                               ; preds = %34
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %35) #18
+  call void @__cxa_free_exception(ptr nonnull %35) #18
   br label %.body
 
 _ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE.exit: ; preds = %.noexc
@@ -311,7 +311,7 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit39: ; preds = %_ZN6google8pro
 82:                                               ; preds = %75
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %76) #18
+  call void @__cxa_free_exception(ptr nonnull %76) #18
   br label %.body46
 
 _ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE.exit48: ; preds = %.noexc44
@@ -465,7 +465,7 @@ define void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr 
 25:                                               ; preds = %17
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %18) #18
+  tail call void @__cxa_free_exception(ptr nonnull %18) #18
   resume { ptr, i32 } %26
 
 _ZN6google8protobuf8internal10LogMessage6FinishEv.exit: ; preds = %14
@@ -837,7 +837,7 @@ define void @_ZN6google8protobuf8internal10LogMessage6FinishEv(ptr noundef nonnu
 24:                                               ; preds = %16
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #18
+  tail call void @__cxa_free_exception(ptr nonnull %17) #18
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %13

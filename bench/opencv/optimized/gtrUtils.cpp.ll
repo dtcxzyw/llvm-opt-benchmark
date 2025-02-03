@@ -581,7 +581,7 @@ _ZNSt12_Vector_baseIN2cv3gtr14TrainingSampleESaIS2_EE11_M_allocateEm.exit: ; pre
   %27 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %23) #19
-  br label %.body
+  br label %51
 
 28:                                               ; preds = %.noexc
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 192
@@ -650,46 +650,33 @@ _ZNSt12_Vector_baseIN2cv3gtr14TrainingSampleESaIS2_EE13_M_deallocateEPS2_m.exit:
 47:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3gtr14TrainingSampleESaIS2_EE11_M_allocateEm.exit
   %48 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  br label %51
 
-.body:                                            ; preds = %26, %47
-  %eh.lpad-body = phi { ptr, i32 } [ %48, %47 ], [ %27, %26 ]
-  %49 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %50 = tail call ptr @__cxa_begin_catch(ptr %49) #19
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread, label %54
-
-.thread:                                          ; preds = %.body
-  %51 = getelementptr inbounds nuw i8, ptr %23, i64 96
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %51) #19
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %23) #19
-  br label %_ZNSt12_Vector_baseIN2cv3gtr14TrainingSampleESaIS2_EE13_M_deallocateEPS2_m.exit35
-
-52:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3gtr14TrainingSampleESaIS2_EE13_M_deallocateEPS2_m.exit35
-  %53 = landingpad { ptr, i32 }
+49:                                               ; preds = %51
+  %50 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %55 unwind label %56
+          to label %54 unwind label %55
 
-54:                                               ; preds = %.body
+51:                                               ; preds = %47, %26
+  %eh.lpad-body = phi { ptr, i32 } [ %48, %47 ], [ %27, %26 ]
+  %52 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %53 = tail call ptr @__cxa_begin_catch(ptr %52) #19
   tail call void @_ZdlPv(ptr noundef nonnull %22) #20
-  br label %_ZNSt12_Vector_baseIN2cv3gtr14TrainingSampleESaIS2_EE13_M_deallocateEPS2_m.exit35
-
-_ZNSt12_Vector_baseIN2cv3gtr14TrainingSampleESaIS2_EE13_M_deallocateEPS2_m.exit35: ; preds = %54, %.thread
   invoke void @__cxa_rethrow() #22
-          to label %59 unwind label %52
+          to label %58 unwind label %49
 
-55:                                               ; preds = %52
-  resume { ptr, i32 } %53
+54:                                               ; preds = %49
+  resume { ptr, i32 } %50
 
-56:                                               ; preds = %52
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %49
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #21
+  %57 = extractvalue { ptr, i32 } %56, 0
+  tail call void @__clang_call_terminate(ptr %57) #21
   unreachable
 
-59:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3gtr14TrainingSampleESaIS2_EE13_M_deallocateEPS2_m.exit35
+58:                                               ; preds = %51
   unreachable
 }
 

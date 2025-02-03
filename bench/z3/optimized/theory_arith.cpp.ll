@@ -25847,7 +25847,7 @@ for.end:                                          ; preds = %for.inc
 
 if.then50:                                        ; preds = %for.end
   %19 = load ptr, ptr %lo_inf.1, align 8
-  tail call void @_ZN3smt12theory_arithINS_6mi_extEE14mk_bound_axiomEPNS2_4atomES4_(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %a1, ptr noundef %19)
+  tail call void @_ZN3smt12theory_arithINS_6mi_extEE14mk_bound_axiomEPNS2_4atomES4_(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull %a1, ptr noundef %19)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then50, %for.end
@@ -25856,7 +25856,7 @@ if.end51:                                         ; preds = %if.then50, %for.end
 
 if.then53:                                        ; preds = %if.end51
   %20 = load ptr, ptr %lo_sup.1, align 8
-  tail call void @_ZN3smt12theory_arithINS_6mi_extEE14mk_bound_axiomEPNS2_4atomES4_(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %a1, ptr noundef %20)
+  tail call void @_ZN3smt12theory_arithINS_6mi_extEE14mk_bound_axiomEPNS2_4atomES4_(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull %a1, ptr noundef %20)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then53, %if.end51
@@ -25865,7 +25865,7 @@ if.end54:                                         ; preds = %if.then53, %if.end5
 
 if.then56:                                        ; preds = %if.end54
   %21 = load ptr, ptr %hi_inf.1, align 8
-  tail call void @_ZN3smt12theory_arithINS_6mi_extEE14mk_bound_axiomEPNS2_4atomES4_(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %a1, ptr noundef %21)
+  tail call void @_ZN3smt12theory_arithINS_6mi_extEE14mk_bound_axiomEPNS2_4atomES4_(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull %a1, ptr noundef %21)
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then56, %if.end54
@@ -25874,7 +25874,7 @@ if.end57:                                         ; preds = %if.then56, %if.end5
 
 if.then59:                                        ; preds = %if.end57
   %22 = load ptr, ptr %hi_sup.1, align 8
-  tail call void @_ZN3smt12theory_arithINS_6mi_extEE14mk_bound_axiomEPNS2_4atomES4_(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %a1, ptr noundef %22)
+  tail call void @_ZN3smt12theory_arithINS_6mi_extEE14mk_bound_axiomEPNS2_4atomES4_(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull %a1, ptr noundef %22)
   br label %if.end60
 
 if.end60:                                         ; preds = %if.end, %_ZN6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE3endEv.exit, %if.then59, %if.end57, %_ZN6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE9push_backERKS5_.exit
@@ -83702,7 +83702,7 @@ invoke.cont8:                                     ; preds = %if.end
   %2 = load ptr, ptr %varinfo, align 8
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.418", ptr %2, i64 %idx.ext.i
-  invoke void @_ZSt13__stable_sortIPSt4pairIP4exprjEN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt12theory_arithINS8_6mi_extEE15var_num_occs_ltEEEEvT_SE_T0_(ptr noundef %2, ptr noundef nonnull %add.ptr.i)
+  invoke void @_ZSt13__stable_sortIPSt4pairIP4exprjEN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt12theory_arithINS8_6mi_extEE15var_num_occs_ltEEEEvT_SE_T0_(ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -185694,7 +185694,7 @@ invoke.cont8:                                     ; preds = %if.end
   %2 = load ptr, ptr %varinfo, align 8
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.418", ptr %2, i64 %idx.ext.i
-  invoke void @_ZSt13__stable_sortIPSt4pairIP4exprjEN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt12theory_arithINS8_5i_extEE15var_num_occs_ltEEEEvT_SE_T0_(ptr noundef %2, ptr noundef nonnull %add.ptr.i)
+  invoke void @_ZSt13__stable_sortIPSt4pairIP4exprjEN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt12theory_arithINS8_5i_extEE15var_num_occs_ltEEEEvT_SE_T0_(ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -285740,7 +285740,7 @@ invoke.cont8:                                     ; preds = %if.end
   %2 = load ptr, ptr %varinfo, align 8
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.418", ptr %2, i64 %idx.ext.i
-  invoke void @_ZSt13__stable_sortIPSt4pairIP4exprjEN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt12theory_arithINS8_7inf_extEE15var_num_occs_ltEEEEvT_SE_T0_(ptr noundef %2, ptr noundef nonnull %add.ptr.i)
+  invoke void @_ZSt13__stable_sortIPSt4pairIP4exprjEN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt12theory_arithINS8_7inf_extEE15var_num_occs_ltEEEEvT_SE_T0_(ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont10:                                    ; preds = %invoke.cont8

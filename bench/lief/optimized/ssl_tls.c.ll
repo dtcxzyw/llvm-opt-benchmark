@@ -6391,14 +6391,14 @@ ssl_clear_peer_cert.exit:                         ; preds = %59, %64
 
 73:                                               ; preds = %70
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 6036, ptr noundef nonnull @.str.114) #22
-  br label %ssl_parse_certificate_chain.exit.thread.thread.sink.split
+  br label %ssl_parse_certificate_chain.exit.thread.sink.split
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %76 = load ptr, ptr %75, align 8
   %77 = load i8, ptr %76, align 1
   %.not75.i = icmp eq i8 %77, 11
-  br i1 %.not75.i, label %78, label %ssl_parse_certificate_chain.exit.thread.thread.sink.split
+  br i1 %.not75.i, label %78, label %ssl_parse_certificate_chain.exit.thread.sink.split
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -6414,7 +6414,7 @@ ssl_clear_peer_cert.exit:                         ; preds = %59, %64
 
 85:                                               ; preds = %78
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 6051, ptr noundef nonnull @.str.114) #22
-  br label %ssl_parse_certificate_chain.exit.thread.thread.sink.split
+  br label %ssl_parse_certificate_chain.exit.thread.sink.split
 
 86:                                               ; preds = %78
   %87 = getelementptr inbounds nuw i8, ptr %76, i64 %..i.i53
@@ -6438,7 +6438,7 @@ ssl_clear_peer_cert.exit:                         ; preds = %59, %64
 
 100:                                              ; preds = %89, %86
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 6067, ptr noundef nonnull @.str.114) #22
-  br label %ssl_parse_certificate_chain.exit.thread.thread.sink.split
+  br label %ssl_parse_certificate_chain.exit.thread.sink.split
 
 .lr.ph.i:                                         ; preds = %89
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -6455,7 +6455,7 @@ ssl_clear_peer_cert.exit:                         ; preds = %59, %64
 
 107:                                              ; preds = %103
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 6081, ptr noundef nonnull @.str.114) #22
-  br label %ssl_parse_certificate_chain.exit.thread.thread.sink.split
+  br label %ssl_parse_certificate_chain.exit.thread.sink.split
 
 108:                                              ; preds = %103
   %109 = load ptr, ptr %75, align 8
@@ -6466,7 +6466,7 @@ ssl_clear_peer_cert.exit:                         ; preds = %59, %64
 
 112:                                              ; preds = %108
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 6091, ptr noundef nonnull @.str.114) #22
-  br label %ssl_parse_certificate_chain.exit.thread.thread.sink.split
+  br label %ssl_parse_certificate_chain.exit.thread.sink.split
 
 113:                                              ; preds = %108
   %114 = getelementptr i8, ptr %110, i64 1
@@ -6487,7 +6487,7 @@ ssl_clear_peer_cert.exit:                         ; preds = %59, %64
 
 126:                                              ; preds = %123, %113
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 6105, ptr noundef nonnull @.str.114) #22
-  br label %ssl_parse_certificate_chain.exit.thread.thread.sink.split
+  br label %ssl_parse_certificate_chain.exit.thread.sink.split
 
 127:                                              ; preds = %123
   %128 = add nuw nsw i32 %.06989.i, 1
@@ -6531,7 +6531,7 @@ ssl_check_peer_crt_unchanged.exit.i:              ; preds = %143
 
 ssl_check_peer_crt_unchanged.exit.thread.i:       ; preds = %ssl_check_peer_crt_unchanged.exit.i, %143, %138
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 6127, ptr noundef nonnull @.str.116) #22
-  br label %ssl_parse_certificate_chain.exit.thread.thread.sink.split
+  br label %ssl_parse_certificate_chain.exit.thread.sink.split
 
 148:                                              ; preds = %ssl_check_peer_crt_unchanged.exit.i
   tail call fastcc void @ssl_clear_peer_cert(ptr noundef nonnull %.val82.i)
@@ -6546,7 +6546,7 @@ ssl_check_peer_crt_unchanged.exit.thread.i:       ; preds = %ssl_check_peer_crt_
     i32 0, label %153
     i32 -9774, label %153
     i32 -10368, label %ssl_parse_certificate_chain.exit.loopexit
-    i32 -9600, label %ssl_parse_certificate_chain.exit.loopexit105
+    i32 -9600, label %ssl_parse_certificate_chain.exit.loopexit100
   ]
 
 153:                                              ; preds = %149, %149
@@ -6561,15 +6561,15 @@ ssl_parse_certificate_chain.exit.thread67:        ; preds = %153
 ssl_parse_certificate_chain.exit.loopexit:        ; preds = %149
   br label %ssl_parse_certificate_chain.exit
 
-ssl_parse_certificate_chain.exit.loopexit105:     ; preds = %149
+ssl_parse_certificate_chain.exit.loopexit100:     ; preds = %149
   br label %ssl_parse_certificate_chain.exit
 
-ssl_parse_certificate_chain.exit:                 ; preds = %149, %ssl_parse_certificate_chain.exit.loopexit105, %ssl_parse_certificate_chain.exit.loopexit
-  %.0.i54 = phi i8 [ 80, %ssl_parse_certificate_chain.exit.loopexit ], [ 43, %ssl_parse_certificate_chain.exit.loopexit105 ], [ 42, %149 ]
+ssl_parse_certificate_chain.exit:                 ; preds = %149, %ssl_parse_certificate_chain.exit.loopexit100, %ssl_parse_certificate_chain.exit.loopexit
+  %.0.i54 = phi i8 [ 80, %ssl_parse_certificate_chain.exit.loopexit ], [ 43, %ssl_parse_certificate_chain.exit.loopexit100 ], [ 42, %149 ]
   %156 = tail call i32 @mbedtls_ssl_send_alert_message(ptr noundef nonnull %0, i8 noundef zeroext 2, i8 noundef zeroext %.0.i54) #22
   tail call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 6167, ptr noundef nonnull @.str.117, i32 noundef %152) #22
   %.not45 = icmp eq i32 %152, 0
-  br i1 %.not45, label %157, label %ssl_parse_certificate_chain.exit.thread.thread
+  br i1 %.not45, label %157, label %ssl_parse_certificate_chain.exit.thread
 
 157:                                              ; preds = %ssl_parse_certificate_chain.exit.thread67, %ssl_parse_certificate_chain.exit
   %158 = load ptr, ptr %3, align 8
@@ -6839,7 +6839,7 @@ mbedtls_ssl_check_cert_usage.exit.i:              ; preds = %mbedtls_ssl_check_c
 
 ssl_parse_certificate_verify.exit:                ; preds = %271, %272
   %.not46 = icmp eq i32 %.38.i, 0
-  br i1 %.not46, label %ssl_parse_certificate_verify.exit.thread, label %ssl_parse_certificate_chain.exit.thread.thread
+  br i1 %.not46, label %ssl_parse_certificate_verify.exit.thread, label %ssl_parse_certificate_chain.exit.thread
 
 ssl_parse_certificate_verify.exit.thread:         ; preds = %157, %ssl_parse_certificate_verify.exit
   %273 = load ptr, ptr %60, align 8
@@ -6855,20 +6855,20 @@ ssl_parse_certificate_verify.exit.thread:         ; preds = %157, %ssl_parse_cer
   store i32 %277, ptr %275, align 8
   br label %.thread82
 
-ssl_parse_certificate_chain.exit.thread.thread.sink.split: ; preds = %74, %73, %85, %100, %ssl_check_peer_crt_unchanged.exit.thread.i, %126, %112, %107
-  %.sink = phi i8 [ 50, %107 ], [ 43, %112 ], [ 50, %126 ], [ 49, %ssl_check_peer_crt_unchanged.exit.thread.i ], [ 50, %100 ], [ 50, %85 ], [ 10, %73 ], [ 10, %74 ]
-  %.035.ph89.ph = phi i32 [ -29440, %107 ], [ -31232, %112 ], [ -29440, %126 ], [ -31232, %ssl_check_peer_crt_unchanged.exit.thread.i ], [ -29440, %100 ], [ -29440, %85 ], [ -30464, %73 ], [ -30464, %74 ]
+ssl_parse_certificate_chain.exit.thread.sink.split: ; preds = %74, %73, %85, %100, %107, %112, %126, %ssl_check_peer_crt_unchanged.exit.thread.i
+  %.sink = phi i8 [ 49, %ssl_check_peer_crt_unchanged.exit.thread.i ], [ 50, %126 ], [ 43, %112 ], [ 50, %107 ], [ 50, %100 ], [ 50, %85 ], [ 10, %73 ], [ 10, %74 ]
+  %.035.ph.ph = phi i32 [ -31232, %ssl_check_peer_crt_unchanged.exit.thread.i ], [ -29440, %126 ], [ -31232, %112 ], [ -29440, %107 ], [ -29440, %100 ], [ -29440, %85 ], [ -30464, %73 ], [ -30464, %74 ]
   %278 = tail call i32 @mbedtls_ssl_send_alert_message(ptr noundef nonnull %0, i8 noundef zeroext 2, i8 noundef zeroext %.sink) #22
-  br label %ssl_parse_certificate_chain.exit.thread.thread
+  br label %ssl_parse_certificate_chain.exit.thread
 
-ssl_parse_certificate_chain.exit.thread.thread:   ; preds = %ssl_parse_certificate_chain.exit.thread.thread.sink.split, %ssl_parse_certificate_verify.exit, %ssl_parse_certificate_chain.exit
-  %.035.ph89 = phi i32 [ %.38.i, %ssl_parse_certificate_verify.exit ], [ %152, %ssl_parse_certificate_chain.exit ], [ %.035.ph89.ph, %ssl_parse_certificate_chain.exit.thread.thread.sink.split ]
+ssl_parse_certificate_chain.exit.thread:          ; preds = %ssl_parse_certificate_chain.exit.thread.sink.split, %ssl_parse_certificate_verify.exit, %ssl_parse_certificate_chain.exit
+  %.035.ph = phi i32 [ %.38.i, %ssl_parse_certificate_verify.exit ], [ %152, %ssl_parse_certificate_chain.exit ], [ %.035.ph.ph, %ssl_parse_certificate_chain.exit.thread.sink.split ]
   call void @mbedtls_x509_crt_free(ptr noundef nonnull %66) #22
   call void @free(ptr noundef nonnull %66) #22
   br label %.thread82
 
-.thread82:                                        ; preds = %30, %68, %55, %.thread76, %ssl_parse_certificate_chain.exit.thread.thread
-  %.0357480 = phi i32 [ 0, %.thread76 ], [ %.035.ph89, %ssl_parse_certificate_chain.exit.thread.thread ], [ %29, %30 ], [ -32512, %68 ], [ -29824, %55 ]
+.thread82:                                        ; preds = %30, %68, %55, %.thread76, %ssl_parse_certificate_chain.exit.thread
+  %.0357480 = phi i32 [ 0, %.thread76 ], [ %.035.ph, %ssl_parse_certificate_chain.exit.thread ], [ %29, %30 ], [ -32512, %68 ], [ -29824, %55 ]
   ret i32 %.0357480
 }
 

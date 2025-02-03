@@ -1033,21 +1033,25 @@ land.lhs.true47:                                  ; preds = %_ZNSt11char_traitsI
   %bcmp.i81 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %spec.select, ptr noundef nonnull dereferenceable(2) @.str.5, i64 2)
   %cmp6.not.i.i82 = icmp ne i32 %bcmp.i81, 0
   %or.cond183 = and i1 %cmp6.not.i.i82, %tobool155169
-  br i1 %or.cond183, label %if.then54, label %if.end61
+  br i1 %or.cond183, label %if.then54.thread, label %if.end61
+
+if.then54.thread:                                 ; preds = %land.lhs.true47
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i85)
+  br label %cond.true.i87
 
 _ZN18OpenImageIO_v2_6_0neENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit84: ; preds = %invoke.cont35
   br i1 %tobool155169, label %if.then54, label %if.end61
 
-if.then54:                                        ; preds = %land.lhs.true47, %_ZN18OpenImageIO_v2_6_0neENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit84
-  %pr.sroa.7.1202 = phi i64 [ 2, %land.lhs.true47 ], [ %pr.sroa.7.0150171, %_ZN18OpenImageIO_v2_6_0neENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit84 ]
-  %pr.sroa.0.1201 = phi ptr [ %spec.select, %land.lhs.true47 ], [ %pr.sroa.0.0147173, %_ZN18OpenImageIO_v2_6_0neENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit84 ]
+if.then54:                                        ; preds = %_ZN18OpenImageIO_v2_6_0neENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit84
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i85)
-  %tobool.not.not.i86 = icmp eq ptr %pr.sroa.0.1201, null
+  %tobool.not.not.i86 = icmp eq ptr %pr.sroa.0.0147173, null
   br i1 %tobool.not.not.i86, label %cond.end.thread.i91, label %cond.true.i87
 
-cond.true.i87:                                    ; preds = %if.then54
+cond.true.i87:                                    ; preds = %if.then54.thread, %if.then54
+  %pr.sroa.0.1201208 = phi ptr [ %spec.select, %if.then54.thread ], [ %pr.sroa.0.0147173, %if.then54 ]
+  %pr.sroa.7.1202207 = phi i64 [ 2, %if.then54.thread ], [ %pr.sroa.7.0150171, %if.then54 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i85) #31, !noalias !7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, ptr noundef nonnull %pr.sroa.0.1201, i64 noundef %pr.sroa.7.1202, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i85)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, ptr noundef nonnull %pr.sroa.0.1201208, i64 noundef %pr.sroa.7.1202207, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i85)
           to label %cleanup.action.i90 unwind label %lpad.i89
 
 cond.end.thread.i91:                              ; preds = %if.then54

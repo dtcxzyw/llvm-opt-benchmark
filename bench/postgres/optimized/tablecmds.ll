@@ -14108,7 +14108,7 @@ add_column_collation_dependency.exit.i:           ; preds = %1416, %list_length.
 
 ATExecAlterColumnType.exit:                       ; preds = %1421, %1434
   %1437 = load i32, ptr %1180, align 8
-  call void @heap_freetuple(ptr noundef %.0.i167) #13
+  call void @heap_freetuple(ptr noundef nonnull %.0.i167) #13
   %.sroa.2130.0.insert.ext.i = zext i32 %1437 to i64
   %.sroa.2130.0.insert.shift.i = shl nuw i64 %.sroa.2130.0.insert.ext.i, 32
   %.sroa.0129.0.insert.insert.i = or disjoint i64 %.sroa.2130.0.insert.shift.i, 1259
@@ -14253,7 +14253,7 @@ ATExecAlterColumnType.exit:                       ; preds = %1421, %1434
   %1515 = load i32, ptr %1446, align 8
   call void @ReleaseSysCache(ptr noundef nonnull %1472) #13
   call void @table_close(ptr noundef nonnull %1470, i32 noundef 3) #13
-  call void @heap_freetuple(ptr noundef %1507) #13
+  call void @heap_freetuple(ptr noundef nonnull %1507) #13
   br label %ATExecAlterColumnGenericOptions.exit
 
 ATExecAlterColumnGenericOptions.exit:             ; preds = %1438, %1514
@@ -14583,7 +14583,7 @@ SetRelationTableSpace.exit:                       ; preds = %1560, %1560, %1560,
   br label %1669
 
 1669:                                             ; preds = %1667, %1661
-  call void @heap_freetuple(ptr noundef %1664) #13
+  call void @heap_freetuple(ptr noundef nonnull %1664) #13
   call void @ReleaseSysCache(ptr noundef nonnull %1591) #13
   %1670 = load ptr, ptr %1606, align 8
   %1671 = getelementptr inbounds nuw i8, ptr %1670, i64 108
@@ -14654,7 +14654,7 @@ SetRelationTableSpace.exit:                       ; preds = %1560, %1560, %1560,
   br label %1700
 
 1700:                                             ; preds = %1697, %1692
-  call void @heap_freetuple(ptr noundef %1694) #13
+  call void @heap_freetuple(ptr noundef nonnull %1694) #13
   call void @ReleaseSysCache(ptr noundef nonnull %1676) #13
   call void @table_close(ptr noundef %1674, i32 noundef 0) #13
   br label %1701
@@ -16040,7 +16040,7 @@ ATExecForceNoForceRowSecurity.exit:               ; preds = %2402, %2412
 
 2460:                                             ; preds = %2458, %2452
   call void @table_close(ptr noundef nonnull %2419, i32 noundef 3) #13
-  call void @heap_freetuple(ptr noundef %2455) #13
+  call void @heap_freetuple(ptr noundef nonnull %2455) #13
   br label %ATExecGenericOptions.exit
 
 ATExecGenericOptions.exit:                        ; preds = %2414, %2460
@@ -21125,7 +21125,7 @@ define internal fastcc { i64, i32 } @ATExecSetOptions(ptr noundef readonly captu
 56:                                               ; preds = %52, %45
   %57 = zext nneg i16 %28 to i32
   %58 = load i32, ptr %10, align 8
-  call void @heap_freetuple(ptr noundef %49) #13
+  call void @heap_freetuple(ptr noundef nonnull %49) #13
   call void @ReleaseSysCache(ptr noundef nonnull %12) #13
   call void @table_close(ptr noundef nonnull %9, i32 noundef 3) #13
   %.sroa.229.0.insert.ext = zext i32 %58 to i64

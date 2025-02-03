@@ -4399,7 +4399,7 @@ if.then271:                                       ; preds = %if.then266
   br label %return
 
 if.else272:                                       ; preds = %if.then266
-  %call274 = tail call i32 @strncmp(ptr noundef %option_argument, ptr noundef nonnull @.str.645, i64 noundef %call267) #25
+  %call274 = tail call i32 @strncmp(ptr noundef nonnull %option_argument, ptr noundef nonnull @.str.645, i64 noundef %call267) #25
   %cmp275 = icmp eq i32 %call274, 0
   br i1 %cmp275, label %if.then277, label %if.else278
 
@@ -5022,7 +5022,7 @@ sw.bb591:                                         ; preds = %entry
 
 if.then597:                                       ; preds = %sw.bb591
   tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 10, i32 noundef 0)
-  %call598 = tail call i32 @atoi(ptr noundef %option_argument) #25
+  %call598 = tail call i32 @atoi(ptr noundef nonnull %option_argument) #25
   %cmp599 = icmp ugt i32 %call598, 15
   br i1 %cmp599, label %if.then601, label %if.end603
 
@@ -5035,7 +5035,7 @@ if.end603:                                        ; preds = %if.then597
   br label %return
 
 if.else604:                                       ; preds = %sw.bb591
-  %call605 = tail call i32 @atoi(ptr noundef %option_argument) #25
+  %call605 = tail call i32 @atoi(ptr noundef nonnull %option_argument) #25
   %cmp606 = icmp ugt i32 %call605, 15
   br i1 %cmp606, label %if.then608, label %if.end610
 

@@ -2701,7 +2701,7 @@ _ZN6xshell3Cmd3arg17h25a2c54d965b41c6E.exit10.i:  ; preds = %_ZN6xshell3Cmd3arg1
   call void @llvm.experimental.noalias.scope.decl(metadata !487)
   call void @llvm.experimental.noalias.scope.decl(metadata !490)
   %73 = load ptr, ptr %72, align 8, !alias.scope !493, !noalias !475, !noundef !15
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$xshell..error..ErrorKind$GT$17hce79e151bc104aa5E.llvm.13239422733809814115"(ptr noalias noundef align 8 dereferenceable(152) %73)
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$xshell..error..ErrorKind$GT$17hce79e151bc104aa5E.llvm.13239422733809814115"(ptr noalias noundef nonnull align 8 dereferenceable(152) %73)
           to label %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$xshell..error..Error$GT$$GT$17h96d1b9732f11df16E.exit.i.i" unwind label %74, !noalias !494
 
 74:                                               ; preds = %71

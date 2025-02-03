@@ -146,7 +146,7 @@ do.end.i:                                         ; preds = %do.body.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %do.end.i
-  tail call void @lj_trace_err(ptr noundef %J, i32 noundef 27) #9
+  tail call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 27) #9
   unreachable
 
 mcode_alloc.exit:                                 ; preds = %land.lhs.true.i

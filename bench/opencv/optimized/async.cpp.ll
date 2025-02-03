@@ -611,7 +611,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %124
 136:                                              ; preds = %132
   %137 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %133) #19
+  tail call void @__cxa_free_exception(ptr nonnull %133) #19
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit34
 
 138:                                              ; preds = %120

@@ -600,7 +600,7 @@ ruby_nonempty_memcpy.exit119:                     ; preds = %83, %.critedge, %98
 
 .split163.us:                                     ; preds = %ruby_nonempty_memcpy.exit.split, %ruby_nonempty_memcpy.exit119, %ruby_nonempty_memcpy.exit.split.us, %ruby_nonempty_memcpy.exit119.us
   %.us-phi164 = phi i32 [ %81, %ruby_nonempty_memcpy.exit119.us ], [ 0, %ruby_nonempty_memcpy.exit.split.us ], [ %106, %ruby_nonempty_memcpy.exit119 ], [ 0, %ruby_nonempty_memcpy.exit.split ]
-  tail call void @free(ptr noundef %44) #22
+  tail call void @free(ptr noundef nonnull %44) #22
   br label %109
 
 107:                                              ; preds = %.thread131

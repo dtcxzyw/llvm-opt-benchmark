@@ -4913,7 +4913,7 @@ define void @enter(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %186, label %192, label %187
 
 187:                                              ; preds = %184
-  call fastcc void @_darkroom_display_second_window(ptr noundef %61)
+  call fastcc void @_darkroom_display_second_window(ptr noundef nonnull %61)
   %188 = getelementptr inbounds nuw i8, ptr %61, i64 2608
   %189 = load ptr, ptr %188, align 16, !tbaa !171
   %190 = tail call i64 @gtk_toggle_button_get_type() #21
@@ -4929,7 +4929,7 @@ define void @enter(ptr noundef %0) local_unnamed_addr #1 {
   store i32 0, ptr %195, align 4, !tbaa !226
   call void (...) @dt_iop_connect_accels_all() #19
   %196 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.151) #19
-  call void @dt_dev_modulegroups_set(ptr noundef %61, i32 noundef %196) #19
+  call void @dt_dev_modulegroups_set(ptr noundef nonnull %61, i32 noundef %196) #19
   %197 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !189
   %198 = and i32 %197, 2
   %199 = icmp ne i32 %198, 0
@@ -4951,7 +4951,7 @@ define void @enter(ptr noundef %0) local_unnamed_addr #1 {
 208:                                              ; preds = %207, %203, %192
   %209 = getelementptr inbounds nuw i8, ptr %61, i64 112
   %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !200
-  call void @dt_control_signal_connect(ptr noundef %210, i32 noundef 37, ptr noundef nonnull @_preference_changed_button_hide, ptr noundef %61) #19
+  call void @dt_control_signal_connect(ptr noundef %210, i32 noundef 37, ptr noundef nonnull @_preference_changed_button_hide, ptr noundef nonnull %61) #19
   call void (...) @dt_iop_color_picker_init() #19
   call void @dt_image_check_camera_missing_sample(ptr noundef nonnull %209) #19
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #19
@@ -5826,7 +5826,7 @@ define void @mouse_moved(ptr noundef readonly captures(none) %0, double noundef 
   br i1 %24, label %25, label %72
 
 25:                                               ; preds = %16
-  %26 = call i32 @dt_iop_color_picker_is_visible(ptr noundef %10) #19
+  %26 = call i32 @dt_iop_color_picker_is_visible(ptr noundef nonnull %10) #19
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %72, label %28
 
@@ -6102,7 +6102,7 @@ define range(i32 1, 0) i32 @button_released(ptr noundef readnone captures(none) 
   br i1 %18, label %85, label %19
 
 19:                                               ; preds = %5
-  %20 = call i32 @dt_iop_color_picker_is_visible(ptr noundef %9) #19
+  %20 = call i32 @dt_iop_color_picker_is_visible(ptr noundef nonnull %9) #19
   %21 = icmp ne i32 %20, 0
   %22 = and i1 %17, %21
   br i1 %22, label %23, label %34
@@ -6263,7 +6263,7 @@ define i32 @button_pressed(ptr noundef readonly captures(none) %0, double nounde
   br label %261
 
 39:                                               ; preds = %28, %24, %7
-  %40 = call i32 @dt_iop_color_picker_is_visible(ptr noundef %13) #19
+  %40 = call i32 @dt_iop_color_picker_is_visible(ptr noundef nonnull %13) #19
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %199, label %42
 

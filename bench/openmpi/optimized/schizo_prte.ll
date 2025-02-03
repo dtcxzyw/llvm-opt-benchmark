@@ -513,12 +513,12 @@ pmix_cmd_line_get_param.exit.us:                  ; preds = %39, %.loopexit.us
 
 .split:                                           ; preds = %63
   %66 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.189, i32 noundef 1, ptr noundef nonnull %48, ptr noundef nonnull %.048, ptr noundef nonnull %64) #13
-  call void @free(ptr noundef %59) #13
+  call void @free(ptr noundef nonnull %59) #13
   %67 = load ptr, ptr %4, align 8
   br label %.sink.split
 
 68:                                               ; preds = %63, %.lr.ph88
-  call void @free(ptr noundef %59) #13
+  call void @free(ptr noundef nonnull %59) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %indvars.iv.next
   %70 = load ptr, ptr %69, align 8

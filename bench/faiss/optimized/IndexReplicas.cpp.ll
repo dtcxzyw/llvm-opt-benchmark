@@ -580,7 +580,7 @@ define weak_odr void @_ZNK5faiss21IndexReplicasTemplateINS_5IndexEE6searchElPKfl
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #22
+  call void @__cxa_free_exception(ptr nonnull %21) #22
   br label %_ZNSt8functionIFviPKN5faiss5IndexEEED2Ev.exit33.sink.split
 
 27:                                               ; preds = %7
@@ -618,7 +618,7 @@ define weak_odr void @_ZNK5faiss21IndexReplicasTemplateINS_5IndexEE6searchElPKfl
 42:                                               ; preds = %35
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %38) #22
+  call void @__cxa_free_exception(ptr nonnull %38) #22
   br label %_ZNSt8functionIFviPKN5faiss5IndexEEED2Ev.exit33.sink.split
 
 44:                                               ; preds = %27
@@ -665,7 +665,7 @@ define weak_odr void @_ZNK5faiss21IndexReplicasTemplateINS_5IndexEE6searchElPKfl
 68:                                               ; preds = %61
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %64) #22
+  call void @__cxa_free_exception(ptr nonnull %64) #22
   br label %_ZNSt8functionIFviPKN5faiss5IndexEEED2Ev.exit33.sink.split
 
 70:                                               ; preds = %44
@@ -874,7 +874,7 @@ define weak_odr void @_ZNK5faiss21IndexReplicasTemplateINS_5IndexEE11reconstruct
 28:                                               ; preds = %21
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %24) #22
+  call void @__cxa_free_exception(ptr nonnull %24) #22
   br label %30
 
 30:                                               ; preds = %28, %26
@@ -989,7 +989,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
 43:                                               ; preds = %34
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %39) #22
+  call void @__cxa_free_exception(ptr nonnull %39) #22
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -1037,7 +1037,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
 65:                                               ; preds = %58
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %61) #22
+  call void @__cxa_free_exception(ptr nonnull %61) #22
   br label %67
 
 67:                                               ; preds = %65, %63
@@ -1087,7 +1087,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
 84:                                               ; preds = %77
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %80) #22
+  call void @__cxa_free_exception(ptr nonnull %80) #22
   br label %86
 
 86:                                               ; preds = %84, %82
@@ -1241,7 +1241,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEE15onAfterAddIn
 41:                                               ; preds = %32
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %37) #22
+  call void @__cxa_free_exception(ptr nonnull %37) #22
   br label %89
 
 43:                                               ; preds = %18
@@ -1285,7 +1285,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEE15onAfterAddIn
 64:                                               ; preds = %57
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %60) #22
+  call void @__cxa_free_exception(ptr nonnull %60) #22
   br label %89
 
 66:                                               ; preds = %43
@@ -1327,7 +1327,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEE15onAfterAddIn
 85:                                               ; preds = %78
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %81) #22
+  call void @__cxa_free_exception(ptr nonnull %81) #22
   br label %89
 
 87:                                               ; preds = %16, %2
@@ -1518,7 +1518,7 @@ define weak_odr void @_ZNK5faiss21IndexReplicasTemplateINS_11IndexBinaryEE6searc
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #22
+  call void @__cxa_free_exception(ptr nonnull %21) #22
   br label %_ZNSt8functionIFviPKN5faiss11IndexBinaryEEED2Ev.exit33.sink.split
 
 27:                                               ; preds = %7
@@ -1556,7 +1556,7 @@ define weak_odr void @_ZNK5faiss21IndexReplicasTemplateINS_11IndexBinaryEE6searc
 42:                                               ; preds = %35
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %38) #22
+  call void @__cxa_free_exception(ptr nonnull %38) #22
   br label %_ZNSt8functionIFviPKN5faiss11IndexBinaryEEED2Ev.exit33.sink.split
 
 44:                                               ; preds = %27
@@ -1603,7 +1603,7 @@ define weak_odr void @_ZNK5faiss21IndexReplicasTemplateINS_11IndexBinaryEE6searc
 68:                                               ; preds = %61
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %64) #22
+  call void @__cxa_free_exception(ptr nonnull %64) #22
   br label %_ZNSt8functionIFviPKN5faiss11IndexBinaryEEED2Ev.exit33.sink.split
 
 70:                                               ; preds = %44
@@ -1812,7 +1812,7 @@ define weak_odr void @_ZNK5faiss21IndexReplicasTemplateINS_11IndexBinaryEE11reco
 28:                                               ; preds = %21
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %24) #22
+  call void @__cxa_free_exception(ptr nonnull %24) #22
   br label %30
 
 30:                                               ; preds = %28, %26
@@ -1913,7 +1913,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE8addIndexEP
 43:                                               ; preds = %34
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %39) #22
+  call void @__cxa_free_exception(ptr nonnull %39) #22
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -1961,7 +1961,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE8addIndexEP
 65:                                               ; preds = %58
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %61) #22
+  call void @__cxa_free_exception(ptr nonnull %61) #22
   br label %67
 
 67:                                               ; preds = %65, %63
@@ -2011,7 +2011,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE8addIndexEP
 84:                                               ; preds = %77
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %80) #22
+  call void @__cxa_free_exception(ptr nonnull %80) #22
   br label %86
 
 86:                                               ; preds = %84, %82
@@ -2165,7 +2165,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEE15onAft
 41:                                               ; preds = %32
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %37) #22
+  call void @__cxa_free_exception(ptr nonnull %37) #22
   br label %89
 
 43:                                               ; preds = %18
@@ -2209,7 +2209,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEE15onAft
 64:                                               ; preds = %57
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %60) #22
+  call void @__cxa_free_exception(ptr nonnull %60) #22
   br label %89
 
 66:                                               ; preds = %43
@@ -2251,7 +2251,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEE15onAft
 85:                                               ; preds = %78
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %81) #22
+  call void @__cxa_free_exception(ptr nonnull %81) #22
   br label %89
 
 87:                                               ; preds = %16, %2
@@ -3712,7 +3712,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEE18syncWithSubI
 53:                                               ; preds = %46
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %49) #22
+  call void @__cxa_free_exception(ptr nonnull %49) #22
   br label %114
 
 55:                                               ; preds = %.lr.ph
@@ -3752,7 +3752,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEE18syncWithSubI
 72:                                               ; preds = %65
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #22
+  call void @__cxa_free_exception(ptr nonnull %68) #22
   br label %114
 
 74:                                               ; preds = %55
@@ -3794,7 +3794,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEE18syncWithSubI
 93:                                               ; preds = %86
   %94 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %89) #22
+  call void @__cxa_free_exception(ptr nonnull %89) #22
   br label %114
 
 95:                                               ; preds = %74
@@ -3834,7 +3834,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEE18syncWithSubI
 112:                                              ; preds = %105
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %108) #22
+  call void @__cxa_free_exception(ptr nonnull %108) #22
   br label %114
 
 .loopexit:                                        ; preds = %34, %18, %15
@@ -5575,7 +5575,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(p
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #22
+  call void @__cxa_free_exception(ptr nonnull %16) #22
   br label %22
 
 22:                                               ; preds = %20, %18
@@ -6601,7 +6601,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEE18syncW
 61:                                               ; preds = %54
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %57) #22
+  call void @__cxa_free_exception(ptr nonnull %57) #22
   br label %122
 
 63:                                               ; preds = %42
@@ -6641,7 +6641,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEE18syncW
 80:                                               ; preds = %73
   %81 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %76) #22
+  call void @__cxa_free_exception(ptr nonnull %76) #22
   br label %122
 
 82:                                               ; preds = %63
@@ -6683,7 +6683,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEE18syncW
 101:                                              ; preds = %94
   %102 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %97) #22
+  call void @__cxa_free_exception(ptr nonnull %97) #22
   br label %122
 
 103:                                              ; preds = %82
@@ -6723,7 +6723,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEE18syncW
 120:                                              ; preds = %113
   %121 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %116) #22
+  call void @__cxa_free_exception(ptr nonnull %116) #22
   br label %122
 
 .loopexit:                                        ; preds = %41, %17, %14

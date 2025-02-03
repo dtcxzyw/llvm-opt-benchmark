@@ -265,7 +265,7 @@ if.then.i.i:                                      ; preds = %for.body
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %for.body
-  %call8 = tail call noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler11sampleStackEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %0)
+  %call8 = tail call noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler11sampleStackEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull %0)
   br i1 %call8, label %for.inc, label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -273,7 +273,7 @@ cleanup:                                          ; preds = %_ZNSt10lock_guardIS
   br label %return
 
 for.inc:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  tail call void @_ZN6hermes2vm17sampling_profiler7Sampler23platformPostSampleStackEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %0) #15
+  tail call void @_ZN6hermes2vm17sampling_profiler7Sampler23platformPostSampleStackEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull %0) #15
   %call1.i.i.i48 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #15
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.016, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, null
@@ -602,11 +602,11 @@ if.then.i.i.i3:                                   ; preds = %for.body.i
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %for.body.i
-  %call8.i = call noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler11sampleStackEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %2)
+  %call8.i = call noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler11sampleStackEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull %2)
   br i1 %call8.i, label %for.inc.i, label %_ZN6hermes2vm17sampling_profiler7Sampler12sampleStacksEv.exit
 
 for.inc.i:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  call void @_ZN6hermes2vm17sampling_profiler7Sampler23platformPostSampleStackEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %2) #15
+  call void @_ZN6hermes2vm17sampling_profiler7Sampler23platformPostSampleStackEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull %2) #15
   %call1.i.i.i48.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_.i) #15
   %__begin2.sroa.0.0.i = load ptr, ptr %__begin2.sroa.0.016.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, null

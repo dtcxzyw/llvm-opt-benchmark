@@ -1179,14 +1179,14 @@ sub_0207.i:                                       ; preds = %131
   br i1 %178, label %179, label %180
 
 179:                                              ; preds = %175
-  call void @free(ptr noundef %156) #17
+  call void @free(ptr noundef nonnull %156) #17
   br label %process_envar.exit.i
 
 180:                                              ; preds = %175
   store i8 0, ptr %177, align 1
   %181 = getelementptr inbounds nuw i8, ptr %177, i64 1
   %182 = call fastcc i32 @check_cache(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %176, ptr noundef nonnull %181)
-  call void @free(ptr noundef %176) #17
+  call void @free(ptr noundef nonnull %176) #17
   %.pre.i.i = load ptr, ptr @environ, align 8
   br label %183
 
@@ -1235,7 +1235,7 @@ sub_0207.i:                                       ; preds = %131
 process_envar.exit.i:                             ; preds = %.lr.ph.i.i, %183, %.critedge.i.i, %189, %179, %167, %158
   %.sink.i.i = phi ptr [ %176, %179 ], [ %156, %167 ], [ %156, %.critedge.i.i ], [ %156, %189 ], [ %156, %158 ], [ %156, %183 ], [ %156, %.lr.ph.i.i ]
   %.052.i.i = phi i32 [ -5, %179 ], [ 0, %167 ], [ -13, %.critedge.i.i ], [ %190, %189 ], [ %160, %158 ], [ %.2.i.i, %183 ], [ 0, %.lr.ph.i.i ]
-  call void @free(ptr noundef %.sink.i.i) #17
+  call void @free(ptr noundef nonnull %.sink.i.i) #17
   call void @free(ptr noundef %155) #17
   %.not182.i = icmp eq i32 %.052.i.i, 0
   br i1 %.not182.i, label %207, label %201
@@ -2165,7 +2165,7 @@ pmix_cmd_line_get_param.exit323.thread:           ; preds = %505, %check_generic
 
 560:                                              ; preds = %558, %555
   %.0148 = phi i32 [ %557, %555 ], [ %559, %558 ]
-  call void @free(ptr noundef %553) #17
+  call void @free(ptr noundef nonnull %553) #17
   %.not218 = icmp eq i32 %.0148, 0
   br i1 %.not218, label %574, label %561
 
@@ -6123,7 +6123,7 @@ define internal fastcc void @translate_params() unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %18, %25, %23, %15
-  call void @free(ptr noundef %10) #17
+  call void @free(ptr noundef nonnull %10) #17
   %.pre = load ptr, ptr @environ, align 8
   br label %31
 

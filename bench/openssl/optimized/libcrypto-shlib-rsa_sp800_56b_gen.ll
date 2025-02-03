@@ -95,7 +95,7 @@ for.cond.preheader:                               ; preds = %if.end34
 if.end46:                                         ; preds = %for.cond.preheader, %for.cond.backedge
   %call47 = tail call i32 @ossl_rsa_check_pminusq_diff(ptr noundef %call3, ptr noundef nonnull %call5, ptr noundef nonnull %call9, i32 noundef %nbits) #2
   %cmp48 = icmp slt i32 %call47, 0
-  br i1 %cmp48, label %err, label %if.end50
+  br i1 %cmp48, label %if.then64, label %if.end50
 
 if.end50:                                         ; preds = %if.end46
   %cmp51 = icmp eq i32 %call47, 0
@@ -105,14 +105,14 @@ for.cond.backedge:                                ; preds = %if.end50, %if.end59
   %8 = load ptr, ptr %q, align 8
   %call43 = tail call i32 @ossl_bn_rsa_fips186_4_gen_prob_primes(ptr noundef %8, ptr noundef nonnull %call9, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %nbits, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) #2
   %tobool44.not = icmp eq i32 %call43, 0
-  br i1 %tobool44.not, label %err, label %if.end46
+  br i1 %tobool44.not, label %if.then64, label %if.end46
 
 if.end53:                                         ; preds = %if.end50
   %9 = load ptr, ptr %p, align 8
   %10 = load ptr, ptr %q, align 8
   %call56 = tail call i32 @ossl_rsa_check_pminusq_diff(ptr noundef %call3, ptr noundef %9, ptr noundef %10, i32 noundef %nbits) #2
   %cmp57 = icmp slt i32 %call56, 0
-  br i1 %cmp57, label %err, label %if.end59
+  br i1 %cmp57, label %if.then64, label %if.end59
 
 if.end59:                                         ; preds = %if.end53
   %cmp60 = icmp eq i32 %call56, 0
@@ -123,19 +123,18 @@ for.end:                                          ; preds = %if.end59
   %11 = load i32, ptr %dirty_cnt, align 8
   %inc = add nsw i32 %11, 1
   store i32 %inc, ptr %dirty_cnt, align 8
-  br label %err
+  br label %if.then64
 
-err:                                              ; preds = %for.cond.backedge, %if.end46, %if.end53, %if.end2, %for.end
-  %ret.0 = phi i32 [ 0, %if.end2 ], [ 1, %for.end ], [ 0, %if.end53 ], [ 0, %if.end46 ], [ 0, %for.cond.backedge ]
+err:                                              ; preds = %if.end2
   br i1 %cmp13, label %if.end65, label %if.then64
 
-if.then64:                                        ; preds = %if.end27, %for.cond.preheader, %if.end27.thread, %if.end34, %err
-  %ret.048 = phi i32 [ %ret.0, %err ], [ 0, %if.end34 ], [ 0, %if.end27 ], [ 0, %if.end27.thread ], [ 0, %for.cond.preheader ]
+if.then64:                                        ; preds = %if.end53, %if.end46, %for.cond.backedge, %if.end27, %for.end, %for.cond.preheader, %if.end27.thread, %if.end34, %err
+  %ret.048 = phi i32 [ 0, %err ], [ 0, %if.end34 ], [ 0, %if.end27 ], [ 0, %if.end27.thread ], [ 0, %for.cond.preheader ], [ 1, %for.end ], [ 0, %for.cond.backedge ], [ 0, %if.end46 ], [ 0, %if.end53 ]
   tail call void @BN_clear(ptr noundef nonnull %call5) #2
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then64, %err
-  %ret.049 = phi i32 [ %ret.048, %if.then64 ], [ %ret.0, %err ]
+  %ret.049 = phi i32 [ %ret.048, %if.then64 ], [ 0, %err ]
   br i1 %cmp15, label %if.end68, label %if.then67
 
 if.then67:                                        ; preds = %if.end65

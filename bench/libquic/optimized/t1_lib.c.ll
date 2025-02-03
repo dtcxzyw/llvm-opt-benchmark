@@ -401,7 +401,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool.not, label %if.then4, label %for.cond
 
 if.then4:                                         ; preds = %for.body
-  tail call void @free(ptr noundef %call) #21
+  tail call void @free(ptr noundef nonnull %call) #21
   br label %return
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
@@ -1323,7 +1323,7 @@ if.then:                                          ; preds = %if.then34.i, %if.th
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alert.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alert57.i)
   %19 = load i32, ptr %alert, align 4
-  %call1 = call i32 @ssl3_send_alert(ptr noundef %ssl, i32 noundef 2, i32 noundef %19) #21
+  %call1 = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %19) #21
   br label %return
 
 if.end:                                           ; preds = %for.inc68.i
@@ -1682,10 +1682,10 @@ if.end29:                                         ; preds = %if.end9, %lor.lhs.f
 
 if.end37:                                         ; preds = %if.end29
   %sub = sub i64 %ticket_len, %call31
-  %call38 = call i32 @HMAC_Update(ptr noundef nonnull %hmac_ctx, ptr noundef %ticket, i64 noundef %sub) #21
+  %call38 = call i32 @HMAC_Update(ptr noundef nonnull %hmac_ctx, ptr noundef nonnull %ticket, i64 noundef %sub) #21
   %call40 = call i32 @HMAC_Final(ptr noundef nonnull %hmac_ctx, ptr noundef nonnull %mac, ptr noundef null) #21
   %add.ptr43 = getelementptr inbounds i8, ptr %ticket, i64 %sub
-  %call44 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %mac, ptr noundef %add.ptr43, i64 noundef %call31) #21
+  %call44 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %mac, ptr noundef nonnull %add.ptr43, i64 noundef %call31) #21
   %cmp45.not = icmp eq i32 %call44, 0
   br i1 %cmp45.not, label %if.end48, label %done
 
@@ -1919,7 +1919,7 @@ for.body:                                         ; preds = %if.end19, %for.cond
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %call27 = call i32 @CBS_get_u8(ptr noundef nonnull %sigalgs, ptr noundef %arrayidx) #21
+  %call27 = call i32 @CBS_get_u8(ptr noundef nonnull %sigalgs, ptr noundef nonnull %arrayidx) #21
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %return, label %for.cond
 

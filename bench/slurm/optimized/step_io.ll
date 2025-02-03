@@ -2284,7 +2284,7 @@ define void @client_io_handler_start(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 27:                                               ; preds = %23
-  %28 = call i32 @pthread_create(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @_io_thr_internal, ptr noundef %0) #10
+  %28 = call i32 @pthread_create(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @_io_thr_internal, ptr noundef nonnull %0) #10
   %.not30 = icmp eq i32 %28, 0
   br i1 %.not30, label %31, label %29
 

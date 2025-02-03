@@ -995,7 +995,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 ._crit_edge.i112.i:                               ; preds = %.lr.ph.i110.i, %352
   %362 = call ptr @cli_unescape(ptr noundef nonnull %356) #19
-  call void @free(ptr noundef %356) #19
+  call void @free(ptr noundef nonnull %356) #19
   store i64 %.072148.i, ptr %107, align 8
   %363 = add i64 %.072148.i, 4
   store i64 %363, ptr %106, align 8

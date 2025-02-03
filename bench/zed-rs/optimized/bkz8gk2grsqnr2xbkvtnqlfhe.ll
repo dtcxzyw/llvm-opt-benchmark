@@ -45674,7 +45674,7 @@ common.ret:                                       ; preds = %409, %"_ZN4core3ptr
 60:                                               ; preds = %50
   %61 = extractvalue { ptr, ptr } %57, 0
   %62 = extractvalue { ptr, ptr } %57, 1
-  invoke void @_ZN11http_client6github21latest_github_release17hd10c7b3513657b7eE(ptr noalias noundef nonnull sret([264 x i8]) align 8 captures(none) dereferenceable(264) %43, ptr noalias noundef nonnull readonly align 1 @anon.a676a74333b064ec0f87ba48b169e73c.295, i64 noundef 13, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %61, ptr noalias noundef readonly align 8 dereferenceable(56) %62)
+  invoke void @_ZN11http_client6github21latest_github_release17hd10c7b3513657b7eE(ptr noalias noundef nonnull sret([264 x i8]) align 8 captures(none) dereferenceable(264) %43, ptr noalias noundef nonnull readonly align 1 @anon.a676a74333b064ec0f87ba48b169e73c.295, i64 noundef 13, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %62)
           to label %63 unwind label %58
 
 63:                                               ; preds = %60

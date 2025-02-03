@@ -15768,7 +15768,7 @@ if.else.i30:                                      ; preds = %invoke.cont7
           to label %for.inc unwind label %lpad6.loopexit
 
 for.inc:                                          ; preds = %.noexc31, %if.else.i30
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.0139) #33
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.0139) #33
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 

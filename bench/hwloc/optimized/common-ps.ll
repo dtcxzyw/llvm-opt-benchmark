@@ -132,7 +132,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   br label %64
 
 64:                                               ; preds = %60, %62, %23
-  call void @free(ptr noundef %13) #14
+  call void @free(ptr noundef nonnull %13) #14
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i8 0, ptr %65, align 8
   %66 = and i64 %3, 8
@@ -172,7 +172,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   br label %85
 
 85:                                               ; preds = %74, %83, %67
-  call void @free(ptr noundef %69) #14
+  call void @free(ptr noundef nonnull %69) #14
   br label %86
 
 86:                                               ; preds = %85, %64
@@ -387,7 +387,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   br label %187
 
 .sink.split:                                      ; preds = %18, %12
-  tail call void @free(ptr noundef %13) #14
+  tail call void @free(ptr noundef nonnull %13) #14
   br label %186
 
 186:                                              ; preds = %.sink.split, %178, %176, %174
@@ -520,7 +520,7 @@ define hidden void @hwloc_ps_pidcmd(ptr noundef %0, ptr noundef %1) local_unname
   br label %26
 
 26:                                               ; preds = %24, %10
-  tail call void @free(ptr noundef %13) #14
+  tail call void @free(ptr noundef nonnull %13) #14
   br label %27
 
 27:                                               ; preds = %26, %8, %5

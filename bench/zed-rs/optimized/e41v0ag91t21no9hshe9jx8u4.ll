@@ -2826,7 +2826,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit
           to label %.sink.split unwind label %161
 
 152:                                              ; preds = %144
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17he7c88c62068208feE"(ptr noalias noundef align 8 dereferenceable(1400) %142)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17he7c88c62068208feE"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %142)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h8a1d564c6c98bb9eE.llvm.16791777274191314885.exit.i" unwind label %153, !noalias !522
 
 153:                                              ; preds = %152
@@ -2884,7 +2884,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit
 166:                                              ; preds = %163
   call void @llvm.experimental.noalias.scope.decl(metadata !537)
   %167 = load ptr, ptr %38, align 8, !alias.scope !540, !noundef !8
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17he7c88c62068208feE"(ptr noalias noundef align 8 dereferenceable(1400) %167)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17he7c88c62068208feE"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %167)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h8a1d564c6c98bb9eE.llvm.16791777274191314885.exit.i.i.i.i.i" unwind label %168, !noalias !541
 
 168:                                              ; preds = %166
@@ -2965,7 +2965,7 @@ common.resume:                                    ; preds = %.body, %.body27, %2
           to label %.sink.split93 unwind label %199
 
 190:                                              ; preds = %182
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17he7c88c62068208feE"(ptr noalias noundef align 8 dereferenceable(1400) %180)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17he7c88c62068208feE"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %180)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h8a1d564c6c98bb9eE.llvm.16791777274191314885.exit.i25" unwind label %191, !noalias !549
 
 191:                                              ; preds = %190
@@ -3023,7 +3023,7 @@ common.resume:                                    ; preds = %.body, %.body27, %2
 204:                                              ; preds = %201
   call void @llvm.experimental.noalias.scope.decl(metadata !564)
   %205 = load ptr, ptr %38, align 8, !alias.scope !567, !noundef !8
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17he7c88c62068208feE"(ptr noalias noundef align 8 dereferenceable(1400) %205)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17he7c88c62068208feE"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %205)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h8a1d564c6c98bb9eE.llvm.16791777274191314885.exit.i.i.i.i.i15" unwind label %206, !noalias !568
 
 206:                                              ; preds = %204

@@ -6060,7 +6060,7 @@ invoke.cont20.us:                                 ; preds = %invoke.cont16.us
   br i1 %call5.i31.us, label %for.inc.us, label %for.end
 
 for.inc.us:                                       ; preds = %invoke.cont20.us
-  %call.i.us = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0193.us) #28
+  %call.i.us = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.0193.us) #28
   %inc.us = add i64 %storemerge194.us, 1
   %cmp.i19.not.us = icmp eq ptr %call.i.us, %add.ptr.i.i
   br i1 %cmp.i19.not.us, label %for.end, label %land.rhs.us, !llvm.loop !87
@@ -6160,7 +6160,7 @@ if.end:                                           ; preds = %if.end.i.i
   br i1 %call5.i2.i43, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %if.end
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0193) #28
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.0193) #28
   %inc = add i64 %storemerge194, 1
   %cmp.i19.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i19.not, label %for.end, label %land.rhs, !llvm.loop !87

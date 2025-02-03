@@ -1018,7 +1018,7 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   %6 = alloca %struct.xl_replorigin_set, align 8
   %7 = zext i1 %3 to i8
   %8 = icmp eq i16 %0, -1
-  br i1 %8, label %67, label %9
+  br i1 %8, label %63, label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @MainLWLockArray, align 8
@@ -1026,7 +1026,7 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   %12 = tail call zeroext i1 @LWLockAcquire(ptr noundef %11, i32 noundef 0) #10
   %13 = load i32, ptr @max_replication_slots, align 4
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph, label %.loopexit
+  br i1 %14, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %9
   %15 = load ptr, ptr @replication_states, align 8
@@ -1035,11 +1035,11 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
 
 16:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %.04054 = phi ptr [ null, %.lr.ph ], [ %.1, %34 ]
+  %.04057 = phi ptr [ null, %.lr.ph ], [ %.1, %34 ]
   %17 = getelementptr %struct.ReplicationState, ptr %15, i64 %indvars.iv
   %18 = load i16, ptr %17, align 8
   %19 = icmp eq i16 %18, 0
-  %20 = icmp eq ptr %.04054, null
+  %20 = icmp eq ptr %.04057, null
   %or.cond = select i1 %19, i1 %20, i1 false
   br i1 %or.cond, label %34, label %21
 
@@ -1053,7 +1053,7 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %26 = load i32, ptr %25, align 8
   %.not45 = icmp eq i32 %26, 0
-  br i1 %.not45, label %.loopexit, label %27
+  br i1 %.not45, label %.thread, label %27
 
 27:                                               ; preds = %22
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1067,96 +1067,89 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   unreachable
 
 34:                                               ; preds = %16, %21
-  %.1 = phi ptr [ %.04054, %21 ], [ %17, %16 ]
+  %.1 = phi ptr [ %.04057, %21 ], [ %17, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !11
 
-.loopexit:                                        ; preds = %34, %9, %22
-  %.04053 = phi ptr [ %.04054, %22 ], [ null, %9 ], [ %.1, %34 ]
-  %.041 = phi ptr [ %17, %22 ], [ null, %9 ], [ null, %34 ]
-  %35 = icmp eq ptr %.041, null
-  %36 = icmp eq ptr %.04053, null
-  %or.cond3 = select i1 %35, i1 %36, i1 false
-  br i1 %or.cond3, label %37, label %43
+._crit_edge:                                      ; preds = %34
+  %35 = icmp eq ptr %.1, null
+  br i1 %35, label %._crit_edge.thread, label %41
 
-37:                                               ; preds = %.loopexit
-  %38 = zext i16 %0 to i32
-  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 @errcode(i32 noundef 16581) #10
-  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %38) #10
-  %42 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.23) #10
+._crit_edge.thread:                               ; preds = %9, %._crit_edge
+  %36 = zext i16 %0 to i32
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %37)
+  %38 = tail call i32 @errcode(i32 noundef 16581) #10
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %36) #10
+  %40 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.23) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 958, ptr noundef nonnull @__func__.replorigin_advance) #10
   unreachable
 
-43:                                               ; preds = %.loopexit
-  br i1 %35, label %44, label %47
+41:                                               ; preds = %._crit_edge
+  %42 = getelementptr inbounds nuw i8, ptr %.1, i64 40
+  %43 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %42, i32 noundef 0) #10
+  store i16 %0, ptr %.1, align 8
+  br label %.thread
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %.04053, i64 40
-  %46 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %45, i32 noundef 0) #10
-  store i16 %0, ptr %.04053, align 8
-  br label %47
+.thread:                                          ; preds = %22, %41
+  %.142 = phi ptr [ %.1, %41 ], [ %17, %22 ]
+  br i1 %4, label %44, label %48
 
-47:                                               ; preds = %44, %43
-  %.142 = phi ptr [ %.04053, %44 ], [ %.041, %43 ]
-  br i1 %4, label %48, label %52
-
-48:                                               ; preds = %47
+44:                                               ; preds = %.thread
   store i64 %1, ptr %6, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i16 %0, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i8 %7, ptr %50, align 2
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i16 %0, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i8 %7, ptr %46, align 2
   tail call void @XLogBeginInsert() #10
   call void @XLogRegisterData(ptr noundef nonnull %6, i32 noundef 16) #10
-  %51 = call i64 @XLogInsert(i8 noundef zeroext 19, i8 noundef zeroext 0) #10
-  br label %52
+  %47 = call i64 @XLogInsert(i8 noundef zeroext 19, i8 noundef zeroext 0) #10
+  br label %48
 
-52:                                               ; preds = %48, %47
-  %53 = getelementptr inbounds nuw i8, ptr %.142, i64 8
-  br i1 %3, label %57, label %54
+48:                                               ; preds = %44, %.thread
+  %49 = getelementptr inbounds nuw i8, ptr %.142, i64 8
+  br i1 %3, label %53, label %50
 
-54:                                               ; preds = %52
-  %55 = load i64, ptr %53, align 8
-  %56 = icmp ult i64 %55, %1
-  br i1 %56, label %.thread49, label %.thread
+50:                                               ; preds = %48
+  %51 = load i64, ptr %49, align 8
+  %52 = icmp ult i64 %51, %1
+  br i1 %52, label %.thread53, label %.thread50
 
-57:                                               ; preds = %52
-  store i64 %1, ptr %53, align 8
+53:                                               ; preds = %48
+  store i64 %1, ptr %49, align 8
   %.not46 = icmp eq i64 %2, 0
-  br i1 %.not46, label %63, label %61
+  br i1 %.not46, label %59, label %57
 
-.thread49:                                        ; preds = %54
-  store i64 %1, ptr %53, align 8
-  %.not4650 = icmp eq i64 %2, 0
-  br i1 %.not4650, label %63, label %.thread48
+.thread53:                                        ; preds = %50
+  store i64 %1, ptr %49, align 8
+  %.not4654 = icmp eq i64 %2, 0
+  br i1 %.not4654, label %59, label %.thread52
 
-.thread:                                          ; preds = %54
-  %.not4647 = icmp eq i64 %2, 0
-  br i1 %.not4647, label %63, label %.thread48
+.thread50:                                        ; preds = %50
+  %.not4651 = icmp eq i64 %2, 0
+  br i1 %.not4651, label %59, label %.thread52
 
-.thread48:                                        ; preds = %.thread49, %.thread
+.thread52:                                        ; preds = %.thread53, %.thread50
+  %54 = getelementptr inbounds nuw i8, ptr %.142, i64 16
+  %55 = load i64, ptr %54, align 8
+  %56 = icmp ult i64 %55, %2
+  br i1 %56, label %57, label %59
+
+57:                                               ; preds = %53, %.thread52
   %58 = getelementptr inbounds nuw i8, ptr %.142, i64 16
-  %59 = load i64, ptr %58, align 8
-  %60 = icmp ult i64 %59, %2
-  br i1 %60, label %61, label %63
+  store i64 %2, ptr %58, align 8
+  br label %59
 
-61:                                               ; preds = %57, %.thread48
-  %62 = getelementptr inbounds nuw i8, ptr %.142, i64 16
-  store i64 %2, ptr %62, align 8
+59:                                               ; preds = %.thread53, %.thread50, %57, %.thread52, %53
+  %60 = getelementptr inbounds nuw i8, ptr %.142, i64 40
+  call void @LWLockRelease(ptr noundef nonnull %60) #10
+  %61 = load ptr, ptr @MainLWLockArray, align 8
+  %62 = getelementptr i8, ptr %61, i64 5120
+  call void @LWLockRelease(ptr noundef %62) #10
   br label %63
 
-63:                                               ; preds = %.thread49, %.thread, %61, %.thread48, %57
-  %64 = getelementptr inbounds nuw i8, ptr %.142, i64 40
-  call void @LWLockRelease(ptr noundef nonnull %64) #10
-  %65 = load ptr, ptr @MainLWLockArray, align 8
-  %66 = getelementptr i8, ptr %65, i64 5120
-  call void @LWLockRelease(ptr noundef %66) #10
-  br label %67
-
-67:                                               ; preds = %5, %63
+63:                                               ; preds = %5, %59
   ret void
 }
 

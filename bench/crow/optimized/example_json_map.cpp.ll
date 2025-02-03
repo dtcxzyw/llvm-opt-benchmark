@@ -15663,7 +15663,7 @@ define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJEE8validateEv(ptr noun
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #36
+  tail call void @__cxa_free_exception(ptr nonnull %15) #36
   br label %82
 
 19:                                               ; preds = %10
@@ -20571,7 +20571,7 @@ define linkonce_odr dso_local void @_ZNK4crow4json6wvalue13dump_internalERKS1_RN
 709:                                              ; preds = %705, %638
   %710 = getelementptr inbounds nuw i8, ptr %551, i64 64
   tail call void @_ZNK4crow4json6wvalue13dump_internalERKS1_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEici(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %710, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i8 noundef signext %4, i32 noundef %546)
-  %711 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %551) #42
+  %711 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %551) #42
   %712 = icmp eq ptr %711, %543
   br i1 %712, label %.loopexit41, label %549
 
@@ -22226,7 +22226,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4crow4json6wval
   br label %115
 
 115:                                              ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4crow4json6wvalueEEC2ERKSA_.exit, %37
-  %116 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %11) #42
+  %116 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %11) #42
   %117 = icmp eq ptr %116, %2
   br i1 %117, label %.loopexit, label %10, !llvm.loop !423
 
@@ -25563,7 +25563,7 @@ define linkonce_odr dso_local void @_ZN4crow10TaggedRuleIJNSt7__cxx1112basic_str
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #36
+  tail call void @__cxa_free_exception(ptr nonnull %15) #36
   br label %82
 
 19:                                               ; preds = %10
@@ -32335,7 +32335,7 @@ define linkonce_odr dso_local void @_ZN4crow4Trie8validateEv(ptr noundef nonnull
 33:                                               ; preds = %30
   %34 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %31) #36
+  tail call void @__cxa_free_exception(ptr nonnull %31) #36
   resume { ptr, i32 } %34
 
 35:                                               ; preds = %24, %22
@@ -53374,7 +53374,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail28reactive_socket_service_bas
   %20 = load ptr, ptr %0, align 8, !tbaa !209
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !156
-  tail call void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %22, ptr noundef %2, i1 noundef zeroext %3)
+  tail call void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(248) %22, ptr noundef nonnull %2, i1 noundef zeroext %3)
   br label %37
 
 23:                                               ; preds = %5
@@ -83992,7 +83992,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_upgradeIRNS_13Socket
 295:                                              ; preds = %292
   %296 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %293) #36
+  call void @__cxa_free_exception(ptr nonnull %293) #36
   br label %759
 
 297:                                              ; preds = %282
@@ -85784,7 +85784,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router6handleINS_4CrowIJEEEEEvRNS_7
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %35) #36
+  tail call void @__cxa_free_exception(ptr nonnull %35) #36
   br label %505
 
 39:                                               ; preds = %4

@@ -1785,7 +1785,7 @@ if.end.i:                                         ; preds = %land.lhs.true
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true, %if.end.i, %if.end.thread.i
   %1 = phi i1 [ %tobool6, %if.end.i ], [ false, %if.end.thread.i ], [ false, %land.lhs.true ]
-  %call.i = call i32 @cache_tree_update(ptr noundef %index_state, i32 noundef %flags)
+  %call.i = call i32 @cache_tree_update(ptr noundef nonnull %index_state, i32 noundef %flags)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %out, label %if.end3.i
 

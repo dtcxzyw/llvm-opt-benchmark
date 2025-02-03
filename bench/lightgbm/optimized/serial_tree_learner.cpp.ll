@@ -11377,7 +11377,7 @@ define linkonce_odr noundef ptr @_ZN8LightGBM19LeafConstraintsBase6CreateEPKNS_6
 
 7:                                                ; preds = %3
   %8 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #36
-  invoke void @_ZN8LightGBM27IntermediateLeafConstraintsC2EPKNS_6ConfigEi(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef %0, i32 noundef %1)
+  invoke void @_ZN8LightGBM27IntermediateLeafConstraintsC2EPKNS_6ConfigEi(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull %0, i32 noundef %1)
           to label %22 unwind label %9
 
 9:                                                ; preds = %7
@@ -11392,7 +11392,7 @@ define linkonce_odr noundef ptr @_ZN8LightGBM19LeafConstraintsBase6CreateEPKNS_6
 
 14:                                               ; preds = %11
   %15 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #36
-  invoke void @_ZN8LightGBM23AdvancedLeafConstraintsC2EPKNS_6ConfigEii(ptr noundef nonnull align 8 dereferenceable(144) %15, ptr noundef %0, i32 noundef %1, i32 noundef %2)
+  invoke void @_ZN8LightGBM23AdvancedLeafConstraintsC2EPKNS_6ConfigEii(ptr noundef nonnull align 8 dereferenceable(144) %15, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2)
           to label %22 unwind label %16
 
 16:                                               ; preds = %14

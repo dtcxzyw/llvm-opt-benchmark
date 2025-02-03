@@ -157,7 +157,7 @@ _ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_t
 40:                                               ; preds = %35
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %36) #12
+  call void @__cxa_free_exception(ptr nonnull %36) #12
   br label %.body
 
 42:                                               ; preds = %33
@@ -430,7 +430,7 @@ _ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_t
 69:                                               ; preds = %66, %26, %10
   %.sink = phi ptr [ %64, %66 ], [ %24, %26 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %27, %26 ], [ %11, %10 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #12
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #12
   resume { ptr, i32 } %.pn
 }
 

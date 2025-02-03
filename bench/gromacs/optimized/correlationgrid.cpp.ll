@@ -511,7 +511,7 @@ _ZSt13move_backwardIPN3gmx17CorrelationTensorES2_ET0_T_S4_S3_.exit: ; preds = %_
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %74
   %eh.lpad-body = phi { ptr, i32 } [ %75, %74 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
-  br label %181
+  br label %180
 
 65:                                               ; preds = %15
   %66 = sub nuw i64 %2, %21
@@ -535,7 +535,7 @@ _ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pre
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
   %72 = call ptr @__cxa_begin_catch(ptr %71) #13
-  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_(ptr noundef %17, ptr noundef %.015.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_(ptr noundef %17, ptr noundef nonnull %.015.i.i.i.i)
           to label %73 unwind label %74
 
 73:                                               ; preds = %69
@@ -701,7 +701,7 @@ _ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86: ; p
           catch ptr null
   %130 = extractvalue { ptr, i32 } %129, 0
   %131 = tail call ptr @__cxa_begin_catch(ptr %130) #13
-  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_(ptr noundef %125, ptr noundef %.015.i.i.i.i84)
+  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_(ptr noundef %125, ptr noundef nonnull %.015.i.i.i.i84)
           to label %132 unwind label %133
 
 132:                                              ; preds = %128
@@ -848,46 +848,38 @@ _ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit:
   %173 = extractvalue { ptr, i32 } %134, 0
   %174 = tail call ptr @__cxa_begin_catch(ptr %173) #13
   %.not66 = icmp eq ptr %124, null
-  br i1 %.not66, label %175, label %179
+  %175 = getelementptr inbounds %"class.gmx::CorrelationTensor", ptr %125, i64 %2
+  %176 = select i1 %.not66, ptr %125, ptr %124
+  %177 = select i1 %.not66, ptr %175, ptr %124
+  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull align 1 dereferenceable(1) %0)
+          to label %.thread unwind label %178
 
-175:                                              ; preds = %.body89
-  %176 = getelementptr inbounds %"class.gmx::CorrelationTensor", ptr %125, i64 %2
-  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E(ptr noundef %125, ptr noundef nonnull %176, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit110 unwind label %177
-
-177:                                              ; preds = %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit110, %179, %175
-  %178 = landingpad { ptr, i32 }
+178:                                              ; preds = %.body89, %.thread
+  %179 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %181 unwind label %182
+          to label %180 unwind label %181
 
-179:                                              ; preds = %.body89
-  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %124, ptr noundef nonnull %124, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %180 unwind label %177
-
-180:                                              ; preds = %179
+.thread:                                          ; preds = %.body89
   tail call void @_ZdlPv(ptr noundef nonnull %124) #12
-  br label %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit110
-
-_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit110: ; preds = %175, %180
   invoke void @__cxa_rethrow() #14
-          to label %185 unwind label %177
+          to label %184 unwind label %178
 
 _ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit: ; preds = %106, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit, %4
   ret void
 
-181:                                              ; preds = %177, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %178, %177 ]
+180:                                              ; preds = %178, %.body
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %179, %178 ]
   resume { ptr, i32 } %.pn
 
-182:                                              ; preds = %177
-  %183 = landingpad { ptr, i32 }
+181:                                              ; preds = %178
+  %182 = landingpad { ptr, i32 }
           catch ptr null
-  %184 = extractvalue { ptr, i32 } %183, 0
-  tail call void @__clang_call_terminate(ptr %184) #15
+  %183 = extractvalue { ptr, i32 } %182, 0
+  tail call void @__clang_call_terminate(ptr %183) #15
   unreachable
 
-185:                                              ; preds = %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit110
+184:                                              ; preds = %.thread
   unreachable
 }
 
@@ -1075,7 +1067,7 @@ _ZSt10_ConstructIN3gmx20CorrelationBlockDataEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; 
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #13
-  invoke void @_ZSt8_DestroyIPN3gmx20CorrelationBlockDataEEvT_S3_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3gmx20CorrelationBlockDataEEvT_S3_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22
@@ -1561,7 +1553,7 @@ _ZSt10_ConstructIN3gmx20CorrelationBlockDataEJRS1_EEvPT_DpOT0_.exit.i.i.i.i: ; p
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
   %83 = tail call ptr @__cxa_begin_catch(ptr %82) #13
-  invoke void @_ZSt8_DestroyIPN3gmx20CorrelationBlockDataEEvT_S3_(ptr noundef %75, ptr noundef %.016.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3gmx20CorrelationBlockDataEEvT_S3_(ptr noundef %75, ptr noundef nonnull %.016.i.i.i.i)
           to label %84 unwind label %85
 
 84:                                               ; preds = %80
@@ -1646,7 +1638,7 @@ _ZSt10_ConstructIN3gmx20CorrelationBlockDataEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; 
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #13
-  invoke void @_ZSt8_DestroyIPN3gmx20CorrelationBlockDataEEvT_S3_(ptr noundef %13, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3gmx20CorrelationBlockDataEEvT_S3_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
           to label %20 unwind label %21
 
 20:                                               ; preds = %16

@@ -32453,30 +32453,23 @@ _ZNSt12_Vector_baseIN7testing13ThrowingValueILNS0_8TypeSpecE0EEENS0_17ThrowingAl
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN7testing13ThrowingValueILNS0_8TypeSpecE0EEENS0_17ThrowingAllocatorIS3_LNS0_9AllocSpecE0EEEE11_M_allocateEm.exit
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2EOS2_(ptr noundef nonnull align 4 dereferenceable(4) %add.ptr9, ptr noundef nonnull align 4 dereferenceable(4) %__args)
-          to label %invoke.cont unwind label %lpad
+          to label %invoke.cont unwind label %lpad.thread
 
 invoke.cont:                                      ; preds = %.noexc
-  %call2.i21 = invoke noundef ptr @_ZSt22__uninitialized_copy_aIPKN7testing13ThrowingValueILNS0_8TypeSpecE0EEEPS3_NS0_17ThrowingAllocatorIS3_LNS0_9AllocSpecE0EEEET0_T_SB_SA_RT1_(ptr noundef %1, ptr noundef %__position.coerce, ptr noundef %cond.i19, ptr noundef nonnull align 8 dereferenceable(16) %this)
-          to label %invoke.cont12 unwind label %lpad.thread
+  %call2.i21 = invoke noundef ptr @_ZSt22__uninitialized_copy_aIPKN7testing13ThrowingValueILNS0_8TypeSpecE0EEEPS3_NS0_17ThrowingAllocatorIS3_LNS0_9AllocSpecE0EEEET0_T_SB_SA_RT1_(ptr noundef %1, ptr noundef %__position.coerce, ptr noundef nonnull %cond.i19, ptr noundef nonnull align 8 dereferenceable(16) %this)
+          to label %invoke.cont12 unwind label %lpad.thread35
 
-lpad.thread:                                      ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+lpad.thread35:                                    ; preds = %invoke.cont
+  %lpad.thr_comm.split-lp3037 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #24
+  %3 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp3037, 0
+  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #24
   br label %if.then
 
 invoke.cont12:                                    ; preds = %invoke.cont
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %call2.i21, i64 4
   %call2.i22 = invoke noundef ptr @_ZSt22__uninitialized_copy_aIPKN7testing13ThrowingValueILNS0_8TypeSpecE0EEEPS3_NS0_17ThrowingAllocatorIS3_LNS0_9AllocSpecE0EEEET0_T_SB_SA_RT1_(ptr noundef %__position.coerce, ptr noundef %0, ptr noundef nonnull %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(16) %this)
-          to label %invoke.cont16 unwind label %lpad.thread30
-
-lpad.thread30:                                    ; preds = %invoke.cont12
-  %6 = landingpad { ptr, i32 }
-          catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #24
-  br label %if.else
+          to label %invoke.cont16 unwind label %lpad.thread
 
 invoke.cont16:                                    ; preds = %invoke.cont12
   %cmp.not3.i = icmp eq ptr %1, %0
@@ -32484,9 +32477,9 @@ invoke.cont16:                                    ; preds = %invoke.cont12
 
 for.body.i:                                       ; preds = %invoke.cont16, %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i
   %__first.addr.04.i = phi ptr [ %incdec.ptr.i, %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i ], [ %1, %invoke.cont16 ]
-  %9 = load ptr, ptr %this, align 8
-  %10 = load i32, ptr %9, align 4
-  %cmp.i.i.i.i.i = icmp slt i32 %10, 0
+  %5 = load ptr, ptr %this, align 8
+  %6 = load i32, ptr %5, align 4
+  %cmp.i.i.i.i.i = icmp slt i32 %6, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i
@@ -32498,10 +32491,10 @@ _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSp
           to label %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #27
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #27
   unreachable
 
 _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_.exit.i: ; preds = %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EE9ReadStateEv.exit.i.i.i.i
@@ -32514,9 +32507,9 @@ _ZSt8_DestroyIPN7testing13ThrowingValueILNS0_8TypeSpecE0EEENS0_17ThrowingAllocat
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN7testing13ThrowingValueILNS0_8TypeSpecE0EEENS0_17ThrowingAllocatorIS3_LNS0_9AllocSpecE0EEEE13_M_deallocateEPS3_m.exit, label %if.then.i25
 
 if.then.i25:                                      ; preds = %_ZSt8_DestroyIPN7testing13ThrowingValueILNS0_8TypeSpecE0EEENS0_17ThrowingAllocatorIS3_LNS0_9AllocSpecE0EEEEvT_S8_RT0_.exit
-  %13 = load ptr, ptr %this, align 8
-  %14 = load i32, ptr %13, align 4
-  %cmp.i.i.i.i = icmp slt i32 %14, 0
+  %9 = load ptr, ptr %this, align 8
+  %10 = load i32, ptr %9, align 4
+  %cmp.i.i.i.i = icmp slt i32 %10, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE10deallocateERS6_PS4_m.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i25
@@ -32535,25 +32528,33 @@ _ZNSt12_Vector_baseIN7testing13ThrowingValueILNS0_8TypeSpecE0EEENS0_17ThrowingAl
   store ptr %add.ptr34, ptr %_M_end_of_storage, align 8
   ret void
 
-lpad:                                             ; preds = %.noexc, %_ZNSt12_Vector_baseIN7testing13ThrowingValueILNS0_8TypeSpecE0EEENS0_17ThrowingAllocatorIS3_LNS0_9AllocSpecE0EEEE11_M_allocateEm.exit
-  %15 = landingpad { ptr, i32 }
+lpad.thread:                                      ; preds = %.noexc, %invoke.cont12
+  %__new_finish.0.ph = phi ptr [ %incdec.ptr, %invoke.cont12 ], [ %cond.i19, %.noexc ]
+  %lpad.thr_comm29 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  %17 = tail call ptr @__cxa_begin_catch(ptr %16) #24
+  %11 = extractvalue { ptr, i32 } %lpad.thr_comm29, 0
+  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #24
+  br label %if.else
+
+lpad:                                             ; preds = %_ZNSt12_Vector_baseIN7testing13ThrowingValueILNS0_8TypeSpecE0EEENS0_17ThrowingAllocatorIS3_LNS0_9AllocSpecE0EEEE11_M_allocateEm.exit
+  %lpad.thr_comm.split-lp30 = landingpad { ptr, i32 }
+          catch ptr null
+  %13 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp30, 0
+  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #24
   %tobool.not = icmp eq ptr %cond.i19, null
   br i1 %tobool.not, label %if.then, label %if.else
 
-if.then:                                          ; preds = %lpad.thread, %lpad
+if.then:                                          ; preds = %lpad.thread35, %lpad
   tail call void @_ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8TypeSpecE0EEELNS0_9AllocSpecE0EEEE7destroyIS4_EEvRS6_PT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %add.ptr9) #24
   br label %if.end
 
-if.else:                                          ; preds = %lpad.thread30, %lpad
-  %__new_finish.033 = phi ptr [ %incdec.ptr, %lpad.thread30 ], [ %cond.i19, %lpad ]
-  tail call void @_ZSt8_DestroyIPN7testing13ThrowingValueILNS0_8TypeSpecE0EEENS0_17ThrowingAllocatorIS3_LNS0_9AllocSpecE0EEEEvT_S8_RT0_(ptr noundef %cond.i19, ptr noundef nonnull %__new_finish.033, ptr noundef nonnull align 8 dereferenceable(16) %this)
+if.else:                                          ; preds = %lpad.thread, %lpad
+  %__new_finish.034 = phi ptr [ %__new_finish.0.ph, %lpad.thread ], [ %cond.i19, %lpad ]
+  tail call void @_ZSt8_DestroyIPN7testing13ThrowingValueILNS0_8TypeSpecE0EEENS0_17ThrowingAllocatorIS3_LNS0_9AllocSpecE0EEEEvT_S8_RT0_(ptr noundef nonnull %cond.i19, ptr noundef nonnull %__new_finish.034, ptr noundef nonnull align 8 dereferenceable(16) %this)
   br label %if.end
 
 lpad21:                                           ; preds = %invoke.cont23, %if.end
-  %18 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -32567,13 +32568,13 @@ invoke.cont23:                                    ; preds = %if.end
           to label %unreachable unwind label %lpad21
 
 eh.resume:                                        ; preds = %lpad21
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %15
 
 terminate.lpad:                                   ; preds = %lpad21
-  %19 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #27
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #27
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont23

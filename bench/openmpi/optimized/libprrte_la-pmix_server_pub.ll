@@ -250,7 +250,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %55
   br label %87
 
 87:                                               ; preds = %._crit_edge, %85
-  %88 = call i32 @pthread_mutex_lock(ptr noundef %18) #13
+  %88 = call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #13
   %89 = icmp eq i32 %88, 35
   br i1 %89, label %90, label %92
 
@@ -266,7 +266,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %55
   %94 = load i32, ptr %93, align 8
   %95 = add nsw i32 %94, -1
   store i32 %95, ptr %93, align 8
-  %96 = call i32 @pthread_mutex_unlock(ptr noundef %18) #13
+  %96 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #13
   %97 = icmp eq i32 %95, 0
   br i1 %97, label %98, label %176
 
@@ -316,7 +316,7 @@ pmix_obj_run_destructors.exit121:                 ; preds = %.lr.ph.i118, %98
   br label %116
 
 116:                                              ; preds = %112, %114
-  %117 = call i32 @pthread_mutex_lock(ptr noundef %18) #13
+  %117 = call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #13
   %118 = icmp eq i32 %117, 35
   br i1 %118, label %119, label %121
 
@@ -332,7 +332,7 @@ pmix_obj_run_destructors.exit121:                 ; preds = %.lr.ph.i118, %98
   %123 = load i32, ptr %122, align 8
   %124 = add nsw i32 %123, -1
   store i32 %124, ptr %122, align 8
-  %125 = call i32 @pthread_mutex_unlock(ptr noundef %18) #13
+  %125 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #13
   %126 = icmp eq i32 %124, 0
   br i1 %126, label %127, label %176
 
@@ -384,7 +384,7 @@ pmix_obj_run_destructors.exit127:                 ; preds = %.lr.ph.i124, %127
   br label %147
 
 147:                                              ; preds = %141, %145
-  %148 = call i32 @pthread_mutex_lock(ptr noundef %18) #13
+  %148 = call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #13
   %149 = icmp eq i32 %148, 35
   br i1 %149, label %150, label %152
 
@@ -400,7 +400,7 @@ pmix_obj_run_destructors.exit127:                 ; preds = %.lr.ph.i124, %127
   %154 = load i32, ptr %153, align 8
   %155 = add nsw i32 %154, -1
   store i32 %155, ptr %153, align 8
-  %156 = call i32 @pthread_mutex_unlock(ptr noundef %18) #13
+  %156 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #13
   %157 = icmp eq i32 %155, 0
   br i1 %157, label %158, label %176
 
@@ -440,7 +440,7 @@ pmix_obj_run_destructors.exit133:                 ; preds = %.lr.ph.i130, %158
 172:                                              ; preds = %141
   %173 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %174 = load ptr, ptr @prte_event_base, align 8
-  %175 = call i32 @prte_event_assign(ptr noundef nonnull %173, ptr noundef %174, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @execute, ptr noundef %18) #13
+  %175 = call i32 @prte_event_assign(ptr noundef nonnull %173, ptr noundef %174, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @execute, ptr noundef nonnull %18) #13
   fence release
   call void @event_active(ptr noundef nonnull %173, i32 noundef 4, i16 noundef signext 1) #13
   br label %176
@@ -1021,7 +1021,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %53
   br label %85
 
 85:                                               ; preds = %._crit_edge, %83
-  %86 = call i32 @pthread_mutex_lock(ptr noundef %16) #13
+  %86 = call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #13
   %87 = icmp eq i32 %86, 35
   br i1 %87, label %88, label %90
 
@@ -1037,7 +1037,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %53
   %92 = load i32, ptr %91, align 8
   %93 = add nsw i32 %92, -1
   store i32 %93, ptr %91, align 8
-  %94 = call i32 @pthread_mutex_unlock(ptr noundef %16) #13
+  %94 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #13
   %95 = icmp eq i32 %93, 0
   br i1 %95, label %96, label %238
 
@@ -1095,7 +1095,7 @@ pmix_obj_run_destructors.exit172:                 ; preds = %.lr.ph.i169, %96
   br label %117
 
 117:                                              ; preds = %110, %115
-  %118 = call i32 @pthread_mutex_lock(ptr noundef %16) #13
+  %118 = call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #13
   %119 = icmp eq i32 %118, 35
   br i1 %119, label %120, label %122
 
@@ -1111,7 +1111,7 @@ pmix_obj_run_destructors.exit172:                 ; preds = %.lr.ph.i169, %96
   %124 = load i32, ptr %123, align 8
   %125 = add nsw i32 %124, -1
   store i32 %125, ptr %123, align 8
-  %126 = call i32 @pthread_mutex_unlock(ptr noundef %16) #13
+  %126 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #13
   %127 = icmp eq i32 %125, 0
   br i1 %127, label %128, label %238
 
@@ -1163,7 +1163,7 @@ pmix_obj_run_destructors.exit178:                 ; preds = %.lr.ph.i175, %128
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph203, %144
-  %146 = call i32 @pthread_mutex_lock(ptr noundef %16) #13
+  %146 = call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #13
   %147 = icmp eq i32 %146, 35
   br i1 %147, label %148, label %150
 
@@ -1179,7 +1179,7 @@ pmix_obj_run_destructors.exit178:                 ; preds = %.lr.ph.i175, %128
   %152 = load i32, ptr %151, align 8
   %153 = add nsw i32 %152, -1
   store i32 %153, ptr %151, align 8
-  %154 = call i32 @pthread_mutex_unlock(ptr noundef %16) #13
+  %154 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #13
   %155 = icmp eq i32 %153, 0
   br i1 %155, label %156, label %238
 
@@ -1236,7 +1236,7 @@ pmix_obj_run_destructors.exit184:                 ; preds = %.lr.ph.i181, %156
   br label %177
 
 177:                                              ; preds = %._crit_edge204, %175
-  %178 = call i32 @pthread_mutex_lock(ptr noundef %16) #13
+  %178 = call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #13
   %179 = icmp eq i32 %178, 35
   br i1 %179, label %180, label %182
 
@@ -1252,7 +1252,7 @@ pmix_obj_run_destructors.exit184:                 ; preds = %.lr.ph.i181, %156
   %184 = load i32, ptr %183, align 8
   %185 = add nsw i32 %184, -1
   store i32 %185, ptr %183, align 8
-  %186 = call i32 @pthread_mutex_unlock(ptr noundef %16) #13
+  %186 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #13
   %187 = icmp eq i32 %185, 0
   br i1 %187, label %188, label %238
 
@@ -1308,7 +1308,7 @@ pmix_obj_run_destructors.exit190:                 ; preds = %.lr.ph.i187, %188
   br label %209
 
 209:                                              ; preds = %204, %207
-  %210 = call i32 @pthread_mutex_lock(ptr noundef %16) #13
+  %210 = call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #13
   %211 = icmp eq i32 %210, 35
   br i1 %211, label %212, label %214
 
@@ -1324,7 +1324,7 @@ pmix_obj_run_destructors.exit190:                 ; preds = %.lr.ph.i187, %188
   %216 = load i32, ptr %215, align 8
   %217 = add nsw i32 %216, -1
   store i32 %217, ptr %215, align 8
-  %218 = call i32 @pthread_mutex_unlock(ptr noundef %16) #13
+  %218 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #13
   %219 = icmp eq i32 %217, 0
   br i1 %219, label %220, label %238
 
@@ -1364,7 +1364,7 @@ pmix_obj_run_destructors.exit196:                 ; preds = %.lr.ph.i193, %220
 234:                                              ; preds = %204, %202
   %235 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %236 = load ptr, ptr @prte_event_base, align 8
-  %237 = call i32 @prte_event_assign(ptr noundef nonnull %235, ptr noundef %236, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @execute, ptr noundef %16) #13
+  %237 = call i32 @prte_event_assign(ptr noundef nonnull %235, ptr noundef %236, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @execute, ptr noundef nonnull %16) #13
   fence release
   call void @event_active(ptr noundef nonnull %235, i32 noundef 4, i16 noundef signext 1) #13
   br label %238
@@ -1549,7 +1549,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %48
   br label %80
 
 80:                                               ; preds = %._crit_edge, %78
-  %81 = call i32 @pthread_mutex_lock(ptr noundef %11) #13
+  %81 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #13
   %82 = icmp eq i32 %81, 35
   br i1 %82, label %83, label %85
 
@@ -1565,7 +1565,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %48
   %87 = load i32, ptr %86, align 8
   %88 = add nsw i32 %87, -1
   store i32 %88, ptr %86, align 8
-  %89 = call i32 @pthread_mutex_unlock(ptr noundef %11) #13
+  %89 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #13
   %90 = icmp eq i32 %88, 0
   br i1 %90, label %91, label %233
 
@@ -1623,7 +1623,7 @@ pmix_obj_run_destructors.exit167:                 ; preds = %.lr.ph.i164, %91
   br label %112
 
 112:                                              ; preds = %105, %110
-  %113 = call i32 @pthread_mutex_lock(ptr noundef %11) #13
+  %113 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #13
   %114 = icmp eq i32 %113, 35
   br i1 %114, label %115, label %117
 
@@ -1639,7 +1639,7 @@ pmix_obj_run_destructors.exit167:                 ; preds = %.lr.ph.i164, %91
   %119 = load i32, ptr %118, align 8
   %120 = add nsw i32 %119, -1
   store i32 %120, ptr %118, align 8
-  %121 = call i32 @pthread_mutex_unlock(ptr noundef %11) #13
+  %121 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #13
   %122 = icmp eq i32 %120, 0
   br i1 %122, label %123, label %233
 
@@ -1691,7 +1691,7 @@ pmix_obj_run_destructors.exit173:                 ; preds = %.lr.ph.i170, %123
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph197, %139
-  %141 = call i32 @pthread_mutex_lock(ptr noundef %11) #13
+  %141 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #13
   %142 = icmp eq i32 %141, 35
   br i1 %142, label %143, label %145
 
@@ -1707,7 +1707,7 @@ pmix_obj_run_destructors.exit173:                 ; preds = %.lr.ph.i170, %123
   %147 = load i32, ptr %146, align 8
   %148 = add nsw i32 %147, -1
   store i32 %148, ptr %146, align 8
-  %149 = call i32 @pthread_mutex_unlock(ptr noundef %11) #13
+  %149 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #13
   %150 = icmp eq i32 %148, 0
   br i1 %150, label %151, label %233
 
@@ -1763,7 +1763,7 @@ pmix_obj_run_destructors.exit179:                 ; preds = %.lr.ph.i176, %151
   br label %172
 
 172:                                              ; preds = %._crit_edge198, %170
-  %173 = call i32 @pthread_mutex_lock(ptr noundef %11) #13
+  %173 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #13
   %174 = icmp eq i32 %173, 35
   br i1 %174, label %175, label %177
 
@@ -1779,7 +1779,7 @@ pmix_obj_run_destructors.exit179:                 ; preds = %.lr.ph.i176, %151
   %179 = load i32, ptr %178, align 8
   %180 = add nsw i32 %179, -1
   store i32 %180, ptr %178, align 8
-  %181 = call i32 @pthread_mutex_unlock(ptr noundef %11) #13
+  %181 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #13
   %182 = icmp eq i32 %180, 0
   br i1 %182, label %183, label %233
 
@@ -1835,7 +1835,7 @@ pmix_obj_run_destructors.exit185:                 ; preds = %.lr.ph.i182, %183
   br label %204
 
 204:                                              ; preds = %199, %202
-  %205 = call i32 @pthread_mutex_lock(ptr noundef %11) #13
+  %205 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #13
   %206 = icmp eq i32 %205, 35
   br i1 %206, label %207, label %209
 
@@ -1851,7 +1851,7 @@ pmix_obj_run_destructors.exit185:                 ; preds = %.lr.ph.i182, %183
   %211 = load i32, ptr %210, align 8
   %212 = add nsw i32 %211, -1
   store i32 %212, ptr %210, align 8
-  %213 = call i32 @pthread_mutex_unlock(ptr noundef %11) #13
+  %213 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #13
   %214 = icmp eq i32 %212, 0
   br i1 %214, label %215, label %233
 
@@ -1891,7 +1891,7 @@ pmix_obj_run_destructors.exit191:                 ; preds = %.lr.ph.i188, %215
 229:                                              ; preds = %199, %197
   %230 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %231 = load ptr, ptr @prte_event_base, align 8
-  %232 = call i32 @prte_event_assign(ptr noundef nonnull %230, ptr noundef %231, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @execute, ptr noundef %11) #13
+  %232 = call i32 @prte_event_assign(ptr noundef nonnull %230, ptr noundef %231, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @execute, ptr noundef nonnull %11) #13
   fence release
   call void @event_active(ptr noundef nonnull %230, i32 noundef 4, i16 noundef signext 1) #13
   br label %233

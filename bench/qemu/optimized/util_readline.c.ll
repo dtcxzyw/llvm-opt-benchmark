@@ -1148,7 +1148,7 @@ for.inc53:                                        ; preds = %if.end22
 
 for.end55:                                        ; preds = %if.end30
   %cmp56 = icmp eq i32 %idx.0, 64
-  br i1 %cmp56, label %if.then58, label %if.end66
+  br i1 %cmp56, label %if.then58, label %if.end71
 
 if.then58:                                        ; preds = %for.inc53, %for.inc, %for.end55
   %new_entry.062 = phi ptr [ %hist_entry.0, %for.end55 ], [ %hist_entry.0, %for.inc ], [ null, %for.inc53 ]
@@ -1161,9 +1161,9 @@ if.then58:                                        ; preds = %for.inc53, %for.inc
   store ptr null, ptr %arrayidx65, align 8
   br label %if.end66
 
-if.end66:                                         ; preds = %for.body44, %if.then58, %for.end55
-  %new_entry.037 = phi ptr [ %new_entry.062, %if.then58 ], [ %hist_entry.0, %for.end55 ], [ %hist_entry.0, %for.body44 ]
-  %idx.4 = phi i32 [ 63, %if.then58 ], [ %idx.0, %for.end55 ], [ %idx.350, %for.body44 ]
+if.end66:                                         ; preds = %for.body44, %if.then58
+  %new_entry.037 = phi ptr [ %new_entry.062, %if.then58 ], [ %hist_entry.0, %for.body44 ]
+  %idx.4 = phi i32 [ 63, %if.then58 ], [ %idx.350, %for.body44 ]
   %cmp67 = icmp eq ptr %new_entry.037, null
   br i1 %cmp67, label %if.then69, label %if.end71
 
@@ -1176,9 +1176,9 @@ if.then69:                                        ; preds = %if.then69.loopexit,
   %call70 = tail call noalias ptr @g_strdup(ptr noundef nonnull %cmdline) #13
   br label %if.end71
 
-if.end71:                                         ; preds = %if.then69, %if.end66
-  %idx.441 = phi i32 [ %idx.442, %if.then69 ], [ %idx.4, %if.end66 ]
-  %new_entry.1 = phi ptr [ %call70, %if.then69 ], [ %new_entry.037, %if.end66 ]
+if.end71:                                         ; preds = %for.end55, %if.then69, %if.end66
+  %idx.441 = phi i32 [ %idx.442, %if.then69 ], [ %idx.4, %if.end66 ], [ %idx.0, %for.end55 ]
+  %new_entry.1 = phi ptr [ %call70, %if.then69 ], [ %new_entry.037, %if.end66 ], [ %hist_entry.0, %for.end55 ]
   %history72 = getelementptr inbounds nuw i8, ptr %rs, i64 8216
   %idxprom73 = sext i32 %idx.441 to i64
   %arrayidx74 = getelementptr [64 x ptr], ptr %history72, i64 0, i64 %idxprom73

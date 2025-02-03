@@ -3233,14 +3233,14 @@ _ZN9grpc_core17WeakRefCountedPtrINS_10SubchannelEED2Ev.exit: ; preds = %if.then.
 lpad:                                             ; preds = %entry, %_ZN4absl12lts_202308029MutexLockD2Ev.exit
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup13
+  br label %if.then.i18
 
 lpad6:                                            ; preds = %invoke.cont5
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #27
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-          to label %ehcleanup13 unwind label %terminate.lpad.i15
+          to label %if.then.i18 unwind label %terminate.lpad.i15
 
 terminate.lpad.i15:                               ; preds = %lpad6
   %12 = landingpad { ptr, i32 }
@@ -3249,12 +3249,8 @@ terminate.lpad.i15:                               ; preds = %lpad6
   call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
-ehcleanup13:                                      ; preds = %lpad6, %lpad
+if.then.i18:                                      ; preds = %lpad, %lpad6
   %.pn2 = phi { ptr, i32 } [ %10, %lpad ], [ %11, %lpad6 ]
-  %cmp.not.i17 = icmp eq ptr %arg, null
-  br i1 %cmp.not.i17, label %_ZN9grpc_core17WeakRefCountedPtrINS_10SubchannelEED2Ev.exit24, label %if.then.i18
-
-if.then.i18:                                      ; preds = %ehcleanup13
   %refs_.i.i19 = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %14 = atomicrmw sub ptr %refs_.i.i19, i64 1 acq_rel, align 8
   %cmp.not.i.i20 = icmp eq i64 %14, 1
@@ -3267,7 +3263,7 @@ delete.notnull.i.i21:                             ; preds = %if.then.i18
   call void %15(ptr noundef nonnull align 8 dereferenceable(928) %arg) #27
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_10SubchannelEED2Ev.exit24
 
-_ZN9grpc_core17WeakRefCountedPtrINS_10SubchannelEED2Ev.exit24: ; preds = %ehcleanup13, %if.then.i18, %delete.notnull.i.i21
+_ZN9grpc_core17WeakRefCountedPtrINS_10SubchannelEED2Ev.exit24: ; preds = %if.then.i18, %delete.notnull.i.i21
   resume { ptr, i32 } %.pn2
 }
 

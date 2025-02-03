@@ -295,7 +295,7 @@ cond.true:                                        ; preds = %if.then14
 
 cond.end:                                         ; preds = %if.then14, %cond.true
   %cond = phi float [ %call18, %cond.true ], [ 0.000000e+00, %if.then14 ]
-  %call19 = tail call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %spec.select61, ptr noundef %text_end.addr.1, i1 noundef zeroext false, float noundef %cond)
+  %call19 = tail call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %spec.select61, ptr noundef nonnull %text_end.addr.1, i1 noundef zeroext false, float noundef %cond)
   store <2 x float> %call19, ptr %text_size, align 8
   %8 = extractelement <2 x float> %call19, i64 0
   %9 = extractelement <2 x float> %call19, i64 1
@@ -314,7 +314,7 @@ cond.end:                                         ; preds = %if.then14, %cond.tr
 
 if.end23:                                         ; preds = %cond.end
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %bb, align 8
-  call void @_ZN5ImGui17RenderTextWrappedE6ImVec2PKcS2_f(<2 x float> %agg.tmp.sroa.0.0.copyload, ptr noundef %spec.select61, ptr noundef %text_end.addr.1, float noundef %cond)
+  call void @_ZN5ImGui17RenderTextWrappedE6ImVec2PKcS2_f(<2 x float> %agg.tmp.sroa.0.0.copyload, ptr noundef %spec.select61, ptr noundef nonnull %text_end.addr.1, float noundef %cond)
   br label %if.end127
 
 if.else:                                          ; preds = %if.end6

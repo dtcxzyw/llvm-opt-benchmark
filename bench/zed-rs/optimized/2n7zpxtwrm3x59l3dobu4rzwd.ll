@@ -35230,8 +35230,8 @@ define internal fastcc void @"_ZN4core3ptr172drop_in_place$LT$core..result..Resu
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #15
   unreachable
 
-common.resume:                                    ; preds = %41, %50, %13, %18
-  %common.resume.op = phi { ptr, i32 } [ %14, %18 ], [ %14, %13 ], [ %42, %50 ], [ %42, %41 ]
+common.resume:                                    ; preds = %41, %49, %13, %18
+  %common.resume.op = phi { ptr, i32 } [ %14, %18 ], [ %14, %13 ], [ %42, %49 ], [ %42, %41 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %6
@@ -35271,19 +35271,17 @@ common.resume:                                    ; preds = %41, %50, %13, %18
 41:                                               ; preds = %31
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %45 = load i64, ptr %44, align 8, !range !816, !invariant.load !11
-  %46 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
-  %47 = load i64, ptr %46, align 8, !range !13, !invariant.load !11
-  %48 = icmp ult i64 %47, -9223372036854775807
-  tail call void @llvm.assume(i1 %48)
-  %49 = icmp eq i64 %45, 0
-  br i1 %49, label %common.resume, label %50
+  %43 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %44 = load i64, ptr %43, align 8, !range !816, !invariant.load !11
+  %45 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
+  %46 = load i64, ptr %45, align 8, !range !13, !invariant.load !11
+  %47 = icmp ult i64 %46, -9223372036854775807
+  tail call void @llvm.assume(i1 %47)
+  %48 = icmp eq i64 %44, 0
+  br i1 %48, label %common.resume, label %49
 
-50:                                               ; preds = %41
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %45, i64 noundef range(i64 1, -9223372036854775807) %47) #16
+49:                                               ; preds = %41
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %44, i64 noundef range(i64 1, -9223372036854775807) %46) #16
   br label %common.resume
 
 "_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$worktree..CreatedEntry$GT$$GT$17hdcae9af3015a207fE.exit": ; preds = %40, %32, %25, %22, %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17hf0a313e5aa065b0bE.llvm.16577549240926232442.exit.i.i.i", %4
@@ -35412,8 +35410,8 @@ define internal fastcc void @"_ZN4core3ptr188drop_in_place$LT$core..result..Resu
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #15
   unreachable
 
-common.resume:                                    ; preds = %41, %50, %12, %17
-  %common.resume.op = phi { ptr, i32 } [ %13, %17 ], [ %13, %12 ], [ %42, %50 ], [ %42, %41 ]
+common.resume:                                    ; preds = %41, %49, %12, %17
+  %common.resume.op = phi { ptr, i32 } [ %13, %17 ], [ %13, %12 ], [ %42, %49 ], [ %42, %41 ]
   resume { ptr, i32 } %common.resume.op
 
 24:                                               ; preds = %5
@@ -35457,19 +35455,17 @@ common.resume:                                    ; preds = %41, %50, %12, %17
 41:                                               ; preds = %31
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %45 = load i64, ptr %44, align 8, !range !816, !invariant.load !11
-  %46 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
-  %47 = load i64, ptr %46, align 8, !range !13, !invariant.load !11
-  %48 = icmp ult i64 %47, -9223372036854775807
-  tail call void @llvm.assume(i1 %48)
-  %49 = icmp eq i64 %45, 0
-  br i1 %49, label %common.resume, label %50
+  %43 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %44 = load i64, ptr %43, align 8, !range !816, !invariant.load !11
+  %45 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
+  %46 = load i64, ptr %45, align 8, !range !13, !invariant.load !11
+  %47 = icmp ult i64 %46, -9223372036854775807
+  tail call void @llvm.assume(i1 %47)
+  %48 = icmp eq i64 %44, 0
+  br i1 %48, label %common.resume, label %49
 
-50:                                               ; preds = %41
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %45, i64 noundef range(i64 1, -9223372036854775807) %47) #16
+49:                                               ; preds = %41
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %44, i64 noundef range(i64 1, -9223372036854775807) %46) #16
   br label %common.resume
 
 "_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$worktree..CreatedEntry$C$anyhow..Error$GT$$GT$17h49253be20997a8a4E.exit": ; preds = %40, %32, %26, %24, %21, %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17hf0a313e5aa065b0bE.llvm.16577549240926232442.exit.i.i.i"
@@ -35536,8 +35532,8 @@ define internal fastcc void @"_ZN4core3ptr193drop_in_place$LT$core..result..Resu
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #15
   unreachable
 
-common.resume:                                    ; preds = %40, %49, %14, %19
-  %common.resume.op = phi { ptr, i32 } [ %15, %19 ], [ %15, %14 ], [ %41, %49 ], [ %41, %40 ]
+common.resume:                                    ; preds = %40, %48, %14, %19
+  %common.resume.op = phi { ptr, i32 } [ %15, %19 ], [ %15, %14 ], [ %41, %48 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 26:                                               ; preds = %1
@@ -35572,19 +35568,17 @@ common.resume:                                    ; preds = %40, %49, %14, %19
 40:                                               ; preds = %30
   %41 = landingpad { ptr, i32 }
           cleanup
-  %42 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %44 = load i64, ptr %43, align 8, !range !816, !invariant.load !11
-  %45 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
-  %46 = load i64, ptr %45, align 8, !range !13, !invariant.load !11
-  %47 = icmp ult i64 %46, -9223372036854775807
-  tail call void @llvm.assume(i1 %47)
-  %48 = icmp eq i64 %44, 0
-  br i1 %48, label %common.resume, label %49
+  %42 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %43 = load i64, ptr %42, align 8, !range !816, !invariant.load !11
+  %44 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
+  %45 = load i64, ptr %44, align 8, !range !13, !invariant.load !11
+  %46 = icmp ult i64 %45, -9223372036854775807
+  tail call void @llvm.assume(i1 %46)
+  %47 = icmp eq i64 %43, 0
+  br i1 %47, label %common.resume, label %48
 
-49:                                               ; preds = %40
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %44, i64 noundef range(i64 1, -9223372036854775807) %46) #16
+48:                                               ; preds = %40
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %43, i64 noundef range(i64 1, -9223372036854775807) %45) #16
   br label %common.resume
 
 "_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$worktree..Entry$GT$$GT$$GT$17hb0866faa6cecc17bE.exit": ; preds = %39, %31, %23, %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17hf0a313e5aa065b0bE.llvm.16577549240926232442.exit.i.i.i", %6, %4
@@ -35651,8 +35645,8 @@ define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$core..result..Resu
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #15
   unreachable
 
-common.resume:                                    ; preds = %40, %49, %13, %18
-  %common.resume.op = phi { ptr, i32 } [ %14, %18 ], [ %14, %13 ], [ %41, %49 ], [ %41, %40 ]
+common.resume:                                    ; preds = %40, %48, %13, %18
+  %common.resume.op = phi { ptr, i32 } [ %14, %18 ], [ %14, %13 ], [ %41, %48 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %4
@@ -35691,19 +35685,17 @@ common.resume:                                    ; preds = %40, %49, %13, %18
 40:                                               ; preds = %30
   %41 = landingpad { ptr, i32 }
           cleanup
-  %42 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %44 = load i64, ptr %43, align 8, !range !816, !invariant.load !11
-  %45 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
-  %46 = load i64, ptr %45, align 8, !range !13, !invariant.load !11
-  %47 = icmp ult i64 %46, -9223372036854775807
-  tail call void @llvm.assume(i1 %47)
-  %48 = icmp eq i64 %44, 0
-  br i1 %48, label %common.resume, label %49
+  %42 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %43 = load i64, ptr %42, align 8, !range !816, !invariant.load !11
+  %44 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
+  %45 = load i64, ptr %44, align 8, !range !13, !invariant.load !11
+  %46 = icmp ult i64 %45, -9223372036854775807
+  tail call void @llvm.assume(i1 %46)
+  %47 = icmp eq i64 %43, 0
+  br i1 %47, label %common.resume, label %48
 
-49:                                               ; preds = %40
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %44, i64 noundef range(i64 1, -9223372036854775807) %46) #16
+48:                                               ; preds = %40
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %43, i64 noundef range(i64 1, -9223372036854775807) %45) #16
   br label %common.resume
 
 "_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$worktree..Entry$GT$$C$anyhow..Error$GT$$GT$17h39d303df02c5e0bdE.exit": ; preds = %39, %31, %25, %22, %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17hf0a313e5aa065b0bE.llvm.16577549240926232442.exit.i.i.i", %5
@@ -35765,8 +35757,8 @@ define internal fastcc void @"_ZN4core3ptr210drop_in_place$LT$core..result..Resu
   tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef range(i64 1, -9223372036854775808) %23, i64 noundef range(i64 1, -9223372036854775807) %25) #16
   br label %common.resume
 
-common.resume:                                    ; preds = %41, %50, %20, %28
-  %common.resume.op = phi { ptr, i32 } [ %21, %28 ], [ %21, %20 ], [ %42, %50 ], [ %42, %41 ]
+common.resume:                                    ; preds = %41, %49, %20, %28
+  %common.resume.op = phi { ptr, i32 } [ %21, %28 ], [ %21, %20 ], [ %42, %49 ], [ %42, %41 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %1
@@ -35797,19 +35789,17 @@ common.resume:                                    ; preds = %41, %50, %20, %28
 41:                                               ; preds = %31
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = icmp ne ptr %.val2, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds nuw i8, ptr %.val3, i64 8
-  %45 = load i64, ptr %44, align 8, !range !816, !invariant.load !11
-  %46 = getelementptr inbounds nuw i8, ptr %.val3, i64 16
-  %47 = load i64, ptr %46, align 8, !range !13, !invariant.load !11
-  %48 = icmp ult i64 %47, -9223372036854775807
-  tail call void @llvm.assume(i1 %48)
-  %49 = icmp eq i64 %45, 0
-  br i1 %49, label %common.resume, label %50
+  %43 = getelementptr inbounds nuw i8, ptr %.val3, i64 8
+  %44 = load i64, ptr %43, align 8, !range !816, !invariant.load !11
+  %45 = getelementptr inbounds nuw i8, ptr %.val3, i64 16
+  %46 = load i64, ptr %45, align 8, !range !13, !invariant.load !11
+  %47 = icmp ult i64 %46, -9223372036854775807
+  tail call void @llvm.assume(i1 %47)
+  %48 = icmp eq i64 %44, 0
+  br i1 %48, label %common.resume, label %49
 
-50:                                               ; preds = %41
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef range(i64 1, -9223372036854775808) %45, i64 noundef range(i64 1, -9223372036854775807) %47) #16
+49:                                               ; preds = %41
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef range(i64 1, -9223372036854775808) %44, i64 noundef range(i64 1, -9223372036854775807) %46) #16
   br label %common.resume
 
 "_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17h50c15fa141937cffE.exit": ; preds = %40, %32, %19, %12, %6
@@ -35870,8 +35860,8 @@ define internal fastcc void @"_ZN4core3ptr226drop_in_place$LT$core..result..Resu
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef range(i64 1, -9223372036854775808) %22, i64 noundef range(i64 1, -9223372036854775807) %24) #16, !noalias !8212
   br label %common.resume
 
-common.resume:                                    ; preds = %42, %51, %19, %27
-  %common.resume.op = phi { ptr, i32 } [ %20, %27 ], [ %20, %19 ], [ %43, %51 ], [ %43, %42 ]
+common.resume:                                    ; preds = %42, %50, %19, %27
+  %common.resume.op = phi { ptr, i32 } [ %20, %27 ], [ %20, %19 ], [ %43, %50 ], [ %43, %42 ]
   resume { ptr, i32 } %common.resume.op
 
 28:                                               ; preds = %5
@@ -35909,19 +35899,17 @@ common.resume:                                    ; preds = %42, %51, %19, %27
 42:                                               ; preds = %32
   %43 = landingpad { ptr, i32 }
           cleanup
-  %44 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %46 = load i64, ptr %45, align 8, !range !816, !invariant.load !11
-  %47 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
-  %48 = load i64, ptr %47, align 8, !range !13, !invariant.load !11
-  %49 = icmp ult i64 %48, -9223372036854775807
-  tail call void @llvm.assume(i1 %49)
-  %50 = icmp eq i64 %46, 0
-  br i1 %50, label %common.resume, label %51
+  %44 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %45 = load i64, ptr %44, align 8, !range !816, !invariant.load !11
+  %46 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
+  %47 = load i64, ptr %46, align 8, !range !13, !invariant.load !11
+  %48 = icmp ult i64 %47, -9223372036854775807
+  tail call void @llvm.assume(i1 %48)
+  %49 = icmp eq i64 %45, 0
+  br i1 %49, label %common.resume, label %50
 
-51:                                               ; preds = %42
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %46, i64 noundef range(i64 1, -9223372036854775807) %48) #16
+50:                                               ; preds = %42
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %45, i64 noundef range(i64 1, -9223372036854775807) %47) #16
   br label %common.resume
 
 "_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$17h49c562549df89816E.exit": ; preds = %41, %33, %28, %18, %11

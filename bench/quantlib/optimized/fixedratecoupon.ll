@@ -7109,7 +7109,7 @@ lpad.i.i.i:                                       ; preds = %for.body.i.i.i
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #29
-  invoke void @_ZSt8_DestroyIPN8QuantLib12InterestRateEEvT_S3_(ptr noundef %0, ptr noundef %__cur.09.i.i.i)
+  invoke void @_ZSt8_DestroyIPN8QuantLib12InterestRateEEvT_S3_(ptr noundef %0, ptr noundef nonnull %__cur.09.i.i.i)
           to label %invoke.cont2.i.i.i unwind label %lpad1.i.i.i
 
 invoke.cont2.i.i.i:                               ; preds = %lpad.i.i.i

@@ -5164,7 +5164,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 .noexc2.i.i.i.i.i.i.i:                            ; preds = %61
   %64 = extractvalue { ptr, ptr } %63, 0
   %65 = extractvalue { ptr, ptr } %63, 1
-  invoke void @_ZN6hir_ty5utils16all_super_traits17heafcb402858e9f86E(ptr noalias noundef nonnull sret({ { [2 x i64] }, i64 }) align 8 captures(none) dereferenceable(24) %12, ptr noundef nonnull align 1 %64, ptr noalias noundef readonly align 8 dereferenceable(24) %65, i32 noundef range(i32 1, 0) %41)
+  invoke void @_ZN6hir_ty5utils16all_super_traits17heafcb402858e9f86E(ptr noalias noundef nonnull sret({ { [2 x i64] }, i64 }) align 8 captures(none) dereferenceable(24) %12, ptr noundef nonnull align 1 %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %65, i32 noundef range(i32 1, 0) %41)
           to label %.noexc3.i.i.i.i.i.i.i unwind label %35
 
 .noexc3.i.i.i.i.i.i.i:                            ; preds = %.noexc2.i.i.i.i.i.i.i
@@ -7855,7 +7855,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
 .noexc.i.i.i.i.i.i:                               ; preds = %44
   %48 = extractvalue { ptr, ptr } %47, 0
   %49 = extractvalue { ptr, ptr } %47, 1
-  invoke void @_ZN6hir_ty5utils16all_super_traits17heafcb402858e9f86E(ptr noalias noundef nonnull sret({ { [2 x i64] }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %48, ptr noalias noundef readonly align 8 dereferenceable(24) %49, i32 noundef range(i32 1, 0) %.val14.i.i.i.i.i.i)
+  invoke void @_ZN6hir_ty5utils16all_super_traits17heafcb402858e9f86E(ptr noalias noundef nonnull sret({ { [2 x i64] }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %49, i32 noundef range(i32 1, 0) %.val14.i.i.i.i.i.i)
           to label %.noexc15.i.i.i.i.i.i unwind label %36
 
 .noexc15.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i.i.i

@@ -5916,7 +5916,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #18
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #18
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -5940,7 +5940,7 @@ invoke.cont8:                                     ; preds = %if.then5
 lpad7:                                            ; preds = %if.then5
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception6) #18
+  tail call void @__cxa_free_exception(ptr nonnull %exception6) #18
   br label %eh.resume
 
 if.end9:                                          ; preds = %lor.lhs.false3
@@ -5990,7 +5990,7 @@ lpad14:                                           ; preds = %invoke.cont24, %inv
 lpad23:                                           ; preds = %invoke.cont19
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception21) #18
+  call void @__cxa_free_exception(ptr nonnull %exception21) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad23, %lpad14
@@ -7304,7 +7304,7 @@ lpad19:                                           ; preds = %invoke.cont30, %inv
 lpad29:                                           ; preds = %invoke.cont26
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #18
+  call void @__cxa_free_exception(ptr nonnull %exception) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad29, %lpad19
@@ -8067,7 +8067,7 @@ lpad14:                                           ; preds = %invoke.cont25, %inv
 lpad24:                                           ; preds = %invoke.cont21
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #18
+  call void @__cxa_free_exception(ptr nonnull %exception) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad14

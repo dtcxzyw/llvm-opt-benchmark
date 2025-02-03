@@ -3808,7 +3808,7 @@ if.else163.i:                                     ; preds = %if.else157.i
 if.end179.sink.split.i:                           ; preds = %if.else163.i, %if.else157.i, %if.else151.i, %if.else145.i, %if.else139.i, %if.else133.i, %if.else127.i, %if.else121.i, %if.else115.i, %if.end111.i
   %status.1.ph.i = phi i32 [ 0, %if.end111.i ], [ 10, %if.else115.i ], [ 2, %if.else121.i ], [ 3, %if.else127.i ], [ 5, %if.else133.i ], [ 6, %if.else139.i ], [ 7, %if.else145.i ], [ 9, %if.else151.i ], [ %status.0.i, %if.else157.i ], [ 12, %if.else163.i ]
   %forced.0.ph.i = phi i8 [ 0, %if.end111.i ], [ 0, %if.else115.i ], [ 0, %if.else121.i ], [ 0, %if.else127.i ], [ 0, %if.else133.i ], [ 0, %if.else139.i ], [ 0, %if.else145.i ], [ 0, %if.else151.i ], [ 2, %if.else157.i ], [ 0, %if.else163.i ]
-  call void @free(ptr noundef %msg.1.i) #18
+  call void @free(ptr noundef nonnull %msg.1.i) #18
   br label %if.end179.i
 
 if.end179.i:                                      ; preds = %if.end179.sink.split.i, %if.else163.i, %if.end100.i

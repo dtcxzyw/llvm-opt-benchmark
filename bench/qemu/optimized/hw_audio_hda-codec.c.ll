@@ -2071,7 +2071,7 @@ entry:
 if.end:                                           ; preds = %entry
   %desc2 = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   store ptr %desc, ptr %desc2, align 8
-  %call3 = tail call ptr @object_get_typename(ptr noundef %call.i) #10
+  %call3 = tail call ptr @object_get_typename(ptr noundef nonnull %call.i) #10
   %name = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %call3, ptr %name, align 8
   %debug = getelementptr inbounds nuw i8, ptr %call.i, i64 34504

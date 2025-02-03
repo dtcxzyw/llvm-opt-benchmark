@@ -960,7 +960,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt16invalid_argument
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #32
+  tail call void @__cxa_free_exception(ptr nonnull %3) #32
   resume { ptr, i32 } %6
 }
 
@@ -1213,7 +1213,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16exception_detai
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #32
+  tail call void @__cxa_free_exception(ptr nonnull %3) #32
   resume { ptr, i32 } %6
 }
 
@@ -4076,7 +4076,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_3log11v2_mt_posix
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #32
+  tail call void @__cxa_free_exception(ptr nonnull %3) #32
   resume { ptr, i32 } %6
 }
 
@@ -4684,7 +4684,7 @@ _ZN5boost12interprocess9ipcdetail17add_leading_slashIcEEvPKT_RNSt7__cxx1112basic
 29:                                               ; preds = %23
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #32
+  call void @__cxa_free_exception(ptr nonnull %25) #32
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -4868,7 +4868,7 @@ _ZN5boost12interprocess20shared_memory_object20eintr_aware_shm_openEPKcij.exit48
 86:                                               ; preds = %80
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %82) #32
+  call void @__cxa_free_exception(ptr nonnull %82) #32
   br label %88
 
 88:                                               ; preds = %86, %84
@@ -4948,7 +4948,7 @@ _ZN5boost12interprocess20shared_memory_object10priv_closeEv.exit: ; preds = %.no
 110:                                              ; preds = %_ZN5boost12interprocess20shared_memory_object10priv_closeEv.exit
   %111 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %106) #32
+  call void @__cxa_free_exception(ptr nonnull %106) #32
   br label %112
 
 112:                                              ; preds = %110, %108
@@ -5265,7 +5265,7 @@ _ZN5boost12interprocess10error_infoC2Ei.exit:     ; preds = %10, %14
 20:                                               ; preds = %_ZN5boost12interprocess10error_infoC2Ei.exit
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #32
+  call void @__cxa_free_exception(ptr nonnull %18) #32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
   br label %42
 
@@ -5319,7 +5319,7 @@ _ZN5boost12interprocess10error_infoC2Ei.exit21:   ; preds = %29, %33
 39:                                               ; preds = %_ZN5boost12interprocess10error_infoC2Ei.exit21
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %37) #32
+  call void @__cxa_free_exception(ptr nonnull %37) #32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
   br label %42
 
@@ -5411,7 +5411,7 @@ _ZN5boost12interprocess10error_infoC2Ei.exit85:   ; preds = %31, %35
 41:                                               ; preds = %_ZN5boost12interprocess10error_infoC2Ei.exit85
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %39) #32
+  call void @__cxa_free_exception(ptr nonnull %39) #32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #32
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #32
   br label %common.resume
@@ -5442,7 +5442,7 @@ common.resume:                                    ; preds = %62, %93, %85, %41, 
 51:                                               ; preds = %47
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %49) #32
+  call void @__cxa_free_exception(ptr nonnull %49) #32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
   br label %common.resume
 
@@ -5474,7 +5474,7 @@ _ZN5boost12interprocess13mapped_region27priv_size_from_mapping_sizeElllRm.exit: 
 62:                                               ; preds = %58
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %60) #32
+  call void @__cxa_free_exception(ptr nonnull %60) #32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #32
   br label %common.resume
 
@@ -5539,7 +5539,7 @@ _ZN5boost12interprocess10error_infoC2Ei.exit93:   ; preds = %75, %79
 85:                                               ; preds = %_ZN5boost12interprocess10error_infoC2Ei.exit93
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %83) #32
+  call void @__cxa_free_exception(ptr nonnull %83) #32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #32
   br label %common.resume
 
@@ -5570,7 +5570,7 @@ _ZN5boost12interprocess10error_infoC2Ei.exit93:   ; preds = %75, %79
 93:                                               ; preds = %89
   %94 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %91) #32
+  call void @__cxa_free_exception(ptr nonnull %91) #32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #32
   br label %common.resume
 
@@ -6372,7 +6372,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt16invalid_argumentE7re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #32
+  tail call void @__cxa_free_exception(ptr nonnull %2) #32
   resume { ptr, i32 } %5
 }
 
@@ -10067,7 +10067,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16exception_detail19e
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #32
+  tail call void @__cxa_free_exception(ptr nonnull %2) #32
   resume { ptr, i32 } %5
 }
 
@@ -10543,7 +10543,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_3log11v2_mt_posix9bad
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #32
+  tail call void @__cxa_free_exception(ptr nonnull %2) #32
   resume { ptr, i32 } %5
 }
 

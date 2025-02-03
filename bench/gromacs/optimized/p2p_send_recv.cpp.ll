@@ -235,7 +235,7 @@ define noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_re
   br label %28
 
 22:                                               ; preds = %14
-  %23 = tail call noundef ptr @_Z14tMPI_Post_sendP11tmpi_threadP10tmpi_comm_S0_PviP14tmpi_datatype_ii(ptr noundef %8, ptr noundef nonnull %5, ptr noundef nonnull %19, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef 1)
+  %23 = tail call noundef ptr @_Z14tMPI_Post_sendP11tmpi_threadP10tmpi_comm_S0_PviP14tmpi_datatype_ii(ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %19, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef 1)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %28, label %25
 
@@ -289,7 +289,7 @@ define noundef i32 @_Z10tMPI_IrecvPviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req
 
 23:                                               ; preds = %15, %14
   %.025 = phi ptr [ %20, %15 ], [ null, %14 ]
-  %24 = tail call noundef ptr @_Z20tMPI_Post_match_recvP11tmpi_threadP10tmpi_comm_S0_PviP14tmpi_datatype_ii(ptr noundef %8, ptr noundef nonnull %5, ptr noundef %.025, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef 1)
+  %24 = tail call noundef ptr @_Z20tMPI_Post_match_recvP11tmpi_threadP10tmpi_comm_S0_PviP14tmpi_datatype_ii(ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef %.025, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef 1)
   %25 = icmp eq ptr %24, null
   br i1 %25, label %29, label %26
 

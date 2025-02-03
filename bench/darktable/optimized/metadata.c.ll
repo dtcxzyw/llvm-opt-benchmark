@@ -419,11 +419,11 @@ define internal fastcc void @_write_metadata(ptr noundef %0) unnamed_addr #1 {
 40:                                               ; preds = %33, %38
   %41 = call ptr @dt_metadata_get_key(i32 noundef %13) #15
   %42 = call ptr @g_list_append(ptr noundef %11, ptr noundef %41) #15
-  %43 = call ptr @g_list_append(ptr noundef %42, ptr noundef %22) #15
+  %43 = call ptr @g_list_append(ptr noundef %42, ptr noundef nonnull %22) #15
   br label %45
 
 44:                                               ; preds = %33, %38
-  call void @g_free(ptr noundef %22) #15
+  call void @g_free(ptr noundef nonnull %22) #15
   br label %45
 
 45:                                               ; preds = %44, %40, %9
@@ -608,7 +608,7 @@ define internal void @_textbuffer_changed(ptr readnone captures(none) %0, ptr no
 
 43:                                               ; preds = %39, %36
   %44 = phi i32 [ %38, %36 ], [ %42, %39 ]
-  call void @g_free(ptr noundef %25) #15
+  call void @g_free(ptr noundef nonnull %25) #15
   %45 = load ptr, ptr %18, align 8, !tbaa !15
   %46 = icmp eq i32 %44, 0
   %47 = select i1 %46, ptr null, ptr @.str.47

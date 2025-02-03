@@ -718,13 +718,13 @@ _ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit16: ; preds = %_ZNK6Handle
 82:                                               ; preds = %81, %_ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit16
   %83 = load ptr, ptr %58, align 8
   %.not8.i.i.i.i = icmp eq ptr %83, %59
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %84
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit.thread, label %84
 
 84:                                               ; preds = %82
   store ptr %57, ptr %56, align 8
   store ptr %59, ptr %58, align 8
   store ptr %61, ptr %60, align 8
-  br label %_ZN12ResourceMarkD2Ev.exit
+  br label %_ZN12ResourceMarkD2Ev.exit.thread
 
 _ZN17DumpTimeClassInfo18DTLoaderConstraint6equalsERKS0_.exit.thread: ; preds = %._crit_edge.i, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -852,22 +852,22 @@ _ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit22: ; preds = %_ZNK6Handle
 142:                                              ; preds = %141, %_ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit22
   %143 = load ptr, ptr %116, align 8
   %.not8.i.i.i.i24 = icmp eq ptr %143, %117
-  br i1 %.not8.i.i.i.i24, label %_ZN12ResourceMarkD2Ev.exit, label %144
+  br i1 %.not8.i.i.i.i24, label %_ZN12ResourceMarkD2Ev.exit.thread, label %144
 
 144:                                              ; preds = %142
   store ptr %115, ptr %114, align 8
   store ptr %117, ptr %116, align 8
   store ptr %119, ptr %118, align 8
-  br label %_ZN12ResourceMarkD2Ev.exit
+  br label %_ZN12ResourceMarkD2Ev.exit.thread
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %144, %142, %84, %82, %_ZN26GrowableArrayWithAllocatorIN17DumpTimeClassInfo18DTLoaderConstraintE13GrowableArrayIS1_EE6appendERKS1_.exit, %_ZN17DumpTimeClassInfo18DTLoaderConstraint6equalsERKS0_.exit.thread50
-  br i1 %.not.i.i, label %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit, label %145
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN26GrowableArrayWithAllocatorIN17DumpTimeClassInfo18DTLoaderConstraintE13GrowableArrayIS1_EE6appendERKS1_.exit, %_ZN17DumpTimeClassInfo18DTLoaderConstraint6equalsERKS0_.exit.thread50
+  br i1 %.not.i.i, label %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit, label %_ZN12ResourceMarkD2Ev.exit.thread
 
-145:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
+_ZN12ResourceMarkD2Ev.exit.thread:                ; preds = %82, %84, %142, %144, %_ZN12ResourceMarkD2Ev.exit
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #10
   br label %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit
 
-_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit: ; preds = %_ZN12ResourceMarkD2Ev.exit, %145
+_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit: ; preds = %_ZN12ResourceMarkD2Ev.exit, %_ZN12ResourceMarkD2Ev.exit.thread
   ret void
 }
 

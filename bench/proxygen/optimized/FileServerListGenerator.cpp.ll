@@ -1456,7 +1456,7 @@ lpad3:                                            ; preds = %invoke.cont
 lpad7:                                            ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #21
+  call void @__cxa_free_exception(ptr nonnull %exception) #21
   br label %ehcleanup20
 
 lpad10:                                           ; preds = %invoke.cont17.invoke
@@ -1484,7 +1484,7 @@ invoke.cont17.cont:                               ; preds = %invoke.cont17.invok
 lpad16:                                           ; preds = %if.then14
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception15) #21
+  call void @__cxa_free_exception(ptr nonnull %exception15) #21
   br label %ehcleanup20
 
 if.end19:                                         ; preds = %land.lhs.true, %invoke.cont4, %land.lhs.true12
@@ -2945,7 +2945,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i.i, %.
   %8 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(140) %add.ptr) #21
-  br label %lpad.body
+  br label %invoke.cont21
 
 invoke.cont:                                      ; preds = %if.else.i.i.i.i, %call.i.i.noexc.i.i.i
   %frombool.i.i.i.i = and i8 %4, 1
@@ -3013,35 +3013,24 @@ _ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE13_M_d
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EE11_M_allocateEm.exit
   %10 = landingpad { ptr, i32 }
           catch ptr null
-  br label %lpad.body
-
-lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad ], [ %8, %lpad.i.i.i ]
-  %11 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #21
-  %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
-
-if.end.thread:                                    ; preds = %lpad.body
-  tail call void @_ZN8proxygen19ServerListGenerator12ServerConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %add.ptr) #21
   br label %invoke.cont21
 
 lpad19:                                           ; preds = %invoke.cont21
-  %13 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i32:                                      ; preds = %lpad.body
+invoke.cont21:                                    ; preds = %lpad, %lpad.i.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad ], [ %8, %lpad.i.i.i ]
+  %12 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %13 = tail call ptr @__cxa_begin_catch(ptr %12) #21
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #24
-  br label %invoke.cont21
-
-invoke.cont21:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #25
           to label %unreachable unwind label %lpad19
 
 eh.resume:                                        ; preds = %lpad19
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %11
 
 terminate.lpad:                                   ; preds = %lpad19
   %14 = landingpad { ptr, i32 }

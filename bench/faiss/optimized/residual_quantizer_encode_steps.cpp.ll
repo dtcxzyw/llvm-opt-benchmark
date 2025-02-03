@@ -131,7 +131,7 @@ define void @_ZN5faiss23beam_search_encode_stepEmmPKfmmS1_mPKimPiPfS5_PNS_5Index
 50:                                               ; preds = %43
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #7
+  call void @__cxa_free_exception(ptr nonnull %46) #7
   br label %52
 
 52:                                               ; preds = %50, %48
@@ -183,7 +183,7 @@ define void @_ZN5faiss23beam_search_encode_stepEmmPKfmmS1_mPKimPiPfS5_PNS_5Index
 72:                                               ; preds = %65
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #7
+  call void @__cxa_free_exception(ptr nonnull %68) #7
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit28.thread
 
 _ZNSt6vectorIlSaIlEED2Ev.exit28.thread:           ; preds = %72, %70
@@ -317,7 +317,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %74, %_ZNSt12_Vector
 126:                                              ; preds = %115
   %127 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %118) #7
+  call void @__cxa_free_exception(ptr nonnull %118) #7
   br label %128
 
 128:                                              ; preds = %126, %124
@@ -2844,7 +2844,7 @@ define void @_ZN5faiss27beam_search_encode_step_tabEmmmPKfmPKmS1_mS1_mPKiS1_mPiP
 49:                                               ; preds = %42
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %45) #7
+  call void @__cxa_free_exception(ptr nonnull %45) #7
   br label %51
 
 51:                                               ; preds = %49, %47
@@ -5427,7 +5427,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit123:            ; preds = %83, %85, %87, %89
 142:                                              ; preds = %135
   %143 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %138) #7
+  call void @__cxa_free_exception(ptr nonnull %138) #7
   br label %144
 
 144:                                              ; preds = %142, %140
@@ -5838,7 +5838,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %47, %49, %51, %53
 74:                                               ; preds = %67
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %70) #7
+  call void @__cxa_free_exception(ptr nonnull %70) #7
   br label %76
 
 76:                                               ; preds = %74, %72

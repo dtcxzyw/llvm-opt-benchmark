@@ -11768,7 +11768,7 @@ while.end.i.i:                                    ; preds = %_ZN4pugi4impl12_GLO
 if.end7.i.i:                                      ; preds = %while.end.i.i, %_ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit.i
   %length.addr.0.i.i = phi i64 [ %sub.i15.i, %while.end.i.i ], [ %add.i, %_ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit.i ]
   %data.addr.0.i.i = phi ptr [ %add.ptr.i.i, %while.end.i.i ], [ %add.ptr9.i, %_ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr nonnull align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
   %38 = load i64, ptr %bufsize.i, align 8
   %add.i.i = add i64 %38, %length.addr.0.i.i
   store i64 %add.i.i, ptr %bufsize.i, align 8
@@ -17843,7 +17843,7 @@ while.end.i:                                      ; preds = %_ZN4pugi4impl12_GLO
 if.end7.i:                                        ; preds = %while.end.i, %_ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit
   %length.addr.0.i = phi i64 [ %sub.i15, %while.end.i ], [ %add, %_ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit ]
   %data.addr.0.i = phi ptr [ %add.ptr.i, %while.end.i ], [ %add.ptr9, %_ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %this, ptr align 1 %data.addr.0.i, i64 %length.addr.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %this, ptr nonnull align 1 %data.addr.0.i, i64 %length.addr.0.i, i1 false)
   %12 = load i64, ptr %bufsize, align 8
   %add.i = add i64 %12, %length.addr.0.i
   store i64 %add.i, ptr %bufsize, align 8
@@ -21069,7 +21069,7 @@ invoke.cont21.cont:                               ; preds = %invoke.cont21.invok
 lpad20:                                           ; preds = %if.end
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception18) #44
+  call void @__cxa_free_exception(ptr nonnull %exception18) #44
   br label %if.then.i17
 
 if.then.i17:                                      ; preds = %lpad, %lpad20
@@ -27085,7 +27085,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %if.then1.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #44
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #44
   br label %common.resume
 
 if.then:                                          ; preds = %entry
@@ -27671,7 +27671,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %if.then1.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #44
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #44
   br label %common.resume
 
 if.then:                                          ; preds = %entry

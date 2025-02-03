@@ -1848,7 +1848,7 @@ php_output_handler_init.exit:                     ; preds = %36, %28
   br label %59
 
 58:                                               ; preds = %php_output_handler_alias.exit.thread
-  call void @_efree(ptr noundef %24) #21
+  call void @_efree(ptr noundef nonnull %24) #21
   br label %59
 
 59:                                               ; preds = %58, %56

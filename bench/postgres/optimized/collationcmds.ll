@@ -868,7 +868,7 @@ define dso_local { i64, i32 } @AlterCollation(ptr noundef readonly captures(none
   br label %80
 
 80:                                               ; preds = %79, %76
-  call void @heap_freetuple(ptr noundef %.0) #11
+  call void @heap_freetuple(ptr noundef nonnull %.0) #11
   call void @table_close(ptr noundef %6, i32 noundef 0) #11
   %.sroa.240.0.insert.shift = shl nuw i64 %22, 32
   %.sroa.039.0.insert.insert = or disjoint i64 %.sroa.240.0.insert.shift, 3456

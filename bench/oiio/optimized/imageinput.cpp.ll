@@ -40545,7 +40545,7 @@ invoke.cont.i:                                    ; preds = %if.then8.i
 lpad.i:                                           ; preds = %if.then8.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #28
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #28
   resume { ptr, i32 } %4
 
 _ZN3fmt2v89formatterIN18OpenImageIO_v2_6_08TypeDescEcvE5parseERNS0_26basic_format_parse_contextIcNS0_6detail13error_handlerEEE.exit: ; preds = %if.end.i, %land.lhs.true5.i

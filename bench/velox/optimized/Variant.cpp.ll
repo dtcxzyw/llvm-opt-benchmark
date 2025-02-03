@@ -1488,7 +1488,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #30
   resume { ptr, i32 } %0
 }
 
@@ -1680,7 +1680,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %invoke.cont47 unwind label %lpad12.loopexit
 
 invoke.cont47:                                    ; preds = %invoke.cont45
-  %call.i45 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0210) #31
+  %call.i45 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.0210) #31
   %cmp.i44.not = icmp eq ptr %call.i45, %add.ptr.i.i
   br i1 %cmp.i44.not, label %for.end, label %for.body
 
@@ -3203,7 +3203,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit74: ; preds = %invoke.cont32,
           to label %invoke.cont36 unwind label %lpad3.loopexit
 
 invoke.cont36:                                    ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit74
-  %call.i75 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0291) #31
+  %call.i75 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.0291) #31
   %cmp.i42.not = icmp eq ptr %call.i75, %add.ptr.i.i
   br i1 %cmp.i42.not, label %for.end, label %for.body
 
@@ -4894,7 +4894,7 @@ if.else.i.i.i17:                                  ; preds = %_ZN5folly7dynamic3g
 
 invoke.cont12:                                    ; preds = %if.then.i.i.i15, %if.else.i.i.i17
   call void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp9) #30
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin0.sroa.0.037) #31
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin0.sroa.0.037) #31
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %invoke.cont14, label %for.body
 
@@ -8999,8 +8999,8 @@ land.rhs24:                                       ; preds = %for.body
   br i1 %call29, label %for.inc, label %return
 
 for.inc:                                          ; preds = %land.rhs24
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it_a.sroa.0.039) #31
-  %call.i28 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it_b.sroa.0.038) #31
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it_a.sroa.0.039) #31
+  %call.i28 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it_b.sroa.0.038) #31
   %cmp.i22 = icmp ne ptr %call.i, %add.ptr.i.i
   %cmp.i24 = icmp ne ptr %call.i28, %add.ptr.i.i23
   %or.cond = select i1 %cmp.i22, i1 %cmp.i24, i1 false
@@ -9365,8 +9365,8 @@ land.rhs24:                                       ; preds = %for.body
   br i1 %call29, label %for.inc, label %return
 
 for.inc:                                          ; preds = %land.rhs24
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it_a.sroa.0.037) #31
-  %call.i26 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it_b.sroa.0.036) #31
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it_a.sroa.0.037) #31
+  %call.i26 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it_b.sroa.0.036) #31
   %cmp.i20 = icmp ne ptr %call.i, %add.ptr.i.i
   %cmp.i22 = icmp ne ptr %call.i26, %add.ptr.i.i21
   %or.cond = select i1 %cmp.i20, i1 %cmp.i22, i1 false
@@ -9731,7 +9731,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #30
   resume { ptr, i32 } %1
 }
 
@@ -14051,8 +14051,8 @@ if.end.i.i286:                                    ; preds = %for.body.i.i
   br i1 %call4.i5.i.i, label %return, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end.i.i286
-  %call.i6.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first1.sroa.0.023.i.i) #31
-  %call.i7.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first2.sroa.0.022.i.i) #31
+  %call.i6.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.023.i.i) #31
+  %call.i7.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.022.i.i) #31
   %cmp.i.i.i287 = icmp ne ptr %call.i6.i.i, %add.ptr.i1.i
   %cmp.i.i.i.i = icmp ne ptr %call.i7.i.i, %add.ptr.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i287, i1 %cmp.i.i.i.i, i1 false
@@ -14297,8 +14297,8 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   br i1 %call4.i5.i.i, label %return, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end.i.i
-  %call.i6.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first1.sroa.0.023.i.i) #31
-  %call.i7.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first2.sroa.0.022.i.i) #31
+  %call.i6.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.023.i.i) #31
+  %call.i7.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.022.i.i) #31
   %cmp.i.i.i = icmp ne ptr %call.i6.i.i, %add.ptr.i1.i
   %cmp.i.i.i.i = icmp ne ptr %call.i7.i.i, %add.ptr.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %cmp.i.i.i.i, i1 false

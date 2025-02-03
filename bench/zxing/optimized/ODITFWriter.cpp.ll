@@ -52,7 +52,7 @@ define void @_ZNK5ZXing4OneD9ITFWriter6encodeERKNSt7__cxx1112basic_stringIwSt11c
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %11) #7
+  tail call void @__cxa_free_exception(ptr nonnull %11) #7
   br label %.body
 
 15:                                               ; preds = %5
@@ -72,7 +72,7 @@ define void @_ZNK5ZXing4OneD9ITFWriter6encodeERKNSt7__cxx1112basic_stringIwSt11c
 20:                                               ; preds = %17
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %18) #7
+  tail call void @__cxa_free_exception(ptr nonnull %18) #7
   br label %.body
 
 22:                                               ; preds = %15
@@ -91,7 +91,7 @@ define void @_ZNK5ZXing4OneD9ITFWriter6encodeERKNSt7__cxx1112basic_stringIwSt11c
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #7
+  tail call void @__cxa_free_exception(ptr nonnull %25) #7
   br label %.body
 
 29:                                               ; preds = %22
@@ -158,7 +158,7 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEE
 57:                                               ; preds = %54
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %55) #7
+  call void @__cxa_free_exception(ptr nonnull %55) #7
   br label %94
 
 59:                                               ; preds = %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit.preheader

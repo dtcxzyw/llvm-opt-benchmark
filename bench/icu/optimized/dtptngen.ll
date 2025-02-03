@@ -8221,7 +8221,6 @@ land.rhs.i.i:                                     ; preds = %do.body.i
 land.lhs.true.i:                                  ; preds = %land.rhs.i.i
   %skeletonWasSpecified.i = getelementptr inbounds nuw i8, ptr %curElem.0.i, i64 144
   %20 = load i8, ptr %skeletonWasSpecified.i, align 8
-  %tobool20.not.i = icmp ne i8 %20, 0
   %pattern.i = getelementptr inbounds nuw i8, ptr %curElem.0.i, i64 80
   %call33 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %conflictingPattern, ptr noundef nonnull align 8 dereferenceable(64) %pattern.i)
           to label %invoke.cont32 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp
@@ -8233,17 +8232,14 @@ if.end25.i:                                       ; preds = %land.rhs.i.i, %do.b
   br i1 %cmp27.not.i, label %if.end41, label %do.body.i, !llvm.loop !42
 
 invoke.cont32:                                    ; preds = %land.lhs.true.i
+  %tobool20.not.i = icmp ne i8 %20, 0
   %tobool34.not = icmp eq i8 %override, 0
-  br i1 %tobool34.not, label %cleanup, label %lor.lhs.false35
-
-lor.lhs.false35:                                  ; preds = %invoke.cont32
   %cmp36 = icmp ne ptr %skeletonToUse, null
-  %cmp3855 = icmp ne ptr %19, null
-  %cmp38 = and i1 %cmp3855, %tobool20.not.i
-  %or.cond1 = select i1 %cmp36, i1 %cmp38, i1 false
-  br i1 %or.cond1, label %cleanup, label %lor.lhs.false35.if.end41_crit_edge
+  %or.cond1 = select i1 %cmp36, i1 %tobool20.not.i, i1 false
+  %or.cond77 = select i1 %tobool34.not, i1 true, i1 %or.cond1
+  br i1 %or.cond77, label %cleanup, label %lor.lhs.false35.if.end41_crit_edge
 
-lor.lhs.false35.if.end41_crit_edge:               ; preds = %lor.lhs.false35
+lor.lhs.false35.if.end41_crit_edge:               ; preds = %invoke.cont32
   %.pre = load ptr, ptr %patternMap, align 8
   br label %if.end41
 
@@ -8261,8 +8257,8 @@ invoke.cont44:                                    ; preds = %if.end41
   %.conflictingStatus.1 = select i1 %cmp.i50.inv, i32 %conflictingStatus.1, i32 0
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont44, %invoke.cont32, %lor.lhs.false35, %invoke.cont21
-  %retval.1 = phi i32 [ 1, %invoke.cont21 ], [ 2, %lor.lhs.false35 ], [ 2, %invoke.cont32 ], [ %.conflictingStatus.1, %invoke.cont44 ]
+cleanup:                                          ; preds = %invoke.cont44, %invoke.cont32, %invoke.cont21
+  %retval.1 = phi i32 [ 1, %invoke.cont21 ], [ 2, %invoke.cont32 ], [ %.conflictingStatus.1, %invoke.cont44 ]
   call void @_ZN6icu_7515DateTimeMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %matcher) #34
   call void @_ZN6icu_7511PtnSkeletonD1Ev(ptr noundef nonnull align 8 dereferenceable(137) %skeleton) #34
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %basePattern) #34

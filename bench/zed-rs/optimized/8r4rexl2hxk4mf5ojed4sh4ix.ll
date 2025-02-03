@@ -9128,7 +9128,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hfec94e8275399de0E.l
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr103drop_in_place$LT$alloc..boxed..Box$LT$language_model..settings..AllLanguageModelSettingsContent$GT$$GT$17hc6ad74c5930d48aaE.llvm.9953363128220797170"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !7
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$language_model..settings..AllLanguageModelSettingsContent$GT$17h620b5f57fd56e68fE"(ptr noalias noundef align 8 dereferenceable(328) %2)
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$language_model..settings..AllLanguageModelSettingsContent$GT$17h620b5f57fd56e68fE"(ptr noalias noundef nonnull align 8 dereferenceable(328) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1

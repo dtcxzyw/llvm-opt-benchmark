@@ -658,7 +658,7 @@ if.end8.i:                                        ; preds = %sz_size2index.exit.
   br i1 %tobool9.i, label %if.then10.i, label %if.then24
 
 if.then10.i:                                      ; preds = %if.end8.i
-  call void @arena_handle_deferred_work(ptr noundef %tsdn, ptr noundef %21) #10
+  call void @arena_handle_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %21) #10
   br label %if.then24
 
 large_ralloc_no_move_shrink.exit.thread:          ; preds = %if.then22, %sz_size2index.exit.i
@@ -666,7 +666,7 @@ large_ralloc_no_move_shrink.exit.thread:          ; preds = %if.then22, %sz_size
   br label %return
 
 if.then24:                                        ; preds = %if.then10.i, %if.end8.i
-  call void @arena_extent_ralloc_large_shrink(ptr noundef %tsdn, ptr noundef %21, ptr noundef nonnull %edata, i64 noundef %24) #10
+  call void @arena_extent_ralloc_large_shrink(ptr noundef %tsdn, ptr noundef nonnull %21, ptr noundef nonnull %edata, i64 noundef %24) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %deferred_work_generated.i)
   %edata.val.i90 = load i64, ptr %edata, align 8
   %conv.i.i91 = and i64 %edata.val.i90, 4095
@@ -770,7 +770,7 @@ sz_size2index.exit:                               ; preds = %if.end5.i, %if.end.
   br i1 %tobool6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sz_size2index.exit
-  call void @arena_handle_deferred_work(ptr noundef %tsdn, ptr noundef %1) #10
+  call void @arena_handle_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %1) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sz_size2index.exit
@@ -796,7 +796,7 @@ do.end:                                           ; preds = %if.then11
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then11, %do.end, %if.end9
-  call void @arena_extent_ralloc_large_expand(ptr noundef %tsdn, ptr noundef %1, ptr noundef nonnull %edata, i64 noundef %4) #10
+  call void @arena_extent_ralloc_large_expand(ptr noundef %tsdn, ptr noundef nonnull %1, ptr noundef nonnull %edata, i64 noundef %4) #10
   br label %return
 
 return:                                           ; preds = %if.end, %if.end20
@@ -949,7 +949,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i116
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %large_dalloc.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  call void @arena_handle_deferred_work(ptr noundef null, ptr noundef %26) #10
+  call void @arena_handle_deferred_work(ptr noundef null, ptr noundef nonnull %26) #10
   br label %large_dalloc.exit.i.i
 
 large_dalloc.exit.i.i:                            ; preds = %if.then.i.i.i.i, %if.then.i.i.i
@@ -1365,7 +1365,7 @@ entry:
   br i1 %tobool.i, label %if.then.i, label %large_dalloc_finish_impl.exit
 
 if.then.i:                                        ; preds = %entry
-  call void @arena_handle_deferred_work(ptr noundef %tsdn, ptr noundef %1) #10
+  call void @arena_handle_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %1) #10
   br label %large_dalloc_finish_impl.exit
 
 large_dalloc_finish_impl.exit:                    ; preds = %entry, %if.then.i
@@ -1392,7 +1392,7 @@ entry:
   br i1 %tobool.i, label %if.then.i, label %large_dalloc_finish_impl.exit
 
 if.then.i:                                        ; preds = %entry
-  call void @arena_handle_deferred_work(ptr noundef %tsdn, ptr noundef %1) #10
+  call void @arena_handle_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %1) #10
   br label %large_dalloc_finish_impl.exit
 
 large_dalloc_finish_impl.exit:                    ; preds = %entry, %if.then.i
@@ -1425,7 +1425,7 @@ if.then12.i:                                      ; preds = %if.end.i
   %div.i.i = udiv i64 %mul.i.i, 61
   %conv2.i.i = trunc i64 %div.i.i to i32
   store i32 %conv2.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_arena_decay_ticker.i, align 4
-  call void @arena_decay(ptr noundef nonnull %tsdn, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false) #10
+  call void @arena_decay(ptr noundef nonnull %tsdn, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext false) #10
   br label %arena_decay_ticks.exit
 
 arena_decay_ticks.exit:                           ; preds = %if.end.i, %large_dalloc_finish_impl.exit, %if.then12.i

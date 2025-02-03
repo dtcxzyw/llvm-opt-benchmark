@@ -614,7 +614,7 @@ define internal range(i32 -1, -2147483648) i32 @dissect_cose_msg_tagged(ptr noun
 16:                                               ; preds = %.lr.ph
   %17 = load i64, ptr %14, align 8
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.228, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull @.str.229, i64 noundef %17) #7
-  %18 = call i32 @call_dissector_only(ptr noundef nonnull %15, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %12) #7
+  %18 = call i32 @call_dissector_only(ptr noundef nonnull %15, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12) #7
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.loopexit, label %20
 

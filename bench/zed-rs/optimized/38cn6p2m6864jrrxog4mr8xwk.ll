@@ -6374,7 +6374,7 @@ common.resume:                                    ; preds = %.body.i88, %902, %.
   %.sroa.029.1.i = phi ptr [ %.sroa.029.0.ph720.i, %785 ], [ %671, %674 ], [ %671, %680 ], [ %.sroa.029.0701.i, %653 ]
   %.sroa.023.1.i = phi i64 [ %.sroa.023.0.ph721.i, %785 ], [ %662, %674 ], [ %662, %680 ], [ %.sroa.023.0702.i, %653 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46), !noalias !1306
-  invoke void @_ZN10image_webp7huffman11HuffmanTree11read_symbol17h64de2bdc7afad258E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %46, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.029.1.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %64)
+  invoke void @_ZN10image_webp7huffman11HuffmanTree11read_symbol17h64de2bdc7afad258E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.029.1.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %64)
           to label %689 unwind label %.loopexit.split-lp.loopexit.loopexit.split-lp.i, !noalias !1268
 
 666:                                              ; preds = %654
@@ -9268,7 +9268,7 @@ common.resume:                                    ; preds = %.body.i88, %902, %.
   %.sroa.029.1.i = phi ptr [ %.sroa.029.0.ph720.i, %785 ], [ %671, %674 ], [ %671, %680 ], [ %.sroa.029.0701.i, %653 ]
   %.sroa.023.1.i = phi i64 [ %.sroa.023.0.ph721.i, %785 ], [ %662, %674 ], [ %662, %680 ], [ %.sroa.023.0702.i, %653 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46), !noalias !1860
-  invoke void @_ZN10image_webp7huffman11HuffmanTree11read_symbol17hd3f56f789930bf80E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %46, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.029.1.i, ptr noalias noundef nonnull align 8 dereferenceable(40) %64)
+  invoke void @_ZN10image_webp7huffman11HuffmanTree11read_symbol17hd3f56f789930bf80E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.029.1.i, ptr noalias noundef nonnull align 8 dereferenceable(40) %64)
           to label %689 unwind label %.loopexit.split-lp.loopexit.loopexit.split-lp.i, !noalias !1822
 
 666:                                              ; preds = %654

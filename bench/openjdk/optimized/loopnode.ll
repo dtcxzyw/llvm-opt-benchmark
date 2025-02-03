@@ -20648,7 +20648,7 @@ tailrecurse:                                      ; preds = %63, %2
   br i1 %or.cond, label %63, label %62
 
 62:                                               ; preds = %58
-  tail call void @_ZN13IdealLoopTree12counted_loopEP14PhaseIdealLoop(ptr noundef nonnull align 8 dereferenceable(113) %61, ptr noundef %1)
+  tail call void @_ZN13IdealLoopTree12counted_loopEP14PhaseIdealLoop(ptr noundef nonnull align 8 dereferenceable(113) %61, ptr noundef nonnull %1)
   br label %63
 
 63:                                               ; preds = %62, %58

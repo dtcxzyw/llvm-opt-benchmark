@@ -3581,7 +3581,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %20, %_ZN8ciMethod4c
   %72 = select i1 %or.cond.i, ptr %68, ptr null
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %74 = load ptr, ptr %73, align 8
-  %75 = call noundef ptr @_ZN7Compile21optimize_virtual_callEP8ciMethodP15ciInstanceKlassP7ciKlassS1_PK10TypeOopPtrbRbRib(ptr noundef nonnull align 8 dereferenceable(2316) %74, ptr noundef %18, ptr noundef %55, ptr noundef %.020, ptr noundef %.0, ptr noundef %72, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %7, i1 noundef zeroext true) #15
+  %75 = call noundef ptr @_ZN7Compile21optimize_virtual_callEP8ciMethodP15ciInstanceKlassP7ciKlassS1_PK10TypeOopPtrbRbRib(ptr noundef nonnull align 8 dereferenceable(2316) %74, ptr noundef %18, ptr noundef %55, ptr noundef %.020, ptr noundef nonnull %.0, ptr noundef %72, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %7, i1 noundef zeroext true) #15
   %76 = load i8, ptr %8, align 1
   %77 = trunc i8 %76 to i1
   br i1 %77, label %109, label %78

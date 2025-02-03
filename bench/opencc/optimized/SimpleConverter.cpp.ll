@@ -220,7 +220,7 @@ _ZNSt10shared_ptrIN6opencc9ConverterEED2Ev.exit:  ; preds = %_ZN12InternalDataC2
 73:                                               ; preds = %65
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %67) #15
+  call void @__cxa_free_exception(ptr nonnull %67) #15
   br label %77
 
 75:                                               ; preds = %72
@@ -411,7 +411,7 @@ define void @_ZNK6opencc15SimpleConverter7ConvertERKNSt7__cxx1112basic_stringIcS
 21:                                               ; preds = %12
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #15
+  tail call void @__cxa_free_exception(ptr nonnull %15) #15
   br label %25
 
 23:                                               ; preds = %20
@@ -584,7 +584,7 @@ define noundef i64 @_ZNK6opencc15SimpleConverter7ConvertEPKcPc(ptr noundef nonnu
 22:                                               ; preds = %13
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %16) #15
+  tail call void @__cxa_free_exception(ptr nonnull %16) #15
   br label %26
 
 24:                                               ; preds = %21

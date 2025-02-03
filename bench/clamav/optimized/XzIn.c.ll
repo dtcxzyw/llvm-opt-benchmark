@@ -672,7 +672,7 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %0, ptr noundef %1,
   %52 = add i64 %.174.i, %51
   %53 = getelementptr inbounds i8, ptr %9, i64 %52
   %54 = sub i64 %19, %52
-  %55 = call i32 @Xz_ReadVarInt(ptr noundef nonnull %53, i64 noundef %54, ptr noundef %44) #9
+  %55 = call i32 @Xz_ReadVarInt(ptr noundef nonnull %53, i64 noundef %54, ptr noundef nonnull %44) #9
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %Xz_ReadIndex2.exit, label %57
 

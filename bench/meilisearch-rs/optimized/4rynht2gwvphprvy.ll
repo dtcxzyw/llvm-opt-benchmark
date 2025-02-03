@@ -16764,7 +16764,7 @@ _ZN3csv11byte_record6Bounds6expand17h39abda014d17f5cbE.exit: ; preds = %110, %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3857)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3860)
   %177 = load ptr, ptr %2, align 8, !alias.scope !3863, !noundef !12
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$csv..byte_record..ByteRecordInner$GT$17h97603f266bdc7069E"(ptr noalias noundef align 8 dereferenceable(88) %177)
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$csv..byte_record..ByteRecordInner$GT$17h97603f266bdc7069E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %177)
           to label %_ZN4core5clone5Clone10clone_from17h96d4a0c72f082c53E.exit unwind label %.body.i, !noalias !3863
 
 common.resume:                                    ; preds = %370, %.body.i
@@ -26767,7 +26767,7 @@ define internal fastcc void @"_ZN4core3ptr105drop_in_place$LT$core..result..Resu
   br i1 %1, label %2, label %5
 
 2:                                                ; preds = %0
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$csv..byte_record..ByteRecordInner$GT$17h97603f266bdc7069E"(ptr noalias noundef align 8 dereferenceable(88) %.8.val)
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$csv..byte_record..ByteRecordInner$GT$17h97603f266bdc7069E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %.8.val)
           to label %"_ZN4core3ptr53drop_in_place$LT$csv..string_record..StringRecord$GT$17h9f36ab6b944f9222E.exit" unwind label %3, !noalias !5669
 
 3:                                                ; preds = %2
@@ -27995,7 +27995,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$bool
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5957)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5960)
   %7 = load ptr, ptr %6, align 8, !alias.scope !5963, !noundef !12
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$csv..error..ErrorKind$GT$17hd5beb95e0210bbeeE.llvm.4616129397091597767"(ptr noalias noundef align 8 dereferenceable(88) %7)
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$csv..error..ErrorKind$GT$17hd5beb95e0210bbeeE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(88) %7)
           to label %"_ZN4core3ptr38drop_in_place$LT$csv..error..Error$GT$17h9b369cc3c31678bfE.exit" unwind label %8, !noalias !5963
 
 8:                                                ; preds = %5

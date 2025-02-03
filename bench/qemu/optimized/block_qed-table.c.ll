@@ -366,7 +366,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call4 = tail call ptr @qed_alloc_l2_cache_entry(ptr noundef nonnull %l2_cache) #6
   store ptr %call4, ptr %request, align 8
-  %call6 = tail call ptr @qed_alloc_table(ptr noundef %s) #6
+  %call6 = tail call ptr @qed_alloc_table(ptr noundef nonnull %s) #6
   %1 = load ptr, ptr %request, align 8
   store ptr %call6, ptr %1, align 8
   %2 = load ptr, ptr %s, align 8

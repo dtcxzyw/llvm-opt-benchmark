@@ -392,7 +392,7 @@ define void @_ZNK5faiss8IndexLSH6searchElPKflPfPlPKNS_16SearchParametersE(ptr no
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #16
+  call void @__cxa_free_exception(ptr nonnull %21) #16
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -435,7 +435,7 @@ define void @_ZNK5faiss8IndexLSH6searchElPKflPfPlPKNS_16SearchParametersE(ptr no
 43:                                               ; preds = %36
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %39) #16
+  call void @__cxa_free_exception(ptr nonnull %39) #16
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -480,7 +480,7 @@ define void @_ZNK5faiss8IndexLSH6searchElPKflPfPlPKNS_16SearchParametersE(ptr no
 63:                                               ; preds = %56
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %59) #16
+  call void @__cxa_free_exception(ptr nonnull %59) #16
   br label %65
 
 65:                                               ; preds = %63, %61
@@ -665,7 +665,7 @@ define void @_ZNK5faiss8IndexLSH9sa_encodeElPKfPh(ptr noundef nonnull align 8 de
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #16
+  call void @__cxa_free_exception(ptr nonnull %18) #16
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -931,7 +931,7 @@ define void @_ZN5faiss8IndexLSHC2Elibb(ptr noundef nonnull align 8 dereferenceab
 42:                                               ; preds = %35
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %38) #16
+  call void @__cxa_free_exception(ptr nonnull %38) #16
   br label %44
 
 44:                                               ; preds = %42, %40
@@ -1959,7 +1959,7 @@ define void @_ZN5faiss8IndexLSH19transfer_thresholdsEPNS_15LinearTransformE(ptr 
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #16
+  call void @__cxa_free_exception(ptr nonnull %23) #16
   br label %29
 
 29:                                               ; preds = %27, %25

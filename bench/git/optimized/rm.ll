@@ -685,7 +685,7 @@ if.then36.i:                                      ; preds = %if.else.i
   br i1 %cmp39.i, label %if.end44.i, label %for.inc.i57
 
 if.end44.i:                                       ; preds = %if.then36.i, %if.else.i
-  %call45.i = call i32 @ie_match_stat(ptr noundef nonnull @the_index, ptr noundef %79, ptr noundef nonnull %st.i, i32 noundef 0) #13
+  %call45.i = call i32 @ie_match_stat(ptr noundef nonnull @the_index, ptr noundef nonnull %79, ptr noundef nonnull %st.i, i32 noundef 0) #13
   %tobool46.not.i = icmp eq i32 %call45.i, 0
   br i1 %tobool46.not.i, label %lor.lhs.false47.i, label %if.then56.i
 

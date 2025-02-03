@@ -1403,7 +1403,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__27TraceReporterDataSou
   br label %.body68.thread
 
 .body68.thread:                                   ; preds = %.split200.us, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__27TraceReporterDataSourceBaseEEclEPS1_.exit.i4.i
-  call void @free(ptr noundef %161) #18, !noalias !17
+  call void @free(ptr noundef nonnull %161) #18, !noalias !17
   br label %.body63
 
 .split204.us:                                     ; preds = %203

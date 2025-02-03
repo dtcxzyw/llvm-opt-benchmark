@@ -654,7 +654,7 @@ if.then.i.i65:                                    ; preds = %invoke.cont51
   %51 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %retval.0.i.i62, i1 true)
   %sub.i.i.i66 = shl nuw nsw i64 %51, 1
   %mul.i.i = xor i64 %sub.i.i.i66, 126
-  invoke fastcc void @_ZSt16__introsort_loopIPP3applN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113index_lt_procEEEEvT_S9_T0_T1_(ptr noundef %44, ptr noundef nonnull %add.ptr, i64 noundef %mul.i.i, ptr %48, ptr %50)
+  invoke fastcc void @_ZSt16__introsort_loopIPP3applN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113index_lt_procEEEEvT_S9_T0_T1_(ptr noundef nonnull %44, ptr noundef nonnull %add.ptr, i64 noundef %mul.i.i, ptr %48, ptr %50)
           to label %.noexc69 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc69:                                         ; preds = %if.then.i.i65

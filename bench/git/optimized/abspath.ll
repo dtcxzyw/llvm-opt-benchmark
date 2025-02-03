@@ -712,7 +712,7 @@ strbuf_addch.exit:                                ; preds = %if.then32, %if.then
   br label %if.end33
 
 if.end33:                                         ; preds = %strbuf_addch.exit, %land.lhs.true28, %if.end25
-  tail call void @free(ptr noundef %call3) #12
+  tail call void @free(ptr noundef nonnull %call3) #12
   br label %if.end34
 
 if.end34:                                         ; preds = %entry, %if.end33

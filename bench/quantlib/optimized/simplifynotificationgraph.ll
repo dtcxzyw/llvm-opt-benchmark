@@ -880,7 +880,7 @@ _ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i: ; preds = %_ZN
   br label %_ZN8QuantLib8Observer12registerWithERKN5boost10shared_ptrINS_10ObservableEEE.exit
 
 _ZN8QuantLib8Observer12registerWithERKN5boost10shared_ptrINS_10ObservableEEE.exit: ; preds = %for.body, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.07) #14
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.07) #14
   %cmp.i3.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i3.not, label %if.end, label %for.body
 

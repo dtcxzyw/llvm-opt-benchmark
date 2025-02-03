@@ -53649,7 +53649,7 @@ define internal fastcc void @_ZN4core4iter8adapters7flatten17and_then_or_clear17
   %120 = getelementptr inbounds { { i64, [1 x i64] }, { { { { ptr, i64 } }, {} }, {} }, { ptr, [1 x i64] } }, ptr %118, i64 %119
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !16847
   store i64 0, ptr %7, align 8, !noalias !16847
-  invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17ha4d2a1f4f1d8b52eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %118, ptr noundef %120)
+  invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17ha4d2a1f4f1d8b52eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %118, ptr noundef nonnull %120)
           to label %125 unwind label %121, !noalias !16850
 
 121:                                              ; preds = %117

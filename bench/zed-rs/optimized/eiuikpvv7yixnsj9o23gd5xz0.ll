@@ -24530,7 +24530,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$zvariant..value..Value$GT$17
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7980)
   %43 = load ptr, ptr %42, align 8, !alias.scope !7980, !noundef !4
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$zvariant..value..Value$GT$17h3cb5b2e97c47ed71E.llvm.16669866392210250976"(ptr noalias noundef align 8 dereferenceable(144) %43)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$zvariant..value..Value$GT$17h3cb5b2e97c47ed71E.llvm.16669866392210250976"(ptr noalias noundef nonnull align 8 dereferenceable(144) %43)
           to label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$zvariant..value..Value$GT$$GT$17hfc123409e517afc6E.llvm.16669866392210250976.exit" unwind label %44, !noalias !7980
 
 44:                                               ; preds = %41
@@ -24949,7 +24949,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$core..option..Optio
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$zvariant..value..Value$GT$$GT$17hfc123409e517afc6E.llvm.16669866392210250976"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$zvariant..value..Value$GT$17h3cb5b2e97c47ed71E.llvm.16669866392210250976"(ptr noalias noundef align 8 dereferenceable(144) %2)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$zvariant..value..Value$GT$17h3cb5b2e97c47ed71E.llvm.16669866392210250976"(ptr noalias noundef nonnull align 8 dereferenceable(144) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
@@ -26698,22 +26698,20 @@ define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$L
 13:                                               ; preds = %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %17 = load i64, ptr %16, align 8, !range !8839, !invariant.load !4
-  %18 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %19 = load i64, ptr %18, align 8, !range !8840, !invariant.load !4
-  %20 = icmp ult i64 %19, -9223372036854775807
-  tail call void @llvm.assume(i1 %20)
-  %21 = icmp eq i64 %17, 0
-  br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95510fb561839950E.exit4", label %22
+  %15 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %16 = load i64, ptr %15, align 8, !range !8839, !invariant.load !4
+  %17 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  %18 = load i64, ptr %17, align 8, !range !8840, !invariant.load !4
+  %19 = icmp ult i64 %18, -9223372036854775807
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp eq i64 %16, 0
+  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95510fb561839950E.exit4", label %21
 
-22:                                               ; preds = %13
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #38
+21:                                               ; preds = %13
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %16, i64 noundef range(i64 1, -9223372036854775807) %18) #38
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95510fb561839950E.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95510fb561839950E.exit4": ; preds = %22, %13
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95510fb561839950E.exit4": ; preds = %21, %13
   resume { ptr, i32 } %14
 }
 
@@ -30120,11 +30118,11 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h67b4ace7530cbd57E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %754)
   br label %common.ret
 
-"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit": ; preds = %746, %752, %1066
-  %.pn32.pn = phi { ptr, i32 } [ %.pn32, %1066 ], [ %747, %752 ], [ %747, %746 ]
+"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit": ; preds = %746, %752, %1065
+  %.pn32.pn = phi { ptr, i32 } [ %.pn32, %1065 ], [ %747, %752 ], [ %747, %746 ]
   resume { ptr, i32 } %.pn32.pn
 
-759:                                              ; preds = %1114, %1108, %1098, %1075, %1072, %875, %834, %802, %789, %752, %1088, %1119, %1117, %1099, %1091, %1080, %.body59, %1078, %.body98, %994, %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit107", %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit", %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit"
+759:                                              ; preds = %1113, %1107, %1097, %1074, %1071, %875, %834, %802, %789, %752, %1087, %1118, %1116, %1098, %1090, %1079, %.body59, %1077, %.body98, %993, %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit107", %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17h0b4220da62d9dbbbE.exit", %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h12801dbe9380dfafE.exit"
   %760 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #39
@@ -30139,14 +30137,14 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   %763 = getelementptr inbounds nuw i8, ptr %0, i64 898
   %764 = load i8, ptr %763, align 2, !range !249, !noundef !4
   %765 = trunc nuw i8 %764 to i1
-  br i1 %765, label %957, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit"
+  br i1 %765, label %956, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit"
 
 .body:                                            ; preds = %761, %.body.i, %.body39
   %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %.body39 ], [ %762, %761 ], [ %eh.lpad-body.i, %.body.i ]
   %766 = getelementptr inbounds nuw i8, ptr %0, i64 898
   %767 = load i8, ptr %766, align 2, !range !249, !noundef !4
   %768 = trunc nuw i8 %767 to i1
-  br i1 %768, label %1091, label %968
+  br i1 %768, label %1090, label %967
 
 "_ZN4core3ptr100drop_in_place$LT$zbus..connection..handshake..Authenticated..client..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd79b3aa5f3ce5ff8E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i.i", %194, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$zbus..guid..OwnedGuid$GT$$GT$17h0569fca4f9d6896bE.exit.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i.i.i", %152, %140, %"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..ReadHalf$GT$$GT$17hcf2ea6d7cd9e0e68E.exit"
   %769 = getelementptr inbounds nuw i8, ptr %0, i64 908
@@ -30183,7 +30181,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 901
   %781 = load i8, ptr %780, align 1, !range !249, !noundef !4
   %782 = trunc nuw i8 %781 to i1
-  br i1 %782, label %1080, label %913
+  br i1 %782, label %1079, label %913
 
 783:                                              ; preds = %310
   %784 = landingpad { ptr, i32 }
@@ -30523,12 +30521,12 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   tail call void @__rust_dealloc(ptr noundef nonnull %900, i64 noundef %912, i64 noundef 4) #38, !noalias !10358
   br label %"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$std..os..fd..owned..OwnedFd$GT$$GT$17h993b20e17fb86094E.exit"
 
-913:                                              ; preds = %1080, %.body42
+913:                                              ; preds = %1079, %.body42
   store i8 0, ptr %780, align 1
   %914 = getelementptr inbounds nuw i8, ptr %0, i64 902
   %915 = load i8, ptr %914, align 2, !range !249, !noundef !4
   %916 = trunc nuw i8 %915 to i1
-  br i1 %916, label %1082, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105"
+  br i1 %916, label %1081, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105"
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i", %920, %"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$std..os..fd..owned..OwnedFd$GT$$GT$17h993b20e17fb86094E.exit"
   store i8 0, ptr %894, align 2
@@ -30552,12 +30550,12 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
   tail call void @__rust_dealloc(ptr noundef nonnull %925, i64 noundef %922, i64 noundef 1) #38, !noalias !10373
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit"
 
-"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i104", %1082, %913
+"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i104", %1081, %913
   store i8 0, ptr %914, align 2
   %926 = getelementptr inbounds nuw i8, ptr %0, i64 903
   %927 = load i8, ptr %926, align 1, !range !249, !noundef !4
   %928 = trunc nuw i8 %927 to i1
-  br i1 %928, label %1088, label %.body82
+  br i1 %928, label %1087, label %.body82
 
 "_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..ReadHalf$GT$$GT$17hcf2ea6d7cd9e0e68E.exit": ; preds = %942, %934, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit"
   store i8 0, ptr %917, align 1
@@ -30595,447 +30593,445 @@ common.ret.sink.split.i.i.i:                      ; preds = %678, %584
 943:                                              ; preds = %933
   %944 = landingpad { ptr, i32 }
           cleanup
-  %945 = icmp ne ptr %.val36, null
-  tail call void @llvm.assume(i1 %945)
-  %946 = getelementptr inbounds nuw i8, ptr %.val37, i64 8
-  %947 = load i64, ptr %946, align 8, !range !8839, !invariant.load !4
-  %948 = getelementptr inbounds nuw i8, ptr %.val37, i64 16
-  %949 = load i64, ptr %948, align 8, !range !8840, !invariant.load !4
-  %950 = icmp ult i64 %949, -9223372036854775807
-  tail call void @llvm.assume(i1 %950)
-  %951 = icmp eq i64 %947, 0
-  br i1 %951, label %.body82, label %952
+  %945 = getelementptr inbounds nuw i8, ptr %.val37, i64 8
+  %946 = load i64, ptr %945, align 8, !range !8839, !invariant.load !4
+  %947 = getelementptr inbounds nuw i8, ptr %.val37, i64 16
+  %948 = load i64, ptr %947, align 8, !range !8840, !invariant.load !4
+  %949 = icmp ult i64 %948, -9223372036854775807
+  tail call void @llvm.assume(i1 %949)
+  %950 = icmp eq i64 %946, 0
+  br i1 %950, label %.body82, label %951
 
-952:                                              ; preds = %943
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val36, i64 noundef range(i64 1, -9223372036854775808) %947, i64 noundef range(i64 1, -9223372036854775807) %949) #38
+951:                                              ; preds = %943
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val36, i64 noundef range(i64 1, -9223372036854775808) %946, i64 noundef range(i64 1, -9223372036854775807) %948) #38
   br label %.body82
 
-.body82:                                          ; preds = %952, %943, %1088, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105"
-  %.pn16 = phi { ptr, i32 } [ %.pn10, %1088 ], [ %.pn10, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105" ], [ %944, %952 ], [ %944, %943 ]
-  %953 = getelementptr inbounds nuw i8, ptr %0, i64 903
-  store i8 0, ptr %953, align 1
+.body82:                                          ; preds = %951, %943, %1087, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105"
+  %.pn16 = phi { ptr, i32 } [ %.pn10, %1087 ], [ %.pn10, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105" ], [ %944, %951 ], [ %944, %943 ]
+  %952 = getelementptr inbounds nuw i8, ptr %0, i64 903
+  store i8 0, ptr %952, align 1
   br label %.body39
 
-"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit": ; preds = %962, %961, %957, %967, %"_ZN4core3ptr100drop_in_place$LT$zbus..connection..builder..Builder..target_connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1bcfb3b085ae1f25E.exit"
+"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit": ; preds = %961, %960, %956, %966, %"_ZN4core3ptr100drop_in_place$LT$zbus..connection..builder..Builder..target_connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1bcfb3b085ae1f25E.exit"
   store i8 0, ptr %763, align 2
-  %954 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %955 = load i8, ptr %954, align 8, !range !249, !noundef !4
-  %956 = trunc nuw i8 %955 to i1
-  br i1 %956, label %984, label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit90"
+  %953 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %954 = load i8, ptr %953, align 8, !range !249, !noundef !4
+  %955 = trunc nuw i8 %954 to i1
+  br i1 %955, label %983, label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit90"
 
-957:                                              ; preds = %"_ZN4core3ptr100drop_in_place$LT$zbus..connection..builder..Builder..target_connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1bcfb3b085ae1f25E.exit"
-  %958 = getelementptr inbounds nuw i8, ptr %0, i64 656
+956:                                              ; preds = %"_ZN4core3ptr100drop_in_place$LT$zbus..connection..builder..Builder..target_connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1bcfb3b085ae1f25E.exit"
+  %957 = getelementptr inbounds nuw i8, ptr %0, i64 656
   call void @llvm.experimental.noalias.scope.decl(metadata !10374)
-  %959 = load i64, ptr %958, align 8, !range !4731, !alias.scope !10374, !noundef !4
-  %960 = icmp eq i64 %959, 3
-  br i1 %960, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit", label %961
+  %958 = load i64, ptr %957, align 8, !range !4731, !alias.scope !10374, !noundef !4
+  %959 = icmp eq i64 %958, 3
+  br i1 %959, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit", label %960
 
-961:                                              ; preds = %957
+960:                                              ; preds = %956
   call void @llvm.experimental.noalias.scope.decl(metadata !10377)
   call void @llvm.experimental.noalias.scope.decl(metadata !10380)
   call void @llvm.experimental.noalias.scope.decl(metadata !10383)
   call void @llvm.experimental.noalias.scope.decl(metadata !10386)
-  %switch.i.i.i.i.i84 = icmp samesign ult i64 %959, 2
-  br i1 %switch.i.i.i.i.i84, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit", label %962
+  %switch.i.i.i.i.i84 = icmp samesign ult i64 %958, 2
+  br i1 %switch.i.i.i.i.i84, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit", label %961
 
-962:                                              ; preds = %961
-  %963 = getelementptr inbounds nuw i8, ptr %0, i64 664
+961:                                              ; preds = %960
+  %962 = getelementptr inbounds nuw i8, ptr %0, i64 664
   call void @llvm.experimental.noalias.scope.decl(metadata !10389)
   call void @llvm.experimental.noalias.scope.decl(metadata !10392)
-  %964 = load ptr, ptr %963, align 8, !alias.scope !10395, !nonnull !4, !noundef !4
-  %965 = atomicrmw sub ptr %964, i64 1 release, align 8, !noalias !10395
-  %966 = icmp eq i64 %965, 1
-  br i1 %966, label %967, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit"
+  %963 = load ptr, ptr %962, align 8, !alias.scope !10395, !nonnull !4, !noundef !4
+  %964 = atomicrmw sub ptr %963, i64 1 release, align 8, !noalias !10395
+  %965 = icmp eq i64 %964, 1
+  br i1 %965, label %966, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit"
 
-967:                                              ; preds = %962
+966:                                              ; preds = %961
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfdffd8dde899fe27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %963)
-          to label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit" unwind label %973
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfdffd8dde899fe27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %962)
+          to label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit" unwind label %972
 
-968:                                              ; preds = %1091, %973, %.body
-  %.pn20 = phi { ptr, i32 } [ %974, %973 ], [ %.pn16.pn.pn, %1091 ], [ %.pn16.pn.pn, %.body ]
-  %969 = getelementptr inbounds nuw i8, ptr %0, i64 898
-  store i8 0, ptr %969, align 2
-  %970 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %971 = load i8, ptr %970, align 8, !range !249, !noundef !4
-  %972 = trunc nuw i8 %971 to i1
-  br i1 %972, label %1093, label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit107"
+967:                                              ; preds = %1090, %972, %.body
+  %.pn20 = phi { ptr, i32 } [ %973, %972 ], [ %.pn16.pn.pn, %1090 ], [ %.pn16.pn.pn, %.body ]
+  %968 = getelementptr inbounds nuw i8, ptr %0, i64 898
+  store i8 0, ptr %968, align 2
+  %969 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %970 = load i8, ptr %969, align 8, !range !249, !noundef !4
+  %971 = trunc nuw i8 %970 to i1
+  br i1 %971, label %1092, label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit107"
 
-973:                                              ; preds = %967
-  %974 = landingpad { ptr, i32 }
+972:                                              ; preds = %966
+  %973 = landingpad { ptr, i32 }
           cleanup
-  br label %968
+  br label %967
 
-"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit90": ; preds = %984, %989, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit"
-  store i8 0, ptr %954, align 8
-  %975 = getelementptr inbounds nuw i8, ptr %0, i64 408
+"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit90": ; preds = %983, %988, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit"
+  store i8 0, ptr %953, align 8
+  %974 = getelementptr inbounds nuw i8, ptr %0, i64 408
   call void @llvm.experimental.noalias.scope.decl(metadata !10396)
-  %976 = load i64, ptr %975, align 8, !range !8719, !alias.scope !10396, !noundef !4
-  %977 = icmp eq i64 %976, 9
-  br i1 %977, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit", label %978
+  %975 = load i64, ptr %974, align 8, !range !8719, !alias.scope !10396, !noundef !4
+  %976 = icmp eq i64 %975, 9
+  br i1 %976, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit", label %977
 
-978:                                              ; preds = %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit90"
+977:                                              ; preds = %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit90"
   call void @llvm.experimental.noalias.scope.decl(metadata !10399)
-  %979 = add nsw i64 %976, -4
-  %980 = icmp ult i64 %979, 5
-  %981 = select i1 %980, i64 %979, i64 2
-  switch i64 %981, label %.invoke [
+  %978 = add nsw i64 %975, -4
+  %979 = icmp ult i64 %978, 5
+  %980 = select i1 %979, i64 %978, i64 2
+  switch i64 %980, label %.invoke [
     i64 0, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit.sink.split"
     i64 1, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit.sink.split"
-    i64 2, label %982
+    i64 2, label %981
   ]
 
-982:                                              ; preds = %978
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$zbus..address..Address$GT$17h21de198e0f6b4fa5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %975)
-          to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit" unwind label %994
+981:                                              ; preds = %977
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$zbus..address..Address$GT$17h21de198e0f6b4fa5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %974)
+          to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit" unwind label %993
 
-.invoke:                                          ; preds = %978
-  %983 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  invoke void @"_ZN4core3ptr205drop_in_place$LT$zbus..connection..socket..split..Split$LT$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..ReadHalf$GT$$C$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..WriteHalf$GT$$GT$$GT$17h21b4595e53dd224cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %983)
-          to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit" unwind label %994
+.invoke:                                          ; preds = %977
+  %982 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  invoke void @"_ZN4core3ptr205drop_in_place$LT$zbus..connection..socket..split..Split$LT$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..ReadHalf$GT$$C$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..WriteHalf$GT$$GT$$GT$17h21b4595e53dd224cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %982)
+          to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit" unwind label %993
 
-984:                                              ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit"
-  %985 = getelementptr inbounds nuw i8, ptr %0, i64 648
+983:                                              ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E.exit"
+  %984 = getelementptr inbounds nuw i8, ptr %0, i64 648
   call void @llvm.experimental.noalias.scope.decl(metadata !10402)
   call void @llvm.experimental.noalias.scope.decl(metadata !10405)
   call void @llvm.experimental.noalias.scope.decl(metadata !10408)
-  %986 = load ptr, ptr %985, align 8, !alias.scope !10411, !nonnull !4, !noundef !4
-  %987 = atomicrmw sub ptr %986, i64 1 release, align 8, !noalias !10411
-  %988 = icmp eq i64 %987, 1
-  br i1 %988, label %989, label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit90"
+  %985 = load ptr, ptr %984, align 8, !alias.scope !10411, !nonnull !4, !noundef !4
+  %986 = atomicrmw sub ptr %985, i64 1 release, align 8, !noalias !10411
+  %987 = icmp eq i64 %986, 1
+  br i1 %987, label %988, label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit90"
 
-989:                                              ; preds = %984
+988:                                              ; preds = %983
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h67b4ace7530cbd57E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %985)
-          to label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit90" unwind label %992
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h67b4ace7530cbd57E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %984)
+          to label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit90" unwind label %991
 
-"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit107": ; preds = %1093, %1098, %992, %968
-  %.pn22 = phi { ptr, i32 } [ %993, %992 ], [ %.pn20, %968 ], [ %.pn20, %1098 ], [ %.pn20, %1093 ]
-  %990 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  store i8 0, ptr %990, align 8
-  %991 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E"(ptr noalias noundef align 8 dereferenceable(104) %991) #40
-          to label %1099 unwind label %759
+"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit107": ; preds = %1092, %1097, %991, %967
+  %.pn22 = phi { ptr, i32 } [ %992, %991 ], [ %.pn20, %967 ], [ %.pn20, %1097 ], [ %.pn20, %1092 ]
+  %989 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  store i8 0, ptr %989, align 8
+  %990 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E"(ptr noalias noundef align 8 dereferenceable(104) %990) #40
+          to label %1098 unwind label %759
 
-992:                                              ; preds = %989
-  %993 = landingpad { ptr, i32 }
+991:                                              ; preds = %988
+  %992 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit107"
 
-994:                                              ; preds = %.invoke, %982
-  %995 = landingpad { ptr, i32 }
+993:                                              ; preds = %.invoke, %981
+  %994 = landingpad { ptr, i32 }
           cleanup
-  %996 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E"(ptr noalias noundef align 8 dereferenceable(24) %996) #40
-          to label %1008 unwind label %759
+  %995 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E"(ptr noalias noundef align 8 dereferenceable(24) %995) #40
+          to label %1007 unwind label %759
 
-"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit.sink.split": ; preds = %978, %978
+"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit.sink.split": ; preds = %977, %977
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 416
   %.sink = load i32, ptr %.sink.in, align 8, !alias.scope !10412, !noundef !4
-  %997 = call noundef i32 @close(i32 noundef %.sink) #38, !noalias !10412
+  %996 = call noundef i32 @close(i32 noundef %.sink) #38, !noalias !10412
   br label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit"
 
-"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit": ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit.sink.split", %.invoke, %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit90", %982
-  %998 = getelementptr inbounds nuw i8, ptr %0, i64 360
+"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit": ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit.sink.split", %.invoke, %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit90", %981
+  %997 = getelementptr inbounds nuw i8, ptr %0, i64 360
   call void @llvm.experimental.noalias.scope.decl(metadata !10413)
-  %999 = load i64, ptr %998, align 8, !range !4731, !alias.scope !10413, !noundef !4
-  %1000 = icmp eq i64 %999, 3
-  br i1 %1000, label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit", label %1001
+  %998 = load i64, ptr %997, align 8, !range !4731, !alias.scope !10413, !noundef !4
+  %999 = icmp eq i64 %998, 3
+  br i1 %999, label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit", label %1000
 
-1001:                                             ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit"
+1000:                                             ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !10416)
   call void @llvm.experimental.noalias.scope.decl(metadata !10419)
   call void @llvm.experimental.noalias.scope.decl(metadata !10422)
-  %switch.i.i.i.i91 = icmp samesign ult i64 %999, 2
-  br i1 %switch.i.i.i.i91, label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit", label %1002
+  %switch.i.i.i.i91 = icmp samesign ult i64 %998, 2
+  br i1 %switch.i.i.i.i91, label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit", label %1001
 
-1002:                                             ; preds = %1001
-  %1003 = getelementptr inbounds nuw i8, ptr %0, i64 368
+1001:                                             ; preds = %1000
+  %1002 = getelementptr inbounds nuw i8, ptr %0, i64 368
   call void @llvm.experimental.noalias.scope.decl(metadata !10425)
   call void @llvm.experimental.noalias.scope.decl(metadata !10428)
-  %1004 = load ptr, ptr %1003, align 8, !alias.scope !10431, !nonnull !4, !noundef !4
-  %1005 = atomicrmw sub ptr %1004, i64 1 release, align 8, !noalias !10431
-  %1006 = icmp eq i64 %1005, 1
-  br i1 %1006, label %1007, label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit"
+  %1003 = load ptr, ptr %1002, align 8, !alias.scope !10431, !nonnull !4, !noundef !4
+  %1004 = atomicrmw sub ptr %1003, i64 1 release, align 8, !noalias !10431
+  %1005 = icmp eq i64 %1004, 1
+  br i1 %1005, label %1006, label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit"
 
-1007:                                             ; preds = %1002
+1006:                                             ; preds = %1001
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfdffd8dde899fe27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1003)
-          to label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit" unwind label %1012
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfdffd8dde899fe27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1002)
+          to label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit" unwind label %1011
 
-1008:                                             ; preds = %1012, %994
-  %.pn24 = phi { ptr, i32 } [ %1013, %1012 ], [ %995, %994 ]
-  %1009 = getelementptr inbounds nuw i8, ptr %0, i64 899
-  %1010 = load i8, ptr %1009, align 1, !range !249, !noundef !4
-  %1011 = trunc nuw i8 %1010 to i1
-  br i1 %1011, label %1072, label %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit101"
+1007:                                             ; preds = %1011, %993
+  %.pn24 = phi { ptr, i32 } [ %1012, %1011 ], [ %994, %993 ]
+  %1008 = getelementptr inbounds nuw i8, ptr %0, i64 899
+  %1009 = load i8, ptr %1008, align 1, !range !249, !noundef !4
+  %1010 = trunc nuw i8 %1009 to i1
+  br i1 %1010, label %1071, label %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit101"
 
-1012:                                             ; preds = %1007
-  %1013 = landingpad { ptr, i32 }
+1011:                                             ; preds = %1006
+  %1012 = landingpad { ptr, i32 }
           cleanup
-  br label %1008
+  br label %1007
 
-"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit": ; preds = %1002, %1001, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit", %1007
-  %1014 = getelementptr inbounds nuw i8, ptr %0, i64 899
-  %1015 = load i8, ptr %1014, align 1, !range !249, !noundef !4
-  %1016 = trunc nuw i8 %1015 to i1
-  br i1 %1016, label %1020, label %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit"
+"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit": ; preds = %1001, %1000, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17h2b0f0866ea6a20b2E.exit", %1006
+  %1013 = getelementptr inbounds nuw i8, ptr %0, i64 899
+  %1014 = load i8, ptr %1013, align 1, !range !249, !noundef !4
+  %1015 = trunc nuw i8 %1014 to i1
+  br i1 %1015, label %1019, label %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit"
 
-"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit": ; preds = %1020, %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit"
-  %1017 = getelementptr inbounds nuw i8, ptr %0, i64 905
-  %1018 = load i8, ptr %1017, align 1, !range !249, !noundef !4
-  %1019 = trunc nuw i8 %1018 to i1
-  br i1 %1019, label %1031, label %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit"
+"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit": ; preds = %1019, %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit"
+  %1016 = getelementptr inbounds nuw i8, ptr %0, i64 905
+  %1017 = load i8, ptr %1016, align 1, !range !249, !noundef !4
+  %1018 = trunc nuw i8 %1017 to i1
+  br i1 %1018, label %1030, label %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit"
 
-1020:                                             ; preds = %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit"
-  %1021 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %1022 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h0bc67f36e0c07699E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1021, ptr noalias noundef nonnull readonly align 1 %1022, i64 noundef 72, i64 noundef 16)
-          to label %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit" unwind label %1026
+1019:                                             ; preds = %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E.exit"
+  %1020 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %1021 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h0bc67f36e0c07699E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1020, ptr noalias noundef nonnull readonly align 1 %1021, i64 noundef 72, i64 noundef 16)
+          to label %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit" unwind label %1025
 
-"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit101": ; preds = %1072, %1026, %1008
-  %.pn26 = phi { ptr, i32 } [ %1027, %1026 ], [ %.pn24, %1008 ], [ %.pn24, %1072 ]
-  %1023 = getelementptr inbounds nuw i8, ptr %0, i64 905
-  %1024 = load i8, ptr %1023, align 1, !range !249, !noundef !4
-  %1025 = trunc nuw i8 %1024 to i1
-  br i1 %1025, label %1075, label %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit103"
+"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit101": ; preds = %1071, %1025, %1007
+  %.pn26 = phi { ptr, i32 } [ %1026, %1025 ], [ %.pn24, %1007 ], [ %.pn24, %1071 ]
+  %1022 = getelementptr inbounds nuw i8, ptr %0, i64 905
+  %1023 = load i8, ptr %1022, align 1, !range !249, !noundef !4
+  %1024 = trunc nuw i8 %1023 to i1
+  br i1 %1024, label %1074, label %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit103"
 
-1026:                                             ; preds = %1020
-  %1027 = landingpad { ptr, i32 }
+1025:                                             ; preds = %1019
+  %1026 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit101"
 
-"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit": ; preds = %1031, %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit"
-  %1028 = getelementptr inbounds nuw i8, ptr %0, i64 900
-  %1029 = load i8, ptr %1028, align 4, !range !249, !noundef !4
-  %1030 = trunc nuw i8 %1029 to i1
-  br i1 %1030, label %1049, label %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit"
+"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit": ; preds = %1030, %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit"
+  %1027 = getelementptr inbounds nuw i8, ptr %0, i64 900
+  %1028 = load i8, ptr %1027, align 4, !range !249, !noundef !4
+  %1029 = trunc nuw i8 %1028 to i1
+  br i1 %1029, label %1048, label %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit"
 
-1031:                                             ; preds = %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit"
-  %1032 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %1033 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hdd71bd1ecfa882ddE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1032, ptr noalias noundef nonnull readonly align 1 %1033, i64 noundef 24, i64 noundef 16)
-          to label %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit" unwind label %1037
+1030:                                             ; preds = %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit"
+  %1031 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %1032 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hdd71bd1ecfa882ddE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1031, ptr noalias noundef nonnull readonly align 1 %1032, i64 noundef 24, i64 noundef 16)
+          to label %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit" unwind label %1036
 
-"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit103": ; preds = %1075, %1037, %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit101"
-  %.pn28 = phi { ptr, i32 } [ %1038, %1037 ], [ %.pn26, %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit101" ], [ %.pn26, %1075 ]
-  %1034 = getelementptr inbounds nuw i8, ptr %0, i64 900
-  %1035 = load i8, ptr %1034, align 4, !range !249, !noundef !4
-  %1036 = trunc nuw i8 %1035 to i1
-  br i1 %1036, label %1078, label %.body98
+"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit103": ; preds = %1074, %1036, %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit101"
+  %.pn28 = phi { ptr, i32 } [ %1037, %1036 ], [ %.pn26, %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit101" ], [ %.pn26, %1074 ]
+  %1033 = getelementptr inbounds nuw i8, ptr %0, i64 900
+  %1034 = load i8, ptr %1033, align 4, !range !249, !noundef !4
+  %1035 = trunc nuw i8 %1034 to i1
+  br i1 %1035, label %1077, label %.body98
 
-1037:                                             ; preds = %1031
-  %1038 = landingpad { ptr, i32 }
+1036:                                             ; preds = %1030
+  %1037 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit103"
 
-"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i", %1061, %1049, %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit"
-  %1039 = getelementptr inbounds nuw i8, ptr %0, i64 384
+"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i", %1060, %1048, %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit"
+  %1038 = getelementptr inbounds nuw i8, ptr %0, i64 384
   call void @llvm.experimental.noalias.scope.decl(metadata !10432)
-  %1040 = load i64, ptr %1039, align 8, !range !4731, !alias.scope !10432, !noundef !4
-  %1041 = icmp eq i64 %1040, 3
-  br i1 %1041, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E.exit", label %1042
+  %1039 = load i64, ptr %1038, align 8, !range !4731, !alias.scope !10432, !noundef !4
+  %1040 = icmp eq i64 %1039, 3
+  br i1 %1040, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E.exit", label %1041
 
-1042:                                             ; preds = %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit"
+1041:                                             ; preds = %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !10435)
   call void @llvm.experimental.noalias.scope.decl(metadata !10438)
   call void @llvm.experimental.noalias.scope.decl(metadata !10441)
-  %switch.i.i.i.i95 = icmp samesign ult i64 %1040, 2
-  br i1 %switch.i.i.i.i95, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E.exit", label %1043
+  %switch.i.i.i.i95 = icmp samesign ult i64 %1039, 2
+  br i1 %switch.i.i.i.i95, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E.exit", label %1042
 
-1043:                                             ; preds = %1042
-  %1044 = getelementptr inbounds nuw i8, ptr %0, i64 392
+1042:                                             ; preds = %1041
+  %1043 = getelementptr inbounds nuw i8, ptr %0, i64 392
   call void @llvm.experimental.noalias.scope.decl(metadata !10444)
   call void @llvm.experimental.noalias.scope.decl(metadata !10447)
-  %1045 = load ptr, ptr %1044, align 8, !alias.scope !10450, !nonnull !4, !noundef !4
-  %1046 = atomicrmw sub ptr %1045, i64 1 release, align 8, !noalias !10450
-  %1047 = icmp eq i64 %1046, 1
-  br i1 %1047, label %1048, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E.exit"
+  %1044 = load ptr, ptr %1043, align 8, !alias.scope !10450, !nonnull !4, !noundef !4
+  %1045 = atomicrmw sub ptr %1044, i64 1 release, align 8, !noalias !10450
+  %1046 = icmp eq i64 %1045, 1
+  br i1 %1046, label %1047, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E.exit"
 
-1048:                                             ; preds = %1043
+1047:                                             ; preds = %1042
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfdffd8dde899fe27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1044)
-          to label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E.exit" unwind label %1070
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfdffd8dde899fe27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1043)
+          to label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E.exit" unwind label %1069
 
-1049:                                             ; preds = %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit"
-  %1050 = getelementptr inbounds nuw i8, ptr %0, i64 512
+1048:                                             ; preds = %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit"
+  %1049 = getelementptr inbounds nuw i8, ptr %0, i64 512
   call void @llvm.experimental.noalias.scope.decl(metadata !10451)
-  %1051 = load i64, ptr %1050, align 8, !range !39, !alias.scope !10451, !noundef !4
-  %1052 = icmp eq i64 %1051, -9223372036854775808
-  br i1 %1052, label %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit", label %1053
+  %1050 = load i64, ptr %1049, align 8, !range !39, !alias.scope !10451, !noundef !4
+  %1051 = icmp eq i64 %1050, -9223372036854775808
+  br i1 %1051, label %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit", label %1052
 
-1053:                                             ; preds = %1049
+1052:                                             ; preds = %1048
   call void @llvm.experimental.noalias.scope.decl(metadata !10454)
   call void @llvm.experimental.noalias.scope.decl(metadata !10457)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !10460
-  %1054 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %1055 = load i64, ptr %1054, align 8, !alias.scope !10460, !noundef !4
-  invoke void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h077e4ad719f3fdadE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1050, i64 noundef %1055)
-          to label %1061 unwind label %1056
+  %1053 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %1054 = load i64, ptr %1053, align 8, !alias.scope !10460, !noundef !4
+  invoke void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h077e4ad719f3fdadE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1049, i64 noundef %1054)
+          to label %1060 unwind label %1055
 
-1056:                                             ; preds = %1053
-  %1057 = landingpad { ptr, i32 }
+1055:                                             ; preds = %1052
+  %1056 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !10461)
   call void @llvm.experimental.noalias.scope.decl(metadata !10464)
-  %1058 = icmp eq i64 %1051, 0
-  br i1 %1058, label %.body98, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i.i.i97"
+  %1057 = icmp eq i64 %1050, 0
+  br i1 %1057, label %.body98, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i.i.i97"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i.i.i97": ; preds = %1056
-  %1059 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %1060 = load ptr, ptr %1059, align 8, !alias.scope !10467, !noalias !10470, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %1060, i64 noundef %1051, i64 noundef 1) #38, !noalias !10472
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i.i.i97": ; preds = %1055
+  %1058 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %1059 = load ptr, ptr %1058, align 8, !alias.scope !10467, !noalias !10470, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %1059, i64 noundef %1050, i64 noundef 1) #38, !noalias !10472
   br label %.body98
 
-1061:                                             ; preds = %1053
+1060:                                             ; preds = %1052
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !10460
   call void @llvm.experimental.noalias.scope.decl(metadata !10473)
   call void @llvm.experimental.noalias.scope.decl(metadata !10476)
-  %1062 = icmp eq i64 %1051, 0
-  br i1 %1062, label %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i"
+  %1061 = icmp eq i64 %1050, 0
+  br i1 %1061, label %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i": ; preds = %1061
-  %1063 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %1064 = load ptr, ptr %1063, align 8, !alias.scope !10479, !noalias !10482, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %1064, i64 noundef %1051, i64 noundef 1) #38, !noalias !10484
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i": ; preds = %1060
+  %1062 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %1063 = load ptr, ptr %1062, align 8, !alias.scope !10479, !noalias !10482, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %1063, i64 noundef %1050, i64 noundef 1) #38, !noalias !10484
   br label %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit"
 
-.body98:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i.i.i97", %1056, %1078, %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit103"
-  %.pn30 = phi { ptr, i32 } [ %.pn28, %1078 ], [ %.pn28, %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit103" ], [ %1057, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i.i.i97" ], [ %1057, %1056 ]
-  %1065 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E"(ptr noalias noundef align 8 dereferenceable(24) %1065) #40
-          to label %1066 unwind label %759
+.body98:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i.i.i97", %1055, %1077, %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit103"
+  %.pn30 = phi { ptr, i32 } [ %.pn28, %1077 ], [ %.pn28, %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit103" ], [ %1056, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i.i.i97" ], [ %1056, %1055 ]
+  %1064 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E"(ptr noalias noundef align 8 dereferenceable(24) %1064) #40
+          to label %1065 unwind label %759
 
-1066:                                             ; preds = %1117, %1070, %.body98
-  %.pn32 = phi { ptr, i32 } [ %1071, %1070 ], [ %.pn30, %.body98 ], [ %.pn22, %1117 ]
-  %1067 = getelementptr inbounds nuw i8, ptr %0, i64 905
+1065:                                             ; preds = %1116, %1069, %.body98
+  %.pn32 = phi { ptr, i32 } [ %1070, %1069 ], [ %.pn30, %.body98 ], [ %.pn22, %1116 ]
+  %1066 = getelementptr inbounds nuw i8, ptr %0, i64 905
+  store i8 0, ptr %1066, align 1
+  %1067 = getelementptr inbounds nuw i8, ptr %0, i64 899
   store i8 0, ptr %1067, align 1
-  %1068 = getelementptr inbounds nuw i8, ptr %0, i64 899
-  store i8 0, ptr %1068, align 1
-  %1069 = getelementptr inbounds nuw i8, ptr %0, i64 900
-  store i8 0, ptr %1069, align 4
+  %1068 = getelementptr inbounds nuw i8, ptr %0, i64 900
+  store i8 0, ptr %1068, align 4
   br label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit"
 
-1070:                                             ; preds = %1048
-  %1071 = landingpad { ptr, i32 }
+1069:                                             ; preds = %1047
+  %1070 = landingpad { ptr, i32 }
           cleanup
-  br label %1066
+  br label %1065
 
-"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E.exit": ; preds = %1043, %1042, %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit", %1048
-  store i8 0, ptr %1017, align 1
-  store i8 0, ptr %1014, align 1
-  store i8 0, ptr %1028, align 4
+"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E.exit": ; preds = %1042, %1041, %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE.exit", %1047
+  store i8 0, ptr %1016, align 1
+  store i8 0, ptr %1013, align 1
+  store i8 0, ptr %1027, align 4
   br label %common.ret
 
-1072:                                             ; preds = %1008
-  %1073 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %1074 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h0bc67f36e0c07699E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1073, ptr noalias noundef nonnull readonly align 1 %1074, i64 noundef 72, i64 noundef 16)
+1071:                                             ; preds = %1007
+  %1072 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %1073 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h0bc67f36e0c07699E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1072, ptr noalias noundef nonnull readonly align 1 %1073, i64 noundef 72, i64 noundef 16)
           to label %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit101" unwind label %759
 
-1075:                                             ; preds = %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit101"
-  %1076 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %1077 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hdd71bd1ecfa882ddE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1076, ptr noalias noundef nonnull readonly align 1 %1077, i64 noundef 24, i64 noundef 16)
+1074:                                             ; preds = %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit101"
+  %1075 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %1076 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hdd71bd1ecfa882ddE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1075, ptr noalias noundef nonnull readonly align 1 %1076, i64 noundef 24, i64 noundef 16)
           to label %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit103" unwind label %759
 
-1078:                                             ; preds = %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit103"
-  %1079 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  invoke fastcc void @"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE"(ptr noalias noundef align 8 dereferenceable(32) %1079) #40
+1077:                                             ; preds = %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit103"
+  %1078 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  invoke fastcc void @"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE"(ptr noalias noundef align 8 dereferenceable(32) %1078) #40
           to label %.body98 unwind label %759
 
-1080:                                             ; preds = %.body42
-  %1081 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$std..os..fd..owned..OwnedFd$GT$$GT$17h993b20e17fb86094E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1081) #40
+1079:                                             ; preds = %.body42
+  %1080 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$std..os..fd..owned..OwnedFd$GT$$GT$17h993b20e17fb86094E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1080) #40
           to label %913 unwind label %759
 
-1082:                                             ; preds = %913
-  %1083 = getelementptr inbounds nuw i8, ptr %0, i64 832
+1081:                                             ; preds = %913
+  %1082 = getelementptr inbounds nuw i8, ptr %0, i64 832
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10485)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10488)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10491)
-  %1084 = load i64, ptr %1083, align 8, !alias.scope !10494, !noalias !10497, !noundef !4
-  %1085 = icmp eq i64 %1084, 0
-  br i1 %1085, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i104"
+  %1083 = load i64, ptr %1082, align 8, !alias.scope !10494, !noalias !10497, !noundef !4
+  %1084 = icmp eq i64 %1083, 0
+  br i1 %1084, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i104"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i104": ; preds = %1082
-  %1086 = getelementptr inbounds nuw i8, ptr %0, i64 840
-  %1087 = load ptr, ptr %1086, align 8, !alias.scope !10494, !noalias !10497, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %1087, i64 noundef %1084, i64 noundef 1) #38, !noalias !10499
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i104": ; preds = %1081
+  %1085 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %1086 = load ptr, ptr %1085, align 8, !alias.scope !10494, !noalias !10497, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %1086, i64 noundef %1083, i64 noundef 1) #38, !noalias !10499
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105"
 
-1088:                                             ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105"
-  %1089 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %.val = load ptr, ptr %1089, align 8
-  %1090 = getelementptr i8, ptr %0, i64 824
-  %.val35 = load ptr, ptr %1090, align 8, !nonnull !4, !align !5, !noundef !4
+1087:                                             ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit105"
+  %1088 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %.val = load ptr, ptr %1088, align 8
+  %1089 = getelementptr i8, ptr %0, i64 824
+  %.val35 = load ptr, ptr %1089, align 8, !nonnull !4, !align !5, !noundef !4
   invoke fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..ReadHalf$GT$$GT$17hcf2ea6d7cd9e0e68E"(ptr %.val, ptr nonnull %.val35) #40
           to label %.body82 unwind label %759
 
-1091:                                             ; preds = %.body
-  %1092 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E"(ptr noalias noundef align 8 dereferenceable(24) %1092) #40
-          to label %968 unwind label %759
+1090:                                             ; preds = %.body
+  %1091 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h10c6e1a8084dba95E"(ptr noalias noundef align 8 dereferenceable(24) %1091) #40
+          to label %967 unwind label %759
 
-1093:                                             ; preds = %968
-  %1094 = getelementptr inbounds nuw i8, ptr %0, i64 648
+1092:                                             ; preds = %967
+  %1093 = getelementptr inbounds nuw i8, ptr %0, i64 648
   call void @llvm.experimental.noalias.scope.decl(metadata !10500)
   call void @llvm.experimental.noalias.scope.decl(metadata !10503)
   call void @llvm.experimental.noalias.scope.decl(metadata !10506)
-  %1095 = load ptr, ptr %1094, align 8, !alias.scope !10509, !nonnull !4, !noundef !4
-  %1096 = atomicrmw sub ptr %1095, i64 1 release, align 8, !noalias !10509
-  %1097 = icmp eq i64 %1096, 1
-  br i1 %1097, label %1098, label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit107"
+  %1094 = load ptr, ptr %1093, align 8, !alias.scope !10509, !nonnull !4, !noundef !4
+  %1095 = atomicrmw sub ptr %1094, i64 1 release, align 8, !noalias !10509
+  %1096 = icmp eq i64 %1095, 1
+  br i1 %1096, label %1097, label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit107"
 
-1098:                                             ; preds = %1093
+1097:                                             ; preds = %1092
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h67b4ace7530cbd57E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1094)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h67b4ace7530cbd57E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1093)
           to label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit107" unwind label %759
 
-1099:                                             ; preds = %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit107"
-  %1100 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E"(ptr noalias noundef align 8 dereferenceable(24) %1100) #40
-          to label %1101 unwind label %759
+1098:                                             ; preds = %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h5b968c9b499f8954E.exit107"
+  %1099 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$zbus..guid..Guid$GT$$GT$17h23abe98186bfc490E"(ptr noalias noundef align 8 dereferenceable(24) %1099) #40
+          to label %1100 unwind label %759
 
-1101:                                             ; preds = %1099
-  %1102 = getelementptr inbounds nuw i8, ptr %0, i64 899
-  %1103 = load i8, ptr %1102, align 1, !range !249, !noundef !4
-  %1104 = trunc nuw i8 %1103 to i1
-  br i1 %1104, label %1108, label %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit109"
+1100:                                             ; preds = %1098
+  %1101 = getelementptr inbounds nuw i8, ptr %0, i64 899
+  %1102 = load i8, ptr %1101, align 1, !range !249, !noundef !4
+  %1103 = trunc nuw i8 %1102 to i1
+  br i1 %1103, label %1107, label %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit109"
 
-"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit109": ; preds = %1108, %1101
-  %1105 = getelementptr inbounds nuw i8, ptr %0, i64 905
-  %1106 = load i8, ptr %1105, align 1, !range !249, !noundef !4
-  %1107 = trunc nuw i8 %1106 to i1
-  br i1 %1107, label %1114, label %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit111"
+"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit109": ; preds = %1107, %1100
+  %1104 = getelementptr inbounds nuw i8, ptr %0, i64 905
+  %1105 = load i8, ptr %1104, align 1, !range !249, !noundef !4
+  %1106 = trunc nuw i8 %1105 to i1
+  br i1 %1106, label %1113, label %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit111"
 
-1108:                                             ; preds = %1101
-  %1109 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %1110 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h0bc67f36e0c07699E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1109, ptr noalias noundef nonnull readonly align 1 %1110, i64 noundef 72, i64 noundef 16)
+1107:                                             ; preds = %1100
+  %1108 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %1109 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h0bc67f36e0c07699E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1108, ptr noalias noundef nonnull readonly align 1 %1109, i64 noundef 72, i64 noundef 16)
           to label %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit109" unwind label %759
 
-"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit111": ; preds = %1114, %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit109"
-  %1111 = getelementptr inbounds nuw i8, ptr %0, i64 900
-  %1112 = load i8, ptr %1111, align 4, !range !249, !noundef !4
-  %1113 = trunc nuw i8 %1112 to i1
-  br i1 %1113, label %1119, label %1117
+"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit111": ; preds = %1113, %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit109"
+  %1110 = getelementptr inbounds nuw i8, ptr %0, i64 900
+  %1111 = load i8, ptr %1110, align 4, !range !249, !noundef !4
+  %1112 = trunc nuw i8 %1111 to i1
+  br i1 %1112, label %1118, label %1116
 
-1114:                                             ; preds = %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit109"
-  %1115 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %1116 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hdd71bd1ecfa882ddE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1115, ptr noalias noundef nonnull readonly align 1 %1116, i64 noundef 24, i64 noundef 16)
+1113:                                             ; preds = %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17h0c6153bc87111d8bE.exit109"
+  %1114 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %1115 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hdd71bd1ecfa882ddE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1114, ptr noalias noundef nonnull readonly align 1 %1115, i64 noundef 24, i64 noundef 16)
           to label %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit111" unwind label %759
 
-1117:                                             ; preds = %1119, %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit111"
-  %1118 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E"(ptr noalias noundef align 8 dereferenceable(24) %1118) #40
-          to label %1066 unwind label %759
+1116:                                             ; preds = %1118, %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit111"
+  %1117 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17hbecdb26fd9bebea7E"(ptr noalias noundef align 8 dereferenceable(24) %1117) #40
+          to label %1065 unwind label %759
 
-1119:                                             ; preds = %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit111"
-  %1120 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  invoke fastcc void @"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE"(ptr noalias noundef align 8 dereferenceable(32) %1120) #40
-          to label %1117 unwind label %759
+1118:                                             ; preds = %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h2cf04c568b242cf5E.exit111"
+  %1119 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  invoke fastcc void @"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17hfe9dd2f57c41e67dE"(ptr noalias noundef align 8 dereferenceable(32) %1119) #40
+          to label %1116 unwind label %759
 }
 
 ; Function Attrs: nonlazybind uwtable

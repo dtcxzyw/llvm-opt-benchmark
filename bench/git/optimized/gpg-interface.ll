@@ -805,11 +805,11 @@ parse_gpg_trust_level.exit.thread:                ; preds = %for.body.i37
   %value.i = getelementptr inbounds nuw i8, ptr %arrayidx.i38, i64 16
   %4 = load i32, ptr %value.i, align 8
   store i32 %4, ptr @configured_min_trust_level, align 4
-  tail call void @free(ptr noundef %call30) #14
+  tail call void @free(ptr noundef nonnull %call30) #14
   br label %return
 
 if.then33:                                        ; preds = %for.cond.i41
-  tail call void @free(ptr noundef %call30) #14
+  tail call void @free(ptr noundef nonnull %call30) #14
   %5 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i44 = icmp eq i32 %5, 0
   br i1 %tobool1.not.i44, label %_.exit48, label %if.end3.i45
@@ -1169,14 +1169,14 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %if.t
   br i1 %tobool.not.i60.i, label %if.end58.i, label %for.cond.i.i
 
 if.then57.i:                                      ; preds = %for.cond.i.i
-  call void @free(ptr noundef %call54.i) #14
+  call void @free(ptr noundef nonnull %call54.i) #14
   br label %error.i
 
 if.end58.i:                                       ; preds = %for.body.i.i
   %value.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %25 = load i32, ptr %value.i.i, align 8
   store i32 %25, ptr %trust_level.i, align 4
-  call void @free(ptr noundef %call54.i) #14
+  call void @free(ptr noundef nonnull %call54.i) #14
   br label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.end58.i, %if.end46.i

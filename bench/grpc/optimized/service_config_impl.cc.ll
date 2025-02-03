@@ -2665,8 +2665,8 @@ lpad:                                             ; preds = %invoke.cont, %if.en
   call void @_ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %path_str) #22
   resume { ptr, i32 } %3
 
-if.end.i.i:                                       ; preds = %if.end12, %invoke.cont21
-  %retval.1 = phi ptr [ %retval.1.ph, %invoke.cont21 ], [ null, %if.end12 ]
+if.end.i.i:                                       ; preds = %invoke.cont21, %if.end12
+  %retval.112 = phi ptr [ %retval.1.ph, %invoke.cont21 ], [ null, %if.end12 ]
   invoke void @gpr_free(ptr noundef nonnull %call13)
           to label %return unwind label %terminate.lpad.i
 
@@ -2678,7 +2678,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 return:                                           ; preds = %if.end.i.i, %if.then10, %if.then
-  %retval.0 = phi ptr [ %1, %if.then ], [ %2, %if.then10 ], [ %retval.1, %if.end.i.i ]
+  %retval.0 = phi ptr [ %1, %if.then ], [ %2, %if.then10 ], [ %retval.112, %if.end.i.i ]
   ret ptr %retval.0
 }
 

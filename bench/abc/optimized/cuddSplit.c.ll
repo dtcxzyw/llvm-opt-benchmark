@@ -339,7 +339,7 @@ define internal fastcc ptr @selectMintermsFromUniverse(ptr noundef %0, ptr nound
   br i1 %exitcond.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !9
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %56
-  tail call void @free(ptr noundef %47) #7
+  tail call void @free(ptr noundef nonnull %47) #7
   br label %59
 
 59:                                               ; preds = %._crit_edge59, %24

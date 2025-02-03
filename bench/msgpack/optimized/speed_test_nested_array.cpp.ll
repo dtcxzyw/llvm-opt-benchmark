@@ -2142,7 +2142,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail9parse_impINS1_2
 14:                                               ; preds = %9
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #24
+  tail call void @__cxa_free_exception(ptr nonnull %10) #24
   br label %12
 
 16:                                               ; preds = %4
@@ -2212,7 +2212,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail9parse_impINS1_2
 44:                                               ; preds = %39
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #24
+  call void @__cxa_free_exception(ptr nonnull %41) #24
   br label %29
 
 46:                                               ; preds = %26
@@ -5995,7 +5995,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #24
+  tail call void @__cxa_free_exception(ptr nonnull %9) #24
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %3
@@ -6686,7 +6686,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v26detail21create_object_visitor
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #24
+  tail call void @__cxa_free_exception(ptr nonnull %4) #24
   resume { ptr, i32 } %7
 }
 
@@ -6710,7 +6710,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #24
+  tail call void @__cxa_free_exception(ptr nonnull %9) #24
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %3
@@ -6834,7 +6834,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #24
+  tail call void @__cxa_free_exception(ptr nonnull %9) #24
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %3
@@ -8295,7 +8295,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 120:                                              ; preds = %27, %10
   %121 = phi ptr [ %25, %27 ], [ %8, %10 ]
   %122 = phi { ptr, i32 } [ %28, %27 ], [ %11, %10 ]
-  tail call void @__cxa_free_exception(ptr %121) #24
+  tail call void @__cxa_free_exception(ptr nonnull %121) #24
   resume { ptr, i32 } %122
 }
 
@@ -8528,7 +8528,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 120:                                              ; preds = %27, %10
   %121 = phi ptr [ %25, %27 ], [ %8, %10 ]
   %122 = phi { ptr, i32 } [ %28, %27 ], [ %11, %10 ]
-  tail call void @__cxa_free_exception(ptr %121) #24
+  tail call void @__cxa_free_exception(ptr nonnull %121) #24
   resume { ptr, i32 } %122
 }
 
@@ -10753,7 +10753,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #24
+  tail call void @__cxa_free_exception(ptr nonnull %17) #24
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %3
@@ -10867,7 +10867,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #24
+  tail call void @__cxa_free_exception(ptr nonnull %17) #24
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %3
@@ -10962,7 +10962,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #24
+  tail call void @__cxa_free_exception(ptr nonnull %17) #24
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %3
@@ -11057,7 +11057,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #24
+  tail call void @__cxa_free_exception(ptr nonnull %17) #24
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %3
@@ -11151,7 +11151,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %16) #24
+  tail call void @__cxa_free_exception(ptr nonnull %16) #24
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %3

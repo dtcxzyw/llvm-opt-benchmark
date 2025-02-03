@@ -912,7 +912,7 @@ checkSymmInfo.exit:                               ; preds = %371, %403, %.checkS
 411:                                              ; preds = %._crit_edge528
   tail call fastcc void @freeMatrix(ptr noundef %.1219.lcssa)
   tail call fastcc void @freeMatrix(ptr noundef %.1217.lcssa)
-  tail call void @free(ptr noundef %136) #8
+  tail call void @free(ptr noundef nonnull %136) #8
   tail call void @free(ptr noundef %.1.lcssa) #8
   tail call void @free(ptr noundef %.1215.lcssa) #8
   tail call void @free(ptr noundef %143) #8

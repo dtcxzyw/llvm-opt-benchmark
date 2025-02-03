@@ -2911,7 +2911,7 @@ sub_0:                                            ; preds = %26
 
 88:                                               ; preds = %85, %79, %77, %75, %71
   %89 = call i32 @unlink(ptr noundef nonnull %44) #21
-  call void @free(ptr noundef %44) #21
+  call void @free(ptr noundef nonnull %44) #21
   br label %scanstdin.exit
 
 scanstdin.exit:                                   ; preds = %41, %45, %49, %58, %88

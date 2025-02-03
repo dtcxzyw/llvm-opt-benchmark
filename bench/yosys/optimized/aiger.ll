@@ -2413,7 +2413,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %419
 456:                                              ; preds = %._crit_edge.i
   %457 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %454) #27
+  call void @__cxa_free_exception(ptr nonnull %454) #27
   br label %.body1610
 
 .noexc1514:                                       ; preds = %.lr.ph.i1607
@@ -2853,7 +2853,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1613:          ; preds = %606
 648:                                              ; preds = %._crit_edge.i1757
   %649 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %646) #27
+  call void @__cxa_free_exception(ptr nonnull %646) #27
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit570
 
 .noexc1626:                                       ; preds = %.lr.ph.i1753
@@ -3620,7 +3620,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1534:          ; preds = %989
 1031:                                             ; preds = %._crit_edge.i1641
   %1032 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1030) #27
+  call void @__cxa_free_exception(ptr nonnull %1030) #27
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit570
 
 .noexc1545:                                       ; preds = %.lr.ph.i1637
@@ -4006,7 +4006,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1548:          ; preds = %1188
 1226:                                             ; preds = %._crit_edge.i1687
   %1227 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1225) #27
+  call void @__cxa_free_exception(ptr nonnull %1225) #27
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit570
 
 .noexc1560:                                       ; preds = %.lr.ph.i1683
@@ -4398,7 +4398,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1564:          ; preds = %1386
 1424:                                             ; preds = %._crit_edge.i1699
   %1425 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1423) #27
+  call void @__cxa_free_exception(ptr nonnull %1423) #27
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit570
 
 .noexc1576:                                       ; preds = %.lr.ph.i1695
@@ -4921,7 +4921,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1580:          ; preds = %1653
 1691:                                             ; preds = %._crit_edge.i1711
   %1692 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1690) #27
+  call void @__cxa_free_exception(ptr nonnull %1690) #27
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit570
 
 .noexc1592:                                       ; preds = %.lr.ph.i1707
@@ -13138,7 +13138,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 698:                                              ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i
   %699 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %694) #27
+  call void @__cxa_free_exception(ptr nonnull %694) #27
   br label %.body317
 
 .loopexit707:                                     ; preds = %687, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i
@@ -13435,7 +13435,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 830:                                              ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i332
   %831 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %828) #27
+  call void @__cxa_free_exception(ptr nonnull %828) #27
   br label %.body349
 
 .loopexit704:                                     ; preds = %821, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i343
@@ -13740,7 +13740,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %912
 949:                                              ; preds = %._crit_edge.i
   %950 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %948) #27
+  call void @__cxa_free_exception(ptr nonnull %948) #27
   br label %.body317
 
 .noexc524:                                        ; preds = %.lr.ph.i574
@@ -14070,7 +14070,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i527:           ; preds = %1095
 1132:                                             ; preds = %._crit_edge.i584
   %1133 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1131) #27
+  call void @__cxa_free_exception(ptr nonnull %1131) #27
   br label %.body317
 
 .noexc539:                                        ; preds = %.lr.ph.i580
@@ -14282,7 +14282,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 1251:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i394
   %1252 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1250) #27
+  call void @__cxa_free_exception(ptr nonnull %1250) #27
   br label %.body317
 
 .loopexit698:                                     ; preds = %1243, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i405
@@ -14531,7 +14531,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i543:           ; preds = %1325
 1362:                                             ; preds = %._crit_edge.i596
   %1363 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1361) #27
+  call void @__cxa_free_exception(ptr nonnull %1361) #27
   br label %.body317
 
 .noexc555:                                        ; preds = %.lr.ph.i592
@@ -14861,7 +14861,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i559:           ; preds = %1508
 1545:                                             ; preds = %._crit_edge.i608
   %1546 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1544) #27
+  call void @__cxa_free_exception(ptr nonnull %1544) #27
   br label %.body317
 
 .noexc571:                                        ; preds = %.lr.ph.i604
@@ -15073,7 +15073,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 1664:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i456
   %1665 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1663) #27
+  call void @__cxa_free_exception(ptr nonnull %1663) #27
   br label %.body317
 
 .loopexit692:                                     ; preds = %1656, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i467
@@ -15860,7 +15860,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %196
 233:                                              ; preds = %._crit_edge.i
   %234 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %232) #27
+  call void @__cxa_free_exception(ptr nonnull %232) #27
   br label %.body116
 
 .noexc433:                                        ; preds = %.lr.ph.i586
@@ -16302,7 +16302,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i436:           ; preds = %415
 452:                                              ; preds = %._crit_edge.i630
   %453 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %451) #27
+  call void @__cxa_free_exception(ptr nonnull %451) #27
   br label %.body116
 
 .noexc448:                                        ; preds = %.lr.ph.i626
@@ -16589,7 +16589,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 600:                                              ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i
   %601 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %596) #27
+  call void @__cxa_free_exception(ptr nonnull %596) #27
   br label %.body116
 
 .loopexit821:                                     ; preds = %589, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i110
@@ -17160,7 +17160,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i469:           ; preds = %847
 884:                                              ; preds = %._crit_edge.i642
   %885 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %883) #27
+  call void @__cxa_free_exception(ptr nonnull %883) #27
   br label %.body116
 
 .noexc481:                                        ; preds = %.lr.ph.i638
@@ -17372,7 +17372,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 1003:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i150
   %1004 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1002) #27
+  call void @__cxa_free_exception(ptr nonnull %1002) #27
   br label %.body116
 
 .loopexit816:                                     ; preds = %995, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i161
@@ -17713,7 +17713,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i496:           ; preds = %1136
 1173:                                             ; preds = %._crit_edge.i654
   %1174 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1172) #27
+  call void @__cxa_free_exception(ptr nonnull %1172) #27
   br label %.body116
 
 .noexc508:                                        ; preds = %.lr.ph.i650
@@ -18043,7 +18043,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i512:           ; preds = %1319
 1356:                                             ; preds = %._crit_edge.i666
   %1357 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1355) #27
+  call void @__cxa_free_exception(ptr nonnull %1355) #27
   br label %.body116
 
 .noexc524:                                        ; preds = %.lr.ph.i662
@@ -18255,7 +18255,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 1475:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i218
   %1476 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1474) #27
+  call void @__cxa_free_exception(ptr nonnull %1474) #27
   br label %.body116
 
 .loopexit809:                                     ; preds = %1467, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i229
@@ -18596,7 +18596,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i539:           ; preds = %1609
 1646:                                             ; preds = %._crit_edge.i678
   %1647 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1645) #27
+  call void @__cxa_free_exception(ptr nonnull %1645) #27
   br label %.body116
 
 .noexc551:                                        ; preds = %.lr.ph.i674
@@ -18926,7 +18926,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i555:           ; preds = %1792
 1829:                                             ; preds = %._crit_edge.i690
   %1830 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1828) #27
+  call void @__cxa_free_exception(ptr nonnull %1828) #27
   br label %.body116
 
 .noexc567:                                        ; preds = %.lr.ph.i686
@@ -19138,7 +19138,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 1948:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i286
   %1949 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1947) #27
+  call void @__cxa_free_exception(ptr nonnull %1947) #27
   br label %.body116
 
 .loopexit802:                                     ; preds = %1940, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i297
@@ -21383,7 +21383,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 731:                                              ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i
   %732 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %730) #27
+  call void @__cxa_free_exception(ptr nonnull %730) #27
   br label %.body224
 
 .loopexit1196:                                    ; preds = %723, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i266
@@ -22600,7 +22600,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 1247:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i336
   %1248 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1245) #27
+  call void @__cxa_free_exception(ptr nonnull %1245) #27
   br label %.body224
 
 .loopexit1190:                                    ; preds = %1238, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i347
@@ -23828,7 +23828,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %1691
 1728:                                             ; preds = %._crit_edge.i
   %1729 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1727) #27
+  call void @__cxa_free_exception(ptr nonnull %1727) #27
   br label %.body512
 
 .noexc834:                                        ; preds = %.lr.ph.i935
@@ -24276,7 +24276,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i837:           ; preds = %1913
 1950:                                             ; preds = %._crit_edge.i946
   %1951 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1949) #27
+  call void @__cxa_free_exception(ptr nonnull %1949) #27
   br label %.body512
 
 .noexc849:                                        ; preds = %.lr.ph.i942
@@ -24498,7 +24498,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 2072:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i495
   %2073 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2068) #27
+  call void @__cxa_free_exception(ptr nonnull %2068) #27
   br label %.body512
 
 .loopexit1170:                                    ; preds = %2061, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i506
@@ -27341,7 +27341,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
 57:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %58 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %55) #27
+  tail call void @__cxa_free_exception(ptr nonnull %55) #27
   resume { ptr, i32 } %58
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit: ; preds = %46
@@ -28773,7 +28773,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 94:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %95 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %92) #27
+  tail call void @__cxa_free_exception(ptr nonnull %92) #27
   resume { ptr, i32 } %95
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit: ; preds = %85, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us
@@ -30450,7 +30450,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 22:                                               ; preds = %._crit_edge
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #27
+  call void @__cxa_free_exception(ptr nonnull %20) #27
   br label %24
 
 24:                                               ; preds = %22, %18
@@ -39383,7 +39383,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.e
 95:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %96 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %93) #27
+  tail call void @__cxa_free_exception(ptr nonnull %93) #27
   resume { ptr, i32 } %96
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitES3_NS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit: ; preds = %86, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us
@@ -39701,7 +39701,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitESt4pairIS3_S3_ENS0_8hash_opsIS3_EEE7do_
 95:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitESt4pairIS3_S3_ENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %96 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %93) #27
+  tail call void @__cxa_free_exception(ptr nonnull %93) #27
   resume { ptr, i32 } %96
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitESt4pairIS3_S3_ENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit: ; preds = %86, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us
@@ -42421,7 +42421,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPNSt7
   %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.08
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %15) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_(ptr %0, i64 noundef %.08, i64 noundef %9, ptr noundef nonnull %5)
+  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_(ptr nonnull %0, i64 noundef %.08, i64 noundef %9, ptr noundef nonnull %5)
           to label %16 unwind label %18
 
 16:                                               ; preds = %14
@@ -46943,7 +46943,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %50, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6json114JsonEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #33
+  %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #33
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit11 unwind label %55
@@ -47049,7 +47049,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %91, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6json114JsonEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit, label %92
 
 92:                                               ; preds = %88
-  %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #33
+  %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #33
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %94)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit35 unwind label %96

@@ -41855,7 +41855,7 @@ _ZSt10_ConstructIN8WasmEdge3AST7SubTypeEJRS2_EEvPT_DpOT0_.exit.i.i.i.i: ; preds 
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
   %105 = tail call ptr @__cxa_begin_catch(ptr %104) #18
-  invoke void @_ZSt8_DestroyIPN8WasmEdge3AST7SubTypeEEvT_S4_(ptr noundef %97, ptr noundef %.016.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN8WasmEdge3AST7SubTypeEEvT_S4_(ptr noundef %97, ptr noundef nonnull %.016.i.i.i.i)
           to label %106 unwind label %107
 
 106:                                              ; preds = %102
@@ -41940,7 +41940,7 @@ _ZSt10_ConstructIN8WasmEdge3AST7SubTypeEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i: ; preds
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #18
-  invoke void @_ZSt8_DestroyIPN8WasmEdge3AST7SubTypeEEvT_S4_(ptr noundef %13, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN8WasmEdge3AST7SubTypeEEvT_S4_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
           to label %20 unwind label %21
 
 20:                                               ; preds = %16
@@ -48583,7 +48583,7 @@ _ZSt10_ConstructIN8WasmEdge3AST11DataSegmentEJRS2_EEvPT_DpOT0_.exit.i.i.i.i: ; p
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
   %75 = tail call ptr @__cxa_begin_catch(ptr %74) #18
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8WasmEdge3AST11DataSegmentEEEvT_S6_(ptr noundef %67, ptr noundef %.016.i.i.i.i)
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8WasmEdge3AST11DataSegmentEEEvT_S6_(ptr noundef %67, ptr noundef nonnull %.016.i.i.i.i)
           to label %_ZSt8_DestroyIPN8WasmEdge3AST11DataSegmentEEvT_S4_.exit.i.i.i.i unwind label %76
 
 _ZSt8_DestroyIPN8WasmEdge3AST11DataSegmentEEvT_S4_.exit.i.i.i.i: ; preds = %72
@@ -48668,7 +48668,7 @@ _ZSt10_ConstructIN8WasmEdge3AST11DataSegmentEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i: ; 
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #18
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8WasmEdge3AST11DataSegmentEEEvT_S6_(ptr noundef %13, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8WasmEdge3AST11DataSegmentEEEvT_S6_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
           to label %_ZSt8_DestroyIPN8WasmEdge3AST11DataSegmentEEvT_S4_.exit.i.i.i.i unwind label %20
 
 _ZSt8_DestroyIPN8WasmEdge3AST11DataSegmentEEvT_S4_.exit.i.i.i.i: ; preds = %16

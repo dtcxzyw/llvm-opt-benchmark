@@ -3330,7 +3330,7 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad3.i.i.i.i.i, %l
 lpad7.i.i.i.i.i:                                  ; preds = %invoke.cont5.i.i.i.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i.i.i) #53, !noalias !227
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i.i.i) #53, !noalias !227
   br label %lpad.body.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont8.i.i.i.i.i

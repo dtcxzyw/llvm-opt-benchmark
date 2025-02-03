@@ -99,7 +99,7 @@ lpad:                                             ; preds = %invoke.cont3, %do.b
 lpad2:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #19
+  call void @__cxa_free_exception(ptr nonnull %exception) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
@@ -266,7 +266,7 @@ lpad:                                             ; preds = %invoke.cont13, %inv
 lpad12:                                           ; preds = %invoke.cont10
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #19
+  call void @__cxa_free_exception(ptr nonnull %exception) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad12, %lpad
@@ -351,7 +351,7 @@ lpad:                                             ; preds = %invoke.cont13, %inv
 lpad12:                                           ; preds = %invoke.cont10
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #19
+  call void @__cxa_free_exception(ptr nonnull %exception) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad12, %lpad
@@ -784,7 +784,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #19
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
@@ -983,7 +983,7 @@ if.then18:                                        ; preds = %if.else12
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #21
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #21
   %_M_storage.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %call2.i.i19 = tail call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i18, ptr noundef nonnull align 1 dereferenceable(256) %__k) #21
   %cmp.i.i20 = icmp slt i32 %call2.i.i19, 0
@@ -1048,7 +1048,7 @@ if.then50:                                        ; preds = %if.else44
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i63 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #21
+  %call.i63 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #21
   %_M_storage.i.i.i64 = getelementptr inbounds nuw i8, ptr %call.i63, i64 32
   %call2.i.i65 = tail call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %__k, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i64) #21
   %cmp.i.i66 = icmp slt i32 %call2.i.i65, 0

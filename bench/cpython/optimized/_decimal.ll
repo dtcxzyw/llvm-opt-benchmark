@@ -6559,7 +6559,7 @@ if.else:                                          ; preds = %if.end
   br label %if.end15
 
 if.else13:                                        ; preds = %entry
-  %call14 = tail call ptr @dec_str(ptr noundef %dec)
+  %call14 = tail call ptr @dec_str(ptr noundef nonnull %dec)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then9, %if.else, %if.else13
@@ -17132,7 +17132,7 @@ if.then73:                                        ; preds = %if.end60, %if.end16
   %call71 = tail call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef %5, ptr noundef nonnull %call5, ptr noundef nonnull %coeff.1, ptr noundef nonnull %expt.1, ptr noundef null) #15
   tail call void @mpd_del(ptr noundef nonnull %call) #15
   %tobool75.not = icmp eq ptr %intstring.1, null
-  br i1 %tobool75.not, label %if.end77, label %if.then76
+  br i1 %tobool75.not, label %if.then.i, label %if.then76
 
 if.then76:                                        ; preds = %if.then73.thread110, %if.then73
   %coeff.053121 = phi ptr [ %call47, %if.then73.thread110 ], [ %coeff.1, %if.then73 ]
@@ -17143,14 +17143,17 @@ if.then76:                                        ; preds = %if.then73.thread110
   tail call void %6(ptr noundef nonnull %intstring.057119) #15
   br label %if.end77
 
-if.end77:                                         ; preds = %if.then73.thread, %if.then76, %if.then73
-  %coeff.053108 = phi ptr [ null, %if.then73.thread ], [ %coeff.053121, %if.then76 ], [ %coeff.1, %if.then73 ]
-  %expt.055107 = phi ptr [ %expt.055.ph, %if.then73.thread ], [ %expt.055120, %if.then76 ], [ %expt.1, %if.then73 ]
-  %result.061105 = phi ptr [ null, %if.then73.thread ], [ %result.061117, %if.then76 ], [ %call71, %if.then73 ]
+if.end77:                                         ; preds = %if.then73.thread, %if.then76
+  %coeff.053108 = phi ptr [ null, %if.then73.thread ], [ %coeff.053121, %if.then76 ]
+  %expt.055107 = phi ptr [ %expt.055.ph, %if.then73.thread ], [ %expt.055120, %if.then76 ]
+  %result.061105 = phi ptr [ null, %if.then73.thread ], [ %result.061117, %if.then76 ]
   %cmp.not.i = icmp eq ptr %call5, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %if.end77
+if.then.i:                                        ; preds = %if.then73, %if.end77
+  %result.061105132 = phi ptr [ %result.061105, %if.end77 ], [ %call71, %if.then73 ]
+  %expt.055107129 = phi ptr [ %expt.055107, %if.end77 ], [ %expt.1, %if.then73 ]
+  %coeff.053108127 = phi ptr [ %coeff.053108, %if.end77 ], [ %coeff.1, %if.then73 ]
   %7 = load i64, ptr %call5, align 8
   %8 = and i64 %7, 2147483648
   %cmp.i2.not.i = icmp eq i64 %8, 0
@@ -17167,47 +17170,50 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.end77, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %cmp.not.i32 = icmp eq ptr %coeff.053108, null
+  %result.061105133 = phi ptr [ %result.061105, %if.end77 ], [ %result.061105132, %if.then.i ], [ %result.061105132, %if.end.i.i ], [ %result.061105132, %if.then1.i.i ]
+  %expt.055107130 = phi ptr [ %expt.055107, %if.end77 ], [ %expt.055107129, %if.then.i ], [ %expt.055107129, %if.end.i.i ], [ %expt.055107129, %if.then1.i.i ]
+  %coeff.053108128 = phi ptr [ %coeff.053108, %if.end77 ], [ %coeff.053108127, %if.then.i ], [ %coeff.053108127, %if.end.i.i ], [ %coeff.053108127, %if.then1.i.i ]
+  %cmp.not.i32 = icmp eq ptr %coeff.053108128, null
   br i1 %cmp.not.i32, label %Py_XDECREF.exit39, label %if.then.i33
 
 if.then.i33:                                      ; preds = %Py_XDECREF.exit
-  %9 = load i64, ptr %coeff.053108, align 8
+  %9 = load i64, ptr %coeff.053108128, align 8
   %10 = and i64 %9, 2147483648
   %cmp.i2.not.i34 = icmp eq i64 %10, 0
   br i1 %cmp.i2.not.i34, label %if.end.i.i35, label %Py_XDECREF.exit39
 
 if.end.i.i35:                                     ; preds = %if.then.i33
   %dec.i.i36 = add i64 %9, -1
-  store i64 %dec.i.i36, ptr %coeff.053108, align 8
+  store i64 %dec.i.i36, ptr %coeff.053108128, align 8
   %cmp.i.i37 = icmp eq i64 %dec.i.i36, 0
   br i1 %cmp.i.i37, label %if.then1.i.i38, label %Py_XDECREF.exit39
 
 if.then1.i.i38:                                   ; preds = %if.end.i.i35
-  tail call void @_Py_Dealloc(ptr noundef nonnull %coeff.053108) #15
+  tail call void @_Py_Dealloc(ptr noundef nonnull %coeff.053108128) #15
   br label %Py_XDECREF.exit39
 
 Py_XDECREF.exit39:                                ; preds = %Py_XDECREF.exit, %if.then.i33, %if.end.i.i35, %if.then1.i.i38
-  %cmp.not.i40 = icmp eq ptr %expt.055107, null
+  %cmp.not.i40 = icmp eq ptr %expt.055107130, null
   br i1 %cmp.not.i40, label %Py_XDECREF.exit47, label %if.then.i41
 
 if.then.i41:                                      ; preds = %Py_XDECREF.exit39
-  %11 = load i64, ptr %expt.055107, align 8
+  %11 = load i64, ptr %expt.055107130, align 8
   %12 = and i64 %11, 2147483648
   %cmp.i2.not.i42 = icmp eq i64 %12, 0
   br i1 %cmp.i2.not.i42, label %if.end.i.i43, label %Py_XDECREF.exit47
 
 if.end.i.i43:                                     ; preds = %if.then.i41
   %dec.i.i44 = add i64 %11, -1
-  store i64 %dec.i.i44, ptr %expt.055107, align 8
+  store i64 %dec.i.i44, ptr %expt.055107130, align 8
   %cmp.i.i45 = icmp eq i64 %dec.i.i44, 0
   br i1 %cmp.i.i45, label %if.then1.i.i46, label %Py_XDECREF.exit47
 
 if.then1.i.i46:                                   ; preds = %if.end.i.i43
-  tail call void @_Py_Dealloc(ptr noundef nonnull %expt.055107) #15
+  tail call void @_Py_Dealloc(ptr noundef nonnull %expt.055107130) #15
   br label %Py_XDECREF.exit47
 
 Py_XDECREF.exit47:                                ; preds = %Py_XDECREF.exit39.thread, %Py_XDECREF.exit39, %if.then.i41, %if.end.i.i43, %if.then1.i.i46
-  %result.06275869196 = phi ptr [ null, %Py_XDECREF.exit39.thread ], [ %result.061105, %Py_XDECREF.exit39 ], [ %result.061105, %if.then.i41 ], [ %result.061105, %if.end.i.i43 ], [ %result.061105, %if.then1.i.i46 ]
+  %result.06275869196 = phi ptr [ null, %Py_XDECREF.exit39.thread ], [ %result.061105133, %Py_XDECREF.exit39 ], [ %result.061105133, %if.then.i41 ], [ %result.061105133, %if.end.i.i43 ], [ %result.061105133, %if.then1.i.i46 ]
   ret ptr %result.06275869196
 }
 

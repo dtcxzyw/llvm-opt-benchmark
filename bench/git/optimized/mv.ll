@@ -289,21 +289,21 @@ land.lhs.true100:                                 ; preds = %if.else
   br i1 %cmp101, label %if.then103, label %if.else105
 
 if.then103:                                       ; preds = %land.lhs.true100
-  %call104 = call fastcc ptr @internal_prefix_pathspec(ptr noundef %retval.0.i, ptr noundef %argv, i32 noundef %dec, i32 noundef 1)
+  %call104 = call fastcc ptr @internal_prefix_pathspec(ptr noundef nonnull %retval.0.i, ptr noundef %argv, i32 noundef %dec, i32 noundef 1)
   br label %if.end128
 
 if.else105:                                       ; preds = %land.lhs.true100, %if.else
-  %call106 = call i32 @path_in_sparse_checkout(ptr noundef %retval.0.i, ptr noundef nonnull @the_index) #11
+  %call106 = call i32 @path_in_sparse_checkout(ptr noundef nonnull %retval.0.i, ptr noundef nonnull @the_index) #11
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %land.lhs.true108, label %if.else113
 
 land.lhs.true108:                                 ; preds = %if.else105
-  %call109 = call fastcc i32 @empty_dir_has_sparse_contents(ptr noundef %retval.0.i)
+  %call109 = call fastcc i32 @empty_dir_has_sparse_contents(ptr noundef nonnull %retval.0.i)
   %tobool110.not = icmp eq i32 %call109, 0
   br i1 %tobool110.not, label %if.else113, label %if.then111
 
 if.then111:                                       ; preds = %land.lhs.true108
-  %call112 = call fastcc ptr @internal_prefix_pathspec(ptr noundef %retval.0.i, ptr noundef %argv, i32 noundef %dec, i32 noundef 1)
+  %call112 = call fastcc ptr @internal_prefix_pathspec(ptr noundef nonnull %retval.0.i, ptr noundef %argv, i32 noundef %dec, i32 noundef 1)
   br label %if.end128
 
 if.else113:                                       ; preds = %land.lhs.true108, %if.else105
@@ -329,7 +329,7 @@ if.end128:                                        ; preds = %if.else119, %if.the
   br i1 %cmp130.not, label %for.body.lr.ph, label %if.then132
 
 if.then132:                                       ; preds = %if.end128
-  call void @free(ptr noundef %retval.0.i) #11
+  call void @free(ptr noundef nonnull %retval.0.i) #11
   br label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then132, %if.end128
@@ -414,7 +414,7 @@ st_add.exit.i221:                                 ; preds = %if.then.i219
 
 add_slash.exit228:                                ; preds = %if.then154, %land.lhs.true.i216, %st_add.exit.i221
   %retval.0.i226 = phi ptr [ %call3.i223, %st_add.exit.i221 ], [ %13, %land.lhs.true.i216 ], [ %13, %if.then154 ]
-  %call156 = call i32 @path_in_sparse_checkout(ptr noundef %retval.0.i226, ptr noundef nonnull @the_index) #11
+  %call156 = call i32 @path_in_sparse_checkout(ptr noundef nonnull %retval.0.i226, ptr noundef nonnull @the_index) #11
   %tobool157.not = icmp eq i32 %call156, 0
   br i1 %tobool157.not, label %land.lhs.true158, label %if.end164
 
@@ -1576,7 +1576,7 @@ free_return:                                      ; preds = %if.end12, %add_slas
   br i1 %cmp17.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %free_return
-  tail call void @free(ptr noundef %retval.0.i) #11
+  tail call void @free(ptr noundef nonnull %retval.0.i) #11
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then19, %free_return
@@ -1636,13 +1636,13 @@ st_add.exit.i:                                    ; preds = %if.then.i
 add_slash.exit:                                   ; preds = %entry, %land.lhs.true.i, %st_add.exit.i
   %retval.0.i = phi ptr [ %call3.i, %st_add.exit.i ], [ %src, %land.lhs.true.i ], [ %src, %entry ]
   %add = add nsw i32 %length, 1
-  %call1 = tail call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %retval.0.i, i32 noundef %add) #11
+  %call1 = tail call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef nonnull %retval.0.i, i32 noundef %add) #11
   %cmp = icmp sgt i32 %call1, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %add_slash.exit
   %call2 = tail call fastcc ptr @_(ptr noundef nonnull @.str.35)
-  tail call void (ptr, ...) @die(ptr noundef %call2, i32 noundef %add, ptr noundef %retval.0.i) #12
+  tail call void (ptr, ...) @die(ptr noundef %call2, i32 noundef %add, ptr noundef nonnull %retval.0.i) #12
   unreachable
 
 if.end:                                           ; preds = %add_slash.exit
@@ -1662,7 +1662,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
   %name = getelementptr inbounds nuw i8, ptr %5, i64 108
-  %call4 = tail call i32 @strncmp(ptr noundef nonnull %name, ptr noundef %retval.0.i, i64 noundef %conv) #13
+  %call4 = tail call i32 @strncmp(ptr noundef nonnull %name, ptr noundef nonnull %retval.0.i, i64 noundef %conv) #13
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %for.inc, label %for.end.loopexit.split.loop.exit
 
@@ -1682,7 +1682,7 @@ for.end:                                          ; preds = %for.inc, %for.end.l
   br i1 %cmp7.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %for.end
-  tail call void @free(ptr noundef %retval.0.i) #11
+  tail call void @free(ptr noundef nonnull %retval.0.i) #11
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %for.end

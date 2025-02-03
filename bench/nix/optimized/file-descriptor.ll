@@ -637,7 +637,7 @@ common.resume:                                    ; preds = %28, %10
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #32
+  tail call void @__cxa_free_exception(ptr nonnull %8) #32
   br label %common.resume
 
 12:                                               ; preds = %2
@@ -924,7 +924,7 @@ _ZN3nix14checkInterruptEv.exit:                   ; preds = %_ZTWN3nix14interrup
 38:                                               ; preds = %.split30.us
   %39 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %36) #32
+  tail call void @__cxa_free_exception(ptr nonnull %36) #32
   br label %49
 
 .split28.us:                                      ; preds = %_ZN3nix14checkInterruptEv.exit, %_ZN3nix14checkInterruptEv.exit.us.us
@@ -1326,7 +1326,7 @@ _ZN3nix14checkInterruptEv.exit:                   ; preds = %.lr.ph, %.thread
 50:                                               ; preds = %.split12.us
   %51 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %48) #32
+  tail call void @__cxa_free_exception(ptr nonnull %48) #32
   resume { ptr, i32 } %51
 
 52:                                               ; preds = %_ZN3nix14checkInterruptEv.exit
@@ -1551,7 +1551,7 @@ _ZN3nix8SysErrorC2IJA15_cEEEDpRKT_.exit:          ; preds = %.split26.us
 56:                                               ; preds = %.split26.us
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %54) #32
+  call void @__cxa_free_exception(ptr nonnull %54) #32
   br label %.loopexit
 
 .split24.us:                                      ; preds = %50, %20
@@ -1822,7 +1822,7 @@ define void @_ZN3nix7drainFDEiRNS_4SinkEb(i32 noundef %0, ptr noundef nonnull al
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #32
+  tail call void @__cxa_free_exception(ptr nonnull %15) #32
   br label %67
 
 19:                                               ; preds = %9, %3
@@ -1998,7 +1998,7 @@ _ZN3nix8SysErrorC2IJA18_cEEEDpRKT_.exit:          ; preds = %.split28.us
 60:                                               ; preds = %.split28.us
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %58) #32
+  call void @__cxa_free_exception(ptr nonnull %58) #32
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit18
 
 62:                                               ; preds = %51
@@ -2107,7 +2107,7 @@ _ZN3nix8SysErrorC2IJA32_cEEEDpRKT_.exit:          ; preds = %14
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @__cxa_free_exception(ptr %15) #32
+  tail call void @__cxa_free_exception(ptr nonnull %15) #32
   br label %.body
 
 "_ZZN3nix7drainFDEiRNS_4SinkEbENK3$_0clEv.exit":  ; preds = %.noexc, %1
@@ -2168,7 +2168,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN3nix11AutoCloseFDaSEOS
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #32
+  tail call void @__cxa_free_exception(ptr nonnull %8) #32
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %4
@@ -2205,7 +2205,7 @@ define void @_ZN3nix11AutoCloseFD5closeEv(ptr noundef nonnull align 4 dereferenc
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #32
+  tail call void @__cxa_free_exception(ptr nonnull %7) #32
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3
@@ -2247,7 +2247,7 @@ _ZN3nix8SysErrorC2IJA28_ciEEEDpRKT_.exit:         ; preds = %6
 10:                                               ; preds = %6
   %11 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @__cxa_free_exception(ptr %7) #32
+  tail call void @__cxa_free_exception(ptr nonnull %7) #32
   br label %.body
 
 12:                                               ; preds = %.noexc
@@ -2336,7 +2336,7 @@ define void @_ZN3nix11AutoCloseFD5fsyncEv(ptr noundef nonnull align 4 dereferenc
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #32
+  tail call void @__cxa_free_exception(ptr nonnull %7) #32
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3, %1
@@ -2388,7 +2388,7 @@ define void @_ZN3nix4Pipe6createEv(ptr noundef nonnull align 4 dereferenceable(8
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %7) #32
+  call void @__cxa_free_exception(ptr nonnull %7) #32
   br label %46
 
 11:                                               ; preds = %1
@@ -2423,7 +2423,7 @@ _ZN3nix8SysErrorC2IJA28_ciEEEDpRKT_.exit:         ; preds = %17
 21:                                               ; preds = %17
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #32
+  call void @__cxa_free_exception(ptr nonnull %18) #32
   br label %.body
 
 23:                                               ; preds = %.noexc
@@ -2468,7 +2468,7 @@ _ZN3nix8SysErrorC2IJA28_ciEEEDpRKT_.exit13:       ; preds = %33
 37:                                               ; preds = %33
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %34) #32
+  call void @__cxa_free_exception(ptr nonnull %34) #32
   br label %.body8
 
 39:                                               ; preds = %.noexc6
@@ -2533,7 +2533,7 @@ define void @_ZN3nix4Pipe5closeEv(ptr noundef nonnull align 4 dereferenceable(8)
 common.resume:                                    ; preds = %20, %9
   %.sink = phi ptr [ %18, %20 ], [ %7, %9 ]
   %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %10, %9 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #32
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #32
   resume { ptr, i32 } %common.resume.op
 
 9:                                                ; preds = %6
@@ -3080,7 +3080,7 @@ define void @_ZN3nix11closeOnExecEi(i32 noundef %0) local_unnamed_addr #2 person
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #32
+  tail call void @__cxa_free_exception(ptr nonnull %9) #32
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %4
@@ -6891,7 +6891,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #32
+  tail call void @__cxa_free_exception(ptr nonnull %2) #32
   resume { ptr, i32 } %5
 }
 
@@ -8121,7 +8121,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE7ret
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #32
+  tail call void @__cxa_free_exception(ptr nonnull %2) #32
   resume { ptr, i32 } %5
 }
 
@@ -9010,7 +9010,7 @@ _ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaI
 
 181:                                              ; preds = %177
   %182 = getelementptr inbounds %"struct.boost::io::detail::format_item", ptr %144, i64 %2
-  invoke void @_ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES7_EvT_S9_RSaIT0_E(ptr noundef %144, ptr noundef nonnull %182, ptr noundef nonnull align 1 dereferenceable(1) %0)
+  invoke void @_ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES7_EvT_S9_RSaIT0_E(ptr noundef nonnull %144, ptr noundef nonnull %182, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE13_M_deallocateEPS7_m.exit111 unwind label %183
 
 183:                                              ; preds = %_ZNSt12_Vector_baseIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE13_M_deallocateEPS7_m.exit111, %181
@@ -10089,7 +10089,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRK
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #32
+  tail call void @__cxa_free_exception(ptr nonnull %2) #32
   resume { ptr, i32 } %5
 }
 
@@ -10927,7 +10927,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE7rethrow
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #32
+  tail call void @__cxa_free_exception(ptr nonnull %2) #32
   resume { ptr, i32 } %5
 }
 
@@ -13032,7 +13032,7 @@ define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io12too_few_argsEEEvRKT
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #32
+  tail call void @__cxa_free_exception(ptr nonnull %2) #32
   resume { ptr, i32 } %5
 }
 
@@ -13170,7 +13170,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io12too_few_argsEE7rethrowE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #32
+  tail call void @__cxa_free_exception(ptr nonnull %2) #32
   resume { ptr, i32 } %5
 }
 

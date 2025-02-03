@@ -8680,7 +8680,6 @@ for.body.lr.ph:                                   ; preds = %_ZN8QuantLib29TermS
   %lowerBound_.i.i = getelementptr inbounds nuw i8, ptr %s1d, i64 56
   %_M_manager.i.i304 = getelementptr inbounds nuw i8, ptr %finder, i64 64
   %fInverse_.i = getelementptr inbounds nuw i8, ptr %finder, i64 48
-  %cmp.not.i298 = icmp eq ptr %.pre.i300, null
   br label %for.body
 
 for.cond.cleanup.loopexit:                        ; preds = %_ZN8QuantLib20GeneralizedHullWhite6HelperD2Ev.exit
@@ -9206,16 +9205,9 @@ _ZNSt14_Function_baseD2Ev.exit297:                ; preds = %invoke.cont86, %if.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %lowerBound_.i.i, i8 0, i64 18, i1 false)
   store i64 2000, ptr %maxEvaluations_.i.i, align 8, !tbaa !190
   %call91 = invoke noundef double @_ZNK8QuantLib8Solver1DINS_5BrentEE5solveINS_20GeneralizedHullWhite6HelperEEEdRKT_dddd(ptr noundef nonnull align 8 dereferenceable(74) %s1d, ptr noundef nonnull align 8 dereferenceable(80) %finder, double noundef 1.000000e-08, double noundef %value.0361, double noundef -5.000000e+01, double noundef 5.000000e+01)
-          to label %invoke.cont90 unwind label %lpad88
-
-invoke.cont90:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit297
-  br i1 %cmp.not.i298, label %cond.false.i299, label %invoke.cont92, !prof !44
-
-cond.false.i299:                                  ; preds = %invoke.cont90
-  invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib29TermStructureFittingParameter13NumericalImplEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)
           to label %invoke.cont92 unwind label %lpad88
 
-invoke.cont92:                                    ; preds = %cond.false.i299, %invoke.cont90
+invoke.cont92:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit297
   %198 = load ptr, ptr %grid, align 8, !tbaa !58
   %add.ptr.i.i303 = getelementptr inbounds nuw double, ptr %198, i64 %i.0362
   %199 = load double, ptr %add.ptr.i.i303, align 8, !tbaa !64
@@ -9279,7 +9271,7 @@ terminate.lpad.i314:                              ; preds = %if.then.i312
   call void @__clang_call_terminate(ptr %210) #29
   unreachable
 
-lpad88:                                           ; preds = %cond.false.i299, %invoke.cont92, %_ZNSt14_Function_baseD2Ev.exit297
+lpad88:                                           ; preds = %invoke.cont92, %_ZNSt14_Function_baseD2Ev.exit297
   %211 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %s1d) #28

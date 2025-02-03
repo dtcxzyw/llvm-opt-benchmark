@@ -5609,7 +5609,7 @@ if.then18.i.i.i.i.i.i.i.i:                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp21.i.i.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i.i.i.i, label %if.else25.i.i.i.i.i.i.i.i
 
 if.else25.i.i.i.i.i.i.i.i:                        ; preds = %if.then18.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i45.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i20.i.i.i.i.i) #27, !noalias !156
+  %call.i.i.i.i.i45.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.addr.0.lcssa.i.i.i20.i.i.i.i.i) #27, !noalias !156
   %_M_storage.i.i.i22.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i45.i.i.i.i, i64 32
   %call.i.i23.i.i.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i22.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i.i43.i.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit26.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i24.i.i.i.i.i.i.i.i, !noalias !156
@@ -5629,7 +5629,9 @@ if.then32.i.i.i.i.i.i.i.i:                        ; preds = %_ZNKSt4lessINSt7__c
   %219 = getelementptr i8, ptr %call.i.i.i.i.i45.i.i.i.i, i64 24
   %.val9.i.i.i.i.i.i.i.i = load ptr, ptr %219, align 8, !noalias !156
   %cmp35.i.i.i.i.i.i.i.i = icmp eq ptr %.val9.i.i.i.i.i.i.i.i, null
-  br i1 %cmp35.i.i.i.i.i.i.i.i, label %if.then.i.i.i44.i.i.i.i, label %invoke.cont5.i.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i.i.i = select i1 %cmp35.i.i.i.i.i.i.i.i, ptr null, ptr %__y.addr.0.lcssa.i.i.i20.i.i.i.i.i
+  %spec.select131.i.i.i.i.i.i.i.i = select i1 %cmp35.i.i.i.i.i.i.i.i, ptr %call.i.i.i.i.i45.i.i.i.i, ptr %__y.addr.0.lcssa.i.i.i20.i.i.i.i.i
+  br label %if.then.i.i.i44.i.i.i.i
 
 if.else42.i.i.i.i.i.i.i.i:                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit26.i.i.i.i.i.i.i.i
   %__x.021.i30.i.i.i.i.i.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i, align 8, !noalias !171
@@ -5709,7 +5711,7 @@ if.then50.i.i.i.i.i.i.i.i:                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp53.i.i.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i.i.i.i, label %if.else57.i.i.i.i.i.i.i.i
 
 if.else57.i.i.i.i.i.i.i.i:                        ; preds = %if.then50.i.i.i.i.i.i.i.i
-  %call.i73.i.i.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i20.i.i.i.i.i) #27, !noalias !156
+  %call.i73.i.i.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.addr.0.lcssa.i.i.i20.i.i.i.i.i) #27, !noalias !156
   %_M_storage.i.i.i74.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i73.i.i.i.i.i.i.i.i, i64 32
   %call.i.i75.i.i.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i.i43.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i74.i.i.i.i.i.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit78.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i76.i.i.i.i.i.i.i.i, !noalias !156
@@ -5729,7 +5731,9 @@ if.then64.i.i.i.i.i.i.i.i:                        ; preds = %_ZNKSt4lessINSt7__c
   %229 = getelementptr i8, ptr %__y.addr.0.lcssa.i.i.i20.i.i.i.i.i, i64 24
   %.val.i.i.i.i.i.i.i.i = load ptr, ptr %229, align 8, !noalias !156
   %cmp67.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i.i, null
-  br i1 %cmp67.i.i.i.i.i.i.i.i, label %if.then.i.i.i44.i.i.i.i, label %invoke.cont5.i.i.i.i.i.i.i
+  %spec.select132.i.i.i.i.i.i.i.i = select i1 %cmp67.i.i.i.i.i.i.i.i, ptr null, ptr %call.i73.i.i.i.i.i.i.i.i
+  %spec.select133.i.i.i.i.i.i.i.i = select i1 %cmp67.i.i.i.i.i.i.i.i, ptr %__y.addr.0.lcssa.i.i.i20.i.i.i.i.i, ptr %call.i73.i.i.i.i.i.i.i.i
+  br label %if.then.i.i.i44.i.i.i.i
 
 if.else74.i.i.i.i.i.i.i.i:                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit78.i.i.i.i.i.i.i.i
   %__x.021.i82.i.i.i.i.i.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i, align 8, !noalias !171
@@ -5788,22 +5792,22 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %cmp.i.i9.i103.i.i.i.i.i.i.i.i = icmp slt i32 %call.i.i7.i100.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i9.i103.i.i.i.i.i.i.i.i, label %if.then.i.i.i44.i.i.i.i, label %if.then.i12.i.i.i.i.i.i.i
 
-invoke.cont5.i.i.i.i.i.i.i:                       ; preds = %if.then64.i.i.i.i.i.i.i.i, %if.then50.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i, %if.then9.i.i.i.i.i.i.i.i
-  %retval.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ null, %if.then9.i.i.i.i.i.i.i.i ], [ %216, %if.then18.i.i.i.i.i.i.i.i ], [ null, %if.then50.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i20.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i ], [ %call.i73.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i ]
-  %retval.sroa.12.0.i.i.i.i.i.i.i.i = phi ptr [ %209, %if.then9.i.i.i.i.i.i.i.i ], [ %216, %if.then18.i.i.i.i.i.i.i.i ], [ %226, %if.then50.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i20.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i ], [ %call.i73.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i ]
+invoke.cont5.i.i.i.i.i.i.i:                       ; preds = %if.then50.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i, %if.then9.i.i.i.i.i.i.i.i
+  %retval.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ null, %if.then9.i.i.i.i.i.i.i.i ], [ %216, %if.then18.i.i.i.i.i.i.i.i ], [ null, %if.then50.i.i.i.i.i.i.i.i ]
+  %retval.sroa.12.0.i.i.i.i.i.i.i.i = phi ptr [ %209, %if.then9.i.i.i.i.i.i.i.i ], [ %216, %if.then18.i.i.i.i.i.i.i.i ], [ %226, %if.then50.i.i.i.i.i.i.i.i ]
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i.i.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %if.then.i12.i.i.i.i.i.i.i, label %if.then.i.i.i44.i.i.i.i
 
 if.then.i.i.i44.i.i.i.i:                          ; preds = %invoke.cont5.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i102.i.i.i.i.i.i.i.i, %if.then.i110.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i50.i.i.i.i.i.i.i.i, %if.then.i58.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i61.i
-  %retval.sroa.12.0.i25.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.12.0.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i ], [ %__y.0.lcssa28.i111.i.i.i.i.i.i.i.i, %if.then.i110.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa28.i59.i.i.i.i.i.i.i.i, %if.then.i58.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa28.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i61.i ], [ %call.i.i.i.i.i45.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i20.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i45.i.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i50.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i97.i.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i102.i.i.i.i.i.i.i.i ]
-  %retval.sroa.0.0.i24.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i ], [ null, %if.then.i110.i.i.i.i.i.i.i.i ], [ null, %if.then.i58.i.i.i.i.i.i.i.i ], [ null, %if.then.i.i.i.i.i.i.i.i61.i ], [ null, %if.then32.i.i.i.i.i.i.i.i ], [ null, %if.then64.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i50.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i102.i.i.i.i.i.i.i.i ]
-  %cmp.not.i.i5.i.i.i.i.i.i.i = icmp ne ptr %retval.sroa.0.0.i24.i.i.i.i.i.i.i, null
-  %cmp2.i.i.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i25.i.i.i.i.i.i.i, %138
+  %retval.sroa.12.0.i23.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.12.0.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i ], [ %__y.0.lcssa28.i111.i.i.i.i.i.i.i.i, %if.then.i110.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa28.i59.i.i.i.i.i.i.i.i, %if.then.i58.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa28.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i61.i ], [ %spec.select133.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i ], [ %spec.select131.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i45.i.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i50.i.i.i.i.i.i.i.i ], [ %__y.0.lcssa29.i97.i.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i102.i.i.i.i.i.i.i.i ]
+  %retval.sroa.0.0.i22.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i ], [ null, %if.then.i110.i.i.i.i.i.i.i.i ], [ null, %if.then.i58.i.i.i.i.i.i.i.i ], [ null, %if.then.i.i.i.i.i.i.i.i61.i ], [ %spec.select132.i.i.i.i.i.i.i.i, %if.then64.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i, %if.then32.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i50.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10.i102.i.i.i.i.i.i.i.i ]
+  %cmp.not.i.i5.i.i.i.i.i.i.i = icmp ne ptr %retval.sroa.0.0.i22.i.i.i.i.i.i.i, null
+  %cmp2.i.i.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i23.i.i.i.i.i.i.i, %138
   %or.cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.not.i.i5.i.i.i.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %cleanup.i.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i44.i.i.i.i
-  %_M_storage.i.i.i.i.i7.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.12.0.i25.i.i.i.i.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i7.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.12.0.i23.i.i.i.i.i.i.i, i64 32
   %call.i.i.i.i8.i.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i.i43.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i7.i.i.i.i.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i10.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i9.i.i.i.i.i.i.i, !noalias !156
 
@@ -5820,7 +5824,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 cleanup.i.i.i.i.i.i.i:                            ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i10.i.i.i.i.i.i.i, %if.then.i.i.i44.i.i.i.i
   %236 = phi i1 [ true, %if.then.i.i.i44.i.i.i.i ], [ %cmp.i.i.i.i11.i.i.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i10.i.i.i.i.i.i.i ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %236, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i46.i.i.i.i, ptr noundef nonnull %retval.sroa.12.0.i25.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %138) #22, !noalias !156
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %236, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i46.i.i.i.i, ptr noundef nonnull %retval.sroa.12.0.i23.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %138) #22, !noalias !156
   %237 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i, align 8, !noalias !171
   %inc.i.i.i.i.i.i.i.i.i = add i64 %237, 1
   store i64 %inc.i.i.i.i.i.i.i.i.i, ptr %_M_node_count.i.i.i.i.i.i.i.i.i, align 8, !noalias !171
@@ -16170,7 +16174,7 @@ if.then18:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #27
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #27
   %_M_storage.i.i.i21 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %call.i.i22 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i21, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit25 unwind label %terminate.lpad.i.i23
@@ -16276,7 +16280,7 @@ if.then50:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #27
+  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #27
   %_M_storage.i.i.i75 = getelementptr inbounds nuw i8, ptr %call.i74, i64 32
   %call.i.i76 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i75)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit79 unwind label %terminate.lpad.i.i77
@@ -17892,8 +17896,8 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.inc.i.i.i.i.i.i
   br i1 %call5.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i, label %return
 
 for.inc.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first1.sroa.0.07.i.i.i.i.i.i.i) #27
-  %call.i2.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first2.sroa.0.08.i.i.i.i.i.i.i) #27
+  %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.07.i.i.i.i.i.i.i) #27
+  %call.i2.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.08.i.i.i.i.i.i.i) #27
   %cmp.i.not.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.i.not.i.i.i.i.i.i.i, label %if.end17, label %for.body.i.i.i.i.i.i.i, !llvm.loop !271
 
@@ -18074,8 +18078,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i
   br i1 %call5.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, label %land.end
 
 for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first1.sroa.0.07.i.i.i.i.i.i) #27
-  %call.i2.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first2.sroa.0.08.i.i.i.i.i.i) #27
+  %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.07.i.i.i.i.i.i) #27
+  %call.i2.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.08.i.i.i.i.i.i) #27
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not.i.i.i.i.i.i, label %land.end, label %for.body.i.i.i.i.i.i, !llvm.loop !274
 
@@ -18266,8 +18270,8 @@ for.body.i.i.i.i.i.i5:                            ; preds = %for.inc.i.i.i.i.i.i
   br i1 %call5.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i6, label %land.end
 
 for.inc.i.i.i.i.i.i6:                             ; preds = %for.body.i.i.i.i.i.i5
-  %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first1.sroa.0.07.i.i.i.i.i.i) #27
-  %call.i2.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first2.sroa.0.08.i.i.i.i.i.i) #27
+  %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.07.i.i.i.i.i.i) #27
+  %call.i2.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.08.i.i.i.i.i.i) #27
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not.i.i.i.i.i.i, label %land.end, label %for.body.i.i.i.i.i.i5, !llvm.loop !274
 
@@ -18628,8 +18632,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i
   br i1 %call5.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, label %land.end
 
 for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first1.sroa.0.07.i.i.i.i.i.i) #27
-  %call.i2.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first2.sroa.0.08.i.i.i.i.i.i) #27
+  %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.07.i.i.i.i.i.i) #27
+  %call.i2.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.08.i.i.i.i.i.i) #27
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not.i.i.i.i.i.i, label %land.end, label %for.body.i.i.i.i.i.i, !llvm.loop !274
 
@@ -18971,8 +18975,8 @@ _ZSteqIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experim
   br i1 %tobool.i.i, label %for.inc.i.i, label %if.end
 
 for.inc.i.i:                                      ; preds = %_ZSteqIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEEbRKSt4pairIT_T0_ESF_.exit.i.i
-  %call.i2.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first1.i.i.sroa.0.010) #27
-  %call.i3.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first2.i.i.sroa.0.011) #27
+  %call.i2.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.i.i.sroa.0.010) #27
+  %call.i3.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.i.i.sroa.0.011) #27
   %cmp.i.i.i.not = icmp eq ptr %call.i2.i.i, %add.ptr.i.i
   br i1 %cmp.i.i.i.not, label %if.end, label %for.body.i.i, !llvm.loop !280
 
@@ -19478,8 +19482,8 @@ _ZSteqIKtN9grpc_core19XdsListenerResource14FilterChainMap24FilterChainDataShared
   br i1 %call4.i.i.i, label %for.inc.i.i.i.i.i.i.i.i, label %return
 
 for.inc.i.i.i.i.i.i.i.i:                          ; preds = %_ZSteqIKtN9grpc_core19XdsListenerResource14FilterChainMap24FilterChainDataSharedPtrEEbRKSt4pairIT_T0_ESA_.exit
-  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first1.sroa.0.07.i.i.i.i.i.i.i.i) #27
-  %call.i2.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first2.sroa.0.08.i.i.i.i.i.i.i.i) #27
+  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.07.i.i.i.i.i.i.i.i) #27
+  %call.i2.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.08.i.i.i.i.i.i.i.i) #27
   %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %for.inc.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !282
 

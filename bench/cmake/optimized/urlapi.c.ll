@@ -2977,7 +2977,7 @@ define internal fastcc i32 @concat_url(ptr noundef %0, ptr noundef nonnull %1, p
 .loopexit:                                        ; preds = %39, %.preheader, %46, %53, %54, %51, %.critedge, %41
   %55 = phi i1 [ true, %41 ], [ true, %.critedge ], [ false, %46 ], [ true, %51 ], [ true, %54 ], [ true, %53 ], [ true, %.preheader ], [ true, %39 ]
   %.265 = phi ptr [ %.164.lcssa, %41 ], [ %.164.lcssa, %.critedge ], [ %47, %46 ], [ %1, %51 ], [ %1, %54 ], [ %1, %53 ], [ %.164.lcssa, %.preheader ], [ %.164.lcssa, %39 ]
-  %.2 = phi ptr [ %19, %41 ], [ null, %.critedge ], [ %.061, %46 ], [ %.061, %51 ], [ %.061, %54 ], [ %.061, %53 ], [ %19, %.preheader ], [ %.162, %39 ]
+  %.2 = phi ptr [ %19, %41 ], [ null, %.critedge ], [ %.061, %46 ], [ %.061, %51 ], [ %.061, %54 ], [ %.061, %53 ], [ %19, %.preheader ], [ %19, %39 ]
   call void @Curl_dyn_init(ptr noundef nonnull %4, i64 noundef 8000000) #10
   %56 = call i32 @Curl_dyn_add(ptr noundef nonnull %4, ptr noundef nonnull %0) #10
   %.not90 = icmp eq i32 %56, 0

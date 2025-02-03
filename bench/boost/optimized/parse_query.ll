@@ -130,7 +130,7 @@ _ZNKR5boost6system6resultINS_4urls19params_encoded_viewENS0_10error_codeEE5error
 35:                                               ; preds = %_ZN5boost4urls7grammar5parseINS0_22implementation_defined12query_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #7
   %36 = call noundef i64 @_ZNK5boost4urls19params_encoded_base4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #7
-  call void @_ZN5boost4urls6detail9query_refC1ENS_4core17basic_string_viewIcEEmm(ptr noundef nonnull align 8 dereferenceable(41) %9, ptr %1, i64 %2, i64 noundef %2, i64 noundef %36) #7
+  call void @_ZN5boost4urls6detail9query_refC1ENS_4core17basic_string_viewIcEEmm(ptr noundef nonnull align 8 dereferenceable(41) %9, ptr nonnull %1, i64 %2, i64 noundef %2, i64 noundef %36) #7
   call void @_ZN5boost4urls19params_encoded_viewC1ERKNS0_6detail9query_refE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(41) %9) #7
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %37, align 8, !tbaa !3

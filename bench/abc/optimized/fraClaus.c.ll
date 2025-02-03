@@ -177,16 +177,9 @@ define range(i32 0, 2) i32 @Fra_ClausRunSat(ptr noundef readonly captures(none) 
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
   %35 = tail call i32 @sat_solver_solve(ptr noundef %28, ptr noundef %6, ptr noundef nonnull %31, i64 noundef %34, i64 noundef 0, i64 noundef 0, i64 noundef 0) #22
-  %.not24 = icmp eq ptr %6, null
-  br i1 %.not24, label %37, label %36
-
-36:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %6) #22
-  br label %37
-
-37:                                               ; preds = %._crit_edge, %36
-  %38 = icmp eq i32 %35, -1
-  %. = zext i1 %38 to i32
+  tail call void @free(ptr noundef %6) #22
+  %36 = icmp eq i32 %35, -1
+  %. = zext i1 %36 to i32
   ret i32 %.
 }
 

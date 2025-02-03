@@ -12195,7 +12195,7 @@ aom_read_literal_.exit.i328:                      ; preds = %.preheader384
   %184 = load i32, ptr %62, align 4
   %185 = trunc i32 %184 to i16
   %186 = add i16 %185, 32
-  %187 = call zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef %4, i16 noundef zeroext 128, i16 noundef zeroext 4, i16 noundef zeroext %186) #16
+  %187 = call zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef nonnull %4, i16 noundef zeroext 128, i16 noundef zeroext 4, i16 noundef zeroext %186) #16
   %188 = zext i16 %187 to i32
   %189 = add nsw i32 %188, -32
   br label %read_sgrproj_filter.exit330
@@ -12207,7 +12207,7 @@ aom_read_literal_.exit.i328:                      ; preds = %.preheader384
   %194 = load i32, ptr %61, align 4
   %195 = trunc i32 %194 to i16
   %196 = add i16 %195, 96
-  %197 = call zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef %4, i16 noundef zeroext 128, i16 noundef zeroext 4, i16 noundef zeroext %196) #16
+  %197 = call zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef nonnull %4, i16 noundef zeroext 128, i16 noundef zeroext 4, i16 noundef zeroext %196) #16
   %198 = zext i16 %197 to i32
   %199 = add nsw i32 %198, -96
   %200 = getelementptr inbounds nuw i8, ptr %82, i64 52
@@ -12224,7 +12224,7 @@ aom_read_literal_.exit.i328:                      ; preds = %.preheader384
   %206 = load i32, ptr %62, align 4
   %207 = trunc i32 %206 to i16
   %208 = add i16 %207, 32
-  %209 = call zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef %4, i16 noundef zeroext 128, i16 noundef zeroext 4, i16 noundef zeroext %208) #16
+  %209 = call zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef nonnull %4, i16 noundef zeroext 128, i16 noundef zeroext 4, i16 noundef zeroext %208) #16
   %210 = zext i16 %209 to i32
   %211 = add nsw i32 %210, -32
   br label %read_sgrproj_filter.exit330

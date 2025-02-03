@@ -9163,7 +9163,7 @@ if.else.i212:                                     ; preds = %invoke.cont55
           to label %for.inc unwind label %lpad33
 
 for.inc:                                          ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i202, %if.else.i212
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.0631) #26
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.0631) #26
   %cmp.i19.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i19.not, label %cond.true62, label %cond.true36
 

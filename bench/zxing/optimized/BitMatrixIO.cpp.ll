@@ -623,7 +623,7 @@ define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 d
 25:                                               ; preds = %20
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #16
+  call void @__cxa_free_exception(ptr nonnull %21) #16
   br label %28
 
 27:                                               ; preds = %10, %3
@@ -1091,7 +1091,7 @@ define linkonce_odr void @_ZN5ZXing6MatrixIhEC2Eiih(ptr noundef nonnull align 8 
 25:                                               ; preds = %22
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #16
+  call void @__cxa_free_exception(ptr nonnull %23) #16
   br label %30
 
 27:                                               ; preds = %24

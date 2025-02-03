@@ -1976,7 +1976,7 @@ define void @_Z24gmx_ana_poscalc_init_posP17gmx_ana_poscalc_tP13gmx_ana_pos_t(pt
 20:                                               ; preds = %18, %13, %2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load i32, ptr %21, align 8
-  tail call void @_Z19gmx_ana_pos_reserveP13gmx_ana_pos_tii(ptr noundef %1, i32 noundef %22, i32 noundef -1)
+  tail call void @_Z19gmx_ana_pos_reserveP13gmx_ana_pos_tii(ptr noundef nonnull %1, i32 noundef %22, i32 noundef -1)
   %23 = load i32, ptr %10, align 4
   %24 = and i32 %23, 64
   %.not15 = icmp eq i32 %24, 0

@@ -15203,7 +15203,7 @@ _ZN4llvm15SmallPtrSetImplIPN5clang11DeclContextEE6insertES3_.exit.i28: ; preds =
   br i1 %75, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %71, %_ZN5clang11DeclContext9getParentEv.exit.i.i
-  %.09.i.i = phi ptr [ %.0.i.i.i.i, %_ZN5clang11DeclContext9getParentEv.exit.i.i ], [ %spec.select.i.i, %71 ]
+  %.09.i.i = phi ptr [ %.0.i.i.i.i, %_ZN5clang11DeclContext9getParentEv.exit.i.i ], [ %74, %71 ]
   %76 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %.09.i.i) #24
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %77, align 8
@@ -15223,7 +15223,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i:      ; preds = %82, %.lr.ph.i.i
   br i1 %84, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !62
 
 ._crit_edge.i.i:                                  ; preds = %_ZN5clang11DeclContext9getParentEv.exit.i.i, %71
-  %.0.lcssa.i.i = phi ptr [ %spec.select.i.i, %71 ], [ %.0.i.i.i.i, %_ZN5clang11DeclContext9getParentEv.exit.i.i ]
+  %.0.lcssa.i.i = phi ptr [ %74, %71 ], [ %.0.i.i.i.i, %_ZN5clang11DeclContext9getParentEv.exit.i.i ]
   %85 = tail call noundef ptr @_ZN5clang11DeclContext17getPrimaryContextEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa.i.i) #24
   %86 = tail call noundef ptr @_ZN5clang18UsingDirectiveDecl21getNominatedNamespaceEv(ptr noundef nonnull align 8 dereferenceable(88) %45) #24
   %87 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #24
@@ -43640,7 +43640,7 @@ _ZN4llvm15SmallPtrSetImplIPN5clang11DeclContextEE6insertES3_.exit: ; preds = %._
   br i1 %47, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %_ZN5clang11DeclContext9getParentEv.exit.i
-  %.09.i = phi ptr [ %.0.i.i.i, %_ZN5clang11DeclContext9getParentEv.exit.i ], [ %spec.select.i, %43 ]
+  %.09.i = phi ptr [ %.0.i.i.i, %_ZN5clang11DeclContext9getParentEv.exit.i ], [ %46, %43 ]
   %48 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %.09.i) #24
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %49, align 8
@@ -43660,7 +43660,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i:        ; preds = %54, %.lr.ph.i
   br i1 %56, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !62
 
 ._crit_edge.i:                                    ; preds = %_ZN5clang11DeclContext9getParentEv.exit.i, %43
-  %.0.lcssa.i = phi ptr [ %spec.select.i, %43 ], [ %.0.i.i.i, %_ZN5clang11DeclContext9getParentEv.exit.i ]
+  %.0.lcssa.i = phi ptr [ %46, %43 ], [ %.0.i.i.i, %_ZN5clang11DeclContext9getParentEv.exit.i ]
   %57 = call noundef ptr @_ZN5clang11DeclContext17getPrimaryContextEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa.i) #24
   %58 = call noundef ptr @_ZN5clang18UsingDirectiveDecl21getNominatedNamespaceEv(ptr noundef nonnull align 8 dereferenceable(88) %17) #24
   %59 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #24

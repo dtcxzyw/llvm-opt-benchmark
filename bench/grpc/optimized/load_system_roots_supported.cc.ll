@@ -106,7 +106,7 @@ while.cond.outer:                                 ; preds = %while.cond.preheade
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer
   %call4 = invoke ptr @readdir(ptr noundef nonnull %call)
-          to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.loopexit
+          to label %invoke.cont unwind label %lpad.loopexit.loopexit
 
 invoke.cont:                                      ; preds = %while.cond
   %cmp5.not = icmp eq ptr %call4, null
@@ -120,7 +120,7 @@ if.then.i:                                        ; preds = %invoke.cont
 
 if.then3.i:                                       ; preds = %if.then.i
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 86, i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef nonnull %d_name)
-          to label %invoke.cont7 unwind label %lpad.loopexit.split-lp.loopexit.loopexit
+          to label %invoke.cont7 unwind label %lpad.loopexit.loopexit
 
 invoke.cont7:                                     ; preds = %if.then.i, %if.then3.i
   %call10 = call i32 @stat(ptr noundef nonnull %file_data, ptr noundef nonnull %dir_entry_stat) #16
@@ -138,35 +138,30 @@ while.cond.backedge:                              ; preds = %lor.lhs.false, %if.
 
 if.then15:                                        ; preds = %invoke.cont7
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 117, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef nonnull %file_data)
-          to label %while.cond.backedge unwind label %lpad.loopexit.split-lp.loopexit.loopexit
+          to label %while.cond.backedge unwind label %lpad.loopexit.loopexit
 
-lpad.thread:                                      ; preds = %if.else, %if.then36
+lpad.thread:                                      ; preds = %if.else, %if.then36, %for.body
   %lpad.thr_comm35 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i
 
-lpad.loopexit:                                    ; preds = %for.body
-  %lpad.loopexit41 = landingpad { ptr, i32 }
+lpad.loopexit.loopexit:                           ; preds = %if.then3.i, %if.then15, %while.cond
+  %lpad.loopexit43 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit.loopexit:         ; preds = %while.cond, %if.then15, %if.then3.i
-  %lpad.loopexit46 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad
-
-lpad.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
-  %lpad.loopexit.split-lp47 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad
-
-lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i.i.i26, %for.end, %while.end
+lpad.loopexit.loopexit.split-lp:                  ; preds = %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
   %lpad.loopexit.split-lp44 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
-lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit41, %lpad.loopexit ], [ %lpad.loopexit.split-lp44, %lpad.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit46, %lpad.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp47, %lpad.loopexit.split-lp.loopexit.loopexit.split-lp ]
+lpad.loopexit.split-lp:                           ; preds = %while.end, %for.end, %if.then.i.i.i26
+  %lpad.loopexit.split-lp42 = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad
+
+lpad:                                             ; preds = %lpad.loopexit.loopexit, %lpad.loopexit.loopexit.split-lp, %lpad.loopexit.split-lp
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp42, %lpad.loopexit.split-lp ], [ %lpad.loopexit43, %lpad.loopexit.loopexit ], [ %lpad.loopexit.split-lp44, %lpad.loopexit.loopexit.split-lp ]
   %tobool.not.i.i.i = icmp eq ptr %roots_filenames.sroa.0.0.ph, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EED2Ev.exit, label %if.then.i.i.i
 
@@ -199,7 +194,7 @@ if.else.i:                                        ; preds = %if.end20
 
 if.then.i.i.i26:                                  ; preds = %if.else.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.15) #18
-          to label %.noexc27 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc27 unwind label %lpad.loopexit.split-lp
 
 .noexc27:                                         ; preds = %if.then.i.i.i26
   unreachable
@@ -216,7 +211,7 @@ _ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_chec
   call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 4104
   %call5.i.i.i.i.i28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #19
-          to label %call5.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.loopexit.split-lp
+          to label %call5.i.i.i.i.i.noexc unwind label %lpad.loopexit.loopexit.split-lp
 
 call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i28, i64 %sub.ptr.sub.i.i.i.i
@@ -251,11 +246,11 @@ while.end:                                        ; preds = %invoke.cont
   %call24 = call i32 @closedir(ptr noundef nonnull %call)
   %add25 = add i64 %total_bundle_size.0.ph, 1
   %call27 = invoke ptr @gpr_zalloc(i64 noundef %add25)
-          to label %for.cond.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+          to label %for.cond.preheader unwind label %lpad.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %while.end
-  %cmp2965.not = icmp eq ptr %roots_filenames.sroa.9.0.ph, %roots_filenames.sroa.0.0.ph
-  br i1 %cmp2965.not, label %for.end, label %for.body.preheader
+  %cmp2960.not = icmp eq ptr %roots_filenames.sroa.9.0.ph, %roots_filenames.sroa.0.0.ph
+  br i1 %cmp2960.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
   %sub.ptr.lhs.cast.i = ptrtoint ptr %roots_filenames.sroa.9.0.ph to i64
@@ -266,11 +261,11 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %bytes_read.067 = phi i64 [ %bytes_read.1, %for.inc ], [ 0, %for.body.preheader ]
-  %i.066 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %add.ptr.i = getelementptr inbounds %struct.FileData, ptr %roots_filenames.sroa.0.0.ph, i64 %i.066
+  %bytes_read.062 = phi i64 [ %bytes_read.1, %for.inc ], [ 0, %for.body.preheader ]
+  %i.061 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %add.ptr.i = getelementptr inbounds %struct.FileData, ptr %roots_filenames.sroa.0.0.ph, i64 %i.061
   %call34 = invoke i32 (ptr, i32, ...) @open(ptr noundef nonnull %add.ptr.i, i32 noundef 0)
-          to label %invoke.cont33 unwind label %lpad.loopexit
+          to label %invoke.cont33 unwind label %lpad.thread
 
 invoke.cont33:                                    ; preds = %for.body
   %cmp35.not = icmp eq i32 %call34, -1
@@ -279,7 +274,7 @@ invoke.cont33:                                    ; preds = %for.body
 if.then36:                                        ; preds = %invoke.cont33
   %size38 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4096
   %3 = load i64, ptr %size38, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %call27, i64 %bytes_read.067
+  %add.ptr = getelementptr inbounds i8, ptr %call27, i64 %bytes_read.062
   %call40 = invoke i64 @read(i32 noundef %call34, ptr noundef %add.ptr, i64 noundef %3)
           to label %invoke.cont39 unwind label %lpad.thread
 
@@ -291,7 +286,7 @@ invoke.cont39:                                    ; preds = %if.then36
 if.then42:                                        ; preds = %invoke.cont39
   %sext = shl i64 %call40, 32
   %conv43 = ashr exact i64 %sext, 32
-  %add44 = add i64 %conv43, %bytes_read.067
+  %add44 = add i64 %conv43, %bytes_read.062
   br label %for.inc
 
 if.else:                                          ; preds = %invoke.cont39
@@ -299,15 +294,15 @@ if.else:                                          ; preds = %invoke.cont39
           to label %for.inc unwind label %lpad.thread
 
 for.inc:                                          ; preds = %invoke.cont33, %if.else, %if.then42
-  %bytes_read.1 = phi i64 [ %add44, %if.then42 ], [ %bytes_read.067, %if.else ], [ %bytes_read.067, %invoke.cont33 ]
-  %inc = add nuw i64 %i.066, 1
+  %bytes_read.1 = phi i64 [ %add44, %if.then42 ], [ %bytes_read.062, %if.else ], [ %bytes_read.062, %invoke.cont33 ]
+  %inc = add nuw i64 %i.061, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %bytes_read.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %bytes_read.1, %for.inc ]
   invoke void @grpc_slice_new(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp, ptr noundef %call27, i64 noundef %bytes_read.0.lcssa, ptr noundef nonnull @gpr_free)
-          to label %invoke.cont51 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont51 unwind label %lpad.loopexit.split-lp
 
 invoke.cont51:                                    ; preds = %for.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)

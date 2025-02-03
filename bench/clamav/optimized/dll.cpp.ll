@@ -947,7 +947,7 @@ RARProcessFile.exit:                              ; preds = %58
           to label %65 unwind label %27
 
 65:                                               ; preds = %62
-  %66 = invoke noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %63, ptr noundef %1, i64 noundef 1024)
+  %66 = invoke noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %63, ptr noundef nonnull %1, i64 noundef 1024)
           to label %67 unwind label %27
 
 67:                                               ; preds = %65

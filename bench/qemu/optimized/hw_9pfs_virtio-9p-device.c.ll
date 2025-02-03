@@ -226,7 +226,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  call void (ptr, ptr, ...) @virtio_error(ptr noundef %vdev, ptr noundef nonnull @.str.14) #6
+  call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.14) #6
   br label %out_free_req
 
 if.end5:                                          ; preds = %if.end

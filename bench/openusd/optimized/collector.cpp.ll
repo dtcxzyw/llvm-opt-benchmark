@@ -380,7 +380,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollectornwEm.exit: ; preds = %.noex
 51:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollectornwEm.exit
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @free(ptr noundef %36) #19
+  call void @free(ptr noundef nonnull %36) #19
   br label %70
 
 53:                                               ; preds = %37

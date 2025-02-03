@@ -3378,7 +3378,7 @@ sub_1:                                            ; preds = %sub_0
 
 206:                                              ; preds = %201
   call void @rtpstream_id_free(ptr noundef nonnull %203) #18
-  call void @g_free(ptr noundef %202) #18
+  call void @g_free(ptr noundef nonnull %202) #18
   br label %330
 
 207:                                              ; preds = %201
@@ -6698,7 +6698,7 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr noundef readonly ca
   %66 = getelementptr inbounds nuw i8, ptr %36, i64 152
   %67 = tail call double @nstime_to_sec(ptr noundef nonnull %66) #18
   tail call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.266, ptr noundef nonnull @.str.113, double noundef %67)
-  %68 = tail call ptr @get_conversation_filter(ptr noundef %36, i32 noundef 0) #18
+  %68 = tail call ptr @get_conversation_filter(ptr noundef nonnull %36, i32 noundef 0) #18
   %.not79 = icmp eq ptr %68, null
   br i1 %.not79, label %70, label %69
 
@@ -6758,7 +6758,7 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr noundef readonly ca
 
 92:                                               ; preds = %85
   %93 = load i32, ptr %84, align 4
-  %94 = tail call ptr @get_endpoint_port(ptr noundef null, ptr noundef %88, i32 noundef %93) #18
+  %94 = tail call ptr @get_endpoint_port(ptr noundef null, ptr noundef nonnull %88, i32 noundef %93) #18
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.269) #18
   tail call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %94) #18
   tail call void @wmem_free(ptr noundef null, ptr noundef %94) #18
@@ -6777,7 +6777,7 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr noundef readonly ca
   %102 = getelementptr inbounds nuw i8, ptr %88, i64 64
   %103 = load i64, ptr %102, align 8
   tail call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.264, ptr noundef nonnull @.str.261, i64 noundef %103)
-  %104 = tail call ptr @get_endpoint_filter(ptr noundef %88) #18
+  %104 = tail call ptr @get_endpoint_filter(ptr noundef nonnull %88) #18
   %.not84 = icmp eq ptr %104, null
   br i1 %.not84, label %106, label %105
 

@@ -11782,7 +11782,7 @@ cli_rawaddr.exit276.i:                            ; preds = %218, %220, %208, %2
   %308 = trunc i64 %306 to i32
   %309 = add i32 %307, %308
   store i32 %309, ptr %2, align 4
-  tail call void @free(ptr noundef %276) #20
+  tail call void @free(ptr noundef nonnull %276) #20
   br label %310
 
 .thread27.i:                                      ; preds = %.loopexit.i, %270
@@ -12064,7 +12064,7 @@ cli_rawaddr.exit296.i:                            ; preds = %323
   %430 = trunc i64 %428 to i32
   %431 = add i32 %429, %430
   store i32 %431, ptr %2, align 4
-  tail call void @free(ptr noundef %398) #20
+  tail call void @free(ptr noundef nonnull %398) #20
   br label %.thread44.i
 
 .thread50.i:                                      ; preds = %.loopexit60.i, %392

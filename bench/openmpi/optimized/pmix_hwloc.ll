@@ -4407,7 +4407,7 @@ pmix_obj_run_destructors.exit426:                 ; preds = %.lr.ph.i423, %362
   %407 = load volatile i64, ptr %70, align 8
   %408 = add i64 %407, -1
   store volatile i64 %408, ptr %70, align 8
-  %409 = call i32 @pthread_mutex_lock(ptr noundef %90) #14
+  %409 = call i32 @pthread_mutex_lock(ptr noundef nonnull %90) #14
   %410 = icmp eq i32 %409, 35
   br i1 %410, label %411, label %413
 

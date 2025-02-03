@@ -938,7 +938,7 @@ invoke.cont61:                                    ; preds = %do.end60
 
 delete.notnull:                                   ; preds = %invoke.cont61
   tail call void @_ZN3zmq9mailbox_tD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %call38) #32
-  tail call void @_ZdlPv(ptr noundef %call38) #35
+  tail call void @_ZdlPv(ptr noundef nonnull %call38) #35
   br label %if.end69.sink.split
 
 if.end69.sink.split:                              ; preds = %invoke.cont61, %new.notnull, %delete.notnull
@@ -2969,7 +2969,7 @@ invoke.cont200:                                   ; preds = %do.end198
 
 delete.notnull205:                                ; preds = %invoke.cont200
   call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1584) %call173) #32
-  call void @_ZdlPv(ptr noundef %call173) #35
+  call void @_ZdlPv(ptr noundef nonnull %call173) #35
   invoke void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %ref.tmp207, ptr noundef nonnull align 8 dereferenceable(32) %address)
           to label %invoke.cont208 unwind label %lpad6
 
@@ -3074,7 +3074,7 @@ invoke.cont263:                                   ; preds = %do.end261
 
 delete.notnull268:                                ; preds = %invoke.cont263
   call void @_ZN3zmq13ws_listener_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1632) %call234) #32
-  call void @_ZdlPv(ptr noundef %call234) #35
+  call void @_ZdlPv(ptr noundef nonnull %call234) #35
   invoke void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %ref.tmp270, ptr noundef nonnull align 8 dereferenceable(32) %address)
           to label %invoke.cont271 unwind label %lpad6
 
@@ -3172,7 +3172,7 @@ invoke.cont322:                                   ; preds = %do.end319
 
 delete.notnull327:                                ; preds = %invoke.cont322
   call void @_ZN3zmq14ipc_listener_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1592) %call294) #32
-  call void @_ZdlPv(ptr noundef %call294) #35
+  call void @_ZdlPv(ptr noundef nonnull %call294) #35
   invoke void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %ref.tmp329, ptr noundef nonnull align 8 dereferenceable(32) %address)
           to label %invoke.cont330 unwind label %lpad6
 
@@ -3270,7 +3270,7 @@ invoke.cont381:                                   ; preds = %do.end378
 
 delete.notnull386:                                ; preds = %invoke.cont381
   call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1544) %call353) #32
-  call void @_ZdlPv(ptr noundef %call353) #35
+  call void @_ZdlPv(ptr noundef nonnull %call353) #35
   invoke void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %ref.tmp388, ptr noundef nonnull align 8 dereferenceable(32) %address)
           to label %invoke.cont389 unwind label %lpad6
 

@@ -1328,7 +1328,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
 619:                                              ; preds = %616
   %620 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %617) #20
+  call void @__cxa_free_exception(ptr nonnull %617) #20
   br label %691
 
 621:                                              ; preds = %618
@@ -3435,7 +3435,7 @@ define internal fastcc void @_ZN5ZXing10DataMatrix10C40EncoderL9EncodeC40ERNS0_1
 270:                                              ; preds = %266
   %271 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %267) #20
+  call void @__cxa_free_exception(ptr nonnull %267) #20
   br label %281
 
 272:                                              ; preds = %259, %247, %227, %.loopexit
@@ -3990,7 +3990,7 @@ define internal fastcc void @_ZN5ZXing10DataMatrix14EdifactEncoderL17EncodeToCod
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #20
+  tail call void @__cxa_free_exception(ptr nonnull %8) #20
   br label %81
 
 12:                                               ; preds = %1

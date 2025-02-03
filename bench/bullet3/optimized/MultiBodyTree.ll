@@ -76,7 +76,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCachedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -1326,7 +1326,7 @@ invoke.cont:                                      ; preds = %if.end
 lpad:                                             ; preds = %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpldlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad

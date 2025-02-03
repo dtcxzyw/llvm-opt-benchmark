@@ -707,7 +707,7 @@ compute_scratch_buffer_size.exit:                 ; preds = %for.body.i, %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %compute_scratch_buffer_size.exit
-  %call2 = tail call fastcc i32 @uncompress_b44_impl(ptr noundef %decode, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr noundef %uncompressed_data, i64 noundef %uncompressed_size)
+  %call2 = tail call fastcc i32 @uncompress_b44_impl(ptr noundef nonnull %decode, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr noundef %uncompressed_data, i64 noundef %uncompressed_size)
   br label %return
 
 return:                                           ; preds = %compute_scratch_buffer_size.exit, %if.end
@@ -1303,7 +1303,7 @@ compute_scratch_buffer_size.exit:                 ; preds = %for.body.i, %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %compute_scratch_buffer_size.exit
-  %call2 = tail call fastcc i32 @uncompress_b44_impl(ptr noundef %decode, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr noundef %uncompressed_data, i64 noundef %uncompressed_size)
+  %call2 = tail call fastcc i32 @uncompress_b44_impl(ptr noundef nonnull %decode, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr noundef %uncompressed_data, i64 noundef %uncompressed_size)
   br label %return
 
 return:                                           ; preds = %compute_scratch_buffer_size.exit, %if.end

@@ -88,7 +88,7 @@ define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef
   %.036.i = phi i32 [ %34, %36 ], [ %2, %27 ]
   %.035.i = phi i32 [ 0, %36 ], [ 3, %27 ]
   call void @nghttp2_frame_headers_init(ptr noundef nonnull %19, i8 noundef zeroext %30, i32 noundef %.036.i, i32 noundef %.035.i, ptr noundef nonnull %10, ptr noundef %18, i64 noundef %5) #5
-  %39 = call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %19) #5
+  %39 = call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %19) #5
   %.not44.i = icmp eq i32 %39, 0
   br i1 %.not44.i, label %submit_headers_shared.exit, label %40
 
@@ -718,7 +718,7 @@ define dso_local i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %40, ptr %41, align 8
   tail call void @nghttp2_frame_origin_init(ptr noundef nonnull %35, ptr noundef %.056, i64 noundef %3) #5
-  %42 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %35) #5
+  %42 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %35) #5
   %.not64 = icmp eq i32 %42, 0
   br i1 %.not64, label %44, label %43
 
@@ -919,7 +919,7 @@ define dso_local i32 @nghttp2_submit_data(ptr noundef %0, i8 noundef zeroext %1,
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store i8 %5, ptr %14, align 8
   tail call void @nghttp2_frame_data_init(ptr noundef nonnull %9, i8 noundef zeroext 0, i32 noundef %2) #5
-  %15 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %9) #5
+  %15 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %9) #5
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %16
 

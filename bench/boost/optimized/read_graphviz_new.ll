@@ -4981,7 +4981,7 @@ define hidden void @_ZN5boost20read_graphviz_detail26translate_results_to_graphE
   br i1 %.not5354, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph59
-  %19 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.044.057) #33
+  %19 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.044.057) #33
   %.not = icmp eq ptr %19, %7
   br i1 %.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !114
 
@@ -10372,7 +10372,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt13runtime_errorEEv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -10511,7 +10511,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt13runtime_errorE7rethr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -39952,7 +39952,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_11regex_errorEEEv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -40089,7 +40089,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_11regex_errorEE7rethr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -49998,7 +49998,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt16invalid_argument
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -50134,7 +50134,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt16invalid_argumentE7re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -60140,7 +60140,7 @@ _ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN
   %42 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %106 unwind label %43
+          to label %.thread unwind label %43
 
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
@@ -60192,7 +60192,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost13re_detail_50014recursion_info
   %61 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %109 unwind label %62
+          to label %108 unwind label %62
 
 62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
@@ -60302,52 +60302,52 @@ _ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN
 104:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS0_9sub_matchISE_EEEEEEESaISJ_EE11_M_allocateEm.exit
   %105 = landingpad { ptr, i32 }
           catch ptr null
-  br label %109
+  br label %108
 
-106:                                              ; preds = %41
-  %107 = extractvalue { ptr, i32 } %42, 0
-  %108 = tail call ptr @__cxa_begin_catch(ptr %107) #29
+.thread:                                          ; preds = %41
+  %106 = extractvalue { ptr, i32 } %42, 0
+  %107 = tail call ptr @__cxa_begin_catch(ptr %106) #29
   tail call void @_ZNSt16allocator_traitsISaIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS0_9sub_matchISE_EEEEEEEEE7destroyISJ_EEvRSK_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23) #29
   br label %114
 
-109:                                              ; preds = %104, %60
+108:                                              ; preds = %104, %60
   %.0.lpad-body.ph = phi ptr [ %47, %60 ], [ %22, %104 ]
   %eh.lpad-body.ph = phi { ptr, i32 } [ %61, %60 ], [ %105, %104 ]
-  %110 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
-  %111 = tail call ptr @__cxa_begin_catch(ptr %110) #29
+  %109 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
+  %110 = tail call ptr @__cxa_begin_catch(ptr %109) #29
   invoke void @_ZSt8_DestroyIPN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS0_9sub_matchISE_EEEEEEESJ_EvT_SL_RSaIT0_E(ptr noundef %22, ptr noundef nonnull %.0.lpad-body.ph, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %114 unwind label %112
+          to label %113 unwind label %111
 
-112:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS0_9sub_matchISE_EEEEEEESaISJ_EE13_M_deallocateEPSJ_m.exit40, %109
-  %113 = landingpad { ptr, i32 }
+111:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS0_9sub_matchISE_EEEEEEESaISJ_EE13_M_deallocateEPSJ_m.exit40, %108
+  %112 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %117 unwind label %118
+          to label %116 unwind label %117
 
-114:                                              ; preds = %109, %106
+113:                                              ; preds = %108
   %.not.i39 = icmp eq ptr %22, null
-  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS0_9sub_matchISE_EEEEEEESaISJ_EE13_M_deallocateEPSJ_m.exit40, label %115
+  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS0_9sub_matchISE_EEEEEEESaISJ_EE13_M_deallocateEPSJ_m.exit40, label %114
 
-115:                                              ; preds = %114
-  %116 = mul nuw nsw i64 %16, 112
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %116) #31
+114:                                              ; preds = %.thread, %113
+  %115 = mul nuw nsw i64 %16, 112
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %115) #31
   br label %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS0_9sub_matchISE_EEEEEEESaISJ_EE13_M_deallocateEPSJ_m.exit40
 
-_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS0_9sub_matchISE_EEEEEEESaISJ_EE13_M_deallocateEPSJ_m.exit40: ; preds = %115, %114
+_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS0_9sub_matchISE_EEEEEEESaISJ_EE13_M_deallocateEPSJ_m.exit40: ; preds = %114, %113
   invoke void @__cxa_rethrow() #30
-          to label %121 unwind label %112
+          to label %120 unwind label %111
 
-117:                                              ; preds = %112
-  resume { ptr, i32 } %113
+116:                                              ; preds = %111
+  resume { ptr, i32 } %112
 
-118:                                              ; preds = %112
-  %119 = landingpad { ptr, i32 }
+117:                                              ; preds = %111
+  %118 = landingpad { ptr, i32 }
           catch ptr null
-  %120 = extractvalue { ptr, i32 } %119, 0
-  tail call void @__clang_call_terminate(ptr %120) #32
+  %119 = extractvalue { ptr, i32 } %118, 0
+  tail call void @__clang_call_terminate(ptr %119) #32
   unreachable
 
-121:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS0_9sub_matchISE_EEEEEEESaISJ_EE13_M_deallocateEPSJ_m.exit40
+120:                                              ; preds = %_ZNSt12_Vector_baseIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS0_9sub_matchISE_EEEEEEESaISJ_EE13_M_deallocateEPSJ_m.exit40
   unreachable
 }
 
@@ -60485,7 +60485,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt11logic_errorEEvRK
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -60620,7 +60620,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt11logic_errorE7rethrow
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -63443,7 +63443,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_19bad_graphviz_sy
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -63702,7 +63702,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_19bad_graphviz_syntax
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -64192,7 +64192,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_22undirected_graph_er
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -64532,7 +64532,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_20directed_graph_erro
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -65295,7 +65295,7 @@ _ZN5boost20read_graphviz_detail5tokenD2Ev.exit75: ; preds = %_ZNKSt7__cxx1112bas
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit78 unwind label %214
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit78: ; preds = %212
-  %213 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0128.0136) #33
+  %213 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0128.0136) #33
   %.not134 = icmp eq ptr %213, %175
   br i1 %.not134, label %._crit_edge, label %204, !llvm.loop !1035
 
@@ -75275,7 +75275,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_16bad_lexical_cas
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -75412,7 +75412,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_16bad_lexical_castEE7
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #29
+  tail call void @__cxa_free_exception(ptr nonnull %2) #29
   resume { ptr, i32 } %5
 }
 
@@ -77565,7 +77565,7 @@ _ZNSt3setIN5boost20read_graphviz_detail13node_and_portESt4lessIS2_ESaIS2_EED2Ev.
           to label %32 unwind label %34
 
 32:                                               ; preds = %30
-  %33 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.08.017) #33
+  %33 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.017) #33
   %.not15 = icmp eq ptr %33, %12
   br i1 %.not15, label %._crit_edge, label %30, !llvm.loop !1202
 

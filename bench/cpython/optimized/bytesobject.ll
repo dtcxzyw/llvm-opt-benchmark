@@ -2115,7 +2115,7 @@ _PyBytesWriter_Prepare.exit.i192:                 ; preds = %if.end8.i.i190, %if
   br i1 %cmp.i194, label %error, label %_PyBytesWriter_WriteBytes.exit209
 
 _PyBytesWriter_WriteBytes.exit209:                ; preds = %_PyBytesWriter_Prepare.exit.i192
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i193, ptr readonly align 1 %77, i64 %i.0395, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i193, ptr nonnull readonly align 1 %77, i64 %i.0395, i1 false)
   %add.ptr.i196 = getelementptr i8, ptr %retval.0.i.i193, i64 %i.0395
   %cmp280 = icmp eq ptr %add.ptr.i196, null
   br i1 %cmp280, label %error, label %for.inc349

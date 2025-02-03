@@ -5116,9 +5116,9 @@ Py_INCREF.exit.i:                                 ; preds = %if.end.i.i, %for.bo
   tail call fastcc void @PyTuple_SET_ITEM(ptr noundef %call.i, i64 noundef %i.012.i, ptr noundef %2)
   %inc.i = add nuw nsw i64 %i.012.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %nargs
-  br i1 %exitcond.not.i, label %_fastcall_to_tuple.exit, label %for.body.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %cond.end, label %for.body.i, !llvm.loop !15
 
-_fastcall_to_tuple.exit:                          ; preds = %Py_INCREF.exit.i, %entry
+_fastcall_to_tuple.exit:                          ; preds = %entry
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -5132,7 +5132,7 @@ cond.false:                                       ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.158, i32 noundef 2144, ptr noundef nonnull @__PRETTY_FUNCTION__.meth_fastcall_keywords) #14
   unreachable
 
-cond.end:                                         ; preds = %if.end
+cond.end:                                         ; preds = %Py_INCREF.exit.i, %if.end
   %cmp3 = icmp eq ptr %args, null
   %add.ptr = getelementptr ptr, ptr %args, i64 %nargs
   %cond = select i1 %cmp3, ptr null, ptr %add.ptr

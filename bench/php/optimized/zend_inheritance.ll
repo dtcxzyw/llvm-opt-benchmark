@@ -1393,7 +1393,7 @@ define void @zend_do_inheritance_ex(ptr noundef %0, ptr noundef %1, i1 noundef z
 
 442:                                              ; preds = %418
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %443 = call fastcc ptr @get_or_init_obligations_for_class(ptr noundef %0)
+  %443 = call fastcc ptr @get_or_init_obligations_for_class(ptr noundef nonnull %0)
   %444 = call noalias ptr @_emalloc_512() #16
   store i32 2, ptr %444, align 8
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 8
@@ -1555,7 +1555,7 @@ do_inherit_property.exit:                         ; preds = %488, %451, %add_pro
   br i1 %.not.i1186, label %538, label %535
 
 535:                                              ; preds = %530
-  %536 = call fastcc zeroext i1 @do_inherit_constant_check(ptr noundef %0, ptr noundef %533, ptr noundef %532)
+  %536 = call fastcc zeroext i1 @do_inherit_constant_check(ptr noundef nonnull %0, ptr noundef %533, ptr noundef %532)
   %537 = xor i1 %536, true
   call void @llvm.assume(i1 %537)
   br label %do_inherit_class_constant.exit
@@ -2103,7 +2103,7 @@ zend_duplicate_internal_function.exit:            ; preds = %zend_duplicate_inte
   %837 = load ptr, ptr %836, align 8
   %838 = getelementptr inbounds nuw i8, ptr %832, i64 16
   %839 = load ptr, ptr %838, align 8
-  call fastcc void @do_inheritance_check_on_method(ptr noundef %835, ptr noundef %837, ptr noundef %832, ptr noundef %839, ptr noundef %0, ptr noundef nonnull %833, i1 noundef zeroext true)
+  call fastcc void @do_inheritance_check_on_method(ptr noundef %835, ptr noundef %837, ptr noundef %832, ptr noundef %839, ptr noundef nonnull %0, ptr noundef nonnull %833, i1 noundef zeroext true)
   br label %939
 
 840:                                              ; preds = %829
@@ -2948,7 +2948,7 @@ define internal fastcc noundef zeroext i1 @do_inherit_constant_check(ptr noundef
   br i1 %.not52, label %.thread, label %25
 
 25:                                               ; preds = %24
-  %26 = tail call ptr @zend_get_object_type_case(ptr noundef %0, i1 noundef zeroext true) #16
+  %26 = tail call ptr @zend_get_object_type_case(ptr noundef nonnull %0, i1 noundef zeroext true) #16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -3052,7 +3052,7 @@ class_constant_types_compatible.exit.thread:      ; preds = %class_constant_type
 
 90:                                               ; preds = %class_constant_types_compatible.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %91 = tail call fastcc ptr @get_or_init_obligations_for_class(ptr noundef %0)
+  %91 = tail call fastcc ptr @get_or_init_obligations_for_class(ptr noundef nonnull %0)
   %92 = tail call noalias ptr @_emalloc_512() #16
   store i32 3, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -3262,7 +3262,7 @@ do_inherit_iface_constant.exit:                   ; preds = %22, %66
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %100 = load ptr, ptr %99, align 8
-  call fastcc void @do_inheritance_check_on_method(ptr noundef %94, ptr noundef %98, ptr noundef %91, ptr noundef %100, ptr noundef %0, ptr noundef nonnull %92, i1 noundef zeroext true)
+  call fastcc void @do_inheritance_check_on_method(ptr noundef %94, ptr noundef %98, ptr noundef %91, ptr noundef %100, ptr noundef nonnull %0, ptr noundef nonnull %92, i1 noundef zeroext true)
   br label %160
 
 101:                                              ; preds = %88
@@ -5001,7 +5001,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
 601:                                              ; preds = %593
   %602 = getelementptr i8, ptr %594, i64 32
   %.val.i.i.i = load ptr, ptr %602, align 8
-  %603 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef readonly %.0331, i64 noundef range(i64 0, 4294967295) %.0120155.i.i, ptr noundef %589, ptr noundef %.val.i.i.i)
+  %603 = call fastcc ptr @find_first_constant_definition(ptr noundef nonnull %.0329, ptr noundef readonly %.0331, i64 noundef range(i64 0, 4294967295) %.0120155.i.i, ptr noundef %589, ptr noundef %.val.i.i.i)
   %604 = getelementptr inbounds nuw i8, ptr %603, i64 8
   %605 = load ptr, ptr %604, align 8
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 24
@@ -5034,7 +5034,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
 627:                                              ; preds = %616
   %628 = getelementptr i8, ptr %594, i64 32
   %.val148.i.i.i = load ptr, ptr %628, align 8
-  %629 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef readonly %.0331, i64 noundef range(i64 0, 4294967295) %.0120155.i.i, ptr noundef %589, ptr noundef %.val148.i.i.i)
+  %629 = call fastcc ptr @find_first_constant_definition(ptr noundef nonnull %.0329, ptr noundef readonly %.0331, i64 noundef range(i64 0, 4294967295) %.0120155.i.i, ptr noundef %589, ptr noundef %.val148.i.i.i)
   %630 = getelementptr inbounds nuw i8, ptr %629, i64 8
   %631 = load ptr, ptr %630, align 8
   %632 = getelementptr inbounds nuw i8, ptr %631, i64 24
@@ -5057,13 +5057,13 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
   %644 = load ptr, ptr %572, align 8
   %645 = load ptr, ptr %622, align 8
   %646 = load ptr, ptr %617, align 8
-  %647 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %.0329, ptr %645, i32 %624, ptr noundef %644, ptr %646, i32 %619)
+  %647 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef nonnull %.0329, ptr %645, i32 %624, ptr noundef %644, ptr %646, i32 %619)
   %648 = load ptr, ptr %572, align 8
   %649 = load ptr, ptr %617, align 8
   %650 = load i32, ptr %618, align 8
   %651 = load ptr, ptr %622, align 8
   %652 = load i32, ptr %623, align 8
-  %653 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %648, ptr %649, i32 %650, ptr noundef %.0329, ptr %651, i32 %652)
+  %653 = call fastcc i32 @zend_perform_covariant_type_check(ptr noundef %648, ptr %649, i32 %650, ptr noundef nonnull %.0329, ptr %651, i32 %652)
   %654 = icmp eq i32 %647, 0
   %655 = icmp eq i32 %653, 0
   %or.cond.i.i.i = select i1 %654, i1 true, i1 %655
@@ -5072,7 +5072,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
 656:                                              ; preds = %643
   %657 = getelementptr i8, ptr %594, i64 32
   %.val149.i.i.i = load ptr, ptr %657, align 8
-  %658 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef nonnull readonly %.0331, i64 noundef range(i64 0, 4294967295) %.0120155.i.i, ptr noundef %589, ptr noundef %.val149.i.i.i)
+  %658 = call fastcc ptr @find_first_constant_definition(ptr noundef nonnull %.0329, ptr noundef nonnull readonly %.0331, i64 noundef range(i64 0, 4294967295) %.0120155.i.i, ptr noundef %589, ptr noundef %.val149.i.i.i)
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 8
   %660 = load ptr, ptr %659, align 8
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 24
@@ -5123,7 +5123,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
   br label %687
 
 687:                                              ; preds = %686, %.critedge.i.i.i, %674
-  %688 = call i32 @zval_update_constant_ex(ptr noundef nonnull %11, ptr noundef %.0329) #16
+  %688 = call i32 @zval_update_constant_ex(ptr noundef nonnull %11, ptr noundef nonnull %.0329) #16
   %.not129.i.i.i = icmp eq i32 %688, 0
   br i1 %.not129.i.i.i, label %689, label %.critedge147.sink.split.i.i.i
 
@@ -5165,7 +5165,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
   br label %706
 
 706:                                              ; preds = %705, %.critedge3.i.i.i, %693
-  %707 = call i32 @zval_update_constant_ex(ptr noundef nonnull %12, ptr noundef %.0329) #16
+  %707 = call i32 @zval_update_constant_ex(ptr noundef nonnull %12, ptr noundef nonnull %.0329) #16
   %.not132.i.i.i = icmp eq i32 %707, 0
   br i1 %.not132.i.i.i, label %._crit_edge.i.i23.i, label %.critedge147.sink.split.i.i.i
 
@@ -5244,7 +5244,7 @@ zend_do_traits_constant_binding.exit.thread.i:    ; preds = %563
 .critedge147.i.i.i:                               ; preds = %735, %.critedge147.sink.split.i.i.i
   %736 = getelementptr i8, ptr %594, i64 32
   %.val150.i.i.i = load ptr, ptr %736, align 8
-  %737 = call fastcc ptr @find_first_constant_definition(ptr noundef %.0329, ptr noundef readonly %.0331, i64 noundef range(i64 0, 4294967295) %.0120155.i.i, ptr noundef %589, ptr noundef %.val150.i.i.i)
+  %737 = call fastcc ptr @find_first_constant_definition(ptr noundef nonnull %.0329, ptr noundef readonly %.0331, i64 noundef range(i64 0, 4294967295) %.0120155.i.i, ptr noundef %589, ptr noundef %.val150.i.i.i)
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 8
   %739 = load ptr, ptr %738, align 8
   %740 = getelementptr inbounds nuw i8, ptr %739, i64 24
@@ -5733,7 +5733,7 @@ zend_do_traits_constant_binding.exit.i:           ; preds = %.loopexit.i21.i
 .critedge226.i.i:                                 ; preds = %1001, %880, %875, %857, %.critedge226.sink.split.i.i
   %1002 = getelementptr inbounds nuw i8, ptr %847, i64 32
   %1003 = load ptr, ptr %1002, align 8
-  %1004 = call fastcc ptr @find_first_property_definition(ptr noundef %.0329, ptr noundef readonly %.0331, i64 noundef %.0183248.i.i, ptr noundef %841, ptr noundef %1003)
+  %1004 = call fastcc ptr @find_first_property_definition(ptr noundef nonnull %.0329, ptr noundef readonly %.0331, i64 noundef %.0183248.i.i, ptr noundef %841, ptr noundef %1003)
   %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 8
   %1006 = load ptr, ptr %1005, align 8
   %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 24
@@ -11911,7 +11911,7 @@ define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %
   %41 = and i32 %40, 2
   %.not.i433 = icmp eq i32 %41, 0
   %..i434 = select i1 %.not.i433, ptr %.val, ptr %0
-  tail call fastcc void @do_inheritance_check_on_method(ptr noundef nonnull %9, ptr noundef %..i, ptr noundef nonnull %3, ptr noundef %..i434, ptr noundef %0, ptr noundef null, i1 noundef zeroext false)
+  tail call fastcc void @do_inheritance_check_on_method(ptr noundef nonnull %9, ptr noundef %..i, ptr noundef nonnull %3, ptr noundef %..i434, ptr noundef nonnull %0, ptr noundef null, i1 noundef zeroext false)
   br label %269
 
 42:                                               ; preds = %29
@@ -12046,7 +12046,7 @@ define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %
   store i32 13, ptr %117, align 8
   %118 = call ptr @zend_hash_update(ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull %5) #16
   %119 = load ptr, ptr %118, align 8, !nonnull !4, !noundef !4
-  call void @zend_add_magic_method(ptr noundef %0, ptr noundef nonnull %119, ptr noundef %2) #16
+  call void @zend_add_magic_method(ptr noundef nonnull %0, ptr noundef nonnull %119, ptr noundef %2) #16
   br i1 %.not, label %269, label %120
 
 120:                                              ; preds = %115
@@ -12281,7 +12281,7 @@ define internal fastcc void @zend_add_trait_method(ptr noundef %0, ptr noundef %
   unreachable
 
 266:                                              ; preds = %234
-  call fastcc void @perform_delayable_implementation_check(ptr noundef %0, ptr noundef nonnull %119, ptr noundef %..i436, ptr noundef nonnull %.0377, ptr noundef %..i438)
+  call fastcc void @perform_delayable_implementation_check(ptr noundef nonnull %0, ptr noundef nonnull %119, ptr noundef %..i436, ptr noundef nonnull %.0377, ptr noundef %..i438)
   %267 = load i32, ptr %157, align 4
   %268 = and i32 %267, -268435457
   store i32 %268, ptr %157, align 4

@@ -1071,7 +1071,7 @@ slurmdb_unpack_coord_rec.exit.thread:             ; preds = %.lr.ph73, %39
 42:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %43 = load ptr, ptr %35, align 8
-  call void @list_append(ptr noundef %43, ptr noundef %37) #6
+  call void @list_append(ptr noundef %43, ptr noundef nonnull %37) #6
   %44 = add nuw nsw i32 %.172, 1
   %45 = load i32, ptr %6, align 4
   %46 = icmp ult i32 %44, %45
@@ -1636,7 +1636,7 @@ slurmdb_unpack_coord_rec.exit.thread:             ; preds = %.lr.ph48, %31
 34:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %35 = load ptr, ptr %27, align 8
-  call void @list_append(ptr noundef %35, ptr noundef %29) #6
+  call void @list_append(ptr noundef %35, ptr noundef nonnull %29) #6
   %36 = add nuw nsw i32 %.147, 1
   %37 = load i32, ptr %6, align 4
   %38 = icmp ult i32 %36, %37
@@ -4505,7 +4505,7 @@ slurmdb_unpack_assoc_rec.exit:                    ; preds = %3
   br label %37
 
 37:                                               ; preds = %31, %28, %25, %22, %19, %16, %13, %7, %34
-  call void @slurmdb_destroy_assoc_rec(ptr noundef %8) #6
+  call void @slurmdb_destroy_assoc_rec(ptr noundef nonnull %8) #6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %37, %slurmdb_unpack_assoc_rec.exit
@@ -6632,7 +6632,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_res_rec(ptr noundef writeonly captur
   br i1 %.not51, label %48, label %.loopexit58
 
 48:                                               ; preds = %45
-  %49 = call i32 @unpack32(ptr noundef %7, ptr noundef %2) #6
+  %49 = call i32 @unpack32(ptr noundef nonnull %7, ptr noundef %2) #6
   %.not52 = icmp eq i32 %49, 0
   br i1 %.not52, label %50, label %.loopexit58
 
@@ -16562,7 +16562,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_update_object(ptr noundef writeonly 
   br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !119
 
 .loopexit23:                                      ; preds = %.lr.ph, %22, %3, %19
-  call void @slurmdb_destroy_update_object(ptr noundef %6) #6
+  call void @slurmdb_destroy_update_object(ptr noundef nonnull %6) #6
   store ptr null, ptr %0, align 8
   br label %.loopexit
 

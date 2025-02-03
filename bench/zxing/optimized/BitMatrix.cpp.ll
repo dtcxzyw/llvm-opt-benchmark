@@ -127,7 +127,7 @@ define void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull readonly ali
 46:                                               ; preds = %44, %18, %10
   %.sink = phi ptr [ %42, %44 ], [ %16, %18 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %19, %18 ], [ %11, %10 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #15
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #15
   resume { ptr, i32 } %.pn
 }
 
@@ -362,7 +362,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #15
+  tail call void @__cxa_free_exception(ptr nonnull %25) #15
   br label %32
 
 31:                                               ; preds = %19, %15
@@ -1788,7 +1788,7 @@ _ZN5ZXing9BitMatrix9setRegionEiiii.exit.us:       ; preds = %63
 115:                                              ; preds = %113, %98, %88
   %.sink.i = phi ptr [ %111, %113 ], [ %97, %98 ], [ %87, %88 ]
   %.pn.i = phi { ptr, i32 } [ %114, %113 ], [ %99, %98 ], [ %89, %88 ]
-  tail call void @__cxa_free_exception(ptr %.sink.i) #15
+  tail call void @__cxa_free_exception(ptr nonnull %.sink.i) #15
   br label %.body
 
 116:                                              ; preds = %.invoke, %.split.us

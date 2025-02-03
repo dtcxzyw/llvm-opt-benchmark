@@ -202,7 +202,7 @@ _ZN5boost13intrusive_ptrINS_6fibers7contextEE5resetEv.exit: ; preds = %22, %24, 
 44:                                               ; preds = %20, %12
   %.sink = phi ptr [ %17, %20 ], [ %9, %12 ]
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %13, %12 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #17
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -249,7 +249,7 @@ define void @_ZN5boost6fibers5fiber6detachEv(ptr noundef nonnull align 8 capture
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #17
+  tail call void @__cxa_free_exception(ptr nonnull %4) #17
   resume { ptr, i32 } %8
 
 9:                                                ; preds = %1

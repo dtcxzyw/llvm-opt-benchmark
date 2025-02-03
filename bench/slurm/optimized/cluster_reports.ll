@@ -686,7 +686,7 @@ define internal fastcc void @_set_assoc_cond(ptr noundef nonnull captures(none) 
   %.0138 = phi i32 [ %36, %.thread ], [ -2, %44 ]
   %48 = tail call i32 @llvm.smax.i32(i32 %.0138, i32 1)
   %49 = zext nneg i32 %48 to i64
-  %50 = tail call i32 @xstrncasecmp(ptr noundef %47, ptr noundef nonnull @.str.21, i64 noundef %49) #10
+  %50 = tail call i32 @xstrncasecmp(ptr noundef nonnull %47, ptr noundef nonnull @.str.21, i64 noundef %49) #10
   %.not119 = icmp eq i32 %50, 0
   br i1 %.not119, label %129, label %51
 
@@ -2347,7 +2347,7 @@ define internal fastcc void @_set_wckey_cond(ptr noundef nonnull captures(none) 
   %.0101143 = phi i32 [ %36, %.thread ], [ -2, %44 ]
   %48 = tail call i32 @llvm.smax.i32(i32 %.0101143, i32 1)
   %49 = zext nneg i32 %48 to i64
-  %50 = tail call i32 @xstrncasecmp(ptr noundef %47, ptr noundef nonnull @.str.21, i64 noundef %49) #10
+  %50 = tail call i32 @xstrncasecmp(ptr noundef nonnull %47, ptr noundef nonnull @.str.21, i64 noundef %49) #10
   %.not118 = icmp eq i32 %50, 0
   br i1 %.not118, label %127, label %51
 
@@ -2639,7 +2639,7 @@ define dso_local noundef i32 @cluster_utilization(i32 noundef %0, ptr noundef re
   %.0102.i.i = phi i32 [ %38, %.thread.i.i ], [ -2, %44 ]
   %47 = tail call i32 @llvm.smax.i32(i32 %.0102.i.i, i32 1)
   %48 = zext nneg i32 %47 to i64
-  %49 = tail call i32 @xstrncasecmp(ptr noundef %36, ptr noundef nonnull @.str.21, i64 noundef %48) #10
+  %49 = tail call i32 @xstrncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.21, i64 noundef %48) #10
   %.not90.i.i = icmp eq i32 %49, 0
   br i1 %.not90.i.i, label %89, label %54
 

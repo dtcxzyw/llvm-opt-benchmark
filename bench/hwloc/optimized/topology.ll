@@ -1378,7 +1378,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @hwloc__replace_infos(ptr 
   br label %23
 
 20:                                               ; preds = %14
-  tail call void @free(ptr noundef %12) #33
+  tail call void @free(ptr noundef nonnull %12) #33
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #33
@@ -1672,7 +1672,7 @@ define i32 @hwloc_modify_infos(ptr noundef captures(none) %0, i64 noundef %1, pt
   br i1 %.not33.us.i, label %75, label %79
 
 75:                                               ; preds = %.lr.ph.split.split.us.i
-  tail call void @free(ptr noundef %73) #33
+  tail call void @free(ptr noundef nonnull %73) #33
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %77 = load ptr, ptr %76, align 8
   tail call void @free(ptr noundef %77) #33
@@ -1719,7 +1719,7 @@ define i32 @hwloc_modify_infos(ptr noundef captures(none) %0, i64 noundef %1, pt
   br i1 %.not35.i, label %95, label %99
 
 95:                                               ; preds = %91
-  tail call void @free(ptr noundef %89) #33
+  tail call void @free(ptr noundef nonnull %89) #33
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %97 = load ptr, ptr %96, align 8
   tail call void @free(ptr noundef %97) #33

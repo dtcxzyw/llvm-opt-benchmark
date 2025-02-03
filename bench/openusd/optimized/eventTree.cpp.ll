@@ -2849,7 +2849,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit76: ; pred
           to label %.noexc79 unwind label %.loopexit140
 
 .noexc79:                                         ; preds = %.lr.ph.i
-  %168 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.03.i) #20
+  %168 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.03.i) #20
   %.not.i77 = icmp eq ptr %168, %137
   br i1 %.not.i77, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
 

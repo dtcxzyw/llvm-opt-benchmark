@@ -76916,7 +76916,7 @@ _ZNK17QArrayDataPointerI12QKeySequenceE11needsDetachEv.exit.thread: ; preds = %3
 _ZN9QtPrivate16QMovableArrayOpsI12QKeySequenceE8InserterD2Ev.exit22: ; preds = %57
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %58, ptr align 1 %59, i64 %62, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %58, ptr align 1 %59, i64 %62, i1 false)
   %64 = ptrtoint ptr %58 to i64
   %65 = ptrtoint ptr %59 to i64
   %66 = sub i64 %64, %65

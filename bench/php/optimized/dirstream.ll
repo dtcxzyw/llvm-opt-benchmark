@@ -65,7 +65,7 @@ define internal range(i64 -1, 258) i64 @phar_dir_read(ptr noundef readonly captu
   br i1 %11, label %22, label %12
 
 12:                                               ; preds = %8
-  %13 = call i32 @zend_hash_move_forward_ex(ptr noundef %7, ptr noundef nonnull %9) #10
+  %13 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %7, ptr noundef nonnull %9) #10
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8
@@ -453,7 +453,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
 .thread:                                          ; preds = %11, %17, %15
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 36
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %1, ptr noundef nonnull %20) #10
-  %21 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef %1, ptr noundef nonnull %20) #10
+  %21 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef nonnull %1, ptr noundef nonnull %20) #10
   %22 = icmp eq i32 %21, 3
   br i1 %22, label %._crit_edge, label %.lr.ph
 
@@ -463,7 +463,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   br label %25
 
 25:                                               ; preds = %.lr.ph, %.backedge
-  %26 = call i32 @zend_hash_get_current_key_ex(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %20) #10
+  %26 = call i32 @zend_hash_get_current_key_ex(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %20) #10
   %27 = icmp eq i32 %26, 3
   br i1 %27, label %._crit_edge, label %28
 
@@ -487,12 +487,12 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   br i1 %.not123, label %38, label %42
 
 38:                                               ; preds = %35, %32
-  %39 = call i32 @zend_hash_move_forward_ex(ptr noundef %1, ptr noundef nonnull %20) #10
+  %39 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %1, ptr noundef nonnull %20) #10
   %.not135 = icmp eq i32 %39, 0
   br i1 %.not135, label %.backedge, label %._crit_edge
 
 .backedge:                                        ; preds = %38, %49, %70, %75, %98
-  %40 = call i32 @zend_hash_get_current_key_type_ex(ptr noundef %1, ptr noundef nonnull %20) #10
+  %40 = call i32 @zend_hash_get_current_key_type_ex(ptr noundef nonnull %1, ptr noundef nonnull %20) #10
   %41 = icmp eq i32 %40, 3
   br i1 %41, label %._crit_edge, label %25
 
@@ -512,7 +512,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   br i1 %.not130, label %49, label %51
 
 49:                                               ; preds = %47
-  %50 = call i32 @zend_hash_move_forward_ex(ptr noundef %1, ptr noundef nonnull %20) #10
+  %50 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %1, ptr noundef nonnull %20) #10
   %.not131 = icmp eq i32 %50, 0
   br i1 %.not131, label %.backedge, label %._crit_edge
 
@@ -552,7 +552,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   br i1 %.not124, label %72, label %70
 
 70:                                               ; preds = %68
-  %71 = call i32 @zend_hash_move_forward_ex(ptr noundef %1, ptr noundef nonnull %20) #10
+  %71 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %1, ptr noundef nonnull %20) #10
   %.not128 = icmp eq i32 %71, 0
   br i1 %.not128, label %.backedge, label %._crit_edge
 
@@ -563,7 +563,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   br i1 %.not125, label %77, label %75
 
 75:                                               ; preds = %72
-  %76 = call i32 @zend_hash_move_forward_ex(ptr noundef %1, ptr noundef nonnull %20) #10
+  %76 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %1, ptr noundef nonnull %20) #10
   %.not127 = icmp eq i32 %76, 0
   br i1 %.not127, label %.backedge, label %._crit_edge
 
@@ -614,7 +614,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
 98:                                               ; preds = %95, %94
   %.0115143 = phi ptr [ %.0115142, %95 ], [ %.0115, %94 ]
   call void @_efree(ptr noundef nonnull %.0115143) #10
-  %99 = call i32 @zend_hash_move_forward_ex(ptr noundef %1, ptr noundef nonnull %20) #10
+  %99 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %1, ptr noundef nonnull %20) #10
   %.not134 = icmp eq i32 %99, 0
   br i1 %.not134, label %.backedge, label %._crit_edge
 
@@ -626,12 +626,12 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   br i1 %102, label %105, label %103
 
 103:                                              ; preds = %._crit_edge
-  call void @zend_hash_sort_ex(ptr noundef %7, ptr noundef nonnull @zend_sort, ptr noundef nonnull @phar_compare_dir_name, i1 noundef zeroext false) #10
-  %104 = call ptr @_php_stream_alloc(ptr noundef nonnull @phar_dir_ops, ptr noundef %7, ptr noundef null, ptr noundef nonnull @.str.25) #10
+  call void @zend_hash_sort_ex(ptr noundef nonnull %7, ptr noundef nonnull @zend_sort, ptr noundef nonnull @phar_compare_dir_name, i1 noundef zeroext false) #10
+  %104 = call ptr @_php_stream_alloc(ptr noundef nonnull @phar_dir_ops, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull @.str.25) #10
   br label %107
 
 105:                                              ; preds = %._crit_edge
-  %106 = call ptr @_php_stream_alloc(ptr noundef nonnull @phar_dir_ops, ptr noundef %7, ptr noundef null, ptr noundef nonnull @.str.25) #10
+  %106 = call ptr @_php_stream_alloc(ptr noundef nonnull @phar_dir_ops, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull @.str.25) #10
   br label %107
 
 107:                                              ; preds = %105, %103, %18

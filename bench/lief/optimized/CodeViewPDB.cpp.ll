@@ -2052,7 +2052,7 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr n
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #21
+  tail call void @__cxa_free_exception(ptr nonnull %2) #21
   resume { ptr, i32 } %5
 }
 
@@ -17229,7 +17229,7 @@ _ZN3fmt2v96detail6bigintmLIiEERS2_T_.exit303:     ; preds = %_ZN3fmt2v96detail6b
 503:                                              ; preds = %500
   %504 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %501) #21
+  call void @__cxa_free_exception(ptr nonnull %501) #21
   br label %.body
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %495
@@ -31661,7 +31661,7 @@ _ZN3fmt2v96detail9normalizeILi0EyEENS1_8basic_fpIT0_EES5_.exit: ; preds = %.lr.p
 118:                                              ; preds = %115
   %119 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %116) #21
+  tail call void @__cxa_free_exception(ptr nonnull %116) #21
   resume { ptr, i32 } %119
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %110
@@ -34056,7 +34056,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt2v915range_formatterIhcvE5parseIN
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #21
+  tail call void @__cxa_free_exception(ptr nonnull %15) #21
   resume { ptr, i32 } %18
 
 19:                                               ; preds = %12

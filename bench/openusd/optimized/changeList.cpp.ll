@@ -1896,7 +1896,7 @@ define noundef nonnull align 8 dereferenceable(195) ptr @_ZN32pxrInternal_v0_24_
 
 45:                                               ; preds = %37
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 208
-  %47 = invoke noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_13SdfChangeList5EntryEELj1EE5eraseEPKS5_S8_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %26, ptr noundef nonnull %46)
+  %47 = invoke noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_13SdfChangeList5EntryEELj1EE5eraseEPKS5_S8_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %26, ptr noundef nonnull %46)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_13SdfChangeList5EntryEELj1EE5eraseEPKS5_.exit unwind label %48
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_13SdfChangeList5EntryEELj1EE5eraseEPKS5_.exit: ; preds = %45

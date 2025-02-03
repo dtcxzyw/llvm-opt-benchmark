@@ -2913,7 +2913,7 @@ if.else.i.i.i522:                                 ; preds = %for.body.i513
           to label %_ZNSt20back_insert_iteratorISt6vectorIS0_IjSaIjEESaIS2_EEEaSERKS2_.exit.i unwind label %lpad65.i.loopexit
 
 _ZNSt20back_insert_iteratorISt6vectorIS0_IjSaIjEESaIS2_EEEaSERKS2_.exit.i: ; preds = %if.else.i.i.i522, %_ZNSt16allocator_traitsISaISt6vectorIjSaIjEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
-  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.012.i) #29
+  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.012.i) #29
   %cmp.i.not.i520 = icmp eq ptr %call.i.i, %114
   br i1 %cmp.i.not.i520, label %invoke.cont79.i, label %for.body.i513, !llvm.loop !48
 
@@ -8748,7 +8748,7 @@ if.else.i.i.i:                                    ; preds = %for.body.i174
           to label %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit.i unwind label %lpad71.i.loopexit
 
 _ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit.i: ; preds = %if.else.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i.i
-  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.012.i) #29
+  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.012.i) #29
   %cmp.i.not.i178 = icmp eq ptr %call.i.i, %17
   br i1 %cmp.i.not.i178, label %invoke.cont85.i, label %for.body.i174, !llvm.loop !143
 

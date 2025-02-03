@@ -3826,7 +3826,7 @@ do.body1549.backedge:                             ; preds = %land.lhs.true1604, 
 
 if.then1608:                                      ; preds = %land.lhs.true1604
   %255 = load ptr, ptr @bio_err, align 8
-  %call1609 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %255, ptr noundef nonnull @.str.492, ptr noundef %call31) #16
+  %call1609 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %255, ptr noundef nonnull @.str.492, ptr noundef nonnull %call31) #16
   br label %do.end1619
 
 if.then1613:                                      ; preds = %if.end1598
@@ -3995,7 +3995,7 @@ if.end1741:                                       ; preds = %sw.bb1732
 
 do.body1752:                                      ; preds = %if.end1741, %land.rhs1761
   %foundit1733.1 = phi i32 [ %spec.select699, %land.rhs1761 ], [ 0, %if.end1741 ]
-  %call1753 = call i32 @BIO_gets(ptr noundef nonnull %call1736, ptr noundef %call31, i32 noundef 8192) #16
+  %call1753 = call i32 @BIO_gets(ptr noundef nonnull %call1736, ptr noundef nonnull %call31, i32 noundef 8192) #16
   %call1754 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call31, ptr noundef nonnull dereferenceable(1) @.str.475) #17
   %tobool1755.not = icmp eq ptr %call1754, null
   %spec.select699 = select i1 %tobool1755.not, i32 %foundit1733.1, i32 1
@@ -4027,7 +4027,7 @@ if.then1774:                                      ; preds = %if.then1774.critedg
 
 if.end1776:                                       ; preds = %if.then1774, %if.end1768.loopexit
   %call1777 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %sbio.2, ptr noundef nonnull @.str.477) #16
-  %call1778 = call i32 @BIO_read(ptr noundef %sbio.2, ptr noundef %call31, i32 noundef 8192) #16
+  %call1778 = call i32 @BIO_read(ptr noundef %sbio.2, ptr noundef nonnull %call31, i32 noundef 8192) #16
   %cmp1779 = icmp slt i32 %call1778, 0
   br i1 %cmp1779, label %if.then1781, label %if.end1783
 
@@ -4396,9 +4396,9 @@ if.then2043:                                      ; preds = %if.then2036, %if.en
   %dec2044 = add nsw i32 %reconnect.2.ph, -1
   %314 = load ptr, ptr @bio_c_out, align 8
   %call2045 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %314, ptr noundef nonnull @.str.519) #16
-  call void @do_ssl_shutdown(ptr noundef %call1001) #16
-  call void @SSL_set_connect_state(ptr noundef %call1001) #16
-  %call2046 = call i32 @SSL_get_fd(ptr noundef %call1001) #16
+  call void @do_ssl_shutdown(ptr noundef nonnull %call1001) #16
+  call void @SSL_set_connect_state(ptr noundef nonnull %call1001) #16
+  %call2046 = call i32 @SSL_get_fd(ptr noundef nonnull %call1001) #16
   %call2047 = call i32 @BIO_closesocket(i32 noundef %call2046) #16
   br label %re_start.outer
 

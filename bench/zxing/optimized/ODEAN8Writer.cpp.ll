@@ -349,7 +349,7 @@ _ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_t
 69:                                               ; preds = %66, %26, %10
   %.sink = phi ptr [ %64, %66 ], [ %24, %26 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %27, %26 ], [ %11, %10 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #14
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #14
   resume { ptr, i32 } %.pn
 }
 

@@ -7843,7 +7843,7 @@ invoke.cont1064:                                  ; preds = %if.then1062
   br i1 %brmerge181, label %if.then1071, label %if.else1108.invoke
 
 if.then1071:                                      ; preds = %invoke.cont1064
-  %call1075 = invoke noundef ptr @_ZN12re2automatonclEP4expr(ptr noundef nonnull align 8 dereferenceable(176) %m_mk_aut1073, ptr noundef %re.0)
+  %call1075 = invoke noundef ptr @_ZN12re2automatonclEP4expr(ptr noundef nonnull align 8 dereferenceable(176) %m_mk_aut1073, ptr noundef nonnull %re.0)
           to label %invoke.cont1074 unwind label %lpad413
 
 invoke.cont1074:                                  ; preds = %if.then1071

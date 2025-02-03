@@ -2229,7 +2229,7 @@ land.lhs.true:                                    ; preds = %invoke.cont38
 if.then43:                                        ; preds = %land.lhs.true
   %resB.val89 = load ptr, ptr %21, align 8
   %resB.val90 = load ptr, ptr %fResPath, align 8
-  %call.i94 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %dataEntry.3, i32 noundef %call39, ptr noundef null, i32 noundef -1, ptr noundef %resB.val89, ptr noundef %resB.val90, i32 noundef 0, ptr noundef %helper.2, ptr noundef nonnull %status)
+  %call.i94 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull %dataEntry.3, i32 noundef %call39, ptr noundef null, i32 noundef -1, ptr noundef %resB.val89, ptr noundef %resB.val90, i32 noundef 0, ptr noundef %helper.2, ptr noundef nonnull %status)
           to label %invoke.cont44 unwind label %lpad.loopexit
 
 invoke.cont44:                                    ; preds = %if.then43
@@ -6304,7 +6304,7 @@ lpad132:                                          ; preds = %if.else.i143, %if.t
 
 if.end146:                                        ; preds = %invoke.cont142
   %40 = load ptr, ptr %temp, align 8
-  %call149 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %dataEntry.2196, i32 noundef %call143, ptr noundef %40, i32 noundef -1, ptr noundef %validLocaleDataEntry, ptr noundef %containerResPath.addr.1195, i32 noundef %add147, ptr noundef %resB.addr.3194, ptr noundef %status)
+  %call149 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull %dataEntry.2196, i32 noundef %call143, ptr noundef %40, i32 noundef -1, ptr noundef %validLocaleDataEntry, ptr noundef %containerResPath.addr.1195, i32 noundef %add147, ptr noundef %resB.addr.3194, ptr noundef %status)
           to label %invoke.cont148 unwind label %lpad132
 
 invoke.cont148:                                   ; preds = %if.end146

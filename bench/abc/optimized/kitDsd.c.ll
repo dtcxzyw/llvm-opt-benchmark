@@ -7066,7 +7066,7 @@ Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i518,
   br i1 %149, label %150, label %250
 
 150:                                              ; preds = %Kit_TruthIsOpposite.exit
-  %151 = tail call i32 @Kit_TruthSupport(ptr noundef %24, i32 noundef %107) #27
+  %151 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %24, i32 noundef %107) #27
   %152 = load i32, ptr %.tr648.ph, align 4
   %153 = lshr i32 %152, 26
   %154 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %26, i32 noundef %153) #27
@@ -7758,10 +7758,10 @@ Kit_TruthIsEqual.exit590:                         ; preds = %select.unfold.i586,
 .lr.ph725:                                        ; preds = %529, %671
   %532 = phi i32 [ %540, %671 ], [ %.pre-phi893, %529 ]
   %.3723 = phi i32 [ %672, %671 ], [ %.1475.in727, %529 ]
-  tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %29, ptr noundef %24, i32 noundef %532, i32 noundef %.3723) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %29, ptr noundef nonnull %24, i32 noundef %532, i32 noundef %.3723) #27
   %533 = load i32, ptr %.tr648.ph, align 4
   %534 = lshr i32 %533, 26
-  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %33, ptr noundef %24, i32 noundef %534, i32 noundef %.3723) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %33, ptr noundef nonnull %24, i32 noundef %534, i32 noundef %.3723) #27
   %535 = load i32, ptr %.tr648.ph, align 4
   %536 = lshr i32 %535, 26
   tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %36, ptr noundef nonnull %26, i32 noundef %536, i32 noundef %.3723) #27

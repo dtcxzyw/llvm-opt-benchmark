@@ -1967,7 +1967,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp.not, label %cleanup, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true
-  invoke void @_ZNK7rocksdb7blob_db10BlobDBImpl15DecompressSliceERKNS_5SliceENS_15CompressionTypeEPNS_13PinnableSliceE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(2448) %0, ptr noundef nonnull align 8 dereferenceable(16) %blob, i8 noundef zeroext %9, ptr noundef %blob)
+  invoke void @_ZNK7rocksdb7blob_db10BlobDBImpl15DecompressSliceERKNS_5SliceENS_15CompressionTypeEPNS_13PinnableSliceE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(2448) %0, ptr noundef nonnull align 8 dereferenceable(16) %blob, i8 noundef zeroext %9, ptr noundef nonnull %blob)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %if.then21

@@ -172,7 +172,7 @@ lpad.loopexit.split-lp50.loopexit.split-lp:       ; preds = %invoke.cont45.invok
   br label %ehcleanup
 
 for.inc:                                          ; preds = %invoke.cont9, %invoke.cont12, %invoke.cont17, %invoke.cont21
-  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.0) #12
+  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.0) #12
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %invoke.cont7
@@ -466,7 +466,7 @@ lpad.loopexit.split-lp29:                         ; preds = %entry, %for.end, %i
   br label %ehcleanup85
 
 for.inc:                                          ; preds = %invoke.cont9, %invoke.cont12, %invoke.cont17, %invoke.cont21
-  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.0) #12
+  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.0) #12
   br label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %invoke.cont7
@@ -755,7 +755,7 @@ lpad:                                             ; preds = %invoke.cont8, %invo
 lpad7:                                            ; preds = %invoke.cont5
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #13
+  call void @__cxa_free_exception(ptr nonnull %exception) #13
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -795,7 +795,7 @@ lpad13:                                           ; preds = %invoke.cont22, %inv
 lpad21:                                           ; preds = %invoke.cont18
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception20) #13
+  call void @__cxa_free_exception(ptr nonnull %exception20) #13
   br label %eh.resume
 
 if.end26:                                         ; preds = %if.end
@@ -835,7 +835,7 @@ lpad32:                                           ; preds = %invoke.cont41, %inv
 lpad40:                                           ; preds = %invoke.cont37
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception39) #13
+  call void @__cxa_free_exception(ptr nonnull %exception39) #13
   br label %eh.resume
 
 if.end45:                                         ; preds = %if.end26
@@ -955,7 +955,7 @@ invoke.cont20:                                    ; preds = %.noexc
 invoke.cont24:                                    ; preds = %invoke.cont20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
-  %call.i.i21 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.0) #12
+  %call.i.i21 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.0) #12
   br label %for.cond, !llvm.loop !12
 
 lpad.loopexit:                                    ; preds = %for.cond77, %invoke.cont79, %invoke.cont88
@@ -1208,7 +1208,7 @@ invoke.cont20:                                    ; preds = %.noexc
 invoke.cont24:                                    ; preds = %invoke.cont20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
-  %call.i.i11 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.0) #12
+  %call.i.i11 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.0) #12
   br label %for.cond, !llvm.loop !17
 
 lpad.loopexit35:                                  ; preds = %for.cond
@@ -1366,7 +1366,7 @@ invoke.cont96:                                    ; preds = %invoke.cont93
           to label %for.inc101 unwind label %lpad38.loopexit
 
 for.inc101:                                       ; preds = %invoke.cont93, %invoke.cont96
-  %call.i.i21 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i75.sroa.0.0) #12
+  %call.i.i21 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i75.sroa.0.0) #12
   br label %for.cond82, !llvm.loop !19
 
 for.end104:                                       ; preds = %invoke.cont90

@@ -6663,7 +6663,7 @@ _ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_
   %52 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %101 unwind label %53
+          to label %.thread unwind label %53
 
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
@@ -6730,7 +6730,7 @@ _ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_
   %76 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %104 unwind label %77
+          to label %103 unwind label %77
 
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
@@ -6807,52 +6807,52 @@ _ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaI
 99:                                               ; preds = %31
   %100 = landingpad { ptr, i32 }
           catch ptr null
-  br label %104
+  br label %103
 
-101:                                              ; preds = %51
-  %102 = extractvalue { ptr, i32 } %52, 0
-  %103 = tail call ptr @__cxa_begin_catch(ptr %102) #28
+.thread:                                          ; preds = %51
+  %101 = extractvalue { ptr, i32 } %52, 0
+  %102 = tail call ptr @__cxa_begin_catch(ptr %101) #28
   tail call void @_ZNSt16allocator_traitsISaIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEE7destroyIS5_EEvRS6_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23) #28
   br label %109
 
-104:                                              ; preds = %99, %75
+103:                                              ; preds = %99, %75
   %.0.lpad-body.ph = phi ptr [ %57, %75 ], [ %22, %99 ]
   %eh.lpad-body.ph = phi { ptr, i32 } [ %76, %75 ], [ %100, %99 ]
-  %105 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
-  %106 = tail call ptr @__cxa_begin_catch(ptr %105) #28
+  %104 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
+  %105 = tail call ptr @__cxa_begin_catch(ptr %104) #28
   invoke void @_ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S7_RSaIT0_E(ptr noundef %22, ptr noundef nonnull %.0.lpad-body.ph, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %109 unwind label %107
+          to label %108 unwind label %106
 
-107:                                              ; preds = %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45, %104
-  %108 = landingpad { ptr, i32 }
+106:                                              ; preds = %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45, %103
+  %107 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %112 unwind label %113
+          to label %111 unwind label %112
 
-109:                                              ; preds = %104, %101
+108:                                              ; preds = %103
   %.not.i44 = icmp eq ptr %22, null
-  br i1 %.not.i44, label %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45, label %110
+  br i1 %.not.i44, label %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45, label %109
 
-110:                                              ; preds = %109
-  %111 = shl nuw nsw i64 %16, 5
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %111) #30
+109:                                              ; preds = %.thread, %108
+  %110 = shl nuw nsw i64 %16, 5
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %110) #30
   br label %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45
 
-_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45: ; preds = %110, %109
+_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45: ; preds = %109, %108
   invoke void @__cxa_rethrow() #29
-          to label %116 unwind label %107
+          to label %115 unwind label %106
 
-112:                                              ; preds = %107
-  resume { ptr, i32 } %108
+111:                                              ; preds = %106
+  resume { ptr, i32 } %107
 
-113:                                              ; preds = %107
-  %114 = landingpad { ptr, i32 }
+112:                                              ; preds = %106
+  %113 = landingpad { ptr, i32 }
           catch ptr null
-  %115 = extractvalue { ptr, i32 } %114, 0
-  tail call void @__clang_call_terminate(ptr %115) #31
+  %114 = extractvalue { ptr, i32 } %113, 0
+  tail call void @__clang_call_terminate(ptr %114) #31
   unreachable
 
-116:                                              ; preds = %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45
+115:                                              ; preds = %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45
   unreachable
 }
 
@@ -7017,7 +7017,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_17bad_function_ca
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 
@@ -7152,7 +7152,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_17bad_function_callEE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #28
+  tail call void @__cxa_free_exception(ptr nonnull %2) #28
   resume { ptr, i32 } %5
 }
 

@@ -606,7 +606,7 @@ lpad17:                                           ; preds = %invoke.cont18
 
 if.end:                                           ; preds = %invoke.cont15, %invoke.cont18, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %view) #17
-  %call.i.i7 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.0) #19
+  %call.i.i7 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.0) #19
   br label %for.cond, !llvm.loop !10
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont6
@@ -1090,7 +1090,7 @@ cleanup.action29:                                 ; preds = %lpad16, %lpad.i, %l
   br label %ehcleanup38
 
 for.inc:                                          ; preds = %cleanup.done27, %invoke.cont31
-  %call.i.i11 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.0) #19
+  %call.i.i11 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.0) #19
   br label %for.cond, !llvm.loop !12
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont6
@@ -1260,7 +1260,7 @@ for.inc.critedge:                                 ; preds = %invoke.cont11, %_ZS
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.critedge, %cleanup.action
-  %call.i.i30 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.052) #19
+  %call.i.i30 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.052) #19
   %call2 = call ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %channelList)
   %cmp.i.i.i.not = icmp eq ptr %call.i.i30, %call2
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body, !llvm.loop !13

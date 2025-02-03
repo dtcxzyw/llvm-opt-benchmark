@@ -370,7 +370,7 @@ if.end20.i:                                       ; preds = %if.end16.i
   %conv.i = zext i32 %24 to i64
   call void @bitmap_set(ptr noundef %25, i64 noundef %conv.i) #18
   %26 = load ptr, ptr @the_repository, align 8
-  %call22.i = call ptr @repo_get_commit_tree(ptr noundef %26, ptr noundef %call3.i) #18
+  %call22.i = call ptr @repo_get_commit_tree(ptr noundef %26, ptr noundef nonnull %call3.i) #18
   call void @prio_queue_put(ptr noundef nonnull %tree_queue, ptr noundef %call22.i) #18
   %parents.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 48
   %p.047.i = load ptr, ptr %parents.i, align 8
@@ -2454,7 +2454,7 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   tail call void @bitmap_set(ptr noundef %bitmap, i64 noundef %conv) #18
-  %call.i11 = tail call i32 @parse_tree_gently(ptr noundef %tree, i32 noundef 0) #18
+  %call.i11 = tail call i32 @parse_tree_gently(ptr noundef nonnull %tree, i32 noundef 0) #18
   %cmp = icmp slt i32 %call.i11, 0
   br i1 %cmp, label %if.then9, label %if.end13
 
@@ -2529,7 +2529,7 @@ sw.epilog:                                        ; preds = %while.body, %sw.bb,
   br i1 %tobool15.not, label %while.end, label %while.body, !llvm.loop !35
 
 while.end:                                        ; preds = %sw.epilog, %if.end13
-  call void @free_tree_buffer(ptr noundef %tree) #18
+  call void @free_tree_buffer(ptr noundef nonnull %tree) #18
   br label %return
 
 return:                                           ; preds = %sw.bb, %find_object_pos.exit24.thread, %find_object_pos.exit.thread, %if.end, %while.end

@@ -1930,7 +1930,7 @@ if.end26.us:                                      ; preds = %land.end.us
   %next.us = getelementptr inbounds nuw i8, ptr %iterbdrvs.036.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool5.not.us = icmp eq ptr %iterbdrvs.0.us, null
-  br i1 %tobool5.not.us, label %while.end, label %while.body.us, !llvm.loop !18
+  br i1 %tobool5.not.us, label %if.then28, label %while.body.us, !llvm.loop !18
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   br i1 %tobool12.not, label %while.body.us39, label %while.body
@@ -2049,13 +2049,13 @@ if.end26:                                         ; preds = %land.end.loopexit
   %next = getelementptr inbounds nuw i8, ptr %iterbdrvs.036, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
-  br i1 %tobool5.not, label %while.end, label %while.body, !llvm.loop !18
+  br i1 %tobool5.not, label %if.then28, label %while.body, !llvm.loop !18
 
-while.end:                                        ; preds = %if.end26, %land.end.loopexit.us63, %if.end26.us, %if.end26.us.us, %while.cond.preheader
+while.end:                                        ; preds = %land.end.loopexit.us63, %if.end26.us.us, %while.cond.preheader
   %tobool27.not = icmp eq ptr %vmstate_bs, null
   br i1 %tobool27.not, label %if.else29, label %if.then28
 
-if.then28:                                        ; preds = %while.end
+if.then28:                                        ; preds = %if.end26, %if.end26.us, %while.end
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 789, ptr noundef nonnull @__func__.bdrv_all_find_vmstate_bs, ptr noundef nonnull @.str.27, ptr noundef nonnull %vmstate_bs) #6
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 

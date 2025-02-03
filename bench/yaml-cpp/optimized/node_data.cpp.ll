@@ -839,7 +839,7 @@ invoke.cont:                                      ; preds = %if.then7
 lpad:                                             ; preds = %if.then7
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %4
 
 if.end8:                                          ; preds = %if.end.thread, %if.end
@@ -1058,7 +1058,7 @@ invoke.cont:                                      ; preds = %sw.bb3
 lpad:                                             ; preds = %sw.bb3
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %5
 
 sw.epilog:                                        ; preds = %entry, %sw.bb3.i, %_ZN4YAML6detail9node_data9reset_mapEv.exit.i
@@ -1406,7 +1406,7 @@ invoke.cont:                                      ; preds = %sw.bb3
 lpad:                                             ; preds = %sw.bb3
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %5
 
 sw.epilog:                                        ; preds = %entry, %sw.bb3.i, %_ZN4YAML6detail9node_data9reset_mapEv.exit.i

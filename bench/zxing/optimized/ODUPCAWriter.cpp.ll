@@ -40,7 +40,7 @@ define void @_ZNK5ZXing4OneD10UPCAWriter6encodeERKNSt7__cxx1112basic_stringIwSt1
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %11) #4
+  tail call void @__cxa_free_exception(ptr nonnull %11) #4
   br label %20
 
 15:                                               ; preds = %5

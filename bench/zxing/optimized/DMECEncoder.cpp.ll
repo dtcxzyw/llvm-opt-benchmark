@@ -105,7 +105,7 @@ define void @_ZN5ZXing10DataMatrix12EncodeECC200ERNS_9ByteArrayERKNS0_10SymbolIn
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %14) #16
+  tail call void @__cxa_free_exception(ptr nonnull %14) #16
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %2

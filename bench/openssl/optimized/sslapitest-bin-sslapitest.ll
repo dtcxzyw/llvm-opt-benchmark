@@ -10986,19 +10986,19 @@ if.end.i18:                                       ; preds = %lor.lhs.false.i
   %call6.i = tail call ptr @SRP_create_verifier_ex(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.734, ptr noundef nonnull %arrayidx.i, ptr noundef nonnull %arrayidx5.i, ptr noundef null, ptr noundef null, ptr noundef %13, ptr noundef null) #23
   %call7.i19 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 7271, ptr noundef nonnull @.str.757, ptr noundef %call6.i) #23
   %tobool8.not.i = icmp eq i32 %call7.i19, 0
-  br i1 %tobool8.not.i, label %end.i, label %if.end10.i
+  br i1 %tobool8.not.i, label %for.body.preheader.i, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i18
   %call11.i = tail call ptr @TXT_DB_read(ptr noundef %call1.i13, i32 noundef 6) #23
   %call12.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 7279, ptr noundef nonnull @.str.758, ptr noundef %call11.i) #23
   %tobool13.not.i = icmp eq i32 %call12.i, 0
-  br i1 %tobool13.not.i, label %end.i, label %if.end15.i
+  br i1 %tobool13.not.i, label %for.body.preheader.i, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end10.i
   %call16.i20 = tail call ptr @BIO_new_file(ptr noundef %12, ptr noundef nonnull @.str.759) #23
   %call17.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 7283, ptr noundef nonnull @.str.760, ptr noundef %call16.i20) #23
   %tobool18.not.i = icmp eq i32 %call17.i, 0
-  br i1 %tobool18.not.i, label %end.i, label %if.end20.i
+  br i1 %tobool18.not.i, label %for.body.preheader.i, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end15.i
   %call21.i = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.14, i32 noundef 7286) #23
@@ -11040,15 +11040,13 @@ end.thread.i:                                     ; preds = %lor.lhs.false38.i
   %spec.select.i23 = zext i1 %cmp45.i to i32
   br label %create_new_vfile.exit
 
-end.i:                                            ; preds = %if.end15.i, %if.end10.i, %if.end.i18, %lor.lhs.false.i, %if.then15
-  %db.0.i = phi ptr [ %call11.i, %if.end15.i ], [ %call11.i, %if.end10.i ], [ null, %if.end.i18 ], [ null, %lor.lhs.false.i ], [ null, %if.then15 ]
-  %out.0.i = phi ptr [ %call16.i20, %if.end15.i ], [ null, %if.end10.i ], [ null, %if.end.i18 ], [ null, %lor.lhs.false.i ], [ null, %if.then15 ]
+end.i:                                            ; preds = %lor.lhs.false.i, %if.then15
   %cmp49.not.i = icmp eq ptr %call.i12, null
   br i1 %cmp49.not.i, label %create_new_vfile.exit, label %for.body.preheader.i
 
-for.body.preheader.i:                             ; preds = %end.i, %lor.lhs.false38.i, %lor.lhs.false34.i, %lor.lhs.false30.i, %if.end20.i
-  %out.016.i = phi ptr [ %out.0.i, %end.i ], [ %call16.i20, %if.end20.i ], [ %call16.i20, %lor.lhs.false30.i ], [ %call16.i20, %lor.lhs.false34.i ], [ %call16.i20, %lor.lhs.false38.i ]
-  %db.015.i = phi ptr [ %db.0.i, %end.i ], [ %call11.i, %if.end20.i ], [ %call11.i, %lor.lhs.false30.i ], [ %call11.i, %lor.lhs.false34.i ], [ %call11.i, %lor.lhs.false38.i ]
+for.body.preheader.i:                             ; preds = %end.i, %lor.lhs.false38.i, %lor.lhs.false34.i, %lor.lhs.false30.i, %if.end20.i, %if.end15.i, %if.end10.i, %if.end.i18
+  %out.016.i = phi ptr [ null, %end.i ], [ null, %if.end.i18 ], [ null, %if.end10.i ], [ %call16.i20, %if.end15.i ], [ %call16.i20, %if.end20.i ], [ %call16.i20, %lor.lhs.false30.i ], [ %call16.i20, %lor.lhs.false34.i ], [ %call16.i20, %lor.lhs.false38.i ]
+  %db.015.i = phi ptr [ null, %end.i ], [ null, %if.end.i18 ], [ %call11.i, %if.end10.i ], [ %call11.i, %if.end15.i ], [ %call11.i, %if.end20.i ], [ %call11.i, %lor.lhs.false30.i ], [ %call11.i, %lor.lhs.false34.i ], [ %call11.i, %lor.lhs.false38.i ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -11061,9 +11059,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %create_new_vfile.exit, label %for.body.i, !llvm.loop !14
 
 create_new_vfile.exit:                            ; preds = %for.body.i, %end.thread.i, %end.i
-  %out.09.i = phi ptr [ %call16.i20, %end.thread.i ], [ %out.0.i, %end.i ], [ %out.016.i, %for.body.i ]
+  %out.09.i = phi ptr [ %call16.i20, %end.thread.i ], [ null, %end.i ], [ %out.016.i, %for.body.i ]
   %ret.08.i = phi i32 [ %spec.select.i23, %end.thread.i ], [ 0, %end.i ], [ 0, %for.body.i ]
-  %db.07.i = phi ptr [ %call11.i, %end.thread.i ], [ %db.0.i, %end.i ], [ %db.015.i, %for.body.i ]
+  %db.07.i = phi ptr [ %call11.i, %end.thread.i ], [ null, %end.i ], [ %db.015.i, %for.body.i ]
   %row.06.i = phi ptr [ null, %end.thread.i ], [ null, %end.i ], [ %call.i12, %for.body.i ]
   tail call void @CRYPTO_free(ptr noundef %row.06.i, ptr noundef nonnull @.str.14, i32 noundef 7307) #23
   %call56.i = tail call i32 @BIO_free(ptr noundef %call1.i13) #23

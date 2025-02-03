@@ -3585,7 +3585,7 @@ if.then.i6.i.i:                                   ; preds = %Py_XDECREF.exit.i.i
   br label %return.sink.split.i
 
 if.end7.i:                                        ; preds = %sre_match.exit.i
-  %call8.i = call fastcc ptr @pattern_new_match(ptr noundef %call.val.i, ptr noundef %self, ptr noundef nonnull %state.i, i64 noundef %retval.0.i.i)
+  %call8.i = call fastcc ptr @pattern_new_match(ptr noundef %call.val.i, ptr noundef nonnull %self, ptr noundef nonnull %state.i, i64 noundef %retval.0.i.i)
   %buffer.i4.i = getelementptr inbounds nuw i8, ptr %state.i, i64 40
   %18 = load ptr, ptr %buffer.i4.i, align 8
   %tobool.not.i5.i = icmp eq ptr %18, null
@@ -3844,7 +3844,7 @@ if.then.i6.i.i:                                   ; preds = %Py_XDECREF.exit.i.i
   br label %return.sink.split.i
 
 if.end7.i:                                        ; preds = %sre_match.exit.i
-  %call8.i = call fastcc ptr @pattern_new_match(ptr noundef %call.val.i, ptr noundef %self, ptr noundef nonnull %state.i, i64 noundef %retval.0.i.i)
+  %call8.i = call fastcc ptr @pattern_new_match(ptr noundef %call.val.i, ptr noundef nonnull %self, ptr noundef nonnull %state.i, i64 noundef %retval.0.i.i)
   %buffer.i4.i = getelementptr inbounds nuw i8, ptr %state.i, i64 40
   %18 = load ptr, ptr %buffer.i4.i, align 8
   %tobool.not.i5.i = icmp eq ptr %18, null
@@ -4078,7 +4078,7 @@ if.then.i6.i.i:                                   ; preds = %Py_XDECREF.exit.i.i
   br label %return.sink.split.i
 
 if.end7.i:                                        ; preds = %if.end.i27
-  %call8.i = call fastcc ptr @pattern_new_match(ptr noundef %call.val.i, ptr noundef %self, ptr noundef nonnull %state.i, i64 noundef %call3.i)
+  %call8.i = call fastcc ptr @pattern_new_match(ptr noundef %call.val.i, ptr noundef nonnull %self, ptr noundef nonnull %state.i, i64 noundef %call3.i)
   %buffer.i3.i = getelementptr inbounds nuw i8, ptr %state.i, i64 40
   %16 = load ptr, ptr %buffer.i3.i, align 8
   %tobool.not.i4.i = icmp eq ptr %16, null
@@ -22766,7 +22766,7 @@ if.end87:                                         ; preds = %Py_DECREF.exit256, 
   br i1 %cmp88.not, label %if.else105, label %if.then90
 
 if.then90:                                        ; preds = %if.end87
-  %call91 = call fastcc ptr @pattern_new_match(ptr noundef %module_state, ptr noundef %self, ptr noundef nonnull %state, i64 noundef 1)
+  %call91 = call fastcc ptr @pattern_new_match(ptr noundef %module_state, ptr noundef nonnull %self, ptr noundef nonnull %state, i64 noundef 1)
   %tobool92.not = icmp eq ptr %call91, null
   br i1 %tobool92.not, label %error, label %if.end94
 

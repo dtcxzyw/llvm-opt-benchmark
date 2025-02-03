@@ -312,7 +312,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
   br label %126
 
 126:                                              ; preds = %.loopexit, %124
-  %127 = call i32 @pthread_mutex_lock(ptr noundef %46) #9
+  %127 = call i32 @pthread_mutex_lock(ptr noundef nonnull %46) #9
   %128 = icmp eq i32 %127, 35
   br i1 %128, label %129, label %131
 
@@ -328,7 +328,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
   %133 = load i32, ptr %132, align 8
   %134 = add nsw i32 %133, -1
   store i32 %134, ptr %132, align 8
-  %135 = call i32 @pthread_mutex_unlock(ptr noundef %46) #9
+  %135 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %46) #9
   %136 = icmp eq i32 %134, 0
   br i1 %136, label %137, label %151
 
@@ -344,7 +344,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
 .lr.ph.i94:                                       ; preds = %137, %.lr.ph.i94
   %143 = phi ptr [ %145, %.lr.ph.i94 ], [ %142, %137 ]
   %.07.i95 = phi ptr [ %144, %.lr.ph.i94 ], [ %141, %137 ]
-  call void %143(ptr noundef %46) #9
+  call void %143(ptr noundef nonnull %46) #9
   %144 = getelementptr inbounds nuw i8, ptr %.07.i95, i64 8
   %145 = load ptr, ptr %144, align 8
   %.not.i96 = icmp eq ptr %145, null

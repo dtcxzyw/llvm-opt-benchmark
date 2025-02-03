@@ -9041,7 +9041,7 @@ lpad.i.i.i.body:                                  ; preds = %lpad2.i.i, %ehclean
   %eh.lpad-body24 = phi { ptr, i32 } [ %14, %lpad.i.i.i ], [ %3, %lpad2.i.i ], [ %.pn.i, %ehcleanup.i ]
   %15 = extractvalue { ptr, i32 } %eh.lpad-body24, 0
   %16 = call ptr @__cxa_begin_catch(ptr %15) #32
-  invoke void @_ZSt8_DestroyIPN4asio10io_contextEEvT_S3_(ptr noundef %2, ptr noundef %__cur.07.i.i.i.ptr)
+  invoke void @_ZSt8_DestroyIPN4asio10io_contextEEvT_S3_(ptr noundef nonnull %2, ptr noundef nonnull %__cur.07.i.i.i.ptr)
           to label %invoke.cont2.i.i.i unwind label %lpad1.i.i.i
 
 invoke.cont2.i.i.i:                               ; preds = %lpad.i.i.i.body
@@ -9128,7 +9128,7 @@ lpad.i.i.i11:                                     ; preds = %for.body.i.i.i9
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = call ptr @__cxa_begin_catch(ptr %31) #32
-  invoke void @_ZSt8_DestroyIPN4asio10io_contextEEvT_S3_(ptr noundef %28, ptr noundef %__cur.07.i.i.i10)
+  invoke void @_ZSt8_DestroyIPN4asio10io_contextEEvT_S3_(ptr noundef %28, ptr noundef nonnull %__cur.07.i.i.i10)
           to label %invoke.cont2.i.i.i15 unwind label %lpad1.i.i.i12
 
 invoke.cont2.i.i.i15:                             ; preds = %lpad.i.i.i11
@@ -25564,7 +25564,7 @@ if.end18:                                         ; preds = %if.then, %_ZNSt10er
   %18 = load ptr, ptr %this, align 8
   %scheduler_.i = getelementptr inbounds nuw i8, ptr %18, i64 48
   %19 = load ptr, ptr %scheduler_.i, align 8
-  tail call void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(256) %19, ptr noundef %op, i1 noundef zeroext %is_continuation)
+  tail call void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(256) %19, ptr noundef nonnull %op, i1 noundef zeroext %is_continuation)
   br label %return
 
 return:                                           ; preds = %if.end18, %if.then12

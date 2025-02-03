@@ -614,7 +614,7 @@ _ZN6opencc8UTF8Util17GetPlatformStringERKNSt7__cxx1112basic_stringIcSt11char_tra
 55:                                               ; preds = %52
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %53) #26
+  call void @__cxa_free_exception(ptr nonnull %53) #26
   br label %.body.i
 
 .body.i:                                          ; preds = %55, %51, %31, %25, %23
@@ -4431,7 +4431,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
 227:                                              ; preds = %.thread20.i.i
   %228 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %225) #26, !noalias !52
+  call void @__cxa_free_exception(ptr nonnull %225) #26, !noalias !52
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %227, %223, %219, %214, %210, %204
@@ -4641,7 +4641,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
 303:                                              ; preds = %.thread20.i30.i
   %304 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %301) #26, !noalias !56
+  call void @__cxa_free_exception(ptr nonnull %301) #26, !noalias !56
   br label %.body.i21.i
 
 .body.i21.i:                                      ; preds = %303, %299, %295, %290, %286, %280

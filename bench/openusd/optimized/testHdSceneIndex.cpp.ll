@@ -47502,7 +47502,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   %42 = load i32, ptr %41, align 4
   %43 = icmp ult i32 %42, 7
   %44 = load ptr, ptr %33, align 8
-  %spec.select.i.i.i.i.i.i.i67 = select i1 %43, ptr %33, ptr %44
+  %spec.select.i.i.i.i.i.i.i68 = select i1 %43, ptr %33, ptr %44
   br label %.lr.ph.i.i.i.i.i.i.i.i.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i: ; preds = %_ZNKSt6vectorIN27RecordingSceneIndexObserver5EventESaIS1_EE12_M_check_lenEmPKc.exit
@@ -47517,14 +47517,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   br i1 %.not9.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN27RecordingSceneIndexObserver5EventEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.thread, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i
-  %spec.select.i.i.i.i.i.i.i70 = phi ptr [ %spec.select.i.i.i.i.i.i.i67, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.thread ], [ %spec.select.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i ]
-  %spec.select.i.i5.i.i.i.i.i69 = phi ptr [ %39, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.thread ], [ %32, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i ]
-  %50 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i.i.i.i.i.i70, i64 %.pre
+  %spec.select.i.i.i.i.i.i.i71 = phi ptr [ %spec.select.i.i.i.i.i.i.i68, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.thread ], [ %spec.select.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i ]
+  %spec.select.i.i5.i.i.i.i.i70 = phi ptr [ %39, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.thread ], [ %32, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i ]
+  %50 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i.i.i.i.i.i71, i64 %.pre
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %64, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i ], [ %spec.select.i.i5.i.i.i.i.i69, %.lr.ph.i.i.i.i.i.i.i.i.preheader ]
-  %.0810.i.i.i.i.i.i.i.i = phi ptr [ %63, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i70, %.lr.ph.i.i.i.i.i.i.i.i.preheader ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %64, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i ], [ %spec.select.i.i5.i.i.i.i.i70, %.lr.ph.i.i.i.i.i.i.i.i.preheader ]
+  %.0810.i.i.i.i.i.i.i.i = phi ptr [ %63, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i71, %.lr.ph.i.i.i.i.i.i.i.i.preheader ]
   %51 = load i64, ptr %.0810.i.i.i.i.i.i.i.i, align 8
   store i64 %51, ptr %.011.i.i.i.i.i.i.i.i, align 8
   %52 = and i64 %51, 7
@@ -47592,7 +47592,7 @@ _ZSt8_DestroyIPN27RecordingSceneIndexObserver5EventEEvT_S3_.exit.i.i.i.i.i: ; pr
   %73 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %97 unwind label %74
+          to label %_ZSt8_DestroyIPN27RecordingSceneIndexObserver5EventES1_EvT_S3_RSaIT0_E.exit48.thread unwind label %74
 
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
@@ -47646,7 +47646,7 @@ _ZSt8_DestroyIPN27RecordingSceneIndexObserver5EventEEvT_S3_.exit.i.i.i.i.i36: ; 
   %85 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %100 unwind label %86
+          to label %99 unwind label %86
 
 86:                                               ; preds = %84
   %87 = landingpad { ptr, i32 }
@@ -47659,11 +47659,11 @@ _ZSt8_DestroyIPN27RecordingSceneIndexObserver5EventEEvT_S3_.exit.i.i.i.i.i36: ; 
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN27RecordingSceneIndexObserver5EventES2_SaIS1_EET0_T_S5_S4_RT1_.exit42.loopexit: ; preds = %_ZSt10_ConstructIN27RecordingSceneIndexObserver5EventEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i37
-  %.ptr58.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i30.add
+  %.ptr59.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i30.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN27RecordingSceneIndexObserver5EventES2_SaIS1_EET0_T_S5_S4_RT1_.exit42
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN27RecordingSceneIndexObserver5EventES2_SaIS1_EET0_T_S5_S4_RT1_.exit42: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN27RecordingSceneIndexObserver5EventES2_SaIS1_EET0_T_S5_S4_RT1_.exit42.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN27RecordingSceneIndexObserver5EventES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %.0.lcssa.i.i.i.i.i39 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN27RecordingSceneIndexObserver5EventES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %.ptr58.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN27RecordingSceneIndexObserver5EventES2_SaIS1_EET0_T_S5_S4_RT1_.exit42.loopexit ]
+  %.0.lcssa.i.i.i.i.i39 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN27RecordingSceneIndexObserver5EventES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %.ptr59.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN27RecordingSceneIndexObserver5EventES2_SaIS1_EET0_T_S5_S4_RT1_.exit42.loopexit ]
   %.not4.i.i.i = icmp eq ptr %6, %5
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN27RecordingSceneIndexObserver5EventES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -47693,47 +47693,47 @@ _ZNSt12_Vector_baseIN27RecordingSceneIndexObserver5EventESaIS1_EE13_M_deallocate
   store ptr %96, ptr %91, align 8
   ret void
 
-97:                                               ; preds = %72
-  %98 = extractvalue { ptr, i32 } %73, 0
-  %99 = tail call ptr @__cxa_begin_catch(ptr %98) #23
+_ZSt8_DestroyIPN27RecordingSceneIndexObserver5EventES1_EvT_S3_RSaIT0_E.exit48.thread: ; preds = %72
+  %97 = extractvalue { ptr, i32 } %73, 0
+  %98 = tail call ptr @__cxa_begin_catch(ptr %97) #23
   tail call void @_ZN27RecordingSceneIndexObserver5EventD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %21) #23
   br label %_ZNSt12_Vector_baseIN27RecordingSceneIndexObserver5EventESaIS1_EE13_M_deallocateEPS1_m.exit50
 
-100:                                              ; preds = %84
-  %101 = extractvalue { ptr, i32 } %85, 0
-  %102 = tail call ptr @__cxa_begin_catch(ptr %101) #23
+99:                                               ; preds = %84
+  %100 = extractvalue { ptr, i32 } %85, 0
+  %101 = tail call ptr @__cxa_begin_catch(ptr %100) #23
   %.not4.i.i.i44 = icmp eq ptr %20, %.ptr
   br i1 %.not4.i.i.i44, label %_ZNSt12_Vector_baseIN27RecordingSceneIndexObserver5EventESaIS1_EE13_M_deallocateEPS1_m.exit50, label %.lr.ph.i.i.i45
 
-.lr.ph.i.i.i45:                                   ; preds = %100, %.lr.ph.i.i.i45
-  %.05.i.i.i46 = phi ptr [ %103, %.lr.ph.i.i.i45 ], [ %20, %100 ]
+.lr.ph.i.i.i45:                                   ; preds = %99, %.lr.ph.i.i.i45
+  %.05.i.i.i46 = phi ptr [ %102, %.lr.ph.i.i.i45 ], [ %20, %99 ]
   tail call void @_ZN27RecordingSceneIndexObserver5EventD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %.05.i.i.i46) #23
-  %103 = getelementptr inbounds nuw i8, ptr %.05.i.i.i46, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %.05.i.i.i46, i64 80
   %.not.i.i.i47 = icmp eq ptr %.05.i.i.i46, %.0.lcssa.i.i.i.i.i
   br i1 %.not.i.i.i47, label %_ZNSt12_Vector_baseIN27RecordingSceneIndexObserver5EventESaIS1_EE13_M_deallocateEPS1_m.exit50, label %.lr.ph.i.i.i45, !llvm.loop !5
 
-104:                                              ; preds = %_ZNSt12_Vector_baseIN27RecordingSceneIndexObserver5EventESaIS1_EE13_M_deallocateEPS1_m.exit50
-  %105 = landingpad { ptr, i32 }
+103:                                              ; preds = %_ZNSt12_Vector_baseIN27RecordingSceneIndexObserver5EventESaIS1_EE13_M_deallocateEPS1_m.exit50
+  %104 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %106 unwind label %107
+          to label %105 unwind label %106
 
-_ZNSt12_Vector_baseIN27RecordingSceneIndexObserver5EventESaIS1_EE13_M_deallocateEPS1_m.exit50: ; preds = %.lr.ph.i.i.i45, %100, %97
+_ZNSt12_Vector_baseIN27RecordingSceneIndexObserver5EventESaIS1_EE13_M_deallocateEPS1_m.exit50: ; preds = %.lr.ph.i.i.i45, %_ZSt8_DestroyIPN27RecordingSceneIndexObserver5EventES1_EvT_S3_RSaIT0_E.exit48.thread, %99
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #24
   invoke void @__cxa_rethrow() #27
-          to label %110 unwind label %104
+          to label %109 unwind label %103
 
-106:                                              ; preds = %104
-  resume { ptr, i32 } %105
+105:                                              ; preds = %103
+  resume { ptr, i32 } %104
 
-107:                                              ; preds = %104
-  %108 = landingpad { ptr, i32 }
+106:                                              ; preds = %103
+  %107 = landingpad { ptr, i32 }
           catch ptr null
-  %109 = extractvalue { ptr, i32 } %108, 0
-  tail call void @__clang_call_terminate(ptr %109) #25
+  %108 = extractvalue { ptr, i32 } %107, 0
+  tail call void @__clang_call_terminate(ptr %108) #25
   unreachable
 
-110:                                              ; preds = %_ZNSt12_Vector_baseIN27RecordingSceneIndexObserver5EventESaIS1_EE13_M_deallocateEPS1_m.exit50
+109:                                              ; preds = %_ZNSt12_Vector_baseIN27RecordingSceneIndexObserver5EventESaIS1_EE13_M_deallocateEPS1_m.exit50
   unreachable
 }
 

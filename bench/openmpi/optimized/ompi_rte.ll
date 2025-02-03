@@ -565,7 +565,7 @@ define range(i32 -5, 1) i32 @ompi_rte_convert_string_to_process_name(ptr noundef
 13:                                               ; preds = %9
   %14 = tail call ptr @opal_strerror(i32 noundef -5) #19
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %14, ptr noundef nonnull @.str.1, i32 noundef 369) #19
-  tail call void @free(ptr noundef %10) #19
+  tail call void @free(ptr noundef nonnull %10) #19
   br label %43
 
 sub_0:                                            ; preds = %9

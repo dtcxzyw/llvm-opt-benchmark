@@ -1905,7 +1905,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #23
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #23
   resume { ptr, i32 } %6
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %entry

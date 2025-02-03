@@ -774,7 +774,7 @@ lpad118:                                          ; preds = %_ZN4cvc58internal8T
   br label %eh.resume
 
 for.inc141:                                       ; preds = %if.then13.i.i523, %if.then.i.i517, %cond.true125, %for.body
-  %call.i526 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.01505) #22
+  %call.i526 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.01505) #22
   %call4 = call noundef ptr @_ZN4cvc58internal6theory11quantifiers15FirstOrderModel12getRepSetPtrEv(ptr noundef nonnull align 8 dereferenceable(656) %call)
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %cmp.i.not = icmp eq ptr %call.i526, %add.ptr.i.i

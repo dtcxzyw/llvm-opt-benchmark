@@ -11125,7 +11125,7 @@ if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   br i1 %cmp1.not.i.i.i.i, label %if.then3.i.i, label %while.body.i.i.i.i, !llvm.loop !89
 
 if.then3.i.i:                                     ; preds = %if.end4.i.i.i.i, %if.end.i.i
-  invoke fastcc void @"_ZSt21__inplace_stable_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEEvT_SD_T0_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr27, ptr nonnull %map)
+  invoke fastcc void @"_ZSt21__inplace_stable_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEEvT_SD_T0_"(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr27, ptr nonnull %map)
           to label %if.end15.i.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.else.i.i, %if.then3.i.i
@@ -11136,7 +11136,7 @@ lpad.i.i:                                         ; preds = %if.else.i.i, %if.th
   br label %ehcleanup
 
 if.else.i.i:                                      ; preds = %while.body.i.i.i.i
-  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEEvT_SD_T0_T1_T2_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr27, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i, ptr nonnull %map)
+  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEEvT_SD_T0_T1_T2_"(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr27, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i, ptr nonnull %map)
           to label %if.end15.i.i unwind label %lpad.i.i
 
 if.end15.i.i:                                     ; preds = %if.else.i.i, %if.then3.i.i
@@ -11154,7 +11154,7 @@ if.then.i.i37:                                    ; preds = %if.else
   %27 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %idx.ext26, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %27, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_T0_T1_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr34, i64 noundef %mul.i.i, ptr nonnull readonly %map)
+  invoke fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_T0_T1_"(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr34, i64 noundef %mul.i.i, ptr nonnull readonly %map)
           to label %.noexc44 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc44:                                         ; preds = %if.then.i.i37
@@ -11163,7 +11163,7 @@ if.then.i.i37:                                    ; preds = %if.else
 
 if.then.i.i.i43:                                  ; preds = %.noexc44
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 64
-  invoke fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_T0_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr.i.i.i, ptr nonnull readonly %map)
+  invoke fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_T0_"(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr.i.i.i, ptr nonnull readonly %map)
           to label %for.body.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i43, %"_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_.exit.i.i.i.i"
@@ -11226,7 +11226,7 @@ call.i.i.i.i.i.i.i.i.noexc:                       ; preds = %while.body.i.i.i.i.
   br i1 %cmp.not.i.i.i.i, label %for.inc, label %for.body.i.i.i.i, !llvm.loop !91
 
 if.else.i.i.i:                                    ; preds = %.noexc44
-  invoke fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_T0_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr34, ptr nonnull readonly %map)
+  invoke fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_T0_"(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr34, ptr nonnull readonly %map)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %for.cond.i, %"_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_.exit.i.i.i.i", %if.end.i, %call.i.noexc, %if.else, %if.else.i.i.i, %if.end15.i.i, %if.then23
@@ -13652,7 +13652,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   resume { ptr, i32 } %0
 }
 

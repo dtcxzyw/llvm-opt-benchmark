@@ -1755,7 +1755,7 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr n
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #19
+  tail call void @__cxa_free_exception(ptr nonnull %2) #19
   resume { ptr, i32 } %5
 }
 

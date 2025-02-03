@@ -1274,7 +1274,7 @@ if.then27:                                        ; preds = %if.end22
   %vtable = load ptr, ptr %21, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %22 = load ptr, ptr %vfn, align 8
-  %call30 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %output, i32 noundef %sub24)
+  %call30 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %output, i32 noundef %sub24)
   br label %return
 
 if.end31:                                         ; preds = %if.end22
@@ -1284,7 +1284,7 @@ if.end31:                                         ; preds = %if.end22
   %vtable35 = load ptr, ptr %23, align 8
   %vfn36 = getelementptr inbounds nuw i8, ptr %vtable35, i64 48
   %24 = load ptr, ptr %vfn36, align 8
-  %call37 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %output, i32 noundef %size.addr.0)
+  %call37 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %output, i32 noundef %size.addr.0)
   br label %return
 
 return:                                           ; preds = %if.end15, %lor.lhs.false18, %if.then4, %if.end31, %if.then27, %if.then

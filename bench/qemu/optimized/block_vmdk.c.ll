@@ -3522,19 +3522,19 @@ if.then136:                                       ; preds = %if.end125.thread, %
 if.end143:                                        ; preds = %if.then136, %if.end133
   br label %if.then145
 
-if.then145:                                       ; preds = %while.body, %if.then111, %if.then131, %if.end143, %if.then136, %if.end72, %if.then88, %if.then80, %if.then67
-  %desc.0126 = phi ptr [ null, %if.then67 ], [ null, %if.then80 ], [ null, %if.then88 ], [ null, %if.end72 ], [ null, %if.then111 ], [ %call118, %if.then131 ], [ %call118, %if.then136 ], [ %call118, %if.end143 ], [ null, %while.body ]
-  %ret.0125 = phi i32 [ -2, %if.then67 ], [ -22, %if.then80 ], [ %call86, %if.then88 ], [ -5, %if.end72 ], [ -22, %if.then111 ], [ %call128108, %if.then131 ], [ %call138, %if.then136 ], [ 0, %if.end143 ], [ -22, %while.body ]
+if.then145:                                       ; preds = %while.body, %if.then111, %if.end72, %if.end143, %if.then136, %if.then131, %if.then88, %if.then80, %if.then67
+  %desc.0118 = phi ptr [ null, %if.end72 ], [ %call118, %if.end143 ], [ %call118, %if.then136 ], [ %call118, %if.then131 ], [ null, %if.then88 ], [ null, %if.then80 ], [ null, %if.then67 ], [ null, %if.then111 ], [ null, %while.body ]
+  %ret.0116 = phi i32 [ -5, %if.end72 ], [ 0, %if.end143 ], [ %call138, %if.then136 ], [ %call128108, %if.then131 ], [ %call86, %if.then88 ], [ -22, %if.then80 ], [ -2, %if.then67 ], [ -22, %if.then111 ], [ -22, %while.body ]
   call void @blk_co_unref(ptr noundef nonnull %call50) #15
   br label %if.end146
 
 if.end146:                                        ; preds = %if.end35, %if.then34, %if.then29, %if.then4, %if.then145
-  %desc.0117 = phi ptr [ %desc.0126, %if.then145 ], [ null, %if.then4 ], [ null, %if.then29 ], [ null, %if.then34 ], [ null, %if.end35 ]
-  %ret.0116 = phi i32 [ %ret.0125, %if.then145 ], [ -22, %if.then4 ], [ -95, %if.then29 ], [ -95, %if.then34 ], [ -5, %if.end35 ]
-  call void @g_free(ptr noundef %desc.0117) #15
+  %desc.0119 = phi ptr [ %desc.0118, %if.then145 ], [ null, %if.then4 ], [ null, %if.then29 ], [ null, %if.then34 ], [ null, %if.end35 ]
+  %ret.0117 = phi i32 [ %ret.0116, %if.then145 ], [ -22, %if.then4 ], [ -95, %if.then29 ], [ -95, %if.then34 ], [ -5, %if.end35 ]
+  call void @g_free(ptr noundef %desc.0119) #15
   call void @g_free(ptr noundef %call) #15
   %call147 = call ptr @g_string_free(ptr noundef %call2, i32 noundef 1) #15
-  ret i32 %ret.0116
+  ret i32 %ret.0117
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

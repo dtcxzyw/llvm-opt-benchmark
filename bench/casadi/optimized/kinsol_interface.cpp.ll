@@ -1199,7 +1199,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNK6casadi11Generi
   %.sroa.0279.3 = phi ptr [ %.sroa.0279.0352, %111 ], [ %.sroa.0279.0352, %_ZNK6casadi11GenericTypecvbEv.exit ], [ %.sroa.0279.0352, %_ZNK6casadi11GenericTypecvbEv.exit230 ], [ %.sroa.0279.0352, %_ZNK6casadi11GenericTypecvxEv.exit ], [ %.sroa.0279.0352, %_ZNK6casadi11GenericTypecvxEv.exit233 ], [ %.sroa.0279.0352, %166 ], [ %.sroa.0279.0352, %_ZNK6casadi11GenericTypecvxEv.exit235 ], [ %.sroa.0279.0352, %_ZNK6casadi11GenericTypecvxEv.exit237 ], [ %.sroa.0279.0352, %_ZNK6casadi11GenericTypecvxEv.exit239 ], [ %.sroa.0279.0352, %191 ], [ %.sroa.0279.0352, %_ZNK6casadi11GenericTypecvbEv.exit241 ], [ %.sroa.0279.0352, %_ZNK6casadi11GenericTypecvdEv.exit ], [ %.sroa.0279.0352, %200 ], [ %.sroa.0279.0352, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit ], [ %.sroa.0279.0352, %133 ], [ %139, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit226 ], [ %139, %141 ], [ %.sroa.0279.0352, %_ZNK6casadi11GenericTypecvSt6vectorIdSaIdEEEv.exit ], [ %139, %_ZNK6casadi11GenericTypecvSt6vectorIdSaIdEEEv.exit224 ]
   %.sroa.8.1 = phi ptr [ %.sroa.8.0353, %111 ], [ %.sroa.8.0353, %_ZNK6casadi11GenericTypecvbEv.exit ], [ %.sroa.8.0353, %_ZNK6casadi11GenericTypecvbEv.exit230 ], [ %.sroa.8.0353, %_ZNK6casadi11GenericTypecvxEv.exit ], [ %.sroa.8.0353, %_ZNK6casadi11GenericTypecvxEv.exit233 ], [ %.sroa.8.0353, %166 ], [ %.sroa.8.0353, %_ZNK6casadi11GenericTypecvxEv.exit235 ], [ %.sroa.8.0353, %_ZNK6casadi11GenericTypecvxEv.exit237 ], [ %.sroa.8.0353, %_ZNK6casadi11GenericTypecvxEv.exit239 ], [ %.sroa.8.0353, %191 ], [ %.sroa.8.0353, %_ZNK6casadi11GenericTypecvbEv.exit241 ], [ %.sroa.8.0353, %_ZNK6casadi11GenericTypecvdEv.exit ], [ %.sroa.8.0353, %200 ], [ %.sroa.8.0353, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit ], [ %.sroa.8.0353, %133 ], [ %140, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit226 ], [ %140, %141 ], [ %.sroa.8.0353, %_ZNK6casadi11GenericTypecvSt6vectorIdSaIdEEEv.exit ], [ %140, %_ZNK6casadi11GenericTypecvSt6vectorIdSaIdEEEv.exit224 ]
   %.sroa.0287.3 = phi ptr [ %.sroa.0287.0355, %111 ], [ %.sroa.0287.0355, %_ZNK6casadi11GenericTypecvbEv.exit ], [ %.sroa.0287.0355, %_ZNK6casadi11GenericTypecvbEv.exit230 ], [ %.sroa.0287.0355, %_ZNK6casadi11GenericTypecvxEv.exit ], [ %.sroa.0287.0355, %_ZNK6casadi11GenericTypecvxEv.exit233 ], [ %.sroa.0287.0355, %166 ], [ %.sroa.0287.0355, %_ZNK6casadi11GenericTypecvxEv.exit235 ], [ %.sroa.0287.0355, %_ZNK6casadi11GenericTypecvxEv.exit237 ], [ %.sroa.0287.0355, %_ZNK6casadi11GenericTypecvxEv.exit239 ], [ %.sroa.0287.0355, %191 ], [ %.sroa.0287.0355, %_ZNK6casadi11GenericTypecvbEv.exit241 ], [ %.sroa.0287.0355, %_ZNK6casadi11GenericTypecvdEv.exit ], [ %.sroa.0287.0355, %200 ], [ %131, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit ], [ %131, %133 ], [ %.sroa.0287.0355, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit226 ], [ %.sroa.0287.0355, %141 ], [ %131, %_ZNK6casadi11GenericTypecvSt6vectorIdSaIdEEEv.exit ], [ %.sroa.0287.0355, %_ZNK6casadi11GenericTypecvSt6vectorIdSaIdEEEv.exit224 ]
-  %206 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0276.0354) #26
+  %206 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0276.0354) #26
   %.not341 = icmp eq ptr %206, %93
   br i1 %.not341, label %._crit_edge, label %105
 
@@ -4189,7 +4189,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %194, %196
 200:                                              ; preds = %198
   %201 = load i64, ptr %68, align 8
   %202 = getelementptr inbounds double, ptr %39, i64 %201
-  invoke void @_ZNSt6vectorIdSaIdEEC2IPdvEET_S4_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull %39, ptr noundef %202, ptr noundef nonnull align 1 dereferenceable(1) %32)
+  invoke void @_ZNSt6vectorIdSaIdEEC2IPdvEET_S4_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull %39, ptr noundef nonnull %202, ptr noundef nonnull align 1 dereferenceable(1) %32)
           to label %203 unwind label %220
 
 203:                                              ; preds = %200
@@ -11702,7 +11702,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %50, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi15PluginInterfaceINS8_10RootfinderEE6PluginEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE24_M_get_insert_unique_posERS7_.exit, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #26
+  %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #26
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit11 unwind label %55
@@ -11808,7 +11808,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %91, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi15PluginInterfaceINS8_10RootfinderEE6PluginEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE24_M_get_insert_unique_posERS7_.exit, label %92
 
 92:                                               ; preds = %88
-  %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #26
+  %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #26
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %94)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit35 unwind label %96
@@ -12096,7 +12096,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %50, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi7Options5EntryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #26
+  %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #26
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit11 unwind label %55
@@ -12202,7 +12202,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %91, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi7Options5EntryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit, label %92
 
 92:                                               ; preds = %88
-  %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #26
+  %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #26
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %94)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit35 unwind label %96

@@ -164,7 +164,7 @@ for.end:                                          ; preds = %for.body13, %for.bo
 
 invoke.cont29:                                    ; preds = %for.end
   store double %call26, ptr %call30, align 8, !tbaa !24
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %cur.sroa.0.032) #18
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %cur.sroa.0.032) #18
   %inc33 = add nuw i64 %i.033, 1
   %11 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !14
   %cmp = icmp ult i64 %inc33, %11

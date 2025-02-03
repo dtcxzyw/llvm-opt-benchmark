@@ -783,7 +783,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_11
 20:                                               ; preds = %17
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %18) #15
+  tail call void @__cxa_free_exception(ptr nonnull %18) #15
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %4, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5

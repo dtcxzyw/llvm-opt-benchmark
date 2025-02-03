@@ -1675,7 +1675,7 @@ if.then6:                                         ; preds = %for.cond
   unreachable
 
 if.end8:                                          ; preds = %for.body
-  call void @free(ptr noundef %call) #25
+  call void @free(ptr noundef nonnull %call) #25
   call void @strbuf_release(ptr noundef nonnull %odb_path_real) #25
   ret ptr %odb.0
 }

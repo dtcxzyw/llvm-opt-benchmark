@@ -4028,7 +4028,7 @@ if.then4.i:                                       ; preds = %if.end
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %if.end, %if.then4.i
-  %call2 = call ptr @pack_basename(ptr noundef %2) #15
+  %call2 = call ptr @pack_basename(ptr noundef nonnull %2) #15
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call2) #18
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %call2, i64 noundef %call.i) #15
   %4 = load ptr, ptr %buf.i, align 8

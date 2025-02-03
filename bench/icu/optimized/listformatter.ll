@@ -2242,8 +2242,8 @@ if.then.i.i:                                      ; preds = %new.cont.i
   store i32 7, ptr %errorCode, align 4
   br label %cleanup.thread115
 
-common.resume:                                    ; preds = %lpad12, %delete.notnull.i.i51, %lpad34, %delete.notnull.i.i67, %lpad70, %delete.notnull.i.i88, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %7, %lpad12 ], [ %7, %delete.notnull.i.i51 ], [ %11, %lpad34 ], [ %11, %delete.notnull.i.i67 ], [ %lpad.phi, %lpad70 ], [ %lpad.phi, %delete.notnull.i.i88 ]
+common.resume:                                    ; preds = %_ZN6icu_7512_GLOBAL__N_120FormattedListBuilderD2Ev.exit54, %lpad34, %delete.notnull.i.i67, %lpad70, %delete.notnull.i.i88, %lpad.i
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %7, %_ZN6icu_7512_GLOBAL__N_120FormattedListBuilderD2Ev.exit54 ], [ %11, %lpad34 ], [ %11, %delete.notnull.i.i67 ], [ %lpad.phi, %lpad70 ], [ %lpad.phi, %delete.notnull.i.i88 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -2289,7 +2289,7 @@ if.then9:                                         ; preds = %entry
   %3 = load ptr, ptr %result10, align 8
   %fString.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @_ZN6icu_7522FormattedStringBuilder15writeTerminatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %invoke.cont17 unwind label %lpad12
+          to label %invoke.cont17 unwind label %_ZN6icu_7512_GLOBAL__N_120FormattedListBuilderD2Ev.exit54
 
 invoke.cont17:                                    ; preds = %if.then9
   %4 = load i32, ptr %errorCode, align 4
@@ -2297,15 +2297,11 @@ invoke.cont17:                                    ; preds = %if.then9
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FormattedListE, i64 16), ptr %agg.result, align 8
   %5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  br i1 %cmp.i46, label %cleanup28.thread, label %cleanup28
+  br i1 %cmp.i46, label %cleanup28.thread, label %delete.notnull.i.i58
 
-lpad12:                                           ; preds = %if.then9
+_ZN6icu_7512_GLOBAL__N_120FormattedListBuilderD2Ev.exit54: ; preds = %if.then9
   %7 = landingpad { ptr, i32 }
           cleanup
-  %isnull.i.i50 = icmp eq ptr %3, null
-  br i1 %isnull.i.i50, label %common.resume, label %delete.notnull.i.i51
-
-delete.notnull.i.i51:                             ; preds = %lpad12
   %vtable.i.i52 = load ptr, ptr %3, align 8
   %vfn.i.i53 = getelementptr inbounds nuw i8, ptr %vtable.i.i52, i64 8
   %8 = load ptr, ptr %vfn.i.i53, align 8
@@ -2317,13 +2313,9 @@ cleanup28.thread:                                 ; preds = %invoke.cont17
   store i32 0, ptr %6, align 8
   br label %return
 
-cleanup28:                                        ; preds = %invoke.cont17
+delete.notnull.i.i58:                             ; preds = %invoke.cont17
   store ptr null, ptr %5, align 8
   store i32 %4, ptr %6, align 8
-  %isnull.i.i57 = icmp eq ptr %3, null
-  br i1 %isnull.i.i57, label %return, label %delete.notnull.i.i58
-
-delete.notnull.i.i58:                             ; preds = %cleanup28
   %vtable.i.i59 = load ptr, ptr %3, align 8
   %vfn.i.i60 = getelementptr inbounds nuw i8, ptr %vtable.i.i59, i64 8
   %9 = load ptr, ptr %vfn.i.i60, align 8
@@ -2334,16 +2326,7 @@ if.then31:                                        ; preds = %entry
   call fastcc void @_ZN6icu_7512_GLOBAL__N_120FormattedListBuilderC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %result32, ptr noundef nonnull align 8 dereferenceable(64) %items, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %10 = load i32, ptr %errorCode, align 4
   %cmp.i62 = icmp slt i32 %10, 1
-  br i1 %cmp.i62, label %if.end, label %if.then38
-
-if.then38:                                        ; preds = %if.then31
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FormattedListE, i64 16), ptr %agg.result, align 8
-  %fData.i64 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr null, ptr %fData.i64, align 8
-  %fErrorCode.i65 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i32 %10, ptr %fErrorCode.i65, align 8
-  %result32.val42.pre = load ptr, ptr %result32, align 8
-  br label %cleanup64
+  br i1 %cmp.i62, label %if.end, label %cleanup64
 
 lpad34:                                           ; preds = %invoke.cont47, %invoke.cont44, %if.end
   %11 = landingpad { ptr, i32 }
@@ -2387,44 +2370,41 @@ invoke.cont53:                                    ; preds = %invoke.cont47
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FormattedListE, i64 16), ptr %agg.result, align 8
   %fData.i76 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %fErrorCode.i77 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  br i1 %cmp.i72, label %cleanup64.thread, label %if.then57
+  br i1 %cmp.i72, label %cleanup64.thread, label %cleanup64.thread124
 
-if.then57:                                        ; preds = %invoke.cont53
+cleanup64.thread124:                              ; preds = %invoke.cont53
   store ptr null, ptr %fData.i76, align 8
   store i32 %16, ptr %fErrorCode.i77, align 8
-  br label %cleanup64
+  br label %delete.notnull.i.i79
 
 cleanup64.thread:                                 ; preds = %invoke.cont53
   store ptr %15, ptr %fData.i76, align 8
   store i32 0, ptr %fErrorCode.i77, align 8
   br label %return
 
-cleanup64:                                        ; preds = %if.then57, %if.then38
-  %result32.val42 = phi ptr [ %15, %if.then57 ], [ %result32.val42.pre, %if.then38 ]
-  %isnull.i.i78 = icmp eq ptr %result32.val42, null
+cleanup64:                                        ; preds = %if.then31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FormattedListE, i64 16), ptr %agg.result, align 8
+  %fData.i64 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store ptr null, ptr %fData.i64, align 8
+  %fErrorCode.i65 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store i32 %10, ptr %fErrorCode.i65, align 8
+  %result32.val42.pre = load ptr, ptr %result32, align 8
+  %isnull.i.i78 = icmp eq ptr %result32.val42.pre, null
   br i1 %isnull.i.i78, label %return, label %delete.notnull.i.i79
 
-delete.notnull.i.i79:                             ; preds = %cleanup64
-  %vtable.i.i80 = load ptr, ptr %result32.val42, align 8
+delete.notnull.i.i79:                             ; preds = %cleanup64.thread124, %cleanup64
+  %result32.val42127 = phi ptr [ %15, %cleanup64.thread124 ], [ %result32.val42.pre, %cleanup64 ]
+  %vtable.i.i80 = load ptr, ptr %result32.val42127, align 8
   %vfn.i.i81 = getelementptr inbounds nuw i8, ptr %vtable.i.i80, i64 8
   %17 = load ptr, ptr %vfn.i.i81, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(300) %result32.val42) #17
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(300) %result32.val42127) #17
   br label %return
 
 if.end67:                                         ; preds = %entry
   call fastcc void @_ZN6icu_7512_GLOBAL__N_120FormattedListBuilderC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %result68, ptr noundef nonnull align 8 dereferenceable(64) %items, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %18 = load i32, ptr %errorCode, align 4
   %cmp.i83 = icmp slt i32 %18, 1
-  br i1 %cmp.i83, label %if.end76, label %if.then74
-
-if.then74:                                        ; preds = %if.end67
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FormattedListE, i64 16), ptr %agg.result, align 8
-  %fData.i85 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr null, ptr %fData.i85, align 8
-  %fErrorCode.i86 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i32 %18, ptr %fErrorCode.i86, align 8
-  %result68.val43.pre = load ptr, ptr %result68, align 8
-  br label %cleanup116
+  br i1 %cmp.i83, label %if.end76, label %cleanup116
 
 lpad70.loopexit:                                  ; preds = %for.body
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2508,31 +2488,37 @@ invoke.cont105:                                   ; preds = %invoke.cont99
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FormattedListE, i64 16), ptr %agg.result, align 8
   %fData.i97 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %fErrorCode.i98 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  br i1 %cmp.i93, label %cleanup116.thread, label %if.then109
+  br i1 %cmp.i93, label %cleanup116.thread, label %cleanup116.thread130
 
-if.then109:                                       ; preds = %invoke.cont105
+cleanup116.thread130:                             ; preds = %invoke.cont105
   store ptr null, ptr %fData.i97, align 8
   store i32 %26, ptr %fErrorCode.i98, align 8
-  br label %cleanup116
+  br label %delete.notnull.i.i100
 
 cleanup116.thread:                                ; preds = %invoke.cont105
   store ptr %25, ptr %fData.i97, align 8
   store i32 0, ptr %fErrorCode.i98, align 8
   br label %return
 
-cleanup116:                                       ; preds = %if.then109, %if.then74
-  %result68.val43 = phi ptr [ %25, %if.then109 ], [ %result68.val43.pre, %if.then74 ]
-  %isnull.i.i99 = icmp eq ptr %result68.val43, null
+cleanup116:                                       ; preds = %if.end67
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FormattedListE, i64 16), ptr %agg.result, align 8
+  %fData.i85 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store ptr null, ptr %fData.i85, align 8
+  %fErrorCode.i86 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store i32 %18, ptr %fErrorCode.i86, align 8
+  %result68.val43.pre = load ptr, ptr %result68, align 8
+  %isnull.i.i99 = icmp eq ptr %result68.val43.pre, null
   br i1 %isnull.i.i99, label %return, label %delete.notnull.i.i100
 
-delete.notnull.i.i100:                            ; preds = %cleanup116
-  %vtable.i.i101 = load ptr, ptr %result68.val43, align 8
+delete.notnull.i.i100:                            ; preds = %cleanup116.thread130, %cleanup116
+  %result68.val43133 = phi ptr [ %25, %cleanup116.thread130 ], [ %result68.val43.pre, %cleanup116 ]
+  %vtable.i.i101 = load ptr, ptr %result68.val43133, align 8
   %vfn.i.i102 = getelementptr inbounds nuw i8, ptr %vtable.i.i101, i64 8
   %27 = load ptr, ptr %vfn.i.i102, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(300) %result68.val43) #17
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(300) %result68.val43133) #17
   br label %return
 
-return:                                           ; preds = %cleanup116.thread, %cleanup64.thread, %cleanup28.thread, %cleanup.thread115, %delete.notnull.i.i100, %cleanup116, %delete.notnull.i.i79, %cleanup64, %delete.notnull.i.i58, %cleanup28, %delete.notnull.i.i, %cleanup.thread
+return:                                           ; preds = %cleanup116.thread, %cleanup64.thread, %cleanup28.thread, %cleanup.thread115, %delete.notnull.i.i100, %cleanup116, %delete.notnull.i.i79, %cleanup64, %delete.notnull.i.i58, %delete.notnull.i.i, %cleanup.thread
   ret void
 }
 

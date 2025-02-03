@@ -7614,7 +7614,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %730, %_ZNK4llvm8Ca
   %780 = getelementptr inbounds %"class.llvm::Use", ptr %769, i64 %779
   %781 = load ptr, ptr %780, align 8
   %.not.i.i.i.i208 = icmp eq ptr %781, null
-  br i1 %.not.i.i.i.i208, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i, label %782
+  br i1 %.not.i.i.i.i208, label %790, label %782
 
 782:                                              ; preds = %774
   %783 = getelementptr inbounds nuw i8, ptr %780, i64 8
@@ -7623,39 +7623,32 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %730, %_ZNK4llvm8Ca
   %786 = load ptr, ptr %785, align 8
   store ptr %784, ptr %786, align 8
   %.not.i.i.i.i.i209 = icmp eq ptr %784, null
-  br i1 %.not.i.i.i.i.i209, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i, label %787
+  br i1 %.not.i.i.i.i.i209, label %790, label %787
 
 787:                                              ; preds = %782
   %788 = load ptr, ptr %785, align 8
   %789 = getelementptr inbounds nuw i8, ptr %784, i64 16
   store ptr %788, ptr %789, align 8
-  br label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i
+  br label %790
 
-_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i:      ; preds = %787, %782, %774
+790:                                              ; preds = %774, %782, %787
   store ptr %.0107, ptr %780, align 8
-  %.not4.i.i.i.i = icmp eq ptr %.0107, null
-  br i1 %.not4.i.i.i.i, label %_ZN4llvm8CallBase13setArgOperandEjPNS_5ValueE.exit, label %790
-
-790:                                              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i
   %791 = getelementptr inbounds nuw i8, ptr %.0107, i64 16
   %792 = load ptr, ptr %791, align 8
   %793 = getelementptr inbounds nuw i8, ptr %780, i64 8
   store ptr %792, ptr %793, align 8
   %.not.i.i.i.i.i.i210 = icmp eq ptr %792, null
-  br i1 %.not.i.i.i.i.i.i210, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i, label %794
+  br i1 %.not.i.i.i.i.i.i210, label %_ZN4llvm8CallBase13setArgOperandEjPNS_5ValueE.exit, label %794
 
 794:                                              ; preds = %790
   %795 = getelementptr inbounds nuw i8, ptr %792, i64 16
   store ptr %793, ptr %795, align 8
-  br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i
+  br label %_ZN4llvm8CallBase13setArgOperandEjPNS_5ValueE.exit
 
-_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i:     ; preds = %794, %790
+_ZN4llvm8CallBase13setArgOperandEjPNS_5ValueE.exit: ; preds = %790, %794
   %796 = getelementptr inbounds nuw i8, ptr %780, i64 16
   store ptr %791, ptr %796, align 8
   store ptr %780, ptr %791, align 8
-  br label %_ZN4llvm8CallBase13setArgOperandEjPNS_5ValueE.exit
-
-_ZN4llvm8CallBase13setArgOperandEjPNS_5ValueE.exit: ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i
   %797 = load ptr, ptr %765, align 8
   call void @_ZN4llvm11Instruction12insertBeforeERNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsIS0_Lb0ELb0EvLb1ES1_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %769, ptr noundef nonnull align 8 dereferenceable(80) %797, ptr nonnull %724, i64 0) #19
   %798 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #19
@@ -8625,7 +8618,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE21takeAllocationForGrowEPS4_m.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE21takeAllocationForGrowEPS4_m.exit: ; preds = %2, %11
-  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %5, i64 noundef %8) #19
+  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %5, i64 noundef %8) #19
   %12 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %13 = add i64 %12, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %13) #19

@@ -176,7 +176,7 @@ define void @_ZN5faiss6ivflib26check_compatible_for_mergeEPKNS_5IndexES3_(ptr no
 26:                                               ; preds = %19
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %22) #18
+  call void @__cxa_free_exception(ptr nonnull %22) #18
   br label %113
 
 28:                                               ; preds = %12
@@ -235,7 +235,7 @@ define void @_ZN5faiss6ivflib26check_compatible_for_mergeEPKNS_5IndexES3_(ptr no
 61:                                               ; preds = %54
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %57) #18
+  call void @__cxa_free_exception(ptr nonnull %57) #18
   br label %113
 
 .thread:                                          ; preds = %2, %.preheader.preheader, %8
@@ -287,7 +287,7 @@ define void @_ZN5faiss6ivflib26check_compatible_for_mergeEPKNS_5IndexES3_(ptr no
 87:                                               ; preds = %80
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %83) #18
+  call void @__cxa_free_exception(ptr nonnull %83) #18
   br label %113
 
 89:                                               ; preds = %68
@@ -331,7 +331,7 @@ define void @_ZN5faiss6ivflib26check_compatible_for_mergeEPKNS_5IndexES3_(ptr no
 106:                                              ; preds = %99
   %107 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %102) #18
+  call void @__cxa_free_exception(ptr nonnull %102) #18
   br label %113
 
 108:                                              ; preds = %91
@@ -507,7 +507,7 @@ define noundef nonnull ptr @_ZN5faiss6ivflib17extract_index_ivfEPKNS_5IndexE(ptr
 17:                                               ; preds = %10
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %13) #18
+  call void @__cxa_free_exception(ptr nonnull %13) #18
   br label %19
 
 19:                                               ; preds = %17, %15
@@ -973,7 +973,7 @@ _ZN5faiss6ivflib17extract_index_ivfEPNS_5IndexE.exit: ; preds = %2
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #18
+  call void @__cxa_free_exception(ptr nonnull %25) #18
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -1218,7 +1218,7 @@ define void @_ZN5faiss6ivflib18SlidingIndexWindow4stepEPKNS_5IndexEb(ptr noundef
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #18
+  call void @__cxa_free_exception(ptr nonnull %20) #18
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -1275,7 +1275,7 @@ define void @_ZN5faiss6ivflib18SlidingIndexWindow4stepEPKNS_5IndexEb(ptr noundef
 48:                                               ; preds = %41
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %44) #18
+  call void @__cxa_free_exception(ptr nonnull %44) #18
   br label %50
 
 50:                                               ; preds = %48, %46
@@ -2263,7 +2263,7 @@ define noundef nonnull ptr @_ZN5faiss6ivflib17get_invlist_rangeEPKNS_5IndexEll(p
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #18
+  call void @__cxa_free_exception(ptr nonnull %19) #18
   br label %25
 
 25:                                               ; preds = %23, %21
@@ -2445,7 +2445,7 @@ define void @_ZN5faiss6ivflib17set_invlist_rangeEPNS_5IndexEllPNS_18ArrayInverte
 26:                                               ; preds = %19
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %22) #18
+  call void @__cxa_free_exception(ptr nonnull %22) #18
   br label %124
 
 28:                                               ; preds = %10
@@ -2490,7 +2490,7 @@ define void @_ZN5faiss6ivflib17set_invlist_rangeEPNS_5IndexEllPNS_18ArrayInverte
 46:                                               ; preds = %39
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %42) #18
+  call void @__cxa_free_exception(ptr nonnull %42) #18
   br label %124
 
 48:                                               ; preds = %32
@@ -2539,7 +2539,7 @@ define void @_ZN5faiss6ivflib17set_invlist_rangeEPNS_5IndexEllPNS_18ArrayInverte
 72:                                               ; preds = %65
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #18
+  call void @__cxa_free_exception(ptr nonnull %68) #18
   br label %124
 
 74:                                               ; preds = %53
@@ -2668,7 +2668,7 @@ define void @_ZN5faiss6ivflib22search_with_parametersEPKNS_5IndexElPKflPfPlPKNS_
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #18
+  call void @__cxa_free_exception(ptr nonnull %21) #18
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -2814,7 +2814,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit83.thread:           ; preds = %53
 76:                                               ; preds = %69
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %72) #18
+  call void @__cxa_free_exception(ptr nonnull %72) #18
   br label %78
 
 78:                                               ; preds = %76, %74
@@ -3017,7 +3017,7 @@ define void @_ZN5faiss6ivflib28range_search_with_parametersEPKNS_5IndexElPKffPNS
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #18
+  call void @__cxa_free_exception(ptr nonnull %20) #18
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -3163,7 +3163,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit82.thread:           ; preds = %52
 75:                                               ; preds = %68
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %71) #18
+  call void @__cxa_free_exception(ptr nonnull %71) #18
   br label %77
 
 77:                                               ; preds = %75, %73
@@ -3373,7 +3373,7 @@ define noundef nonnull ptr @_ZN5faiss6ivflib27ivf_residual_from_quantizerERKNS_1
 26:                                               ; preds = %19
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %22) #18
+  call void @__cxa_free_exception(ptr nonnull %22) #18
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -3850,7 +3850,7 @@ define void @_ZN5faiss6ivflib32ivf_residual_add_from_flat_codesEPNS_25IndexIVFRe
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #18
+  call void @__cxa_free_exception(ptr nonnull %26) #18
   br label %32
 
 32:                                               ; preds = %30, %28

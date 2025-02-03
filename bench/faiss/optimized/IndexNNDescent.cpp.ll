@@ -120,7 +120,7 @@ define void @_ZN5faiss14IndexNNDescent5trainElPKf(ptr noundef nonnull align 8 ca
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #10
+  call void @__cxa_free_exception(ptr nonnull %16) #10
   br label %22
 
 22:                                               ; preds = %20, %18
@@ -171,7 +171,7 @@ define void @_ZN5faiss14IndexNNDescent3addElPKf(ptr noundef nonnull align 8 dere
 
 18:                                               ; preds = %14
   invoke void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #18
-          to label %89 unwind label %19
+          to label %88 unwind label %19
 
 19:                                               ; preds = %18, %12, %8
   %20 = landingpad { ptr, i32 }
@@ -181,7 +181,7 @@ define void @_ZN5faiss14IndexNNDescent3addElPKf(ptr noundef nonnull align 8 dere
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #10
+  call void @__cxa_free_exception(ptr nonnull %17) #10
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -216,7 +216,7 @@ define void @_ZN5faiss14IndexNNDescent3addElPKf(ptr noundef nonnull align 8 dere
 
 38:                                               ; preds = %34
   invoke void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #18
-          to label %89 unwind label %39
+          to label %88 unwind label %39
 
 39:                                               ; preds = %38, %32, %28
   %40 = landingpad { ptr, i32 }
@@ -226,7 +226,7 @@ define void @_ZN5faiss14IndexNNDescent3addElPKf(ptr noundef nonnull align 8 dere
 41:                                               ; preds = %34
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %37) #10
+  call void @__cxa_free_exception(ptr nonnull %37) #10
   br label %43
 
 43:                                               ; preds = %41, %39
@@ -277,8 +277,8 @@ define void @_ZN5faiss14IndexNNDescent3addElPKf(ptr noundef nonnull align 8 dere
   store ptr %65, ptr %67, align 8
   br label %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
 
-common.resume:                                    ; preds = %23, %43, %84, %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i16, %68
-  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %.pn10, %43 ], [ %.pn, %23 ], [ %85, %84 ], [ %85, %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i16 ]
+common.resume:                                    ; preds = %23, %43, %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit17, %68
+  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %84, %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit17 ], [ %.pn10, %43 ], [ %.pn, %23 ]
   resume { ptr, i32 } %common.resume.op
 
 68:                                               ; preds = %60
@@ -303,7 +303,7 @@ _ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit: ; preds = 
   %79 = load i8, ptr %78, align 8
   %80 = trunc i8 %79 to i1
   invoke void @_ZN5faiss9NNDescent5buildERNS_16DistanceComputerEib(ptr noundef nonnull align 8 dereferenceable(88) %75, ptr noundef nonnull align 8 dereferenceable(8) %.0.i, i32 noundef %77, i1 noundef zeroext %80)
-          to label %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit unwind label %84
+          to label %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit17
 
 _ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
   %81 = load ptr, ptr %.0.i, align 8
@@ -312,20 +312,16 @@ _ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit: ;
   tail call void %83(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #10
   ret void
 
-84:                                               ; preds = %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
-  %85 = landingpad { ptr, i32 }
+_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit17: ; preds = %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %.not.i15 = icmp eq ptr %.0.i, null
-  br i1 %.not.i15, label %common.resume, label %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i16
-
-_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i16: ; preds = %84
-  %86 = load ptr, ptr %.0.i, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  %88 = load ptr, ptr %87, align 8
-  tail call void %88(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #10
+  %85 = load ptr, ptr %.0.i, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
+  %87 = load ptr, ptr %86, align 8
+  tail call void %87(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #10
   br label %common.resume
 
-89:                                               ; preds = %38, %18
+88:                                               ; preds = %38, %18
   unreachable
 }
 
@@ -379,7 +375,7 @@ define void @_ZNK5faiss14IndexNNDescent6searchElPKflPfPlPKNS_16SearchParametersE
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #10
+  call void @__cxa_free_exception(ptr nonnull %25) #10
   br label %83
 
 31:                                               ; preds = %7
@@ -419,7 +415,7 @@ define void @_ZNK5faiss14IndexNNDescent6searchElPKflPfPlPKNS_16SearchParametersE
 47:                                               ; preds = %40
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %43) #10
+  call void @__cxa_free_exception(ptr nonnull %43) #10
   br label %83
 
 49:                                               ; preds = %31

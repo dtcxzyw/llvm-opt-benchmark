@@ -116,7 +116,7 @@ define internal i32 @PCF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   store ptr %0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store ptr %10, ptr %25, align 8
-  %26 = tail call fastcc i32 @pcf_load_font(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %7)
+  %26 = tail call fastcc i32 @pcf_load_font(ptr noundef nonnull %10, ptr noundef nonnull %1, i64 noundef %7)
   %.not71 = icmp eq i32 %26, 0
   br i1 %.not71, label %27, label %72
 
@@ -231,7 +231,7 @@ sub_0:                                            ; preds = %50
   br label %73
 
 72:                                               ; preds = %.critedge80, %21, %15, %9
-  tail call void @PCF_Face_Done(ptr noundef %1)
+  tail call void @PCF_Face_Done(ptr noundef nonnull %1)
   br label %73
 
 73:                                               ; preds = %70, %72, %27, %31

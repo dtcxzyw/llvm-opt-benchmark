@@ -91,7 +91,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %0,
   %.135.us50 = phi float [ %29, %25 ], [ %.03445.us48, %.lr.ph.split.split.us ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
-  br i1 %exitcond64.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !5
+  br i1 %exitcond64.not, label %._crit_edge.thread, label %.lr.ph.split.split.us, !llvm.loop !5
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.lr.ph.split ]
@@ -128,67 +128,69 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %0,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count63
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %48, %30, %15, %6
-  %.034.lcssa = phi float [ 0.000000e+00, %6 ], [ %.135.us, %15 ], [ %.135.us50, %30 ], [ %.135, %48 ]
+._crit_edge:                                      ; preds = %48, %15, %6
+  %.034.lcssa = phi float [ 0.000000e+00, %6 ], [ %.135.us, %15 ], [ %.135, %48 ]
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %73, label %49
+  br i1 %.not, label %72, label %._crit_edge.thread
 
-49:                                               ; preds = %._crit_edge
-  %50 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 2, i64 1, ptr nonnull %0)
+._crit_edge.thread:                               ; preds = %30, %._crit_edge
+  %.034.lcssa82 = phi float [ %.034.lcssa, %._crit_edge ], [ %.135.us50, %30 ]
+  %49 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 2, i64 1, ptr nonnull %0)
   %.not42 = icmp eq ptr %4, null
-  br i1 %.not42, label %73, label %.preheader
+  br i1 %.not42, label %72, label %.preheader
 
-.preheader:                                       ; preds = %49
+.preheader:                                       ; preds = %._crit_edge.thread
   br i1 %7, label %.lr.ph54, label %._crit_edge55
 
 .lr.ph54:                                         ; preds = %.preheader
-  %51 = icmp eq i32 %5, 0
+  %50 = icmp eq i32 %5, 0
   %wide.trip.count78 = zext nneg i32 %1 to i64
-  br i1 %51, label %.lr.ph54.split.us, label %.lr.ph54.split
+  br i1 %50, label %.lr.ph54.split.us, label %.lr.ph54.split
 
 .lr.ph54.split.us:                                ; preds = %.lr.ph54, %.lr.ph54.split.us
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph54.split.us ], [ 0, %.lr.ph54 ]
-  %52 = trunc nuw nsw i64 %indvars.iv75 to i32
-  %53 = uitofp nneg i32 %52 to float
-  %54 = fmul float %2, %53
-  %55 = fpext float %54 to double
-  %56 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv75
-  %57 = load float, ptr %56, align 4
-  %58 = fpext float %57 to double
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, double noundef %55, double noundef %58) #12
+  %51 = trunc nuw nsw i64 %indvars.iv75 to i32
+  %52 = uitofp nneg i32 %51 to float
+  %53 = fmul float %2, %52
+  %54 = fpext float %53 to double
+  %55 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv75
+  %56 = load float, ptr %55, align 4
+  %57 = fpext float %56 to double
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, double noundef %54, double noundef %57) #12
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
   br i1 %exitcond79.not, label %._crit_edge55, label %.lr.ph54.split.us, !llvm.loop !7
 
-.lr.ph54.split:                                   ; preds = %.lr.ph54, %71
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %71 ], [ 0, %.lr.ph54 ]
-  %60 = trunc nuw nsw i64 %indvars.iv70 to i32
-  %61 = srem i32 %60, %5
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %71
+.lr.ph54.split:                                   ; preds = %.lr.ph54, %70
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %70 ], [ 0, %.lr.ph54 ]
+  %59 = trunc nuw nsw i64 %indvars.iv70 to i32
+  %60 = srem i32 %59, %5
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %70
 
-63:                                               ; preds = %.lr.ph54.split
-  %64 = uitofp nneg i32 %60 to float
-  %65 = fmul float %2, %64
-  %66 = fpext float %65 to double
-  %67 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv70
-  %68 = load float, ptr %67, align 4
-  %69 = fpext float %68 to double
-  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, double noundef %66, double noundef %69) #12
-  br label %71
+62:                                               ; preds = %.lr.ph54.split
+  %63 = uitofp nneg i32 %59 to float
+  %64 = fmul float %2, %63
+  %65 = fpext float %64 to double
+  %66 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv70
+  %67 = load float, ptr %66, align 4
+  %68 = fpext float %67 to double
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, double noundef %65, double noundef %68) #12
+  br label %70
 
-71:                                               ; preds = %.lr.ph54.split, %63
+70:                                               ; preds = %.lr.ph54.split, %62
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count78
   br i1 %exitcond74.not, label %._crit_edge55, label %.lr.ph54.split, !llvm.loop !7
 
-._crit_edge55:                                    ; preds = %71, %.lr.ph54.split.us, %.preheader
-  %72 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 2, i64 1, ptr nonnull %0)
-  br label %73
+._crit_edge55:                                    ; preds = %70, %.lr.ph54.split.us, %.preheader
+  %71 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 2, i64 1, ptr nonnull %0)
+  br label %72
 
-73:                                               ; preds = %49, %._crit_edge55, %._crit_edge
-  %74 = fmul float %.034.lcssa, 5.000000e-01
-  ret float %74
+72:                                               ; preds = %._crit_edge.thread, %._crit_edge55, %._crit_edge
+  %.034.lcssa83 = phi float [ %.034.lcssa82, %._crit_edge.thread ], [ %.034.lcssa82, %._crit_edge55 ], [ %.034.lcssa, %._crit_edge ]
+  %73 = fmul float %.034.lcssa83, 5.000000e-01
+  ret float %73
 }
 
 ; Function Attrs: nofree nounwind

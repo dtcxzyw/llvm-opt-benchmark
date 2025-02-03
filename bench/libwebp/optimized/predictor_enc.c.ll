@@ -538,7 +538,7 @@ PredictBatch.exit.loopexit.us.i:                  ; preds = %.lr.ph89.split.us.s
 
 267:                                              ; preds = %.lr.ph89.split.i
   %268 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 16), align 16
-  call void %268(ptr noundef %.07288.i, ptr noundef %.07387.i, i32 noundef 1, ptr noundef %255) #8
+  call void %268(ptr noundef %.07288.i, ptr noundef nonnull %.07387.i, i32 noundef 1, ptr noundef %255) #8
   %269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 88), align 8
   %270 = getelementptr inbounds nuw i8, ptr %.07387.i, i64 4
   call void %269(ptr noundef nonnull %263, ptr noundef nonnull %270, i32 noundef %19, ptr noundef nonnull %262) #8

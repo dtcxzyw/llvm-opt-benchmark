@@ -1518,11 +1518,11 @@ if.then8.i.i47:                                   ; preds = %if.then.i.i44
   %36 = load i64, ptr %_now.i.i37, align 8
   %tv_usec.i.i50 = getelementptr inbounds nuw i8, ptr %_now.i.i37, i64 8
   %37 = load i64, ptr %tv_usec.i.i50, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.113, i32 noundef %call10.i.i49, i64 noundef %36, i64 noundef %37, ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, i32 noundef %31) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.113, i32 noundef %call10.i.i49, i64 noundef %36, i64 noundef %37, ptr noundef nonnull %0, i64 noundef %offset, i64 noundef %bytes, i32 noundef %31) #17
   br label %trace_nvme_dsm_done.exit
 
 if.else.i.i46:                                    ; preds = %if.then.i.i44
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.114, ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, i32 noundef %31) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.114, ptr noundef nonnull %0, i64 noundef %offset, i64 noundef %bytes, i32 noundef %31) #17
   br label %trace_nvme_dsm_done.exit
 
 trace_nvme_dsm_done.exit:                         ; preds = %if.end60, %land.lhs.true5.i.i41, %if.then8.i.i47, %if.else.i.i46
@@ -2749,7 +2749,7 @@ land.rhs:                                         ; preds = %while.cond1
   br i1 %call5, label %while.cond1, label %while.end7, !llvm.loop !18
 
 while.end7:                                       ; preds = %while.cond1, %land.rhs
-  call void @qemu_mutex_unlock_impl(ptr noundef %opaque, ptr noundef nonnull @.str.4, i32 noundef 216) #17
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.4, i32 noundef 216) #17
   ret void
 }
 
@@ -3713,11 +3713,11 @@ if.then8.i.i44:                                   ; preds = %if.then.i.i41
   %33 = load i64, ptr %_now.i.i34, align 8
   %tv_usec.i.i47 = getelementptr inbounds nuw i8, ptr %_now.i.i34, i64 8
   %34 = load i64, ptr %tv_usec.i.i47, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, i32 noundef %call10.i.i46, i64 noundef %33, i64 noundef %34, ptr noundef %0, i32 noundef range(i32 0, 2) %conv26, i64 noundef %offset, i64 noundef %bytes, i32 noundef %28) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, i32 noundef %call10.i.i46, i64 noundef %33, i64 noundef %34, ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %conv26, i64 noundef %offset, i64 noundef %bytes, i32 noundef %28) #17
   br label %trace_nvme_rw_done.exit
 
 if.else.i.i43:                                    ; preds = %if.then.i.i41
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, ptr noundef %0, i32 noundef range(i32 0, 2) %conv26, i64 noundef %offset, i64 noundef %bytes, i32 noundef %28) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %conv26, i64 noundef %offset, i64 noundef %bytes, i32 noundef %28) #17
   br label %trace_nvme_rw_done.exit
 
 trace_nvme_rw_done.exit:                          ; preds = %if.end48, %land.lhs.true5.i.i38, %if.then8.i.i44, %if.else.i.i43

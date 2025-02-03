@@ -170,22 +170,20 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$L
 13:                                               ; preds = %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %17 = load i64, ptr %16, align 8, !range !23, !invariant.load !7
-  %18 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %19 = load i64, ptr %18, align 8, !range !24, !invariant.load !7
-  %20 = icmp ult i64 %19, -9223372036854775807
-  tail call void @llvm.assume(i1 %20)
-  %21 = icmp eq i64 %17, 0
-  br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hddfe0134c79d714dE.exit4", label %22
+  %15 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %16 = load i64, ptr %15, align 8, !range !23, !invariant.load !7
+  %17 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  %18 = load i64, ptr %17, align 8, !range !24, !invariant.load !7
+  %19 = icmp ult i64 %18, -9223372036854775807
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp eq i64 %16, 0
+  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hddfe0134c79d714dE.exit4", label %21
 
-22:                                               ; preds = %13
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #17
+21:                                               ; preds = %13
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %16, i64 noundef range(i64 1, -9223372036854775807) %18) #17
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hddfe0134c79d714dE.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hddfe0134c79d714dE.exit4": ; preds = %22, %13
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hddfe0134c79d714dE.exit4": ; preds = %21, %13
   resume { ptr, i32 } %14
 }
 
@@ -349,7 +347,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.6213349532840121425.ex
   %46 = load i32, ptr %33, align 4, !range !44, !noundef !7
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %48 = load i32, ptr %47, align 4
-  tail call void @__rust_dealloc(ptr noundef %33, i64 noundef 8, i64 noundef 4) #17
+  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef 8, i64 noundef 4) #17
   br label %"_ZN4http10extensions10Extensions6insert28_$u7b$$u7b$closure$u7d$$u7d$17h019b3953375b016aE.llvm.6213349532840121425.exit"
 
 49:                                               ; preds = %"_ZN5alloc5boxed37Box$LT$dyn$u20$core..any..Any$C$A$GT$8downcast17h4383781f17f80f4dE.exit.i"
@@ -505,7 +503,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.6213349532840121425.ex
   %46 = load i64, ptr %33, align 8, !noundef !7
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %48 = load i32, ptr %47, align 8, !range !61, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef %33, i64 noundef 16, i64 noundef 8) #17
+  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef 16, i64 noundef 8) #17
   br label %"_ZN4http10extensions10Extensions6insert28_$u7b$$u7b$closure$u7d$$u7d$17he3e10eaac3682736E.llvm.6213349532840121425.exit"
 
 49:                                               ; preds = %"_ZN5alloc5boxed37Box$LT$dyn$u20$core..any..Any$C$A$GT$8downcast17h3c644dffe2da4877E.exit.i"
@@ -596,7 +594,7 @@ common.resume:                                    ; preds = %33, %41, %10
   %19 = load i32, ptr %6, align 4, !range !44, !noundef !7
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %21 = load i32, ptr %20, align 4
-  tail call void @__rust_dealloc(ptr noundef %6, i64 noundef 8, i64 noundef 4) #17
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 8, i64 noundef 4) #17
   br label %"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$http_client..RedirectPolicy$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17h2abcb107eb675ee8E.exit"
 
 22:                                               ; preds = %"_ZN5alloc5boxed37Box$LT$dyn$u20$core..any..Any$C$A$GT$8downcast17h4383781f17f80f4dE.exit"
@@ -687,7 +685,7 @@ common.resume:                                    ; preds = %33, %41, %10
   %19 = load i64, ptr %6, align 8, !noundef !7
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8, !range !61, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef %6, i64 noundef 16, i64 noundef 8) #17
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 16, i64 noundef 8) #17
   br label %"_ZN4core3ptr148drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$http_client..ReadTimeout$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17h51a888a3bd6f68c1E.exit"
 
 22:                                               ; preds = %"_ZN5alloc5boxed37Box$LT$dyn$u20$core..any..Any$C$A$GT$8downcast17h3c644dffe2da4877E.exit"

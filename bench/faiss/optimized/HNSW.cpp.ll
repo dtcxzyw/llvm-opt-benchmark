@@ -223,7 +223,7 @@ define void @_ZN5faiss4HNSW16set_nb_neighborsEii(ptr noundef nonnull readonly al
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #17
+  call void @__cxa_free_exception(ptr nonnull %19) #17
   br label %25
 
 25:                                               ; preds = %23, %21
@@ -1049,7 +1049,7 @@ define void @_ZNK5faiss4HNSW20print_neighbor_statsEi(ptr noundef nonnull align 8
 32:                                               ; preds = %25
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %28) #17
+  call void @__cxa_free_exception(ptr nonnull %28) #17
   br label %34
 
 34:                                               ; preds = %32, %30

@@ -1268,7 +1268,7 @@ define void @Bac_PtrUpdateBox(ptr noundef readonly captures(none) %0, ptr nounde
   %.val75 = load ptr, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.val75, i64 %.sink
   %.0 = load ptr, ptr %27, align 8
-  tail call void @free(ptr noundef %5) #14
+  tail call void @free(ptr noundef nonnull %5) #14
   %.not.i = icmp eq ptr %.0, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %28
 

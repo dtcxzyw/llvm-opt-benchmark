@@ -2948,7 +2948,7 @@ _ZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJEE
 91:                                               ; preds = %88
   %92 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %89) #31
+  call void @__cxa_free_exception(ptr nonnull %89) #31
   br label %.body
 
 93:                                               ; preds = %78
@@ -3077,7 +3077,7 @@ common.resume:                                    ; preds = %.body, %.body76, %1
 146:                                              ; preds = %140
   %147 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %144) #31
+  call void @__cxa_free_exception(ptr nonnull %144) #31
   br label %common.resume
 
 .body:                                            ; preds = %91, %32, %59, %30
@@ -3146,7 +3146,7 @@ common.resume:                                    ; preds = %.body, %.body76, %1
 172:                                              ; preds = %169
   %173 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %170) #31
+  call void @__cxa_free_exception(ptr nonnull %170) #31
   br label %.body76
 
 174:                                              ; preds = %171

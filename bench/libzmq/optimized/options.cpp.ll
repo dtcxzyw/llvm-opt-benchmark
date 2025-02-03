@@ -1367,7 +1367,7 @@ sw.bb393:                                         ; preds = %if.end
 
 if.then395:                                       ; preds = %sw.bb393
   %add.ptr = getelementptr inbounds i8, ptr %optval_, i64 %optvallen_
-  call void @_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp396, ptr noundef %optval_, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp397)
+  call void @_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp396, ptr noundef nonnull %optval_, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp397)
   %hello_msg = getelementptr inbounds nuw i8, ptr %this, i64 1208
   %27 = load ptr, ptr %hello_msg, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1216
@@ -1411,7 +1411,7 @@ sw.bb407:                                         ; preds = %if.end
 
 if.then409:                                       ; preds = %sw.bb407
   %add.ptr412 = getelementptr inbounds i8, ptr %optval_, i64 %optvallen_
-  call void @_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp411, ptr noundef %optval_, ptr noundef nonnull %add.ptr412, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp413)
+  call void @_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp411, ptr noundef nonnull %optval_, ptr noundef nonnull %add.ptr412, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp413)
   %disconnect_msg = getelementptr inbounds nuw i8, ptr %this, i64 1240
   %32 = load ptr, ptr %disconnect_msg, align 8
   %_M_finish.i.i.i.i296 = getelementptr inbounds nuw i8, ptr %this, i64 1248
@@ -1465,7 +1465,7 @@ sw.bb429:                                         ; preds = %if.end
 
 if.then431:                                       ; preds = %sw.bb429
   %add.ptr434 = getelementptr inbounds i8, ptr %optval_, i64 %optvallen_
-  call void @_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp433, ptr noundef %optval_, ptr noundef nonnull %add.ptr434, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp435)
+  call void @_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp433, ptr noundef nonnull %optval_, ptr noundef nonnull %add.ptr434, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp435)
   %hiccup_msg = getelementptr inbounds nuw i8, ptr %this, i64 1272
   %37 = load ptr, ptr %hiccup_msg, align 8
   %_M_finish.i.i.i.i316 = getelementptr inbounds nuw i8, ptr %this, i64 1280

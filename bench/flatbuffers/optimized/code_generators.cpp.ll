@@ -328,7 +328,7 @@ invoke.cont76:                                    ; preds = %for.body72
 
 invoke.cont78:                                    ; preds = %invoke.cont76
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73) #13
-  %call.i37 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it64.sroa.0.052) #14
+  %call.i37 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it64.sroa.0.052) #14
   %cmp.i36.not = icmp eq ptr %call.i37, %add.ptr.i.i
   br i1 %cmp.i36.not, label %for.end83, label %for.body72, !llvm.loop !8
 

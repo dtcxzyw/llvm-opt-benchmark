@@ -100,7 +100,7 @@ define range(i32 -128, 128) i32 @DecodeUnits(i32 noundef %0, ptr noundef readonl
 7:                                                ; preds = %3
   %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %6, i64 noundef 10) #17
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %datebsearch.exit.thread15, label %10
+  br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %7, %3
   %11 = load i8, ptr %1, align 1
@@ -124,7 +124,7 @@ define range(i32 -128, 128) i32 @DecodeUnits(i32 noundef %0, ptr noundef readonl
 23:                                               ; preds = %13
   %24 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 10) #17
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %datebsearch.exit.thread15, label %26
+  br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %23, %13
   %.0.i = phi i32 [ %24, %23 ], [ %21, %13 ]
@@ -134,25 +134,25 @@ define range(i32 -128, 128) i32 @DecodeUnits(i32 noundef %0, ptr noundef readonl
   %.121.i = select i1 %27, ptr %.02026.i, ptr %29
   %.1.i = select i1 %27, ptr %28, ptr %.01927.i
   %.not.i = icmp ult ptr %.1.i, %.121.i
-  br i1 %.not.i, label %datebsearch.exit.thread, label %13, !llvm.loop !4
+  br i1 %.not.i, label %datebsearch.exit, label %13, !llvm.loop !4
 
-datebsearch.exit.thread:                          ; preds = %26
+datebsearch.exit:                                 ; preds = %26
   store ptr null, ptr %5, align 8
   br label %35
 
-datebsearch.exit.thread15:                        ; preds = %23, %7
-  %.017 = phi ptr [ %6, %7 ], [ %18, %23 ]
-  store ptr %.017, ptr %5, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %.017, i64 11
+.loopexit:                                        ; preds = %23, %7
+  %.0.ph = phi ptr [ %6, %7 ], [ %18, %23 ]
+  store ptr %.0.ph, ptr %5, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 11
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i32
-  %33 = getelementptr inbounds nuw i8, ptr %.017, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 12
   %34 = load i32, ptr %33, align 4
   br label %35
 
-35:                                               ; preds = %datebsearch.exit.thread, %datebsearch.exit.thread15
-  %storemerge = phi i32 [ %34, %datebsearch.exit.thread15 ], [ 0, %datebsearch.exit.thread ]
-  %.012 = phi i32 [ %32, %datebsearch.exit.thread15 ], [ 31, %datebsearch.exit.thread ]
+35:                                               ; preds = %datebsearch.exit, %.loopexit
+  %storemerge = phi i32 [ %34, %.loopexit ], [ 0, %datebsearch.exit ]
+  %.012 = phi i32 [ %32, %.loopexit ], [ 31, %datebsearch.exit ]
   store i32 %storemerge, ptr %2, align 4
   ret i32 %.012
 }
@@ -1930,12 +1930,12 @@ DecodeSpecial.exit.thread.i:                      ; preds = %142
   br label %DecodePosixTimezone.exit.thread
 
 DecodeSpecial.exit.i:                             ; preds = %139, %123
-  %.018.i.i = phi ptr [ %122, %123 ], [ %134, %139 ]
-  store ptr %.018.i.i, ptr getelementptr inbounds nuw (i8, ptr @datecache, i64 192), align 16
-  %146 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 11
+  %.0.ph.i.i = phi ptr [ %122, %123 ], [ %134, %139 ]
+  store ptr %.0.ph.i.i, ptr getelementptr inbounds nuw (i8, ptr @datecache, i64 192), align 16
+  %146 = getelementptr inbounds nuw i8, ptr %.0.ph.i.i, i64 11
   %147 = load i8, ptr %146, align 1
   %148 = sext i8 %147 to i32
-  %149 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 12
+  %149 = getelementptr inbounds nuw i8, ptr %.0.ph.i.i, i64 12
   %150 = load i32, ptr %149, align 4
   store i8 %121, ptr %.012.lcssa.i, align 1
   %.off.i = add nsw i32 %148, -5
@@ -2338,11 +2338,11 @@ j2date.exit348:                                   ; preds = %246, %249
   br label %.loopexit
 
 DecodeSpecial.exit:                               ; preds = %340, %324
-  %.018.i = phi ptr [ %323, %324 ], [ %335, %340 ]
-  store ptr %.018.i, ptr %322, align 8
-  %347 = getelementptr inbounds nuw i8, ptr %.018.i, i64 11
+  %.0.ph.i = phi ptr [ %323, %324 ], [ %335, %340 ]
+  store ptr %.0.ph.i, ptr %322, align 8
+  %347 = getelementptr inbounds nuw i8, ptr %.0.ph.i, i64 11
   %348 = load i8, ptr %347, align 1
-  %349 = getelementptr inbounds nuw i8, ptr %.018.i, i64 12
+  %349 = getelementptr inbounds nuw i8, ptr %.0.ph.i, i64 12
   %350 = load i32, ptr %349, align 4
   %351 = icmp eq i8 %348, 8
   br i1 %351, label %585, label %352
@@ -3361,11 +3361,11 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   br label %.loopexit
 
 DecodeSpecial.exit:                               ; preds = %78, %63
-  %.018.i = phi ptr [ %62, %63 ], [ %73, %78 ]
-  store ptr %.018.i, ptr %61, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %.018.i, i64 11
+  %.0.ph.i = phi ptr [ %62, %63 ], [ %73, %78 ]
+  store ptr %.0.ph.i, ptr %61, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %.0.ph.i, i64 11
   %86 = load i8, ptr %85, align 1
-  %87 = getelementptr inbounds nuw i8, ptr %.018.i, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %.0.ph.i, i64 12
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i8 %86, 8
   br i1 %89, label %102, label %90

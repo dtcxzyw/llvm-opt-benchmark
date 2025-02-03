@@ -202,7 +202,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #19
+  call void @__cxa_free_exception(ptr nonnull %exception) #19
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %header) #19
   resume { ptr, i32 } %5
 
@@ -1801,7 +1801,7 @@ lpad.i99:                                         ; preds = %invoke.cont2.i, %if
 lpad1.i:                                          ; preds = %if.then.i101
   %58 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #19
   br label %ehcleanup70.i
 
 if.end.i102:                                      ; preds = %invoke.cont.i
@@ -2137,7 +2137,7 @@ invoke.cont18:                                    ; preds = %sw.bb16
 lpad17:                                           ; preds = %sw.bb16
   %95 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #19
   br label %common.resume
 
 sw.default:                                       ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIaEET_v.exit
@@ -2152,7 +2152,7 @@ invoke.cont21:                                    ; preds = %sw.default
 lpad20:                                           ; preds = %sw.default
   %96 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception19) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception19) #19
   br label %common.resume
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132, %_ZN5folly4bserL14decodeTemplateERNS_2io6CursorE.exit, %while.cond.i.preheader, %sw.bb13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %sw.bb11, %sw.bb10, %sw.bb9, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE4pullEPvm.exit, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIlEET_v.exit, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIiEET_v.exit, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIsEET_v.exit, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE4readIaEET_v.exit42
@@ -2183,7 +2183,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #19
   br label %ehcleanup13
 
 lpad1:                                            ; preds = %if.end, %invoke.cont

@@ -1754,7 +1754,7 @@ if.then29:                                        ; preds = %if.end27
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %77 = select i1 %tobool.i.not.i, i64 3, i64 4
   %mul = shl nsw i64 %conv30, %77
-  call void @qcow2_free_clusters(ptr noundef %bs, i64 noundef %and, i64 noundef %mul, i32 noundef 4) #13
+  call void @qcow2_free_clusters(ptr noundef nonnull %bs, i64 noundef %and, i64 noundef %mul, i32 noundef 4) #13
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then29, %if.end27

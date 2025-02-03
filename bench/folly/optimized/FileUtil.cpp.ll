@@ -1866,7 +1866,7 @@ ehcleanup15:                                      ; preds = %if.then.i.i58, %_ZN
 lpad19:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #23
+  call void @__cxa_free_exception(ptr nonnull %exception) #23
   br label %ehcleanup23
 
 lpad22:                                           ; preds = %invoke.cont20

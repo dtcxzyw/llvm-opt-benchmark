@@ -505,7 +505,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 61:                                               ; preds = %58
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %59) #20, !noalias !5
+  call void @__cxa_free_exception(ptr nonnull %59) #20, !noalias !5
   br label %.body57
 
 63:                                               ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit55
@@ -4202,7 +4202,7 @@ _ZSt8_DestroyIPN2cv4gapi3wip6onevpl8CfgParamEEvT_S6_.exit.i.i.i.i.i: ; preds = %
   %30 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %54 unwind label %31
+          to label %_ZSt8_DestroyIPN2cv4gapi3wip6onevpl8CfgParamES4_EvT_S6_RSaIT0_E.exit49.thread unwind label %31
 
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
@@ -4256,7 +4256,7 @@ _ZSt8_DestroyIPN2cv4gapi3wip6onevpl8CfgParamEEvT_S6_.exit.i.i.i.i.i36: ; preds =
   %42 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %57 unwind label %43
+          to label %56 unwind label %43
 
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
@@ -4269,11 +4269,11 @@ _ZSt8_DestroyIPN2cv4gapi3wip6onevpl8CfgParamEEvT_S6_.exit.i.i.i.i.i36: ; preds =
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN2cv4gapi3wip6onevpl8CfgParamES5_SaIS4_EET0_T_S8_S7_RT1_.exit43.loopexit: ; preds = %_ZSt10_ConstructIN2cv4gapi3wip6onevpl8CfgParamEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i37
-  %.ptr63.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i30.add
+  %.ptr60.le = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %.016.i.i.i.i.i30.add
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv4gapi3wip6onevpl8CfgParamES5_SaIS4_EET0_T_S8_S7_RT1_.exit43
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN2cv4gapi3wip6onevpl8CfgParamES5_SaIS4_EET0_T_S8_S7_RT1_.exit43: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv4gapi3wip6onevpl8CfgParamES5_SaIS4_EET0_T_S8_S7_RT1_.exit43.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv4gapi3wip6onevpl8CfgParamES5_SaIS4_EET0_T_S8_S7_RT1_.exit
-  %.0.lcssa.i.i.i.i.i39 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv4gapi3wip6onevpl8CfgParamES5_SaIS4_EET0_T_S8_S7_RT1_.exit ], [ %.ptr63.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv4gapi3wip6onevpl8CfgParamES5_SaIS4_EET0_T_S8_S7_RT1_.exit43.loopexit ]
+  %.0.lcssa.i.i.i.i.i39 = phi ptr [ %.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv4gapi3wip6onevpl8CfgParamES5_SaIS4_EET0_T_S8_S7_RT1_.exit ], [ %.ptr60.le, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv4gapi3wip6onevpl8CfgParamES5_SaIS4_EET0_T_S8_S7_RT1_.exit43.loopexit ]
   %.not4.i.i.i = icmp eq ptr %6, %5
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN2cv4gapi3wip6onevpl8CfgParamES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -4307,47 +4307,47 @@ _ZNSt12_Vector_baseIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EE13_M_deallocateEPS4_m.
   %53 = tail call ptr @__cxa_begin_catch(ptr %52) #20
   br label %_ZNSt12_Vector_baseIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EE13_M_deallocateEPS4_m.exit51
 
-54:                                               ; preds = %29
-  %55 = extractvalue { ptr, i32 } %30, 0
-  %56 = tail call ptr @__cxa_begin_catch(ptr %55) #20
+_ZSt8_DestroyIPN2cv4gapi3wip6onevpl8CfgParamES4_EvT_S6_RSaIT0_E.exit49.thread: ; preds = %29
+  %54 = extractvalue { ptr, i32 } %30, 0
+  %55 = tail call ptr @__cxa_begin_catch(ptr %54) #20
   tail call void @_ZN2cv4gapi3wip6onevpl8CfgParamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #20
   br label %_ZNSt12_Vector_baseIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EE13_M_deallocateEPS4_m.exit51
 
-57:                                               ; preds = %41
-  %58 = extractvalue { ptr, i32 } %42, 0
-  %59 = tail call ptr @__cxa_begin_catch(ptr %58) #20
+56:                                               ; preds = %41
+  %57 = extractvalue { ptr, i32 } %42, 0
+  %58 = tail call ptr @__cxa_begin_catch(ptr %57) #20
   %.not4.i.i.i45 = icmp eq ptr %20, %.ptr
   br i1 %.not4.i.i.i45, label %_ZNSt12_Vector_baseIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EE13_M_deallocateEPS4_m.exit51, label %.lr.ph.i.i.i46
 
-.lr.ph.i.i.i46:                                   ; preds = %57, %.lr.ph.i.i.i46
-  %.05.i.i.i47 = phi ptr [ %60, %.lr.ph.i.i.i46 ], [ %20, %57 ]
+.lr.ph.i.i.i46:                                   ; preds = %56, %.lr.ph.i.i.i46
+  %.05.i.i.i47 = phi ptr [ %59, %.lr.ph.i.i.i46 ], [ %20, %56 ]
   tail call void @_ZN2cv4gapi3wip6onevpl8CfgParamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i47) #20
-  %60 = getelementptr inbounds nuw i8, ptr %.05.i.i.i47, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.05.i.i.i47, i64 16
   %.not.i.i.i48 = icmp eq ptr %.05.i.i.i47, %.0.lcssa.i.i.i.i.i
   br i1 %.not.i.i.i48, label %_ZNSt12_Vector_baseIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EE13_M_deallocateEPS4_m.exit51, label %.lr.ph.i.i.i46, !llvm.loop !22
 
-61:                                               ; preds = %_ZNSt12_Vector_baseIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EE13_M_deallocateEPS4_m.exit51
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %_ZNSt12_Vector_baseIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EE13_M_deallocateEPS4_m.exit51
+  %61 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %63 unwind label %64
+          to label %62 unwind label %63
 
-_ZNSt12_Vector_baseIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EE13_M_deallocateEPS4_m.exit51: ; preds = %.lr.ph.i.i.i46, %.thread, %57, %54
+_ZNSt12_Vector_baseIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EE13_M_deallocateEPS4_m.exit51: ; preds = %.lr.ph.i.i.i46, %_ZSt8_DestroyIPN2cv4gapi3wip6onevpl8CfgParamES4_EvT_S6_RSaIT0_E.exit49.thread, %.thread, %56
   tail call void @_ZdlPv(ptr noundef nonnull %20) #23
   invoke void @__cxa_rethrow() #21
-          to label %67 unwind label %61
+          to label %66 unwind label %60
 
-63:                                               ; preds = %61
-  resume { ptr, i32 } %62
+62:                                               ; preds = %60
+  resume { ptr, i32 } %61
 
-64:                                               ; preds = %61
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %60
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  tail call void @__clang_call_terminate(ptr %66) #22
+  %65 = extractvalue { ptr, i32 } %64, 0
+  tail call void @__clang_call_terminate(ptr %65) #22
   unreachable
 
-67:                                               ; preds = %_ZNSt12_Vector_baseIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EE13_M_deallocateEPS4_m.exit51
+66:                                               ; preds = %_ZNSt12_Vector_baseIN2cv4gapi3wip6onevpl8CfgParamESaIS4_EE13_M_deallocateEPS4_m.exit51
   unreachable
 }
 
@@ -5660,7 +5660,7 @@ _ZSt10_ConstructIN2cv10GTransformEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.l
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #20
-  invoke void @_ZSt8_DestroyIPN2cv10GTransformEEvT_S3_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN2cv10GTransformEEvT_S3_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22

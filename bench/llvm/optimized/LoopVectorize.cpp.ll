@@ -27515,7 +27515,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vE
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %671
   %676 = getelementptr inbounds nuw i8, ptr %668, i64 256
-  call fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_SF_T0_"(ptr noundef %668, ptr noundef nonnull %676, ptr nonnull %17)
+  call fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_SF_T0_"(ptr noundef nonnull %668, ptr noundef nonnull %676, ptr nonnull %17)
   %677 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %678
 
@@ -27554,7 +27554,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vE
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorISt4pairIPNS_12VPRecipeBaseENS_12ElementCountEELj3EEEZNS_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS_25OptimizationRemarkEmitterEE3$_0EEvOT_T0_.exit", label %678, !llvm.loop !292
 
 687:                                              ; preds = %671
-  call fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_SF_T0_"(ptr noundef %668, ptr noundef nonnull %670, ptr nonnull %17)
+  call fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_SF_T0_"(ptr noundef nonnull %668, ptr noundef nonnull %670, ptr nonnull %17)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorISt4pairIPNS_12VPRecipeBaseENS_12ElementCountEELj3EEEZNS_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS_25OptimizationRemarkEmitterEE3$_0EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorISt4pairIPNS_12VPRecipeBaseENS_12ElementCountEELj3EEEZNS_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS_25OptimizationRemarkEmitterEE3$_0EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %._crit_edge318, %687

@@ -98,7 +98,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %16, %28
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.026.038, i64 64
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef zeroext i1 @_ZN5draco15MetadataEncoder14EncodeMetadataEPNS_13EncoderBufferEPKNS_8MetadataE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %50)
-  %52 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.026.038) #12
+  %52 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.026.038) #12
   %.not33 = icmp eq ptr %52, %45
   br i1 %.not33, label %.loopexit, label %.lr.ph40
 

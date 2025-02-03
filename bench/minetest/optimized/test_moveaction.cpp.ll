@@ -8236,7 +8236,7 @@ if.then.i.i79:                                    ; preds = %invoke.cont22
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %if.then.i.i79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i80
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp17) #28
-  call fastcc void @_ZL12apply_actionPKcP16InventoryManagerP18ServerActiveObjectP8IGameDef(ptr noundef nonnull @.str.70, ptr noundef %8, ptr noundef %obj, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @_ZL12apply_actionPKcP16InventoryManagerP18ServerActiveObjectP8IGameDef(ptr noundef nonnull @.str.70, ptr noundef nonnull %8, ptr noundef %obj, ptr noundef nonnull %add.ptr.i)
   %m_script.i = getelementptr inbounds nuw i8, ptr %server, i64 144
   %21 = load ptr, ptr %m_script.i, align 8, !tbaa !17
   %vtable = load ptr, ptr %21, align 8, !tbaa !15
@@ -8730,7 +8730,7 @@ if.then.i.i103:                                   ; preds = %_ZN9ItemStackD2Ev.e
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107: ; preds = %if.then.i.i103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp18) #28
-  call fastcc void @_ZL12apply_actionPKcP16InventoryManagerP18ServerActiveObjectP8IGameDef(ptr noundef nonnull @.str.70, ptr noundef %8, ptr noundef %obj, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @_ZL12apply_actionPKcP16InventoryManagerP18ServerActiveObjectP8IGameDef(ptr noundef nonnull @.str.70, ptr noundef nonnull %8, ptr noundef %obj, ptr noundef nonnull %add.ptr.i)
   %m_script.i = getelementptr inbounds nuw i8, ptr %server, i64 144
   %27 = load ptr, ptr %m_script.i, align 8, !tbaa !17
   %vtable = load ptr, ptr %27, align 8, !tbaa !15

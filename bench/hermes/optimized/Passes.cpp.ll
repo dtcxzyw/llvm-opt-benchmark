@@ -615,7 +615,7 @@ entry:
   br i1 %cmp14, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %if.end8
-  %environment.tr15 = phi ptr [ %6, %if.end8 ], [ %environment, %entry ]
+  %environment.tr15 = phi ptr [ %sub.ptr.i.i.i, %if.end8 ], [ %environment, %entry ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %environment.tr15, i64 16
   %1 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
   %2 = add i8 %1, -15
@@ -639,7 +639,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp, label %return, label %if.end
 
 return:                                           ; preds = %if.end8, %entry, %if.then4
-  %retval.0 = phi ptr [ %call7, %if.then4 ], [ %environment, %entry ], [ %6, %if.end8 ]
+  %retval.0 = phi ptr [ %call7, %if.then4 ], [ %environment, %entry ], [ %sub.ptr.i.i.i, %if.end8 ]
   ret ptr %retval.0
 }
 
@@ -656,19 +656,19 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i, i8 0, i64 32, i1 false)
   %BasicBlockList.i = getelementptr inbounds nuw i8, ptr %F, i64 80
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %F, i64 88
-  %__begin2.sroa.0.0112 = load ptr, ptr %Next.i.i.i.i, align 8
-  %cmp.i.not113 = icmp eq ptr %__begin2.sroa.0.0112, %BasicBlockList.i
-  br i1 %cmp.i.not113, label %for.cond48.preheader, label %for.body
+  %__begin2.sroa.0.0111 = load ptr, ptr %Next.i.i.i.i, align 8
+  %cmp.i.not112 = icmp eq ptr %__begin2.sroa.0.0111, %BasicBlockList.i
+  br i1 %cmp.i.not112, label %for.cond48.preheader, label %for.body
 
 for.cond48.preheader.loopexit:                    ; preds = %for.inc
-  %__begin242.sroa.0.0122.pre = load ptr, ptr %Next.i.i.i.i, align 8
+  %__begin242.sroa.0.0121.pre = load ptr, ptr %Next.i.i.i.i, align 8
   br label %for.cond48.preheader
 
 for.cond48.preheader:                             ; preds = %for.cond48.preheader.loopexit, %entry
-  %__begin242.sroa.0.0122 = phi ptr [ %__begin2.sroa.0.0112, %entry ], [ %__begin242.sroa.0.0122.pre, %for.cond48.preheader.loopexit ]
+  %__begin242.sroa.0.0121 = phi ptr [ %__begin2.sroa.0.0111, %entry ], [ %__begin242.sroa.0.0121.pre, %for.cond48.preheader.loopexit ]
   %changed.0.lcssa = phi i1 [ false, %entry ], [ %changed.1.lcssa, %for.cond48.preheader.loopexit ]
-  %cmp.i58.not123 = icmp eq ptr %__begin242.sroa.0.0122, %BasicBlockList.i
-  br i1 %cmp.i58.not123, label %for.end127, label %for.body50.lr.ph
+  %cmp.i58.not122 = icmp eq ptr %__begin242.sroa.0.0121, %BasicBlockList.i
+  br i1 %cmp.i58.not122, label %for.end127, label %for.body50.lr.ph
 
 for.body50.lr.ph:                                 ; preds = %for.cond48.preheader
   %Location.i = getelementptr inbounds nuw i8, ptr %builder, i64 24
@@ -676,30 +676,30 @@ for.body50.lr.ph:                                 ; preds = %for.cond48.preheade
   br label %for.body50
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin2.sroa.0.0116 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.0112, %entry ]
-  %changed.0115 = phi i1 [ %changed.1.lcssa, %for.inc ], [ false, %entry ]
-  %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0116, i64 64
+  %__begin2.sroa.0.0115 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.0111, %entry ]
+  %changed.0114 = phi i1 [ %changed.1.lcssa, %for.inc ], [ false, %entry ]
+  %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0115, i64 64
   %1 = load ptr, ptr %Next.i.i.i.i.i, align 8
-  %InstList.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0116, i64 56
-  %cmp.i48.not107 = icmp eq ptr %1, %InstList.i
-  br i1 %cmp.i48.not107, label %for.inc, label %for.body13
+  %InstList.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0115, i64 56
+  %cmp.i48.not106 = icmp eq ptr %1, %InstList.i
+  br i1 %cmp.i48.not106, label %for.inc, label %for.body13
 
 for.body13:                                       ; preds = %for.body, %if.end37
-  %changed.1110 = phi i1 [ %changed.2, %if.end37 ], [ %changed.0115, %for.body ]
-  %I.sroa.0.0108 = phi ptr [ %2, %if.end37 ], [ %1, %for.body ]
-  %Next.i.i.i = getelementptr inbounds nuw i8, ptr %I.sroa.0.0108, i64 8
+  %changed.1109 = phi i1 [ %changed.2, %if.end37 ], [ %changed.0114, %for.body ]
+  %I.sroa.0.0107 = phi ptr [ %2, %if.end37 ], [ %1, %for.body ]
+  %Next.i.i.i = getelementptr inbounds nuw i8, ptr %I.sroa.0.0107, i64 8
   %2 = load ptr, ptr %Next.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %I.sroa.0.0108, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %I.sroa.0.0107, i64 16
   %3 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i8 %3, 7
-  %tobool.not102 = icmp eq ptr %I.sroa.0.0108, null
+  %tobool.not102 = icmp eq ptr %I.sroa.0.0107, null
   %tobool.not = or i1 %tobool.not102, %cmp.i.i.i.i.i.i.i.i
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body13
-  %call.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I.sroa.0.0108, i32 noundef 0) #13
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %I.sroa.0.0108) #13
-  %call.i49 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I.sroa.0.0108, i32 noundef 0) #13
+  %call.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I.sroa.0.0107, i32 noundef 0) #13
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %I.sroa.0.0107) #13
+  %call.i49 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I.sroa.0.0107, i32 noundef 0) #13
   %call23 = call noundef ptr @_ZN6hermes9IRBuilder30createHBCCreateEnvironmentInstEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %call.i49) #13
   br label %if.end37.sink.split
 
@@ -709,57 +709,57 @@ if.else:                                          ; preds = %for.body13
   br i1 %tobool26.not, label %if.end37, label %if.then27
 
 if.then27:                                        ; preds = %if.else
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %I.sroa.0.0108) #13
-  %call.i53 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I.sroa.0.0108, i32 noundef 1) #13
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %I.sroa.0.0107) #13
+  %call.i53 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I.sroa.0.0107, i32 noundef 1) #13
   %4 = icmp eq ptr %call.i53, null
   %sub.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i53, i64 -16
   %5 = select i1 %4, ptr null, ptr %sub.ptr.i.i.i
-  %call.i54 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I.sroa.0.0108, i32 noundef 0) #13
+  %call.i54 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I.sroa.0.0107, i32 noundef 0) #13
   %call31 = call noundef ptr @_ZN6hermes9IRBuilder35createHBCCreateInnerEnvironmentInstEPNS_17ScopeCreationInstEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %5, ptr noundef %call.i54) #13
   br label %if.end37.sink.split
 
 if.end37.sink.split:                              ; preds = %if.then, %if.then27
-  %call31.sink134 = phi ptr [ %call31, %if.then27 ], [ %call23, %if.then ]
-  %6 = icmp eq ptr %call31.sink134, null
-  %add.ptr34 = getelementptr inbounds nuw i8, ptr %call31.sink134, i64 16
+  %call31.sink131 = phi ptr [ %call31, %if.then27 ], [ %call23, %if.then ]
+  %6 = icmp eq ptr %call31.sink131, null
+  %add.ptr34 = getelementptr inbounds nuw i8, ptr %call31.sink131, i64 16
   %spec.select1 = select i1 %6, ptr null, ptr %add.ptr34
   call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i.i.i.i, ptr noundef %spec.select1) #13
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %I.sroa.0.0108) #13
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %I.sroa.0.0107) #13
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end37.sink.split, %if.else
-  %changed.2 = phi i1 [ %changed.1110, %if.else ], [ true, %if.end37.sink.split ]
+  %changed.2 = phi i1 [ %changed.1109, %if.else ], [ true, %if.end37.sink.split ]
   %cmp.i48.not = icmp eq ptr %2, %InstList.i
   br i1 %cmp.i48.not, label %for.inc, label %for.body13, !llvm.loop !8
 
 for.inc:                                          ; preds = %if.end37, %for.body
-  %changed.1.lcssa = phi i1 [ %changed.0115, %for.body ], [ %changed.2, %if.end37 ]
-  %Next.i.i.i55 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0116, i64 8
+  %changed.1.lcssa = phi i1 [ %changed.0114, %for.body ], [ %changed.2, %if.end37 ]
+  %Next.i.i.i55 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0115, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i55, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %BasicBlockList.i
   br i1 %cmp.i.not, label %for.cond48.preheader.loopexit, label %for.body
 
 for.body50:                                       ; preds = %for.body50.lr.ph, %for.inc125
-  %__begin242.sroa.0.0125 = phi ptr [ %__begin242.sroa.0.0122, %for.body50.lr.ph ], [ %__begin242.sroa.0.0, %for.inc125 ]
-  %changed.3124 = phi i1 [ %changed.0.lcssa, %for.body50.lr.ph ], [ %changed.4.lcssa, %for.inc125 ]
-  %Next.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__begin242.sroa.0.0125, i64 64
+  %__begin242.sroa.0.0124 = phi ptr [ %__begin242.sroa.0.0121, %for.body50.lr.ph ], [ %__begin242.sroa.0.0, %for.inc125 ]
+  %changed.3123 = phi i1 [ %changed.0.lcssa, %for.body50.lr.ph ], [ %changed.4.lcssa, %for.inc125 ]
+  %Next.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__begin242.sroa.0.0124, i64 64
   %7 = load ptr, ptr %Next.i.i.i.i.i59, align 8
-  %InstList.i60 = getelementptr inbounds nuw i8, ptr %__begin242.sroa.0.0125, i64 56
-  %cmp.i61.not118 = icmp eq ptr %7, %InstList.i60
-  br i1 %cmp.i61.not118, label %for.inc125, label %for.body61
+  %InstList.i60 = getelementptr inbounds nuw i8, ptr %__begin242.sroa.0.0124, i64 56
+  %cmp.i61.not117 = icmp eq ptr %7, %InstList.i60
+  br i1 %cmp.i61.not117, label %for.inc125, label %for.body61
 
 for.body61:                                       ; preds = %for.body50, %sw.epilog
-  %changed.4120 = phi i1 [ %changed.5, %sw.epilog ], [ %changed.3124, %for.body50 ]
-  %I53.sroa.0.0119 = phi ptr [ %8, %sw.epilog ], [ %7, %for.body50 ]
-  %Next.i.i.i62 = getelementptr inbounds nuw i8, ptr %I53.sroa.0.0119, i64 8
+  %changed.4119 = phi i1 [ %changed.5, %sw.epilog ], [ %changed.3123, %for.body50 ]
+  %I53.sroa.0.0118 = phi ptr [ %8, %sw.epilog ], [ %7, %for.body50 ]
+  %Next.i.i.i62 = getelementptr inbounds nuw i8, ptr %I53.sroa.0.0118, i64 8
   %8 = load ptr, ptr %Next.i.i.i62, align 8
-  %location_.i = getelementptr inbounds nuw i8, ptr %I53.sroa.0.0119, i64 120
+  %location_.i = getelementptr inbounds nuw i8, ptr %I53.sroa.0.0118, i64 120
   %retval.sroa.0.0.copyload.i = load ptr, ptr %location_.i, align 8
   store ptr %retval.sroa.0.0.copyload.i, ptr %Location.i, align 8
-  %SourceLevelScope.i = getelementptr inbounds nuw i8, ptr %I53.sroa.0.0119, i64 112
+  %SourceLevelScope.i = getelementptr inbounds nuw i8, ptr %I53.sroa.0.0118, i64 112
   %9 = load ptr, ptr %SourceLevelScope.i, align 8
   store ptr %9, ptr %CurrentSourceLevelScope.i, align 8
-  %add.ptr69 = getelementptr inbounds nuw i8, ptr %I53.sroa.0.0119, i64 16
+  %add.ptr69 = getelementptr inbounds nuw i8, ptr %I53.sroa.0.0118, i64 16
   %10 = load i8, ptr %add.ptr69, align 8
   switch i8 %10, label %sw.epilog [
     i8 49, label %sw.bb
@@ -769,12 +769,12 @@ for.body61:                                       ; preds = %for.body50, %sw.epi
   ]
 
 sw.bb:                                            ; preds = %for.body61
-  %call.i63 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0119, i32 noundef 0) #13
-  %call.i64 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0119, i32 noundef 1) #13
+  %call.i63 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0118, i32 noundef 0) #13
+  %call.i64 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0118, i32 noundef 1) #13
   %11 = icmp eq ptr %call.i64, null
   %sub.ptr.i.i.i65 = getelementptr inbounds i8, ptr %call.i64, i64 -16
   %12 = select i1 %11, ptr null, ptr %sub.ptr.i.i.i65
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %I53.sroa.0.0119) #13
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %I53.sroa.0.0118) #13
   %parent.i.i = getelementptr inbounds nuw i8, ptr %call.i63, i64 56
   %13 = load ptr, ptr %parent.i.i, align 8
   %call.i13.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %12, i32 noundef 0) #13
@@ -782,7 +782,7 @@ sw.bb:                                            ; preds = %for.body61
   br i1 %cmp14.i, label %_ZN6hermes3hbc23LowerLoadStoreFrameInst8getScopeERNS_9IRBuilderEPNS_8VariableEPNS_17ScopeCreationInstE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb, %if.end8.i
-  %environment.tr15.i = phi ptr [ %19, %if.end8.i ], [ %12, %sw.bb ]
+  %environment.tr15.i = phi ptr [ %sub.ptr.i.i.i.i, %if.end8.i ], [ %sub.ptr.i.i.i65, %sw.bb ]
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %environment.tr15.i, i64 16
   %14 = load i8, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %15 = add i8 %14, -15
@@ -806,7 +806,7 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %cmp.i66, label %_ZN6hermes3hbc23LowerLoadStoreFrameInst8getScopeERNS_9IRBuilderEPNS_8VariableEPNS_17ScopeCreationInstE.exit, label %if.end.i
 
 _ZN6hermes3hbc23LowerLoadStoreFrameInst8getScopeERNS_9IRBuilderEPNS_8VariableEPNS_17ScopeCreationInstE.exit: ; preds = %if.end8.i, %sw.bb, %if.then4.i
-  %retval.0.i = phi ptr [ %call7.i, %if.then4.i ], [ %12, %sw.bb ], [ %19, %if.end8.i ]
+  %retval.0.i = phi ptr [ %call7.i, %if.then4.i ], [ %sub.ptr.i.i.i65, %sw.bb ], [ %sub.ptr.i.i.i.i, %if.end8.i ]
   %21 = icmp eq ptr %retval.0.i, null
   %add.ptr76 = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 16
   %spec.select2 = select i1 %21, ptr null, ptr %add.ptr76
@@ -818,13 +818,13 @@ _ZN6hermes3hbc23LowerLoadStoreFrameInst8getScopeERNS_9IRBuilderEPNS_8VariableEPN
   br label %sw.epilog.sink.split
 
 sw.bb85:                                          ; preds = %for.body61
-  %call.i67 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0119, i32 noundef 1) #13
-  %call.i68 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0119, i32 noundef 0) #13
-  %call.i69 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0119, i32 noundef 2) #13
+  %call.i67 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0118, i32 noundef 1) #13
+  %call.i68 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0118, i32 noundef 0) #13
+  %call.i69 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0118, i32 noundef 2) #13
   %23 = icmp eq ptr %call.i69, null
   %sub.ptr.i.i.i70 = getelementptr inbounds i8, ptr %call.i69, i64 -16
   %24 = select i1 %23, ptr null, ptr %sub.ptr.i.i.i70
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %I53.sroa.0.0119) #13
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %I53.sroa.0.0118) #13
   %parent.i.i71 = getelementptr inbounds nuw i8, ptr %call.i67, i64 56
   %25 = load ptr, ptr %parent.i.i71, align 8
   %call.i13.i72 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %24, i32 noundef 0) #13
@@ -832,7 +832,7 @@ sw.bb85:                                          ; preds = %for.body61
   br i1 %cmp14.i73, label %_ZN6hermes3hbc23LowerLoadStoreFrameInst8getScopeERNS_9IRBuilderEPNS_8VariableEPNS_17ScopeCreationInstE.exit86, label %if.end.i74
 
 if.end.i74:                                       ; preds = %sw.bb85, %if.end8.i77
-  %environment.tr15.i75 = phi ptr [ %31, %if.end8.i77 ], [ %24, %sw.bb85 ]
+  %environment.tr15.i75 = phi ptr [ %sub.ptr.i.i.i.i79, %if.end8.i77 ], [ %sub.ptr.i.i.i70, %sw.bb85 ]
   %add.ptr.i.i.i.i.i.i.i76 = getelementptr inbounds nuw i8, ptr %environment.tr15.i75, i64 16
   %26 = load i8, ptr %add.ptr.i.i.i.i.i.i.i76, align 8
   %27 = add i8 %26, -15
@@ -856,7 +856,7 @@ if.end8.i77:                                      ; preds = %if.end.i74
   br i1 %cmp.i81, label %_ZN6hermes3hbc23LowerLoadStoreFrameInst8getScopeERNS_9IRBuilderEPNS_8VariableEPNS_17ScopeCreationInstE.exit86, label %if.end.i74
 
 _ZN6hermes3hbc23LowerLoadStoreFrameInst8getScopeERNS_9IRBuilderEPNS_8VariableEPNS_17ScopeCreationInstE.exit86: ; preds = %if.end8.i77, %sw.bb85, %if.then4.i83
-  %retval.0.i82 = phi ptr [ %call7.i85, %if.then4.i83 ], [ %24, %sw.bb85 ], [ %31, %if.end8.i77 ]
+  %retval.0.i82 = phi ptr [ %call7.i85, %if.then4.i83 ], [ %sub.ptr.i.i.i70, %sw.bb85 ], [ %sub.ptr.i.i.i.i79, %if.end8.i77 ]
   %33 = icmp eq ptr %retval.0.i82, null
   %add.ptr95 = getelementptr inbounds nuw i8, ptr %retval.0.i82, i64 16
   %spec.select3 = select i1 %33, ptr null, ptr %add.ptr95
@@ -864,9 +864,9 @@ _ZN6hermes3hbc23LowerLoadStoreFrameInst8getScopeERNS_9IRBuilderEPNS_8VariableEPN
   br label %sw.epilog.sink.split
 
 sw.bb99:                                          ; preds = %for.body61
-  %call.i87 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0119, i32 noundef 1) #13
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %I53.sroa.0.0119) #13
-  %call.i88 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0119, i32 noundef 0) #13
+  %call.i87 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0118, i32 noundef 1) #13
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %I53.sroa.0.0118) #13
+  %call.i88 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0118, i32 noundef 0) #13
   %34 = icmp eq ptr %call.i88, null
   %sub.ptr.i.i.i89 = getelementptr inbounds i8, ptr %call.i88, i64 -16
   %35 = select i1 %34, ptr null, ptr %sub.ptr.i.i.i89
@@ -878,9 +878,9 @@ sw.bb99:                                          ; preds = %for.body61
   br label %sw.epilog.sink.split
 
 sw.bb111:                                         ; preds = %for.body61
-  %call.i90 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0119, i32 noundef 1) #13
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %I53.sroa.0.0119) #13
-  %call.i91 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0119, i32 noundef 0) #13
+  %call.i90 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0118, i32 noundef 1) #13
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %I53.sroa.0.0118) #13
+  %call.i91 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0118, i32 noundef 0) #13
   %37 = icmp eq ptr %call.i91, null
   %sub.ptr.i.i.i92 = getelementptr inbounds i8, ptr %call.i91, i64 -16
   %38 = select i1 %37, ptr null, ptr %sub.ptr.i.i.i92
@@ -892,17 +892,17 @@ sw.bb111:                                         ; preds = %for.body61
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %_ZN6hermes3hbc23LowerLoadStoreFrameInst8getScopeERNS_9IRBuilderEPNS_8VariableEPNS_17ScopeCreationInstE.exit, %_ZN6hermes3hbc23LowerLoadStoreFrameInst8getScopeERNS_9IRBuilderEPNS_8VariableEPNS_17ScopeCreationInstE.exit86, %sw.bb99, %sw.bb111
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0119) #13
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %I53.sroa.0.0118) #13
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %for.body61
-  %changed.5 = phi i1 [ %changed.4120, %for.body61 ], [ true, %sw.epilog.sink.split ]
+  %changed.5 = phi i1 [ %changed.4119, %for.body61 ], [ true, %sw.epilog.sink.split ]
   %cmp.i61.not = icmp eq ptr %8, %InstList.i60
   br i1 %cmp.i61.not, label %for.inc125, label %for.body61, !llvm.loop !9
 
 for.inc125:                                       ; preds = %sw.epilog, %for.body50
-  %changed.4.lcssa = phi i1 [ %changed.3124, %for.body50 ], [ %changed.5, %sw.epilog ]
-  %Next.i.i.i93 = getelementptr inbounds nuw i8, ptr %__begin242.sroa.0.0125, i64 8
+  %changed.4.lcssa = phi i1 [ %changed.3123, %for.body50 ], [ %changed.5, %sw.epilog ]
+  %Next.i.i.i93 = getelementptr inbounds nuw i8, ptr %__begin242.sroa.0.0124, i64 8
   %__begin242.sroa.0.0 = load ptr, ptr %Next.i.i.i93, align 8
   %cmp.i58.not = icmp eq ptr %__begin242.sroa.0.0, %BasicBlockList.i
   br i1 %cmp.i58.not, label %for.end127, label %for.body50

@@ -11039,7 +11039,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEJS1
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #15
-  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEEvT_S3_(ptr noundef %4, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEEvT_S3_(ptr noundef %4, ptr noundef nonnull %.014.i.i.i.i)
           to label %19 unwind label %20
 
 19:                                               ; preds = %15

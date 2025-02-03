@@ -460,113 +460,113 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
 
 .thread.thread.thread:                            ; preds = %2
   tail call void (ptr, i32, ptr, ...) @ws_log(ptr noundef null, i32 noundef 5, ptr noundef nonnull @.str, ptr noundef %1) #10
-  br label %43
+  br label %42
 
 4:                                                ; preds = %2
   %5 = tail call ptr @xmlXPathNewContext(ptr noundef nonnull %3) #10
   %.not50 = icmp eq ptr %5, null
-  br i1 %.not50, label %.thread.thread.thread72, label %.preheader
+  br i1 %.not50, label %.thread.thread.thread78, label %.preheader
 
-.thread.thread.thread72:                          ; preds = %4
+.thread.thread.thread78:                          ; preds = %4
   tail call void (ptr, i32, ptr, ...) @ws_log(ptr noundef null, i32 noundef 5, ptr noundef nonnull @.str.8) #10
-  br label %42
+  br label %41
 
 6:                                                ; preds = %.preheader
-  %7 = getelementptr i8, ptr %.04079, i64 16
-  %8 = getelementptr i8, ptr %.04079, i64 24
+  %7 = getelementptr i8, ptr %.04085, i64 16
+  %8 = getelementptr i8, ptr %.04085, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not51 = icmp eq ptr %9, null
-  br i1 %.not51, label %14, label %.preheader, !llvm.loop !8
+  br i1 %.not51, label %13, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %4, %6
   %10 = phi ptr [ %9, %6 ], [ @.str.41, %4 ]
-  %.04079 = phi ptr [ %7, %6 ], [ @namespaces, %4 ]
-  %11 = load ptr, ptr %.04079, align 8
+  %.04085 = phi ptr [ %7, %6 ], [ @namespaces, %4 ]
+  %11 = load ptr, ptr %.04085, align 8
   %12 = tail call i32 @xmlXPathRegisterNs(ptr noundef nonnull %5, ptr noundef %11, ptr noundef nonnull %10) #10
   %.not57 = icmp eq i32 %12, 0
-  br i1 %.not57, label %6, label %13
+  br i1 %.not57, label %6, label %.thread.thread70
 
-13:                                               ; preds = %.preheader
+.thread.thread70:                                 ; preds = %.preheader
   tail call void (ptr, i32, ptr, ...) @ws_log(ptr noundef null, i32 noundef 5, ptr noundef nonnull @.str.9, ptr noundef %11, ptr noundef nonnull %10) #10
   br label %.thread
 
-14:                                               ; preds = %6
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call noalias ptr @wmem_strdup(ptr noundef %16, ptr noundef %1) #10
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %17, ptr %18, align 8
-  %19 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @g_free) #10
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %19, ptr %20, align 8
-  br label %21
+13:                                               ; preds = %6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call noalias ptr @wmem_strdup(ptr noundef %15, ptr noundef %1) #10
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %16, ptr %17, align 8
+  %18 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @g_free) #10
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %18, ptr %19, align 8
+  br label %20
 
-21:                                               ; preds = %14, %35
-  %22 = phi ptr [ @.str.44, %14 ], [ %37, %35 ]
-  %.03980 = phi ptr [ @xpaths, %14 ], [ %36, %35 ]
-  %23 = tail call ptr @xmlXPathEvalExpression(ptr noundef nonnull %22, ptr noundef nonnull %5) #10
-  %.not53 = icmp eq ptr %23, null
-  br i1 %.not53, label %27, label %24
+20:                                               ; preds = %13, %34
+  %21 = phi ptr [ @.str.44, %13 ], [ %36, %34 ]
+  %.03986 = phi ptr [ @xpaths, %13 ], [ %35, %34 ]
+  %22 = tail call ptr @xmlXPathEvalExpression(ptr noundef nonnull %21, ptr noundef nonnull %5) #10
+  %.not53 = icmp eq ptr %22, null
+  br i1 %.not53, label %26, label %23
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %.not54 = icmp eq ptr %26, null
-  br i1 %.not54, label %27, label %28
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %.not54 = icmp eq ptr %25, null
+  br i1 %.not54, label %26, label %27
 
-27:                                               ; preds = %24, %21
-  tail call void (ptr, i32, ptr, ...) @ws_log(ptr noundef null, i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull %22) #10
-  tail call void @xmlXPathFreeObject(ptr noundef %23) #10
-  br label %40
+26:                                               ; preds = %23, %20
+  tail call void (ptr, i32, ptr, ...) @ws_log(ptr noundef null, i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull %21) #10
+  tail call void @xmlXPathFreeObject(ptr noundef %22) #10
+  br label %39
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %.03980, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %.not55 = icmp eq ptr %30, null
-  br i1 %.not55, label %35, label %31
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %.03986, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %.not55 = icmp eq ptr %29, null
+  br i1 %.not55, label %34, label %30
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %26, align 8
-  %.not56 = icmp eq i32 %32, 0
-  br i1 %.not56, label %35, label %33
+30:                                               ; preds = %27
+  %31 = load i32, ptr %25, align 8
+  %.not56 = icmp eq i32 %31, 0
+  br i1 %.not56, label %34, label %32
 
-33:                                               ; preds = %31
-  %34 = tail call i32 %30(ptr noundef nonnull %26, ptr noundef %0) #10
-  br label %35
+32:                                               ; preds = %30
+  %33 = tail call i32 %29(ptr noundef nonnull %25, ptr noundef %0) #10
+  br label %34
 
-35:                                               ; preds = %33, %31, %28
-  tail call void @xmlXPathFreeObject(ptr noundef nonnull %23) #10
-  %36 = getelementptr i8, ptr %.03980, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %.not52 = icmp eq ptr %37, null
-  br i1 %.not52, label %38, label %21, !llvm.loop !9
+34:                                               ; preds = %32, %30, %27
+  tail call void @xmlXPathFreeObject(ptr noundef nonnull %22) #10
+  %35 = getelementptr i8, ptr %.03986, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %.not52 = icmp eq ptr %36, null
+  br i1 %.not52, label %37, label %20, !llvm.loop !9
 
-38:                                               ; preds = %35
-  %39 = tail call i32 @epl_profile_object_mappings_update(ptr noundef %0) #10
-  br label %40
+37:                                               ; preds = %34
+  %38 = tail call i32 @epl_profile_object_mappings_update(ptr noundef %0) #10
+  br label %39
 
-40:                                               ; preds = %38, %27
-  %.0 = phi ptr [ null, %27 ], [ %0, %38 ]
-  %.not58 = icmp eq ptr %19, null
-  br i1 %.not58, label %.thread, label %41
+39:                                               ; preds = %37, %26
+  %.0 = phi ptr [ null, %26 ], [ %0, %37 ]
+  %.not58 = icmp eq ptr %18, null
+  br i1 %.not58, label %.thread, label %40
 
-41:                                               ; preds = %40
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %19) #10
+40:                                               ; preds = %39
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %18) #10
   br label %.thread
 
-.thread:                                          ; preds = %40, %41, %13
-  %.065 = phi ptr [ %.0, %41 ], [ %.0, %40 ], [ null, %13 ]
+.thread:                                          ; preds = %39, %40, %.thread.thread70
+  %.06574 = phi ptr [ null, %.thread.thread70 ], [ %.0, %40 ], [ %.0, %39 ]
   tail call void @xmlXPathFreeContext(ptr noundef nonnull %5) #10
+  br label %41
+
+41:                                               ; preds = %.thread, %.thread.thread.thread78
+  %.0656980 = phi ptr [ null, %.thread.thread.thread78 ], [ %.06574, %.thread ]
+  tail call void @xmlFreeDoc(ptr noundef nonnull %3) #10
   br label %42
 
-42:                                               ; preds = %.thread, %.thread.thread.thread72
-  %.0656974 = phi ptr [ null, %.thread.thread.thread72 ], [ %.065, %.thread ]
-  tail call void @xmlFreeDoc(ptr noundef nonnull %3) #10
-  br label %43
-
-43:                                               ; preds = %.thread.thread.thread, %42
-  %.0656971 = phi ptr [ null, %.thread.thread.thread ], [ %.0656974, %42 ]
-  ret ptr %.0656971
+42:                                               ; preds = %.thread.thread.thread, %41
+  %.0656977 = phi ptr [ null, %.thread.thread.thread ], [ %.0656980, %41 ]
+  ret ptr %.0656977
 }
 
 declare ptr @xmlParseFile(ptr noundef) local_unnamed_addr #1

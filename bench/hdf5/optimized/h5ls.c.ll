@@ -1377,7 +1377,7 @@ print_obj_name.exit:                              ; preds = %312, %313
   br i1 %.4189, label %336, label %335
 
 335:                                              ; preds = %333
-  call void @free(ptr noundef %.3193) #21
+  call void @free(ptr noundef nonnull %.3193) #21
   br label %336
 
 336:                                              ; preds = %335, %333

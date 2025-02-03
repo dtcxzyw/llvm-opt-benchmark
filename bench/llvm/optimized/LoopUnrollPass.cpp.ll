@@ -5249,17 +5249,17 @@ define internal fastcc noundef i32 @_ZL15tryToUnrollLoopPN4llvm4LoopERNS_13Domin
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %41
-  %45 = tail call noundef i32 @_ZN4llvm23hasUnrollTransformationEPKNS_4LoopE(ptr noundef %0) #19
+  %45 = tail call noundef i32 @_ZN4llvm23hasUnrollTransformationEPKNS_4LoopE(ptr noundef nonnull %0) #19
   %.not119 = icmp eq i32 %45, 5
   br i1 %.not119, label %46, label %_ZN4llvm11SmallPtrSetIPKNS_5ValueELj32EED2Ev.exit
 
 46:                                               ; preds = %44, %41, %39
-  %47 = tail call noundef i32 @_ZN4llvm29hasUnrollAndJamTransformationEPKNS_4LoopE(ptr noundef %0) #19
+  %47 = tail call noundef i32 @_ZN4llvm29hasUnrollAndJamTransformationEPKNS_4LoopE(ptr noundef nonnull %0) #19
   %48 = icmp eq i32 %47, 5
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %46
-  %50 = tail call noundef i32 @_ZN4llvm23hasUnrollTransformationEPKNS_4LoopE(ptr noundef %0) #19
+  %50 = tail call noundef i32 @_ZN4llvm23hasUnrollTransformationEPKNS_4LoopE(ptr noundef nonnull %0) #19
   %.not120 = icmp eq i32 %50, 5
   br i1 %.not120, label %51, label %_ZN4llvm11SmallPtrSetIPKNS_5ValueELj32EED2Ev.exit
 
@@ -5286,8 +5286,8 @@ define internal fastcc noundef i32 @_ZL15tryToUnrollLoopPN4llvm4LoopERNS_13Domin
 
 _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %55, %60
   %62 = phi i1 [ true, %55 ], [ %61, %60 ]
-  call void @_ZN4llvm26gatherUnrollingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERKNS_19TargetTransformInfoEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_25OptimizationRemarkEmitterEiSt8optionalIjESE_SD_IbESF_SF_SE_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::TargetTransformInfo::UnrollingPreferences") align 4 %25, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(1392) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %10, i64 %15, i64 %14, i16 %16, i16 %17, i16 %18, i64 %21)
-  %63 = call i64 @_ZN4llvm24gatherPeelingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERKNS_19TargetTransformInfoESt8optionalIbES8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(1392) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, i16 %19, i16 %20, i1 noundef zeroext true) #19
+  call void @_ZN4llvm26gatherUnrollingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERKNS_19TargetTransformInfoEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_25OptimizationRemarkEmitterEiSt8optionalIjESE_SD_IbESF_SF_SE_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::TargetTransformInfo::UnrollingPreferences") align 4 %25, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(1392) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %10, i64 %15, i64 %14, i16 %16, i16 %17, i16 %18, i64 %21)
+  %63 = call i64 @_ZN4llvm24gatherPeelingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERKNS_19TargetTransformInfoESt8optionalIbES8_b(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(1392) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, i16 %19, i16 %20, i1 noundef zeroext true) #19
   store i64 %63, ptr %26, align 8
   %64 = load i32, ptr %25, align 4
   %65 = icmp eq i32 %64, 0
@@ -5315,10 +5315,10 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %55, %60
   store i32 0, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i32 0, ptr %78, align 8
-  call void @_ZN4llvm11CodeMetrics22collectEphemeralValuesEPKNS_4LoopEPNS_15AssumptionCacheERNS_15SmallPtrSetImplIPKNS_5ValueEEE(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(28) %27) #19
+  call void @_ZN4llvm11CodeMetrics22collectEphemeralValuesEPKNS_4LoopEPNS_15AssumptionCacheERNS_15SmallPtrSetImplIPKNS_5ValueEEE(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(28) %27) #19
   %79 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %80 = load i32, ptr %79, align 4
-  call void @_ZN4llvm19UnrollCostEstimatorC1EPKNS_4LoopERKNS_19TargetTransformInfoERKNS_15SmallPtrSetImplIPKNS_5ValueEEEj(ptr noundef nonnull align 8 dereferenceable(29) %28, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(28) %27, i32 noundef %80) #19
+  call void @_ZN4llvm19UnrollCostEstimatorC1EPKNS_4LoopERKNS_19TargetTransformInfoERKNS_15SmallPtrSetImplIPKNS_5ValueEEEj(ptr noundef nonnull align 8 dereferenceable(29) %28, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(28) %27, i32 noundef %80) #19
   %81 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %82 = load i32, ptr %81, align 8
   %cond.i = icmp eq i32 %82, 2

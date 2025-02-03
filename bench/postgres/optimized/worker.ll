@@ -4814,7 +4814,7 @@ am_parallel_apply_worker.exit.thread:             ; preds = %9, %am_parallel_app
 
 62:                                               ; preds = %42, %48, %50, %32
   %.0 = phi ptr [ %46, %50 ], [ %46, %48 ], [ %46, %42 ], [ %25, %32 ]
-  call void @heap_freetuple(ptr noundef %.0) #17
+  call void @heap_freetuple(ptr noundef nonnull %.0) #17
   call void @table_close(ptr noundef %21, i32 noundef 0) #17
   br i1 %16, label %64, label %63
 

@@ -94943,7 +94943,7 @@ define hidden noundef ptr @_ZN7hir_def8expander8Expander11parse_attrs17h4d717de3
 _ZN7hir_def4attr5Attrs6filter17h3032ccdc03fc5201E.exit: ; preds = %5
   %28 = extractvalue { ptr, ptr } %21, 0
   %29 = extractvalue { ptr, ptr } %21, 1
-  %30 = tail call noundef ptr @_ZN10hir_expand5attrs8RawAttrs6filter17h595e0c531d8c4be8E(ptr noundef %20, ptr noundef nonnull align 1 %28, ptr noalias noundef readonly align 8 dereferenceable(24) %29, i32 noundef %9)
+  %30 = tail call noundef ptr @_ZN10hir_expand5attrs8RawAttrs6filter17h595e0c531d8c4be8E(ptr noundef %20, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29, i32 noundef %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !19973
   ret ptr %30
 }

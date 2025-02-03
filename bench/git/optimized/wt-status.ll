@@ -6850,7 +6850,7 @@ if.end.i51:                                       ; preds = %if.else35
 Q_.exit57:                                        ; preds = %if.then.i54, %if.end.i51
   %14 = phi i64 [ %.pre75, %if.end.i51 ], [ %12, %if.then.i54 ]
   %retval.0.i53 = phi ptr [ %call.i52, %if.end.i51 ], [ %cond.i56, %if.then.i54 ]
-  call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef %s, ptr noundef %color, ptr noundef %retval.0.i53, i64 noundef %14)
+  call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %s, ptr noundef %color, ptr noundef %retval.0.i53, i64 noundef %14)
   %15 = load i64, ptr %nr30, align 8
   %cmp4468.not = icmp eq i64 %15, 0
   br i1 %cmp4468.not, label %for.end53, label %for.body46
@@ -6861,7 +6861,7 @@ for.body46:                                       ; preds = %Q_.exit57, %for.bod
   %16 = load ptr, ptr %yet_to_do, align 8
   %arrayidx49 = getelementptr inbounds nuw %struct.string_list_item, ptr %16, i64 %indvars.iv72
   %17 = load ptr, ptr %arrayidx49, align 8
-  call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef %s, ptr noundef %color, ptr noundef nonnull @.str.128, ptr noundef %17)
+  call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %s, ptr noundef %color, ptr noundef nonnull @.str.128, ptr noundef %17)
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %18 = load i64, ptr %nr30, align 8
   %cmp44 = icmp ugt i64 %18, %indvars.iv.next73
@@ -6886,7 +6886,7 @@ if.end59.sink.split.sink.split:                   ; preds = %if.then56, %if.then
 
 if.end59.sink.split:                              ; preds = %if.end59.sink.split.sink.split, %if.then56, %if.then33
   %retval.0.i62.sink = phi ptr [ @.str.130, %if.then33 ], [ @.str.133, %if.then56 ], [ %call.i61, %if.end59.sink.split.sink.split ]
-  call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef %s, ptr noundef %color, ptr noundef %retval.0.i62.sink)
+  call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %s, ptr noundef %color, ptr noundef %retval.0.i62.sink)
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end59.sink.split, %for.end53

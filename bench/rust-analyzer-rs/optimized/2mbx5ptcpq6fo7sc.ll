@@ -77836,7 +77836,7 @@ define hidden noundef zeroext i1 @"_ZN6hir_ty8chalk_db46_$LT$impl$u20$hir_ty..tr
   %58 = extractvalue { ptr, ptr } %50, 0
   %59 = extractvalue { ptr, ptr } %50, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %58, ptr noalias noundef readonly align 8 dereferenceable(24) %59)
+  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59)
           to label %60 unwind label %.loopexit.split-lp158.loopexit.split-lp.loopexit.split-lp
 
 60:                                               ; preds = %57
@@ -77878,7 +77878,7 @@ define hidden noundef zeroext i1 @"_ZN6hir_ty8chalk_db46_$LT$impl$u20$hir_ty..tr
 71:                                               ; preds = %64
   %72 = extractvalue { ptr, ptr } %66, 0
   %73 = extractvalue { ptr, ptr } %66, 1
-  invoke void @"_ZN53_$LT$hir_def..AdtId$u20$as$u20$hir_def..HasModule$GT$6module17h701c80b93faf0ad8E"(ptr noalias noundef nonnull sret({ i32, i32, i32 }) align 4 captures(none) dereferenceable(12) %19, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %20, ptr noundef nonnull align 1 %72, ptr noalias noundef readonly align 8 dereferenceable(24) %73)
+  invoke void @"_ZN53_$LT$hir_def..AdtId$u20$as$u20$hir_def..HasModule$GT$6module17h701c80b93faf0ad8E"(ptr noalias noundef nonnull sret({ i32, i32, i32 }) align 4 captures(none) dereferenceable(12) %19, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %20, ptr noundef nonnull align 1 %72, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %73)
           to label %74 unwind label %.loopexit.split-lp158.loopexit.split-lp.loopexit.split-lp
 
 74:                                               ; preds = %71
@@ -77897,7 +77897,7 @@ define hidden noundef zeroext i1 @"_ZN6hir_ty8chalk_db46_$LT$impl$u20$hir_ty..tr
   %78 = extractvalue { ptr, ptr } %68, 0
   %79 = extractvalue { ptr, ptr } %68, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %17, ptr noundef nonnull align 1 %78, ptr noalias noundef readonly align 8 dereferenceable(24) %79)
+  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %17, ptr noundef nonnull align 1 %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %79)
           to label %80 unwind label %.loopexit.split-lp158.loopexit.split-lp.loopexit.split-lp
 
 80:                                               ; preds = %77
@@ -78597,7 +78597,7 @@ define hidden noundef zeroext i1 @"_ZN6hir_ty8chalk_db46_$LT$impl$u20$hir_ty..tr
   %66 = extractvalue { ptr, ptr } %58, 0
   %67 = extractvalue { ptr, ptr } %58, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
-  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %32, ptr noundef nonnull align 1 %66, ptr noalias noundef readonly align 8 dereferenceable(24) %67)
+  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %32, ptr noundef nonnull align 1 %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %67)
           to label %68 unwind label %.loopexit.split-lp162.loopexit.split-lp.loopexit.split-lp
 
 68:                                               ; preds = %65
@@ -78639,7 +78639,7 @@ define hidden noundef zeroext i1 @"_ZN6hir_ty8chalk_db46_$LT$impl$u20$hir_ty..tr
 79:                                               ; preds = %72
   %80 = extractvalue { ptr, ptr } %74, 0
   %81 = extractvalue { ptr, ptr } %74, 1
-  invoke void @"_ZN53_$LT$hir_def..AdtId$u20$as$u20$hir_def..HasModule$GT$6module17h701c80b93faf0ad8E"(ptr noalias noundef nonnull sret({ i32, i32, i32 }) align 4 captures(none) dereferenceable(12) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %28, ptr noundef nonnull align 1 %80, ptr noalias noundef readonly align 8 dereferenceable(24) %81)
+  invoke void @"_ZN53_$LT$hir_def..AdtId$u20$as$u20$hir_def..HasModule$GT$6module17h701c80b93faf0ad8E"(ptr noalias noundef nonnull sret({ i32, i32, i32 }) align 4 captures(none) dereferenceable(12) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %28, ptr noundef nonnull align 1 %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %81)
           to label %82 unwind label %.loopexit.split-lp162.loopexit.split-lp.loopexit.split-lp
 
 82:                                               ; preds = %79
@@ -78658,7 +78658,7 @@ define hidden noundef zeroext i1 @"_ZN6hir_ty8chalk_db46_$LT$impl$u20$hir_ty..tr
   %86 = extractvalue { ptr, ptr } %76, 0
   %87 = extractvalue { ptr, ptr } %76, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
-  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %25, ptr noundef nonnull align 1 %86, ptr noalias noundef readonly align 8 dereferenceable(24) %87)
+  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %25, ptr noundef nonnull align 1 %86, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %87)
           to label %88 unwind label %.loopexit.split-lp162.loopexit.split-lp.loopexit.split-lp
 
 88:                                               ; preds = %85
@@ -79444,7 +79444,7 @@ define hidden noundef zeroext i1 @"_ZN6hir_ty8chalk_db46_$LT$impl$u20$hir_ty..tr
   %59 = extractvalue { ptr, ptr } %51, 0
   %60 = extractvalue { ptr, ptr } %51, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %25, ptr noundef nonnull align 1 %59, ptr noalias noundef readonly align 8 dereferenceable(24) %60)
+  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %25, ptr noundef nonnull align 1 %59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60)
           to label %61 unwind label %.loopexit.split-lp167.loopexit.split-lp.loopexit.split-lp
 
 61:                                               ; preds = %58
@@ -79486,7 +79486,7 @@ define hidden noundef zeroext i1 @"_ZN6hir_ty8chalk_db46_$LT$impl$u20$hir_ty..tr
 72:                                               ; preds = %65
   %73 = extractvalue { ptr, ptr } %67, 0
   %74 = extractvalue { ptr, ptr } %67, 1
-  invoke void @"_ZN53_$LT$hir_def..AdtId$u20$as$u20$hir_def..HasModule$GT$6module17h701c80b93faf0ad8E"(ptr noalias noundef nonnull sret({ i32, i32, i32 }) align 4 captures(none) dereferenceable(12) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %21, ptr noundef nonnull align 1 %73, ptr noalias noundef readonly align 8 dereferenceable(24) %74)
+  invoke void @"_ZN53_$LT$hir_def..AdtId$u20$as$u20$hir_def..HasModule$GT$6module17h701c80b93faf0ad8E"(ptr noalias noundef nonnull sret({ i32, i32, i32 }) align 4 captures(none) dereferenceable(12) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %21, ptr noundef nonnull align 1 %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %74)
           to label %75 unwind label %.loopexit.split-lp167.loopexit.split-lp.loopexit.split-lp
 
 75:                                               ; preds = %72
@@ -79505,7 +79505,7 @@ define hidden noundef zeroext i1 @"_ZN6hir_ty8chalk_db46_$LT$impl$u20$hir_ty..tr
   %79 = extractvalue { ptr, ptr } %69, 0
   %80 = extractvalue { ptr, ptr } %69, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %18, ptr noundef nonnull align 1 %79, ptr noalias noundef readonly align 8 dereferenceable(24) %80)
+  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %18, ptr noundef nonnull align 1 %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %80)
           to label %81 unwind label %.loopexit.split-lp167.loopexit.split-lp.loopexit.split-lp
 
 81:                                               ; preds = %78
@@ -80201,7 +80201,7 @@ define hidden noundef zeroext i1 @"_ZN6hir_ty8chalk_db46_$LT$impl$u20$hir_ty..tr
   %62 = extractvalue { ptr, ptr } %54, 0
   %63 = extractvalue { ptr, ptr } %54, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
-  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %28, ptr noundef nonnull align 1 %62, ptr noalias noundef readonly align 8 dereferenceable(24) %63)
+  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %28, ptr noundef nonnull align 1 %62, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63)
           to label %64 unwind label %.loopexit.split-lp158.loopexit.split-lp.loopexit.split-lp
 
 64:                                               ; preds = %61
@@ -80243,7 +80243,7 @@ define hidden noundef zeroext i1 @"_ZN6hir_ty8chalk_db46_$LT$impl$u20$hir_ty..tr
 75:                                               ; preds = %68
   %76 = extractvalue { ptr, ptr } %70, 0
   %77 = extractvalue { ptr, ptr } %70, 1
-  invoke void @"_ZN53_$LT$hir_def..AdtId$u20$as$u20$hir_def..HasModule$GT$6module17h701c80b93faf0ad8E"(ptr noalias noundef nonnull sret({ i32, i32, i32 }) align 4 captures(none) dereferenceable(12) %23, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %24, ptr noundef nonnull align 1 %76, ptr noalias noundef readonly align 8 dereferenceable(24) %77)
+  invoke void @"_ZN53_$LT$hir_def..AdtId$u20$as$u20$hir_def..HasModule$GT$6module17h701c80b93faf0ad8E"(ptr noalias noundef nonnull sret({ i32, i32, i32 }) align 4 captures(none) dereferenceable(12) %23, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %24, ptr noundef nonnull align 1 %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %77)
           to label %78 unwind label %.loopexit.split-lp158.loopexit.split-lp.loopexit.split-lp
 
 78:                                               ; preds = %75
@@ -80262,7 +80262,7 @@ define hidden noundef zeroext i1 @"_ZN6hir_ty8chalk_db46_$LT$impl$u20$hir_ty..tr
   %82 = extractvalue { ptr, ptr } %72, 0
   %83 = extractvalue { ptr, ptr } %72, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
-  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %21, ptr noundef nonnull align 1 %82, ptr noalias noundef readonly align 8 dereferenceable(24) %83)
+  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %21, ptr noundef nonnull align 1 %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %83)
           to label %84 unwind label %.loopexit.split-lp158.loopexit.split-lp.loopexit.split-lp
 
 84:                                               ; preds = %81
@@ -84194,7 +84194,7 @@ _ZN6hir_ty5lower17TyLoweringContext24substs_from_path_segment17hf5bce92caec94f03
 107:                                              ; preds = %105
   %108 = extractvalue { ptr, ptr } %102, 1
   %109 = extractvalue { ptr, ptr } %102, 0
-  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %39, ptr noundef nonnull align 1 %109, ptr noalias noundef readonly align 8 dereferenceable(24) %108, i64 %106)
+  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %39, ptr noundef nonnull align 1 %109, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %108, i64 %106)
           to label %110 unwind label %103
 
 110:                                              ; preds = %107
@@ -84695,7 +84695,7 @@ _ZN6hir_ty5utils8Generics8len_self17hebe79316bb9af7a0E.exit: ; preds = %110
 268:                                              ; preds = %.noexc136
   %269 = extractvalue { ptr, ptr } %262, 1
   %270 = extractvalue { ptr, ptr } %262, 0
-  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 1 %270, ptr noalias noundef readonly align 8 dereferenceable(24) %269, i64 %265)
+  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 1 %270, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %269, i64 %265)
           to label %271 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 271:                                              ; preds = %268
@@ -85578,7 +85578,7 @@ define hidden noundef ptr @_ZN6hir_ty5lower42named_associated_type_shorthand_can
 104:                                              ; preds = %"_ZN62_$LT$hir_def..GenericDefId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfc7054d4c5941baE.exit.thread"
   %105 = extractvalue { ptr, ptr } %101, 0
   %106 = extractvalue { ptr, ptr } %101, 1
-  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %30, ptr noundef nonnull align 1 %105, ptr noalias noundef readonly align 8 dereferenceable(24) %106, i64 %2)
+  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %30, ptr noundef nonnull align 1 %105, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %106, i64 %2)
           to label %107 unwind label %.thread126
 
 107:                                              ; preds = %104
@@ -85914,7 +85914,7 @@ _ZN6hir_ty5utils8Generics8len_self17hebe79316bb9af7a0E.exit: ; preds = %107
 213:                                              ; preds = %211
   %214 = extractvalue { ptr, ptr } %193, 1
   %215 = extractvalue { ptr, ptr } %193, 0
-  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %20, ptr noundef nonnull align 1 %215, ptr noalias noundef readonly align 8 dereferenceable(24) %214, i64 %212)
+  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %20, ptr noundef nonnull align 1 %215, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %214, i64 %212)
           to label %216 unwind label %185
 
 216:                                              ; preds = %213
@@ -85961,7 +85961,7 @@ _ZN6hir_ty5utils8Generics8len_self17hebe79316bb9af7a0E.exit: ; preds = %107
 233:                                              ; preds = %230
   %234 = extractvalue { ptr, ptr } %231, 0
   %235 = extractvalue { ptr, ptr } %231, 1
-  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %19, ptr noundef nonnull align 1 %234, ptr noalias noundef readonly align 8 dereferenceable(24) %235, i64 %2)
+  invoke void @_ZN6hir_ty5utils8generics17h3f1c457031d9c1d9E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, ptr, ptr }) align 8 captures(none) dereferenceable(24) %19, ptr noundef nonnull align 1 %234, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %235, i64 %2)
           to label %236 unwind label %221
 
 236:                                              ; preds = %233
@@ -87589,7 +87589,7 @@ default.unreachable65:                            ; preds = %40, %39, %38, %8
   %64 = extractvalue { ptr, i64 } %59, 0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
-  call void @"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.llvm.13094975786070861856"(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef readonly align 8 dereferenceable(24) %64)
+  call void @"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.llvm.13094975786070861856"(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64)
   %65 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   store i8 5, ptr %18, align 16
@@ -87890,7 +87890,7 @@ default.unreachable65:                            ; preds = %35, %34, %33, %5
   %59 = extractvalue { ptr, i64 } %54, 0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  call void @"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.llvm.13094975786070861856"(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef readonly align 8 dereferenceable(24) %59)
+  call void @"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.llvm.13094975786070861856"(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59)
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   store i8 5, ptr %13, align 16
@@ -88170,7 +88170,7 @@ default.unreachable65:                            ; preds = %40, %39, %38, %8
   %64 = extractvalue { ptr, i64 } %59, 0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
-  call void @"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.llvm.13094975786070861856"(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef readonly align 8 dereferenceable(24) %64)
+  call void @"_ZN61_$LT$hir_expand..name..Name$u20$as$u20$core..clone..Clone$GT$5clone17h47d2409d10821434E.llvm.13094975786070861856"(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64)
   %65 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   store i8 5, ptr %18, align 16
@@ -89397,7 +89397,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 86:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17he1903821ea9f973cE.exit"
   %87 = extractvalue { ptr, ptr } %85, 0
   %88 = extractvalue { ptr, ptr } %85, 1
-  invoke void @"_ZN56_$LT$hir_def..StaticId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h126695f5b86dfbe1E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef readonly align 8 dereferenceable(24) %88)
+  invoke void @"_ZN56_$LT$hir_def..StaticId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h126695f5b86dfbe1E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %88)
           to label %89 unwind label %.thread33
 
 89:                                               ; preds = %86
@@ -89417,7 +89417,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 95:                                               ; preds = %89
   %96 = extractvalue { ptr, ptr } %94, 0
   %97 = extractvalue { ptr, ptr } %94, 1
-  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17hd690dae508951f99E(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef readonly align 8 dereferenceable(24) %97)
+  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17hd690dae508951f99E(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %97)
           to label %99 unwind label %.thread40
 
 99:                                               ; preds = %95
@@ -89533,7 +89533,7 @@ _ZN6syntax3ast6traits7HasName4name17h25a062a059e1cff0E.exit.i: ; preds = %.noexc
 136:                                              ; preds = %"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h4bdca9a29657a3c2E.exit.i"
   %137 = extractvalue { ptr, ptr } %135, 0
   %138 = extractvalue { ptr, ptr } %135, 1
-  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef readonly align 8 dereferenceable(24) %138)
+  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %138)
           to label %140 unwind label %110
 
 140:                                              ; preds = %136
@@ -90130,7 +90130,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 86:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17he1903821ea9f973cE.exit"
   %87 = extractvalue { ptr, ptr } %85, 0
   %88 = extractvalue { ptr, ptr } %85, 1
-  invoke void @"_ZN59_$LT$hir_def..TypeAliasId$u20$as$u20$hir_expand..Lookup$GT$6lookup17habc1ef33d0e183ebE"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef readonly align 8 dereferenceable(24) %88)
+  invoke void @"_ZN59_$LT$hir_def..TypeAliasId$u20$as$u20$hir_expand..Lookup$GT$6lookup17habc1ef33d0e183ebE"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %88)
           to label %89 unwind label %.thread33
 
 89:                                               ; preds = %86
@@ -90150,7 +90150,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 95:                                               ; preds = %89
   %96 = extractvalue { ptr, ptr } %94, 0
   %97 = extractvalue { ptr, ptr } %94, 1
-  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17h8920cc8db47d6d1fE(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef readonly align 8 dereferenceable(24) %97)
+  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17h8920cc8db47d6d1fE(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %97)
           to label %99 unwind label %.thread40
 
 99:                                               ; preds = %95
@@ -90266,7 +90266,7 @@ _ZN6syntax3ast6traits7HasName4name17h684ae9ff3752bf43E.exit.i: ; preds = %.noexc
 136:                                              ; preds = %"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h4bdca9a29657a3c2E.exit.i"
   %137 = extractvalue { ptr, ptr } %135, 0
   %138 = extractvalue { ptr, ptr } %135, 1
-  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef readonly align 8 dereferenceable(24) %138)
+  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %138)
           to label %140 unwind label %110
 
 140:                                              ; preds = %136
@@ -90863,7 +90863,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 86:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17he1903821ea9f973cE.exit"
   %87 = extractvalue { ptr, ptr } %85, 0
   %88 = extractvalue { ptr, ptr } %85, 1
-  invoke void @"_ZN58_$LT$hir_def..FunctionId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h0173142c192c25d1E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef readonly align 8 dereferenceable(24) %88)
+  invoke void @"_ZN58_$LT$hir_def..FunctionId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h0173142c192c25d1E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %88)
           to label %89 unwind label %.thread33
 
 89:                                               ; preds = %86
@@ -90883,7 +90883,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 95:                                               ; preds = %89
   %96 = extractvalue { ptr, ptr } %94, 0
   %97 = extractvalue { ptr, ptr } %94, 1
-  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17hb3278e0522182ef9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef readonly align 8 dereferenceable(24) %97)
+  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17hb3278e0522182ef9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %97)
           to label %99 unwind label %.thread40
 
 99:                                               ; preds = %95
@@ -90999,7 +90999,7 @@ _ZN6syntax3ast6traits7HasName4name17hcbdb13dc80ef67b6E.exit.i: ; preds = %.noexc
 136:                                              ; preds = %"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h4bdca9a29657a3c2E.exit.i"
   %137 = extractvalue { ptr, ptr } %135, 0
   %138 = extractvalue { ptr, ptr } %135, 1
-  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef readonly align 8 dereferenceable(24) %138)
+  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %138)
           to label %140 unwind label %110
 
 140:                                              ; preds = %136
@@ -91596,7 +91596,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 86:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17he1903821ea9f973cE.exit"
   %87 = extractvalue { ptr, ptr } %85, 0
   %88 = extractvalue { ptr, ptr } %85, 1
-  invoke void @"_ZN55_$LT$hir_def..ConstId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h2334b33b3410f958E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef readonly align 8 dereferenceable(24) %88)
+  invoke void @"_ZN55_$LT$hir_def..ConstId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h2334b33b3410f958E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %88)
           to label %89 unwind label %.thread33
 
 89:                                               ; preds = %86
@@ -91616,7 +91616,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 95:                                               ; preds = %89
   %96 = extractvalue { ptr, ptr } %94, 0
   %97 = extractvalue { ptr, ptr } %94, 1
-  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17hdab5a8678e66a5fdE(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef readonly align 8 dereferenceable(24) %97)
+  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17hdab5a8678e66a5fdE(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %97)
           to label %99 unwind label %.thread40
 
 99:                                               ; preds = %95
@@ -91732,7 +91732,7 @@ _ZN6syntax3ast6traits7HasName4name17ha278e181829cc059E.exit.i: ; preds = %.noexc
 136:                                              ; preds = %"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h4bdca9a29657a3c2E.exit.i"
   %137 = extractvalue { ptr, ptr } %135, 0
   %138 = extractvalue { ptr, ptr } %135, 1
-  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef readonly align 8 dereferenceable(24) %138)
+  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %138)
           to label %140 unwind label %110
 
 140:                                              ; preds = %136
@@ -92329,7 +92329,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 86:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17he1903821ea9f973cE.exit"
   %87 = extractvalue { ptr, ptr } %85, 0
   %88 = extractvalue { ptr, ptr } %85, 1
-  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef readonly align 8 dereferenceable(24) %88)
+  invoke void @"_ZN55_$LT$hir_def..TraitId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h3aa0d3ae5c0ba7ffE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %88)
           to label %89 unwind label %.thread33
 
 89:                                               ; preds = %86
@@ -92349,7 +92349,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 95:                                               ; preds = %89
   %96 = extractvalue { ptr, ptr } %94, 0
   %97 = extractvalue { ptr, ptr } %94, 1
-  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17h13f347928d2c5d2bE(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef readonly align 8 dereferenceable(24) %97)
+  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17h13f347928d2c5d2bE(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %97)
           to label %99 unwind label %.thread40
 
 99:                                               ; preds = %95
@@ -92465,7 +92465,7 @@ _ZN6syntax3ast6traits7HasName4name17h266ef643d6f82c7eE.exit.i: ; preds = %.noexc
 136:                                              ; preds = %"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h4bdca9a29657a3c2E.exit.i"
   %137 = extractvalue { ptr, ptr } %135, 0
   %138 = extractvalue { ptr, ptr } %135, 1
-  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef readonly align 8 dereferenceable(24) %138)
+  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %138)
           to label %140 unwind label %110
 
 140:                                              ; preds = %136
@@ -93062,7 +93062,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 86:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17he1903821ea9f973cE.exit"
   %87 = extractvalue { ptr, ptr } %85, 0
   %88 = extractvalue { ptr, ptr } %85, 1
-  invoke void @"_ZN54_$LT$hir_def..EnumId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h0ff83807b7875d2eE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef readonly align 8 dereferenceable(24) %88)
+  invoke void @"_ZN54_$LT$hir_def..EnumId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h0ff83807b7875d2eE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %88)
           to label %89 unwind label %.thread33
 
 89:                                               ; preds = %86
@@ -93082,7 +93082,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 95:                                               ; preds = %89
   %96 = extractvalue { ptr, ptr } %94, 0
   %97 = extractvalue { ptr, ptr } %94, 1
-  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17hf5839991d5f94ab0E(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef readonly align 8 dereferenceable(24) %97)
+  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17hf5839991d5f94ab0E(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %97)
           to label %99 unwind label %.thread40
 
 99:                                               ; preds = %95
@@ -93198,7 +93198,7 @@ _ZN6syntax3ast6traits7HasName4name17h0fd276230634feefE.exit.i: ; preds = %.noexc
 136:                                              ; preds = %"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h4bdca9a29657a3c2E.exit.i"
   %137 = extractvalue { ptr, ptr } %135, 0
   %138 = extractvalue { ptr, ptr } %135, 1
-  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef readonly align 8 dereferenceable(24) %138)
+  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %138)
           to label %140 unwind label %110
 
 140:                                              ; preds = %136
@@ -93795,7 +93795,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 86:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17he1903821ea9f973cE.exit"
   %87 = extractvalue { ptr, ptr } %85, 0
   %88 = extractvalue { ptr, ptr } %85, 1
-  invoke void @"_ZN56_$LT$hir_def..StructId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h45ca77af25ea42bcE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef readonly align 8 dereferenceable(24) %88)
+  invoke void @"_ZN56_$LT$hir_def..StructId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h45ca77af25ea42bcE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %88)
           to label %89 unwind label %.thread33
 
 89:                                               ; preds = %86
@@ -93815,7 +93815,7 @@ default.unreachable:                              ; preds = %51, %switch.lookup
 95:                                               ; preds = %89
   %96 = extractvalue { ptr, ptr } %94, 0
   %97 = extractvalue { ptr, ptr } %94, 1
-  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17h128b39a54cddf260E(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef readonly align 8 dereferenceable(24) %97)
+  %98 = invoke { ptr, i32 } @_ZN7hir_def3src9HasSource6source17h128b39a54cddf260E(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %20, ptr noundef nonnull align 1 %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %97)
           to label %99 unwind label %.thread40
 
 99:                                               ; preds = %95
@@ -93931,7 +93931,7 @@ _ZN6syntax3ast6traits7HasName4name17hcf509fce3676137cE.exit.i: ; preds = %.noexc
 136:                                              ; preds = %"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h4bdca9a29657a3c2E.exit.i"
   %137 = extractvalue { ptr, ptr } %135, 0
   %138 = extractvalue { ptr, ptr } %135, 1
-  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef readonly align 8 dereferenceable(24) %138)
+  %139 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, ptr noundef nonnull align 1 %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %138)
           to label %140 unwind label %110
 
 140:                                              ; preds = %136
@@ -94437,7 +94437,7 @@ _ZN6syntax3ast6traits7HasName4name17ha5978595c8854036E.exit: ; preds = %.noexc
 54:                                               ; preds = %"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h4bdca9a29657a3c2E.exit"
   %55 = extractvalue { ptr, ptr } %53, 0
   %56 = extractvalue { ptr, ptr } %53, 1
-  %57 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46, ptr noundef nonnull align 1 %55, ptr noalias noundef readonly align 8 dereferenceable(24) %56)
+  %57 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46, ptr noundef nonnull align 1 %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %56)
           to label %58 unwind label %26
 
 58:                                               ; preds = %54
@@ -94856,7 +94856,7 @@ _ZN6syntax3ast6traits7HasName4name17hea3dc46da5c9143aE.exit: ; preds = %.noexc
 54:                                               ; preds = %"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h4bdca9a29657a3c2E.exit"
   %55 = extractvalue { ptr, ptr } %53, 0
   %56 = extractvalue { ptr, ptr } %53, 1
-  %57 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46, ptr noundef nonnull align 1 %55, ptr noalias noundef readonly align 8 dereferenceable(24) %56)
+  %57 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46, ptr noundef nonnull align 1 %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %56)
           to label %58 unwind label %26
 
 58:                                               ; preds = %54
@@ -95275,7 +95275,7 @@ _ZN6syntax3ast6traits7HasName4name17h7588ca92d5a71ec4E.exit: ; preds = %.noexc
 54:                                               ; preds = %"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h4bdca9a29657a3c2E.exit"
   %55 = extractvalue { ptr, ptr } %53, 0
   %56 = extractvalue { ptr, ptr } %53, 1
-  %57 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46, ptr noundef nonnull align 1 %55, ptr noalias noundef readonly align 8 dereferenceable(24) %56)
+  %57 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46, ptr noundef nonnull align 1 %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %56)
           to label %58 unwind label %26
 
 58:                                               ; preds = %54
@@ -95694,7 +95694,7 @@ _ZN6syntax3ast6traits7HasName4name17h29c4307c6579b32fE.exit: ; preds = %.noexc
 54:                                               ; preds = %"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h4bdca9a29657a3c2E.exit"
   %55 = extractvalue { ptr, ptr } %53, 0
   %56 = extractvalue { ptr, ptr } %53, 1
-  %57 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46, ptr noundef nonnull align 1 %55, ptr noalias noundef readonly align 8 dereferenceable(24) %56)
+  %57 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46, ptr noundef nonnull align 1 %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %56)
           to label %58 unwind label %26
 
 58:                                               ; preds = %54
@@ -96230,7 +96230,7 @@ define hidden { ptr, i1 } @"_ZN117_$LT$hir_ty..diagnostics..match_check..pat_ana
   %44 = extractvalue { ptr, ptr } %42, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !32453
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %15, i64 12, i1 false), !noalias !32453
-  %45 = invoke noundef zeroext i1 @_ZN7hir_def10visibility10Visibility15is_visible_from17ha2851a25604aeaddE(ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %5, ptr noundef nonnull align 1 %43, ptr noalias noundef readonly align 8 dereferenceable(24) %44, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %4)
+  %45 = invoke noundef zeroext i1 @_ZN7hir_def10visibility10Visibility15is_visible_from17ha2851a25604aeaddE(ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %5, ptr noundef nonnull align 1 %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %4)
           to label %"_ZN117_$LT$hir_ty..diagnostics..match_check..pat_analysis..MatchCheckCtx$u20$as$u20$ra_ap_rustc_pattern_analysis..PatCx$GT$12ctor_sub_tys28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1c21f466421f8ed5E.exit" unwind label %17
 
 46:                                               ; preds = %"_ZN117_$LT$hir_ty..diagnostics..match_check..pat_analysis..MatchCheckCtx$u20$as$u20$ra_ap_rustc_pattern_analysis..PatCx$GT$12ctor_sub_tys28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1c21f466421f8ed5E.exit", %19, %"_ZN9once_cell6unsync17Lazy$LT$T$C$F$GT$5force17h9bcb4ff3048f4b08E.exit"

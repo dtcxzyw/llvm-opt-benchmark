@@ -3635,7 +3635,7 @@ _ZSt10_ConstructI11colvarvalueJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #22
-  invoke void @_ZSt8_DestroyIP11colvarvalueEvT_S2_(ptr noundef %5, ptr noundef %.014.i.i.i)
+  invoke void @_ZSt8_DestroyIP11colvarvalueEvT_S2_(ptr noundef %5, ptr noundef nonnull %.014.i.i.i)
           to label %25 unwind label %26
 
 25:                                               ; preds = %21

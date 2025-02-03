@@ -2234,7 +2234,7 @@ _ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit7.i.i.i: ; preds = %if.then.i.i.i6.i
 
 _ZN5folly7PromiseINS_4UnitEE8setValueIRKS1_EEvOT_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then7.i.i.i.i, %invoke.cont.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i) #20
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %iter.sroa.0.04.i.i) #27
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %iter.sroa.0.04.i.i) #27
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %__y.addr.0.lcssa.i.i.i.i.i
   br i1 %cmp.i.not.i.i, label %for.cond.cleanup.i.i, label %for.body.i.i, !llvm.loop !122
 

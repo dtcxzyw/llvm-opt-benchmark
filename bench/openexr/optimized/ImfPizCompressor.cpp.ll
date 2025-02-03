@@ -84,7 +84,7 @@ invoke.cont.i.cont:                               ; preds = %invoke.cont.i.invok
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #16
   br label %lpad.body
 
 invoke.cont6:                                     ; preds = %land.lhs.true.i
@@ -101,7 +101,7 @@ if.then.i24:                                      ; preds = %invoke.cont6
 lpad.i26:                                         ; preds = %if.then.i24
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i25) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i25) #16
   br label %lpad.body
 
 invoke.cont8:                                     ; preds = %invoke.cont, %invoke.cont6
@@ -1278,7 +1278,7 @@ lpad:                                             ; preds = %invoke.cont64.invok
 lpad41:                                           ; preds = %if.then40
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #16
   br label %_ZN7Imf_3_29AutoArrayIhLi8192EED2Ev.exit132
 
 if.end43:                                         ; preds = %for.end
@@ -1297,7 +1297,7 @@ if.then47:                                        ; preds = %if.end43
 lpad49:                                           ; preds = %if.then47
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception48) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception48) #16
   br label %_ZN7Imf_3_29AutoArrayIhLi8192EED2Ev.exit132
 
 if.end51:                                         ; preds = %if.end43
@@ -1328,7 +1328,7 @@ invoke.cont64.cont:                               ; preds = %invoke.cont64.invok
 lpad63:                                           ; preds = %if.then61
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception62) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception62) #16
   br label %_ZN7Imf_3_29AutoArrayIhLi8192EED2Ev.exit132
 
 if.end65:                                         ; preds = %if.then55
@@ -1430,7 +1430,7 @@ lpad76.loopexit.split-lp:                         ; preds = %invoke.cont88.invok
 lpad87:                                           ; preds = %if.then85
   %37 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception86) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception86) #16
   br label %_ZN7Imf_3_29AutoArrayItLi65536EED2Ev.exit129
 
 if.end89:                                         ; preds = %_ZN7Imf_3_212_GLOBAL__N_120reverseLutFromBitmapEPKhPt.exit
@@ -1450,7 +1450,7 @@ if.then95:                                        ; preds = %if.end89
 lpad97:                                           ; preds = %if.then95
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception96) #16
+  tail call void @__cxa_free_exception(ptr nonnull %exception96) #16
   br label %_ZN7Imf_3_29AutoArrayItLi65536EED2Ev.exit129
 
 if.end99:                                         ; preds = %if.end89

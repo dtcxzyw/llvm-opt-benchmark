@@ -2967,7 +2967,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1484:          ; preds = %646
 685:                                              ; preds = %._crit_edge.i1597
   %686 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %683) #27
+  call void @__cxa_free_exception(ptr nonnull %683) #27
   br label %.body1601
 
 .noexc1495:                                       ; preds = %.lr.ph.i1593
@@ -3536,7 +3536,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %894
 933:                                              ; preds = %._crit_edge.i1334
   %934 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %931) #27
+  call void @__cxa_free_exception(ptr nonnull %931) #27
   br label %.body1338
 
 .noexc1067:                                       ; preds = %.lr.ph.i1332
@@ -12562,7 +12562,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1242:          ; preds = %4172
 4210:                                             ; preds = %._crit_edge.i1458
   %4211 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4209) #27
+  call void @__cxa_free_exception(ptr nonnull %4209) #27
   br label %.body1416
 
 .noexc1252:                                       ; preds = %.lr.ph.i1454
@@ -12856,7 +12856,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1230:          ; preds = %4324
 4364:                                             ; preds = %._crit_edge.i1412
   %4365 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4362) #27
+  call void @__cxa_free_exception(ptr nonnull %4362) #27
   br label %.body1416
 
 .noexc1239:                                       ; preds = %.lr.ph.i1408
@@ -13515,7 +13515,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1542:          ; preds = %4614
 4653:                                             ; preds = %._crit_edge.i1643
   %4654 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4651) #27
+  call void @__cxa_free_exception(ptr nonnull %4651) #27
   br label %.body1647
 
 .noexc1555:                                       ; preds = %.lr.ph.i1639
@@ -16194,7 +16194,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 22:                                               ; preds = %._crit_edge
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #27
+  call void @__cxa_free_exception(ptr nonnull %20) #27
   br label %24
 
 24:                                               ; preds = %22, %18
@@ -50420,7 +50420,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %50, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3mapIN5Yosys5RTLIL6SigBitEiSt4lessISB_ESaIS6_IKSB_iEEEESt10_Select1stISI_ESC_IS5_ESaISI_EE24_M_get_insert_unique_posERS7_.exit, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #29
+  %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #29
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit11 unwind label %55
@@ -50526,7 +50526,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %91, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3mapIN5Yosys5RTLIL6SigBitEiSt4lessISB_ESaIS6_IKSB_iEEEESt10_Select1stISI_ESC_IS5_ESaISI_EE24_M_get_insert_unique_posERS7_.exit, label %92
 
 92:                                               ; preds = %88
-  %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #29
+  %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #29
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %94)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit35 unwind label %96
@@ -56841,7 +56841,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE17_M_insert_unique_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiESt23_Rb_tree_const_iteratorIiEOT_RT0_.exit.i: ; preds = %25, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
   %38 = phi i64 [ %10, %25 ], [ %37, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i ]
-  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.04.08.i) #29
+  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.08.i) #29
   %.not.i = icmp eq ptr %39, %2
   br i1 %.not.i, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE22_M_insert_range_uniqueISt23_Rb_tree_const_iteratorIiEEENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESA_SA_.exit, label %9, !llvm.loop !507
 

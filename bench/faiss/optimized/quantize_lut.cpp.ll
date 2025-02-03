@@ -439,7 +439,7 @@ define void @_ZN5faiss12quantize_lut21quantize_LUT_and_biasEmmmbPKfS2_PhmPtPfS5_
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #15
+  call void @__cxa_free_exception(ptr nonnull %23) #15
   br label %29
 
 29:                                               ; preds = %27, %25

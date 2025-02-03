@@ -1932,7 +1932,7 @@ _ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit356:       ; preds = %._crit_edge494
 854:                                              ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit356
   %855 = load ptr, ptr %20, align 8
   %856 = getelementptr inbounds nuw i8, ptr %855, i64 8
-  invoke void @_Z9do_enxnmsP9ener_filePiPP11gmx_enxnm_t(ptr noundef nonnull %1, ptr noundef %855, ptr noundef nonnull %856)
+  invoke void @_Z9do_enxnmsP9ener_filePiPP11gmx_enxnm_t(ptr noundef nonnull %1, ptr noundef nonnull %855, ptr noundef nonnull %856)
           to label %857 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 857:                                              ; preds = %854, %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit356

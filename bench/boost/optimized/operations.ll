@@ -419,7 +419,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %28, %30
 39:                                               ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #27
+  call void @__cxa_free_exception(ptr nonnull %25) #27
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #27
   resume { ptr, i32 } %40
 
@@ -593,7 +593,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %28, %30
 39:                                               ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #27
+  call void @__cxa_free_exception(ptr nonnull %25) #27
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #27
   resume { ptr, i32 } %40
 
@@ -913,7 +913,7 @@ _ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit.thread: ; preds = %88, 
 102:                                              ; preds = %97
   %103 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %98) #27
+  call void @__cxa_free_exception(ptr nonnull %98) #27
   br label %166
 
 104:                                              ; preds = %99
@@ -1891,7 +1891,7 @@ _ZN5boost10filesystem4pathD2Ev.exit138:           ; preds = %_ZNKSt7__cxx1112bas
 444:                                              ; preds = %438
   %445 = load ptr, ptr %22, align 8, !tbaa !13
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 %442
-  invoke void @_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathEPKcS6_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %445, ptr noundef nonnull %446)
+  invoke void @_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathEPKcS6_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %445, ptr noundef nonnull %446)
           to label %_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit145 unwind label %449
 
 447:                                              ; preds = %.noexc.i.i.i140, %423
@@ -2564,7 +2564,7 @@ _ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit.thread: ; preds = %88, 
 102:                                              ; preds = %97
   %103 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %98) #27
+  call void @__cxa_free_exception(ptr nonnull %98) #27
   br label %166
 
 104:                                              ; preds = %99
@@ -3786,7 +3786,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %31, %_ZN5boost10fil
 38:                                               ; preds = %35
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %36) #27
+  call void @__cxa_free_exception(ptr nonnull %36) #27
   br label %414
 
 40:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread
@@ -5665,7 +5665,7 @@ _ZN5boost10filesystem4pathD2Ev.exit249:           ; preds = %_ZNKSt7__cxx1112bas
 272:                                              ; preds = %269
   %273 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %270) #27
+  call void @__cxa_free_exception(ptr nonnull %270) #27
   br label %323
 
 274:                                              ; preds = %268
@@ -5849,7 +5849,7 @@ _ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit.thread: ; preds = %326,
 338:                                              ; preds = %335
   %339 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %336) #27
+  tail call void @__cxa_free_exception(ptr nonnull %336) #27
   br label %480
 
 .critedge194:                                     ; preds = %333
@@ -5898,7 +5898,7 @@ _ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit.thread: ; preds = %326,
 351:                                              ; preds = %348
   %352 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %349) #27
+  call void @__cxa_free_exception(ptr nonnull %349) #27
   br label %480
 
 353:                                              ; preds = %347
@@ -6688,7 +6688,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %_ZNK5boost6system10
 101:                                              ; preds = %94
   %102 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %95) #27
+  call void @__cxa_free_exception(ptr nonnull %95) #27
   br label %167
 
 103:                                              ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread
@@ -7618,7 +7618,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %21, %23
 32:                                               ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %18) #27
+  tail call void @__cxa_free_exception(ptr nonnull %18) #27
   br label %98
 
 34:                                               ; preds = %31
@@ -7710,7 +7710,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit48: ; preds = %55
 70:                                               ; preds = %65
   %71 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %56) #27
+  tail call void @__cxa_free_exception(ptr nonnull %56) #27
   br label %98
 
 72:                                               ; preds = %69
@@ -7882,7 +7882,7 @@ _ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit: ; preds = %21
 36:                                               ; preds = %31
   %37 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %22) #27
+  tail call void @__cxa_free_exception(ptr nonnull %22) #27
   br label %301
 
 38:                                               ; preds = %20
@@ -8177,7 +8177,7 @@ _ZN5boost10filesystem6detail15path_algorithms11filename_v4ERKNS0_4pathE.exit: ; 
 138:                                              ; preds = %135
   %139 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %136) #27
+  call void @__cxa_free_exception(ptr nonnull %136) #27
   br label %143
 
 140:                                              ; preds = %134
@@ -8529,7 +8529,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %248
 257:                                              ; preds = %252
   %258 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %253) #27
+  call void @__cxa_free_exception(ptr nonnull %253) #27
   br label %279
 
 259:                                              ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread
@@ -9726,7 +9726,7 @@ _ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit: ; preds = %65
 75:                                               ; preds = %60, %24
   %.sink = phi ptr [ %46, %60 ], [ %22, %24 ]
   %.pn = phi { ptr, i32 } [ %61, %60 ], [ %25, %24 ]
-  call void @__cxa_free_exception(ptr %.sink) #27
+  call void @__cxa_free_exception(ptr nonnull %.sink) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27
   resume { ptr, i32 } %.pn
@@ -9938,7 +9938,7 @@ _ZN5boost10filesystem4pathC2ERKS1_.exit:          ; preds = %._crit_edge.i.i.i, 
 74:                                               ; preds = %65
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %66) #27
+  call void @__cxa_free_exception(ptr nonnull %66) #27
   br label %80
 
 .thread108:                                       ; preds = %64
@@ -10205,7 +10205,7 @@ _ZNK5boost6system10error_codecvbEv.exit54.thread: ; preds = %165
 174:                                              ; preds = %169
   %175 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %170) #27
+  call void @__cxa_free_exception(ptr nonnull %170) #27
   br label %235
 
 176:                                              ; preds = %_ZNK5boost6system10error_codecvbEv.exit54.thread
@@ -10220,7 +10220,7 @@ _ZNK5boost6system10error_codecvbEv.exit54.thread105: ; preds = %165, %_ZN5boost1
 179:                                              ; preds = %_ZNK5boost6system10error_codecvbEv.exit54.thread105
   %180 = load ptr, ptr %12, align 8, !tbaa !13
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 %177
-  invoke void @_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathEPKcS6_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %180, ptr noundef nonnull %181)
+  invoke void @_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathEPKcS6_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %180, ptr noundef nonnull %181)
           to label %_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit56 unwind label %.loopexit.split-lp
 
 _ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit56: ; preds = %179
@@ -10653,7 +10653,7 @@ define internal fastcc noundef zeroext i1 @_ZN5boost10filesystem6detail12_GLOBAL
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %8) #27
+  call void @__cxa_free_exception(ptr nonnull %8) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #27
   resume { ptr, i32 } %11
 
@@ -10930,7 +10930,7 @@ _ZN5boost10filesystem4pathD2Ev.exit:              ; preds = %_ZNKSt7__cxx1112bas
 87:                                               ; preds = %84
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %85) #27
+  call void @__cxa_free_exception(ptr nonnull %85) #27
   br label %102
 
 89:                                               ; preds = %86
@@ -11079,7 +11079,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit104.thread: ; preds 
 131:                                              ; preds = %128
   %132 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %129) #27
+  call void @__cxa_free_exception(ptr nonnull %129) #27
   br label %191
 
 133:                                              ; preds = %127
@@ -11374,7 +11374,7 @@ _ZNK5boost6system10error_codecvbEv.exit117.thread146: ; preds = %201, %_ZNK5boos
 214:                                              ; preds = %211
   %215 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %212) #27
+  call void @__cxa_free_exception(ptr nonnull %212) #27
   br label %225
 
 216:                                              ; preds = %213
@@ -12144,7 +12144,7 @@ _ZN5boost10filesystem4pathC2ERKS1_.exit:          ; preds = %._crit_edge.i.i.i, 
 74:                                               ; preds = %65
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %66) #27
+  call void @__cxa_free_exception(ptr nonnull %66) #27
   br label %80
 
 .thread108:                                       ; preds = %64
@@ -12411,7 +12411,7 @@ _ZNK5boost6system10error_codecvbEv.exit54.thread: ; preds = %165
 174:                                              ; preds = %169
   %175 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %170) #27
+  call void @__cxa_free_exception(ptr nonnull %170) #27
   br label %235
 
 176:                                              ; preds = %_ZNK5boost6system10error_codecvbEv.exit54.thread
@@ -12426,7 +12426,7 @@ _ZNK5boost6system10error_codecvbEv.exit54.thread105: ; preds = %165, %_ZN5boost1
 179:                                              ; preds = %_ZNK5boost6system10error_codecvbEv.exit54.thread105
   %180 = load ptr, ptr %12, align 8, !tbaa !13
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 %177
-  invoke void @_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathEPKcS6_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %180, ptr noundef nonnull %181)
+  invoke void @_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathEPKcS6_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %180, ptr noundef nonnull %181)
           to label %_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit56 unwind label %.loopexit.split-lp
 
 _ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit56: ; preds = %179

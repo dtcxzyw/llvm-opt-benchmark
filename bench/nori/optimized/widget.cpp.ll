@@ -1257,7 +1257,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS
 66:                                               ; preds = %63
   %67 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %64) #21
+  tail call void @__cxa_free_exception(ptr nonnull %64) #21
   resume { ptr, i32 } %67
 
 68:                                               ; preds = %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
@@ -1307,7 +1307,7 @@ define hidden void @_ZN7nanogui6Widget15remove_child_atEi(ptr noundef nonnull al
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #21
+  tail call void @__cxa_free_exception(ptr nonnull %15) #21
   resume { ptr, i32 } %18
 
 19:                                               ; preds = %4

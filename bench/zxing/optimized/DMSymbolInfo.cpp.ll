@@ -359,7 +359,7 @@ define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizont
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #5
+  tail call void @__cxa_free_exception(ptr nonnull %8) #5
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %1, %6, %5, %4
@@ -414,7 +414,7 @@ define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19vertical
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #5
+  tail call void @__cxa_free_exception(ptr nonnull %8) #5
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %1, %1, %6, %5, %4

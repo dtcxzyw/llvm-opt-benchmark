@@ -691,7 +691,7 @@ common.resume:                                    ; preds = %.body.i25, %.body.i
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %194 = load ptr, ptr %19, align 8, !alias.scope !91, !noalias !36, !noundef !14
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$ockam_core..error..inner..ErrorData$GT$17h21dbe1a26439c1b0E"(ptr noalias noundef align 8 dereferenceable(104) %194)
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$ockam_core..error..inner..ErrorData$GT$17h21dbe1a26439c1b0E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %194)
           to label %236 unwind label %195, !noalias !91
 
 195:                                              ; preds = %193

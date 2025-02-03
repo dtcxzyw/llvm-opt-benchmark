@@ -25261,7 +25261,7 @@ define internal fastcc i32 @internal_exr_apply_dwaa(ptr noundef %0) unnamed_addr
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = call fastcc i32 @DwaCompressor_construct(ptr noundef %2, i32 noundef 1, ptr noundef %0, ptr noundef null)
+  %8 = call fastcc i32 @DwaCompressor_construct(ptr noundef %2, i32 noundef 1, ptr noundef nonnull %0, ptr noundef null)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %12
 
@@ -25289,7 +25289,7 @@ define internal fastcc i32 @internal_exr_apply_dwab(ptr noundef %0) unnamed_addr
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = call fastcc i32 @DwaCompressor_construct(ptr noundef %2, i32 noundef 0, ptr noundef %0, ptr noundef null)
+  %8 = call fastcc i32 @DwaCompressor_construct(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %0, ptr noundef null)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %12
 
@@ -47528,7 +47528,7 @@ undo_zip_impl.exit.i:                             ; preds = %.lr.ph59.i.i.i.i, %
 169:                                              ; preds = %165
   %170 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 184
-  %172 = tail call fastcc i32 @internal_decode_alloc_buffer(ptr noundef %2, i32 noundef 4, ptr noundef nonnull %170, ptr noundef nonnull %171, i64 noundef 925704)
+  %172 = tail call fastcc i32 @internal_decode_alloc_buffer(ptr noundef nonnull %2, i32 noundef 4, ptr noundef nonnull %170, ptr noundef nonnull %171, i64 noundef 925704)
   %.not157.i = icmp eq i32 %172, 0
   br i1 %.not157.i, label %173, label %internal_exr_undo_rle.exit
 
@@ -47634,7 +47634,7 @@ reverseLutFromBitmap.exit.i:                      ; preds = %.lr.ph.preheader.i.
   %223 = load ptr, ptr %166, align 8
   %224 = getelementptr inbounds nuw i8, ptr %3, i64 %215
   %225 = lshr i64 %6, 1
-  %226 = tail call fastcc i32 @internal_huf_decompress(ptr noundef %2, ptr noundef nonnull %224, i64 noundef %219, ptr noundef %223, i64 noundef %225, ptr noundef nonnull %174, i64 noundef 786440)
+  %226 = tail call fastcc i32 @internal_huf_decompress(ptr noundef nonnull %2, ptr noundef nonnull %224, i64 noundef %219, ptr noundef %223, i64 noundef %225, ptr noundef nonnull %174, i64 noundef 786440)
   %.not160.i = icmp eq i32 %226, 0
   br i1 %.not160.i, label %227, label %internal_exr_undo_rle.exit
 
@@ -48426,7 +48426,7 @@ compute_scratch_buffer_size.exit.i:               ; preds = %595, %588
   br i1 %.not.i100, label %614, label %internal_exr_undo_rle.exit
 
 614:                                              ; preds = %compute_scratch_buffer_size.exit.i
-  %615 = tail call fastcc i32 @uncompress_b44_impl(ptr noundef %2, ptr noundef readonly %3, i64 noundef range(i64 1, 0) %4, ptr noundef %5, i64 noundef %6)
+  %615 = tail call fastcc i32 @uncompress_b44_impl(ptr noundef nonnull %2, ptr noundef readonly %3, i64 noundef range(i64 1, 0) %4, ptr noundef %5, i64 noundef %6)
   br label %internal_exr_undo_rle.exit
 
 616:                                              ; preds = %21
@@ -48480,7 +48480,7 @@ compute_scratch_buffer_size.exit.i107:            ; preds = %623, %616
   br i1 %.not.i110, label %642, label %internal_exr_undo_rle.exit
 
 642:                                              ; preds = %compute_scratch_buffer_size.exit.i107
-  %643 = tail call fastcc i32 @uncompress_b44_impl(ptr noundef %2, ptr noundef readonly %3, i64 noundef range(i64 1, 0) %4, ptr noundef %5, i64 noundef %6)
+  %643 = tail call fastcc i32 @uncompress_b44_impl(ptr noundef nonnull %2, ptr noundef readonly %3, i64 noundef range(i64 1, 0) %4, ptr noundef %5, i64 noundef %6)
   br label %internal_exr_undo_rle.exit
 
 644:                                              ; preds = %21
@@ -48492,7 +48492,7 @@ compute_scratch_buffer_size.exit.i107:            ; preds = %623, %616
   br i1 %648, label %649, label %internal_exr_undo_dwaa.exit
 
 649:                                              ; preds = %644
-  %650 = call fastcc i32 @DwaCompressor_construct(ptr noundef %9, i32 noundef 0, ptr noundef null, ptr noundef %2)
+  %650 = call fastcc i32 @DwaCompressor_construct(ptr noundef %9, i32 noundef 0, ptr noundef null, ptr noundef nonnull %2)
   %651 = icmp eq i32 %650, 0
   br i1 %651, label %652, label %654
 
@@ -48519,7 +48519,7 @@ internal_exr_undo_dwaa.exit:                      ; preds = %644, %654
   br i1 %659, label %660, label %internal_exr_undo_dwab.exit
 
 660:                                              ; preds = %655
-  %661 = call fastcc i32 @DwaCompressor_construct(ptr noundef %8, i32 noundef 0, ptr noundef null, ptr noundef %2)
+  %661 = call fastcc i32 @DwaCompressor_construct(ptr noundef %8, i32 noundef 0, ptr noundef null, ptr noundef nonnull %2)
   %662 = icmp eq i32 %661, 0
   br i1 %662, label %663, label %665
 
@@ -55354,7 +55354,7 @@ half_to_float.exit:                               ; preds = %180, %182, %184, %1
 dctInverse8x8DcOnly.exit.sink.split:              ; preds = %213, %211, %209, %207, %205, %203, %200
   %dctInverse8x8_6.sink = phi ptr [ @dctInverse8x8_7, %200 ], [ @dctInverse8x8_6, %203 ], [ @dctInverse8x8_5, %205 ], [ @dctInverse8x8_4, %207 ], [ @dctInverse8x8_3, %209 ], [ @dctInverse8x8_2, %211 ], [ %dctInverse8x8_1.dctInverse8x8_0, %213 ]
   %215 = load ptr, ptr %dctInverse8x8_6.sink, align 8
-  tail call void %215(ptr noundef %135) #50
+  tail call void %215(ptr noundef nonnull %135) #50
   br label %dctInverse8x8DcOnly.exit
 
 dctInverse8x8DcOnly.exit:                         ; preds = %198, %dctInverse8x8DcOnly.exit.sink.split

@@ -1605,7 +1605,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias writable writ
 
 51:                                               ; preds = %46
   tail call void @free(ptr noundef %14) #25
-  tail call void @free(ptr noundef %15) #25
+  tail call void @free(ptr noundef nonnull %15) #25
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !45
   store i64 %49, ptr %52, align 8, !alias.scope !48
@@ -1618,7 +1618,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias writable writ
 
 56:                                               ; preds = %53
   tail call void @free(ptr noundef %14) #25
-  tail call void @free(ptr noundef %15) #25
+  tail call void @free(ptr noundef nonnull %15) #25
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !51
   store i64 %54, ptr %57, align 8, !alias.scope !54
@@ -1644,7 +1644,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias writable writ
   br i1 %66, label %46, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %64, %.preheader
-  tail call void @free(ptr noundef %15) #25
+  tail call void @free(ptr noundef nonnull %15) #25
   store ptr %14, ptr %0, align 8, !alias.scope !61
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %67, align 8, !alias.scope !61

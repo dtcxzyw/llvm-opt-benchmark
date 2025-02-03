@@ -6152,10 +6152,10 @@ lpad130.loopexit.split-lp.loopexit:               ; preds = %invoke.cont203, %in
           cleanup
   br label %ehcleanup383
 
-lpad130.loopexit.split-lp.loopexit.split-lp:      ; preds = %for.end310
+ehcleanup383.thread:                              ; preds = %for.end310
   %lpad.loopexit.split-lp824 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup383
+  br label %if.then.i.i595
 
 lpad137:                                          ; preds = %for.body134
   %113 = landingpad { ptr, i32 }
@@ -7013,7 +7013,7 @@ for.inc308:                                       ; preds = %for.inc308.loopexit
 
 for.end310:                                       ; preds = %for.inc308, %for.cond236.preheader
   %call314 = invoke noundef i32 @_ZN6solver9check_satEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(96) %call126, i32 noundef 0, ptr noundef null)
-          to label %invoke.cont313 unwind label %lpad130.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont313 unwind label %ehcleanup383.thread
 
 invoke.cont313:                                   ; preds = %for.end310
   %cmp315.not = icmp eq i32 %call314, 1
@@ -7526,11 +7526,12 @@ for.inc386:                                       ; preds = %if.then.i.i.i590, %
   %inc387 = add i32 %n.0, 1
   br label %for.cond119, !llvm.loop !64
 
-ehcleanup383:                                     ; preds = %lpad130.loopexit, %lpad130.loopexit.split-lp.loopexit.split-lp, %lpad130.loopexit.split-lp.loopexit, %if.then2.i.i.i436, %if.then.i.i.i430, %ehcleanup304, %lpad.i, %ehcleanup381, %ehcleanup228, %lpad173.body, %ehcleanup172, %lpad142.body, %ehcleanup
-  %.pn61 = phi { ptr, i32 } [ %eh.lpad-body718, %lpad142.body ], [ %.pn59, %ehcleanup ], [ %eh.lpad-body753, %lpad173.body ], [ %.pn57, %ehcleanup172 ], [ %.pn55, %ehcleanup228 ], [ %.pn.pn.pn.pn, %ehcleanup381 ], [ %149, %lpad.i ], [ %.pn52.pn, %ehcleanup304 ], [ %.pn52.pn, %if.then.i.i.i430 ], [ %.pn52.pn, %if.then2.i.i.i436 ], [ %lpad.loopexit820, %lpad130.loopexit ], [ %lpad.loopexit823, %lpad130.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp824, %lpad130.loopexit.split-lp.loopexit.split-lp ]
+ehcleanup383:                                     ; preds = %lpad130.loopexit, %lpad130.loopexit.split-lp.loopexit, %if.then2.i.i.i436, %if.then.i.i.i430, %ehcleanup304, %lpad.i, %ehcleanup381, %ehcleanup228, %lpad173.body, %ehcleanup172, %lpad142.body, %ehcleanup
+  %.pn61 = phi { ptr, i32 } [ %eh.lpad-body718, %lpad142.body ], [ %.pn59, %ehcleanup ], [ %eh.lpad-body753, %lpad173.body ], [ %.pn57, %ehcleanup172 ], [ %.pn55, %ehcleanup228 ], [ %.pn.pn.pn.pn, %ehcleanup381 ], [ %149, %lpad.i ], [ %.pn52.pn, %ehcleanup304 ], [ %.pn52.pn, %if.then.i.i.i430 ], [ %.pn52.pn, %if.then2.i.i.i436 ], [ %lpad.loopexit820, %lpad130.loopexit ], [ %lpad.loopexit823, %lpad130.loopexit.split-lp.loopexit ]
   br i1 %tobool.not.i.i179, label %ehcleanup385, label %if.then.i.i595
 
-if.then.i.i595:                                   ; preds = %ehcleanup383
+if.then.i.i595:                                   ; preds = %ehcleanup383.thread, %ehcleanup383
+  %.pn611461 = phi { ptr, i32 } [ %lpad.loopexit.split-lp824, %ehcleanup383.thread ], [ %.pn61, %ehcleanup383 ]
   %m_ref_count.i.i.i596 = getelementptr inbounds nuw i8, ptr %call126, i64 48
   %308 = load i32, ptr %m_ref_count.i.i.i596, align 8
   %dec.i.i.i597 = add i32 %308, -1
@@ -7553,7 +7554,7 @@ terminate.lpad.i602:                              ; preds = %if.then.i.i.i600
   unreachable
 
 ehcleanup385:                                     ; preds = %if.then.i.i.i600, %if.then.i.i595, %ehcleanup383, %lpad122
-  %.pn61.pn = phi { ptr, i32 } [ %112, %lpad122 ], [ %.pn61, %ehcleanup383 ], [ %.pn61, %if.then.i.i595 ], [ %.pn61, %if.then.i.i.i600 ]
+  %.pn61.pn = phi { ptr, i32 } [ %112, %lpad122 ], [ %.pn61, %ehcleanup383 ], [ %.pn611461, %if.then.i.i595 ], [ %.pn611461, %if.then.i.i.i600 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %p) #20
   br label %ehcleanup390
 

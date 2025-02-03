@@ -1004,12 +1004,12 @@ define range(i32 -1, 1) i32 @slurmdbd_unpack_usage_msg(ptr noundef writeonly cap
   br i1 %.not, label %16, label %18
 
 16:                                               ; preds = %13
-  %17 = tail call i32 @unpack_time(ptr noundef %5, ptr noundef %3) #5
+  %17 = tail call i32 @unpack_time(ptr noundef nonnull %5, ptr noundef %3) #5
   %.not15 = icmp eq i32 %17, 0
   br i1 %.not15, label %19, label %18
 
 18:                                               ; preds = %16, %13, %9
-  tail call void @slurmdbd_free_usage_msg(ptr noundef %5, i32 noundef %2) #5
+  tail call void @slurmdbd_free_usage_msg(ptr noundef nonnull %5, i32 noundef %2) #5
   store ptr null, ptr %0, align 8
   br label %19
 

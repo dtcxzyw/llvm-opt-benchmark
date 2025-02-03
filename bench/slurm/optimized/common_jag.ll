@@ -2173,7 +2173,7 @@ _get_pss.exit.i:                                  ; preds = %259, %_set_smaps_fi
 destroy_jag_prec.exit.i:                          ; preds = %311, %308
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %313 = load ptr, ptr @prec_list, align 8
-  call void @slurm_list_append(ptr noundef %313, ptr noundef %108) #17
+  call void @slurm_list_append(ptr noundef %313, ptr noundef nonnull %108) #17
   br label %.sink.split14.i
 
 _remove_share_data.exit.thread.i:                 ; preds = %298, %_get_pss.exit.i, %_remove_share_data.exit.thread5.i, %183, %151

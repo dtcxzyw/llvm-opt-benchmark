@@ -700,22 +700,22 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit:      ; preds = %21, %14
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %28 = load ptr, ptr %27, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(205) %20, ptr noundef nonnull align 8 dereferenceable(205) %3)
-          to label %.noexc unwind label %.thread
+          to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %25
   invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %20)
-          to label %_ZN5Ipopt6Vector17ElementWiseDivideERKS0_.exit unwind label %.thread
+          to label %_ZN5Ipopt6Vector17ElementWiseDivideERKS0_.exit unwind label %40
 
 _ZN5Ipopt6Vector17ElementWiseDivideERKS0_.exit:   ; preds = %.noexc
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 192
   %31 = load ptr, ptr %30, align 8
   invoke void %31(ptr noundef nonnull align 8 dereferenceable(205) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(205) %20, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(205) %20, double noundef %4)
-          to label %.noexc11 unwind label %.thread
+          to label %.noexc11 unwind label %40
 
 .noexc11:                                         ; preds = %_ZN5Ipopt6Vector17ElementWiseDivideERKS0_.exit
   invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %0)
-          to label %_ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit unwind label %.thread
+          to label %_ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit unwind label %40
 
 _ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit:      ; preds = %.noexc11
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -732,18 +732,9 @@ _ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit:      ; preds = %.noexc11
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(205) %20) #11
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit
 
-.thread:                                          ; preds = %.noexc11, %_ZN5Ipopt6Vector17ElementWiseDivideERKS0_.exit, %.noexc, %25
-  %lpad.thr_comm = landingpad { ptr, i32 }
+40:                                               ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit, %25, %.noexc, %_ZN5Ipopt6Vector17ElementWiseDivideERKS0_.exit, %.noexc11
+  %41 = landingpad { ptr, i32 }
           cleanup
-  br label %41
-
-40:                                               ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br i1 %.not.i.i, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit15, label %41
-
-41:                                               ; preds = %.thread, %40
-  %lpad.phi24 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %40 ]
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = add nsw i32 %43, -1
@@ -751,16 +742,15 @@ _ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit:      ; preds = %.noexc11
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit15
 
-46:                                               ; preds = %41
+46:                                               ; preds = %40
   %47 = load ptr, ptr %20, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(205) %20) #11
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit15
 
-_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit15:       ; preds = %40, %41, %46
-  %lpad.phi25 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %lpad.phi24, %41 ], [ %lpad.phi24, %46 ]
-  resume { ptr, i32 } %lpad.phi25
+_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit15:       ; preds = %40, %46
+  resume { ptr, i32 } %41
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit:         ; preds = %36, %_ZN5Ipopt6Vector12AddOneVectorEdRKS0_d.exit, %7
   ret void

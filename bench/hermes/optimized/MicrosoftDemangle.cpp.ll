@@ -7069,7 +7069,7 @@ _ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit.i: ; preds = %if.then.
   store ptr %Buf.0.i.i.i, ptr %Name.i6.i.i, align 8
   %ref.tmp.sroa.2.0.Name.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call2.i.sink9.i.i, i64 32
   store ptr %add.ptr.i7.i.i, ptr %ref.tmp.sroa.2.0.Name.sroa_idx.i, align 8
-  call void @free(ptr noundef %86) #25
+  call void @free(ptr noundef nonnull %86) #25
   br label %_ZN12_GLOBAL__N_19Demangler30demangleLocallyScopedNamePieceER10StringView.exit
 
 _ZN12_GLOBAL__N_19Demangler30demangleLocallyScopedNamePieceER10StringView.exit: ; preds = %_ZN10StringView12consumeFrontEc.exit17.i, %_ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit.i
@@ -8602,7 +8602,7 @@ _ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit: ; preds = %_ZN12Outpu
   %call4.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %Buf.0.i.i, ptr noundef nonnull dereferenceable(1) %5) #25
   %add.ptr.i7.i = getelementptr inbounds i8, ptr %Buf.0.i.i, i64 %call.i2
   call fastcc void @_ZN12_GLOBAL__N_19Demangler14memorizeStringE10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nonnull %Buf.0.i.i, ptr nonnull %add.ptr.i7.i)
-  call void @free(ptr noundef %5) #25
+  call void @free(ptr noundef nonnull %5) #25
   ret void
 }
 

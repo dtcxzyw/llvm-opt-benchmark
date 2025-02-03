@@ -17479,7 +17479,7 @@ GC_push_all.exit46:                               ; preds = %52, %45, %25
   %57 = phi i64 [ %95, %GC_push_all.exit52 ], [ %56, %GC_push_all.exit46 ]
   %58 = phi ptr [ %94, %GC_push_all.exit52 ], [ %55, %GC_push_all.exit46 ]
   %.059 = phi ptr [ %58, %GC_push_all.exit52 ], [ %13, %GC_push_all.exit46 ]
-  %59 = tail call i32 %2(ptr noundef %.059) #41, !callees !84
+  %59 = tail call i32 %2(ptr noundef nonnull %.059) #41, !callees !84
   %.not39 = icmp eq i32 %59, 0
   br i1 %.not39, label %GC_push_all.exit52, label %60
 
@@ -17559,7 +17559,7 @@ GC_push_all.exit52:                               ; preds = %91, %83, %.lr.ph
   br i1 %.not37, label %GC_push_all.exit, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = tail call i32 %2(ptr noundef %.0.lcssa) #41, !callees !84
+  %97 = tail call i32 %2(ptr noundef nonnull %.0.lcssa) #41, !callees !84
   %.not38 = icmp eq i32 %97, 0
   br i1 %.not38, label %GC_push_all.exit, label %98
 
@@ -36677,7 +36677,7 @@ GC_acquire_mark_lock.exit.i:                      ; preds = %.preheader.i.i.i, %
 
 145:                                              ; preds = %GC_acquire_mark_lock.exit.i
   %146 = shl i64 %120, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %132, ptr align 8 %0, i64 %146, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %132, ptr nonnull align 8 %0, i64 %146, i1 false)
   %147 = getelementptr inbounds %struct.GC_ms_entry, ptr %131, i64 %120
   %148 = ptrtoint ptr %147 to i64
   store atomic volatile i64 %148, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 168) release, align 8

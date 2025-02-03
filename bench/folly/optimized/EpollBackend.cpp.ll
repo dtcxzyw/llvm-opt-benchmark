@@ -2545,7 +2545,7 @@ if.end12.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %w
   %__y.0.lcssa16.i.i.i.i = phi ptr [ %__y.0.lcssa15.i.i.i.i, %if.else.i.i.i.i ], [ %__x.011.i.i.i.i, %while.end.i.i.i.i58 ]
   %__j.sroa.0.0.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.else.i.i.i.i ], [ %__x.011.i.i.i.i, %while.end.i.i.i.i58 ]
   %cmp.i30.i.i.i.i = icmp slt i32 %14, %sig
-  br i1 %cmp.i30.i.i.i.i, label %invoke.cont7.i.i, label %if.then.i26.i.i
+  br i1 %cmp.i30.i.i.i.i, label %if.then.i.i, label %if.then.i26.i.i
 
 if.else12.i.i.i:                                  ; preds = %call5.i.i.i.i.i.i.i.noexc
   %_M_storage.i.i.i94.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.0.lcssa.i.i.i30.i, i64 32
@@ -2671,14 +2671,14 @@ if.end12.i155.i.i.i:                              ; preds = %if.else.i170.i.i.i,
   %cmp.i30.i159.i.i.i = icmp slt i32 %26, %sig
   br i1 %cmp.i30.i159.i.i.i, label %if.then.i.i, label %if.then.i26.i.i
 
-invoke.cont7.i.i:                                 ; preds = %if.then.i126.i.i.i, %if.end12.i.i.i.i, %if.then.i.i.i.i
-  %retval.sroa.12.2.i.i.i = phi ptr [ %__y.0.lcssa15.i.i.i.i, %if.then.i.i.i.i ], [ %16, %if.then.i126.i.i.i ], [ %__y.0.lcssa16.i.i.i.i, %if.end12.i.i.i.i ]
+invoke.cont7.i.i:                                 ; preds = %if.then.i126.i.i.i, %if.then.i.i.i.i
+  %retval.sroa.12.2.i.i.i = phi ptr [ %__y.0.lcssa15.i.i.i.i, %if.then.i.i.i.i ], [ %16, %if.then.i126.i.i.i ]
   %tobool.not.i.i = icmp eq ptr %retval.sroa.12.2.i.i.i, null
   br i1 %tobool.not.i.i, label %if.then.i26.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %invoke.cont7.i.i, %if.end12.i155.i.i.i, %if.then.i166.i.i.i, %if.then64.i.i.i, %if.then50.i.i.i, %if.end12.i115.i.i.i, %if.then32.i.i.i, %land.lhs.true.i.i.i
-  %retval.sroa.12.2.i9.i.i = phi ptr [ %retval.sroa.12.2.i.i.i, %invoke.cont7.i.i ], [ %__y.0.lcssa15.i167.i.i.i, %if.then.i166.i.i.i ], [ %spec.select16.i.i.i, %if.then64.i.i.i ], [ %spec.select14.i.i.i, %if.then32.i.i.i ], [ %__y.addr.0.lcssa.i.i.i30.i, %if.then50.i.i.i ], [ %10, %land.lhs.true.i.i.i ], [ %__y.0.lcssa16.i116.i.i.i, %if.end12.i115.i.i.i ], [ %__y.0.lcssa16.i156.i.i.i, %if.end12.i155.i.i.i ]
-  %retval.sroa.0.2.i8.i.i = phi ptr [ null, %invoke.cont7.i.i ], [ null, %if.then.i166.i.i.i ], [ %spec.select15.i.i.i, %if.then64.i.i.i ], [ %spec.select.i.i.i, %if.then32.i.i.i ], [ null, %if.then50.i.i.i ], [ null, %land.lhs.true.i.i.i ], [ null, %if.end12.i115.i.i.i ], [ null, %if.end12.i155.i.i.i ]
+if.then.i.i:                                      ; preds = %if.end12.i.i.i.i, %invoke.cont7.i.i, %if.end12.i155.i.i.i, %if.then.i166.i.i.i, %if.then64.i.i.i, %if.then50.i.i.i, %if.end12.i115.i.i.i, %if.then32.i.i.i, %land.lhs.true.i.i.i
+  %retval.sroa.12.2.i9.i.i = phi ptr [ %retval.sroa.12.2.i.i.i, %invoke.cont7.i.i ], [ %__y.0.lcssa15.i167.i.i.i, %if.then.i166.i.i.i ], [ %spec.select16.i.i.i, %if.then64.i.i.i ], [ %spec.select14.i.i.i, %if.then32.i.i.i ], [ %__y.addr.0.lcssa.i.i.i30.i, %if.then50.i.i.i ], [ %10, %land.lhs.true.i.i.i ], [ %__y.0.lcssa16.i116.i.i.i, %if.end12.i115.i.i.i ], [ %__y.0.lcssa16.i156.i.i.i, %if.end12.i155.i.i.i ], [ %__y.0.lcssa16.i.i.i.i, %if.end12.i.i.i.i ]
+  %retval.sroa.0.2.i8.i.i = phi ptr [ null, %invoke.cont7.i.i ], [ null, %if.then.i166.i.i.i ], [ %spec.select15.i.i.i, %if.then64.i.i.i ], [ %spec.select.i.i.i, %if.then32.i.i.i ], [ null, %if.then50.i.i.i ], [ null, %land.lhs.true.i.i.i ], [ null, %if.end12.i115.i.i.i ], [ null, %if.end12.i155.i.i.i ], [ null, %if.end12.i.i.i.i ]
   %cmp.not.i.i21.i.i = icmp ne ptr %retval.sroa.0.2.i8.i.i, null
   %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.12.2.i9.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i21.i.i, i1 true, i1 %cmp2.i.i.i.i

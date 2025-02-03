@@ -14041,7 +14041,7 @@ _ZNSt12_Vector_baseIN18OpenImageIO_v2_6_06CSInfoESaIS1_EE11_M_allocateEm.exit: ;
   %m_len.i1.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i, i64 8
   store i64 0, ptr %m_len.i1.i.i, align 8
   invoke void @_ZN18OpenImageIO_v2_6_06CSInfoC2ENS_17basic_string_viewIcSt11char_traitsIcEEEiiS4_(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr, ptr noundef nonnull %agg.tmp.i.i, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %agg.tmp6.i.i)
-          to label %invoke.cont unwind label %lpad
+          to label %invoke.cont unwind label %invoke.cont23
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_06CSInfoESaIS1_EE11_M_allocateEm.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
@@ -14106,36 +14106,23 @@ _ZNSt12_Vector_baseIN18OpenImageIO_v2_6_06CSInfoESaIS1_EE13_M_deallocateEPS1_m.e
   store ptr %add.ptr30, ptr %_M_end_of_storage, align 8
   ret void
 
-lpad:                                             ; preds = %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_06CSInfoESaIS1_EE11_M_allocateEm.exit
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #30
-  %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i36
-
-if.end.thread:                                    ; preds = %lpad
-  %canonical.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %canonical.i.i.i) #30
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr) #30
-  br label %invoke.cont23
-
 lpad21:                                           ; preds = %invoke.cont23
-  %8 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i36:                                      ; preds = %lpad
+invoke.cont23:                                    ; preds = %_ZNSt12_Vector_baseIN18OpenImageIO_v2_6_06CSInfoESaIS1_EE11_M_allocateEm.exit
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  %8 = call ptr @__cxa_begin_catch(ptr %7) #30
   call void @_ZdlPv(ptr noundef nonnull %cond.i17) #31
-  br label %invoke.cont23
-
-invoke.cont23:                                    ; preds = %if.then.i36, %if.end.thread
   invoke void @__cxa_rethrow() #32
           to label %unreachable unwind label %lpad21
 
 eh.resume:                                        ; preds = %lpad21
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %5
 
 terminate.lpad:                                   ; preds = %lpad21
   %9 = landingpad { ptr, i32 }
@@ -49225,7 +49212,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #30
   resume { ptr, i32 } %0
 }
 
@@ -51059,7 +51046,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.coerce, i64 %__parent.0.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__value.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__value.i.i.i) #30
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNK18OpenImageIO_v2_6_011ColorConfig25parseColorSpaceFromStringENSF_17basic_string_viewIcS5_EEE3$_0EEEvT_T0_SM_T1_T2_"(ptr %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i21.lcssa, ptr noundef %agg.tmp6.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNK18OpenImageIO_v2_6_011ColorConfig25parseColorSpaceFromStringENSF_17basic_string_viewIcS5_EEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i21.lcssa, ptr noundef %agg.tmp6.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i) #30
   %cmp9.not.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
@@ -62534,7 +62521,7 @@ invoke.cont.i:                                    ; preds = %if.then8.i
 lpad.i:                                           ; preds = %if.then8.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #30
   resume { ptr, i32 } %4
 
 _ZN3fmt2v89formatterIN18OpenImageIO_v2_6_08TypeDescEcvE5parseERNS0_26basic_format_parse_contextIcNS0_6detail13error_handlerEEE.exit: ; preds = %if.end.i, %land.lhs.true5.i

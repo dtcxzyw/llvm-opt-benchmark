@@ -4132,7 +4132,7 @@ ZSTD_literalsCompressionIsDisabled.exit:          ; preds = %23
 57:                                               ; preds = %51
   %58 = trunc i64 %55 to i32
   %59 = load i32, ptr %9, align 4
-  %60 = call i64 @HUF_estimateCompressedSize(ptr noundef nonnull %2, ptr noundef %5, i32 noundef %59) #27
+  %60 = call i64 @HUF_estimateCompressedSize(ptr noundef nonnull %2, ptr noundef nonnull %5, i32 noundef %59) #27
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %62 = load i32, ptr %9, align 4
   %63 = call i64 @HUF_writeCTable_wksp(ptr noundef nonnull %61, i64 noundef 128, ptr noundef nonnull %2, i32 noundef %62, i32 noundef %58, ptr noundef nonnull %34, i64 noundef %gepdiff.i34) #27
@@ -4141,7 +4141,7 @@ ZSTD_literalsCompressionIsDisabled.exit:          ; preds = %23
 
 64:                                               ; preds = %57
   %65 = load i32, ptr %9, align 4
-  %66 = call i64 @HUF_estimateCompressedSize(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %65) #27
+  %66 = call i64 @HUF_estimateCompressedSize(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef %65) #27
   %67 = icmp ult i64 %66, %16
   br i1 %67, label %68, label %72
 
@@ -15189,7 +15189,7 @@ define internal fastcc void @ZSTD_deriveBlockSplitsHelper(ptr noundef nonnull ca
   br i1 %or.cond, label %tailrecurse, label %._crit_edge
 
 tailrecurse:                                      ; preds = %21
-  tail call fastcc void @ZSTD_deriveBlockSplitsHelper(ptr noundef %0, i64 noundef %.tr4853, i64 noundef %13, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @ZSTD_deriveBlockSplitsHelper(ptr noundef %0, i64 noundef %.tr4853, i64 noundef %13, ptr noundef nonnull %3, ptr noundef %4)
   %25 = trunc i64 %13 to i32
   %26 = load ptr, ptr %0, align 8
   %27 = load i64, ptr %6, align 8
@@ -15624,7 +15624,7 @@ ZSTD_literalsCompressionIsDisabled.exit.i:        ; preds = %46, %44, %43, %._cr
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %.0102.i, i64 1
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 2064
-  call fastcc void @ZSTD_buildSequencesStatistics(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull readonly %0, i64 noundef %22, ptr noundef nonnull %81, ptr noundef nonnull %13, ptr noundef nonnull %80, ptr noundef nonnull %29, i32 noundef %12, ptr noundef %7, ptr noundef nonnull %30, i64 noundef 8708)
+  call fastcc void @ZSTD_buildSequencesStatistics(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull readonly %0, i64 noundef %22, ptr noundef nonnull %81, ptr noundef nonnull %13, ptr noundef nonnull %80, ptr noundef nonnull %29, i32 noundef %12, ptr noundef nonnull %7, ptr noundef nonnull %30, i64 noundef 8708)
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %83 = load i64, ptr %82, align 8
   %84 = icmp ult i64 %83, -119

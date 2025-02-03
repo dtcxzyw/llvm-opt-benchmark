@@ -798,7 +798,7 @@ land.rhs:                                         ; preds = %entry
   br i1 %call5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.rhs
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #22
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %0) #22
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %land.rhs
@@ -834,8 +834,8 @@ land.lhs.true:                                    ; preds = %while.body
   br i1 %cmp23.not, label %if.end29, label %if.then24
 
 if.then24:                                        ; preds = %land.lhs.true
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %j.sroa.0.027) #22
-  %call.i1.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %j.sroa.0.027, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #18
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %j.sroa.0.027) #22
+  %call.i1.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %j.sroa.0.027, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #18
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #20
@@ -850,7 +850,7 @@ while.cond.backedge:                              ; preds = %if.then24, %if.end2
   br i1 %cmp.i9.not, label %for.inc, label %while.body, !llvm.loop !7
 
 if.end29:                                         ; preds = %land.lhs.true, %while.body
-  %call.i14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %j.sroa.0.027) #22
+  %call.i14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %j.sroa.0.027) #22
   br label %while.cond.backedge
 
 for.inc:                                          ; preds = %while.cond.backedge, %for.body
@@ -1062,7 +1062,7 @@ if.end:                                           ; preds = %if.then6, %for.body
           to label %for.inc unwind label %lpad
 
 for.inc:                                          ; preds = %if.end
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.07) #22
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.07) #22
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !10
 
@@ -1666,7 +1666,7 @@ call5.i.i.noexc:                                  ; preds = %lor.end.i
 
 invoke.cont:                                      ; preds = %call5.i.i.noexc, %call2.i.i.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #18
-  %call.i9 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %j.sroa.0.018) #22
+  %call.i9 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %j.sroa.0.018) #22
   %cmp.i5.not = icmp eq ptr %call.i9, %add.ptr.i.i4
   br i1 %cmp.i5.not, label %for.inc17, label %for.body11, !llvm.loop !16
 
@@ -1901,7 +1901,7 @@ if.then.i.i.i8:                                   ; preds = %for.body.i.i
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN3re29Prefilter13LengthThenLexESaIS5_EE17_M_insert_unique_IRKS5_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN3re29Prefilter13LengthThenLexESaIS5_EE17_M_insert_unique_IRKS5_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_.exit.i.i: ; preds = %if.then.i.i.i8, %for.body.i.i
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #22
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #22
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %add.ptr.i.i
   br i1 %cmp.i.not.i.i, label %if.end24, label %for.body.i.i, !llvm.loop !19
 
@@ -4448,7 +4448,7 @@ if.then18:                                        ; preds = %if.else12, %_ZNK3re
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #22
+  %call.i27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #22
   %_M_storage.i.i.i28 = getelementptr inbounds nuw i8, ptr %call.i27, i64 32
   %call.i29 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i28) #18
   %call2.i30 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #18
@@ -4524,7 +4524,7 @@ if.then50:                                        ; preds = %if.else44, %_ZNK3re
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i62 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #22
+  %call.i62 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #22
   %_M_storage.i.i.i63 = getelementptr inbounds nuw i8, ptr %call.i62, i64 32
   %call.i64 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #18
   %call2.i65 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i63) #18

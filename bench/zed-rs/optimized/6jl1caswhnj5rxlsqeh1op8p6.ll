@@ -2964,7 +2964,7 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$core..option..Optio
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr58drop_in_place$LT$theme..settings..ThemeSettingsContent$GT$17h2c2d8639486d8b93E"(ptr noalias noundef align 8 dereferenceable(3616) %2)
+  invoke void @"_ZN4core3ptr58drop_in_place$LT$theme..settings..ThemeSettingsContent$GT$17h2c2d8639486d8b93E"(ptr noalias noundef nonnull align 8 dereferenceable(3616) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1

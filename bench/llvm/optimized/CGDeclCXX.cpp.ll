@@ -1396,7 +1396,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %16
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %24
-  tail call void @_ZN5clang7CodeGen13CodeGenModule29SetInternalFunctionAttributesENS_10GlobalDeclEPN4llvm8FunctionERKNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(3600) %0, i64 0, i32 0, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(40) %3) #18
+  tail call void @_ZN5clang7CodeGen13CodeGenModule29SetInternalFunctionAttributesENS_10GlobalDeclEPN4llvm8FunctionERKNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(3600) %0, i64 0, i32 0, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(40) %3) #18
   br label %27
 
 27:                                               ; preds = %26, %24

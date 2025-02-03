@@ -7644,7 +7644,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN10open_spiel15dynamic
   %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %7, %6 ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = tail call ptr @__cxa_begin_catch(ptr %19) #21
-  invoke void @_ZSt8_DestroyIPN10open_spiel15dynamic_routing23OriginDestinationDemandEEvT_S4_(ptr noundef %2, ptr noundef %.018)
+  invoke void @_ZSt8_DestroyIPN10open_spiel15dynamic_routing23OriginDestinationDemandEEvT_S4_(ptr noundef %2, ptr noundef nonnull %.018)
           to label %21 unwind label %22
 
 21:                                               ; preds = %.body

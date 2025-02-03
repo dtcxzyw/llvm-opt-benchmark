@@ -23382,7 +23382,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDe
   %.not18 = icmp eq ptr %52, %54
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
-55:                                               ; preds = %83, %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEEC2ERKS3_.exit.thread, %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit
+55:                                               ; preds = %84, %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEEC2ERKS3_.exit.thread, %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.09.019, i64 32
   %.not = icmp eq ptr %56, %54
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -23417,39 +23417,39 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i: ; preds = %.lr.ph
   %71 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %70) #23
   %72 = add nuw nsw i64 %.08.i.i.i, 1
   %.not.i5.i.i = icmp eq i64 %72, 10
-  br i1 %.not.i5.i.i, label %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEEC2ERKS3_.exit, label %68, !llvm.loop !215
+  br i1 %.not.i5.i.i, label %73, label %68, !llvm.loop !215
 
-_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEEC2ERKS3_.exit: ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %64, i64 416
-  %74 = getelementptr inbounds nuw i8, ptr %65, i64 416
-  %75 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang15CharSourceRangeEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(112) %73, ptr noundef nonnull align 8 dereferenceable(112) %74)
-  %76 = getelementptr inbounds nuw i8, ptr %64, i64 528
-  %77 = getelementptr inbounds nuw i8, ptr %65, i64 528
-  %78 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang9FixItHintEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(400) %76, ptr noundef nonnull align 8 dereferenceable(400) %77)
-  %79 = tail call noundef zeroext i1 @_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj(i32 noundef %59) #23
-  %80 = icmp uge ptr %64, %61
-  %81 = getelementptr inbounds nuw i8, ptr %61, i64 14848
-  %82 = icmp ule ptr %64, %81
-  %or.cond.i.i.i.i.i.i = select i1 %80, i1 %82, i1 false
-  br i1 %or.cond.i.i.i.i.i.i, label %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit, label %83
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds nuw i8, ptr %64, i64 416
+  %75 = getelementptr inbounds nuw i8, ptr %65, i64 416
+  %76 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang15CharSourceRangeEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(112) %74, ptr noundef nonnull align 8 dereferenceable(112) %75)
+  %77 = getelementptr inbounds nuw i8, ptr %64, i64 528
+  %78 = getelementptr inbounds nuw i8, ptr %65, i64 528
+  %79 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang9FixItHintEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(400) %77, ptr noundef nonnull align 8 dereferenceable(400) %78)
+  %80 = tail call noundef zeroext i1 @_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj(i32 noundef %59) #23
+  %81 = icmp uge ptr %64, %61
+  %82 = getelementptr inbounds nuw i8, ptr %61, i64 14848
+  %83 = icmp ule ptr %64, %82
+  %or.cond.i.i.i.i.i.i = select i1 %81, i1 %83, i1 false
+  br i1 %or.cond.i.i.i.i.i.i, label %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit, label %84
 
-83:                                               ; preds = %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEEC2ERKS3_.exit
+84:                                               ; preds = %73
   tail call void @_ZN5clang17DiagnosticStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %64) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef 928) #25
-  br i1 %79, label %.loopexit, label %55
+  br i1 %80, label %.loopexit, label %55
 
-_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit: ; preds = %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEEC2ERKS3_.exit
-  %84 = getelementptr inbounds nuw i8, ptr %61, i64 14976
-  %85 = load i32, ptr %84, align 8
-  %86 = add i32 %85, 1
-  store i32 %86, ptr %84, align 8
-  %87 = zext i32 %85 to i64
-  %88 = getelementptr inbounds nuw [16 x ptr], ptr %81, i64 0, i64 %87
-  store ptr %64, ptr %88, align 8
-  br i1 %79, label %.loopexit, label %55
+_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit: ; preds = %73
+  %85 = getelementptr inbounds nuw i8, ptr %61, i64 14976
+  %86 = load i32, ptr %85, align 8
+  %87 = add i32 %86, 1
+  store i32 %87, ptr %85, align 8
+  %88 = zext i32 %86 to i64
+  %89 = getelementptr inbounds nuw [16 x ptr], ptr %82, i64 0, i64 %88
+  store ptr %64, ptr %89, align 8
+  br i1 %80, label %.loopexit, label %55
 
-.loopexit:                                        ; preds = %55, %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit, %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEEC2ERKS3_.exit.thread, %83, %50, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E4findERKS6_.exit, %7, %1
-  %.06 = phi i1 [ true, %1 ], [ false, %7 ], [ false, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E4findERKS6_.exit ], [ false, %50 ], [ true, %83 ], [ false, %55 ], [ true, %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit ], [ true, %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEEC2ERKS3_.exit.thread ]
+.loopexit:                                        ; preds = %55, %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit, %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEEC2ERKS3_.exit.thread, %84, %50, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E4findERKS6_.exit, %7, %1
+  %.06 = phi i1 [ true, %1 ], [ false, %7 ], [ false, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E4findERKS6_.exit ], [ false, %50 ], [ true, %84 ], [ false, %55 ], [ true, %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit ], [ true, %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEEC2ERKS3_.exit.thread ]
   ret i1 %.06
 }
 

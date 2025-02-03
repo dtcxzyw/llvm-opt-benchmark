@@ -1847,7 +1847,7 @@ define linkonce_odr noundef double @_ZN2mu8MathImplIdE3SumEPKdi(ptr noundef %0, 
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  call void @__cxa_free_exception(ptr %6) #13
+  call void @__cxa_free_exception(ptr nonnull %6) #13
   br label %15
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1906,7 +1906,7 @@ define linkonce_odr noundef double @_ZN2mu8MathImplIdE3AvgEPKdi(ptr noundef %0, 
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  call void @__cxa_free_exception(ptr %6) #13
+  call void @__cxa_free_exception(ptr nonnull %6) #13
   br label %17
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1959,7 +1959,7 @@ define linkonce_odr noundef double @_ZN2mu8MathImplIdE3MinEPKdi(ptr noundef %0, 
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  call void @__cxa_free_exception(ptr %5) #13
+  call void @__cxa_free_exception(ptr nonnull %5) #13
   br label %17
 
 11:                                               ; preds = %2
@@ -2020,7 +2020,7 @@ define linkonce_odr noundef double @_ZN2mu8MathImplIdE3MaxEPKdi(ptr noundef %0, 
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  call void @__cxa_free_exception(ptr %5) #13
+  call void @__cxa_free_exception(ptr nonnull %5) #13
   br label %17
 
 11:                                               ; preds = %2

@@ -2781,7 +2781,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread18.i: ; preds =
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %86, %73, %71
-  %90 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.013.073.i) #27
+  %90 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.013.073.i) #27
   %.not38.i = icmp eq ptr %90, %67
   br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -4275,7 +4275,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread152: ; preds = 
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %73, %75, %88
-  %92 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0147.0207) #27
+  %92 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0147.0207) #27
   %.not172 = icmp eq ptr %92, %69
   br i1 %.not172, label %._crit_edge, label %.lr.ph
 
@@ -16629,7 +16629,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8GfBBox3d9SetMatrixERKNS_10GfMatrix4dE.exit
   store i8 0, ptr %1659, align 8
   store i8 0, ptr %1660, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(306) %1697, ptr noundef nonnull align 8 dereferenceable(306) %78, i64 306, i1 false)
-  %1702 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0541.0630) #27
+  %1702 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0541.0630) #27
   %.not605 = icmp eq ptr %1702, %1656
   br i1 %.not605, label %.loopexit613, label %.lr.ph
 
@@ -16825,7 +16825,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d8_FindMinERNS_7GfVec3dERKS1_.exit
   store double %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8
   store double %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 8
   store double %.sroa.12.0, ptr %.sroa.12.0..sroa_idx, align 8
-  %1759 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0537.0632) #27
+  %1759 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0537.0632) #27
   %.not606 = icmp eq ptr %1759, %1661
   br i1 %.not606, label %._crit_edge, label %.lr.ph633
 
@@ -16869,7 +16869,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfToke
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8GfBBox3d9SetMatrixERKNS_10GfMatrix4dE.exit445 unwind label %.loopexit607
 
 _ZN32pxrInternal_v0_24__pxrReserved__8GfBBox3d9SetMatrixERKNS_10GfMatrix4dE.exit445: ; preds = %.lr.ph643
-  %1772 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0521.0641) #27
+  %1772 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0521.0641) #27
   %.not604 = icmp eq ptr %1772, %1770
   br i1 %.not604, label %.loopexit, label %.lr.ph643
 
@@ -19308,7 +19308,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpEE
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
   %28 = tail call ptr @__cxa_begin_catch(ptr %27) #15
-  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpEEvT_S3_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpEEvT_S3_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %29 unwind label %30
 
 29:                                               ; preds = %25

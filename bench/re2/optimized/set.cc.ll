@@ -1268,7 +1268,7 @@ invoke.cont93:                                    ; preds = %if.then74
   %28 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %idx.ext.i = sext i32 %25 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %28, i64 %idx.ext.i
-  invoke void @_ZNSt6vectorIiSaIiEE13_M_assign_auxIPiEEvT_S4_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef %28, ptr noundef nonnull %add.ptr.i)
+  invoke void @_ZNSt6vectorIiSaIiEE13_M_assign_auxIPiEEvT_S4_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef nonnull %28, ptr noundef nonnull %add.ptr.i)
           to label %if.end99 unwind label %lpad8
 
 if.end99:                                         ; preds = %invoke.cont93, %if.end72

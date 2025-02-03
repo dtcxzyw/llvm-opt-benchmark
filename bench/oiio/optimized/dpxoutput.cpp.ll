@@ -825,7 +825,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN18OpenImageIO_v2_6_011ImageOutputdlEPv(ptr noundef %call) #22
+  tail call void @_ZN18OpenImageIO_v2_6_011ImageOutputdlEPv(ptr noundef nonnull %call) #22
   resume { ptr, i32 } %0
 }
 
@@ -37560,7 +37560,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #22
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN18OpenImageIO_v2_6_09ImageSpecEEEvT_S5_(ptr noundef %1, ptr noundef %__cur.010.i.i.i.i)
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN18OpenImageIO_v2_6_09ImageSpecEEEvT_S5_(ptr noundef %1, ptr noundef nonnull %__cur.010.i.i.i.i)
           to label %invoke.cont3.i.i.i.i unwind label %lpad2.i.i.i.i
 
 invoke.cont3.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -37828,7 +37828,7 @@ lpad.i.i.i.i162:                                  ; preds = %for.body.i.i.i.i159
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = tail call ptr @__cxa_begin_catch(ptr %52) #22
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN18OpenImageIO_v2_6_09ImageSpecEEEvT_S5_(ptr noundef %__cur.0.lcssa.i.i.i.i.i157, ptr noundef %__cur.010.i.i.i.i160)
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN18OpenImageIO_v2_6_09ImageSpecEEEvT_S5_(ptr noundef %__cur.0.lcssa.i.i.i.i.i157, ptr noundef nonnull %__cur.010.i.i.i.i160)
           to label %invoke.cont3.i.i.i.i166 unwind label %lpad2.i.i.i.i163
 
 invoke.cont3.i.i.i.i166:                          ; preds = %lpad.i.i.i.i162

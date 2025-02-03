@@ -2623,7 +2623,7 @@ for.body.i:                                       ; preds = %for.cond.i
 
 if.end:                                           ; preds = %for.body.i, %for.body.i.preheader
   %.lcssa = phi i64 [ %1, %for.body.i.preheader ], [ %3, %for.body.i ]
-  tail call void @ACLUpdateCommandRules(ptr noundef %selector, ptr noundef %category, i32 noundef %allow)
+  tail call void @ACLUpdateCommandRules(ptr noundef %selector, ptr noundef nonnull %category, i32 noundef %allow)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 88), align 8
   tail call void @ACLSetSelectorCommandBitsForCategory(ptr noundef %5, ptr noundef %selector, i64 noundef %.lcssa, i32 noundef %allow)
   br label %return

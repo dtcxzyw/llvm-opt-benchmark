@@ -275,13 +275,13 @@ if.end5:                                          ; preds = %if.then, %entry
   %0 = load i32, ptr %vram_size_mb, align 4
   %conv24 = zext i32 %0 to i64
   %mul25 = shl nuw nsw i64 %conv24, 20
-  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_linear_io, ptr noundef %owner, ptr noundef nonnull @cirrus_linear_io_ops, ptr noundef %s, ptr noundef nonnull @.str.33, i64 noundef %mul25) #13
+  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_linear_io, ptr noundef %owner, ptr noundef nonnull @cirrus_linear_io_ops, ptr noundef nonnull %s, ptr noundef nonnull @.str.33, i64 noundef %mul25) #13
   tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_linear_io) #13
   %cirrus_linear_bitblt_io = getelementptr inbounds nuw i8, ptr %s, i64 68656
-  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_linear_bitblt_io, ptr noundef %owner, ptr noundef nonnull @cirrus_linear_bitblt_io_ops, ptr noundef %s, ptr noundef nonnull @.str.34, i64 noundef 4194304) #13
+  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_linear_bitblt_io, ptr noundef %owner, ptr noundef nonnull @cirrus_linear_bitblt_io_ops, ptr noundef nonnull %s, ptr noundef nonnull @.str.34, i64 noundef 4194304) #13
   tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_linear_bitblt_io) #13
   %cirrus_mmio_io = getelementptr inbounds nuw i8, ptr %s, i64 68928
-  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_mmio_io, ptr noundef %owner, ptr noundef nonnull @cirrus_mmio_io_ops, ptr noundef %s, ptr noundef nonnull @.str.35, i64 noundef 4096) #13
+  tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_mmio_io, ptr noundef %owner, ptr noundef nonnull @cirrus_mmio_io_ops, ptr noundef nonnull %s, ptr noundef nonnull @.str.35, i64 noundef 4096) #13
   tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_mmio_io) #13
   %device_id29 = getelementptr inbounds nuw i8, ptr %s, i64 78940
   %1 = load i32, ptr %device_id29, align 4
@@ -305,7 +305,7 @@ if.end5:                                          ; preds = %if.then, %entry
   store ptr @cirrus_cursor_invalidate, ptr %cursor_invalidate, align 8
   %cursor_draw_line = getelementptr inbounds nuw i8, ptr %s, i64 3008
   store ptr @cirrus_cursor_draw_line, ptr %cursor_draw_line, align 16
-  tail call void @qemu_register_reset(ptr noundef nonnull @cirrus_reset, ptr noundef %s) #13
+  tail call void @qemu_register_reset(ptr noundef nonnull @cirrus_reset, ptr noundef nonnull %s) #13
   ret void
 }
 

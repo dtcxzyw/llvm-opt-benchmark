@@ -204,7 +204,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr n
   %.0175241.i = phi i32 [ %73, %.thread.i ], [ -2, %79 ]
   %82 = call i32 @llvm.smax.i32(i32 %.0175241.i, i32 5)
   %83 = zext nneg i32 %82 to i64
-  %84 = call i32 @xstrncasecmp(ptr noundef %71, ptr noundef nonnull @.str.12, i64 noundef %83) #12
+  %84 = call i32 @xstrncasecmp(ptr noundef nonnull %71, ptr noundef nonnull @.str.12, i64 noundef %83) #12
   %.not196.i = icmp eq i32 %84, 0
   br i1 %.not196.i, label %.thread272.i, label %85
 

@@ -505,7 +505,7 @@ define dso_local void @finalize_manifest(ptr noundef %0, ptr noundef readonly %1
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.12) #6
-  tail call fastcc void @flush_manifest(ptr noundef %0)
+  tail call fastcc void @flush_manifest(ptr noundef nonnull %0)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1057
   store i8 0, ptr %20, align 1
   tail call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.16) #6

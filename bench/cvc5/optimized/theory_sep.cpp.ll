@@ -10986,7 +10986,7 @@ invoke.cont53:                                    ; preds = %if.else
 lpad52:                                           ; preds = %if.else
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #23
+  call void @__cxa_free_exception(ptr nonnull %exception) #23
   br label %ehcleanup145
 
 if.end55:                                         ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %if.else.i, %land.lhs.true, %invoke.cont23

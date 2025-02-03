@@ -474,7 +474,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 294:                                              ; preds = %272
   %295 = zext nneg i32 %292 to i64
   %296 = shl nuw nsw i64 %295, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %296, i1 false), !tbaa !7
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %14, i8 0, i64 %296, i1 false), !tbaa !7
   br label %297
 
 297:                                              ; preds = %294, %272
@@ -486,7 +486,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %300 = load i32, ptr %3, align 4, !tbaa !3
   %301 = shl i32 %300, 1
   store i32 %301, ptr %18, align 4, !tbaa !3
-  call void @dstevx_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, ptr noundef nonnull %18, ptr noundef %14, ptr noundef nonnull %274, ptr noundef nonnull %26, ptr noundef nonnull %26, ptr noundef nonnull %23, ptr noundef nonnull %23, ptr noundef nonnull %28, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %283, ptr noundef nonnull %284, ptr noundef %15, ptr noundef nonnull %16) #7
+  call void @dstevx_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, ptr noundef nonnull %18, ptr noundef nonnull %14, ptr noundef nonnull %274, ptr noundef nonnull %26, ptr noundef nonnull %26, ptr noundef nonnull %23, ptr noundef nonnull %23, ptr noundef nonnull %28, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %283, ptr noundef nonnull %284, ptr noundef nonnull %15, ptr noundef nonnull %16) #7
   %302 = load double, ptr %11, align 8, !tbaa !7
   %303 = load i32, ptr %3, align 4, !tbaa !3
   %304 = sitofp i32 %303 to double
@@ -1368,7 +1368,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 868:                                              ; preds = %861, %854
   %869 = phi ptr [ %853, %854 ], [ %867, %861 ]
-  call void @dcopy_(ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull @c__2, ptr noundef %869, ptr noundef nonnull @c__1) #7
+  call void @dcopy_(ptr noundef nonnull %3, ptr noundef nonnull %14, ptr noundef nonnull @c__2, ptr noundef %869, ptr noundef nonnull @c__1) #7
   %870 = add nuw nsw i64 %849, 1
   %871 = load i32, ptr %18, align 4, !tbaa !3
   %872 = sext i32 %871 to i64

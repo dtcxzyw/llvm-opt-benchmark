@@ -571,26 +571,26 @@ define hidden i32 @mbedtls_ecdsa_from_keypair(ptr noundef %0, ptr noundef %1) lo
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %7 = tail call i32 @mbedtls_mpi_copy(ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %.not11 = icmp eq i32 %7, 0
-  br i1 %.not11, label %8, label %12
+  br i1 %.not11, label %8, label %.thread
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %11 = tail call i32 @mbedtls_ecp_copy(ptr noundef nonnull %9, ptr noundef nonnull %10) #7
   %.not12 = icmp eq i32 %11, 0
-  br i1 %.not12, label %mbedtls_ecdsa_free.exit, label %12
+  br i1 %.not12, label %mbedtls_ecdsa_free.exit, label %.thread
 
-12:                                               ; preds = %8, %4, %2
-  %.0 = phi i32 [ %3, %2 ], [ %7, %4 ], [ %11, %8 ]
+12:                                               ; preds = %2
   %13 = icmp eq ptr %0, null
-  br i1 %13, label %mbedtls_ecdsa_free.exit, label %14
+  br i1 %13, label %mbedtls_ecdsa_free.exit, label %.thread
 
-14:                                               ; preds = %12
+.thread:                                          ; preds = %4, %8, %12
+  %.014 = phi i32 [ %3, %12 ], [ %11, %8 ], [ %7, %4 ]
   tail call void @mbedtls_ecp_keypair_free(ptr noundef nonnull %0) #7
   br label %mbedtls_ecdsa_free.exit
 
-mbedtls_ecdsa_free.exit:                          ; preds = %14, %12, %8
-  %.1 = phi i32 [ 0, %8 ], [ %.0, %12 ], [ %.0, %14 ]
+mbedtls_ecdsa_free.exit:                          ; preds = %.thread, %12, %8
+  %.1 = phi i32 [ 0, %8 ], [ %3, %12 ], [ %.014, %.thread ]
   ret i32 %.1
 }
 

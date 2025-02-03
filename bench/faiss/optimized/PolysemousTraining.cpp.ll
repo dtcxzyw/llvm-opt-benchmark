@@ -625,7 +625,7 @@ define void @_ZN5faiss27SimulatedAnnealingOptimizerC2EPNS_20PermutationObjective
 33:                                               ; preds = %24
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #18
+  call void @__cxa_free_exception(ptr nonnull %27) #18
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -1481,7 +1481,7 @@ define void @_ZNK5faiss18PolysemousTraining28optimize_reproduce_distancesERNS_16
 37:                                               ; preds = %29
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %33) #18
+  call void @__cxa_free_exception(ptr nonnull %33) #18
   br label %39
 
 39:                                               ; preds = %37, %35
@@ -1839,7 +1839,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 122:                                              ; preds = %115
   %123 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %118) #18
+  call void @__cxa_free_exception(ptr nonnull %118) #18
   br label %124
 
 124:                                              ; preds = %122, %120
@@ -2785,7 +2785,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 52:                                               ; preds = %43
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #18
+  call void @__cxa_free_exception(ptr nonnull %46) #18
   br label %54
 
 54:                                               ; preds = %52, %50

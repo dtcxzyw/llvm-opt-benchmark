@@ -112,7 +112,7 @@ define internal i32 @parse_cli(ptr noundef %0, ptr noundef %1, i1 zeroext %2) #0
 
 .sink.split.i:                                    ; preds = %22, %19, %.lr.ph.i
   %.str.20.sink.i = phi ptr [ @.str.20, %.lr.ph.i ], [ @.str.21, %19 ], [ @.str.22, %22 ]
-  tail call void @free(ptr noundef %16) #8
+  tail call void @free(ptr noundef nonnull %16) #8
   %25 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull %.str.20.sink.i) #8
   store ptr %25, ptr %15, align 8
   br label %26

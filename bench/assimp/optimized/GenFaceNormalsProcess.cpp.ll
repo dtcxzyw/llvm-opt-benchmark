@@ -112,7 +112,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #13
   resume { ptr, i32 } %2
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body

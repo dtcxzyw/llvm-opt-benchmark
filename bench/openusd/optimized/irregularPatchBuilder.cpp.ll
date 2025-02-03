@@ -5471,7 +5471,7 @@ _ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE6Cr
 
 236:                                              ; preds = %234
   call void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefinerD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %.0.i) #19
-  call void @_ZdlPvm(ptr noundef %.0.i, i64 noundef 120) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.0.i, i64 noundef 120) #18
   store ptr %235, ptr %0, align 8
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEET_(ptr noundef nonnull align 8 dereferenceable(8) %237, ptr noundef %235)

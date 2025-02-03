@@ -116,7 +116,7 @@ define void @_ZN5faiss14IndexFlatCodes3addElPKf(ptr noundef nonnull align 8 dere
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #23
+  call void @__cxa_free_exception(ptr nonnull %17) #23
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -309,7 +309,7 @@ define void @_ZNK5faiss14IndexFlatCodes13reconstruct_nEllPf(ptr noundef nonnull 
 26:                                               ; preds = %19
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %22) #23
+  call void @__cxa_free_exception(ptr nonnull %22) #23
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -397,7 +397,7 @@ define void @_ZN5faiss14IndexFlatCodes10merge_fromERNS_5IndexEl(ptr noundef nonn
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #23
+  call void @__cxa_free_exception(ptr nonnull %15) #23
   br label %21
 
 21:                                               ; preds = %19, %17
@@ -485,7 +485,7 @@ define void @_ZNK5faiss14IndexFlatCodes26check_compatible_for_mergeERKNS_5IndexE
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #23
+  call void @__cxa_free_exception(ptr nonnull %17) #23
   br label %98
 
 23:                                               ; preds = %2
@@ -527,7 +527,7 @@ define void @_ZNK5faiss14IndexFlatCodes26check_compatible_for_mergeERKNS_5IndexE
 42:                                               ; preds = %35
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %38) #23
+  call void @__cxa_free_exception(ptr nonnull %38) #23
   br label %98
 
 44:                                               ; preds = %23
@@ -569,7 +569,7 @@ define void @_ZNK5faiss14IndexFlatCodes26check_compatible_for_mergeERKNS_5IndexE
 63:                                               ; preds = %56
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %59) #23
+  call void @__cxa_free_exception(ptr nonnull %59) #23
   br label %98
 
 65:                                               ; preds = %44
@@ -631,7 +631,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread26:            ; preds = %77, %_ZNKSt9type_in
 96:                                               ; preds = %89
   %97 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %92) #23
+  call void @__cxa_free_exception(ptr nonnull %92) #23
   br label %98
 
 _ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %65, %_ZNKSt9type_infoeqERKS_.exit

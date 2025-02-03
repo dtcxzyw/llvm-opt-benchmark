@@ -557,7 +557,7 @@ Nwk_FileNameGeneric.exit:                         ; preds = %20, %Abc_UtilStrsav
   br i1 %.not32, label %25, label %24
 
 24:                                               ; preds = %Nwk_FileNameGeneric.exit
-  tail call void @free(ptr noundef %21) #15
+  tail call void @free(ptr noundef nonnull %21) #15
   br label %25
 
 25:                                               ; preds = %Nwk_FileNameGeneric.exit, %24, %11

@@ -2237,7 +2237,7 @@ define internal void @_export_button_clicked(ptr readnone captures(none) %0, ptr
   %.sink8 = phi ptr [ %123, %122 ], [ %5, %120 ], [ %101, %99 ], [ %5, %97 ], [ %5, %86 ], [ %76, %79 ]
   %125 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull %.sink8, i64 noundef 64) #18
   call void @dt_conf_set_string(ptr noundef nonnull @.str.51, ptr noundef nonnull %6) #18
-  call void @free(ptr noundef %76) #18
+  call void @free(ptr noundef nonnull %76) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
@@ -3043,7 +3043,7 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %1 to i64
   %29 = sub i64 %27, %28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %1, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 1 %1, i64 %29, i1 false)
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.102) #20
   %31 = icmp eq i32 %30, 0
   %32 = select i1 %31, i32 2, i32 1

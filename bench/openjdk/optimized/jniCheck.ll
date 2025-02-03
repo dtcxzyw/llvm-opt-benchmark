@@ -31520,11 +31520,11 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %77) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   store volatile i32 4, ptr %39, align 4
-  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.110, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
+  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.110, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1528
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -32002,11 +32002,11 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %77) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   store volatile i32 4, ptr %39, align 4
-  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.111, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
+  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.111, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1536
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -32216,11 +32216,11 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %77) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   store volatile i32 4, ptr %39, align 4
-  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.112, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
+  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.112, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1552
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -32430,11 +32430,11 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %77) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   store volatile i32 4, ptr %39, align 4
-  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.113, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
+  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.113, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1544
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -32644,11 +32644,11 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %77) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   store volatile i32 4, ptr %39, align 4
-  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.114, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
+  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.114, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1560
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -32858,11 +32858,11 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %77) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   store volatile i32 4, ptr %39, align 4
-  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.115, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
+  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.115, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1568
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -33072,11 +33072,11 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %77) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   store volatile i32 4, ptr %39, align 4
-  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.116, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
+  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.116, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1576
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -33286,11 +33286,11 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %77) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   store volatile i32 4, ptr %39, align 4
-  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.117, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
+  %78 = tail call fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef nonnull %6, ptr noundef nonnull @.str.117, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext 0)
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1584
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16

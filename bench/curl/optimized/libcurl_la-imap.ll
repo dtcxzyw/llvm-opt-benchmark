@@ -1077,7 +1077,7 @@ if.then33:                                        ; preds = %land.lhs.true21, %i
   %.sink = phi i32 [ 12, %if.then29 ], [ 10, %land.lhs.true21 ]
   %state.i39 = getelementptr inbounds nuw i8, ptr %data.val38.sink, i64 1072
   store i32 %.sink, ptr %state.i39, align 8
-  %call34 = tail call fastcc i32 @imap_block_statemach(ptr noundef nonnull %data, ptr noundef %0, i1 noundef zeroext false)
+  %call34 = tail call fastcc i32 @imap_block_statemach(ptr noundef nonnull %data, ptr noundef nonnull %0, i1 noundef zeroext false)
   br label %do.body
 
 do.body:                                          ; preds = %if.else27, %if.then4, %if.then33, %lor.lhs.false12, %land.lhs.true, %if.else

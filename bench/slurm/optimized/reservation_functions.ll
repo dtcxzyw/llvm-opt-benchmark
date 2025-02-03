@@ -187,7 +187,7 @@ _set_cond.exit.us:                                ; preds = %45, %40
   %.0.i = phi i32 [ %76, %73 ], [ %78, %77 ]
   %87 = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 3)
   %88 = zext nneg i32 %87 to i64
-  %89 = tail call i32 @xstrncasecmp(ptr noundef %86, ptr noundef nonnull @.str.3, i64 noundef %88) #9
+  %89 = tail call i32 @xstrncasecmp(ptr noundef nonnull %86, ptr noundef nonnull @.str.3, i64 noundef %88) #9
   %.not104.i = icmp eq i32 %89, 0
   br i1 %.not104.i, label %90, label %93
 

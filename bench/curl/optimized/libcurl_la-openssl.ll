@@ -5540,7 +5540,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i185.i.i
 
 for.end.thread.i.i.i:                             ; preds = %for.cond.i.i.i, %for.cond.preheader.i.i.i
   call void @X509_free(ptr noundef nonnull %call27.i.i.i) #13
-  br label %if.then45.i.i.i
+  br label %end.i.i.i
 
 for.body.i185.i.i:                                ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
   %i.020.i.i.i = phi i32 [ %inc.i186.i.i, %for.cond.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
@@ -5554,11 +5554,7 @@ for.end.i.i.i:                                    ; preds = %for.body.i185.i.i
   %call42.i.i.i = call ptr @OCSP_cert_to_id(ptr noundef %call41.i.i.i, ptr noundef nonnull %call27.i.i.i, ptr noundef %call36.i.i.i) #13
   call void @X509_free(ptr noundef nonnull %call27.i.i.i) #13
   %tobool44.not.i.i.i = icmp eq ptr %call42.i.i.i, null
-  br i1 %tobool44.not.i.i.i, label %if.then45.i.i.i, label %if.end46.i.i.i
-
-if.then45.i.i.i:                                  ; preds = %for.end.i.i.i, %for.end.thread.i.i.i
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.210) #13
-  br label %verifystatus.exit.i.i
+  br i1 %tobool44.not.i.i.i, label %end.i.i.i, label %if.end46.i.i.i
 
 if.end46.i.i.i:                                   ; preds = %for.end.i.i.i
   %call47.i.i.i = call i32 @OCSP_resp_find_status(ptr noundef nonnull %call10.i184.i.i, ptr noundef nonnull %call42.i.i.i, ptr noundef nonnull %cert_status.i.i.i, ptr noundef nonnull %crl_reason.i.i.i, ptr noundef nonnull %rev.i.i.i, ptr noundef nonnull %thisupd.i.i.i, ptr noundef nonnull %nextupd.i.i.i) #13
@@ -5613,9 +5609,13 @@ sw.bb64.i.i.i:                                    ; preds = %do.end63.i.i.i
 sw.default.i.i.i:                                 ; preds = %do.end63.i.i.i
   br label %verifystatus.exit.i.i
 
+end.i.i.i:                                        ; preds = %for.end.i.i.i, %for.end.thread.i.i.i
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.210) #13
+  br label %verifystatus.exit.i.i
+
 verifystatus.exit.thread.i.i:                     ; preds = %if.then12.i.i.i, %if.then7.i.i.i, %if.then4.i.i.i, %if.then.i189.i.i
-  %rsp.07.i.ph.i.i = phi ptr [ null, %if.then.i189.i.i ], [ null, %if.then4.i.i.i ], [ %call2.i181.i.i, %if.then12.i.i.i ], [ %call2.i181.i.i, %if.then7.i.i.i ]
-  call void @OCSP_RESPONSE_free(ptr noundef %rsp.07.i.ph.i.i) #13
+  %rsp.09.i.ph.i.i = phi ptr [ null, %if.then.i189.i.i ], [ null, %if.then4.i.i.i ], [ %call2.i181.i.i, %if.then12.i.i.i ], [ %call2.i181.i.i, %if.then7.i.i.i ]
+  call void @OCSP_RESPONSE_free(ptr noundef %rsp.09.i.ph.i.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %status.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cert_status.i.i.i)
@@ -5625,9 +5625,9 @@ verifystatus.exit.thread.i.i:                     ; preds = %if.then12.i.i.i, %i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nextupd.i.i.i)
   br label %if.then276.i.i
 
-verifystatus.exit.i.i:                            ; preds = %sw.default.i.i.i, %sw.bb64.i.i.i, %do.end63.i.i.i, %if.then54.i.i.i, %if.then50.i.i.i, %if.then45.i.i.i, %if.then29.i.i.i, %if.then24.i.i.i, %if.then17.i.i.i
-  %tobool275.not.i.i = phi i1 [ false, %if.then24.i.i.i ], [ false, %if.then29.i.i.i ], [ false, %if.then17.i.i.i ], [ false, %if.then50.i.i.i ], [ false, %sw.default.i.i.i ], [ false, %sw.bb64.i.i.i ], [ true, %do.end63.i.i.i ], [ false, %if.then54.i.i.i ], [ false, %if.then45.i.i.i ]
-  %result.017.i.i.i = phi i32 [ 91, %if.then24.i.i.i ], [ 91, %if.then29.i.i.i ], [ 91, %if.then17.i.i.i ], [ 91, %if.then50.i.i.i ], [ 91, %sw.default.i.i.i ], [ 91, %sw.bb64.i.i.i ], [ %177, %do.end63.i.i.i ], [ 91, %if.then54.i.i.i ], [ 91, %if.then45.i.i.i ]
+verifystatus.exit.i.i:                            ; preds = %end.i.i.i, %sw.default.i.i.i, %sw.bb64.i.i.i, %do.end63.i.i.i, %if.then54.i.i.i, %if.then50.i.i.i, %if.then29.i.i.i, %if.then24.i.i.i, %if.then17.i.i.i
+  %tobool275.not.i.i = phi i1 [ false, %end.i.i.i ], [ false, %if.then17.i.i.i ], [ false, %if.then29.i.i.i ], [ false, %if.then54.i.i.i ], [ true, %do.end63.i.i.i ], [ false, %sw.bb64.i.i.i ], [ false, %sw.default.i.i.i ], [ false, %if.then50.i.i.i ], [ false, %if.then24.i.i.i ]
+  %result.010.i.i.i = phi i32 [ 91, %end.i.i.i ], [ 91, %if.then17.i.i.i ], [ 91, %if.then29.i.i.i ], [ 91, %if.then54.i.i.i ], [ %177, %do.end63.i.i.i ], [ 91, %sw.bb64.i.i.i ], [ 91, %sw.default.i.i.i ], [ 91, %if.then50.i.i.i ], [ 91, %if.then24.i.i.i ]
   call void @OCSP_BASICRESP_free(ptr noundef nonnull %call10.i184.i.i) #13
   call void @OCSP_RESPONSE_free(ptr noundef nonnull %call2.i181.i.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %status.i.i.i)
@@ -5640,7 +5640,7 @@ verifystatus.exit.i.i:                            ; preds = %sw.default.i.i.i, %
   br i1 %tobool275.not.i.i, label %if.end280.i.i, label %if.then276.i.i
 
 if.then276.i.i:                                   ; preds = %verifystatus.exit.i.i, %verifystatus.exit.thread.i.i
-  %result.08.i203.i.i = phi i32 [ 91, %verifystatus.exit.thread.i.i ], [ %result.017.i.i.i, %verifystatus.exit.i.i ]
+  %result.011.i203.i.i = phi i32 [ 91, %verifystatus.exit.thread.i.i ], [ %result.010.i.i.i, %verifystatus.exit.i.i ]
   %180 = load ptr, ptr %server_cert.i.i, align 8
   call void @X509_free(ptr noundef %180) #13
   store ptr null, ptr %server_cert.i.i, align 8
@@ -5732,7 +5732,7 @@ servercert.exit.thread.i:                         ; preds = %if.end194.i.i, %if.
   br label %return
 
 servercert.exit.i:                                ; preds = %if.end303.i.i, %if.then276.i.i
-  %retval.0.i.i = phi i32 [ %result.4.i.i, %if.end303.i.i ], [ %result.08.i203.i.i, %if.then276.i.i ]
+  %retval.0.i.i = phi i32 [ %result.4.i.i, %if.end303.i.i ], [ %result.011.i203.i.i, %if.then276.i.i ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %error_buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i.i)

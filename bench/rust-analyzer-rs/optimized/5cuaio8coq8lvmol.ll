@@ -1943,7 +1943,7 @@ define internal fastcc void @_ZN3mbe4Rule5parse17ha0c6f045ec70cc48E(ptr noalias 
   %77 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %73, ptr %77, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  invoke void @_ZN3mbe6parser12MetaTemplate5parse17h394e28574f1f78c7E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(64) %.sroa.5122.0137, i1 noundef zeroext true, i1 noundef zeroext %4)
+  invoke void @_ZN3mbe6parser12MetaTemplate5parse17h394e28574f1f78c7E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.5122.0137, i1 noundef zeroext true, i1 noundef zeroext %4)
           to label %82 unwind label %80
 
 78:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc762458a209c49e7E.exit.thread"

@@ -685,7 +685,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit174:         ; preds = %.lr.ph.i.i.i.i.i.i1
   br label %260
 
 _ZN4llvm12StringSwitchIbbE5CasesENS_13StringLiteralES2_S2_S2_b.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i12.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i286, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i288
-  %253 = call noundef i32 @_ZN5clang19parseXRayInstrValueEN4llvm9StringRefE(ptr %.sroa.042.0.copyload, i64 %.sroa.243.0.copyload) #16
+  %253 = call noundef i32 @_ZN5clang19parseXRayInstrValueEN4llvm9StringRefE(ptr nonnull %.sroa.042.0.copyload, i64 %.sroa.243.0.copyload) #16
   %254 = icmp eq i32 %253, 0
   %255 = load i32, ptr %34, align 8
   br i1 %254, label %256, label %258

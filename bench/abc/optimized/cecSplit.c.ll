@@ -1867,17 +1867,17 @@ Abc_Clock.exit:                                   ; preds = %8, %21
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %.critedge
-  %36 = call i32 @Cec_GiaSplitTest2(ptr noundef %0, i32 poison, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
+  %36 = call i32 @Cec_GiaSplitTest2(ptr noundef nonnull %0, i32 poison, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   br label %386
 
 37:                                               ; preds = %.critedge
   %38 = add i32 %1, -1
-  %39 = call ptr @Gia_ManToAigSimple(ptr noundef %0) #17
+  %39 = call ptr @Gia_ManToAigSimple(ptr noundef nonnull %0) #17
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 104
   store i32 0, ptr %40, align 8
   %41 = call ptr @Cnf_Derive(ptr noundef %39, i32 noundef 0) #17
   call void @Aig_ManStop(ptr noundef %39) #17
-  %42 = call fastcc i32 @Cnf_GiaSolveOne(ptr noundef %0, ptr noundef %41, i32 noundef %2, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %42 = call fastcc i32 @Cnf_GiaSolveOne(ptr noundef nonnull %0, ptr noundef %41, i32 noundef %2, ptr noundef nonnull %15, ptr noundef nonnull %16)
   call void @Cnf_DataFree(ptr noundef %41) #17
   %43 = icmp ne i32 %42, -1
   %or.cond = select i1 %29, i1 %43, i1 false
@@ -1951,7 +1951,7 @@ Vec_PtrPush.exit:                                 ; preds = %70
   %77 = call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #18
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %77, ptr %78, align 8
-  %79 = call ptr @Gia_ManDup(ptr noundef %0) #17
+  %79 = call ptr @Gia_ManDup(ptr noundef nonnull %0) #17
   store i32 1, ptr %76, align 4
   store ptr %79, ptr %77, align 8
   %80 = icmp sgt i32 %1, 1

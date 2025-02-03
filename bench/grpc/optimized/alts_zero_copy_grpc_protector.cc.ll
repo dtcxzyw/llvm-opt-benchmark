@@ -148,7 +148,7 @@ if.end34:                                         ; preds = %_ZNSt10unique_ptrIN
   %unrecord_protocol36 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %15 = load ptr, ptr %unrecord_protocol36, align 8
   call void @_Z33alts_grpc_record_protocol_destroyP25alts_grpc_record_protocol(ptr noundef %15)
-  call void @gpr_free(ptr noundef %call)
+  call void @gpr_free(ptr noundef nonnull %call)
   br label %return
 
 return:                                           ; preds = %if.end34, %do.end, %if.then

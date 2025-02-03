@@ -130,7 +130,7 @@ define dso_local void @cbuf_destroy(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 11:                                               ; preds = %6
-  %12 = tail call i32 @pthread_mutex_destroy(ptr noundef %0) #15
+  %12 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %0) #15
   %.not9 = icmp eq i32 %12, 0
   br i1 %.not9, label %15, label %13
 

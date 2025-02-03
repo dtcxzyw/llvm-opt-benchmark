@@ -105915,7 +105915,7 @@ invoke.cont23:                                    ; preds = %if.end
 lpad22:                                           ; preds = %if.end
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #40
+  call void @__cxa_free_exception(ptr nonnull %exception) #40
   br label %ehcleanup26
 
 lpad25:                                           ; preds = %invoke.cont23
@@ -106276,7 +106276,7 @@ invoke.cont23:                                    ; preds = %if.end
 lpad22:                                           ; preds = %if.end
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #40
+  call void @__cxa_free_exception(ptr nonnull %exception) #40
   br label %ehcleanup26
 
 lpad25:                                           ; preds = %invoke.cont23
@@ -240613,7 +240613,7 @@ for.body:                                         ; preds = %for.cond
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  br i1 %call.i.i82, label %cleanup64, label %for.cond, !llvm.loop !4265
+  br i1 %call.i.i82, label %if.then.i89, label %for.cond, !llvm.loop !4265
 
 lpad:                                             ; preds = %for.body
   %1 = landingpad { ptr, i32 }
@@ -240703,25 +240703,25 @@ lpad48:                                           ; preds = %if.end46
           cleanup
   br label %ehcleanup65
 
-cleanup64:                                        ; preds = %invoke.cont, %invoke.cont33
-  %.pr = phi ptr [ %.pre109, %invoke.cont33 ], [ %call.i, %invoke.cont ]
-  %retval.sroa.0.0.ph = phi ptr [ %11, %invoke.cont33 ], [ %__it.sroa.0.0, %invoke.cont ]
-  %tobool.not.i = icmp eq ptr %.pr, null
+cleanup64:                                        ; preds = %invoke.cont33
+  %tobool.not.i = icmp eq ptr %.pre109, null
   br i1 %tobool.not.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb18BoundParameterDataEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %if.then.i89
 
-if.then.i89:                                      ; preds = %cleanup64
-  %add.ptr.i.i90 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr, i64 40
-  %return_type.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr, i64 104
+if.then.i89:                                      ; preds = %invoke.cont, %cleanup64
+  %retval.sroa.0.0.ph8 = phi ptr [ %11, %cleanup64 ], [ %__it.sroa.0.0, %invoke.cont ]
+  %.pr7 = phi ptr [ %.pre109, %cleanup64 ], [ %call.i, %invoke.cont ]
+  %add.ptr.i.i90 = getelementptr inbounds nuw i8, ptr %.pr7, i64 8
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr7, i64 40
+  %return_type.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr7, i64 104
   tail call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %return_type.i.i.i.i.i.i) #40
   tail call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i.i.i.i) #40
   %16 = load ptr, ptr %add.ptr.i.i90, align 8, !tbaa !58
-  %17 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.pr7, i64 24
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %16, %17
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %if.then.i89
-  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr, i64 16
+  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr7, i64 16
   %18 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !61
   %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %18, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)
@@ -240732,12 +240732,12 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i89
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb18BoundParameterDataEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb18BoundParameterDataEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.pr) #41
+  tail call void @_ZdlPv(ptr noundef nonnull %.pr7) #41
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb18BoundParameterDataEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb18BoundParameterDataEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb18BoundParameterDataEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i, %cleanup64, %if.end46
   %retval.sroa.4.099 = phi i8 [ 0, %cleanup64 ], [ 0, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb18BoundParameterDataEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i ], [ 1, %if.end46 ]
-  %retval.sroa.0.098 = phi ptr [ %retval.sroa.0.0.ph, %cleanup64 ], [ %retval.sroa.0.0.ph, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb18BoundParameterDataEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i ], [ %call50, %if.end46 ]
+  %retval.sroa.0.098 = phi ptr [ %11, %cleanup64 ], [ %retval.sroa.0.0.ph8, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb18BoundParameterDataEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i ], [ %call50, %if.end46 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node) #40
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.098, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.099, 1
@@ -241182,7 +241182,7 @@ for.body:                                         ; preds = %for.cond
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  br i1 %call.i.i80, label %cleanup62, label %for.cond, !llvm.loop !4272
+  br i1 %call.i.i80, label %if.then.i87, label %for.cond, !llvm.loop !4272
 
 lpad:                                             ; preds = %for.body
   %1 = landingpad { ptr, i32 }
@@ -241272,23 +241272,23 @@ lpad46:                                           ; preds = %if.end44
           cleanup
   br label %ehcleanup63
 
-cleanup62:                                        ; preds = %invoke.cont, %invoke.cont31
-  %.pr = phi ptr [ %.pre107, %invoke.cont31 ], [ %call.i, %invoke.cont ]
-  %retval.sroa.0.0.ph = phi ptr [ %11, %invoke.cont31 ], [ %__it.sroa.0.0, %invoke.cont ]
-  %tobool.not.i = icmp eq ptr %.pr, null
+cleanup62:                                        ; preds = %invoke.cont31
+  %tobool.not.i = icmp eq ptr %.pre107, null
   br i1 %tobool.not.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb5ValueEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %if.then.i87
 
-if.then.i87:                                      ; preds = %cleanup62
-  %add.ptr.i.i88 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr, i64 40
+if.then.i87:                                      ; preds = %invoke.cont, %cleanup62
+  %retval.sroa.0.0.ph8 = phi ptr [ %11, %cleanup62 ], [ %__it.sroa.0.0, %invoke.cont ]
+  %.pr7 = phi ptr [ %.pre107, %cleanup62 ], [ %call.i, %invoke.cont ]
+  %add.ptr.i.i88 = getelementptr inbounds nuw i8, ptr %.pr7, i64 8
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr7, i64 40
   tail call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i.i.i.i) #40
   %16 = load ptr, ptr %add.ptr.i.i88, align 8, !tbaa !58
-  %17 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.pr7, i64 24
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %16, %17
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %if.then.i87
-  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr, i64 16
+  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr7, i64 16
   %18 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !61
   %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %18, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)
@@ -241299,12 +241299,12 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i87
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.pr) #41
+  tail call void @_ZdlPv(ptr noundef nonnull %.pr7) #41
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb5ValueEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb5ValueEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i, %cleanup62, %if.end44
   %retval.sroa.4.097 = phi i8 [ 0, %cleanup62 ], [ 0, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i ], [ 1, %if.end44 ]
-  %retval.sroa.0.096 = phi ptr [ %retval.sroa.0.0.ph, %cleanup62 ], [ %retval.sroa.0.0.ph, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i ], [ %call48, %if.end44 ]
+  %retval.sroa.0.096 = phi ptr [ %11, %cleanup62 ], [ %retval.sroa.0.0.ph8, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb5ValueEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i ], [ %call48, %if.end44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node) #40
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.096, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.097, 1
@@ -256745,7 +256745,7 @@ if.else.i:                                        ; preds = %for.body21
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %if.else.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin212.sroa.0.0140) #45
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin212.sroa.0.0140) #45
   %cmp.i64.not = icmp eq ptr %call.i, %0
   br i1 %cmp.i64.not, label %for.cond.cleanup20, label %for.body21
 
@@ -257178,7 +257178,7 @@ if.else.i:                                        ; preds = %for.body19
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %if.else.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.0138) #45
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.0138) #45
   %cmp.i62.not = icmp eq ptr %call.i, %0
   br i1 %cmp.i62.not, label %for.cond.cleanup18, label %for.body19
 

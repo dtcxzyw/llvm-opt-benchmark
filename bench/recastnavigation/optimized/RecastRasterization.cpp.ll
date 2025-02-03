@@ -934,7 +934,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %38 = load i8, ptr %37, align 1
   %39 = load float, ptr %19, align 8
-  %40 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef %30, ptr noundef nonnull %33, ptr noundef nonnull %36, i8 noundef zeroext %38, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %26, ptr noundef %27, float noundef %39, float noundef %21, float noundef %24, i32 noundef %5)
+  %40 = invoke fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef nonnull %30, ptr noundef nonnull %33, ptr noundef nonnull %36, i8 noundef zeroext %38, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %26, ptr noundef %27, float noundef %39, float noundef %21, float noundef %24, i32 noundef %5)
           to label %41 unwind label %.loopexit36
 
 41:                                               ; preds = %29

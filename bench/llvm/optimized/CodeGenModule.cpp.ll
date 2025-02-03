@@ -2909,7 +2909,7 @@ _ZNSt10unique_ptrIN5clang7CodeGen24CoverageMappingModuleGenESt14default_deleteIS
   br label %.loopexit
 
 426:                                              ; preds = %.lr.ph
-  %427 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.075.085) #28
+  %427 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.075.085) #28
   %.not82 = icmp eq ptr %427, %418
   br i1 %.not82, label %.loopexit, label %.lr.ph
 
@@ -29545,7 +29545,7 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.thread: ; preds = %_Z
   br i1 %192, label %194, label %193
 
 193:                                              ; preds = %189
-  call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef %180) #25
+  call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull %180) #25
   br label %194
 
 194:                                              ; preds = %193, %189
@@ -29606,7 +29606,7 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.thread: ; preds = %_Z
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 496
   %224 = load ptr, ptr %223, align 8
-  call void %224(ptr noundef nonnull align 8 dereferenceable(4808) %221, ptr noundef nonnull %5, ptr noundef %180) #25
+  call void %224(ptr noundef nonnull align 8 dereferenceable(4808) %221, ptr noundef nonnull %5, ptr noundef nonnull %180) #25
   br label %225
 
 225:                                              ; preds = %219, %214
@@ -29629,7 +29629,7 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.thread: ; preds = %_Z
   %238 = trunc nuw nsw i64 %237 to i8
   %239 = sub nsw i8 63, %238
   call void @_ZN4llvm12GlobalObject12setAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(56) %180, i8 %239) #25
-  call fastcc void @_ZL15setLinkageForGVPN4llvm11GlobalValueEPKN5clang9NamedDeclE(ptr noundef %180, ptr noundef %5)
+  call fastcc void @_ZL15setLinkageForGVPN4llvm11GlobalValueEPKN5clang9NamedDeclE(ptr noundef nonnull %180, ptr noundef %5)
   %240 = call noundef i32 @_ZNK5clang7VarDecl10getTLSKindEv(ptr noundef nonnull align 8 dereferenceable(100) %5) #25
   %.not124 = icmp eq i32 %240, 0
   br i1 %.not124, label %273, label %241
@@ -32187,7 +32187,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit100:         ; preds = %.lr.ph.i.i.i.i88, %
   br label %274
 
 274:                                              ; preds = %270, %269
-  call void @_ZN5clang7CodeGen13CodeGenModule19SetCommonAttributesENS_10GlobalDeclEPN4llvm11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(3600) %0, i64 %1, i32 poison, ptr noundef %238)
+  call void @_ZN5clang7CodeGen13CodeGenModule19SetCommonAttributesENS_10GlobalDeclEPN4llvm11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(3600) %0, i64 %1, i32 poison, ptr noundef nonnull %238)
   br label %.critedge
 
 .critedge:                                        ; preds = %122, %105, %86, %_ZN5clang17DiagnosticBuilderD2Ev.exit75, %274, %_ZN5clang17DiagnosticBuilderD2Ev.exit100, %_ZN5clang17DiagnosticBuilderD2Ev.exit

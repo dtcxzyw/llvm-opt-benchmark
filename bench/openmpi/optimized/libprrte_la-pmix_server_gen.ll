@@ -1062,7 +1062,7 @@ define void @pmix_server_notify(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %46
 
 46:                                               ; preds = %40, %44
-  %47 = call i32 @pthread_mutex_lock(ptr noundef %41) #13
+  %47 = call i32 @pthread_mutex_lock(ptr noundef nonnull %41) #13
   %48 = icmp eq i32 %47, 35
   br i1 %48, label %49, label %51
 
@@ -1078,7 +1078,7 @@ define void @pmix_server_notify(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   %53 = load i32, ptr %52, align 8
   %54 = add nsw i32 %53, -1
   store i32 %54, ptr %52, align 8
-  %55 = call i32 @pthread_mutex_unlock(ptr noundef %41) #13
+  %55 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %41) #13
   %56 = icmp eq i32 %54, 0
   br i1 %56, label %57, label %162
 
@@ -1094,7 +1094,7 @@ define void @pmix_server_notify(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 .lr.ph.i:                                         ; preds = %57, %.lr.ph.i
   %63 = phi ptr [ %65, %.lr.ph.i ], [ %62, %57 ]
   %.07.i = phi ptr [ %64, %.lr.ph.i ], [ %61, %57 ]
-  call void %63(ptr noundef %41) #13
+  call void %63(ptr noundef nonnull %41) #13
   %64 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %65 = load ptr, ptr %64, align 8
   %.not.i = icmp eq ptr %65, null
@@ -3815,7 +3815,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %61, %6
 
 89:                                               ; preds = %84, %pmix_obj_new_tma.exit
   %.0257 = phi ptr [ %57, %pmix_obj_new_tma.exit ], [ %75, %84 ]
-  %90 = call i32 @pmix_pointer_array_add(ptr noundef nonnull %11, ptr noundef %.0257) #13
+  %90 = call i32 @pmix_pointer_array_add(ptr noundef nonnull %11, ptr noundef nonnull %.0257) #13
   br label %91
 
 91:                                               ; preds = %89, %77

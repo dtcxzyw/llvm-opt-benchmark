@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::atomic.131" = type { %"struct.std::__atomic_base.132" }
 %"struct.std::__atomic_base.132" = type { i8 }
-%class.params_ref = type { ptr }
 %class.symbol = type { ptr }
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
@@ -26,6 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %class.ref.53 = type { ptr }
 %struct.model_params = type { ptr, %class.params_ref }
+%class.params_ref = type { ptr }
 %class.param_descrs = type { ptr }
 %class.obj_ref.125 = type { ptr, ptr }
 %class.inf_eps_rational = type { %class.rational, %class.inf_rational }
@@ -199,7 +199,6 @@ $_ZTIPFvRN3opt10on_model_tER3refI5modelEE = comdat any
 @_ZTI12Z3_model_ref = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS12Z3_model_ref, ptr @_ZTIN3api6objectE }, comdat, align 8
 @.str.14 = private unnamed_addr constant [6 x i8] c"model\00", align 1
 @.str.15 = private unnamed_addr constant [8 x i8] c"compact\00", align 1
-@_ZN10params_ref18g_empty_params_refE = external global %class.params_ref, align 8
 @_ZTV19Z3_param_descrs_ref = linkonce_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTI19Z3_param_descrs_ref, ptr @_ZN19Z3_param_descrs_refD2Ev, ptr @_ZN19Z3_param_descrs_refD0Ev] }, comdat, align 8
 @_ZTS19Z3_param_descrs_ref = linkonce_odr hidden constant [22 x i8] c"19Z3_param_descrs_ref\00", comdat, align 1
 @_ZTI19Z3_param_descrs_ref = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS19Z3_param_descrs_ref, ptr @_ZTIN3api6objectE }, comdat, align 8
@@ -2710,12 +2709,10 @@ invoke.cont11:                                    ; preds = %invoke.cont7
 
 invoke.cont17:                                    ; preds = %invoke.cont11
   %2 = load ptr, ptr %m_opt.i, align 8
-  %cmp.i = icmp eq ptr %p, null
-  %spec.select.i = select i1 %cmp.i, ptr @_ZN10params_ref18g_empty_params_refE, ptr %m_params
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %3 = load ptr, ptr %vfn, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(792) %2, ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(792) %2, ptr noundef nonnull align 8 dereferenceable(8) %m_params)
           to label %invoke.cont19 unwind label %lpad8
 
 invoke.cont19:                                    ; preds = %invoke.cont17

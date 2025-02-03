@@ -320,7 +320,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_do_exec(ptr noundef readonly captures
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20
-  tail call void @free(ptr noundef %12) #24
+  tail call void @free(ptr noundef nonnull %12) #24
   br label %73
 
 24:                                               ; preds = %20, %17
@@ -415,7 +415,7 @@ phpdbg_clean.exit22:                              ; preds = %55, %57
   br label %73
 
 62:                                               ; preds = %15
-  tail call void @free(ptr noundef %12) #24
+  tail call void @free(ptr noundef nonnull %12) #24
   %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %64 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %63, ptr noundef nonnull @.str.74) #24
   br label %73

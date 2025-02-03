@@ -79,7 +79,7 @@ define void @_ZNK5ZXing6Pdf4177Encoder20generateBarcodeLogicERKNSt7__cxx1112basi
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #15
+  tail call void @__cxa_free_exception(ptr nonnull %10) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit57
 
 14:                                               ; preds = %4
@@ -191,7 +191,7 @@ define void @_ZNK5ZXing6Pdf4177Encoder20generateBarcodeLogicERKNSt7__cxx1112basi
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #15
+  call void @__cxa_free_exception(ptr nonnull %68) #15
   br label %.body
 
 _ZN5ZXing6Pdf417L19DetermineDimensionsEiiiiiiRiS1_.exit: ; preds = %._crit_edge.i, %._crit_edge.thread.i
@@ -220,7 +220,7 @@ _ZN5ZXing6Pdf417L19DetermineDimensionsEiiiiiiRiS1_.exit: ; preds = %._crit_edge.
 84:                                               ; preds = %80
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %81) #15
+  call void @__cxa_free_exception(ptr nonnull %81) #15
   br label %.body
 
 86:                                               ; preds = %_ZN5ZXing6Pdf417L19DetermineDimensionsEiiiiiiRiS1_.exit

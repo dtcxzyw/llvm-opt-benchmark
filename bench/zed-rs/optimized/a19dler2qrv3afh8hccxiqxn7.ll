@@ -7175,7 +7175,7 @@ define hidden void @_ZN4gpui3app13async_context15AsyncAppContext11read_global17h
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %51, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %53 = invoke noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17hedcb1da6c4b5b3e4E(ptr noalias noundef readonly align 8 dereferenceable(1176) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.88ad60da5592c3a62f7ce74f7daded3e.102)
+  %53 = invoke noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17hedcb1da6c4b5b3e4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.88ad60da5592c3a62f7ce74f7daded3e.102)
           to label %56 unwind label %80
 
 54:                                               ; preds = %56
@@ -7421,7 +7421,7 @@ define hidden void @_ZN4gpui3app13async_context15AsyncAppContext11read_global17h
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %56, ptr %57, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %58 = invoke noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17hedcb1da6c4b5b3e4E(ptr noalias noundef readonly align 8 dereferenceable(1176) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.88ad60da5592c3a62f7ce74f7daded3e.102)
+  %58 = invoke noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17hedcb1da6c4b5b3e4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.88ad60da5592c3a62f7ce74f7daded3e.102)
           to label %61 unwind label %85
 
 59:                                               ; preds = %61
@@ -7621,7 +7621,7 @@ define hidden void @_ZN4gpui3app13async_context15AsyncAppContext11read_global17h
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.629.0.copyload = load i64, ptr %.sroa.629.0..sroa_idx, align 8
-  %38 = invoke noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17hedcb1da6c4b5b3e4E(ptr noalias noundef readonly align 8 dereferenceable(1176) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.88ad60da5592c3a62f7ce74f7daded3e.102)
+  %38 = invoke noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17hedcb1da6c4b5b3e4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.88ad60da5592c3a62f7ce74f7daded3e.102)
           to label %41 unwind label %62
 
 39:                                               ; preds = %41
@@ -7835,7 +7835,7 @@ define hidden void @_ZN4gpui3app13async_context15AsyncAppContext11read_global17h
   %.sroa.629.0.copyload = load i64, ptr %.sroa.629.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8
-  %39 = invoke noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17hedcb1da6c4b5b3e4E(ptr noalias noundef readonly align 8 dereferenceable(1176) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.88ad60da5592c3a62f7ce74f7daded3e.102)
+  %39 = invoke noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17hedcb1da6c4b5b3e4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.88ad60da5592c3a62f7ce74f7daded3e.102)
           to label %42 unwind label %65
 
 40:                                               ; preds = %42
@@ -29303,7 +29303,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %28, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  invoke void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT$10read_model17h1345f03c68efa5f6E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef readonly align 8 dereferenceable(1176) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+  invoke void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT$10read_model17h1345f03c68efa5f6E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
           to label %32 unwind label %30
 
 30:                                               ; preds = %26

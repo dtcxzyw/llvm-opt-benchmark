@@ -3203,7 +3203,7 @@ if.then25:                                        ; preds = %for.body
 invoke.cont29:                                    ; preds = %if.then25
   %11 = load i32, ptr %status, align 4
   %cmp.i33 = icmp slt i32 %11, 1
-  br i1 %cmp.i33, label %if.end35, label %cleanup
+  br i1 %cmp.i33, label %if.end35, label %delete.notnull.i
 
 if.end35:                                         ; preds = %invoke.cont29
   %12 = load i32, ptr %fBeginIndex.i30, align 4
@@ -3255,11 +3255,11 @@ if.then63:                                        ; preds = %if.end60
   store i32 %add69, ptr %fEndIndex.i43, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont29, %if.end60, %if.then63, %invoke.cont54
+cleanup:                                          ; preds = %if.end60, %if.then63, %invoke.cont54
   %isnull.i = icmp eq ptr %7, null
   br i1 %isnull.i, label %_ZN6icu_7510LocalArrayINS_13UnicodeStringEED2Ev.exit, label %delete.notnull.i
 
-delete.notnull.i:                                 ; preds = %cleanup
+delete.notnull.i:                                 ; preds = %invoke.cont29, %cleanup
   %20 = getelementptr inbounds i8, ptr %7, i64 -8
   %21 = load i64, ptr %20, align 8
   %arraydestroy.isempty.i = icmp eq i64 %21, 0

@@ -17119,7 +17119,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h89e8123
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %22 = tail call noundef zeroext i1 @"_ZN61_$LT$project..ProjectPath$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4ddaaa06073e365fE.llvm.5312833189402040741"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21), !noalias !3530
-  br i1 %22, label %23, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f986ad6104eb0e6E.exit.i"
+  br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %19
   %24 = load i64, ptr %15, align 8, !range !244, !alias.scope !3537, !noalias !3542, !noundef !11
@@ -17141,14 +17141,14 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h89e8123
   %30 = icmp eq ptr %16, %7
   br i1 %30, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$file_finder..Match$GT$$GT$17hc4661e65f2a40016E.exit", label %.lr.ph.i.i
 
-"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f986ad6104eb0e6E.exit.i": ; preds = %19, %.lr.ph.i.i
+"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f986ad6104eb0e6E.exit.i": ; preds = %.lr.ph.i.i
   %31 = icmp eq ptr %15, null
   br i1 %31, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$file_finder..Match$GT$$GT$17hc4661e65f2a40016E.exit", label %.loopexit
 
 32:                                               ; preds = %41
   resume { ptr, i32 } %42
 
-.loopexit:                                        ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h45045f9350238b62E.exit.i.i.i", %28, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f986ad6104eb0e6E.exit.i"
+.loopexit:                                        ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h45045f9350238b62E.exit.i.i.i", %28, %19, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f986ad6104eb0e6E.exit.i"
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3), !noalias !3544
   call void @"_ZN61_$LT$file_finder..FoundPath$u20$as$u20$core..clone..Clone$GT$5clone17h2c2a11197cc8ff7bE.llvm.5312833189402040741"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15), !noalias !3544
   store i64 -9223372036854775808, ptr %11, align 8, !alias.scope !3545, !noalias !3550
@@ -17233,7 +17233,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h9aeb605
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %22 = tail call noundef zeroext i1 @"_ZN61_$LT$project..ProjectPath$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4ddaaa06073e365fE.llvm.5312833189402040741"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21), !noalias !3571
-  br i1 %22, label %23, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f61c233b47b42edE.exit.i"
+  br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %19
   %24 = load i64, ptr %15, align 8, !range !244, !alias.scope !3578, !noalias !3583, !noundef !11
@@ -17255,14 +17255,14 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h9aeb605
   %30 = icmp eq ptr %16, %7
   br i1 %30, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$file_finder..Match$GT$$GT$17hc4661e65f2a40016E.exit", label %.lr.ph.i.i
 
-"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f61c233b47b42edE.exit.i": ; preds = %19, %.lr.ph.i.i
+"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f61c233b47b42edE.exit.i": ; preds = %.lr.ph.i.i
   %31 = icmp eq ptr %15, null
   br i1 %31, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$file_finder..Match$GT$$GT$17hc4661e65f2a40016E.exit", label %.loopexit
 
 32:                                               ; preds = %41
   resume { ptr, i32 } %42
 
-.loopexit:                                        ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17haefb9e3cf002ceedE.exit.i.i.i", %28, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f61c233b47b42edE.exit.i"
+.loopexit:                                        ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17haefb9e3cf002ceedE.exit.i.i.i", %28, %19, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f61c233b47b42edE.exit.i"
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3), !noalias !3585
   call void @"_ZN61_$LT$file_finder..FoundPath$u20$as$u20$core..clone..Clone$GT$5clone17h2c2a11197cc8ff7bE.llvm.5312833189402040741"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15), !noalias !3585
   store i64 -9223372036854775808, ptr %11, align 8, !alias.scope !3586, !noalias !3591

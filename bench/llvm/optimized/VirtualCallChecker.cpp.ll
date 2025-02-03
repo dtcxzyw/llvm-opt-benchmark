@@ -4201,12 +4201,12 @@ _ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit44.i.i: ; preds = %.lr.ph.i4.i.i.
   %158 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #21
   %159 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_111CtorDtorMapEE8GDMIndexEvE5Index) #21
   %.not.i.i41.i = icmp eq ptr %159, null
-  br i1 %.not.i.i41.i, label %_ZL13isVirtualCallPKN5clang8CallExprE.exit.i, label %160
+  br i1 %.not.i.i41.i, label %_ZL13isVirtualCallPKN5clang8CallExprE.exit.thread107.i, label %160
 
 160:                                              ; preds = %.loopexit.i
   %161 = load ptr, ptr %159, align 8, !noalias !73
   %.not.i.i.i.i.i.i = icmp eq ptr %161, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZL13isVirtualCallPKN5clang8CallExprE.exit.i, label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN12_GLOBAL__N_111ObjectStateENS2_16ImutKeyValueInfoIS6_S8_EEEEvE8MakeDataEPKPv.exit.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZL13isVirtualCallPKN5clang8CallExprE.exit.thread107.i, label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN12_GLOBAL__N_111ObjectStateENS2_16ImutKeyValueInfoIS6_S8_EEEEvE8MakeDataEPKPv.exit.i.i
 
 _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN12_GLOBAL__N_111ObjectStateENS2_16ImutKeyValueInfoIS6_S8_EEEEvE8MakeDataEPKPv.exit.i.i: ; preds = %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 68
@@ -4279,7 +4279,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_111CtorDtorMapEEENS0_17ProgramSt
 
 191:                                              ; preds = %172
   %192 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull @.str.5, i64 noundef 8) #21
-  %.pre135.pre.i = load ptr, ptr %185, align 8
+  %.pre136.pre.i = load ptr, ptr %185, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 193:                                              ; preds = %172
@@ -4290,13 +4290,13 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_111CtorDtorMapEEENS0_17ProgramSt
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %193, %191
-  %.pre135.i = phi ptr [ %.pre135.pre.i, %191 ], [ %195, %193 ]
+  %.pre136.i = phi ptr [ %.pre136.pre.i, %191 ], [ %195, %193 ]
   br i1 %176, label %_ZN4llvm11raw_ostreamlsEPKc.exit46.i, label %196
 
 196:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i
   %197 = load ptr, ptr %183, align 8
   %198 = ptrtoint ptr %197 to i64
-  %199 = ptrtoint ptr %.pre135.i to i64
+  %199 = ptrtoint ptr %.pre136.i to i64
   %200 = sub i64 %198, %199
   %201 = icmp ult i64 %200, 5
   br i1 %201, label %202, label %204
@@ -4307,14 +4307,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %193, %191
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit46.i
 
 204:                                              ; preds = %196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.pre135.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.6, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.pre136.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.6, i64 5, i1 false)
   %205 = load ptr, ptr %185, align 8
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 5
   store ptr %206, ptr %185, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit46.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit46.i:             ; preds = %204, %202, %_ZN4llvm11raw_ostreamlsEPKc.exit.i
-  %207 = phi ptr [ %206, %204 ], [ %.pre.i, %202 ], [ %.pre135.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
+  %207 = phi ptr [ %206, %204 ], [ %.pre.i, %202 ], [ %.pre136.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
   %208 = load ptr, ptr %183, align 8
   %209 = ptrtoint ptr %208 to i64
   %210 = ptrtoint ptr %207 to i64
@@ -4553,8 +4553,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit80.i: ; preds
   %.v.i = select i1 %176, i64 40, i64 32
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 %.v.i
   %323 = load ptr, ptr %322, align 8
-  %.not107.i = icmp eq ptr %323, null
-  br i1 %.not107.i, label %365, label %324
+  %.not108.i = icmp eq ptr %323, null
+  br i1 %.not108.i, label %365, label %324
 
 324:                                              ; preds = %321
   %325 = load ptr, ptr %182, align 8
@@ -4649,14 +4649,14 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
   call void @free(ptr noundef %367) #21
   br label %_ZL13isVirtualCallPKN5clang8CallExprE.exit.i
 
-_ZL13isVirtualCallPKN5clang8CallExprE.exit.i:     ; preds = %369, %365, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_111CtorDtorMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i, %160, %.loopexit.i, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit44.i.i, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit32.i.i, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread.i.i, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.i.i, %82, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.thread.i.i
-  br i1 %.not.i.i39.i, label %_ZNK12_GLOBAL__N_118VirtualCallChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %370
+_ZL13isVirtualCallPKN5clang8CallExprE.exit.i:     ; preds = %369, %365, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_111CtorDtorMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit44.i.i, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit32.i.i, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread.i.i, %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.i.i, %82, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.thread.i.i
+  br i1 %.not.i.i39.i, label %_ZNK12_GLOBAL__N_118VirtualCallChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %_ZL13isVirtualCallPKN5clang8CallExprE.exit.thread107.i
 
-370:                                              ; preds = %_ZL13isVirtualCallPKN5clang8CallExprE.exit.i
+_ZL13isVirtualCallPKN5clang8CallExprE.exit.thread107.i: ; preds = %_ZL13isVirtualCallPKN5clang8CallExprE.exit.i, %160, %.loopexit.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %31) #21
   br label %_ZNK12_GLOBAL__N_118VirtualCallChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_118VirtualCallChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %3, %18, %23, %_ZL13isVirtualCallPKN5clang8CallExprE.exit.i, %370
+_ZNK12_GLOBAL__N_118VirtualCallChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %3, %18, %23, %_ZL13isVirtualCallPKN5clang8CallExprE.exit.i, %_ZL13isVirtualCallPKN5clang8CallExprE.exit.thread107.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)

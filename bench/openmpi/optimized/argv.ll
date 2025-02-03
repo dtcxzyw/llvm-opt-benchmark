@@ -563,7 +563,7 @@ opal_argv_count.exit.i.i70:                       ; preds = %.lr.ph.i.i.i66, %.p
 .preheader.i.i73:                                 ; preds = %69
   %74 = getelementptr i8, ptr %72, i64 8
   store ptr null, ptr %74, align 8
-  call void @free(ptr noundef %53) #13
+  call void @free(ptr noundef nonnull %53) #13
   br label %opal_argv_append.exit
 
 75:                                               ; preds = %58, %opal_argv_count.exit.i.i70, %69

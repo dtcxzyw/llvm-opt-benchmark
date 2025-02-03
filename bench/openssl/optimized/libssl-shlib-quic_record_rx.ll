@@ -1249,7 +1249,7 @@ if.end82.i:                                       ; preds = %if.end76.i
   %64 = load i32, ptr %tag_len.i, align 4
   %65 = trunc nuw i64 %48 to i32
   %conv86.i = sub i32 %65, %64
-  %call87.i = call i32 @EVP_CipherUpdate(ptr noundef %60, ptr noundef nonnull %add.ptr.i.i.i.i, ptr noundef nonnull %l.i, ptr noundef %47, i32 noundef %conv86.i) #12
+  %call87.i = call i32 @EVP_CipherUpdate(ptr noundef %60, ptr noundef nonnull %add.ptr.i.i.i.i, ptr noundef nonnull %l.i, ptr noundef nonnull %47, i32 noundef %conv86.i) #12
   %cmp88.not.i = icmp eq i32 %call87.i, 1
   br i1 %cmp88.not.i, label %if.end91.i, label %qrx_decrypt_pkt_body.exit.thread
 

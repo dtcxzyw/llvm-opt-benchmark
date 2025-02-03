@@ -56010,7 +56010,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   %434 = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   store i64 %434, ptr %96, align 8
   store i16 257, ptr %97, align 8
-  call void @_ZN5clang9ModuleMap23setUmbrellaDirAsWrittenEPNS_6ModuleENS_17DirectoryEntryRefERKN4llvm5TwineES7_(ptr noundef nonnull align 8 dereferenceable(1344) %63, ptr noundef %.0157, ptr nonnull %428, ptr noundef nonnull align 8 dereferenceable(34) %43, ptr noundef nonnull align 8 dereferenceable(34) %44) #35
+  call void @_ZN5clang9ModuleMap23setUmbrellaDirAsWrittenEPNS_6ModuleENS_17DirectoryEntryRefERKN4llvm5TwineES7_(ptr noundef nonnull align 8 dereferenceable(1344) %63, ptr noundef nonnull %.0157, ptr nonnull %428, ptr noundef nonnull align 8 dereferenceable(34) %43, ptr noundef nonnull align 8 dereferenceable(34) %44) #35
   br label %435
 
 435:                                              ; preds = %429, %432, %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit

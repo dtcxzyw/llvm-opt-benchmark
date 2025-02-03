@@ -16656,7 +16656,7 @@ if.then38:                                        ; preds = %if.end33
 ehcleanup:                                        ; preds = %lpad22, %lpad
   %exception21.sink = phi ptr [ %exception21, %lpad22 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %13, %lpad22 ], [ %8, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception21.sink) #44
+  tail call void @__cxa_free_exception(ptr nonnull %exception21.sink) #44
   resume { ptr, i32 } %.pn
 
 if.then51:                                        ; preds = %if.then38

@@ -5018,7 +5018,7 @@ _ZN3hir9semantics13SemanticsImpl16wrap_node_infile17h26428f7fdefbe9b8E.llvm.3470
   %26 = extractvalue { ptr, i32 } %15, 1
   %27 = extractvalue { ptr, ptr } %24, 0
   %28 = extractvalue { ptr, ptr } %24, 1
-  %29 = call { ptr, i32 } @"_ZN10hir_expand5files40InFileWrapper$LT$span..HirFileId$C$N$GT$24original_ast_node_rooted17h427f5cb10185e2c9E"(ptr noundef nonnull %18, i32 noundef %26, ptr noundef nonnull align 1 %27, ptr noalias noundef readonly align 8 dereferenceable(24) %28)
+  %29 = call { ptr, i32 } @"_ZN10hir_expand5files40InFileWrapper$LT$span..HirFileId$C$N$GT$24original_ast_node_rooted17h427f5cb10185e2c9E"(ptr noundef nonnull %18, i32 noundef %26, ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = icmp eq ptr %30, null
   br i1 %31, label %60, label %32
@@ -5177,7 +5177,7 @@ _ZN3hir9semantics13SemanticsImpl16wrap_node_infile17he001d453fda25ed1E.llvm.3470
   %26 = extractvalue { ptr, i32 } %15, 1
   %27 = extractvalue { ptr, ptr } %24, 0
   %28 = extractvalue { ptr, ptr } %24, 1
-  %29 = call { ptr, i32 } @"_ZN10hir_expand5files40InFileWrapper$LT$span..HirFileId$C$N$GT$24original_ast_node_rooted17h1009d09b9baa31cdE"(ptr noundef nonnull %18, i32 noundef %26, ptr noundef nonnull align 1 %27, ptr noalias noundef readonly align 8 dereferenceable(24) %28)
+  %29 = call { ptr, i32 } @"_ZN10hir_expand5files40InFileWrapper$LT$span..HirFileId$C$N$GT$24original_ast_node_rooted17h1009d09b9baa31cdE"(ptr noundef nonnull %18, i32 noundef %26, ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = icmp eq ptr %30, null
   br i1 %31, label %60, label %32
@@ -5336,7 +5336,7 @@ _ZN3hir9semantics13SemanticsImpl16wrap_node_infile17ha9167a7eb64f9fc3E.llvm.3470
   %26 = extractvalue { ptr, i32 } %15, 1
   %27 = extractvalue { ptr, ptr } %24, 0
   %28 = extractvalue { ptr, ptr } %24, 1
-  %29 = call { ptr, i32 } @"_ZN10hir_expand5files40InFileWrapper$LT$span..HirFileId$C$N$GT$24original_ast_node_rooted17hdd4430b3025f55f7E"(ptr noundef nonnull %18, i32 noundef %26, ptr noundef nonnull align 1 %27, ptr noalias noundef readonly align 8 dereferenceable(24) %28)
+  %29 = call { ptr, i32 } @"_ZN10hir_expand5files40InFileWrapper$LT$span..HirFileId$C$N$GT$24original_ast_node_rooted17hdd4430b3025f55f7E"(ptr noundef nonnull %18, i32 noundef %26, ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = icmp eq ptr %30, null
   br i1 %31, label %60, label %32
@@ -5495,7 +5495,7 @@ _ZN3hir9semantics13SemanticsImpl16wrap_node_infile17he19bef6548f371aaE.llvm.3470
   %26 = extractvalue { ptr, i32 } %15, 1
   %27 = extractvalue { ptr, ptr } %24, 0
   %28 = extractvalue { ptr, ptr } %24, 1
-  %29 = call { ptr, i32 } @"_ZN10hir_expand5files40InFileWrapper$LT$span..HirFileId$C$N$GT$24original_ast_node_rooted17h013a439a66fd8c34E"(ptr noundef nonnull %18, i32 noundef %26, ptr noundef nonnull align 1 %27, ptr noalias noundef readonly align 8 dereferenceable(24) %28)
+  %29 = call { ptr, i32 } @"_ZN10hir_expand5files40InFileWrapper$LT$span..HirFileId$C$N$GT$24original_ast_node_rooted17h013a439a66fd8c34E"(ptr noundef nonnull %18, i32 noundef %26, ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = icmp eq ptr %30, null
   br i1 %31, label %60, label %32
@@ -22057,7 +22057,7 @@ define internal fastcc void @_ZN6ide_db14path_transform3Ctx14transform_path17h19
 203:                                              ; preds = %153
   %204 = extractvalue { ptr, ptr } %157, 0
   %205 = extractvalue { ptr, ptr } %157, 1
-  invoke void @_ZN3hir6Module13find_use_path17h741900396a1124cbE(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %27, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %26, ptr noundef nonnull align 1 %204, ptr noalias noundef readonly align 8 dereferenceable(24) %205, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %33, i1 noundef zeroext false, i1 noundef zeroext true)
+  invoke void @_ZN3hir6Module13find_use_path17h741900396a1124cbE(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %27, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %26, ptr noundef nonnull align 1 %204, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %205, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %33, i1 noundef zeroext false, i1 noundef zeroext true)
           to label %206 unwind label %54
 
 206:                                              ; preds = %203
@@ -23360,7 +23360,7 @@ define internal fastcc void @_ZN6ide_db14path_transform3Ctx14transform_path17h19
 674:                                              ; preds = %673
   %675 = extractvalue { ptr, ptr } %672, 1
   %676 = extractvalue { ptr, ptr } %672, 0
-  invoke void @_ZN3hir6Module13find_use_path17h741900396a1124cbE(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %9, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %8, ptr noundef nonnull align 1 %676, ptr noalias noundef readonly align 8 dereferenceable(24) %675, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %7, i1 noundef zeroext false, i1 noundef zeroext true)
+  invoke void @_ZN3hir6Module13find_use_path17h741900396a1124cbE(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %9, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %8, ptr noundef nonnull align 1 %676, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %675, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %7, i1 noundef zeroext false, i1 noundef zeroext true)
           to label %677 unwind label %658
 
 677:                                              ; preds = %674

@@ -5325,7 +5325,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyES
   br i1 %63, label %"_ZZN4LuauL13areCompatibleEPKNS_4TypeES2_ENK3$_0clERKNS_8PropertyEPKNS_9TableTypeE.exit.thread", label %.loopexit
 
 "_ZZN4LuauL13areCompatibleEPKNS_4TypeES2_ENK3$_0clERKNS_8PropertyEPKNS_9TableTypeE.exit.thread": ; preds = %56, %51, %59, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit, %"_ZZN4LuauL13areCompatibleEPKNS_4TypeES2_ENK3$_0clERKNS_8PropertyEPKNS_9TableTypeE.exit"
-  %64 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.052.065) #26
+  %64 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.052.065) #26
   %.not = icmp eq ptr %64, %22
   br i1 %.not, label %._crit_edge, label %27
 
@@ -5432,7 +5432,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyES
   br i1 %107, label %"_ZZN4LuauL13areCompatibleEPKNS_4TypeES2_ENK3$_0clERKNS_8PropertyEPKNS_9TableTypeE.exit43.thread", label %.loopexit
 
 "_ZZN4LuauL13areCompatibleEPKNS_4TypeES2_ENK3$_0clERKNS_8PropertyEPKNS_9TableTypeE.exit43.thread": ; preds = %100, %95, %103, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit40, %"_ZZN4LuauL13areCompatibleEPKNS_4TypeES2_ENK3$_0clERKNS_8PropertyEPKNS_9TableTypeE.exit43"
-  %108 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.046.068) #26
+  %108 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.046.068) #26
   %.not62 = icmp eq ptr %108, %67
   br i1 %.not62, label %.loopexit, label %71
 
@@ -5813,7 +5813,7 @@ _ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PKNS_11TypePackVarE.exit: ; preds = 
 110:                                              ; preds = %107
   %111 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %108) #22
+  tail call void @__cxa_free_exception(ptr nonnull %108) #22
   br label %114
 
 112:                                              ; preds = %109
@@ -5957,7 +5957,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau8Unifier211occursCheckERNS
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #22
+  tail call void @__cxa_free_exception(ptr nonnull %15) #22
   br label %common.resume
 
 19:                                               ; preds = %16

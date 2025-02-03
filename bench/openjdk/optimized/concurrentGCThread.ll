@@ -120,32 +120,36 @@ define hidden void @_ZN18ConcurrentGCThread4stopEv(ptr noundef nonnull align 8 d
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(918) %0) #4
   %7 = load ptr, ptr @Terminator_lock, align 8
   %.not.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %8
+  br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
 
-8:                                                ; preds = %1
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 917
+  %9 = load volatile i8, ptr %8, align 1
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %_ZN13MonitorLockerD2Ev.exit, label %_ZN13MonitorLocker4waitEl.exit.preheader
+
+_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread: ; preds = %1
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #4
-  br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 917
+  %12 = load volatile i8, ptr %11, align 1
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %._crit_edge.thread3, label %_ZN13MonitorLocker4waitEl.exit.preheader
 
-_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1, %8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 917
-  %10 = load volatile i8, ptr %9, align 1
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %._crit_edge, label %_ZN13MonitorLocker4waitEl.exit
+_ZN13MonitorLocker4waitEl.exit.preheader:         ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  %14 = phi ptr [ %11, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread ], [ %8, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ]
+  br label %_ZN13MonitorLocker4waitEl.exit
 
-_ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %_ZN13MonitorLocker4waitEl.exit
-  %12 = tail call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %7, i64 noundef 0) #4
-  %13 = load volatile i8, ptr %9, align 1
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %._crit_edge, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !8
+_ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLocker4waitEl.exit.preheader, %_ZN13MonitorLocker4waitEl.exit
+  %15 = tail call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %7, i64 noundef 0) #4
+  %16 = load volatile i8, ptr %14, align 1
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %._crit_edge.thread3, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %15
-
-15:                                               ; preds = %._crit_edge
+._crit_edge.thread3:                              ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #4
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %15
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %._crit_edge.thread3
   ret void
 }
 

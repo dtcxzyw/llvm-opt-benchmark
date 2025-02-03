@@ -71,7 +71,7 @@ define void @Java_sun_java2d_opengl_OGLMaskFill_maskFill(ptr noundef %0, ptr nou
 17:                                               ; preds = %10, %12
   %.0 = phi ptr [ %16, %12 ], [ null, %10 ]
   %18 = icmp eq ptr %11, null
-  br i1 %18, label %OGLMaskFill_MaskFill.exit.thread, label %19
+  br i1 %18, label %OGLMaskFill_MaskFill.exit, label %19
 
 19:                                               ; preds = %17
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -3) #2
@@ -82,7 +82,7 @@ define void @Java_sun_java2d_opengl_OGLMaskFill_maskFill(ptr noundef %0, ptr nou
   %24 = icmp sgt i32 %5, 0
   %25 = icmp sgt i32 %4, 0
   %or.cond.i = and i1 %25, %24
-  br i1 %or.cond.i, label %.lr.ph.us.i, label %OGLMaskFill_MaskFill.exit.thread21
+  br i1 %or.cond.i, label %.lr.ph.us.i, label %.loopexit
 
 .lr.ph.us.i:                                      ; preds = %19, %._crit_edge.us.i
   %.04554.us.i = phi i32 [ %37, %._crit_edge.us.i ], [ %3, %19 ]
@@ -108,26 +108,26 @@ define void @Java_sun_java2d_opengl_OGLMaskFill_maskFill(ptr noundef %0, ptr nou
 ._crit_edge.us.i:                                 ; preds = %30
   %37 = add nsw i32 %.04554.us.i, 32
   %38 = icmp slt i32 %26, %23
-  br i1 %38, label %.lr.ph.us.i, label %OGLMaskFill_MaskFill.exit.thread21, !llvm.loop !8
+  br i1 %38, label %.lr.ph.us.i, label %.loopexit, !llvm.loop !8
 
-OGLMaskFill_MaskFill.exit.thread21:               ; preds = %._crit_edge.us.i, %19
+.loopexit:                                        ; preds = %._crit_edge.us.i, %19
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #2
   %39 = load ptr, ptr @j2d_glFlush, align 8
   tail call void %39() #2
-  br label %OGLMaskFill_MaskFill.exit.thread
+  br label %OGLMaskFill_MaskFill.exit
 
-OGLMaskFill_MaskFill.exit.thread:                 ; preds = %17, %OGLMaskFill_MaskFill.exit.thread21
+OGLMaskFill_MaskFill.exit:                        ; preds = %17, %.loopexit
   %.not20 = icmp eq ptr %.0, null
   br i1 %.not20, label %44, label %40
 
-40:                                               ; preds = %OGLMaskFill_MaskFill.exit.thread
+40:                                               ; preds = %OGLMaskFill_MaskFill.exit
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1784
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %.0, i32 noundef 2) #2
   br label %44
 
-44:                                               ; preds = %40, %OGLMaskFill_MaskFill.exit.thread
+44:                                               ; preds = %40, %OGLMaskFill_MaskFill.exit
   ret void
 }
 

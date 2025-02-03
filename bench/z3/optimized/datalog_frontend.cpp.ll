@@ -1028,7 +1028,7 @@ lpad200:                                          ; preds = %if.then199
   %40 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI19out_of_memory_error
-  call void @__cxa_free_exception(ptr %exception) #19
+  call void @__cxa_free_exception(ptr nonnull %exception) #19
   br label %catch.dispatch
 
 catch.dispatch:                                   ; preds = %lpad156.loopexit, %lpad156.loopexit.split-lp, %lpad.i73, %lpad200

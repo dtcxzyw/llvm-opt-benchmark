@@ -2883,14 +2883,14 @@ _ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit:    ; preds = %_ZNSt10unique_ptrIN
   %call8 = call i64 @nghttp2_pack_settings_payload(ptr noundef %call5, i64 noundef %call7, ptr noundef %entries, i64 noundef %count) #28
   %cmp = icmp slt i64 %call8, 0
   %5 = load ptr, ptr %isolate_.i, align 8
-  br i1 %cmp, label %if.then, label %if.end
+  br i1 %cmp, label %cleanup.thread, label %if.end
 
-if.then:                                          ; preds = %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit
+cleanup.thread:                                   ; preds = %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit
   %6 = ptrtoint ptr %5 to i64
   %add1.i = add i64 %6, 608
   %7 = inttoptr i64 %add1.i to ptr
   %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %7) #28
-  br label %cleanup
+  br label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i16
 
 if.end:                                           ; preds = %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit
   call void @_ZNSt12__shared_ptrIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp25, ptr noundef nonnull align 8 dereferenceable(8) %bs)
@@ -2898,7 +2898,7 @@ if.end:                                           ; preds = %_ZN4node26NoArrayBu
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp25, i64 8
   %8 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %8, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %cleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
   %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2934,7 +2934,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %10, %if.then.i.i.i.i.i ], [ %13, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %cleanup
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %8, align 8
@@ -2959,37 +2959,35 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %16, %if.then.i.i.i.i.i.i.i ], [ %17, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %cleanup
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %8, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %18 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(16) %8) #28
-  br label %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit
+  br label %cleanup
 
-_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit:  ; preds = %if.end, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %if.end
   %call34 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call26) #28
   %call38 = call ptr @_ZN4node6Buffer3NewEPNS_11EnvironmentEN2v85LocalINS3_11ArrayBufferEEEmm(ptr noundef nonnull %env, ptr nonnull %call26, i64 noundef 0, i64 noundef %call34) #28
   %call4.i71 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %call38) #28
   %.pre = load ptr, ptr %bs, align 8
-  br label %cleanup
-
-cleanup:                                          ; preds = %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit, %if.then
-  %19 = phi ptr [ %4, %if.then ], [ %.pre, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit ]
-  %retval.sroa.0.0 = phi ptr [ %call4.i, %if.then ], [ %call4.i71, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit ]
-  %cmp.not.i15 = icmp eq ptr %19, null
+  %cmp.not.i15 = icmp eq ptr %.pre, null
   br i1 %cmp.not.i15, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit17, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i16
 
-_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i16: ; preds = %cleanup
+_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i16: ; preds = %cleanup.thread, %cleanup
+  %retval.sroa.0.021 = phi ptr [ %call4.i, %cleanup.thread ], [ %call4.i71, %cleanup ]
+  %19 = phi ptr [ %4, %cleanup.thread ], [ %.pre, %cleanup ]
   call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #28
   call void @_ZdlPv(ptr noundef nonnull %19) #28
   br label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit17
 
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit17: ; preds = %cleanup, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i16
+  %retval.sroa.0.022 = phi ptr [ %call4.i71, %cleanup ], [ %retval.sroa.0.021, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i16 ]
   store ptr null, ptr %bs, align 8
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #28
-  ret ptr %retval.sroa.0.0
+  ret ptr %retval.sroa.0.022
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

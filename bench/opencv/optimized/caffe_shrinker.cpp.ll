@@ -168,7 +168,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 40:                                               ; preds = %3
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %189
+  br label %187
 
 42:                                               ; preds = %24
   %43 = landingpad { ptr, i32 }
@@ -184,7 +184,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 46:                                               ; preds = %44, %42
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
-  br label %188
+  br label %186
 
 47:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit
   %48 = landingpad { ptr, i32 }
@@ -200,7 +200,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 51:                                               ; preds = %49, %47
   %.pn40 = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16
-  br label %188
+  br label %186
 
 52:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit54, %19
   invoke void @_ZN12opencv_caffe12NetParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(160) %12, ptr noundef null, i1 noundef zeroext false)
@@ -260,22 +260,22 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
 82:                                               ; preds = %52
   %83 = landingpad { ptr, i32 }
           cleanup
-  br label %188
+  br label %186
 
 .loopexit78:                                      ; preds = %_ZNK12opencv_caffe9BlobProto9data_sizeEv.exit59, %102, %84, %99
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit69
+  br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %63
   %lpad.loopexit80 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit69
+  br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %._crit_edge, %_ZN12opencv_caffe12NetParameterC2Ev.exit
   %lpad.loopexit.split-lp81 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit69
+  br label %.loopexit.split-lp
 
 84:                                               ; preds = %.lr.ph, %136
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %136 ]
@@ -317,7 +317,7 @@ _ZNK12opencv_caffe9BlobProto9data_sizeEv.exit:    ; preds = %84
 98:                                               ; preds = %96, %94
   %.pn44 = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #16
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit69
+  br label %.loopexit.split-lp
 
 99:                                               ; preds = %_ZNK12opencv_caffe9BlobProto9data_sizeEv.exit
   %100 = invoke noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %89)
@@ -453,7 +453,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %127,
 149:                                              ; preds = %.body, %143
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %.body ], [ %144, %143 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #16
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit69
+  br label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %136, %.preheader, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
@@ -566,40 +566,36 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
 180:                                              ; preds = %157, %156
   %181 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit69
+  br label %.loopexit.split-lp
 
 182:                                              ; preds = %164, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
   %183 = landingpad { ptr, i32 }
           cleanup
-  br label %186
+  br label %_ZNSt6vectorIhSaIhEED2Ev.exit69
 
 184:                                              ; preds = %168, %166
   %185 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %18) #16
-  br label %186
-
-186:                                              ; preds = %184, %182
-  %.pn42 = phi { ptr, i32 } [ %185, %184 ], [ %183, %182 ]
-  %.not.i.i.i68 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i68, label %_ZNSt6vectorIhSaIhEED2Ev.exit69, label %187
-
-187:                                              ; preds = %186
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #19
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit69
 
-_ZNSt6vectorIhSaIhEED2Ev.exit69:                  ; preds = %.loopexit78, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %187, %186, %180, %149, %98
-  %.pn46.pn.pn = phi { ptr, i32 } [ %.pn46.pn, %149 ], [ %.pn44, %98 ], [ %181, %180 ], [ %.pn42, %186 ], [ %.pn42, %187 ], [ %lpad.loopexit, %.loopexit78 ], [ %lpad.loopexit80, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp81, %.loopexit.split-lp.loopexit.split-lp ]
+_ZNSt6vectorIhSaIhEED2Ev.exit69:                  ; preds = %184, %182
+  %.pn42 = phi { ptr, i32 } [ %185, %184 ], [ %183, %182 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #19
+  br label %.loopexit.split-lp
+
+.loopexit.split-lp:                               ; preds = %.loopexit78, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt6vectorIhSaIhEED2Ev.exit69, %180, %149, %98
+  %.pn46.pn.pn = phi { ptr, i32 } [ %.pn46.pn, %149 ], [ %.pn44, %98 ], [ %.pn42, %_ZNSt6vectorIhSaIhEED2Ev.exit69 ], [ %181, %180 ], [ %lpad.loopexit, %.loopexit78 ], [ %lpad.loopexit80, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp81, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN12opencv_caffe12NetParameterD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %12) #16
-  br label %188
+  br label %186
 
-188:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit69, %82, %51, %46
-  %.pn46.pn.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn, %_ZNSt6vectorIhSaIhEED2Ev.exit69 ], [ %83, %82 ], [ %.pn40, %51 ], [ %.pn, %46 ]
+186:                                              ; preds = %.loopexit.split-lp, %82, %51, %46
+  %.pn46.pn.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn, %.loopexit.split-lp ], [ %83, %82 ], [ %.pn40, %51 ], [ %.pn, %46 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #16
-  br label %189
+  br label %187
 
-189:                                              ; preds = %188, %40
-  %.pn46.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn.pn, %188 ], [ %41, %40 ]
+187:                                              ; preds = %186, %40
+  %.pn46.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn.pn, %186 ], [ %41, %40 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %6) #16
   resume { ptr, i32 } %.pn46.pn.pn.pn.pn
 }

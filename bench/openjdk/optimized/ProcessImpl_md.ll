@@ -1031,7 +1031,7 @@ copystrings.exit114.i:                            ; preds = %.lr.ph.i106.i, %152
   %178 = load i32, ptr %21, align 4
   %179 = call i32 @close(i32 noundef %178) #13
   store i32 -1, ptr %21, align 4
-  call void @free(ptr noundef %108) #13
+  call void @free(ptr noundef nonnull %108) #13
   %180 = load i32, ptr %4, align 4
   br label %spawnChild.exit
 

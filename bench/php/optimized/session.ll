@@ -10990,7 +10990,7 @@ define internal i32 @OnUpdateCookieLifetime(ptr noundef %0, ptr noundef %1, ptr 
   br label %22
 
 20:                                               ; preds = %15
-  %21 = tail call i32 @OnUpdateLongGEZero(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #23
+  %21 = tail call i32 @OnUpdateLongGEZero(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #23
   br label %22
 
 22:                                               ; preds = %20, %19, %14, %9

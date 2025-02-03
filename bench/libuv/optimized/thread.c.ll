@@ -889,7 +889,7 @@ if.then.i.i:                                      ; preds = %if.then
   unreachable
 
 uv_cond_destroy.exit.i:                           ; preds = %if.then
-  %call.i3.i = tail call i32 @pthread_mutex_destroy(ptr noundef %sem.val) #11
+  %call.i3.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %sem.val) #11
   %tobool.not.i4.i = icmp eq i32 %call.i3.i, 0
   br i1 %tobool.not.i4.i, label %uv__custom_sem_destroy.exit, label %if.then.i5.i
 
@@ -898,7 +898,7 @@ if.then.i5.i:                                     ; preds = %uv_cond_destroy.exi
   unreachable
 
 uv__custom_sem_destroy.exit:                      ; preds = %uv_cond_destroy.exit.i
-  tail call void @uv__free(ptr noundef %sem.val) #11
+  tail call void @uv__free(ptr noundef nonnull %sem.val) #11
   br label %if.end
 
 if.else:                                          ; preds = %entry

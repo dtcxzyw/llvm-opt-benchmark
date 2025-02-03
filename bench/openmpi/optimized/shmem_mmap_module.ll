@@ -59,7 +59,7 @@ define internal i32 @segment_create(ptr noundef initializes((0, 5), (8, 12), (16
   store ptr inttoptr (i64 -1 to ptr), ptr %12, align 8
   %13 = load i32, ptr @opal_shmem_mmap_relocate_backing_file, align 4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %48, label %14
+  br i1 %.not, label %49, label %14
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr @opal_shmem_mmap_backing_file_base_dir, align 8
@@ -92,7 +92,7 @@ define internal i32 @segment_create(ptr noundef initializes((0, 5), (8, 12), (16
   %33 = and i32 %32, 1023
   %34 = load i8, ptr %1, align 1
   %.not7.i.i = icmp eq i8 %34, 0
-  br i1 %.not7.i.i, label %.sink.split, label %.lr.ph.i.i
+  br i1 %.not7.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %26, %.lr.ph.i.i
   %35 = phi i8 [ %40, %.lr.ph.i.i ], [ %34, %26 ]
@@ -104,7 +104,7 @@ define internal i32 @segment_create(ptr noundef initializes((0, 5), (8, 12), (16
   %39 = add i64 %38, %37
   %40 = load i8, ptr %36, align 1
   %.not.i.i = icmp eq i8 %40, 0
-  br i1 %.not.i.i, label %.sink.split, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
 get_uniq_file_name.exit.thread:                   ; preds = %20, %23
   call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %5)
@@ -119,25 +119,25 @@ get_uniq_file_name.exit.thread:                   ; preds = %20, %23
 
 46:                                               ; preds = %41
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %44, ptr noundef %45) #15
-  br label %48
+  br label %49
 
 47:                                               ; preds = %41
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %44, ptr noundef %45) #15
   br label %151
 
-48:                                               ; preds = %46, %3
-  %49 = tail call noalias ptr @strdup(ptr noundef %1) #15
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %151, label %52
-
-.sink.split:                                      ; preds = %.lr.ph.i.i, %26
-  %.lcssa.sink = phi i64 [ 0, %26 ], [ %39, %.lr.ph.i.i ]
-  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %24, i64 noundef 4097, ptr noundef nonnull @.str.12, ptr noundef %21, i32 noundef %27, i64 noundef %.lcssa.sink, i32 noundef %33) #15
+.loopexit:                                        ; preds = %.lr.ph.i.i, %26
+  %.05.lcssa.i.i = phi i64 [ 0, %26 ], [ %39, %.lr.ph.i.i ]
+  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %24, i64 noundef 4097, ptr noundef nonnull @.str.12, ptr noundef %21, i32 noundef %27, i64 noundef %.05.lcssa.i.i, i32 noundef %33) #15
   call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %5)
   br label %52
 
-52:                                               ; preds = %.sink.split, %48
-  %.152 = phi ptr [ %49, %48 ], [ %24, %.sink.split ]
+49:                                               ; preds = %46, %3
+  %50 = tail call noalias ptr @strdup(ptr noundef %1) #15
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %151, label %52
+
+52:                                               ; preds = %.loopexit, %49
+  %.152 = phi ptr [ %50, %49 ], [ %24, %.loopexit ]
   %53 = load i8, ptr @opal_shmem_mmap_nfs_warning, align 1
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %65
@@ -184,7 +184,7 @@ enough_space.exit:                                ; preds = %65
   br i1 %.not62, label %72, label %71
 
 71:                                               ; preds = %enough_space.exit.thread, %enough_space.exit
-  %.024.i88 = phi i32 [ -2, %enough_space.exit.thread ], [ %69, %enough_space.exit ]
+  %.024.i86 = phi i32 [ -2, %enough_space.exit.thread ], [ %69, %enough_space.exit ]
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %.152) #15
   br label %130
 
@@ -298,7 +298,7 @@ opal_gethostname.exit75:                          ; preds = %116, %121
 
 130:                                              ; preds = %127, %opal_gethostname.exit75, %opal_gethostname.exit73, %opal_gethostname.exit71, %opal_gethostname.exit69, %71
   %.053 = phi ptr [ inttoptr (i64 -1 to ptr), %71 ], [ inttoptr (i64 -1 to ptr), %opal_gethostname.exit71 ], [ inttoptr (i64 -1 to ptr), %opal_gethostname.exit73 ], [ inttoptr (i64 -1 to ptr), %opal_gethostname.exit75 ], [ %114, %127 ], [ inttoptr (i64 -1 to ptr), %opal_gethostname.exit69 ]
-  %.050 = phi i32 [ %.024.i88, %71 ], [ -1, %opal_gethostname.exit71 ], [ -1, %opal_gethostname.exit73 ], [ -1, %opal_gethostname.exit75 ], [ 0, %127 ], [ -2, %opal_gethostname.exit69 ]
+  %.050 = phi i32 [ %.024.i86, %71 ], [ -1, %opal_gethostname.exit71 ], [ -1, %opal_gethostname.exit73 ], [ -1, %opal_gethostname.exit75 ], [ 0, %127 ], [ -2, %opal_gethostname.exit69 ]
   %131 = load i32, ptr %9, align 8
   %.not64 = icmp eq i32 %131, -1
   br i1 %.not64, label %145, label %132
@@ -313,14 +313,14 @@ opal_gethostname.exit75:                          ; preds = %116, %121
   %136 = load i32, ptr %135, align 4
   %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %138 = icmp eq ptr %137, null
-  br i1 %138, label %139, label %.thread89
+  br i1 %138, label %139, label %.thread87
 
 139:                                              ; preds = %134
   %140 = call i32 @opal_init_gethostname() #15
   %.pre.i76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
-  br label %.thread89
+  br label %.thread87
 
-.thread89:                                        ; preds = %139, %134
+.thread87:                                        ; preds = %139, %134
   %141 = phi ptr [ %.pre.i76, %139 ], [ %137, %134 ]
   %142 = load ptr, ptr @opal_show_help, align 8
   %143 = call ptr @strerror(i32 noundef %136) #15
@@ -331,8 +331,8 @@ opal_gethostname.exit75:                          ; preds = %116, %121
   %.not66 = icmp eq i32 %.050, 0
   br i1 %.not66, label %150, label %146
 
-146:                                              ; preds = %.thread89, %145
-  %.192 = phi i32 [ -1, %.thread89 ], [ %.050, %145 ]
+146:                                              ; preds = %.thread87, %145
+  %.190 = phi i32 [ -1, %.thread87 ], [ %.050, %145 ]
   %.not67 = icmp eq ptr %.053, inttoptr (i64 -1 to ptr)
   br i1 %.not67, label %149, label %147
 
@@ -350,12 +350,12 @@ opal_gethostname.exit75:                          ; preds = %116, %121
   br label %150
 
 150:                                              ; preds = %145, %149
-  %.193 = phi i32 [ 0, %145 ], [ %.192, %149 ]
+  %.191 = phi i32 [ 0, %145 ], [ %.190, %149 ]
   call void @free(ptr noundef nonnull %.152) #15
   br label %151
 
-151:                                              ; preds = %get_uniq_file_name.exit.thread, %48, %150, %47
-  %.0 = phi i32 [ %.193, %150 ], [ -1, %47 ], [ -1, %48 ], [ -1, %get_uniq_file_name.exit.thread ]
+151:                                              ; preds = %get_uniq_file_name.exit.thread, %49, %150, %47
+  %.0 = phi i32 [ %.191, %150 ], [ -1, %47 ], [ -1, %49 ], [ -1, %get_uniq_file_name.exit.thread ]
   ret i32 %.0
 }
 

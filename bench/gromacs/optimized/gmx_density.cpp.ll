@@ -428,7 +428,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
   %135 = load ptr, ptr %31, align 8
   %136 = load i32, ptr %28, align 4
   %137 = load ptr, ptr %22, align 8
-  invoke fastcc void @_ZL21calc_electron_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfP10t_electronibS1_iPK16gmx_output_env_t(ptr noundef %127, ptr noundef %91, ptr noundef %94, ptr noundef %25, ptr noundef %81, i32 noundef %129, i32 noundef %130, i32 noundef %131, ptr noundef %26, ptr noundef %132, i32 noundef %123, i1 noundef zeroext %134, ptr noundef %135, i32 noundef %136, ptr noundef %137)
+  invoke fastcc void @_ZL21calc_electron_densityPKcPPiPKiPPPdS1_P10t_topology7PbcTypeiiPfP10t_electronibS1_iPK16gmx_output_env_t(ptr noundef %127, ptr noundef %91, ptr noundef %94, ptr noundef %25, ptr noundef nonnull %81, i32 noundef %129, i32 noundef %130, i32 noundef %131, ptr noundef %26, ptr noundef %132, i32 noundef %123, i1 noundef zeroext %134, ptr noundef %135, i32 noundef %136, ptr noundef %137)
           to label %396 unwind label %.loopexit.split-lp67.loopexit.split-lp
 
 138:                                              ; preds = %116

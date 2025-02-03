@@ -4110,7 +4110,7 @@ call6.i.noexc:                                    ; preds = %for.body.i
 if.end8.i:                                        ; preds = %call6.i.noexc, %_ZNK11ast_manager15get_num_parentsEPK3app.exit.i, %_ZNK11ast_manager8is_lemmaEPK4expr.exit.i
   %hyp_mark.0.i = phi i1 [ false, %_ZNK11ast_manager8is_lemmaEPK4expr.exit.i ], [ false, %_ZNK11ast_manager15get_num_parentsEPK3app.exit.i ], [ %call6.i172, %call6.i.noexc ]
   invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %m_hypmark.i, ptr noundef nonnull %call65, i1 noundef zeroext %hyp_mark.0.i)
-          to label %if.end105 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
+          to label %if.then.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
 invoke.cont70:                                    ; preds = %invoke.cont57
   %90 = load i32, ptr %58, align 8
@@ -4201,7 +4201,7 @@ call6.i.noexc228:                                 ; preds = %for.body.i209
 if.end8.i215:                                     ; preds = %call6.i.noexc228, %_ZNK11ast_manager15get_num_parentsEPK3app.exit.i201, %_ZNK11ast_manager8is_lemmaEPK4expr.exit.i222
   %hyp_mark.0.i216 = phi i1 [ false, %_ZNK11ast_manager8is_lemmaEPK4expr.exit.i222 ], [ false, %_ZNK11ast_manager15get_num_parentsEPK3app.exit.i201 ], [ %call6.i229, %call6.i.noexc228 ]
   invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %m_hypmark.i, ptr noundef nonnull %call78, i1 noundef zeroext %hyp_mark.0.i216)
-          to label %if.end105 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
+          to label %if.then.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
 if.else81:                                        ; preds = %if.else52, %if.else52.thread398, %invoke.cont70
   %106 = load ptr, ptr %this, align 8
@@ -4384,15 +4384,15 @@ call6.i.noexc321:                                 ; preds = %for.body.i302
 if.end8.i308:                                     ; preds = %call6.i.noexc321, %_ZNK11ast_manager15get_num_parentsEPK3app.exit.i294, %_ZNK11ast_manager8is_lemmaEPK4expr.exit.i315
   %hyp_mark.0.i309 = phi i1 [ false, %_ZNK11ast_manager8is_lemmaEPK4expr.exit.i315 ], [ false, %_ZNK11ast_manager15get_num_parentsEPK3app.exit.i294 ], [ %call6.i322, %call6.i.noexc321 ]
   invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %m_hypmark.i, ptr noundef nonnull %call99, i1 noundef zeroext %hyp_mark.0.i309)
-          to label %if.end105 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
+          to label %if.then.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
-if.end105:                                        ; preds = %for.body.i.i.i117, %for.inc36.i.i.i128, %for.body20.i.i.i125, %if.end8.i308, %if.end8.i215, %if.end8.i, %for.cond18.preheader.i.i.i123, %if.then49
-  %res.2 = phi ptr [ %71, %if.then49 ], [ %11, %for.cond18.preheader.i.i.i123 ], [ %call65, %if.end8.i ], [ %call78, %if.end8.i215 ], [ %call99, %if.end8.i308 ], [ %11, %for.body20.i.i.i125 ], [ %11, %for.inc36.i.i.i128 ], [ %11, %for.body.i.i.i117 ]
+if.end105:                                        ; preds = %for.body.i.i.i117, %for.inc36.i.i.i128, %for.body20.i.i.i125, %for.cond18.preheader.i.i.i123, %if.then49
+  %res.2 = phi ptr [ %71, %if.then49 ], [ %11, %for.cond18.preheader.i.i.i123 ], [ %11, %for.body20.i.i.i125 ], [ %11, %for.inc36.i.i.i128 ], [ %11, %for.body.i.i.i117 ]
   %tobool.not.i.i.i.i325 = icmp eq ptr %res.2, null
   br i1 %tobool.not.i.i.i.i325, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.else52.thread398, %if.else52.thread, %if.else52, %if.end105
-  %res.2390 = phi ptr [ %res.2, %if.end105 ], [ %11, %if.else52 ], [ %11, %if.else52.thread ], [ %11, %if.else52.thread398 ]
+if.then.i.i.i.i:                                  ; preds = %if.else52.thread398, %if.end8.i308, %if.end8.i215, %if.end8.i, %if.else52.thread, %if.else52, %if.end105
+  %res.2390 = phi ptr [ %res.2, %if.end105 ], [ %11, %if.else52 ], [ %11, %if.else52.thread ], [ %call65, %if.end8.i ], [ %call78, %if.end8.i215 ], [ %call99, %if.end8.i308 ], [ %11, %if.else52.thread398 ]
   %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %res.2390, i64 8
   %133 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4
   %inc.i.i.i.i.i = add i32 %133, 1

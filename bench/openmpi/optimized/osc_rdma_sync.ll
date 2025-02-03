@@ -138,7 +138,7 @@ define noundef ptr @ompi_osc_rdma_sync_allocate(ptr noundef %0) local_unnamed_ad
 
 7:                                                ; preds = %6, %1
   %.not9.i = icmp eq ptr %3, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %8
+  br i1 %.not9.i, label %opal_obj_new.exit, label %8
 
 8:                                                ; preds = %7
   store ptr @ompi_osc_rdma_sync_t_class, ptr %3, align 8
@@ -147,7 +147,7 @@ define noundef ptr @ompi_osc_rdma_sync_allocate(ptr noundef %0) local_unnamed_ad
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_rdma_sync_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i.i = icmp eq ptr %11, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread6, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
   %12 = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %8 ]
@@ -156,14 +156,14 @@ define noundef ptr @ompi_osc_rdma_sync_allocate(ptr noundef %0) local_unnamed_ad
   %13 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread6, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread6:                        ; preds = %.lr.ph.i.i, %8
+.loopexit:                                        ; preds = %.lr.ph.i.i, %8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %15, align 16
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %7, %opal_obj_new.exit.thread6
+opal_obj_new.exit:                                ; preds = %7, %.loopexit
   ret ptr %3
 }
 
@@ -209,7 +209,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %5, %8
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %13
-  tail call void @free(ptr noundef %0) #5
+  tail call void @free(ptr noundef nonnull %0) #5
   br label %21
 
 21:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit

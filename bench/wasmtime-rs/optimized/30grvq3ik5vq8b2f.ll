@@ -233,7 +233,7 @@ _ZN8smallvec10infallible17had635ac09e5b739cE.exit: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !86
   %55 = extractvalue { i32, ptr } %54, 0
   %56 = extractvalue { i32, ptr } %54, 1
-  %57 = invoke noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %56, i32 noundef %55)
+  %57 = invoke noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %56, i32 noundef %55)
           to label %94 unwind label %.loopexit71
 
 58:                                               ; preds = %.lr.ph87, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17hd1036e3eaba376d0E.exit"

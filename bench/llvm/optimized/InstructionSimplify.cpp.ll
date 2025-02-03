@@ -9355,17 +9355,17 @@ _ZNK4llvm13SimplifyQuery12isUndefValueEPNS_5ValueE.exit138.thread: ; preds = %_Z
   br label %271
 
 .critedge8:                                       ; preds = %.thread, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7bind_tyINS_8ConstantEEEEEbPT_RKT0_.exit, %_ZNK4llvm13SimplifyQuery12isUndefValueEPNS_5ValueE.exit133.thread, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7bind_tyINS_8ConstantEEEEEbPT_RKT0_.exit134
-  %257 = call fastcc noundef ptr @_ZL26simplifySelectWithICmpCondPN4llvm5ValueES1_S1_RKNS_13SimplifyQueryEj(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(58) %3, i32 noundef %4)
+  %257 = call fastcc noundef ptr @_ZL26simplifySelectWithICmpCondPN4llvm5ValueES1_S1_RKNS_13SimplifyQueryEj(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(58) %3, i32 noundef %4)
   %.not92 = icmp eq ptr %257, null
   br i1 %.not92, label %258, label %271
 
 258:                                              ; preds = %.critedge8
-  %259 = call fastcc noundef ptr @_ZL22simplifySelectWithFCmpPN4llvm5ValueES1_S1_RKNS_13SimplifyQueryE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(58) %3)
+  %259 = call fastcc noundef ptr @_ZL22simplifySelectWithFCmpPN4llvm5ValueES1_S1_RKNS_13SimplifyQueryE(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(58) %3)
   %.not93 = icmp eq ptr %259, null
   br i1 %.not93, label %260, label %271
 
 260:                                              ; preds = %258
-  %261 = call fastcc noundef ptr @_ZL22foldSelectWithBinaryOpPN4llvm5ValueES1_S1_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  %261 = call fastcc noundef ptr @_ZL22foldSelectWithBinaryOpPN4llvm5ValueES1_S1_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %.not94 = icmp eq ptr %261, null
   br i1 %.not94, label %262, label %271
 

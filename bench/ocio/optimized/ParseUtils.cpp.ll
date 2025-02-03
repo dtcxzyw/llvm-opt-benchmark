@@ -1060,7 +1060,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #23
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #23
   resume { ptr, i32 } %1
 
 switch.lookup:                                    ; preds = %entry
@@ -1535,7 +1535,7 @@ return:                                           ; preds = %entry, %sw.bb10, %s
 eh.resume:                                        ; preds = %lpad13, %lpad
   %exception12.sink = phi ptr [ %exception12, %lpad13 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %1, %lpad13 ], [ %0, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception12.sink) #23
+  tail call void @__cxa_free_exception(ptr nonnull %exception12.sink) #23
   resume { ptr, i32 } %.pn
 }
 
@@ -1709,7 +1709,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #23
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #23
   resume { ptr, i32 } %1
 
 switch.lookup:                                    ; preds = %entry
@@ -1842,7 +1842,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #23
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #23
   resume { ptr, i32 } %1
 
 switch.lookup:                                    ; preds = %entry
@@ -1975,7 +1975,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #23
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #23
   resume { ptr, i32 } %1
 
 switch.lookup:                                    ; preds = %entry

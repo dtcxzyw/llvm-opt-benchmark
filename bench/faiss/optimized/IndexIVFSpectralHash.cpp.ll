@@ -189,7 +189,7 @@ define void @_ZNK5faiss20IndexIVFSpectralHash14encode_vectorsElPKfPKlPhb(ptr nou
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #12
+  call void @__cxa_free_exception(ptr nonnull %26) #12
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -234,7 +234,7 @@ define void @_ZNK5faiss20IndexIVFSpectralHash14encode_vectorsElPKfPKlPhb(ptr nou
 50:                                               ; preds = %43
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #12
+  call void @__cxa_free_exception(ptr nonnull %46) #12
   br label %52
 
 52:                                               ; preds = %50, %48
@@ -495,7 +495,7 @@ define void @_ZN5faiss20IndexIVFSpectralHash13train_encoderElPKfPKl(ptr noundef 
 37:                                               ; preds = %30
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %33) #12
+  call void @__cxa_free_exception(ptr nonnull %33) #12
   br label %39
 
 39:                                               ; preds = %37, %35
@@ -766,7 +766,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
 160:                                              ; preds = %147
   %161 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %150) #12
+  call void @__cxa_free_exception(ptr nonnull %150) #12
   br label %162
 
 162:                                              ; preds = %160, %158
@@ -1151,7 +1151,7 @@ define noundef nonnull ptr @_ZNK5faiss20IndexIVFSpectralHash23get_InvertedListSc
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #12
+  call void @__cxa_free_exception(ptr nonnull %14) #12
   br label %20
 
 common.resume:                                    ; preds = %common.resume.i, %20
@@ -3451,7 +3451,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4E
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #12
+  call void @__cxa_free_exception(ptr nonnull %14) #12
   br label %91
 
 20:                                               ; preds = %2
@@ -3499,7 +3499,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4E
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #12
+  call void @__cxa_free_exception(ptr nonnull %41) #12
   br label %91
 
 47:                                               ; preds = %20
@@ -4006,7 +4006,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8E
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #12
+  call void @__cxa_free_exception(ptr nonnull %14) #12
   br label %91
 
 20:                                               ; preds = %2
@@ -4054,7 +4054,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8E
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #12
+  call void @__cxa_free_exception(ptr nonnull %41) #12
   br label %91
 
 47:                                               ; preds = %20
@@ -4556,7 +4556,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #12
+  call void @__cxa_free_exception(ptr nonnull %14) #12
   br label %94
 
 20:                                               ; preds = %2
@@ -4604,7 +4604,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #12
+  call void @__cxa_free_exception(ptr nonnull %41) #12
   br label %94
 
 47:                                               ; preds = %20
@@ -5093,7 +5093,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #12
+  call void @__cxa_free_exception(ptr nonnull %14) #12
   br label %98
 
 20:                                               ; preds = %2
@@ -5141,7 +5141,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #12
+  call void @__cxa_free_exception(ptr nonnull %41) #12
   br label %98
 
 47:                                               ; preds = %20
@@ -5661,7 +5661,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #12
+  call void @__cxa_free_exception(ptr nonnull %14) #12
   br label %100
 
 20:                                               ; preds = %2
@@ -5709,7 +5709,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #12
+  call void @__cxa_free_exception(ptr nonnull %41) #12
   br label %100
 
 47:                                               ; preds = %20
@@ -6262,7 +6262,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #12
+  call void @__cxa_free_exception(ptr nonnull %14) #12
   br label %112
 
 20:                                               ; preds = %2
@@ -6310,7 +6310,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #12
+  call void @__cxa_free_exception(ptr nonnull %41) #12
   br label %112
 
 47:                                               ; preds = %20
@@ -6991,7 +6991,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDe
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #12
+  call void @__cxa_free_exception(ptr nonnull %14) #12
   br label %97
 
 20:                                               ; preds = %2
@@ -7039,7 +7039,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDe
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #12
+  call void @__cxa_free_exception(ptr nonnull %41) #12
   br label %97
 
 47:                                               ; preds = %20
@@ -7819,7 +7819,7 @@ define void @_ZN5faiss20IndexIVFSpectralHash10replace_vtEPNS_15VectorTransformEb
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #12
+  call void @__cxa_free_exception(ptr nonnull %20) #12
   br label %81
 
 26:                                               ; preds = %3
@@ -7861,7 +7861,7 @@ define void @_ZN5faiss20IndexIVFSpectralHash10replace_vtEPNS_15VectorTransformEb
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #12
+  call void @__cxa_free_exception(ptr nonnull %41) #12
   br label %81
 
 47:                                               ; preds = %26
@@ -7975,7 +7975,7 @@ define void @_ZN5faiss20IndexIVFSpectralHash10replace_vtEPNS_17IndexPreTransform
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #12
+  call void @__cxa_free_exception(ptr nonnull %26) #12
   br label %113
 
 32:                                               ; preds = %3
@@ -8020,7 +8020,7 @@ define void @_ZN5faiss20IndexIVFSpectralHash10replace_vtEPNS_17IndexPreTransform
 50:                                               ; preds = %43
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #12
+  call void @__cxa_free_exception(ptr nonnull %46) #12
   br label %113
 
 52:                                               ; preds = %36
@@ -8062,7 +8062,7 @@ define void @_ZN5faiss20IndexIVFSpectralHash10replace_vtEPNS_17IndexPreTransform
 71:                                               ; preds = %64
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %67) #12
+  call void @__cxa_free_exception(ptr nonnull %67) #12
   br label %113
 
 73:                                               ; preds = %52
@@ -8102,7 +8102,7 @@ define void @_ZN5faiss20IndexIVFSpectralHash10replace_vtEPNS_17IndexPreTransform
 90:                                               ; preds = %83
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %86) #12
+  call void @__cxa_free_exception(ptr nonnull %86) #12
   br label %113
 
 92:                                               ; preds = %73
@@ -8142,7 +8142,7 @@ define void @_ZN5faiss20IndexIVFSpectralHash10replace_vtEPNS_17IndexPreTransform
 109:                                              ; preds = %102
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %105) #12
+  call void @__cxa_free_exception(ptr nonnull %105) #12
   br label %113
 
 111:                                              ; preds = %92

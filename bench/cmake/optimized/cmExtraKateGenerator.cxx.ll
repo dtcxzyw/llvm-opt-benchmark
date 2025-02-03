@@ -1671,7 +1671,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
           to label %211 unwind label %.loopexit
 
 211:                                              ; preds = %209
-  %212 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.070.0116) #20
+  %212 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.070.0116) #20
   %.not90 = icmp eq ptr %212, %161
   br i1 %.not90, label %._crit_edge120, label %.lr.ph119
 

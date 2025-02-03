@@ -8310,7 +8310,7 @@ _ZNKSt6vectorIN10open_spiel10algorithms10FSICFRNodeESaIS2_EE12_M_check_lenEmPKc.
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #23
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   invoke void @_ZN10open_spiel10algorithms10FSICFRNodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(264) %2)
-          to label %_ZNSt16allocator_traitsISaIN10open_spiel10algorithms10FSICFRNodeEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseIN10open_spiel10algorithms10FSICFRNodeESaIS2_EE13_M_deallocateEPS2_m.exit28
+          to label %_ZNSt16allocator_traitsISaIN10open_spiel10algorithms10FSICFRNodeEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit unwind label %33
 
 _ZNSt16allocator_traitsISaIN10open_spiel10algorithms10FSICFRNodeEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN10open_spiel10algorithms10FSICFRNodeESaIS2_EE12_M_check_lenEmPKc.exit
   %22 = tail call noundef ptr @_ZSt14__relocate_a_1IPN10open_spiel10algorithms10FSICFRNodeES3_SaIS2_EET0_T_S6_S5_RT1_(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %20, ptr noundef nonnull align 1 dereferenceable(1) %0) #22
@@ -8334,32 +8334,32 @@ _ZNSt12_Vector_baseIN10open_spiel10algorithms10FSICFRNodeESaIS2_EE13_M_deallocat
   store ptr %30, ptr %25, align 8
   ret void
 
-31:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel10algorithms10FSICFRNodeESaIS2_EE13_M_deallocateEPS2_m.exit28
+31:                                               ; preds = %33
   %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %36 unwind label %37
+          to label %37 unwind label %38
 
-_ZNSt12_Vector_baseIN10open_spiel10algorithms10FSICFRNodeESaIS2_EE13_M_deallocateEPS2_m.exit28: ; preds = %_ZNKSt6vectorIN10open_spiel10algorithms10FSICFRNodeESaIS2_EE12_M_check_lenEmPKc.exit
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %_ZNKSt6vectorIN10open_spiel10algorithms10FSICFRNodeESaIS2_EE12_M_check_lenEmPKc.exit
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  %35 = tail call ptr @__cxa_begin_catch(ptr %34) #22
+  %35 = extractvalue { ptr, i32 } %34, 0
+  %36 = tail call ptr @__cxa_begin_catch(ptr %35) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #25
   invoke void @__cxa_rethrow() #24
-          to label %40 unwind label %31
-
-36:                                               ; preds = %31
-  resume { ptr, i32 } %32
+          to label %41 unwind label %31
 
 37:                                               ; preds = %31
-  %38 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %32
+
+38:                                               ; preds = %31
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #26
+  %40 = extractvalue { ptr, i32 } %39, 0
+  tail call void @__clang_call_terminate(ptr %40) #26
   unreachable
 
-40:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel10algorithms10FSICFRNodeESaIS2_EE13_M_deallocateEPS2_m.exit28
+41:                                               ; preds = %33
   unreachable
 }
 

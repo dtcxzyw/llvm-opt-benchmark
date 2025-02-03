@@ -1206,7 +1206,7 @@ mm_alloc.exit75:                                  ; preds = %24
   br label %74
 
 74:                                               ; preds = %73, %._crit_edge
-  tail call void @free(ptr noundef %17) #11
+  tail call void @free(ptr noundef nonnull %17) #11
   tail call void @free(ptr noundef %28) #11
   ret void
 }

@@ -18579,7 +18579,7 @@ lpad3:                                            ; preds = %invoke.cont20.invok
 lpad5:                                            ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #26
+  call void @__cxa_free_exception(ptr nonnull %exception) #26
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
@@ -18634,7 +18634,7 @@ invoke.cont20.cont:                               ; preds = %invoke.cont20.invok
 lpad19:                                           ; preds = %invoke.cont17
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception18) #26
+  call void @__cxa_free_exception(ptr nonnull %exception18) #26
   br label %ehcleanup
 
 if.end21:                                         ; preds = %invoke.cont7
@@ -18755,7 +18755,7 @@ invoke.cont.i:                                    ; preds = %if.then.i62
 common.resume:                                    ; preds = %lpad56, %lpad78, %lpad89, %lpad100, %lpad.i
   %exception55.sink = phi ptr [ %exception55, %lpad56 ], [ %exception77, %lpad78 ], [ %exception88, %lpad89 ], [ %exception99, %lpad100 ], [ %exception.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %6, %lpad56 ], [ %10, %lpad78 ], [ %17, %lpad89 ], [ %18, %lpad100 ], [ %8, %lpad.i ]
-  call void @__cxa_free_exception(ptr %exception55.sink) #26
+  call void @__cxa_free_exception(ptr nonnull %exception55.sink) #26
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i62
@@ -75419,7 +75419,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #26
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #26
   resume { ptr, i32 } %0
 }
 
@@ -75566,7 +75566,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #26
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #26
   resume { ptr, i32 } %0
 }
 
@@ -77018,7 +77018,7 @@ if.then18:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #42
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #42
   %_M_storage.i.i.i21 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %call.i.i22 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i21, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit25 unwind label %terminate.lpad.i.i23
@@ -77124,7 +77124,7 @@ if.then50:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #42
+  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #42
   %_M_storage.i.i.i75 = getelementptr inbounds nuw i8, ptr %call.i74, i64 32
   %call.i.i76 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i75)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit79 unwind label %terminate.lpad.i.i77

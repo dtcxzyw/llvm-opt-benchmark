@@ -5112,7 +5112,7 @@ _ZN4llvm6APSIntD2Ev.exit._crit_edge:              ; preds = %_ZN4llvm6APSIntD2Ev
   br i1 %.not378, label %_ZN5clang4Expr10EvalResultD2Ev.exit401, label %183
 
 183:                                              ; preds = %173
-  call fastcc void @_ZL22builtinAllocaAddrSpaceRN5clang4SemaEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %3)
+  call fastcc void @_ZL22builtinAllocaAddrSpaceRN5clang4SemaEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %3)
   br label %_ZN5clang4Expr10EvalResultD2Ev.exit401
 
 184:                                              ; preds = %._crit_edge

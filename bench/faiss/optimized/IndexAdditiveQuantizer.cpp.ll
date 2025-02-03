@@ -440,7 +440,7 @@ define void @_ZNK5faiss22IndexAdditiveQuantizer6searchElPKflPfPlPKNS_16SearchPar
 97:                                               ; preds = %90
   %98 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %93) #16
+  call void @__cxa_free_exception(ptr nonnull %93) #16
   br label %99
 
 99:                                               ; preds = %97, %95
@@ -1205,7 +1205,7 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
 359:                                              ; preds = %349
   %360 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %355) #16
+  call void @__cxa_free_exception(ptr nonnull %355) #16
   br label %361
 
 361:                                              ; preds = %359, %357
@@ -2024,7 +2024,7 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 311:                                              ; preds = %301
   %312 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %307) #16
+  call void @__cxa_free_exception(ptr nonnull %307) #16
   br label %313
 
 313:                                              ; preds = %311, %309
@@ -2375,7 +2375,7 @@ define void @_ZN5faiss23AdditiveCoarseQuantizer5trainElPKf(ptr noundef nonnull a
 31:                                               ; preds = %24
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #16
+  call void @__cxa_free_exception(ptr nonnull %27) #16
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -2555,7 +2555,7 @@ define void @_ZNK5faiss23AdditiveCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #16
+  call void @__cxa_free_exception(ptr nonnull %19) #16
   br label %62
 
 25:                                               ; preds = %7
@@ -2617,7 +2617,7 @@ define void @_ZNK5faiss23AdditiveCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
 56:                                               ; preds = %49
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %52) #16
+  call void @__cxa_free_exception(ptr nonnull %52) #16
   br label %62
 
 58:                                               ; preds = %31
@@ -2864,7 +2864,7 @@ define void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
 34:                                               ; preds = %27
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %30) #16
+  call void @__cxa_free_exception(ptr nonnull %30) #16
   br label %36
 
 36:                                               ; preds = %34, %32
@@ -3156,7 +3156,7 @@ define void @_ZN5faiss22IndexAdditiveQuantizerC2ElPNS_17AdditiveQuantizerENS_10M
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #16
+  call void @__cxa_free_exception(ptr nonnull %18) #16
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -8333,7 +8333,7 @@ define void @_ZN5faiss23ResidualCoarseQuantizerC2EiRKSt6vectorImSaImEENS_10Metri
 36:                                               ; preds = %27
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %30) #16
+  call void @__cxa_free_exception(ptr nonnull %30) #16
   br label %38
 
 38:                                               ; preds = %36, %34
@@ -8535,7 +8535,7 @@ define void @_ZN5faiss23ResidualCoarseQuantizer15set_beam_factorEf(ptr noundef n
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #16
+  call void @__cxa_free_exception(ptr nonnull %17) #16
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -8826,7 +8826,7 @@ define void @_ZN5faiss23ResidualCoarseQuantizer15initialize_fromERKS0_(ptr nound
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #16
+  call void @__cxa_free_exception(ptr nonnull %17) #16
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -8928,7 +8928,7 @@ define void @_ZN5faiss26LocalSearchCoarseQuantizerC2EimmNS_10MetricTypeE(ptr nou
 36:                                               ; preds = %27
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %30) #16
+  call void @__cxa_free_exception(ptr nonnull %30) #16
   br label %38
 
 38:                                               ; preds = %36, %34

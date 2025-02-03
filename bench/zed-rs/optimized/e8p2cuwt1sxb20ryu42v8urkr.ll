@@ -26365,7 +26365,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %376 = extractvalue { ptr, ptr } %372, 0
   %377 = load i64, ptr %376, align 8, !range !3781, !noundef !11
   %378 = extractvalue { ptr, ptr } %372, 1
-  %379 = invoke noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20eq_ignore_ascii_case17h43a4b4b081323aacE"(ptr noalias noundef readonly align 8 dereferenceable(8) %378, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %238)
+  %379 = invoke noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20eq_ignore_ascii_case17h43a4b4b081323aacE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %378, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %238)
           to label %380 unwind label %.body25.thread37.loopexit.i.i
 
 380:                                              ; preds = %375
@@ -34259,7 +34259,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..conten
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9665)
   %19 = load ptr, ptr %18, align 8, !alias.scope !9665, !noundef !11
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h4252cbfcc29e2550E.llvm.16595843094761361803"(ptr noalias noundef align 8 dereferenceable(32) %19)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h4252cbfcc29e2550E.llvm.16595843094761361803"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19)
           to label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17h6c1dd87567f5ba26E.llvm.16595843094761361803.exit" unwind label %20, !noalias !9665
 
 common.resume:                                    ; preds = %25, %20
@@ -34281,7 +34281,7 @@ common.resume:                                    ; preds = %25, %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9668)
   %24 = load ptr, ptr %23, align 8, !alias.scope !9668, !noundef !11
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h4252cbfcc29e2550E.llvm.16595843094761361803"(ptr noalias noundef align 8 dereferenceable(32) %24)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h4252cbfcc29e2550E.llvm.16595843094761361803"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
           to label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17h6c1dd87567f5ba26E.llvm.16595843094761361803.exit3" unwind label %25, !noalias !9668
 
 25:                                               ; preds = %22
@@ -34513,7 +34513,7 @@ define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..option..Optio
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17h6c1dd87567f5ba26E.llvm.16595843094761361803"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !11
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h4252cbfcc29e2550E.llvm.16595843094761361803"(ptr noalias noundef align 8 dereferenceable(32) %2)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h4252cbfcc29e2550E.llvm.16595843094761361803"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
@@ -117301,7 +117301,7 @@ default.unreachable1100:                          ; preds = %2768, %2747, %2716,
   br i1 %1167, label %.split1091.us.thread, label %.critedge419.us
 
 .critedge419.us:                                  ; preds = %1165, %1160
-  %1168 = invoke noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step13extra_special17h8c65ed3f6cde62d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1161, ptr noalias noundef readonly align 8 dereferenceable(8) %1162)
+  %1168 = invoke noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step13extra_special17h8c65ed3f6cde62d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1161, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1162)
           to label %1169 unwind label %.loopexit.split.us
 
 1169:                                             ; preds = %.critedge419.us
@@ -117357,7 +117357,7 @@ default.unreachable1100:                          ; preds = %2768, %2747, %2716,
   ]
 
 .critedge419:                                     ; preds = %1179, %1174
-  %1181 = invoke noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step13extra_special17h8c65ed3f6cde62d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1175, ptr noalias noundef readonly align 8 dereferenceable(8) %1176)
+  %1181 = invoke noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step13extra_special17h8c65ed3f6cde62d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1175, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1176)
           to label %1184 unwind label %.loopexit.split
 
 .split1091.us:                                    ; preds = %1179, %1179

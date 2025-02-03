@@ -3806,7 +3806,7 @@ _ZN15actix_multipart6server6Safety7current17h31dc119cf176b21aE.exit.i: ; preds =
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %133 = load ptr, ptr %132, align 8, !noalias !803, !nonnull !4, !noundef !4
   %134 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  invoke void %133(ptr noalias noundef nonnull align 8 dereferenceable(8) %134, ptr noundef %128, i64 noundef %130)
+  invoke void %133(ptr noalias noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull %128, i64 noundef %130)
           to label %.body.i unwind label %163, !noalias !787
 
 135:                                              ; preds = %157, %126

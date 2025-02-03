@@ -409,7 +409,7 @@ define void @_ZN5mem_tC2Em(ptr noundef nonnull align 8 dereferenceable(64) initi
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #20
+  tail call void @__cxa_free_exception(ptr nonnull %12) #20
   br label %19
 
 16:                                               ; preds = %13

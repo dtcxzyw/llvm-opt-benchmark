@@ -249,7 +249,7 @@ define void @_ZN6gmxapi8Workflow7addNodeB5cxx11ESt10unique_ptrINS_17NodeSpecific
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #18
+  tail call void @__cxa_free_exception(ptr nonnull %3) #18
   resume { ptr, i32 } %6
 }
 

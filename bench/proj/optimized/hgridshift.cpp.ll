@@ -199,7 +199,7 @@ _ZN12_GLOBAL__N_114hgridshiftDataD2Ev.exit.i:     ; preds = %39, %_ZSt8_DestroyI
 _ZL24pj_hgridshift_destructorP8PJconstsi.exit:    ; preds = %25, %_ZN12_GLOBAL__N_114hgridshiftDataD2Ev.exit.i
   store ptr null, ptr %9, align 8
   %40 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %_ZL24pj_hgridshift_destructorP8PJconstsi.exit92
+  br label %167
 
 41:                                               ; preds = %1
   %42 = load ptr, ptr %0, align 8
@@ -268,7 +268,7 @@ _ZL24pj_hgridshift_destructorP8PJconstsi.exit:    ; preds = %25, %_ZN12_GLOBAL__
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i8 1, ptr %85, align 8
-  br label %_ZL24pj_hgridshift_destructorP8PJconstsi.exit92
+  br label %167
 
 86:                                               ; preds = %79
   %87 = load ptr, ptr %20, align 8
@@ -341,7 +341,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 108:                                              ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i8 1, ptr %109, align 8
-  br label %_ZL24pj_hgridshift_destructorP8PJconstsi.exit92
+  br label %167
 
 110:                                              ; preds = %_ZNSt5mutex4lockEv.exit
   %111 = landingpad { ptr, i32 }
@@ -441,13 +441,13 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_d
 _ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, %138
   %139 = call i32 @proj_errno(ptr noundef nonnull %0)
   %.not64 = icmp eq i32 %139, 0
-  br i1 %.not64, label %157, label %140
+  br i1 %.not64, label %156, label %140
 
 140:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %141 = load ptr, ptr %9, align 8
   %142 = icmp eq ptr %141, null
-  br i1 %142, label %155, label %143
+  br i1 %142, label %_ZL24pj_hgridshift_destructorP8PJconstsi.exit92, label %143
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 16
@@ -491,55 +491,55 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_d
 
 _ZN12_GLOBAL__N_114hgridshiftDataD2Ev.exit.i90:   ; preds = %154, %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i88
   call void @_ZdlPv(ptr noundef nonnull %141) #18
-  br label %155
-
-155:                                              ; preds = %_ZN12_GLOBAL__N_114hgridshiftDataD2Ev.exit.i90, %140
-  store ptr null, ptr %9, align 8
-  %156 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
   br label %_ZL24pj_hgridshift_destructorP8PJconstsi.exit92
 
-157:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit
-  %158 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL16gMutexHGridShift) #17
-  %.not.i93 = icmp eq i32 %158, 0
-  br i1 %.not.i93, label %_ZNSt5mutex4lockEv.exit94, label %159
+_ZL24pj_hgridshift_destructorP8PJconstsi.exit92:  ; preds = %140, %_ZN12_GLOBAL__N_114hgridshiftDataD2Ev.exit.i90
+  store ptr null, ptr %9, align 8
+  %155 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
+  br label %167
 
-159:                                              ; preds = %157
-  call void @_ZSt20__throw_system_errori(i32 noundef %158) #20
+156:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit
+  %157 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL16gMutexHGridShift) #17
+  %.not.i93 = icmp eq i32 %157, 0
+  br i1 %.not.i93, label %_ZNSt5mutex4lockEv.exit94, label %158
+
+158:                                              ; preds = %156
+  call void @_ZSt20__throw_system_errori(i32 noundef %157) #20
   unreachable
 
-_ZNSt5mutex4lockEv.exit94:                        ; preds = %157
+_ZNSt5mutex4lockEv.exit94:                        ; preds = %156
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %.sroa.02.0..sroa.02.0..cast, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %160 unwind label %164
+          to label %159 unwind label %163
 
-160:                                              ; preds = %_ZNSt5mutex4lockEv.exit94
-  %161 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZL21gKnownGridsHGridShiftB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %162 unwind label %166
+159:                                              ; preds = %_ZNSt5mutex4lockEv.exit94
+  %160 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZL21gKnownGridsHGridShiftB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %161 unwind label %165
 
-162:                                              ; preds = %160
+161:                                              ; preds = %159
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %163 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL16gMutexHGridShift) #17
-  br label %_ZL24pj_hgridshift_destructorP8PJconstsi.exit92
+  %162 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL16gMutexHGridShift) #17
+  br label %167
 
-164:                                              ; preds = %_ZNSt5mutex4lockEv.exit94
-  %165 = landingpad { ptr, i32 }
+163:                                              ; preds = %_ZNSt5mutex4lockEv.exit94
+  %164 = landingpad { ptr, i32 }
           cleanup
   br label %168
 
-166:                                              ; preds = %160
-  %167 = landingpad { ptr, i32 }
+165:                                              ; preds = %159
+  %166 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %168
 
-_ZL24pj_hgridshift_destructorP8PJconstsi.exit92:  ; preds = %155, %84, %162, %108, %_ZL24pj_hgridshift_destructorP8PJconstsi.exit
-  %.0 = phi ptr [ %40, %_ZL24pj_hgridshift_destructorP8PJconstsi.exit ], [ %0, %108 ], [ %0, %162 ], [ %0, %84 ], [ %156, %155 ]
+167:                                              ; preds = %84, %161, %108, %_ZL24pj_hgridshift_destructorP8PJconstsi.exit92, %_ZL24pj_hgridshift_destructorP8PJconstsi.exit
+  %.0 = phi ptr [ %40, %_ZL24pj_hgridshift_destructorP8PJconstsi.exit ], [ %155, %_ZL24pj_hgridshift_destructorP8PJconstsi.exit92 ], [ %0, %108 ], [ %0, %161 ], [ %0, %84 ]
   ret ptr %.0
 
-168:                                              ; preds = %164, %166, %110
-  %.sink = phi ptr [ %4, %110 ], [ %7, %166 ], [ %7, %164 ]
-  %.pn65.pn = phi { ptr, i32 } [ %111, %110 ], [ %167, %166 ], [ %165, %164 ]
+168:                                              ; preds = %163, %165, %110
+  %.sink = phi ptr [ %4, %110 ], [ %7, %165 ], [ %7, %163 ]
+  %.pn65.pn = phi { ptr, i32 } [ %111, %110 ], [ %166, %165 ], [ %164, %163 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #17
   resume { ptr, i32 } %.pn65.pn
 }

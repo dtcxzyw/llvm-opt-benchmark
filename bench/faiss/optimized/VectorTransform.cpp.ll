@@ -359,7 +359,7 @@ define void @_ZNK5faiss15LinearTransform13apply_noallocElPKfPf(ptr noundef nonnu
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #28
+  call void @__cxa_free_exception(ptr nonnull %25) #28
   br label %107
 
 31:                                               ; preds = %4
@@ -425,7 +425,7 @@ define void @_ZNK5faiss15LinearTransform13apply_noallocElPKfPf(ptr noundef nonnu
 63:                                               ; preds = %56
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %59) #28
+  call void @__cxa_free_exception(ptr nonnull %59) #28
   br label %107
 
 .preheader:                                       ; preds = %.preheader30, %._crit_edge
@@ -506,7 +506,7 @@ define void @_ZNK5faiss15LinearTransform13apply_noallocElPKfPf(ptr noundef nonnu
 102:                                              ; preds = %95
   %103 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %98) #28
+  call void @__cxa_free_exception(ptr nonnull %98) #28
   br label %107
 
 104:                                              ; preds = %.loopexit
@@ -622,7 +622,7 @@ define void @_ZNK5faiss15LinearTransform15check_identicalERKNS_15VectorTransform
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #28
+  call void @__cxa_free_exception(ptr nonnull %15) #28
   br label %80
 
 21:                                               ; preds = %2
@@ -728,7 +728,7 @@ _ZSteqIfSaIfEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.i.i.i.i.i, %
 78:                                               ; preds = %71
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %74) #28
+  call void @__cxa_free_exception(ptr nonnull %74) #28
   br label %80
 
 .loopexit:                                        ; preds = %63, %59
@@ -1032,7 +1032,7 @@ define void @_ZNK5faiss24RemapDimensionsTransform15check_identicalERKNS_15Vector
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #28
+  call void @__cxa_free_exception(ptr nonnull %15) #28
   br label %52
 
 21:                                               ; preds = %2
@@ -1093,7 +1093,7 @@ _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread16: ; preds = %21, %_ZSteqIiSaIi
 50:                                               ; preds = %43
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #28
+  call void @__cxa_free_exception(ptr nonnull %46) #28
   br label %52
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %37, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit
@@ -2776,7 +2776,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit185.thread:          ; preds = %126, %_ZNSt6vectorI
 174:                                              ; preds = %167
   %175 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %170) #28
+  call void @__cxa_free_exception(ptr nonnull %170) #28
   br label %176
 
 176:                                              ; preds = %174, %172
@@ -2878,7 +2878,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit166:            ; preds = %_ZSt6fill_nIPdmdET_
 210:                                              ; preds = %200
   %211 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %204) #28
+  call void @__cxa_free_exception(ptr nonnull %204) #28
   br label %212
 
 212:                                              ; preds = %210, %208
@@ -3253,7 +3253,7 @@ define void @_ZN5faiss12ITQTransform5trainElPKf(ptr noundef nonnull align 8 dere
 28:                                               ; preds = %21
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %24) #28
+  call void @__cxa_free_exception(ptr nonnull %24) #28
   br label %30
 
 30:                                               ; preds = %28, %26
@@ -3690,7 +3690,7 @@ define void @_ZNK5faiss12ITQTransform13apply_noallocElPKfPf(ptr noundef nonnull 
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #28
+  call void @__cxa_free_exception(ptr nonnull %18) #28
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -3807,7 +3807,7 @@ define void @_ZNK5faiss12ITQTransform15check_identicalERKNS_15VectorTransformE(p
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #28
+  call void @__cxa_free_exception(ptr nonnull %15) #28
   br label %60
 
 21:                                               ; preds = %2
@@ -3880,7 +3880,7 @@ _ZSteqIfSaIfEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.i.i.i.i.i, %
 58:                                               ; preds = %51
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %54) #28
+  call void @__cxa_free_exception(ptr nonnull %54) #28
   br label %60
 
 .loopexit:                                        ; preds = %43, %39
@@ -4324,7 +4324,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
 154:                                              ; preds = %147
   %155 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %150) #28
+  call void @__cxa_free_exception(ptr nonnull %150) #28
   br label %156
 
 156:                                              ; preds = %154, %152
@@ -4670,7 +4670,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit216.thread:          ; preds = %167
 277:                                              ; preds = %275
   store i32 -1, ptr %17, align 4
   store i32 -1, ptr %18, align 4
-  %278 = invoke i32 @sgesvd_(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.70, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef %.sroa.0261.0, ptr noundef nonnull %13, ptr noundef nonnull %210, ptr noundef nonnull %209, ptr noundef nonnull %13, ptr noundef %.sroa.0251.0, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  %278 = invoke i32 @sgesvd_(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.70, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef %.sroa.0261.0, ptr noundef nonnull %13, ptr noundef nonnull %210, ptr noundef nonnull %209, ptr noundef nonnull %13, ptr noundef nonnull %.sroa.0251.0, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %17, ptr noundef nonnull %18)
           to label %279 unwind label %.loopexit
 
 279:                                              ; preds = %277
@@ -4710,11 +4710,11 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i184: ; preds = %.noexc188
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit189:            ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i184, %.noexc188, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i182
   %.sroa.0.1 = phi ptr [ %287, %.noexc188 ], [ %287, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i184 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i182 ]
-  %291 = invoke i32 @sgesvd_(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.70, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef %.sroa.0261.0, ptr noundef nonnull %13, ptr noundef nonnull %210, ptr noundef nonnull %209, ptr noundef nonnull %13, ptr noundef %.sroa.0251.0, ptr noundef nonnull %12, ptr noundef %.sroa.0.1, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  %291 = invoke i32 @sgesvd_(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.70, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef %.sroa.0261.0, ptr noundef nonnull %13, ptr noundef nonnull %210, ptr noundef nonnull %209, ptr noundef nonnull %13, ptr noundef nonnull %.sroa.0251.0, ptr noundef nonnull %12, ptr noundef %.sroa.0.1, ptr noundef nonnull %17, ptr noundef nonnull %18)
           to label %292 unwind label %299
 
 292:                                              ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit189
-  %293 = invoke i32 @sgemm_(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef %.sroa.0251.0, ptr noundef nonnull %12, ptr noundef nonnull %209, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %.0111, ptr noundef nonnull %12)
+  %293 = invoke i32 @sgemm_(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %.sroa.0251.0, ptr noundef nonnull %12, ptr noundef nonnull %209, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %.0111, ptr noundef nonnull %12)
           to label %294 unwind label %299
 
 294:                                              ; preds = %292
@@ -5163,7 +5163,7 @@ define void @_ZNK5faiss22NormalizationTransform15check_identicalERKNS_15VectorTr
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #28
+  call void @__cxa_free_exception(ptr nonnull %15) #28
   br label %43
 
 21:                                               ; preds = %2
@@ -5205,7 +5205,7 @@ define void @_ZNK5faiss22NormalizationTransform15check_identicalERKNS_15VectorTr
 40:                                               ; preds = %33
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %36) #28
+  call void @__cxa_free_exception(ptr nonnull %36) #28
   br label %43
 
 42:                                               ; preds = %21
@@ -5270,7 +5270,7 @@ define void @_ZN5faiss18CenteringTransform5trainElPKf(ptr noundef nonnull align 
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #28
+  call void @__cxa_free_exception(ptr nonnull %16) #28
   br label %22
 
 22:                                               ; preds = %20, %18
@@ -5427,7 +5427,7 @@ define void @_ZNK5faiss18CenteringTransform13apply_noallocElPKfPf(ptr noundef no
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #28
+  call void @__cxa_free_exception(ptr nonnull %21) #28
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -5525,7 +5525,7 @@ define void @_ZNK5faiss18CenteringTransform17reverse_transformElPKfPf(ptr nounde
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #28
+  call void @__cxa_free_exception(ptr nonnull %21) #28
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -5614,7 +5614,7 @@ define void @_ZNK5faiss18CenteringTransform15check_identicalERKNS_15VectorTransf
 19:                                               ; preds = %12
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %15) #28
+  call void @__cxa_free_exception(ptr nonnull %15) #28
   br label %58
 
 21:                                               ; preds = %2
@@ -5684,7 +5684,7 @@ _ZSteqIfSaIfEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.i.i.i.i.i, %
 56:                                               ; preds = %49
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %52) #28
+  call void @__cxa_free_exception(ptr nonnull %52) #28
   br label %58
 
 .loopexit:                                        ; preds = %41, %37
@@ -5968,7 +5968,7 @@ define void @_ZNK5faiss15VectorTransform15check_identicalERKS0_(ptr noundef nonn
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #28
+  call void @__cxa_free_exception(ptr nonnull %18) #28
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -6341,7 +6341,7 @@ define void @_ZNK5faiss15LinearTransform16print_if_verboseEPKcRKSt6vectorIdSaIdE
 44:                                               ; preds = %37
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %40) #28
+  call void @__cxa_free_exception(ptr nonnull %40) #28
   br label %46
 
 46:                                               ; preds = %44, %42
@@ -6880,7 +6880,7 @@ define void @_ZN5faiss9PCAMatrix10prepare_AbEv(ptr noundef nonnull align 8 deref
 41:                                               ; preds = %32
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %37) #28
+  call void @__cxa_free_exception(ptr nonnull %37) #28
   br label %43
 
 43:                                               ; preds = %41, %39
@@ -7025,7 +7025,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %63, %65, %67, %69
 120:                                              ; preds = %113
   %121 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %116) #28
+  call void @__cxa_free_exception(ptr nonnull %116) #28
   br label %122
 
 122:                                              ; preds = %120, %118
@@ -7292,7 +7292,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit94:                  ; preds = %_ZNSt6vectorIiSaIiE
 226:                                              ; preds = %219
   %227 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %222) #28
+  call void @__cxa_free_exception(ptr nonnull %222) #28
   br label %228
 
 228:                                              ; preds = %226, %224
@@ -7752,7 +7752,7 @@ define void @_ZN5faiss9PCAMatrix9copy_fromERKS0_(ptr noundef nonnull align 8 der
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #28
+  call void @__cxa_free_exception(ptr nonnull %16) #28
   br label %22
 
 22:                                               ; preds = %20, %18
@@ -7996,7 +7996,7 @@ define void @_ZN5faiss12ITQTransformC2Eiib(ptr noundef nonnull align 8 dereferen
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #28
+  call void @__cxa_free_exception(ptr nonnull %26) #28
   br label %36
 
 36:                                               ; preds = %34, %32
@@ -8252,7 +8252,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %10
 39:                                               ; preds = %30
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %33) #28
+  call void @__cxa_free_exception(ptr nonnull %33) #28
   br label %41
 
 41:                                               ; preds = %39, %37

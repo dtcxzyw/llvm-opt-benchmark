@@ -289,7 +289,7 @@ check_pem.exit:                                   ; preds = %lor.lhs.false11.i
   br i1 %tobool15.not.i.not, label %for.end, label %if.end7
 
 if.end7:                                          ; preds = %land.lhs.true53.i, %if.end50.i, %check_pem.exit
-  tail call void @free(ptr noundef %0) #11
+  tail call void @free(ptr noundef nonnull %0) #11
   %1 = load ptr, ptr %header, align 8
   tail call void @free(ptr noundef %1) #11
   %2 = load ptr, ptr %data, align 8
@@ -325,7 +325,7 @@ err:                                              ; preds = %if.end15
 if.end22:                                         ; preds = %if.end15, %for.end, %if.end11
   %ret.017 = phi i32 [ 1, %if.end15 ], [ 0, %for.end ], [ 0, %if.end11 ]
   %tobool1915 = phi i1 [ true, %if.end15 ], [ false, %for.end ], [ false, %if.end11 ]
-  call void @free(ptr noundef %0) #11
+  call void @free(ptr noundef nonnull %0) #11
   call void @free(ptr noundef %3) #11
   br i1 %tobool1915, label %return, label %if.then24
 
@@ -1255,7 +1255,7 @@ land.lhs.true45:                                  ; preds = %while.end
 
 if.end50:                                         ; preds = %land.lhs.true45, %while.end
   call void @OPENSSL_cleanse(ptr noundef nonnull %call25, i64 noundef 8192) #11
-  call void @free(ptr noundef %call25) #11
+  call void @free(ptr noundef nonnull %call25) #11
   %call51 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str.13, i32 noundef 9) #11
   %cmp52.not = icmp eq i32 %call51, 9
   br i1 %cmp52.not, label %lor.lhs.false54, label %if.end67

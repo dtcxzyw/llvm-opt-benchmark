@@ -2622,7 +2622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit482: ; preds = %_Z
           to label %.noexc487 unwind label %.loopexit1295
 
 .noexc487:                                        ; preds = %.noexc486, %.noexc484
-  %598 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01.07.i) #30
+  %598 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.07.i) #30
   %.not.i483 = icmp eq ptr %598, %581
   br i1 %.not.i483, label %_ZN12_GLOBAL__N_114graphml_reader12handle_graphEv.exit, label %585, !llvm.loop !106
 
@@ -5971,7 +5971,7 @@ _ZN12_GLOBAL__N_114graphml_reader20handle_edge_propertyERKNSt7__cxx1112basic_str
   br label %.body.i
 
 1826:                                             ; preds = %_ZN12_GLOBAL__N_114graphml_reader20handle_edge_propertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS8_.exit.i, %1656
-  %1827 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.054.083.i) #30
+  %1827 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.054.083.i) #30
   %.not.i680 = icmp eq ptr %1827, %581
   br i1 %.not.i680, label %._crit_edge.i, label %.lr.ph.i679, !llvm.loop !194
 
@@ -7713,7 +7713,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_11parse_errorEEEv
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #26
+  tail call void @__cxa_free_exception(ptr nonnull %3) #26
   resume { ptr, i32 } %6
 }
 
@@ -9179,7 +9179,7 @@ _ZN12_GLOBAL__N_114graphml_reader20handle_node_propertyERKNSt7__cxx1112basic_str
   br label %100
 
 100:                                              ; preds = %63, %_ZN12_GLOBAL__N_114graphml_reader20handle_node_propertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_.exit
-  %101 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.07.016) #30
+  %101 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.016) #30
   %.not = icmp eq ptr %101, %59
   br i1 %.not, label %.critedge, label %63, !llvm.loop !231
 
@@ -9300,7 +9300,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_20directed_graph_
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #26
+  tail call void @__cxa_free_exception(ptr nonnull %3) #26
   resume { ptr, i32 } %6
 }
 
@@ -9320,7 +9320,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_22undirected_grap
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #26
+  tail call void @__cxa_free_exception(ptr nonnull %3) #26
   resume { ptr, i32 } %6
 }
 
@@ -9970,7 +9970,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_13property_tree10
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #26
+  tail call void @__cxa_free_exception(ptr nonnull %3) #26
   resume { ptr, i32 } %6
 }
 
@@ -12930,7 +12930,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_13property_tree10xml_
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #26
+  tail call void @__cxa_free_exception(ptr nonnull %2) #26
   resume { ptr, i32 } %5
 }
 
@@ -25241,7 +25241,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_13property_tree14
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #26
+  tail call void @__cxa_free_exception(ptr nonnull %3) #26
   resume { ptr, i32 } %6
 }
 
@@ -25985,7 +25985,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_13property_tree14ptre
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #26
+  tail call void @__cxa_free_exception(ptr nonnull %2) #26
   resume { ptr, i32 } %5
 }
 
@@ -28659,7 +28659,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_11parse_errorEE7rethr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #26
+  tail call void @__cxa_free_exception(ptr nonnull %2) #26
   resume { ptr, i32 } %5
 }
 
@@ -30898,7 +30898,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_20directed_graph_erro
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #26
+  tail call void @__cxa_free_exception(ptr nonnull %2) #26
   resume { ptr, i32 } %5
 }
 
@@ -31265,7 +31265,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_22undirected_graph_er
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #26
+  tail call void @__cxa_free_exception(ptr nonnull %2) #26
   resume { ptr, i32 } %5
 }
 
@@ -31512,7 +31512,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_17bad_parallel_ed
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #26
+  tail call void @__cxa_free_exception(ptr nonnull %3) #26
   resume { ptr, i32 } %6
 }
 
@@ -32124,7 +32124,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_17bad_parallel_edgeEE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #26
+  tail call void @__cxa_free_exception(ptr nonnull %2) #26
   resume { ptr, i32 } %5
 }
 

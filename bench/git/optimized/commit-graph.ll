@@ -2381,7 +2381,7 @@ repo_find_commit_pos_in_graph.exit:               ; preds = %land.rhs.i.i.i
 if.then:                                          ; preds = %commit_graph_position.exit.i.i, %repo_find_commit_pos_in_graph.exit
   %13 = phi ptr [ %.pre17, %repo_find_commit_pos_in_graph.exit ], [ %1, %commit_graph_position.exit.i.i ]
   %pos.110 = phi i32 [ %add.i.i.i, %repo_find_commit_pos_in_graph.exit ], [ %6, %commit_graph_position.exit.i.i ]
-  call fastcc void @fill_commit_graph_info(ptr noundef %item, ptr noundef %13, i32 noundef %pos.110)
+  call fastcc void @fill_commit_graph_info(ptr noundef nonnull %item, ptr noundef %13, i32 noundef %pos.110)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %repo_find_commit_pos_in_graph.exit.thread11, %if.then
@@ -4375,7 +4375,7 @@ if.then74.i:                                      ; preds = %land.lhs.true69.i
   br label %if.end77.i
 
 if.end77.i:                                       ; preds = %if.then74.i, %land.lhs.true69.i, %if.then64.i
-  call void @free(ptr noundef %call.i.i235) #22
+  call void @free(ptr noundef nonnull %call.i.i235) #22
   %.pre.i236 = load i32, ptr %num_commit_graphs_after12.i, align 4
   br label %if.end78.i
 
@@ -5734,7 +5734,7 @@ for.body.i457:                                    ; preds = %for.cond.i, %for.bo
   br i1 %tobool39.not.i, label %while.cond.backedge.i, label %for.cond.i
 
 if.then43.i:                                      ; preds = %for.cond.i, %for.cond.preheader.i455
-  %call45.i462 = call i32 @unlink(ptr noundef %423) #22
+  %call45.i462 = call i32 @unlink(ptr noundef nonnull %423) #22
   br label %while.cond.backedge.i
 
 if.then48.i:                                      ; preds = %while.cond.backedge.i, %strbuf_addch.exit.i

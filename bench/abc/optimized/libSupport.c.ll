@@ -115,7 +115,7 @@ define void @open_libs() local_unnamed_addr #0 {
 
 49:                                               ; preds = %43, %46
   %.3 = phi i32 [ %45, %43 ], [ %.149, %46 ]
-  tail call void @free(ptr noundef %37) #9
+  tail call void @free(ptr noundef nonnull %37) #9
   br label %50
 
 50:                                               ; preds = %31, %49, %23, %.lr.ph

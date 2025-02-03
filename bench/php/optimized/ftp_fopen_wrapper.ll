@@ -842,7 +842,7 @@ define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1
   call void @php_url_free(ptr noundef nonnull %11) #15
   br label %.thread
 
-.thread10:                                        ; preds = %111, %148, %167, %159, %160, %162, %.thread2, %68, %58, %60
+.thread10:                                        ; preds = %111, %148, %.thread2, %167, %68, %58, %60, %159, %160, %162
   call void @php_url_free(ptr noundef nonnull %11) #15
   %175 = call i32 @_php_stream_free(ptr noundef nonnull %45, i32 noundef 3) #15
   br label %.thread

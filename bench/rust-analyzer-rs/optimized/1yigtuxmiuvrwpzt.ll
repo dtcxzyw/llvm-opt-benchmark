@@ -1817,7 +1817,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$L
 15:                                               ; preds = %19, %17
   %.1.i = phi i64 [ %7, %17 ], [ %21, %19 ]
   %16 = icmp eq i64 %.1.i, %.8.val
-  br i1 %16, label %26, label %19
+  br i1 %16, label %25, label %19
 
 17:                                               ; preds = %5
   %18 = landingpad { ptr, i32 }
@@ -1838,19 +1838,15 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$L
 
 "_ZN4core3ptr64drop_in_place$LT$$u5b$syntax..syntax_error..SyntaxError$u5d$$GT$17h050533b1197d9327E.exit": ; preds = %"_ZN4core3ptr54drop_in_place$LT$syntax..syntax_error..SyntaxError$GT$17h868591e3b35e1ba0E.exit.i"
   %24 = shl nsw i64 %.8.val, 5
-  %25 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %25)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %24, i64 noundef 8) #20
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha26a5fa35dca5b4fE.exit4"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha26a5fa35dca5b4fE.exit4": ; preds = %0, %"_ZN4core3ptr64drop_in_place$LT$$u5b$syntax..syntax_error..SyntaxError$u5d$$GT$17h050533b1197d9327E.exit"
   ret void
 
-26:                                               ; preds = %15
-  %27 = shl nsw i64 %.8.val, 5
-  %28 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %28)
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %27, i64 noundef 8) #20
+25:                                               ; preds = %15
+  %26 = shl nsw i64 %.8.val, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %26, i64 noundef 8) #20
   resume { ptr, i32 } %18
 }
 
@@ -18698,7 +18694,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %37 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 3096224743817216
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc790b344d7cf3feaE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc790b344d7cf3feaE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
   store i32 0, ptr %0, align 8
   br label %"_ZN4core3ptr173drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..ProcMacroSpanQuery$GT$$GT$$GT$17h82b672e501d209dcE.exit"
 
@@ -19087,7 +19083,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %38 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 2251799813685248
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7a22d35ccb760b09E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %33, ptr noalias noundef readonly align 8 dereferenceable(24) %34, i64 %.sroa.0.0.insert.insert.i, i32 noundef %29, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7a22d35ccb760b09E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34, i64 %.sroa.0.0.insert.insert.i, i32 noundef %29, ptr noundef nonnull align 8 %4)
   store i32 0, ptr %0, align 8
   br label %"_ZN4core3ptr178drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..MacroArgQuery$GT$$GT$$GT$17hd5675da69405069cE.exit"
 
@@ -19558,7 +19554,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %37 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 2533274790395904
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h584c1b56aaeada8aE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h584c1b56aaeada8aE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
   store i32 0, ptr %0, align 8
   br label %"_ZN4core3ptr177drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..DeclMacroExpanderQuery$GT$$GT$$GT$17h9b64347b949462ebE.exit"
 
@@ -19943,7 +19939,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %37 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 2533274790395904
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf731b3b87d93ed80E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf731b3b87d93ed80E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
   store i32 0, ptr %0, align 8
   br label %"_ZN4core3ptr187drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..DeclMacroExpanderQuery$GT$$GT$$GT$17hf2e220b9ba5917e4E.exit"
 
@@ -20347,7 +20343,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %38 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 562949953421312
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h556c36e1661a306aE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %33, ptr noalias noundef readonly align 8 dereferenceable(24) %34, i64 %.sroa.0.0.insert.insert.i, i32 noundef %29, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h556c36e1661a306aE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34, i64 %.sroa.0.0.insert.insert.i, i32 noundef %29, ptr noundef nonnull align 8 %4)
   store i8 16, ptr %0, align 8
   br label %"_ZN4core3ptr189drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..ParseMacroExpansionQuery$GT$$GT$$GT$17h82ff6f52978fc916E.exit"
 
@@ -20745,7 +20741,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %39 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 3377699720527872
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h8885bb85f3471e9bE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %34, ptr noalias noundef readonly align 8 dereferenceable(24) %35, i64 %.sroa.0.0.insert.insert.i, i32 noundef %30, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h8885bb85f3471e9bE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35, i64 %.sroa.0.0.insert.insert.i, i32 noundef %30, ptr noundef nonnull align 8 %4)
   store i8 16, ptr %0, align 8
   br label %"_ZN4core3ptr184drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..ParseMacroExpansionErrorQuery$GT$$GT$$GT$17h00ea4f730b1bd3baE.exit"
 
@@ -21173,7 +21169,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %38 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 562949953421312
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd221fdf362b08121E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %33, ptr noalias noundef readonly align 8 dereferenceable(24) %34, i64 %.sroa.0.0.insert.insert.i, i32 noundef %29, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd221fdf362b08121E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34, i64 %.sroa.0.0.insert.insert.i, i32 noundef %29, ptr noundef nonnull align 8 %4)
   store i8 16, ptr %0, align 8
   br label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..ParseMacroExpansionQuery$GT$$GT$$GT$17hc9baa41eb283eb79E.exit"
 
@@ -21550,7 +21546,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %37 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 281474976710656
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf10f860695463be2E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf10f860695463be2E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
   store i32 0, ptr %0, align 8
   br label %"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..AstIdMapQuery$GT$$GT$$GT$17hab380997d9e60965E.exit"
 
@@ -21938,7 +21934,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %39 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 3377699720527872
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h70900e792cfb6b1bE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %34, ptr noalias noundef readonly align 8 dereferenceable(24) %35, i64 %.sroa.0.0.insert.insert.i, i32 noundef %30, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h70900e792cfb6b1bE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35, i64 %.sroa.0.0.insert.insert.i, i32 noundef %30, ptr noundef nonnull align 8 %4)
   store i8 16, ptr %0, align 8
   br label %"_ZN4core3ptr194drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..ParseMacroExpansionErrorQuery$GT$$GT$$GT$17h1ccce7f2b6dc757aE.exit"
 
@@ -22383,7 +22379,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %37 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 844424930131968
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9a6cd662a465f018E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9a6cd662a465f018E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
   store i32 0, ptr %0, align 8
   br label %"_ZN4core3ptr181drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..RealSpanMapQuery$GT$$GT$$GT$17h9045be8da38e31adE.exit"
 
@@ -22786,7 +22782,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %37 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 844424930131968
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h999cfc0677182255E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h999cfc0677182255E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
   store i32 0, ptr %0, align 8
   br label %"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..RealSpanMapQuery$GT$$GT$$GT$17ha83737a31dfdddd6E.exit"
 
@@ -23172,7 +23168,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %38 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 2251799813685248
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9e1fd6636c3b9bfaE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %33, ptr noalias noundef readonly align 8 dereferenceable(24) %34, i64 %.sroa.0.0.insert.insert.i, i32 noundef %29, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9e1fd6636c3b9bfaE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34, i64 %.sroa.0.0.insert.insert.i, i32 noundef %29, ptr noundef nonnull align 8 %4)
   store i32 0, ptr %0, align 8
   br label %"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..MacroArgQuery$GT$$GT$$GT$17h5e12c5900ca21537E.exit"
 
@@ -23625,7 +23621,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %37 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 281474976710656
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h42abd0373f43ff35E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h42abd0373f43ff35E(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
   store i32 0, ptr %0, align 8
   br label %"_ZN4core3ptr178drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..AstIdMapQuery$GT$$GT$$GT$17hf7277e4d2d73be1bE.exit"
 
@@ -24031,7 +24027,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %39 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 2814749767106560
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h0c025cdd7b8ddffbE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %34, ptr noalias noundef readonly align 8 dereferenceable(24) %35, i64 %.sroa.0.0.insert.insert.i, i32 noundef %30, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h0c025cdd7b8ddffbE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35, i64 %.sroa.0.0.insert.insert.i, i32 noundef %30, ptr noundef nonnull align 8 %4)
   store i8 16, ptr %0, align 8
   br label %"_ZN4core3ptr185drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..ExpandProcMacroQuery$GT$$GT$$GT$17h24f6f1a2a94b16ffE.exit"
 
@@ -24483,7 +24479,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %39 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 2814749767106560
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3dcf7063e944ae0eE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %34, ptr noalias noundef readonly align 8 dereferenceable(24) %35, i64 %.sroa.0.0.insert.insert.i, i32 noundef %30, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3dcf7063e944ae0eE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35, i64 %.sroa.0.0.insert.insert.i, i32 noundef %30, ptr noundef nonnull align 8 %4)
   store i8 16, ptr %0, align 8
   br label %"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..ExpandProcMacroQuery$GT$$GT$$GT$17h5a6e677a3daf69ebE.exit"
 
@@ -24914,7 +24910,7 @@ default.unreachable:                              ; preds = %7
   %.sroa.0.0.insert.ext.i = zext i32 %37 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, 3096224743817216
-  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9be75cfd63ade38aE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
+  tail call void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9be75cfd63ade38aE(ptr noundef nonnull align 8 %5, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, i64 %.sroa.0.0.insert.insert.i, i32 noundef %28, ptr noundef nonnull align 8 %4)
   store i32 0, ptr %0, align 8
   br label %"_ZN4core3ptr183drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$hir_expand..db..ProcMacroSpanQuery$GT$$GT$$GT$17h550d675e598e40a2E.exit"
 

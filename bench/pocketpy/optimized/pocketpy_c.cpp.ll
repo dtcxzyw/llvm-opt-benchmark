@@ -1559,7 +1559,7 @@ define internal fastcc noundef ptr @_ZL10stack_itemPN4pkpy2VMEi(ptr noundef %0, 
 58:                                               ; preds = %55
   %59 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %56) #32
+  tail call void @__cxa_free_exception(ptr nonnull %56) #32
   br label %64
 
 60:                                               ; preds = %46

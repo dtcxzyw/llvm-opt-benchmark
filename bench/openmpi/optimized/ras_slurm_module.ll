@@ -681,7 +681,7 @@ get_node_list.exit.i:                             ; preds = %._crit_edge.i.i
   br label %160
 
 160:                                              ; preds = %158, %152
-  call void @free(ptr noundef %134) #20
+  call void @free(ptr noundef nonnull %134) #20
   br label %dyn_allocate.exit
 
 dyn_allocate.exit:                                ; preds = %35, %160
@@ -2666,7 +2666,7 @@ prte_ras_slurm_parse_ranges.exit.thread145:       ; preds = %72, %._crit_edge.i,
   %148 = load i8, ptr %137, align 1
   switch i8 %148, label %151 [
     i8 44, label %149
-    i8 0, label %.loopexit
+    i8 0, label %.loopexit155
   ]
 
 149:                                              ; preds = %._crit_edge191
@@ -2674,7 +2674,7 @@ prte_ras_slurm_parse_ranges.exit.thread145:       ; preds = %72, %._crit_edge.i,
   br label %.preheader, !llvm.loop !23
 
 151:                                              ; preds = %._crit_edge191
-  br i1 %.lcssa161, label %152, label %.loopexit
+  br i1 %.lcssa161, label %152, label %.loopexit155
 
 152:                                              ; preds = %151
   %153 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, i32 noundef 1, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.38) #20
@@ -2684,13 +2684,13 @@ prte_ras_slurm_parse_ranges.exit.thread145:       ; preds = %72, %._crit_edge.i,
   call void @free(ptr noundef %114) #20
   br label %213
 
-.loopexit:                                        ; preds = %._crit_edge191, %151
+.loopexit155:                                     ; preds = %._crit_edge191, %151
   call void @free(ptr noundef %114) #20
   %155 = load ptr, ptr %4, align 8
   %.not137194 = icmp eq ptr %155, null
   br i1 %.not137194, label %.critedge, label %.lr.ph197
 
-.lr.ph197:                                        ; preds = %.loopexit
+.lr.ph197:                                        ; preds = %.loopexit155
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %157 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -2698,8 +2698,8 @@ prte_ras_slurm_parse_ranges.exit.thread145:       ; preds = %72, %._crit_edge.i,
   %.not138291 = icmp eq ptr %159, null
   br i1 %.not138291, label %.critedge, label %.lr.ph293
 
-.lr.ph293:                                        ; preds = %.lr.ph197, %pmix_obj_new_tma.exit.thread155
-  %indvars.iv225292 = phi i64 [ %indvars.iv.next226, %pmix_obj_new_tma.exit.thread155 ], [ 0, %.lr.ph197 ]
+.lr.ph293:                                        ; preds = %.lr.ph197, %.loopexit
+  %indvars.iv225292 = phi i64 [ %indvars.iv.next226, %.loopexit ], [ 0, %.lr.ph197 ]
   %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base_framework, i64 76), align 4
   %or.cond141 = icmp ult i32 %160, 64
   br i1 %or.cond141, label %161, label %175
@@ -2737,7 +2737,7 @@ prte_ras_slurm_parse_ranges.exit.thread145:       ; preds = %72, %._crit_edge.i,
 
 181:                                              ; preds = %180, %175
   %.not22.i = icmp eq ptr %177, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit.thread, label %182
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %182
 
 182:                                              ; preds = %181
   %183 = call i32 @pthread_mutex_init(ptr noundef nonnull %177, ptr noundef null) #20
@@ -2752,7 +2752,7 @@ prte_ras_slurm_parse_ranges.exit.thread145:       ; preds = %72, %._crit_edge.i,
   %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_node_t_class, i64 40), align 8
   %189 = load ptr, ptr %188, align 8
   %.not6.i.i = icmp eq ptr %189, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread155, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %182, %.lr.ph.i.i
   %190 = phi ptr [ %192, %.lr.ph.i.i ], [ %189, %182 ]
@@ -2761,15 +2761,15 @@ prte_ras_slurm_parse_ranges.exit.thread145:       ; preds = %72, %._crit_edge.i,
   %191 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %192 = load ptr, ptr %191, align 8
   %.not.i.i = icmp eq ptr %192, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread155, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !6
 
-pmix_obj_new_tma.exit.thread:                     ; preds = %181
+pmix_obj_new_tma.exit:                            ; preds = %181
   %193 = call ptr @prte_strerror(i32 noundef -2) #20
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %193, ptr noundef nonnull @.str.7, i32 noundef 563) #20
   call void @free(ptr noundef %calloc) #20
   br label %213
 
-pmix_obj_new_tma.exit.thread155:                  ; preds = %.lr.ph.i.i, %182
+.loopexit:                                        ; preds = %.lr.ph.i.i, %182
   %194 = load ptr, ptr %4, align 8
   %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv225292
   %196 = load ptr, ptr %195, align 8
@@ -2803,14 +2803,14 @@ pmix_obj_new_tma.exit.thread155:                  ; preds = %.lr.ph.i.i, %182
   %.not138 = icmp eq ptr %212, null
   br i1 %.not138, label %.critedge, label %.lr.ph293, !llvm.loop !24
 
-.critedge:                                        ; preds = %pmix_obj_new_tma.exit.thread155, %.lr.ph197, %.loopexit
-  %.lcssa = phi ptr [ null, %.loopexit ], [ %155, %.lr.ph197 ], [ %194, %pmix_obj_new_tma.exit.thread155 ]
+.critedge:                                        ; preds = %.loopexit, %.lr.ph197, %.loopexit155
+  %.lcssa = phi ptr [ null, %.loopexit155 ], [ %155, %.lr.ph197 ], [ %194, %.loopexit ]
   call void @free(ptr noundef %calloc) #20
   call void @PMIx_Argv_free(ptr noundef %.lcssa) #20
   br label %213
 
-213:                                              ; preds = %.critedge, %pmix_obj_new_tma.exit.thread, %152, %116, %111, %.loopexit158, %79, %.preheader156._crit_edge, %.loopexit157.thread, %8
-  %.0 = phi i32 [ -2, %8 ], [ -5, %.loopexit157.thread ], [ -5, %.preheader156._crit_edge ], [ %.0.i144151, %79 ], [ -2, %111 ], [ -2, %116 ], [ -2, %pmix_obj_new_tma.exit.thread ], [ 0, %.critedge ], [ -5, %152 ], [ %97, %.loopexit158 ]
+213:                                              ; preds = %.critedge, %pmix_obj_new_tma.exit, %152, %116, %111, %.loopexit158, %79, %.preheader156._crit_edge, %.loopexit157.thread, %8
+  %.0 = phi i32 [ -2, %8 ], [ -5, %.loopexit157.thread ], [ -5, %.preheader156._crit_edge ], [ %.0.i144151, %79 ], [ -2, %111 ], [ -2, %116 ], [ -2, %pmix_obj_new_tma.exit ], [ 0, %.critedge ], [ -5, %152 ], [ %97, %.loopexit158 ]
   ret i32 %.0
 }
 

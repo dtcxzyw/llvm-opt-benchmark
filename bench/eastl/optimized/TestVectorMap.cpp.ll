@@ -19010,7 +19010,7 @@ for.body.i.i272:                                  ; preds = %invoke.cont138, %ca
           to label %call7.i.noexc.i unwind label %lpad.i273
 
 call7.i.noexc.i:                                  ; preds = %for.body.i.i272
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #17
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #17
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %7
   br i1 %cmp.i.not.i.i, label %invoke.cont148.loopexit, label %for.body.i.i272, !llvm.loop !254
 
@@ -22728,7 +22728,7 @@ for.body.i.i:                                     ; preds = %invoke.cont134, %ca
           to label %call7.i.noexc.i unwind label %lpad.i
 
 call7.i.noexc.i:                                  ; preds = %for.body.i.i
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #17
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #17
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %19
   br i1 %cmp.i.not.i.i, label %invoke.cont151.loopexit, label %for.body.i.i, !llvm.loop !254
 
@@ -26453,7 +26453,7 @@ for.body.i.i163:                                  ; preds = %invoke.cont119, %ca
           to label %call7.i.noexc.i unwind label %lpad.i164
 
 call7.i.noexc.i:                                  ; preds = %for.body.i.i163
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #17
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #17
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %7
   br i1 %cmp.i.not.i.i, label %invoke.cont130.loopexit, label %for.body.i.i163, !llvm.loop !453
 
@@ -29426,7 +29426,7 @@ for.body.i.i:                                     ; preds = %invoke.cont116, %ca
           to label %call7.i.noexc.i unwind label %lpad.i
 
 call7.i.noexc.i:                                  ; preds = %for.body.i.i
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #17
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #17
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %19
   br i1 %cmp.i.not.i.i, label %invoke.cont133.loopexit, label %for.body.i.i, !llvm.loop !453
 
@@ -34224,7 +34224,7 @@ for.body.i.i:                                     ; preds = %invoke.cont137, %ca
           to label %call7.i.noexc.i unwind label %lpad.i271
 
 call7.i.noexc.i:                                  ; preds = %for.body.i.i
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #17
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #17
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %7
   br i1 %cmp.i.not.i.i, label %invoke.cont148.loopexit, label %for.body.i.i, !llvm.loop !879
 
@@ -38176,7 +38176,7 @@ for.body.i.i:                                     ; preds = %invoke.cont134, %ca
           to label %call7.i.noexc.i unwind label %lpad.i
 
 call7.i.noexc.i:                                  ; preds = %for.body.i.i
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i.i) #17
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i.i) #17
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %19
   br i1 %cmp.i.not.i.i, label %invoke.cont152.loopexit, label %for.body.i.i, !llvm.loop !879
 
@@ -140737,7 +140737,7 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIiSt4
 
 _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE17_M_insert_unique_IRS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_.exit.i: ; preds = %if.end12.i.i, %call5.i.i.i.i.i.i.i.i.noexc
   %.pr = phi i64 [ %.pr14, %if.end12.i.i ], [ %inc.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc ]
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.04.i) #17
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.04.i) #17
   %cmp.i.not.i = icmp eq ptr %call.i.i, %__last.coerce
   br i1 %cmp.i.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !5672
 

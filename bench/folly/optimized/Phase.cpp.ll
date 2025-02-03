@@ -26,7 +26,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #7
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #7
   resume { ptr, i32 } %1
 
 _ZN5folly12_GLOBAL__N_117set_process_phaseENS_12ProcessPhaseE.exit: ; preds = %entry
@@ -78,7 +78,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #7
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #7
   resume { ptr, i32 } %1
 
 "_ZZN5folly18set_process_phasesEvENK3$_0clEv.exit": ; preds = %entry

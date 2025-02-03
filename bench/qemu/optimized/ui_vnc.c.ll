@@ -3787,7 +3787,7 @@ trace_vnc_auth_fail.exit:                         ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %challenge, i64 noundef 16)
+  call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %challenge, i64 noundef 16)
   %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %10 = inttoptr i64 %9 to ptr
   %output_mutex.i.i = getelementptr inbounds nuw i8, ptr %vs, i64 49504
@@ -4493,7 +4493,7 @@ entry:
   br i1 %cmp.not, label %do.end3, label %do.end
 
 do.end:                                           ; preds = %entry
-  tail call fastcc void @vnc_disconnect_start(ptr noundef %vs)
+  tail call fastcc void @vnc_disconnect_start(ptr noundef nonnull %vs)
   br label %return
 
 do.end3:                                          ; preds = %entry

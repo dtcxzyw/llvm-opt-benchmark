@@ -293,7 +293,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
 106:                                              ; preds = %102
   %107 = ptrtoint ptr %.3.i to i64
   %108 = sub i64 %.neg116.i, %107
-  %109 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.3.i, i64 noundef %108, ptr noundef nonnull @.str.7, i32 noundef %105) #11
+  %109 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.3.i, i64 noundef %108, ptr noundef nonnull @.str.7, i32 noundef %105) #11
   %.sroa.speculated142.i = call i32 @llvm.smax.i32(i32 %109, i32 0)
   %110 = zext nneg i32 %.sroa.speculated142.i to i64
   %111 = getelementptr inbounds nuw i8, ptr %.3.i, i64 %110
@@ -312,7 +312,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   %119 = load i32, ptr %45, align 4
   %120 = load i32, ptr %46, align 4
   %121 = load i32, ptr %47, align 4
-  %122 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.5.i, i64 noundef %117, ptr noundef nonnull @.str.8, i32 noundef %118, i32 noundef %119, i32 noundef %120, i32 noundef %121) #11
+  %122 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.5.i, i64 noundef %117, ptr noundef nonnull @.str.8, i32 noundef %118, i32 noundef %119, i32 noundef %120, i32 noundef %121) #11
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %122, i32 0)
   %123 = zext nneg i32 %.sroa.speculated.i to i64
   %124 = getelementptr inbounds nuw i8, ptr %.5.i, i64 %123
@@ -526,7 +526,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
   %208 = getelementptr inbounds nuw i8, ptr %204, i64 12
   %209 = load i32, ptr %208, align 4
   %210 = add nsw i32 %209, %.0105182.i
-  %211 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.4.i37, i64 noundef %203, ptr noundef nonnull @.str.11, i32 noundef %207, i32 noundef %210) #11
+  %211 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.4.i37, i64 noundef %203, ptr noundef nonnull @.str.11, i32 noundef %207, i32 noundef %210) #11
   %.sroa.speculated158.i = call i32 @llvm.smax.i32(i32 %211, i32 0)
   %212 = zext nneg i32 %.sroa.speculated158.i to i64
   %213 = getelementptr inbounds nuw i8, ptr %.4.i37, i64 %212
@@ -538,7 +538,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
   %217 = load i32, ptr %204, align 4
   %218 = getelementptr inbounds nuw i8, ptr %204, i64 4
   %219 = load i32, ptr %218, align 4
-  %220 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %213, i64 noundef %216, ptr noundef nonnull @.str.12, i32 noundef %217, i32 noundef %219) #11
+  %220 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %213, i64 noundef %216, ptr noundef nonnull @.str.12, i32 noundef %217, i32 noundef %219) #11
   %.sroa.speculated153.i = call i32 @llvm.smax.i32(i32 %220, i32 0)
   %221 = zext nneg i32 %.sroa.speculated153.i to i64
   %222 = getelementptr inbounds nuw i8, ptr %213, i64 %221
@@ -558,7 +558,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
 228:                                              ; preds = %224
   %229 = ptrtoint ptr %.5.i38 to i64
   %230 = sub i64 %.neg.i, %229
-  %231 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.5.i38, i64 noundef %230, ptr noundef nonnull @.str.13, i32 noundef %227) #11
+  %231 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.5.i38, i64 noundef %230, ptr noundef nonnull @.str.13, i32 noundef %227) #11
   %.sroa.speculated148.i = call i32 @llvm.smax.i32(i32 %231, i32 0)
   %232 = zext nneg i32 %.sroa.speculated148.i to i64
   %233 = getelementptr inbounds nuw i8, ptr %.5.i38, i64 %232
@@ -575,7 +575,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
   %239 = sub i64 %.neg.i, %238
   %240 = load i32, ptr %12, align 4
   %241 = load i32, ptr %167, align 4
-  %242 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.6.i40, i64 noundef %239, ptr noundef nonnull @.str.14, i32 noundef %240, i32 noundef %241) #11
+  %242 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.6.i40, i64 noundef %239, ptr noundef nonnull @.str.14, i32 noundef %240, i32 noundef %241) #11
   %.sroa.speculated143.i = call i32 @llvm.smax.i32(i32 %242, i32 0)
   %243 = zext nneg i32 %.sroa.speculated143.i to i64
   %244 = getelementptr inbounds nuw i8, ptr %.6.i40, i64 %243
@@ -583,7 +583,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
   %246 = sub i64 %.neg.i, %245
   %247 = load i32, ptr %168, align 4
   %248 = load i32, ptr %169, align 4
-  %249 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %244, i64 noundef %246, ptr noundef nonnull @.str.15, i32 noundef %247, i32 noundef %248) #11
+  %249 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %244, i64 noundef %246, ptr noundef nonnull @.str.15, i32 noundef %247, i32 noundef %248) #11
   %.sroa.speculated.i41 = call i32 @llvm.smax.i32(i32 %249, i32 0)
   %250 = zext nneg i32 %.sroa.speculated.i41 to i64
   %251 = getelementptr inbounds nuw i8, ptr %244, i64 %250

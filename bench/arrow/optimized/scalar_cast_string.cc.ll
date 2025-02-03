@@ -48876,7 +48876,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad8.b
 lpad.i.i:                                         ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #24
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #24
   br label %common.resume
 
 _ZN14arrow_vendored4date10zoned_timeINSt6chrono8durationIlSt5ratioILl1ELl1EEEEPKNS0_9time_zoneEEC2ES9_RKNS2_10time_pointINS2_3_V212system_clockES6_EE.exit: ; preds = %invoke.cont4
@@ -54178,7 +54178,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad8.b
 lpad.i.i:                                         ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #24
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #24
   br label %common.resume
 
 _ZN14arrow_vendored4date10zoned_timeINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEPKNS0_9time_zoneEEC2ES9_RKNS2_10time_pointINS2_3_V212system_clockES6_EE.exit: ; preds = %invoke.cont4
@@ -59074,7 +59074,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad8.b
 lpad.i.i:                                         ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #24
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #24
   br label %common.resume
 
 _ZN14arrow_vendored4date10zoned_timeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEPKNS0_9time_zoneEEC2ES9_RKNS2_10time_pointINS2_3_V212system_clockES6_EE.exit: ; preds = %invoke.cont4
@@ -63964,7 +63964,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad8.b
 lpad.i.i:                                         ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #24
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #24
   br label %common.resume
 
 _ZN14arrow_vendored4date10zoned_timeINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEPKNS0_9time_zoneEEC2ES9_RKNS2_10time_pointINS2_3_V212system_clockES6_EE.exit: ; preds = %invoke.cont4

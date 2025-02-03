@@ -3105,7 +3105,7 @@ terminate.lpad.i86:                               ; preds = %if.then13.i.i85
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit87: ; preds = %invoke.cont19, %if.then.i.i79, %if.then13.i.i85
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0356) #25
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.0356) #25
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i67
   br i1 %cmp.i.not, label %if.end82, label %for.body, !llvm.loop !38
 
@@ -10125,7 +10125,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit719: ; preds = %invoke.cont179, %i
   br i1 %cmp, label %for.body44, label %for.inc195, !llvm.loop !104
 
 for.inc195:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit719, %for.cond40.preheader, %for.body
-  %call.i732 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.04835) #25
+  %call.i732 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.04835) #25
   %cmp.i.not = icmp eq ptr %call.i732, %add.ptr.i.i100
   br i1 %cmp.i.not, label %for.end197, label %for.body, !llvm.loop !105
 

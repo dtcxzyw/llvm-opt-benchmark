@@ -204,24 +204,24 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr.10", align 8
   %agg.tmp83 = alloca %"class.std::unique_ptr.10", align 8
   tail call void @CRYPTO_library_init()
-  %cmp339 = icmp sgt i32 %argc, 1
-  br i1 %cmp339, label %while.body.preheader, label %while.end
+  %cmp346 = icmp sgt i32 %argc, 1
+  br i1 %cmp346, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %entry
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %argv, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end14
-  %argv.addr.0342 = phi ptr [ %incdec.ptr22, %if.end14 ], [ %incdec.ptr, %while.body.preheader ]
-  %argc.addr.0.in341 = phi i32 [ %dec15, %if.end14 ], [ %argc, %while.body.preheader ]
-  %bc_file.sroa.0.0340 = phi ptr [ %call6, %if.end14 ], [ null, %while.body.preheader ]
-  %0 = load ptr, ptr %argv.addr.0342, align 8
+  %argv.addr.0349 = phi ptr [ %incdec.ptr22, %if.end14 ], [ %incdec.ptr, %while.body.preheader ]
+  %argc.addr.0.in348 = phi i32 [ %dec15, %if.end14 ], [ %argc, %while.body.preheader ]
+  %bc_file.sroa.0.0347 = phi ptr [ %call6, %if.end14 ], [ null, %while.body.preheader ]
+  %0 = load ptr, ptr %argv.addr.0349, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str) #16
   %cmp1 = icmp eq i32 %call, 0
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %cmp2 = icmp eq i32 %argc.addr.0.in341, 2
+  %cmp2 = icmp eq i32 %argc.addr.0.in348, 2
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
@@ -235,14 +235,14 @@ lpad:                                             ; preds = %while.end
   br label %ehcleanup277
 
 if.end:                                           ; preds = %if.then
-  %arrayidx = getelementptr inbounds nuw i8, ptr %argv.addr.0342, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %argv.addr.0349, i64 8
   %4 = load ptr, ptr %arrayidx, align 8
   %call6 = tail call noalias ptr @fopen(ptr noundef %4, ptr noundef nonnull @.str.2)
-  %tobool.not.i.i = icmp eq ptr %bc_file.sroa.0.0340, null
+  %tobool.not.i.i = icmp eq ptr %bc_file.sroa.0.0347, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrI8_IO_FILE10FileCloserE5resetEPS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %call.i.i.i = tail call i32 @fclose(ptr noundef nonnull %bc_file.sroa.0.0340)
+  %call.i.i.i = tail call i32 @fclose(ptr noundef nonnull %bc_file.sroa.0.0347)
   br label %_ZNSt10unique_ptrI8_IO_FILE10FileCloserE5resetEPS0_.exit
 
 _ZNSt10unique_ptrI8_IO_FILE10FileCloserE5resetEPS0_.exit: ; preds = %if.end, %if.then.i.i
@@ -259,9 +259,9 @@ if.then8:                                         ; preds = %_ZNSt10unique_ptrI8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then8, %_ZNSt10unique_ptrI8_IO_FILE10FileCloserE5resetEPS0_.exit
-  %dec15 = add nsw i32 %argc.addr.0.in341, -2
-  %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %argv.addr.0342, i64 16
-  %cmp = icmp sgt i32 %argc.addr.0.in341, 3
+  %dec15 = add nsw i32 %argc.addr.0.in348, -2
+  %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %argv.addr.0349, i64 16
+  %cmp = icmp sgt i32 %argc.addr.0.in348, 3
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 if.else:                                          ; preds = %while.body
@@ -361,7 +361,7 @@ lpad11.i:                                         ; preds = %lpad11.loopexit.spl
 for.cond.i:                                       ; preds = %invoke.cont78.i
   %inc.i = add nuw nsw i32 %i.035.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 100
-  br i1 %exitcond.not.i, label %cleanup.i, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %if.then.i26.i, label %for.body.i, !llvm.loop !9
 
 for.body.i:                                       ; preds = %for.cond.i, %for.cond.preheader.i
   %i.035.i = phi i32 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.cond.i ]
@@ -371,7 +371,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.co
 
 invoke.cont15.i:                                  ; preds = %for.body.i
   %tobool17.not.i = icmp eq i32 %call16.i, 0
-  br i1 %tobool17.not.i, label %cleanup.i, label %if.end19.i
+  br i1 %tobool17.not.i, label %if.then.i26.i, label %if.end19.i
 
 if.end19.i:                                       ; preds = %invoke.cont15.i
   %17 = load i32, ptr @_ZZL8rand_negvE3neg, align 4
@@ -393,7 +393,7 @@ if.end19.i:                                       ; preds = %invoke.cont15.i
 
 invoke.cont30.i:                                  ; preds = %if.end19.i
   %tobool32.not.i = icmp eq i32 %call31.i, 0
-  br i1 %tobool32.not.i, label %cleanup.i, label %if.end34.i
+  br i1 %tobool32.not.i, label %if.then.i26.i, label %if.end34.i
 
 if.end34.i:                                       ; preds = %invoke.cont30.i
   br i1 %cmp.not.i, label %if.end49.i, label %if.then36.i
@@ -430,7 +430,7 @@ if.end49.i:                                       ; preds = %_ZL7puts_fpP8_IO_FI
 
 invoke.cont65.i:                                  ; preds = %if.end49.i
   %tobool67.not.i = icmp eq i32 %call66.i, 0
-  br i1 %tobool67.not.i, label %cleanup.i, label %lor.lhs.false68.i
+  br i1 %tobool67.not.i, label %if.then.i26.i, label %lor.lhs.false68.i
 
 lor.lhs.false68.i:                                ; preds = %invoke.cont65.i
   %call73.i = invoke i32 @BN_add(ptr noundef nonnull %call4.i, ptr noundef nonnull %call4.i, ptr noundef nonnull %call.i2324)
@@ -438,7 +438,7 @@ lor.lhs.false68.i:                                ; preds = %invoke.cont65.i
 
 invoke.cont72.i:                                  ; preds = %lor.lhs.false68.i
   %tobool74.not.i = icmp eq i32 %call73.i, 0
-  br i1 %tobool74.not.i, label %cleanup.i, label %if.end76.i
+  br i1 %tobool74.not.i, label %if.then.i26.i, label %if.end76.i
 
 if.end76.i:                                       ; preds = %invoke.cont72.i
   %call79.i = invoke i32 @BN_is_zero(ptr noundef nonnull %call4.i)
@@ -451,15 +451,14 @@ invoke.cont78.i:                                  ; preds = %if.end76.i
 if.then81.i:                                      ; preds = %invoke.cont78.i
   %24 = load ptr, ptr @stderr, align 8
   %25 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 17, i64 1, ptr %24) #17
-  br label %cleanup.i
+  br label %if.then.i26.i
 
-cleanup.i:                                        ; preds = %invoke.cont72.i, %invoke.cont65.i, %invoke.cont30.i, %invoke.cont15.i, %for.cond.i, %if.then81.i, %lor.lhs.false.i, %invoke.cont3.i
-  %retval.0.i = phi i1 [ false, %invoke.cont3.i ], [ false, %lor.lhs.false.i ], [ false, %if.then81.i ], [ true, %for.cond.i ], [ false, %invoke.cont65.i ], [ false, %invoke.cont72.i ], [ false, %invoke.cont30.i ], [ false, %invoke.cont15.i ]
+cleanup.i:                                        ; preds = %lor.lhs.false.i, %invoke.cont3.i
   %cmp.not.i25.i = icmp eq ptr %call4.i, null
   br i1 %cmp.not.i25.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, label %if.then.i26.i
 
-if.then.i26.i:                                    ; preds = %cleanup.i, %invoke.cont12.i
-  %retval.038.i = phi i1 [ %retval.0.i, %cleanup.i ], [ false, %invoke.cont12.i ]
+if.then.i26.i:                                    ; preds = %for.cond.i, %invoke.cont15.i, %invoke.cont72.i, %invoke.cont65.i, %invoke.cont30.i, %cleanup.i, %if.then81.i, %invoke.cont12.i
+  %retval.038.i = phi i1 [ false, %cleanup.i ], [ false, %invoke.cont12.i ], [ false, %if.then81.i ], [ false, %invoke.cont15.i ], [ true, %for.cond.i ], [ false, %invoke.cont30.i ], [ false, %invoke.cont72.i ], [ false, %invoke.cont65.i ]
   invoke void @BN_free(ptr noundef nonnull %call4.i)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
@@ -471,7 +470,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i26.i
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i: ; preds = %if.then.i26.i, %cleanup.i
-  %retval.039.i = phi i1 [ %retval.0.i, %cleanup.i ], [ %retval.038.i, %if.then.i26.i ]
+  %retval.039.i = phi i1 [ false, %cleanup.i ], [ %retval.038.i, %if.then.i26.i ]
   %cmp.not.i27.i = icmp eq ptr %call1.i, null
   br i1 %cmp.not.i27.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit30.i, label %if.then.i28.i
 
@@ -577,7 +576,7 @@ lpad2.i41:                                        ; preds = %invoke.cont.i39
 for.cond.i63:                                     ; preds = %invoke.cont84.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i, 150
-  br i1 %exitcond.not.i64, label %cleanup.i48, label %for.body.i54, !llvm.loop !10
+  br i1 %exitcond.not.i64, label %if.then.i29.i, label %for.body.i54, !llvm.loop !10
 
 for.body.i54:                                     ; preds = %for.cond.i63, %for.cond.preheader.i52
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i52 ], [ %indvars.iv.next.i, %for.cond.i63 ]
@@ -590,7 +589,7 @@ if.then10.i:                                      ; preds = %for.body.i54
 
 invoke.cont13.i:                                  ; preds = %if.then10.i
   %tobool.not.i65 = icmp eq i32 %call14.i, 0
-  br i1 %tobool.not.i65, label %cleanup.i48, label %lor.lhs.false15.i
+  br i1 %tobool.not.i65, label %if.then.i29.i, label %lor.lhs.false15.i
 
 lor.lhs.false15.i:                                ; preds = %invoke.cont13.i
   %call19.i = invoke ptr @BN_copy(ptr noundef nonnull %call1.i36, ptr noundef nonnull %call.i3566)
@@ -598,7 +597,7 @@ lor.lhs.false15.i:                                ; preds = %invoke.cont13.i
 
 invoke.cont18.i:                                  ; preds = %lor.lhs.false15.i
   %tobool20.not.i = icmp eq ptr %call19.i, null
-  br i1 %tobool20.not.i, label %cleanup.i48, label %lor.lhs.false21.i
+  br i1 %tobool20.not.i, label %if.then.i29.i, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %invoke.cont18.i
   %38 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -607,7 +606,7 @@ lor.lhs.false21.i:                                ; preds = %invoke.cont18.i
 
 invoke.cont23.i:                                  ; preds = %lor.lhs.false21.i
   %tobool25.not.i = icmp eq i32 %call24.i, 0
-  br i1 %tobool25.not.i, label %cleanup.i48, label %lor.lhs.false26.i
+  br i1 %tobool25.not.i, label %if.then.i29.i, label %lor.lhs.false26.i
 
 lor.lhs.false26.i:                                ; preds = %invoke.cont23.i
   %call29.i = invoke i32 @BN_add_word(ptr noundef nonnull %call1.i36, i64 noundef %indvars.iv.i)
@@ -615,7 +614,7 @@ lor.lhs.false26.i:                                ; preds = %invoke.cont23.i
 
 invoke.cont28.i:                                  ; preds = %lor.lhs.false26.i
   %tobool30.not.i = icmp eq i32 %call29.i, 0
-  br i1 %tobool30.not.i, label %cleanup.i48, label %if.end44.i
+  br i1 %tobool30.not.i, label %if.then.i29.i, label %if.end44.i
 
 lpad12.i:                                         ; preds = %if.end82.i, %lor.lhs.false74.i, %if.end67.i, %invoke.cont62.i, %invoke.cont58.i, %if.then54.i, %if.end44.i, %if.else.i, %lor.lhs.false26.i, %lor.lhs.false21.i, %lor.lhs.false15.i, %if.then10.i
   %39 = landingpad { ptr, i32 }
@@ -631,7 +630,7 @@ if.else.i:                                        ; preds = %for.body.i54
 
 invoke.cont34.i:                                  ; preds = %if.else.i
   %tobool36.not.i = icmp eq i32 %call35.i, 0
-  br i1 %tobool36.not.i, label %cleanup.i48, label %if.end38.i
+  br i1 %tobool36.not.i, label %if.then.i29.i, label %if.end38.i
 
 if.end38.i:                                       ; preds = %invoke.cont34.i
   %42 = load i32, ptr @_ZZL8rand_negvE3neg, align 4
@@ -656,7 +655,7 @@ if.end44.i:                                       ; preds = %if.end38.i, %invoke
 
 invoke.cont48.i:                                  ; preds = %if.end44.i
   %tobool50.not.i = icmp eq i32 %call49.i, 0
-  br i1 %tobool50.not.i, label %cleanup.i48, label %if.end52.i
+  br i1 %tobool50.not.i, label %if.then.i29.i, label %if.end52.i
 
 if.end52.i:                                       ; preds = %invoke.cont48.i
   br i1 %cmp.not.i, label %if.end67.i, label %if.then54.i
@@ -685,7 +684,7 @@ if.end67.i:                                       ; preds = %_ZL7puts_fpP8_IO_FI
 
 invoke.cont71.i:                                  ; preds = %if.end67.i
   %tobool73.not.i = icmp eq i32 %call72.i, 0
-  br i1 %tobool73.not.i, label %cleanup.i48, label %lor.lhs.false74.i
+  br i1 %tobool73.not.i, label %if.then.i29.i, label %lor.lhs.false74.i
 
 lor.lhs.false74.i:                                ; preds = %invoke.cont71.i
   %call79.i60 = invoke i32 @BN_sub(ptr noundef nonnull %call4.i40, ptr noundef nonnull %call4.i40, ptr noundef nonnull %call.i3566)
@@ -693,7 +692,7 @@ lor.lhs.false74.i:                                ; preds = %invoke.cont71.i
 
 invoke.cont78.i61:                                ; preds = %lor.lhs.false74.i
   %tobool80.not.i62 = icmp eq i32 %call79.i60, 0
-  br i1 %tobool80.not.i62, label %cleanup.i48, label %if.end82.i
+  br i1 %tobool80.not.i62, label %if.then.i29.i, label %if.end82.i
 
 if.end82.i:                                       ; preds = %invoke.cont78.i61
   %call85.i = invoke i32 @BN_is_zero(ptr noundef nonnull %call4.i40)
@@ -706,14 +705,14 @@ invoke.cont84.i:                                  ; preds = %if.end82.i
 if.then87.i:                                      ; preds = %invoke.cont84.i
   %47 = load ptr, ptr @stderr, align 8
   %48 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 22, i64 1, ptr %47) #17
-  br label %cleanup.i48
+  br label %if.then.i29.i
 
-cleanup.i48:                                      ; preds = %invoke.cont78.i61, %invoke.cont71.i, %invoke.cont48.i, %invoke.cont34.i, %invoke.cont28.i, %invoke.cont23.i, %invoke.cont18.i, %invoke.cont13.i, %for.cond.i63, %if.then87.i, %lor.lhs.false.i46, %invoke.cont3.i44
-  %retval.0.i49 = phi i1 [ false, %invoke.cont3.i44 ], [ false, %lor.lhs.false.i46 ], [ false, %if.then87.i ], [ true, %for.cond.i63 ], [ false, %invoke.cont71.i ], [ false, %invoke.cont78.i61 ], [ false, %invoke.cont48.i ], [ false, %invoke.cont34.i ], [ false, %invoke.cont13.i ], [ false, %invoke.cont18.i ], [ false, %invoke.cont23.i ], [ false, %invoke.cont28.i ]
+cleanup.i48:                                      ; preds = %lor.lhs.false.i46, %invoke.cont3.i44
   %cmp.not.i28.i = icmp eq ptr %call4.i40, null
   br i1 %cmp.not.i28.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i51, label %if.then.i29.i
 
-if.then.i29.i:                                    ; preds = %cleanup.i48
+if.then.i29.i:                                    ; preds = %for.cond.i63, %invoke.cont13.i, %invoke.cont18.i, %invoke.cont23.i, %invoke.cont28.i, %invoke.cont34.i, %invoke.cont78.i61, %invoke.cont71.i, %invoke.cont48.i, %cleanup.i48, %if.then87.i
+  %retval.043.i = phi i1 [ false, %cleanup.i48 ], [ false, %if.then87.i ], [ false, %invoke.cont28.i ], [ false, %invoke.cont23.i ], [ false, %invoke.cont18.i ], [ false, %invoke.cont13.i ], [ false, %invoke.cont34.i ], [ true, %for.cond.i63 ], [ false, %invoke.cont48.i ], [ false, %invoke.cont78.i61 ], [ false, %invoke.cont71.i ]
   invoke void @BN_free(ptr noundef nonnull %call4.i40)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i51 unwind label %terminate.lpad.i.i50
 
@@ -725,6 +724,7 @@ terminate.lpad.i.i50:                             ; preds = %if.then.i29.i
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i51: ; preds = %if.then.i29.i, %cleanup.i48
+  %retval.044.i = phi i1 [ false, %cleanup.i48 ], [ %retval.043.i, %if.then.i29.i ]
   %cmp.not.i30.i = icmp eq ptr %call1.i36, null
   br i1 %cmp.not.i30.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit33.i, label %if.then.i31.i
 
@@ -767,7 +767,7 @@ invoke.cont47:                                    ; preds = %if.then.i35.i, %_ZN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %a.i32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %b.i33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %c.i34)
-  br i1 %retval.0.i49, label %if.end50, label %cleanup274
+  br i1 %retval.044.i, label %if.end50, label %cleanup274
 
 if.end50:                                         ; preds = %invoke.cont47
   br i1 %cmp.not.i, label %invoke.cont54, label %if.then.i8.i74
@@ -860,11 +860,11 @@ for.body.us.i:                                    ; preds = %if.end.i, %for.cond
 for.cond.us.i:                                    ; preds = %invoke.cont60.us.i
   %inc.us.i = add nuw nsw i32 %i.029.us.i, 1
   %exitcond34.not.i = icmp eq i32 %inc.us.i, 100
-  br i1 %exitcond34.not.i, label %cleanup.i93, label %for.body.us.i, !llvm.loop !11
+  br i1 %exitcond34.not.i, label %if.then.i20.i, label %for.body.us.i, !llvm.loop !11
 
 invoke.cont18.us.i:                               ; preds = %for.body.us.i
-  %tobool20.not.us.i = icmp eq i32 %call19.us.i, 0
-  br i1 %tobool20.not.us.i, label %cleanup.i93, label %if.end22.us.i
+  %tobool20.not.us.i.not = icmp eq i32 %call19.us.i, 0
+  br i1 %tobool20.not.us.i.not, label %if.then.i20.i, label %if.end22.us.i
 
 if.end22.us.i:                                    ; preds = %invoke.cont18.us.i
   %call39.us.i = invoke i32 @BN_add(ptr noundef nonnull %call4.i85, ptr noundef nonnull %call.i80125, ptr noundef nonnull %call.i80125)
@@ -872,7 +872,7 @@ if.end22.us.i:                                    ; preds = %invoke.cont18.us.i
 
 invoke.cont38.us.i:                               ; preds = %if.end22.us.i
   %tobool40.not.us.i = icmp eq i32 %call39.us.i, 0
-  br i1 %tobool40.not.us.i, label %cleanup.i93, label %lor.lhs.false41.us.i
+  br i1 %tobool40.not.us.i, label %if.then.i20.i, label %lor.lhs.false41.us.i
 
 lor.lhs.false41.us.i:                             ; preds = %invoke.cont38.us.i
   %call46.us.i = invoke i32 @BN_sub(ptr noundef nonnull %call.i80125, ptr noundef nonnull %call1.i81, ptr noundef nonnull %call4.i85)
@@ -880,7 +880,7 @@ lor.lhs.false41.us.i:                             ; preds = %invoke.cont38.us.i
 
 invoke.cont45.us.i:                               ; preds = %lor.lhs.false41.us.i
   %tobool47.not.us.i = icmp eq i32 %call46.us.i, 0
-  br i1 %tobool47.not.us.i, label %cleanup.i93, label %if.end49.us.i
+  br i1 %tobool47.not.us.i, label %if.then.i20.i, label %if.end49.us.i
 
 if.end49.us.i:                                    ; preds = %invoke.cont45.us.i
   %call52.us.i = invoke i32 @BN_is_zero(ptr noundef nonnull %call.i80125)
@@ -896,7 +896,7 @@ if.end57.us.i:                                    ; preds = %invoke.cont51.us.i
 
 invoke.cont60.us.i:                               ; preds = %if.end57.us.i
   %tobool62.not.us.i = icmp eq ptr %call61.us.i, null
-  br i1 %tobool62.not.us.i, label %cleanup.i93, label %for.cond.us.i
+  br i1 %tobool62.not.us.i, label %if.then.i20.i, label %for.cond.us.i
 
 lpad11.loopexit.split.us.i:                       ; preds = %if.end57.us.i, %if.end49.us.i, %lor.lhs.false41.us.i, %if.end22.us.i, %for.body.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -906,7 +906,7 @@ lpad11.loopexit.split.us.i:                       ; preds = %if.end57.us.i, %if.
 for.cond.i121:                                    ; preds = %invoke.cont60.i
   %inc.i122 = add nuw nsw i32 %i.029.i, 1
   %exitcond.not.i123 = icmp eq i32 %inc.i122, 100
-  br i1 %exitcond.not.i123, label %cleanup.i93, label %for.body.i112, !llvm.loop !11
+  br i1 %exitcond.not.i123, label %if.then.i20.i, label %for.body.i112, !llvm.loop !11
 
 for.body.i112:                                    ; preds = %if.end.i, %for.cond.i121
   %i.029.i = phi i32 [ %inc.i122, %for.cond.i121 ], [ 0, %if.end.i ]
@@ -914,8 +914,8 @@ for.body.i112:                                    ; preds = %if.end.i, %for.cond
           to label %invoke.cont18.i115 unwind label %lpad11.loopexit.split.i
 
 invoke.cont18.i115:                               ; preds = %for.body.i112
-  %tobool20.not.i116 = icmp eq i32 %call19.i113, 0
-  br i1 %tobool20.not.i116, label %cleanup.i93, label %if.end22.i
+  %tobool20.not.i116.not = icmp eq i32 %call19.i113, 0
+  br i1 %tobool20.not.i116.not, label %if.then.i20.i, label %if.end22.i
 
 if.end22.i:                                       ; preds = %invoke.cont18.i115
   %call27.i = invoke i32 @BN_print_fp(ptr noundef nonnull %bc_file.sroa.0.0.lcssa, ptr noundef nonnull %call.i80125)
@@ -934,7 +934,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit18.i:                ; preds = %invoke.cont29.i
 
 invoke.cont38.i:                                  ; preds = %_ZL7puts_fpP8_IO_FILEPKc.exit18.i
   %tobool40.not.i = icmp eq i32 %call39.i118, 0
-  br i1 %tobool40.not.i, label %cleanup.i93, label %lor.lhs.false41.i
+  br i1 %tobool40.not.i, label %if.then.i20.i, label %lor.lhs.false41.i
 
 lor.lhs.false41.i:                                ; preds = %invoke.cont38.i
   %call46.i = invoke i32 @BN_sub(ptr noundef nonnull %call.i80125, ptr noundef nonnull %call1.i81, ptr noundef nonnull %call4.i85)
@@ -942,7 +942,7 @@ lor.lhs.false41.i:                                ; preds = %invoke.cont38.i
 
 invoke.cont45.i:                                  ; preds = %lor.lhs.false41.i
   %tobool47.not.i = icmp eq i32 %call46.i, 0
-  br i1 %tobool47.not.i, label %cleanup.i93, label %if.end49.i119
+  br i1 %tobool47.not.i, label %if.then.i20.i, label %if.end49.i119
 
 if.end49.i119:                                    ; preds = %invoke.cont45.i
   %call52.i = invoke i32 @BN_is_zero(ptr noundef nonnull %call.i80125)
@@ -955,7 +955,7 @@ invoke.cont51.i:                                  ; preds = %if.end49.i119
 if.then54.i124:                                   ; preds = %invoke.cont51.i, %invoke.cont51.us.i
   %64 = load ptr, ptr @stderr, align 8
   %65 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 28, i64 1, ptr %64) #17
-  br label %cleanup.i93
+  br label %if.then.i20.i
 
 if.end57.i:                                       ; preds = %invoke.cont51.i
   %call61.i120 = invoke ptr @BN_copy(ptr noundef nonnull %call.i80125, ptr noundef nonnull %call1.i81)
@@ -963,15 +963,14 @@ if.end57.i:                                       ; preds = %invoke.cont51.i
 
 invoke.cont60.i:                                  ; preds = %if.end57.i
   %tobool62.not.i = icmp eq ptr %call61.i120, null
-  br i1 %tobool62.not.i, label %cleanup.i93, label %for.cond.i121
+  br i1 %tobool62.not.i, label %if.then.i20.i, label %for.cond.i121
 
-cleanup.i93:                                      ; preds = %invoke.cont60.i, %invoke.cont45.i, %invoke.cont38.i, %invoke.cont18.i115, %for.cond.i121, %invoke.cont60.us.i, %invoke.cont45.us.i, %invoke.cont38.us.i, %invoke.cont18.us.i, %for.cond.us.i, %if.then54.i124, %lor.lhs.false.i91, %invoke.cont3.i89
-  %retval.0.i94 = phi i1 [ false, %invoke.cont3.i89 ], [ false, %lor.lhs.false.i91 ], [ false, %if.then54.i124 ], [ true, %for.cond.us.i ], [ false, %invoke.cont60.us.i ], [ false, %invoke.cont38.us.i ], [ false, %invoke.cont45.us.i ], [ false, %invoke.cont18.us.i ], [ true, %for.cond.i121 ], [ false, %invoke.cont60.i ], [ false, %invoke.cont38.i ], [ false, %invoke.cont45.i ], [ false, %invoke.cont18.i115 ]
+cleanup.i93:                                      ; preds = %lor.lhs.false.i91, %invoke.cont3.i89
   %cmp.not.i19.i = icmp eq ptr %call4.i85, null
   br i1 %cmp.not.i19.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i96, label %if.then.i20.i
 
-if.then.i20.i:                                    ; preds = %cleanup.i93, %invoke.cont12.i105
-  %retval.037.i = phi i1 [ %retval.0.i94, %cleanup.i93 ], [ false, %invoke.cont12.i105 ]
+if.then.i20.i:                                    ; preds = %for.cond.i121, %invoke.cont18.i115, %invoke.cont60.i, %invoke.cont45.i, %invoke.cont38.i, %for.cond.us.i, %invoke.cont18.us.i, %invoke.cont60.us.i, %invoke.cont45.us.i, %invoke.cont38.us.i, %cleanup.i93, %if.then54.i124, %invoke.cont12.i105
+  %retval.037.i = phi i1 [ false, %cleanup.i93 ], [ false, %invoke.cont12.i105 ], [ false, %if.then54.i124 ], [ true, %for.cond.us.i ], [ false, %invoke.cont18.us.i ], [ false, %invoke.cont60.us.i ], [ false, %invoke.cont45.us.i ], [ false, %invoke.cont38.us.i ], [ true, %for.cond.i121 ], [ false, %invoke.cont18.i115 ], [ false, %invoke.cont60.i ], [ false, %invoke.cont45.i ], [ false, %invoke.cont38.i ]
   invoke void @BN_free(ptr noundef nonnull %call4.i85)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i96 unwind label %terminate.lpad.i.i95
 
@@ -983,7 +982,7 @@ terminate.lpad.i.i95:                             ; preds = %if.then.i20.i
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i96: ; preds = %if.then.i20.i, %cleanup.i93
-  %retval.038.i97 = phi i1 [ %retval.0.i94, %cleanup.i93 ], [ %retval.037.i, %if.then.i20.i ]
+  %retval.038.i97 = phi i1 [ false, %cleanup.i93 ], [ %retval.037.i, %if.then.i20.i ]
   %cmp.not.i21.i = icmp eq ptr %call1.i81, null
   br i1 %cmp.not.i21.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit24.i, label %if.then.i22.i
 
@@ -1408,7 +1407,7 @@ if.end271:                                        ; preds = %invoke.cont268
   br label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit231
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit231: ; preds = %if.end271, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %invoke.cont85, %invoke.cont95, %invoke.cont105, %invoke.cont115, %invoke.cont124, %invoke.cont134, %invoke.cont143, %invoke.cont153, %invoke.cont163, %invoke.cont173, %invoke.cont183, %invoke.cont197, %invoke.cont193, %invoke.cont210, %invoke.cont207, %invoke.cont220, %invoke.cont230, %invoke.cont240, %invoke.cont268, %invoke.cont265, %invoke.cont262, %invoke.cont259, %invoke.cont255, %invoke.cont251, %invoke.cont247, %invoke.cont64
-  %retval.2313 = phi i32 [ 1, %invoke.cont64 ], [ 1, %invoke.cont247 ], [ 1, %invoke.cont251 ], [ 1, %invoke.cont255 ], [ 1, %invoke.cont259 ], [ 1, %invoke.cont262 ], [ 1, %invoke.cont265 ], [ 1, %invoke.cont268 ], [ 1, %invoke.cont240 ], [ 1, %invoke.cont230 ], [ 1, %invoke.cont220 ], [ 1, %invoke.cont207 ], [ 1, %invoke.cont210 ], [ 1, %invoke.cont193 ], [ 1, %invoke.cont197 ], [ 1, %invoke.cont183 ], [ 1, %invoke.cont173 ], [ 1, %invoke.cont163 ], [ 1, %invoke.cont153 ], [ 1, %invoke.cont143 ], [ 1, %invoke.cont134 ], [ 1, %invoke.cont124 ], [ 1, %invoke.cont115 ], [ 1, %invoke.cont105 ], [ 1, %invoke.cont95 ], [ 1, %invoke.cont85 ], [ 1, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ 0, %if.end271 ]
+  %retval.2319 = phi i32 [ 1, %invoke.cont64 ], [ 1, %invoke.cont247 ], [ 1, %invoke.cont251 ], [ 1, %invoke.cont255 ], [ 1, %invoke.cont259 ], [ 1, %invoke.cont262 ], [ 1, %invoke.cont265 ], [ 1, %invoke.cont268 ], [ 1, %invoke.cont240 ], [ 1, %invoke.cont230 ], [ 1, %invoke.cont220 ], [ 1, %invoke.cont207 ], [ 1, %invoke.cont210 ], [ 1, %invoke.cont193 ], [ 1, %invoke.cont197 ], [ 1, %invoke.cont183 ], [ 1, %invoke.cont173 ], [ 1, %invoke.cont163 ], [ 1, %invoke.cont153 ], [ 1, %invoke.cont143 ], [ 1, %invoke.cont134 ], [ 1, %invoke.cont124 ], [ 1, %invoke.cont115 ], [ 1, %invoke.cont105 ], [ 1, %invoke.cont95 ], [ 1, %invoke.cont85 ], [ 1, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ 0, %if.end271 ]
   store ptr null, ptr %sample, align 8
   br label %cleanup274
 
@@ -1418,13 +1417,13 @@ ehcleanup:                                        ; preds = %lpad84, %lpad77, %l
   br label %ehcleanup275
 
 cleanup274:                                       ; preds = %invoke.cont56, %invoke.cont47, %invoke.cont38, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit231
-  %retval.1.ph = phi i32 [ 1, %invoke.cont56 ], [ 1, %invoke.cont47 ], [ 1, %invoke.cont38 ], [ %retval.2313, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit231 ]
-  %.pr314 = load ptr, ptr %ctx, align 8
-  %cmp.not.i232 = icmp eq ptr %.pr314, null
+  %retval.1.ph = phi i32 [ 1, %invoke.cont56 ], [ 1, %invoke.cont47 ], [ 1, %invoke.cont38 ], [ %retval.2319, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit231 ]
+  %.pr320 = load ptr, ptr %ctx, align 8
+  %cmp.not.i232 = icmp eq ptr %.pr320, null
   br i1 %cmp.not.i232, label %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit, label %if.then.i233
 
 if.then.i233:                                     ; preds = %cleanup274
-  invoke void @BN_CTX_free(ptr noundef nonnull %.pr314)
+  invoke void @BN_CTX_free(ptr noundef nonnull %.pr320)
           to label %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit unwind label %terminate.lpad.i234
 
 terminate.lpad.i234:                              ; preds = %if.then.i233
@@ -1435,7 +1434,7 @@ terminate.lpad.i234:                              ; preds = %if.then.i233
   unreachable
 
 _ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit: ; preds = %invoke.cont23, %cleanup274, %if.then.i233
-  %retval.1317 = phi i32 [ %retval.1.ph, %cleanup274 ], [ %retval.1.ph, %if.then.i233 ], [ 1, %invoke.cont23 ]
+  %retval.1323 = phi i32 [ %retval.1.ph, %cleanup274 ], [ %retval.1.ph, %if.then.i233 ], [ 1, %invoke.cont23 ]
   store ptr null, ptr %ctx, align 8
   br label %cleanup276
 
@@ -1445,13 +1444,13 @@ ehcleanup275:                                     ; preds = %ehcleanup87.i, %lpa
   br label %ehcleanup277
 
 cleanup276:                                       ; preds = %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit, %if.else, %if.then3
-  %bc_file.sroa.0.0334 = phi ptr [ %bc_file.sroa.0.0340, %if.then3 ], [ %bc_file.sroa.0.0340, %if.else ], [ %bc_file.sroa.0.0.lcssa, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit ]
-  %retval.0 = phi i32 [ 1, %if.then3 ], [ 1, %if.else ], [ %retval.1317, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit ]
-  %cmp.not.i236 = icmp eq ptr %bc_file.sroa.0.0334, null
+  %bc_file.sroa.0.0341 = phi ptr [ %bc_file.sroa.0.0347, %if.then3 ], [ %bc_file.sroa.0.0347, %if.else ], [ %bc_file.sroa.0.0.lcssa, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit ]
+  %retval.0 = phi i32 [ 1, %if.then3 ], [ 1, %if.else ], [ %retval.1323, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit ]
+  %cmp.not.i236 = icmp eq ptr %bc_file.sroa.0.0341, null
   br i1 %cmp.not.i236, label %_ZNSt10unique_ptrI8_IO_FILE10FileCloserED2Ev.exit, label %if.then.i237
 
 if.then.i237:                                     ; preds = %cleanup276
-  %call.i.i = call i32 @fclose(ptr noundef nonnull %bc_file.sroa.0.0334)
+  %call.i.i = call i32 @fclose(ptr noundef nonnull %bc_file.sroa.0.0341)
   br label %_ZNSt10unique_ptrI8_IO_FILE10FileCloserED2Ev.exit
 
 _ZNSt10unique_ptrI8_IO_FILE10FileCloserED2Ev.exit: ; preds = %cleanup276, %if.then.i237
@@ -1632,7 +1631,7 @@ if.end40.us:                                      ; preds = %invoke.cont36.us
 
 invoke.cont59.us:                                 ; preds = %if.end40.us
   %tobool61.not.us = icmp eq i32 %call60.us, 0
-  br i1 %tobool61.not.us, label %cleanup, label %lor.lhs.false62.us
+  br i1 %tobool61.not.us, label %if.then.i24, label %lor.lhs.false62.us
 
 lor.lhs.false62.us:                               ; preds = %invoke.cont59.us
   %call67.us = invoke i32 @BN_sub(ptr noundef nonnull %call13, ptr noundef nonnull %call13, ptr noundef nonnull %call9)
@@ -1640,7 +1639,7 @@ lor.lhs.false62.us:                               ; preds = %invoke.cont59.us
 
 invoke.cont66.us:                                 ; preds = %lor.lhs.false62.us
   %tobool68.not.us = icmp eq i32 %call67.us, 0
-  br i1 %tobool68.not.us, label %cleanup, label %if.end70.us
+  br i1 %tobool68.not.us, label %if.then.i24, label %if.end70.us
 
 if.end70.us:                                      ; preds = %invoke.cont66.us
   %call73.us = invoke i32 @BN_is_zero(ptr noundef nonnull %call13)
@@ -1726,7 +1725,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit22:                  ; preds = %invoke.cont50
 
 invoke.cont59:                                    ; preds = %_ZL7puts_fpP8_IO_FILEPKc.exit22
   %tobool61.not = icmp eq i32 %call60, 0
-  br i1 %tobool61.not, label %cleanup, label %lor.lhs.false62
+  br i1 %tobool61.not, label %if.then.i24, label %lor.lhs.false62
 
 lor.lhs.false62:                                  ; preds = %invoke.cont59
   %call67 = invoke i32 @BN_sub(ptr noundef nonnull %call13, ptr noundef nonnull %call13, ptr noundef nonnull %call9)
@@ -1734,7 +1733,7 @@ lor.lhs.false62:                                  ; preds = %invoke.cont59
 
 invoke.cont66:                                    ; preds = %lor.lhs.false62
   %tobool68.not = icmp eq i32 %call67, 0
-  br i1 %tobool68.not, label %cleanup, label %if.end70
+  br i1 %tobool68.not, label %if.then.i24, label %if.end70
 
 if.end70:                                         ; preds = %invoke.cont66
   %call73 = invoke i32 @BN_is_zero(ptr noundef nonnull %call13)
@@ -1778,15 +1777,15 @@ invoke.cont91:                                    ; preds = %invoke.cont86
 invoke.cont96:                                    ; preds = %invoke.cont91
   %32 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %32)
-  br label %cleanup
+  br label %if.then.i24
 
-cleanup:                                          ; preds = %invoke.cont36, %invoke.cont29, %invoke.cont66, %invoke.cont59, %for.cond, %for.cond.us, %invoke.cont29.us, %invoke.cont36.us, %invoke.cont59.us, %invoke.cont66.us, %lor.lhs.false15, %invoke.cont96, %invoke.cont12
-  %retval.1 = phi i1 [ false, %invoke.cont12 ], [ false, %lor.lhs.false15 ], [ false, %invoke.cont96 ], [ %exitcond40.not, %invoke.cont66.us ], [ %exitcond40.not, %invoke.cont59.us ], [ %exitcond40.not, %invoke.cont36.us ], [ %exitcond40.not, %invoke.cont29.us ], [ %exitcond40.not, %for.cond.us ], [ %exitcond.not, %for.cond ], [ %exitcond.not, %invoke.cont59 ], [ %exitcond.not, %invoke.cont66 ], [ %exitcond.not, %invoke.cont29 ], [ %exitcond.not, %invoke.cont36 ]
+cleanup:                                          ; preds = %invoke.cont36, %invoke.cont29, %for.cond, %for.cond.us, %invoke.cont29.us, %invoke.cont36.us, %lor.lhs.false15, %invoke.cont12
+  %retval.1 = phi i1 [ false, %invoke.cont12 ], [ false, %lor.lhs.false15 ], [ %exitcond40.not, %invoke.cont36.us ], [ %exitcond40.not, %invoke.cont29.us ], [ %exitcond40.not, %for.cond.us ], [ %exitcond.not, %for.cond ], [ %exitcond.not, %invoke.cont29 ], [ %exitcond.not, %invoke.cont36 ]
   %cmp.not.i23 = icmp eq ptr %call13, null
   br i1 %cmp.not.i23, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i24
 
-if.then.i24:                                      ; preds = %invoke.cont22, %cleanup
-  %retval.143 = phi i1 [ %retval.1, %cleanup ], [ false, %invoke.cont22 ]
+if.then.i24:                                      ; preds = %invoke.cont59, %invoke.cont66, %invoke.cont66.us, %invoke.cont59.us, %invoke.cont96, %invoke.cont22, %cleanup
+  %retval.143 = phi i1 [ %retval.1, %cleanup ], [ false, %invoke.cont96 ], [ false, %invoke.cont22 ], [ false, %invoke.cont59.us ], [ false, %invoke.cont66.us ], [ false, %invoke.cont66 ], [ false, %invoke.cont59 ]
   invoke void @BN_free(ptr noundef nonnull %call13)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -2173,8 +2172,8 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   store ptr %call10, ptr %e, align 8
   %cmp.i.not = icmp eq ptr %call, null
   %cmp.i13.not = icmp eq ptr %call1, null
-  %or.cond56 = select i1 %cmp.i.not, i1 true, i1 %cmp.i13.not
-  br i1 %or.cond56, label %cleanup, label %lor.lhs.false13
+  %or.cond57 = select i1 %cmp.i.not, i1 true, i1 %cmp.i13.not
+  br i1 %or.cond57, label %cleanup, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %invoke.cont9
   %cmp.i14 = icmp ne ptr %call4, null
@@ -2276,7 +2275,7 @@ if.end44.us:                                      ; preds = %invoke.cont40.us
 
 invoke.cont64.us:                                 ; preds = %if.end44.us
   %tobool66.not.us = icmp eq i32 %call65.us, 0
-  br i1 %tobool66.not.us, label %cleanup, label %lor.lhs.false67.us
+  br i1 %tobool66.not.us, label %if.then.i26, label %lor.lhs.false67.us
 
 lor.lhs.false67.us:                               ; preds = %invoke.cont64.us
   %call72.us = invoke i32 @BN_sub(ptr noundef nonnull %call7, ptr noundef nonnull %call7, ptr noundef nonnull %call1)
@@ -2284,7 +2283,7 @@ lor.lhs.false67.us:                               ; preds = %invoke.cont64.us
 
 invoke.cont71.us:                                 ; preds = %lor.lhs.false67.us
   %tobool73.not.us = icmp eq i32 %call72.us, 0
-  br i1 %tobool73.not.us, label %cleanup, label %if.end75.us
+  br i1 %tobool73.not.us, label %if.then.i26, label %if.end75.us
 
 if.end75.us:                                      ; preds = %invoke.cont71.us
   %call78.us = invoke i32 @BN_is_zero(ptr noundef nonnull %call7)
@@ -2342,7 +2341,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit24:                  ; preds = %invoke.cont54
 
 invoke.cont64:                                    ; preds = %_ZL7puts_fpP8_IO_FILEPKc.exit24
   %tobool66.not = icmp eq i32 %call65, 0
-  br i1 %tobool66.not, label %cleanup, label %lor.lhs.false67
+  br i1 %tobool66.not, label %if.then.i26, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %invoke.cont64
   %call72 = invoke i32 @BN_sub(ptr noundef nonnull %call7, ptr noundef nonnull %call7, ptr noundef nonnull %call1)
@@ -2350,7 +2349,7 @@ lor.lhs.false67:                                  ; preds = %invoke.cont64
 
 invoke.cont71:                                    ; preds = %lor.lhs.false67
   %tobool73.not = icmp eq i32 %call72, 0
-  br i1 %tobool73.not, label %cleanup, label %if.end75
+  br i1 %tobool73.not, label %if.then.i26, label %if.end75
 
 if.end75:                                         ; preds = %invoke.cont71
   %call78 = invoke i32 @BN_is_zero(ptr noundef nonnull %call7)
@@ -2363,15 +2362,15 @@ invoke.cont77:                                    ; preds = %if.end75
 if.then80:                                        ; preds = %invoke.cont77, %invoke.cont77.us
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 25, i64 1, ptr %8) #17
-  br label %cleanup
+  br label %if.then.i26
 
-cleanup:                                          ; preds = %invoke.cont40, %invoke.cont33, %invoke.cont71, %invoke.cont64, %for.cond, %for.cond.us, %invoke.cont33.us, %invoke.cont40.us, %invoke.cont64.us, %invoke.cont71.us, %lor.lhs.false13, %if.then80, %invoke.cont9
-  %retval.0 = phi i1 [ false, %invoke.cont9 ], [ false, %lor.lhs.false13 ], [ false, %if.then80 ], [ %exitcond48.not, %invoke.cont71.us ], [ %exitcond48.not, %invoke.cont64.us ], [ %exitcond48.not, %invoke.cont40.us ], [ %exitcond48.not, %invoke.cont33.us ], [ %exitcond48.not, %for.cond.us ], [ %exitcond.not, %for.cond ], [ %exitcond.not, %invoke.cont64 ], [ %exitcond.not, %invoke.cont71 ], [ %exitcond.not, %invoke.cont33 ], [ %exitcond.not, %invoke.cont40 ]
+cleanup:                                          ; preds = %invoke.cont40, %invoke.cont33, %for.cond, %for.cond.us, %invoke.cont33.us, %invoke.cont40.us, %lor.lhs.false13, %invoke.cont9
+  %retval.0 = phi i1 [ false, %invoke.cont9 ], [ false, %lor.lhs.false13 ], [ %exitcond48.not, %invoke.cont40.us ], [ %exitcond48.not, %invoke.cont33.us ], [ %exitcond48.not, %for.cond.us ], [ %exitcond.not, %for.cond ], [ %exitcond.not, %invoke.cont33 ], [ %exitcond.not, %invoke.cont40 ]
   %cmp.not.i25 = icmp eq ptr %call10, null
   br i1 %cmp.not.i25, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i26
 
-if.then.i26:                                      ; preds = %invoke.cont26, %invoke.cont22, %cleanup
-  %retval.051 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont22 ], [ false, %invoke.cont26 ]
+if.then.i26:                                      ; preds = %invoke.cont64, %invoke.cont71, %invoke.cont71.us, %invoke.cont64.us, %if.then80, %invoke.cont26, %invoke.cont22, %cleanup
+  %retval.051 = phi i1 [ %retval.0, %cleanup ], [ false, %if.then80 ], [ false, %invoke.cont26 ], [ false, %invoke.cont22 ], [ false, %invoke.cont64.us ], [ false, %invoke.cont71.us ], [ false, %invoke.cont71 ], [ false, %invoke.cont64 ]
   invoke void @BN_free(ptr noundef nonnull %call10)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -2596,7 +2595,7 @@ if.end43:                                         ; preds = %_ZL7puts_fpP8_IO_FI
 
 invoke.cont48:                                    ; preds = %if.end43
   %tobool50.not = icmp eq i32 %call49, 0
-  br i1 %tobool50.not, label %cleanup, label %lor.lhs.false51
+  br i1 %tobool50.not, label %if.then.i67, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %invoke.cont48
   %call56 = invoke i32 @BN_sub(ptr noundef nonnull %call4, ptr noundef nonnull %call4, ptr noundef nonnull %call)
@@ -2604,7 +2603,7 @@ lor.lhs.false51:                                  ; preds = %invoke.cont48
 
 invoke.cont55:                                    ; preds = %lor.lhs.false51
   %tobool57.not = icmp eq i32 %call56, 0
-  br i1 %tobool57.not, label %cleanup, label %if.end59
+  br i1 %tobool57.not, label %if.then.i67, label %if.end59
 
 if.end59:                                         ; preds = %invoke.cont55
   %call62 = invoke i32 @BN_is_zero(ptr noundef nonnull %call4)
@@ -2625,7 +2624,7 @@ invoke.cont66:                                    ; preds = %lor.lhs.false64
 if.then69:                                        ; preds = %invoke.cont66, %invoke.cont61
   %7 = load ptr, ptr @stderr, align 8
   %8 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 20, i64 1, ptr %7) #17
-  br label %cleanup
+  br label %if.then.i67
 
 for.end:                                          ; preds = %for.cond
   store ptr %call, ptr %a_raw, align 8
@@ -2634,7 +2633,7 @@ for.end:                                          ; preds = %for.cond
 
 invoke.cont74:                                    ; preds = %for.end
   %tobool76.not = icmp eq i32 %call75, 0
-  br i1 %tobool76.not, label %cleanup, label %lor.lhs.false77
+  br i1 %tobool76.not, label %if.then.i67, label %lor.lhs.false77
 
 lor.lhs.false77:                                  ; preds = %invoke.cont74
   %call81 = invoke i32 @BN_sqr(ptr noundef nonnull %call1, ptr noundef nonnull %call, ptr noundef %ctx)
@@ -2642,7 +2641,7 @@ lor.lhs.false77:                                  ; preds = %invoke.cont74
 
 invoke.cont80:                                    ; preds = %lor.lhs.false77
   %tobool82.not = icmp eq i32 %call81, 0
-  br i1 %tobool82.not, label %cleanup, label %if.end84
+  br i1 %tobool82.not, label %if.then.i67, label %if.end84
 
 if.end84:                                         ; preds = %invoke.cont80
   br i1 %cmp29.not, label %if.end99, label %if.then86
@@ -2671,7 +2670,7 @@ if.end99:                                         ; preds = %_ZL7puts_fpP8_IO_FI
 
 invoke.cont103:                                   ; preds = %if.end99
   %tobool105.not = icmp eq i32 %call104, 0
-  br i1 %tobool105.not, label %cleanup, label %if.end107
+  br i1 %tobool105.not, label %if.then.i67, label %if.end107
 
 if.end107:                                        ; preds = %invoke.cont103
   %call111 = invoke i32 @BN_cmp(ptr noundef nonnull %call1, ptr noundef nonnull %call4)
@@ -2684,7 +2683,7 @@ invoke.cont110:                                   ; preds = %if.end107
 if.then113:                                       ; preds = %invoke.cont110
   %11 = load ptr, ptr @stderr, align 8
   %12 = call i64 @fwrite(ptr nonnull @.str.54, i64 65, i64 1, ptr %11) #17
-  br label %cleanup
+  br label %if.then.i67
 
 if.end116:                                        ; preds = %invoke.cont110
   store ptr %call, ptr %a_raw, align 8
@@ -2693,7 +2692,7 @@ if.end116:                                        ; preds = %invoke.cont110
 
 invoke.cont118:                                   ; preds = %if.end116
   %tobool120.not = icmp eq i32 %call119, 0
-  br i1 %tobool120.not, label %cleanup, label %lor.lhs.false121
+  br i1 %tobool120.not, label %if.then.i67, label %lor.lhs.false121
 
 lor.lhs.false121:                                 ; preds = %invoke.cont118
   %call125 = invoke i32 @BN_sqr(ptr noundef nonnull %call1, ptr noundef nonnull %call, ptr noundef %ctx)
@@ -2701,7 +2700,7 @@ lor.lhs.false121:                                 ; preds = %invoke.cont118
 
 invoke.cont124:                                   ; preds = %lor.lhs.false121
   %tobool126.not = icmp eq i32 %call125, 0
-  br i1 %tobool126.not, label %cleanup, label %if.end128
+  br i1 %tobool126.not, label %if.then.i67, label %if.end128
 
 if.end128:                                        ; preds = %invoke.cont124
   br i1 %cmp29.not, label %if.end143, label %if.then130
@@ -2730,7 +2729,7 @@ if.end143:                                        ; preds = %_ZL7puts_fpP8_IO_FI
 
 invoke.cont147:                                   ; preds = %if.end143
   %tobool149.not = icmp eq i32 %call148, 0
-  br i1 %tobool149.not, label %cleanup, label %if.end151
+  br i1 %tobool149.not, label %if.then.i67, label %if.end151
 
 if.end151:                                        ; preds = %invoke.cont147
   %call155 = invoke i32 @BN_cmp(ptr noundef nonnull %call1, ptr noundef nonnull %call4)
@@ -2738,19 +2737,19 @@ if.end151:                                        ; preds = %invoke.cont147
 
 invoke.cont154:                                   ; preds = %if.end151
   %tobool156.not = icmp eq i32 %call155, 0
-  br i1 %tobool156.not, label %cleanup, label %if.then157
+  br i1 %tobool156.not, label %if.then.i67, label %if.then157
 
 if.then157:                                       ; preds = %invoke.cont154
   %15 = load ptr, ptr @stderr, align 8
   %16 = call i64 @fwrite(ptr nonnull @.str.54, i64 65, i64 1, ptr %15) #17
-  br label %cleanup
+  br label %if.then.i67
 
-cleanup:                                          ; preds = %invoke.cont48, %invoke.cont55, %invoke.cont24, %invoke.cont16, %invoke.cont154, %invoke.cont147, %invoke.cont118, %invoke.cont124, %invoke.cont103, %invoke.cont74, %invoke.cont80, %lor.lhs.false, %if.then157, %if.then113, %if.then69, %invoke.cont6
-  %retval.0 = phi i1 [ false, %invoke.cont6 ], [ true, %invoke.cont154 ], [ false, %invoke.cont147 ], [ false, %invoke.cont118 ], [ false, %invoke.cont124 ], [ false, %invoke.cont103 ], [ false, %invoke.cont74 ], [ false, %invoke.cont80 ], [ false, %lor.lhs.false ], [ false, %if.then157 ], [ false, %if.then113 ], [ false, %if.then69 ], [ false, %invoke.cont16 ], [ false, %invoke.cont24 ], [ false, %invoke.cont55 ], [ false, %invoke.cont48 ]
+cleanup:                                          ; preds = %invoke.cont24, %invoke.cont16, %lor.lhs.false, %invoke.cont6
   %cmp.not.i66 = icmp eq ptr %call7, null
   br i1 %cmp.not.i66, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i67
 
-if.then.i67:                                      ; preds = %cleanup
+if.then.i67:                                      ; preds = %invoke.cont55, %invoke.cont48, %if.then69, %if.then113, %if.then157, %invoke.cont80, %invoke.cont74, %invoke.cont103, %invoke.cont124, %invoke.cont118, %invoke.cont147, %invoke.cont154, %cleanup
+  %retval.086 = phi i1 [ false, %cleanup ], [ false, %if.then69 ], [ false, %if.then113 ], [ false, %if.then157 ], [ false, %invoke.cont80 ], [ false, %invoke.cont74 ], [ false, %invoke.cont103 ], [ false, %invoke.cont124 ], [ false, %invoke.cont118 ], [ false, %invoke.cont147 ], [ true, %invoke.cont154 ], [ false, %invoke.cont48 ], [ false, %invoke.cont55 ]
   invoke void @BN_free(ptr noundef nonnull %call7)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -2762,6 +2761,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i67
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i67
+  %retval.087 = phi i1 [ false, %cleanup ], [ %retval.086, %if.then.i67 ]
   store ptr null, ptr %e, align 8
   %cmp.not.i68 = icmp eq ptr %call4, null
   br i1 %cmp.not.i68, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71, label %if.then.i69
@@ -2809,7 +2809,7 @@ terminate.lpad.i78:                               ; preds = %if.then.i77
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit79: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit75, %if.then.i77
-  ret i1 %retval.0
+  ret i1 %retval.087
 
 ehcleanup:                                        ; preds = %lpad15, %lpad5
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad15 ], [ %2, %lpad5 ]
@@ -3008,7 +3008,7 @@ if.end72:                                         ; preds = %_ZL7puts_fpP8_IO_FI
 
 invoke.cont78:                                    ; preds = %if.end72
   %tobool80.not = icmp eq i32 %call79, 0
-  br i1 %tobool80.not, label %cleanup, label %lor.lhs.false81
+  br i1 %tobool80.not, label %if.then.i33, label %lor.lhs.false81
 
 lor.lhs.false81:                                  ; preds = %invoke.cont78
   %call86 = invoke i32 @BN_sub(ptr noundef nonnull %call10, ptr noundef nonnull %call10, ptr noundef nonnull %call4)
@@ -3016,7 +3016,7 @@ lor.lhs.false81:                                  ; preds = %invoke.cont78
 
 invoke.cont85:                                    ; preds = %lor.lhs.false81
   %tobool87.not = icmp eq i32 %call86, 0
-  br i1 %tobool87.not, label %cleanup, label %if.end89
+  br i1 %tobool87.not, label %if.then.i33, label %if.end89
 
 if.end89:                                         ; preds = %invoke.cont85
   %call92 = invoke i32 @BN_is_zero(ptr noundef nonnull %call10)
@@ -3024,7 +3024,7 @@ if.end89:                                         ; preds = %invoke.cont85
 
 invoke.cont91:                                    ; preds = %if.end89
   %tobool93.not = icmp eq i32 %call92, 0
-  br i1 %tobool93.not, label %cleanup.sink.split, label %lor.lhs.false94
+  br i1 %tobool93.not, label %if.then.i33.sink.split, label %lor.lhs.false94
 
 lor.lhs.false94:                                  ; preds = %invoke.cont91
   %call97 = invoke i32 @BN_is_zero(ptr noundef nonnull %call13)
@@ -3032,7 +3032,7 @@ lor.lhs.false94:                                  ; preds = %invoke.cont91
 
 invoke.cont96:                                    ; preds = %lor.lhs.false94
   %tobool98.not = icmp eq i32 %call97, 0
-  br i1 %tobool98.not, label %cleanup.sink.split, label %for.cond
+  br i1 %tobool98.not, label %if.then.i33.sink.split, label %for.cond
 
 for.end:                                          ; preds = %for.cond
   %call105 = invoke i32 @BN_set_word(ptr noundef nonnull %call1, i64 noundef 1)
@@ -3040,7 +3040,7 @@ for.end:                                          ; preds = %for.cond
 
 invoke.cont104:                                   ; preds = %for.end
   %tobool106.not = icmp eq i32 %call105, 0
-  br i1 %tobool106.not, label %cleanup, label %if.end108
+  br i1 %tobool106.not, label %if.then.i33, label %if.end108
 
 if.end108:                                        ; preds = %invoke.cont104
   invoke void @BN_set_negative(ptr noundef nonnull %call1, i32 noundef 1)
@@ -3056,7 +3056,7 @@ invoke.cont112:                                   ; preds = %invoke.cont110
 
 invoke.cont117:                                   ; preds = %invoke.cont112
   %tobool119.not = icmp eq i32 %call118, 0
-  br i1 %tobool119.not, label %cleanup, label %if.end121
+  br i1 %tobool119.not, label %if.then.i33, label %if.end121
 
 if.end121:                                        ; preds = %invoke.cont117
   %call124 = invoke i32 @BN_is_zero(ptr noundef nonnull %call7)
@@ -3064,7 +3064,7 @@ if.end121:                                        ; preds = %invoke.cont117
 
 invoke.cont123:                                   ; preds = %if.end121
   %tobool125.not = icmp eq i32 %call124, 0
-  br i1 %tobool125.not, label %cleanup.sink.split, label %lor.lhs.false126
+  br i1 %tobool125.not, label %if.then.i33.sink.split, label %lor.lhs.false126
 
 lor.lhs.false126:                                 ; preds = %invoke.cont123
   %call129 = invoke i32 @BN_is_negative(ptr noundef nonnull %call7)
@@ -3072,19 +3072,19 @@ lor.lhs.false126:                                 ; preds = %invoke.cont123
 
 invoke.cont128:                                   ; preds = %lor.lhs.false126
   %tobool130.not = icmp eq i32 %call129, 0
-  br i1 %tobool130.not, label %cleanup, label %cleanup.sink.split
+  br i1 %tobool130.not, label %if.then.i33, label %if.then.i33.sink.split
 
-cleanup.sink.split:                               ; preds = %invoke.cont91, %invoke.cont96, %invoke.cont123, %invoke.cont128
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 28, i64 1, ptr %10) #17
-  br label %cleanup
-
-cleanup:                                          ; preds = %invoke.cont78, %invoke.cont85, %invoke.cont53, %invoke.cont38, %invoke.cont28, %invoke.cont32, %cleanup.sink.split, %invoke.cont128, %invoke.cont117, %invoke.cont104, %lor.lhs.false, %invoke.cont12
-  %retval.0 = phi i1 [ false, %invoke.cont12 ], [ true, %invoke.cont128 ], [ false, %invoke.cont117 ], [ false, %invoke.cont104 ], [ false, %lor.lhs.false ], [ false, %cleanup.sink.split ], [ false, %invoke.cont32 ], [ false, %invoke.cont28 ], [ false, %invoke.cont38 ], [ false, %invoke.cont53 ], [ false, %invoke.cont85 ], [ false, %invoke.cont78 ]
+cleanup:                                          ; preds = %invoke.cont53, %invoke.cont38, %invoke.cont28, %invoke.cont32, %lor.lhs.false, %invoke.cont12
   %cmp.not.i32 = icmp eq ptr %call13, null
   br i1 %cmp.not.i32, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i33
 
-if.then.i33:                                      ; preds = %cleanup
+if.then.i33.sink.split:                           ; preds = %invoke.cont91, %invoke.cont96, %invoke.cont123, %invoke.cont128
+  %10 = load ptr, ptr @stderr, align 8
+  %11 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 28, i64 1, ptr %10) #17
+  br label %if.then.i33
+
+if.then.i33:                                      ; preds = %invoke.cont85, %invoke.cont78, %if.then.i33.sink.split, %invoke.cont104, %invoke.cont117, %invoke.cont128, %cleanup
+  %retval.059 = phi i1 [ false, %cleanup ], [ false, %invoke.cont104 ], [ false, %invoke.cont117 ], [ true, %invoke.cont128 ], [ false, %if.then.i33.sink.split ], [ false, %invoke.cont78 ], [ false, %invoke.cont85 ]
   invoke void @BN_free(ptr noundef nonnull %call13)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -3096,6 +3096,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i33
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i33
+  %retval.060 = phi i1 [ false, %cleanup ], [ %retval.059, %if.then.i33 ]
   %cmp.not.i34 = icmp eq ptr %call10, null
   br i1 %cmp.not.i34, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit37, label %if.then.i35
 
@@ -3170,7 +3171,7 @@ terminate.lpad.i52:                               ; preds = %if.then.i51
   unreachable
 
 _ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49, %if.then.i51
-  ret i1 %retval.0
+  ret i1 %retval.060
 
 ehcleanup:                                        ; preds = %lpad27, %lpad11
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad27 ], [ %4, %lpad11 ]
@@ -3429,7 +3430,7 @@ if.end111:                                        ; preds = %_ZL7puts_fpP8_IO_FI
 
 invoke.cont115:                                   ; preds = %if.end111
   %tobool117.not = icmp eq i32 %call116, 0
-  br i1 %tobool117.not, label %cleanup, label %lor.lhs.false118
+  br i1 %tobool117.not, label %if.then.i55, label %lor.lhs.false118
 
 lor.lhs.false118:                                 ; preds = %invoke.cont115
   %call123 = invoke i32 @BN_add(ptr noundef nonnull %call7, ptr noundef nonnull %call10, ptr noundef nonnull %call4)
@@ -3437,7 +3438,7 @@ lor.lhs.false118:                                 ; preds = %invoke.cont115
 
 invoke.cont122:                                   ; preds = %lor.lhs.false118
   %tobool124.not = icmp eq i32 %call123, 0
-  br i1 %tobool124.not, label %cleanup, label %lor.lhs.false125
+  br i1 %tobool124.not, label %if.then.i55, label %lor.lhs.false125
 
 lor.lhs.false125:                                 ; preds = %invoke.cont122
   %call130 = invoke i32 @BN_sub(ptr noundef nonnull %call7, ptr noundef nonnull %call7, ptr noundef nonnull %call)
@@ -3445,7 +3446,7 @@ lor.lhs.false125:                                 ; preds = %invoke.cont122
 
 invoke.cont129:                                   ; preds = %lor.lhs.false125
   %tobool131.not = icmp eq i32 %call130, 0
-  br i1 %tobool131.not, label %cleanup, label %if.end133
+  br i1 %tobool131.not, label %if.then.i55, label %if.end133
 
 if.end133:                                        ; preds = %invoke.cont129
   %call136 = invoke i32 @BN_is_zero(ptr noundef nonnull %call7)
@@ -3453,7 +3454,12 @@ if.end133:                                        ; preds = %invoke.cont129
 
 invoke.cont135:                                   ; preds = %if.end133
   %tobool137.not = icmp eq i32 %call136, 0
-  br i1 %tobool137.not, label %cleanup.sink.split, label %for.cond
+  br i1 %tobool137.not, label %if.then138, label %for.cond
+
+if.then138:                                       ; preds = %invoke.cont135
+  %17 = load ptr, ptr @stderr, align 8
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 22, i64 1, ptr %17) #17
+  br label %if.then.i55
 
 for.end:                                          ; preds = %for.cond
   %call144 = invoke i32 @BN_set_word(ptr noundef nonnull %call, i64 noundef 1)
@@ -3461,7 +3467,7 @@ for.end:                                          ; preds = %for.cond
 
 invoke.cont143:                                   ; preds = %for.end
   %tobool145.not = icmp eq i32 %call144, 0
-  br i1 %tobool145.not, label %cleanup, label %lor.lhs.false146
+  br i1 %tobool145.not, label %if.then.i55, label %lor.lhs.false146
 
 lor.lhs.false146:                                 ; preds = %invoke.cont143
   %call149 = invoke i32 @BN_set_word(ptr noundef nonnull %call1, i64 noundef 2)
@@ -3469,7 +3475,7 @@ lor.lhs.false146:                                 ; preds = %invoke.cont143
 
 invoke.cont148:                                   ; preds = %lor.lhs.false146
   %tobool150.not = icmp eq i32 %call149, 0
-  br i1 %tobool150.not, label %cleanup, label %if.end152
+  br i1 %tobool150.not, label %if.then.i55, label %if.end152
 
 if.end152:                                        ; preds = %invoke.cont148
   invoke void @BN_set_negative(ptr noundef nonnull %call, i32 noundef 1)
@@ -3481,7 +3487,7 @@ invoke.cont154:                                   ; preds = %if.end152
 
 invoke.cont159:                                   ; preds = %invoke.cont154
   %tobool161.not = icmp eq i32 %call160, 0
-  br i1 %tobool161.not, label %cleanup, label %if.end163
+  br i1 %tobool161.not, label %if.then.i55, label %if.end163
 
 if.end163:                                        ; preds = %invoke.cont159
   %call166 = invoke i32 @BN_is_zero(ptr noundef nonnull %call7)
@@ -3489,7 +3495,7 @@ if.end163:                                        ; preds = %invoke.cont159
 
 invoke.cont165:                                   ; preds = %if.end163
   %tobool167.not = icmp eq i32 %call166, 0
-  br i1 %tobool167.not, label %cleanup.sink.split, label %lor.lhs.false168
+  br i1 %tobool167.not, label %if.then173, label %lor.lhs.false168
 
 lor.lhs.false168:                                 ; preds = %invoke.cont165
   %call171 = invoke i32 @BN_is_negative(ptr noundef nonnull %call7)
@@ -3497,7 +3503,12 @@ lor.lhs.false168:                                 ; preds = %invoke.cont165
 
 invoke.cont170:                                   ; preds = %lor.lhs.false168
   %tobool172.not = icmp eq i32 %call171, 0
-  br i1 %tobool172.not, label %if.end176, label %cleanup.sink.split
+  br i1 %tobool172.not, label %if.end176, label %if.then173
+
+if.then173:                                       ; preds = %invoke.cont170, %invoke.cont165
+  %19 = load ptr, ptr @stderr, align 8
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 22, i64 1, ptr %19) #17
+  br label %if.then.i55
 
 if.end176:                                        ; preds = %invoke.cont170
   %call179 = invoke i32 @BN_set_word(ptr noundef nonnull %call1, i64 noundef 1)
@@ -3505,7 +3516,7 @@ if.end176:                                        ; preds = %invoke.cont170
 
 invoke.cont178:                                   ; preds = %if.end176
   %tobool180.not = icmp eq i32 %call179, 0
-  br i1 %tobool180.not, label %cleanup, label %if.end182
+  br i1 %tobool180.not, label %if.then.i55, label %if.end182
 
 if.end182:                                        ; preds = %invoke.cont178
   %call188 = invoke i32 @BN_div(ptr noundef nonnull %call7, ptr noundef nonnull %call4, ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef %ctx)
@@ -3513,7 +3524,7 @@ if.end182:                                        ; preds = %invoke.cont178
 
 invoke.cont187:                                   ; preds = %if.end182
   %tobool189.not = icmp eq i32 %call188, 0
-  br i1 %tobool189.not, label %cleanup, label %if.end191
+  br i1 %tobool189.not, label %if.then.i55, label %if.end191
 
 if.end191:                                        ; preds = %invoke.cont187
   %call194 = invoke i32 @BN_is_zero(ptr noundef nonnull %call4)
@@ -3521,7 +3532,7 @@ if.end191:                                        ; preds = %invoke.cont187
 
 invoke.cont193:                                   ; preds = %if.end191
   %tobool195.not = icmp eq i32 %call194, 0
-  br i1 %tobool195.not, label %cleanup.sink.split, label %lor.lhs.false196
+  br i1 %tobool195.not, label %if.then201, label %lor.lhs.false196
 
 lor.lhs.false196:                                 ; preds = %invoke.cont193
   %call199 = invoke i32 @BN_is_negative(ptr noundef nonnull %call4)
@@ -3529,32 +3540,31 @@ lor.lhs.false196:                                 ; preds = %invoke.cont193
 
 invoke.cont198:                                   ; preds = %lor.lhs.false196
   %tobool200.not = icmp eq i32 %call199, 0
-  br i1 %tobool200.not, label %cleanup, label %cleanup.sink.split
+  br i1 %tobool200.not, label %if.then.i55, label %if.then201
 
-cleanup.sink.split:                               ; preds = %invoke.cont135, %invoke.cont193, %invoke.cont198, %invoke.cont165, %invoke.cont170
-  %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 22, i64 1, ptr %17) #17
-  br label %cleanup
+if.then201:                                       ; preds = %invoke.cont198, %invoke.cont193
+  %21 = load ptr, ptr @stderr, align 8
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 22, i64 1, ptr %21) #17
+  br label %if.then.i55
 
-cleanup:                                          ; preds = %invoke.cont115, %invoke.cont122, %invoke.cont129, %invoke.cont80, %invoke.cont65, %invoke.cont42, %invoke.cont48, %invoke.cont54, %invoke.cont59, %cleanup.sink.split, %invoke.cont198, %invoke.cont187, %invoke.cont178, %invoke.cont159, %invoke.cont143, %invoke.cont148, %lor.lhs.false, %invoke.cont9
-  %retval.0 = phi i1 [ false, %invoke.cont9 ], [ true, %invoke.cont198 ], [ false, %invoke.cont187 ], [ false, %invoke.cont178 ], [ false, %invoke.cont159 ], [ false, %invoke.cont143 ], [ false, %invoke.cont148 ], [ false, %lor.lhs.false ], [ false, %cleanup.sink.split ], [ false, %invoke.cont59 ], [ false, %invoke.cont54 ], [ false, %invoke.cont48 ], [ false, %invoke.cont42 ], [ false, %invoke.cont65 ], [ false, %invoke.cont80 ], [ false, %invoke.cont129 ], [ false, %invoke.cont122 ], [ false, %invoke.cont115 ]
+cleanup:                                          ; preds = %invoke.cont80, %invoke.cont65, %invoke.cont42, %invoke.cont48, %invoke.cont54, %invoke.cont59, %lor.lhs.false, %invoke.cont9
   %cmp.not.i54 = icmp eq ptr %call10, null
   br i1 %cmp.not.i54, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i55
 
-if.then.i55:                                      ; preds = %if.then34, %invoke.cont21, %cleanup
-  %retval.080 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont21 ], [ false, %if.then34 ]
+if.then.i55:                                      ; preds = %invoke.cont129, %invoke.cont122, %invoke.cont115, %if.then34, %if.then138, %if.then173, %if.then201, %invoke.cont21, %invoke.cont148, %invoke.cont143, %invoke.cont159, %invoke.cont178, %invoke.cont187, %invoke.cont198, %cleanup
+  %retval.080 = phi i1 [ false, %cleanup ], [ false, %if.then34 ], [ false, %if.then138 ], [ false, %if.then173 ], [ false, %if.then201 ], [ false, %invoke.cont21 ], [ false, %invoke.cont148 ], [ false, %invoke.cont143 ], [ false, %invoke.cont159 ], [ false, %invoke.cont178 ], [ false, %invoke.cont187 ], [ true, %invoke.cont198 ], [ false, %invoke.cont115 ], [ false, %invoke.cont122 ], [ false, %invoke.cont129 ]
   invoke void @BN_free(ptr noundef nonnull %call10)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i55
-  %19 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #20
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i55
-  %retval.081 = phi i1 [ %retval.0, %cleanup ], [ %retval.080, %if.then.i55 ]
+  %retval.081 = phi i1 [ false, %cleanup ], [ %retval.080, %if.then.i55 ]
   %cmp.not.i56 = icmp eq ptr %call7, null
   br i1 %cmp.not.i56, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, label %if.then.i57
 
@@ -3563,10 +3573,10 @@ if.then.i57:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59 unwind label %terminate.lpad.i58
 
 terminate.lpad.i58:                               ; preds = %if.then.i57
-  %21 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #20
+  %26 = extractvalue { ptr, i32 } %25, 0
+  tail call void @__clang_call_terminate(ptr %26) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then.i57
@@ -3578,10 +3588,10 @@ if.then.i61:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63 unwind label %terminate.lpad.i62
 
 terminate.lpad.i62:                               ; preds = %if.then.i61
-  %23 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #20
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, %if.then.i61
@@ -3593,10 +3603,10 @@ if.then.i65:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67 unwind label %terminate.lpad.i66
 
 terminate.lpad.i66:                               ; preds = %if.then.i65
-  %25 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #20
+  %30 = extractvalue { ptr, i32 } %29, 0
+  tail call void @__clang_call_terminate(ptr %30) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63, %if.then.i65
@@ -3607,10 +3617,10 @@ if.then.i69:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71 unwind label %terminate.lpad.i70
 
 terminate.lpad.i70:                               ; preds = %if.then.i69
-  %27 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #20
+  %32 = extractvalue { ptr, i32 } %31, 0
+  tail call void @__clang_call_terminate(ptr %32) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67, %if.then.i69
@@ -4011,7 +4021,7 @@ if.end57:                                         ; preds = %_ZL7puts_fpP8_IO_FI
 
 invoke.cont62:                                    ; preds = %if.end57
   %tobool64.not = icmp eq i32 %call63, 0
-  br i1 %tobool64.not, label %cleanup, label %lor.lhs.false65
+  br i1 %tobool64.not, label %if.then.i31, label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %invoke.cont62
   %call70 = invoke i32 @BN_sub(ptr noundef nonnull %call10, ptr noundef nonnull %call10, ptr noundef nonnull %call4)
@@ -4019,7 +4029,7 @@ lor.lhs.false65:                                  ; preds = %invoke.cont62
 
 invoke.cont69:                                    ; preds = %lor.lhs.false65
   %tobool71.not = icmp eq i32 %call70, 0
-  br i1 %tobool71.not, label %cleanup, label %if.end73
+  br i1 %tobool71.not, label %if.then.i31, label %if.end73
 
 if.end73:                                         ; preds = %invoke.cont69
   %call76 = invoke i32 @BN_is_zero(ptr noundef nonnull %call10)
@@ -4032,15 +4042,15 @@ invoke.cont75:                                    ; preds = %if.end73
 if.then78:                                        ; preds = %invoke.cont75
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i64 @fwrite(ptr nonnull @.str.61, i64 20, i64 1, ptr %9) #17
-  br label %cleanup
+  br label %if.then.i31
 
-cleanup:                                          ; preds = %for.cond, %invoke.cont62, %invoke.cont69, %invoke.cont38, %invoke.cont25, %lor.lhs.false, %if.then78, %invoke.cont9
-  %retval.0 = phi i1 [ false, %invoke.cont9 ], [ false, %lor.lhs.false ], [ false, %if.then78 ], [ false, %invoke.cont25 ], [ false, %invoke.cont38 ], [ false, %invoke.cont69 ], [ false, %invoke.cont62 ], [ true, %for.cond ]
+cleanup:                                          ; preds = %for.cond, %invoke.cont38, %invoke.cont25, %lor.lhs.false, %invoke.cont9
+  %retval.0 = phi i1 [ false, %invoke.cont9 ], [ false, %lor.lhs.false ], [ false, %invoke.cont25 ], [ false, %invoke.cont38 ], [ true, %for.cond ]
   %cmp.not.i30 = icmp eq ptr %call10, null
   br i1 %cmp.not.i30, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i31
 
-if.then.i31:                                      ; preds = %invoke.cont22, %cleanup
-  %retval.053 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont22 ]
+if.then.i31:                                      ; preds = %invoke.cont69, %invoke.cont62, %if.then78, %invoke.cont22, %cleanup
+  %retval.053 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont22 ], [ false, %if.then78 ], [ false, %invoke.cont62 ], [ false, %invoke.cont69 ]
   invoke void @BN_free(ptr noundef nonnull %call10)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -4645,7 +4655,12 @@ invoke.cont36:                                    ; preds = %if.end
 
 invoke.cont39:                                    ; preds = %invoke.cont36
   %tobool.not = icmp eq i32 %call40, 0
-  br i1 %tobool.not, label %if.end44, label %if.then.i48.sink.split
+  br i1 %tobool.not, label %if.end44, label %if.then41
+
+if.then41:                                        ; preds = %invoke.cont39
+  %7 = load ptr, ptr @stderr, align 8
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 44, i64 1, ptr %7) #17
+  br label %if.then.i48
 
 lpad35.loopexit:                                  ; preds = %for.body, %lor.lhs.false80, %lor.lhs.false86, %lor.lhs.false93, %lor.lhs.false100, %lor.lhs.false107, %lor.lhs.false114, %lor.lhs.false122, %if.then132, %invoke.cont136, %invoke.cont140, %invoke.cont144, %if.end149, %lor.lhs.false157, %if.end165
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -4680,7 +4695,12 @@ if.end51:                                         ; preds = %invoke.cont47
 
 invoke.cont54:                                    ; preds = %if.end51
   %tobool56.not = icmp eq i32 %call55, 0
-  br i1 %tobool56.not, label %if.end60, label %if.then.i48.sink.split
+  br i1 %tobool56.not, label %if.end60, label %if.then57
+
+if.then57:                                        ; preds = %invoke.cont54
+  %9 = load ptr, ptr @stderr, align 8
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 44, i64 1, ptr %9) #17
+  br label %if.then.i48
 
 if.end60:                                         ; preds = %invoke.cont54
   invoke void @ERR_clear_error()
@@ -4708,7 +4728,7 @@ for.cond.preheader:                               ; preds = %invoke.cont68
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %invoke.cont167
-  %7 = phi ptr [ %9, %invoke.cont167 ], [ %call16, %for.cond.preheader ]
+  %11 = phi ptr [ %13, %invoke.cont167 ], [ %call16, %for.cond.preheader ]
   %i.0 = phi i32 [ %add, %invoke.cont167 ], [ 0, %for.cond.preheader ]
   %exitcond.not = icmp eq i32 %i.0, 5
   br i1 %exitcond.not, label %cleanup, label %for.body
@@ -4716,7 +4736,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
 for.body:                                         ; preds = %for.cond
   %add = add nuw nsw i32 %i.0, 1
   %div = mul nuw nsw i32 %add, 40
-  %call78 = invoke i32 @BN_rand(ptr noundef %7, i32 noundef %div, i32 noundef 0, i32 noundef 1)
+  %call78 = invoke i32 @BN_rand(ptr noundef %11, i32 noundef %div, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont77 unwind label %lpad35.loopexit
 
 invoke.cont77:                                    ; preds = %for.body
@@ -4724,87 +4744,87 @@ invoke.cont77:                                    ; preds = %for.body
   br i1 %tobool79.not, label %cleanup, label %lor.lhs.false80
 
 lor.lhs.false80:                                  ; preds = %invoke.cont77
-  %call84 = invoke i32 @BN_MONT_CTX_set(ptr noundef nonnull %call19, ptr noundef %7, ptr noundef %ctx)
+  %call84 = invoke i32 @BN_MONT_CTX_set(ptr noundef nonnull %call19, ptr noundef %11, ptr noundef %ctx)
           to label %invoke.cont83 unwind label %lpad35.loopexit
 
 invoke.cont83:                                    ; preds = %lor.lhs.false80
   %tobool85.not = icmp eq i32 %call84, 0
-  br i1 %tobool85.not, label %cleanup, label %lor.lhs.false86
+  br i1 %tobool85.not, label %if.then.i48, label %lor.lhs.false86
 
 lor.lhs.false86:                                  ; preds = %invoke.cont83
-  %8 = load ptr, ptr %a, align 8
-  %9 = load ptr, ptr %n, align 8
-  %call91 = invoke i32 @BN_nnmod(ptr noundef %8, ptr noundef %8, ptr noundef %9, ptr noundef %ctx)
+  %12 = load ptr, ptr %a, align 8
+  %13 = load ptr, ptr %n, align 8
+  %call91 = invoke i32 @BN_nnmod(ptr noundef %12, ptr noundef %12, ptr noundef %13, ptr noundef %ctx)
           to label %invoke.cont90 unwind label %lpad35.loopexit
 
 invoke.cont90:                                    ; preds = %lor.lhs.false86
   %tobool92.not = icmp eq i32 %call91, 0
-  br i1 %tobool92.not, label %cleanup, label %lor.lhs.false93
+  br i1 %tobool92.not, label %if.then.i48, label %lor.lhs.false93
 
 lor.lhs.false93:                                  ; preds = %invoke.cont90
-  %10 = load ptr, ptr %b, align 8
-  %call98 = invoke i32 @BN_nnmod(ptr noundef %10, ptr noundef %10, ptr noundef %9, ptr noundef %ctx)
+  %14 = load ptr, ptr %b, align 8
+  %call98 = invoke i32 @BN_nnmod(ptr noundef %14, ptr noundef %14, ptr noundef %13, ptr noundef %ctx)
           to label %invoke.cont97 unwind label %lpad35.loopexit
 
 invoke.cont97:                                    ; preds = %lor.lhs.false93
   %tobool99.not = icmp eq i32 %call98, 0
-  br i1 %tobool99.not, label %cleanup, label %lor.lhs.false100
+  br i1 %tobool99.not, label %if.then.i48, label %lor.lhs.false100
 
 lor.lhs.false100:                                 ; preds = %invoke.cont97
-  %11 = load ptr, ptr %A, align 8
-  %call105 = invoke i32 @BN_to_montgomery(ptr noundef %11, ptr noundef %8, ptr noundef nonnull %call19, ptr noundef %ctx)
+  %15 = load ptr, ptr %A, align 8
+  %call105 = invoke i32 @BN_to_montgomery(ptr noundef %15, ptr noundef %12, ptr noundef nonnull %call19, ptr noundef %ctx)
           to label %invoke.cont104 unwind label %lpad35.loopexit
 
 invoke.cont104:                                   ; preds = %lor.lhs.false100
   %tobool106.not = icmp eq i32 %call105, 0
-  br i1 %tobool106.not, label %cleanup, label %lor.lhs.false107
+  br i1 %tobool106.not, label %if.then.i48, label %lor.lhs.false107
 
 lor.lhs.false107:                                 ; preds = %invoke.cont104
-  %12 = load ptr, ptr %B, align 8
-  %call112 = invoke i32 @BN_to_montgomery(ptr noundef %12, ptr noundef %10, ptr noundef nonnull %call19, ptr noundef %ctx)
+  %16 = load ptr, ptr %B, align 8
+  %call112 = invoke i32 @BN_to_montgomery(ptr noundef %16, ptr noundef %14, ptr noundef nonnull %call19, ptr noundef %ctx)
           to label %invoke.cont111 unwind label %lpad35.loopexit
 
 invoke.cont111:                                   ; preds = %lor.lhs.false107
   %tobool113.not = icmp eq i32 %call112, 0
-  br i1 %tobool113.not, label %cleanup, label %lor.lhs.false114
+  br i1 %tobool113.not, label %if.then.i48, label %lor.lhs.false114
 
 lor.lhs.false114:                                 ; preds = %invoke.cont111
-  %13 = load ptr, ptr %c, align 8
-  %call120 = invoke i32 @BN_mod_mul_montgomery(ptr noundef %13, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %call19, ptr noundef %ctx)
+  %17 = load ptr, ptr %c, align 8
+  %call120 = invoke i32 @BN_mod_mul_montgomery(ptr noundef %17, ptr noundef %15, ptr noundef %16, ptr noundef nonnull %call19, ptr noundef %ctx)
           to label %invoke.cont119 unwind label %lpad35.loopexit
 
 invoke.cont119:                                   ; preds = %lor.lhs.false114
   %tobool121.not = icmp eq i32 %call120, 0
-  br i1 %tobool121.not, label %cleanup, label %lor.lhs.false122
+  br i1 %tobool121.not, label %if.then.i48, label %lor.lhs.false122
 
 lor.lhs.false122:                                 ; preds = %invoke.cont119
-  %call127 = invoke i32 @BN_from_montgomery(ptr noundef %11, ptr noundef %13, ptr noundef nonnull %call19, ptr noundef %ctx)
+  %call127 = invoke i32 @BN_from_montgomery(ptr noundef %15, ptr noundef %17, ptr noundef nonnull %call19, ptr noundef %ctx)
           to label %invoke.cont126 unwind label %lpad35.loopexit
 
 invoke.cont126:                                   ; preds = %lor.lhs.false122
   %tobool128.not = icmp eq i32 %call127, 0
-  br i1 %tobool128.not, label %cleanup, label %if.end130
+  br i1 %tobool128.not, label %if.then.i48, label %if.end130
 
 if.end130:                                        ; preds = %invoke.cont126
   br i1 %cmp131.not, label %if.end149, label %if.then132
 
 if.then132:                                       ; preds = %if.end130
-  %call135 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %8)
+  %call135 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %12)
           to label %invoke.cont136 unwind label %lpad35.loopexit
 
 invoke.cont136:                                   ; preds = %if.then132
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 3, i64 1, ptr nonnull %fp)
-  %call139 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %10)
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 3, i64 1, ptr nonnull %fp)
+  %call139 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %14)
           to label %invoke.cont140 unwind label %lpad35.loopexit
 
 invoke.cont140:                                   ; preds = %invoke.cont136
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
   %call143 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %N)
           to label %invoke.cont144 unwind label %lpad35.loopexit
 
 invoke.cont144:                                   ; preds = %invoke.cont140
-  %16 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
-  %call147 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %11)
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
+  %call147 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %15)
           to label %_ZL7puts_fpP8_IO_FILEPKc.exit46 unwind label %lpad35.loopexit
 
 _ZL7puts_fpP8_IO_FILEPKc.exit46:                  ; preds = %invoke.cont144
@@ -4812,20 +4832,20 @@ _ZL7puts_fpP8_IO_FILEPKc.exit46:                  ; preds = %invoke.cont144
   br label %if.end149
 
 if.end149:                                        ; preds = %_ZL7puts_fpP8_IO_FILEPKc.exit46, %if.end130
-  %call155 = invoke i32 @BN_mod_mul(ptr noundef nonnull %call7, ptr noundef %8, ptr noundef %10, ptr noundef %9, ptr noundef %ctx)
+  %call155 = invoke i32 @BN_mod_mul(ptr noundef nonnull %call7, ptr noundef %12, ptr noundef %14, ptr noundef %13, ptr noundef %ctx)
           to label %invoke.cont154 unwind label %lpad35.loopexit
 
 invoke.cont154:                                   ; preds = %if.end149
   %tobool156.not = icmp eq i32 %call155, 0
-  br i1 %tobool156.not, label %cleanup, label %lor.lhs.false157
+  br i1 %tobool156.not, label %if.then.i48, label %lor.lhs.false157
 
 lor.lhs.false157:                                 ; preds = %invoke.cont154
-  %call162 = invoke i32 @BN_sub(ptr noundef nonnull %call7, ptr noundef nonnull %call7, ptr noundef %11)
+  %call162 = invoke i32 @BN_sub(ptr noundef nonnull %call7, ptr noundef nonnull %call7, ptr noundef %15)
           to label %invoke.cont161 unwind label %lpad35.loopexit
 
 invoke.cont161:                                   ; preds = %lor.lhs.false157
   %tobool163.not = icmp eq i32 %call162, 0
-  br i1 %tobool163.not, label %cleanup, label %if.end165
+  br i1 %tobool163.not, label %if.then.i48, label %if.end165
 
 if.end165:                                        ; preds = %invoke.cont161
   %call168 = invoke i32 @BN_is_zero(ptr noundef nonnull %call7)
@@ -4836,144 +4856,138 @@ invoke.cont167:                                   ; preds = %if.end165
   br i1 %tobool169.not, label %if.then170, label %for.cond, !llvm.loop !23
 
 if.then170:                                       ; preds = %invoke.cont167
-  %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 39, i64 1, ptr %17) #17
-  br label %cleanup
+  %21 = load ptr, ptr @stderr, align 8
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 39, i64 1, ptr %21) #17
+  br label %if.then.i48
 
-cleanup:                                          ; preds = %for.cond, %invoke.cont154, %invoke.cont161, %invoke.cont77, %invoke.cont83, %invoke.cont90, %invoke.cont97, %invoke.cont104, %invoke.cont111, %invoke.cont119, %invoke.cont126, %lor.lhs.false, %lor.lhs.false30, %if.then170, %invoke.cont18
-  %retval.0 = phi i1 [ false, %invoke.cont18 ], [ false, %lor.lhs.false ], [ false, %lor.lhs.false30 ], [ false, %if.then170 ], [ %exitcond.not, %invoke.cont126 ], [ %exitcond.not, %invoke.cont119 ], [ %exitcond.not, %invoke.cont111 ], [ %exitcond.not, %invoke.cont104 ], [ %exitcond.not, %invoke.cont97 ], [ %exitcond.not, %invoke.cont90 ], [ %exitcond.not, %invoke.cont83 ], [ %exitcond.not, %invoke.cont77 ], [ %exitcond.not, %invoke.cont161 ], [ %exitcond.not, %invoke.cont154 ], [ %exitcond.not, %for.cond ]
+cleanup:                                          ; preds = %for.cond, %invoke.cont77, %lor.lhs.false, %lor.lhs.false30, %invoke.cont18
+  %retval.0 = phi i1 [ false, %invoke.cont18 ], [ false, %lor.lhs.false ], [ false, %lor.lhs.false30 ], [ %exitcond.not, %invoke.cont77 ], [ %exitcond.not, %for.cond ]
   %cmp.not.i47 = icmp eq ptr %call19, null
   br i1 %cmp.not.i47, label %_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit, label %if.then.i48
 
-if.then.i48.sink.split:                           ; preds = %invoke.cont54, %invoke.cont39
-  %.str.58.sink = phi ptr [ @.str.58, %invoke.cont39 ], [ @.str.59, %invoke.cont54 ]
-  %19 = load ptr, ptr @stderr, align 8
-  %20 = tail call i64 @fwrite(ptr nonnull %.str.58.sink, i64 44, i64 1, ptr %19) #17
-  br label %if.then.i48
-
-if.then.i48:                                      ; preds = %if.then.i48.sink.split, %invoke.cont47, %invoke.cont68, %invoke.cont63, %cleanup
-  %retval.083 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont63 ], [ false, %invoke.cont68 ], [ false, %invoke.cont47 ], [ false, %if.then.i48.sink.split ]
+if.then.i48:                                      ; preds = %invoke.cont126, %invoke.cont119, %invoke.cont111, %invoke.cont104, %invoke.cont97, %invoke.cont90, %invoke.cont83, %invoke.cont161, %invoke.cont154, %if.then41, %if.then57, %if.then170, %invoke.cont47, %invoke.cont68, %invoke.cont63, %cleanup
+  %retval.083 = phi i1 [ %retval.0, %cleanup ], [ false, %if.then41 ], [ false, %if.then57 ], [ false, %if.then170 ], [ false, %invoke.cont47 ], [ false, %invoke.cont68 ], [ false, %invoke.cont63 ], [ false, %invoke.cont154 ], [ false, %invoke.cont161 ], [ false, %invoke.cont83 ], [ false, %invoke.cont90 ], [ false, %invoke.cont97 ], [ false, %invoke.cont104 ], [ false, %invoke.cont111 ], [ false, %invoke.cont119 ], [ false, %invoke.cont126 ]
   invoke void @BN_MONT_CTX_free(ptr noundef nonnull %call19)
           to label %_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i48
-  %21 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #20
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #20
   unreachable
 
 _ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i48
   %retval.084 = phi i1 [ %retval.0, %cleanup ], [ %retval.083, %if.then.i48 ]
-  %23 = load ptr, ptr %n, align 8
-  %cmp.not.i49 = icmp eq ptr %23, null
+  %25 = load ptr, ptr %n, align 8
+  %cmp.not.i49 = icmp eq ptr %25, null
   br i1 %cmp.not.i49, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i50
 
 if.then.i50:                                      ; preds = %_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit
-  invoke void @BN_free(ptr noundef nonnull %23)
+  invoke void @BN_free(ptr noundef nonnull %25)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i51
 
 terminate.lpad.i51:                               ; preds = %if.then.i50
-  %24 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #20
+  %27 = extractvalue { ptr, i32 } %26, 0
+  tail call void @__clang_call_terminate(ptr %27) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit, %if.then.i50
-  %26 = load ptr, ptr %B, align 8
-  %cmp.not.i52 = icmp eq ptr %26, null
+  %28 = load ptr, ptr %B, align 8
+  %cmp.not.i52 = icmp eq ptr %28, null
   br i1 %cmp.not.i52, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55, label %if.then.i53
 
 if.then.i53:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit
-  invoke void @BN_free(ptr noundef nonnull %26)
+  invoke void @BN_free(ptr noundef nonnull %28)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55 unwind label %terminate.lpad.i54
 
 terminate.lpad.i54:                               ; preds = %if.then.i53
-  %27 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #20
+  %30 = extractvalue { ptr, i32 } %29, 0
+  tail call void @__clang_call_terminate(ptr %30) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then.i53
-  %29 = load ptr, ptr %A, align 8
-  %cmp.not.i56 = icmp eq ptr %29, null
+  %31 = load ptr, ptr %A, align 8
+  %cmp.not.i56 = icmp eq ptr %31, null
   br i1 %cmp.not.i56, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, label %if.then.i57
 
 if.then.i57:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55
-  invoke void @BN_free(ptr noundef nonnull %29)
+  invoke void @BN_free(ptr noundef nonnull %31)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59 unwind label %terminate.lpad.i58
 
 terminate.lpad.i58:                               ; preds = %if.then.i57
-  %30 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #20
+  %33 = extractvalue { ptr, i32 } %32, 0
+  tail call void @__clang_call_terminate(ptr %33) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55, %if.then.i57
-  %32 = load ptr, ptr %d, align 8
-  %cmp.not.i60 = icmp eq ptr %32, null
+  %34 = load ptr, ptr %d, align 8
+  %cmp.not.i60 = icmp eq ptr %34, null
   br i1 %cmp.not.i60, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63, label %if.then.i61
 
 if.then.i61:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59
-  invoke void @BN_free(ptr noundef nonnull %32)
+  invoke void @BN_free(ptr noundef nonnull %34)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63 unwind label %terminate.lpad.i62
 
 terminate.lpad.i62:                               ; preds = %if.then.i61
-  %33 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #20
+  %36 = extractvalue { ptr, i32 } %35, 0
+  tail call void @__clang_call_terminate(ptr %36) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, %if.then.i61
-  %35 = load ptr, ptr %c, align 8
-  %cmp.not.i64 = icmp eq ptr %35, null
+  %37 = load ptr, ptr %c, align 8
+  %cmp.not.i64 = icmp eq ptr %37, null
   br i1 %cmp.not.i64, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67, label %if.then.i65
 
 if.then.i65:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63
-  invoke void @BN_free(ptr noundef nonnull %35)
+  invoke void @BN_free(ptr noundef nonnull %37)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67 unwind label %terminate.lpad.i66
 
 terminate.lpad.i66:                               ; preds = %if.then.i65
-  %36 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #20
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63, %if.then.i65
-  %38 = load ptr, ptr %b, align 8
-  %cmp.not.i68 = icmp eq ptr %38, null
+  %40 = load ptr, ptr %b, align 8
+  %cmp.not.i68 = icmp eq ptr %40, null
   br i1 %cmp.not.i68, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71, label %if.then.i69
 
 if.then.i69:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67
-  invoke void @BN_free(ptr noundef nonnull %38)
+  invoke void @BN_free(ptr noundef nonnull %40)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71 unwind label %terminate.lpad.i70
 
 terminate.lpad.i70:                               ; preds = %if.then.i69
-  %39 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #20
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67, %if.then.i69
-  %41 = load ptr, ptr %a, align 8
-  %cmp.not.i72 = icmp eq ptr %41, null
+  %43 = load ptr, ptr %a, align 8
+  %cmp.not.i72 = icmp eq ptr %43, null
   br i1 %cmp.not.i72, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit75, label %if.then.i73
 
 if.then.i73:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71
-  invoke void @BN_free(ptr noundef nonnull %41)
+  invoke void @BN_free(ptr noundef nonnull %43)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit75 unwind label %terminate.lpad.i74
 
 terminate.lpad.i74:                               ; preds = %if.then.i73
-  %42 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #20
+  %45 = extractvalue { ptr, i32 } %44, 0
+  tail call void @__clang_call_terminate(ptr %45) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit75: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71, %if.then.i73
@@ -5207,7 +5221,7 @@ if.end88:                                         ; preds = %_ZL7puts_fpP8_IO_FI
 
 invoke.cont92:                                    ; preds = %if.end88
   %tobool94.not = icmp eq i32 %call93, 0
-  br i1 %tobool94.not, label %cleanup, label %lor.lhs.false95
+  br i1 %tobool94.not, label %if.then.i38, label %lor.lhs.false95
 
 lor.lhs.false95:                                  ; preds = %invoke.cont92
   %call100 = invoke i32 @BN_sub(ptr noundef nonnull %call10, ptr noundef nonnull %call10, ptr noundef nonnull %call7)
@@ -5215,7 +5229,7 @@ lor.lhs.false95:                                  ; preds = %invoke.cont92
 
 invoke.cont99:                                    ; preds = %lor.lhs.false95
   %tobool101.not = icmp eq i32 %call100, 0
-  br i1 %tobool101.not, label %cleanup, label %lor.lhs.false102
+  br i1 %tobool101.not, label %if.then.i38, label %lor.lhs.false102
 
 lor.lhs.false102:                                 ; preds = %invoke.cont99
   %call108 = invoke i32 @BN_div(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull %call10, ptr noundef nonnull %call4, ptr noundef %ctx)
@@ -5223,7 +5237,7 @@ lor.lhs.false102:                                 ; preds = %invoke.cont99
 
 invoke.cont107:                                   ; preds = %lor.lhs.false102
   %tobool109.not = icmp eq i32 %call108, 0
-  br i1 %tobool109.not, label %cleanup, label %if.end111
+  br i1 %tobool109.not, label %if.then.i38, label %if.end111
 
 if.end111:                                        ; preds = %invoke.cont107
   %call114 = invoke i32 @BN_is_zero(ptr noundef nonnull %call1)
@@ -5236,7 +5250,7 @@ invoke.cont113:                                   ; preds = %if.end111
 if.then116:                                       ; preds = %invoke.cont113
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 35, i64 1, ptr %9) #17
-  br label %cleanup
+  br label %if.then.i38
 
 for.end:                                          ; preds = %for.cond
   %call121 = invoke fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEPKc(ptr noundef %a, ptr noundef nonnull @.str.67)
@@ -5244,7 +5258,7 @@ for.end:                                          ; preds = %for.cond
 
 invoke.cont120:                                   ; preds = %for.end
   %tobool122.not = icmp eq i32 %call121, 0
-  br i1 %tobool122.not, label %cleanup, label %lor.lhs.false123
+  br i1 %tobool122.not, label %if.then.i38, label %lor.lhs.false123
 
 lor.lhs.false123:                                 ; preds = %invoke.cont120
   %call125 = invoke fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEPKc(ptr noundef %b, ptr noundef nonnull @.str.68)
@@ -5252,7 +5266,7 @@ lor.lhs.false123:                                 ; preds = %invoke.cont120
 
 invoke.cont124:                                   ; preds = %lor.lhs.false123
   %tobool126.not = icmp eq i32 %call125, 0
-  br i1 %tobool126.not, label %cleanup, label %lor.lhs.false127
+  br i1 %tobool126.not, label %if.then.i38, label %lor.lhs.false127
 
 lor.lhs.false127:                                 ; preds = %invoke.cont124
   %call129 = invoke fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEPKc(ptr noundef %c, ptr noundef nonnull @.str.69)
@@ -5260,7 +5274,7 @@ lor.lhs.false127:                                 ; preds = %invoke.cont124
 
 invoke.cont128:                                   ; preds = %lor.lhs.false127
   %tobool130.not = icmp eq i32 %call129, 0
-  br i1 %tobool130.not, label %cleanup, label %lor.lhs.false131
+  br i1 %tobool130.not, label %if.then.i38, label %lor.lhs.false131
 
 lor.lhs.false131:                                 ; preds = %invoke.cont128
   %11 = load ptr, ptr %a, align 8
@@ -5271,7 +5285,7 @@ lor.lhs.false131:                                 ; preds = %invoke.cont128
 
 invoke.cont136:                                   ; preds = %lor.lhs.false131
   %tobool138.not = icmp eq i32 %call137, 0
-  br i1 %tobool138.not, label %cleanup, label %lor.lhs.false139
+  br i1 %tobool138.not, label %if.then.i38, label %lor.lhs.false139
 
 lor.lhs.false139:                                 ; preds = %invoke.cont136
   %call144 = invoke i32 @BN_mul(ptr noundef nonnull %call10, ptr noundef %11, ptr noundef %11, ptr noundef %ctx)
@@ -5279,7 +5293,7 @@ lor.lhs.false139:                                 ; preds = %invoke.cont136
 
 invoke.cont143:                                   ; preds = %lor.lhs.false139
   %tobool145.not = icmp eq i32 %call144, 0
-  br i1 %tobool145.not, label %cleanup, label %if.end147
+  br i1 %tobool145.not, label %if.then.i38, label %if.end147
 
 if.end147:                                        ; preds = %invoke.cont143
   %call151 = invoke i32 @BN_cmp(ptr noundef nonnull %call7, ptr noundef nonnull %call10)
@@ -5287,20 +5301,19 @@ if.end147:                                        ; preds = %invoke.cont143
 
 invoke.cont150:                                   ; preds = %if.end147
   %cmp152.not = icmp eq i32 %call151, 0
-  br i1 %cmp152.not, label %cleanup, label %if.then153
+  br i1 %cmp152.not, label %if.then.i38, label %if.then153
 
 if.then153:                                       ; preds = %invoke.cont150
   %14 = load ptr, ptr @stderr, align 8
   %15 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 49, i64 1, ptr %14) #17
-  br label %cleanup
+  br label %if.then.i38
 
-cleanup:                                          ; preds = %invoke.cont92, %invoke.cont99, %invoke.cont107, %invoke.cont51, %invoke.cont57, %invoke.cont65, %invoke.cont150, %invoke.cont120, %invoke.cont124, %invoke.cont128, %invoke.cont136, %invoke.cont143, %lor.lhs.false, %if.then153, %if.then116, %invoke.cont9
-  %retval.0 = phi i1 [ false, %invoke.cont9 ], [ true, %invoke.cont150 ], [ false, %invoke.cont120 ], [ false, %invoke.cont124 ], [ false, %invoke.cont128 ], [ false, %invoke.cont136 ], [ false, %invoke.cont143 ], [ false, %lor.lhs.false ], [ false, %if.then153 ], [ false, %if.then116 ], [ false, %invoke.cont65 ], [ false, %invoke.cont57 ], [ false, %invoke.cont51 ], [ false, %invoke.cont107 ], [ false, %invoke.cont99 ], [ false, %invoke.cont92 ]
+cleanup:                                          ; preds = %invoke.cont51, %invoke.cont57, %invoke.cont65, %lor.lhs.false, %invoke.cont9
   %cmp.not.i37 = icmp eq ptr %call10, null
   br i1 %cmp.not.i37, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i38
 
-if.then.i38:                                      ; preds = %if.then39, %invoke.cont25, %invoke.cont21, %invoke.cont45, %cleanup
-  %retval.060 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont45 ], [ false, %invoke.cont21 ], [ false, %invoke.cont25 ], [ false, %if.then39 ]
+if.then.i38:                                      ; preds = %invoke.cont107, %invoke.cont99, %invoke.cont92, %if.then39, %if.then116, %if.then153, %invoke.cont25, %invoke.cont21, %invoke.cont45, %invoke.cont143, %invoke.cont136, %invoke.cont128, %invoke.cont124, %invoke.cont120, %invoke.cont150, %cleanup
+  %retval.060 = phi i1 [ false, %cleanup ], [ false, %if.then39 ], [ false, %if.then116 ], [ false, %if.then153 ], [ false, %invoke.cont25 ], [ false, %invoke.cont21 ], [ false, %invoke.cont45 ], [ false, %invoke.cont143 ], [ false, %invoke.cont136 ], [ false, %invoke.cont128 ], [ false, %invoke.cont124 ], [ false, %invoke.cont120 ], [ true, %invoke.cont150 ], [ false, %invoke.cont92 ], [ false, %invoke.cont99 ], [ false, %invoke.cont107 ]
   invoke void @BN_free(ptr noundef nonnull %call10)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -5312,7 +5325,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i38
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i38
-  %retval.061 = phi i1 [ %retval.0, %cleanup ], [ %retval.060, %if.then.i38 ]
+  %retval.061 = phi i1 [ false, %cleanup ], [ %retval.060, %if.then.i38 ]
   %cmp.not.i39 = icmp eq ptr %call7, null
   br i1 %cmp.not.i39, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42, label %if.then.i40
 
@@ -5503,7 +5516,12 @@ invoke.cont31:                                    ; preds = %if.end29
 
 invoke.cont36:                                    ; preds = %invoke.cont31
   %tobool38.not = icmp eq i32 %call37, 0
-  br i1 %tobool38.not, label %if.end42, label %if.then.i37.sink.split
+  br i1 %tobool38.not, label %if.end42, label %if.then39
+
+if.then39:                                        ; preds = %invoke.cont36
+  %4 = load ptr, ptr @stderr, align 8
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 55, i64 1, ptr %4) #17
+  br label %if.then.i37
 
 if.end42:                                         ; preds = %invoke.cont36
   invoke void @ERR_clear_error()
@@ -5523,7 +5541,12 @@ if.end49:                                         ; preds = %invoke.cont45
 
 invoke.cont54:                                    ; preds = %if.end49
   %tobool56.not = icmp eq i32 %call55, 0
-  br i1 %tobool56.not, label %if.end60, label %if.then.i37.sink.split
+  br i1 %tobool56.not, label %if.end60, label %if.then57
+
+if.then57:                                        ; preds = %invoke.cont54
+  %6 = load ptr, ptr @stderr, align 8
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 55, i64 1, ptr %6) #17
+  br label %if.then.i37
 
 if.end60:                                         ; preds = %invoke.cont54
   invoke void @ERR_clear_error()
@@ -5582,17 +5605,17 @@ if.then89:                                        ; preds = %if.end87
           to label %invoke.cont93 unwind label %lpad20.loopexit
 
 invoke.cont93:                                    ; preds = %if.then89
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 3, i64 1, ptr nonnull %fp)
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 3, i64 1, ptr nonnull %fp)
   %call96 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call1)
           to label %invoke.cont97 unwind label %lpad20.loopexit
 
 invoke.cont97:                                    ; preds = %invoke.cont93
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
+  %9 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
   %call100 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call4)
           to label %invoke.cont101 unwind label %lpad20.loopexit
 
 invoke.cont101:                                   ; preds = %invoke.cont97
-  %6 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
   %call104 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call7)
           to label %_ZL7puts_fpP8_IO_FILEPKc.exit35 unwind label %lpad20.loopexit
 
@@ -5606,7 +5629,7 @@ if.end106:                                        ; preds = %_ZL7puts_fpP8_IO_FI
 
 invoke.cont110:                                   ; preds = %if.end106
   %tobool112.not = icmp eq i32 %call111, 0
-  br i1 %tobool112.not, label %cleanup, label %lor.lhs.false113
+  br i1 %tobool112.not, label %if.then.i37, label %lor.lhs.false113
 
 lor.lhs.false113:                                 ; preds = %invoke.cont110
   %call118 = invoke i32 @BN_sub(ptr noundef nonnull %call10, ptr noundef nonnull %call10, ptr noundef nonnull %call7)
@@ -5614,7 +5637,7 @@ lor.lhs.false113:                                 ; preds = %invoke.cont110
 
 invoke.cont117:                                   ; preds = %lor.lhs.false113
   %tobool119.not = icmp eq i32 %call118, 0
-  br i1 %tobool119.not, label %cleanup, label %lor.lhs.false120
+  br i1 %tobool119.not, label %if.then.i37, label %lor.lhs.false120
 
 lor.lhs.false120:                                 ; preds = %invoke.cont117
   %call126 = invoke i32 @BN_div(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull %call10, ptr noundef nonnull %call4, ptr noundef %ctx)
@@ -5622,7 +5645,7 @@ lor.lhs.false120:                                 ; preds = %invoke.cont117
 
 invoke.cont125:                                   ; preds = %lor.lhs.false120
   %tobool127.not = icmp eq i32 %call126, 0
-  br i1 %tobool127.not, label %cleanup, label %if.end129
+  br i1 %tobool127.not, label %if.then.i37, label %if.end129
 
 if.end129:                                        ; preds = %invoke.cont125
   %call132 = invoke i32 @BN_is_zero(ptr noundef nonnull %call1)
@@ -5633,31 +5656,25 @@ invoke.cont131:                                   ; preds = %if.end129
   br i1 %tobool133.not, label %if.then134, label %for.cond
 
 if.then134:                                       ; preds = %invoke.cont131
-  %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 35, i64 1, ptr %7) #17
-  br label %cleanup
+  %11 = load ptr, ptr @stderr, align 8
+  %12 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 35, i64 1, ptr %11) #17
+  br label %if.then.i37
 
-cleanup:                                          ; preds = %for.cond, %invoke.cont110, %invoke.cont117, %invoke.cont125, %invoke.cont69, %invoke.cont75, %invoke.cont83, %lor.lhs.false, %if.then134, %invoke.cont9
-  %retval.0 = phi i1 [ false, %invoke.cont9 ], [ false, %lor.lhs.false ], [ false, %if.then134 ], [ false, %invoke.cont83 ], [ false, %invoke.cont75 ], [ false, %invoke.cont69 ], [ false, %invoke.cont125 ], [ false, %invoke.cont117 ], [ false, %invoke.cont110 ], [ true, %for.cond ]
+cleanup:                                          ; preds = %for.cond, %invoke.cont69, %invoke.cont75, %invoke.cont83, %lor.lhs.false, %invoke.cont9
+  %retval.0 = phi i1 [ false, %invoke.cont9 ], [ false, %lor.lhs.false ], [ false, %invoke.cont83 ], [ false, %invoke.cont75 ], [ false, %invoke.cont69 ], [ true, %for.cond ]
   %cmp.not.i36 = icmp eq ptr %call10, null
   br i1 %cmp.not.i36, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i37
 
-if.then.i37.sink.split:                           ; preds = %invoke.cont54, %invoke.cont36
-  %.str.71.sink = phi ptr [ @.str.71, %invoke.cont36 ], [ @.str.72, %invoke.cont54 ]
-  %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i64 @fwrite(ptr nonnull %.str.71.sink, i64 55, i64 1, ptr %9) #17
-  br label %if.then.i37
-
-if.then.i37:                                      ; preds = %if.then.i37.sink.split, %invoke.cont25, %invoke.cont21, %invoke.cont45, %invoke.cont63, %cleanup
-  %retval.059 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont63 ], [ false, %invoke.cont45 ], [ false, %invoke.cont21 ], [ false, %invoke.cont25 ], [ false, %if.then.i37.sink.split ]
+if.then.i37:                                      ; preds = %invoke.cont125, %invoke.cont117, %invoke.cont110, %if.then39, %if.then57, %if.then134, %invoke.cont25, %invoke.cont21, %invoke.cont45, %invoke.cont63, %cleanup
+  %retval.059 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont63 ], [ false, %invoke.cont45 ], [ false, %invoke.cont21 ], [ false, %invoke.cont25 ], [ false, %if.then134 ], [ false, %if.then57 ], [ false, %if.then39 ], [ false, %invoke.cont110 ], [ false, %invoke.cont117 ], [ false, %invoke.cont125 ]
   invoke void @BN_free(ptr noundef nonnull %call10)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i37
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #20
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i37
@@ -5670,10 +5687,10 @@ if.then.i39:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41 unwind label %terminate.lpad.i40
 
 terminate.lpad.i40:                               ; preds = %if.then.i39
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #20
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then.i39
@@ -5685,10 +5702,10 @@ if.then.i43:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45 unwind label %terminate.lpad.i44
 
 terminate.lpad.i44:                               ; preds = %if.then.i43
-  %15 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #20
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41, %if.then.i43
@@ -5700,10 +5717,10 @@ if.then.i47:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49 unwind label %terminate.lpad.i48
 
 terminate.lpad.i48:                               ; preds = %if.then.i47
-  %17 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #20
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45, %if.then.i47
@@ -5714,10 +5731,10 @@ if.then.i51:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit53 unwind label %terminate.lpad.i52
 
 terminate.lpad.i52:                               ; preds = %if.then.i51
-  %19 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #20
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #20
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit53: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49, %if.then.i51
@@ -7051,7 +7068,7 @@ invoke.cont31:                                    ; preds = %if.end28
 if.then34:                                        ; preds = %invoke.cont31
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 25, i64 1, ptr %2) #17
-  br label %cleanup
+  br label %if.then.i
 
 for.body41:                                       ; preds = %for.cond, %for.inc76
   %4 = phi ptr [ %5, %for.inc76 ], [ %call1, %for.cond ]
@@ -7087,7 +7104,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
 if.then61.invoke:                                 ; preds = %invoke.cont11, %invoke.cont17, %invoke.cont23, %invoke.cont43, %invoke.cont50, %invoke.cont58
   %6 = load ptr, ptr @stderr, align 8
   invoke void @ERR_print_errors_fp(ptr noundef %6)
-          to label %cleanup unwind label %lpad10.loopexit.split-lp.loopexit.split-lp
+          to label %if.then.i unwind label %lpad10.loopexit.split-lp.loopexit.split-lp
 
 if.end63:                                         ; preds = %invoke.cont58
   %call67 = invoke i32 @BN_sqrt(ptr noundef nonnull %call4, ptr noundef %5, ptr noundef %ctx)
@@ -7110,14 +7127,14 @@ invoke.cont71:                                    ; preds = %if.then69
 for.inc76:                                        ; preds = %invoke.cont66, %invoke.cont71
   %inc77 = add nuw nsw i32 %i38.05, 1
   %exitcond6.not = icmp eq i32 %inc77, 100
-  br i1 %exitcond6.not, label %cleanup, label %for.body41, !llvm.loop !31
+  br i1 %exitcond6.not, label %if.then.i, label %for.body41, !llvm.loop !31
 
-cleanup:                                          ; preds = %for.inc76, %if.then61.invoke, %lor.lhs.false, %if.then34, %invoke.cont3
-  %retval.0 = phi i1 [ false, %invoke.cont3 ], [ false, %lor.lhs.false ], [ false, %if.then34 ], [ false, %if.then61.invoke ], [ true, %for.inc76 ]
+cleanup:                                          ; preds = %lor.lhs.false, %invoke.cont3
   %cmp.not.i = icmp eq ptr %call4, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %cleanup
+if.then.i:                                        ; preds = %for.inc76, %if.then61.invoke, %if.then34, %cleanup
+  %retval.010 = phi i1 [ false, %cleanup ], [ false, %if.then34 ], [ false, %if.then61.invoke ], [ true, %for.inc76 ]
   invoke void @BN_free(ptr noundef nonnull %call4)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -7129,6 +7146,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i
+  %retval.011 = phi i1 [ false, %cleanup ], [ %retval.010, %if.then.i ]
   %10 = load ptr, ptr %nn, align 8
   %cmp.not.i11 = icmp eq ptr %10, null
   br i1 %cmp.not.i11, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit14, label %if.then.i12
@@ -7161,7 +7179,7 @@ terminate.lpad.i17:                               ; preds = %if.then.i16
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit18: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit14, %if.then.i16
-  ret i1 %retval.0
+  ret i1 %retval.011
 
 ehcleanup:                                        ; preds = %lpad10, %lpad2
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad10 ], [ %1, %lpad2 ]
@@ -7185,7 +7203,12 @@ entry:
   %call = tail call ptr @BN_new()
   store ptr %call, ptr %n, align 8
   %cmp.i.not = icmp eq ptr %call, null
-  br i1 %cmp.i.not, label %if.then, label %lor.lhs.false
+  br i1 %cmp.i.not, label %cleanup.thread6, label %lor.lhs.false
+
+cleanup.thread6:                                  ; preds = %entry
+  %0 = load ptr, ptr @stderr, align 8
+  %1 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 56, i64 1, ptr %0) #17
+  br label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit
 
 lor.lhs.false:                                    ; preds = %entry
   %call3 = invoke i32 @BN_bn2bin_padded(ptr noundef null, i64 noundef 0, ptr noundef nonnull %call)
@@ -7193,12 +7216,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %lor.lhs.false
   %tobool.not = icmp eq i32 %call3, 0
-  br i1 %tobool.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %invoke.cont, %entry
-  %0 = load ptr, ptr @stderr, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 56, i64 1, ptr %0) #17
-  br label %cleanup
+  br i1 %tobool.not, label %cleanup, label %if.end
 
 lpad.loopexit:                                    ; preds = %for.body, %if.end30, %lor.lhs.false36, %if.end45, %if.end53, %if.end62, %if.end76, %if.end95
   %lpad.loopexit1 = landingpad { ptr, i32 }
@@ -7247,7 +7265,7 @@ if.then20:                                        ; preds = %if.end15
 for.cond:                                         ; preds = %for.cond.preheader, %lor.lhs.false108
   %bytes.0 = phi i64 [ %add, %lor.lhs.false108 ], [ 121, %for.cond.preheader ]
   %exitcond.not = icmp eq i64 %bytes.0, 129
-  br i1 %exitcond.not, label %cleanup, label %for.body
+  br i1 %exitcond.not, label %if.then.i, label %for.body
 
 for.body:                                         ; preds = %for.cond
   %bytes.0.tr = trunc nuw i64 %bytes.0 to i32
@@ -7262,7 +7280,7 @@ invoke.cont25:                                    ; preds = %for.body
 if.then28:                                        ; preds = %invoke.cont25
   %6 = load ptr, ptr @stderr, align 8
   invoke void @ERR_print_errors_fp(ptr noundef %6)
-          to label %cleanup unwind label %lpad.loopexit.split-lp
+          to label %if.then.i unwind label %lpad.loopexit.split-lp
 
 if.end30:                                         ; preds = %invoke.cont25
   %call33 = invoke i32 @BN_num_bytes(ptr noundef nonnull %call)
@@ -7284,7 +7302,7 @@ invoke.cont39:                                    ; preds = %lor.lhs.false36
 if.then42:                                        ; preds = %invoke.cont39, %invoke.cont32
   %7 = load ptr, ptr @stderr, align 8
   %8 = call i64 @fwrite(ptr nonnull @.str.84, i64 32, i64 1, ptr %7) #17
-  br label %cleanup
+  br label %if.then.i
 
 if.end45:                                         ; preds = %invoke.cont39
   %call48 = invoke i32 @BN_bn2bin_padded(ptr noundef null, i64 noundef 0, ptr noundef nonnull %call)
@@ -7297,7 +7315,7 @@ invoke.cont47:                                    ; preds = %if.end45
 if.then50:                                        ; preds = %invoke.cont47
   %9 = load ptr, ptr @stderr, align 8
   %10 = call i64 @fwrite(ptr nonnull @.str.85, i64 56, i64 1, ptr %9) #17
-  br label %cleanup
+  br label %if.then.i
 
 if.end53:                                         ; preds = %invoke.cont47
   %sub = add nsw i64 %bytes.0, -1
@@ -7311,7 +7329,7 @@ invoke.cont56:                                    ; preds = %if.end53
 if.then59:                                        ; preds = %invoke.cont56
   %11 = load ptr, ptr @stderr, align 8
   %12 = call i64 @fwrite(ptr nonnull @.str.86, i64 49, i64 1, ptr %11) #17
-  br label %cleanup
+  br label %if.then.i
 
 if.end62:                                         ; preds = %invoke.cont56
   %call66 = invoke i32 @BN_bn2bin_padded(ptr noundef nonnull %out, i64 noundef %bytes.0, ptr noundef nonnull %call)
@@ -7329,7 +7347,7 @@ lor.lhs.false68:                                  ; preds = %invoke.cont65
 if.then73:                                        ; preds = %lor.lhs.false68, %invoke.cont65
   %13 = load ptr, ptr @stderr, align 8
   %14 = call i64 @fwrite(ptr nonnull @.str.87, i64 36, i64 1, ptr %13) #17
-  br label %cleanup
+  br label %if.then.i
 
 if.end76:                                         ; preds = %lor.lhs.false68
   %add = add nuw nsw i64 %bytes.0, 1
@@ -7351,7 +7369,7 @@ lor.lhs.false82:                                  ; preds = %invoke.cont79
 if.then92:                                        ; preds = %lor.lhs.false82, %invoke.cont79
   %15 = load ptr, ptr @stderr, align 8
   %16 = call i64 @fwrite(ptr nonnull @.str.87, i64 36, i64 1, ptr %15) #17
-  br label %cleanup
+  br label %if.then.i
 
 if.end95:                                         ; preds = %lor.lhs.false82
   %call99 = invoke i32 @BN_bn2bin_padded(ptr noundef nonnull %out, i64 noundef 256, ptr noundef nonnull %call)
@@ -7377,26 +7395,27 @@ lor.lhs.false108:                                 ; preds = %lor.lhs.false101
 if.then114:                                       ; preds = %lor.lhs.false108, %lor.lhs.false101, %invoke.cont98
   %17 = load ptr, ptr @stderr, align 8
   %18 = call i64 @fwrite(ptr nonnull @.str.87, i64 36, i64 1, ptr %17) #17
-  br label %cleanup
+  br label %if.then.i
 
-cleanup:                                          ; preds = %for.cond, %if.then28, %if.then114, %if.then92, %if.then73, %if.then59, %if.then50, %if.then42, %if.then
-  %retval.0 = phi i1 [ false, %if.then42 ], [ false, %if.then50 ], [ false, %if.then59 ], [ false, %if.then73 ], [ false, %if.then92 ], [ false, %if.then114 ], [ false, %if.then ], [ false, %if.then28 ], [ true, %for.cond ]
-  br i1 %cmp.i.not, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i
+cleanup:                                          ; preds = %invoke.cont
+  %19 = load ptr, ptr @stderr, align 8
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 56, i64 1, ptr %19) #17
+  br label %if.then.i
 
-if.then.i:                                        ; preds = %if.then12, %if.then20, %cleanup
-  %retval.04 = phi i1 [ %retval.0, %cleanup ], [ false, %if.then20 ], [ false, %if.then12 ]
+if.then.i:                                        ; preds = %for.cond, %if.then12, %if.then20, %if.then42, %if.then50, %if.then59, %if.then73, %if.then92, %if.then114, %if.then28, %cleanup
+  %retval.04 = phi i1 [ false, %cleanup ], [ false, %if.then28 ], [ false, %if.then12 ], [ false, %if.then114 ], [ false, %if.then92 ], [ false, %if.then73 ], [ false, %if.then59 ], [ false, %if.then50 ], [ false, %if.then42 ], [ false, %if.then20 ], [ true, %for.cond ]
   invoke void @BN_free(ptr noundef nonnull %call)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %19 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #20
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #20
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i
-  %retval.05 = phi i1 [ %retval.0, %cleanup ], [ %retval.04, %if.then.i ]
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup.thread6, %if.then.i
+  %retval.05 = phi i1 [ %retval.04, %if.then.i ], [ false, %cleanup.thread6 ]
   ret i1 %retval.05
 }
 

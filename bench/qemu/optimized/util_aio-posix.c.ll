@@ -1385,7 +1385,7 @@ if.end49:                                         ; preds = %poll_set_started.ex
   %80 = load ptr, ptr %fdmon_ops50, align 8
   %wait = getelementptr inbounds nuw i8, ptr %80, i64 8
   %81 = load ptr, ptr %wait, align 8
-  %call51 = call i32 %81(ptr noundef %ctx, ptr noundef nonnull %ready_list, i64 noundef %timeout.1) #10
+  %call51 = call i32 %81(ptr noundef nonnull %ctx, ptr noundef nonnull %ready_list, i64 noundef %timeout.1) #10
   br i1 %tobool14.not109111122, label %if.end72, label %while.end60
 
 while.end60:                                      ; preds = %lor.lhs.false.thread, %if.end49

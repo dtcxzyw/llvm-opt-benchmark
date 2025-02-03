@@ -5444,7 +5444,7 @@ if.then3078:                                      ; preds = %land.lhs.true3074
   br i1 %tobool3083.not, label %if.then3084, label %sw.epilog5747
 
 if.then3084:                                      ; preds = %if.then3078
-  %call3085 = tail call i32 @Curl_ssl_set_engine(ptr noundef %data, ptr noundef nonnull %804) #8
+  %call3085 = tail call i32 @Curl_ssl_set_engine(ptr noundef nonnull %data, ptr noundef nonnull %804) #8
   br label %sw.epilog5747
 
 sw.bb3088:                                        ; preds = %entry

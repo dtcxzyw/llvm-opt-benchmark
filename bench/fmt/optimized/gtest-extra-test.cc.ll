@@ -921,7 +921,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #22
   resume { ptr, i32 } %0
 }
 
@@ -13833,7 +13833,7 @@ lpad8:                                            ; preds = %if.then7
   %5 = landingpad { ptr, i32 }
           catch ptr @_ZTISt13runtime_error
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception) #22
+  call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %catch.dispatch
 
 catch.dispatch:                                   ; preds = %lpad8, %lpad4
@@ -14982,7 +14982,7 @@ lpad319:                                          ; preds = %if.then317
   %109 = landingpad { ptr, i32 }
           catch ptr @_ZTISt13runtime_error
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception318) #22
+  call void @__cxa_free_exception(ptr nonnull %exception318) #22
   br label %catch.dispatch324
 
 catch.dispatch324:                                ; preds = %lpad319, %lpad314

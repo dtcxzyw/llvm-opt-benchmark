@@ -209,7 +209,7 @@ define void @_ZNK5faiss33IndexIVFAdditiveQuantizerFastScan6searchElPKflPfPlPKNS_
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #19
+  call void @__cxa_free_exception(ptr nonnull %21) #19
   br label %63
 
 27:                                               ; preds = %7
@@ -247,7 +247,7 @@ define void @_ZNK5faiss33IndexIVFAdditiveQuantizerFastScan6searchElPKflPfPlPKNS_
 42:                                               ; preds = %35
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %38) #19
+  call void @__cxa_free_exception(ptr nonnull %38) #19
   br label %63
 
 44:                                               ; preds = %27
@@ -1142,7 +1142,7 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %44, %64
 98:                                               ; preds = %91
   %99 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %94) #19
+  call void @__cxa_free_exception(ptr nonnull %94) #19
   br label %100
 
 100:                                              ; preds = %98, %96
@@ -1269,7 +1269,7 @@ _ZNK5faiss33IndexIVFAdditiveQuantizerFastScan11compute_LUTEmPKfRKNS_16IndexIVFFa
 147:                                              ; preds = %139
   %148 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %143) #19
+  call void @__cxa_free_exception(ptr nonnull %143) #19
   br label %149
 
 149:                                              ; preds = %147, %145
@@ -1377,7 +1377,7 @@ define void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQua
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #19
+  call void @__cxa_free_exception(ptr nonnull %20) #19
   br label %119
 
 26:                                               ; preds = %5
@@ -1419,7 +1419,7 @@ define void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQua
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #19
+  call void @__cxa_free_exception(ptr nonnull %41) #19
   br label %119
 
 47:                                               ; preds = %26
@@ -1458,7 +1458,7 @@ define void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQua
 63:                                               ; preds = %56
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %59) #19
+  call void @__cxa_free_exception(ptr nonnull %59) #19
   br label %119
 
 65:                                               ; preds = %47
@@ -1502,7 +1502,7 @@ define void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQua
 84:                                               ; preds = %77
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %80) #19
+  call void @__cxa_free_exception(ptr nonnull %80) #19
   br label %119
 
 86:                                               ; preds = %65
@@ -1541,7 +1541,7 @@ define void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan4initEPNS_17AdditiveQua
 101:                                              ; preds = %94
   %102 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %97) #19
+  call void @__cxa_free_exception(ptr nonnull %97) #19
   br label %119
 
 103:                                              ; preds = %86, %69
@@ -1689,7 +1689,7 @@ define void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanC2ERKNS_25IndexIVFAddit
 41:                                               ; preds = %34
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %37) #19
+  call void @__cxa_free_exception(ptr nonnull %37) #19
   br label %43
 
 43:                                               ; preds = %41, %39
@@ -2030,7 +2030,7 @@ define void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan19estimate_norm_scaleEl
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #19
+  call void @__cxa_free_exception(ptr nonnull %23) #19
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -2883,7 +2883,7 @@ define void @_ZN5faiss36IndexIVFLocalSearchQuantizerFastScanC2EPNS_5IndexEmmmmNS
 32:                                               ; preds = %23
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #19
+  call void @__cxa_free_exception(ptr nonnull %26) #19
   br label %34
 
 34:                                               ; preds = %32, %30
@@ -3058,7 +3058,7 @@ define void @_ZN5faiss33IndexIVFResidualQuantizerFastScanC2EPNS_5IndexEmmmmNS_10
 32:                                               ; preds = %23
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #19
+  call void @__cxa_free_exception(ptr nonnull %26) #19
   br label %34
 
 34:                                               ; preds = %32, %30
@@ -3344,7 +3344,7 @@ define void @_ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScanC2EPNS_5Index
 33:                                               ; preds = %24
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #19
+  call void @__cxa_free_exception(ptr nonnull %27) #19
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -3519,7 +3519,7 @@ define void @_ZN5faiss40IndexIVFProductResidualQuantizerFastScanC2EPNS_5IndexEmm
 33:                                               ; preds = %24
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #19
+  call void @__cxa_free_exception(ptr nonnull %27) #19
   br label %35
 
 35:                                               ; preds = %33, %31

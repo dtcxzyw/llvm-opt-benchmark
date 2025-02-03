@@ -1051,7 +1051,7 @@ if.end3.i72:                                      ; preds = %if.then43
 _.exit75:                                         ; preds = %if.then43, %if.end3.i72
   %retval.0.i74 = phi ptr [ %call.i73, %if.end3.i72 ], [ @.str.24, %if.then43 ]
   %call45 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i74, ptr noundef %scevgep) #14
-  call void @free(ptr noundef %call40) #14
+  call void @free(ptr noundef nonnull %call40) #14
   call void @string_list_clear(ptr noundef nonnull %list, i32 noundef 1) #14
   br label %cleanup.thread
 

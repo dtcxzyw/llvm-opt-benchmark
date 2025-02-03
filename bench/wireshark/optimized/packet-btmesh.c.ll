@@ -7176,7 +7176,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
 163:                                              ; preds = %161
   %164 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %165 = load ptr, ptr %164, align 8
-  %166 = tail call fastcc i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3, ptr noundef %16, i32 noundef %12, ptr noundef %165, ptr noundef %4)
+  %166 = tail call fastcc i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3, ptr noundef %16, i32 noundef %12, ptr noundef %165, ptr noundef nonnull %4)
   %.not103.i = icmp eq i32 %166, 0
   br i1 %.not103.i, label %167, label %.loopexit107.sink.split.i
 

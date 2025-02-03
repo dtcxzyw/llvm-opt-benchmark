@@ -61,7 +61,7 @@ define hidden noundef zeroext i1 @_ZN15LocationPrinter12is_valid_objEPv(ptr noun
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef %0) #3
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull %0) #3
   br i1 %17, label %18, label %37
 
 18:                                               ; preds = %12

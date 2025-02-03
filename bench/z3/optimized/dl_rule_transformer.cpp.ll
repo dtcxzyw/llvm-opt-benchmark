@@ -382,7 +382,7 @@ _ZN7datalog16rule_transformer14ensure_orderedEv.exit: ; preds = %entry, %_ZSt4so
   %m_plugins = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load ptr, ptr %m_plugins, align 8
   %cmp.i.i = icmp eq ptr %5, null
-  br i1 %cmp.i.i, label %if.end178, label %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit
+  br i1 %cmp.i.i, label %if.end.i.i53, label %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit
 
 _ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit: ; preds = %_ZN7datalog16rule_transformer14ensure_orderedEv.exit
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 -4
@@ -390,7 +390,7 @@ _ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit: ; preds = %_ZN
   %7 = zext i32 %6 to i64
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %5, i64 %7
   %cmp.not73 = icmp eq i32 %6, 0
-  br i1 %cmp.not73, label %if.end178, label %land.rhs
+  br i1 %cmp.not73, label %if.end.i.i53, label %land.rhs
 
 land.rhs:                                         ; preds = %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit
   %8 = phi ptr [ %42, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit ], [ %call, %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit ]
@@ -768,26 +768,29 @@ if.then174.if.end178_crit_edge:                   ; preds = %if.then174
   %.pre = load ptr, ptr %new_rules, align 8
   br label %if.end178
 
-if.end178:                                        ; preds = %_ZN7datalog16rule_transformer14ensure_orderedEv.exit, %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit, %invoke.cont6.thread, %if.then174.if.end178_crit_edge, %for.end
-  %modified.06989 = phi i1 [ true, %if.then174.if.end178_crit_edge ], [ false, %for.end ], [ false, %invoke.cont6.thread ], [ false, %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit ], [ false, %_ZN7datalog16rule_transformer14ensure_orderedEv.exit ]
-  %50 = phi ptr [ %.pre, %if.then174.if.end178_crit_edge ], [ %42, %for.end ], [ %8, %invoke.cont6.thread ], [ %call, %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit ], [ %call, %_ZN7datalog16rule_transformer14ensure_orderedEv.exit ]
+if.end178:                                        ; preds = %invoke.cont6.thread, %if.then174.if.end178_crit_edge, %for.end
+  %modified.06989 = phi i1 [ true, %if.then174.if.end178_crit_edge ], [ false, %for.end ], [ false, %invoke.cont6.thread ]
+  %50 = phi ptr [ %.pre, %if.then174.if.end178_crit_edge ], [ %42, %for.end ], [ %8, %invoke.cont6.thread ]
   %cmp.i.i52 = icmp eq ptr %50, null
   br i1 %cmp.i.i52, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit55, label %if.end.i.i53
 
-if.end.i.i53:                                     ; preds = %if.end178
-  tail call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %50) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %50)
+if.end.i.i53:                                     ; preds = %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit, %_ZN7datalog16rule_transformer14ensure_orderedEv.exit, %if.end178
+  %51 = phi ptr [ %50, %if.end178 ], [ %call, %_ZN7datalog16rule_transformer14ensure_orderedEv.exit ], [ %call, %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit ]
+  %modified.0698993 = phi i1 [ %modified.06989, %if.end178 ], [ false, %_ZN7datalog16rule_transformer14ensure_orderedEv.exit ], [ false, %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit ]
+  tail call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %51) #17
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %51)
           to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit55 unwind label %terminate.lpad.i54
 
 terminate.lpad.i54:                               ; preds = %if.end.i.i53
-  %51 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  tail call void @__clang_call_terminate(ptr %52) #18
+  %53 = extractvalue { ptr, i32 } %52, 0
+  tail call void @__clang_call_terminate(ptr %53) #18
   unreachable
 
 _ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit55:  ; preds = %if.end178, %if.end.i.i53
-  ret i1 %modified.06989
+  %modified.0698994 = phi i1 [ %modified.06989, %if.end178 ], [ %modified.0698993, %if.end.i.i53 ]
+  ret i1 %modified.0698994
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad44
   %.pn = phi { ptr, i32 } [ %24, %lpad44 ], [ %lpad.loopexit63, %lpad.loopexit ], [ %lpad.loopexit.split-lp64, %lpad.loopexit.split-lp ]

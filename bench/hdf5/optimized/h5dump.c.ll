@@ -1747,7 +1747,7 @@ init_prefix.exit:                                 ; preds = %414, %416
   br label %500
 
 500:                                              ; preds = %497, %495
-  call void @free(ptr noundef %492) #22
+  call void @free(ptr noundef nonnull %492) #22
   br label %.thread
 
 501:                                              ; preds = %482

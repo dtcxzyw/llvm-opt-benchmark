@@ -85,7 +85,7 @@ define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed
   br i1 %50, label %51, label %.sink.split
 
 51:                                               ; preds = %44
-  call void @pthread_destroyjoin(ptr noundef %6, ptr noundef nonnull %46) #2
+  call void @pthread_destroyjoin(ptr noundef nonnull %6, ptr noundef nonnull %46) #2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %9, %51, %44, %14

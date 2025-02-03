@@ -13674,7 +13674,7 @@ look_sysfsnode.exit:                              ; preds = %1409, %hwloc_linux_
   br i1 %exitcond.not.i205, label %._crit_edge.i206, label %.lr.ph.i202, !llvm.loop !82
 
 ._crit_edge.i206:                                 ; preds = %.lr.ph.i202, %.preheader.i199
-  call void @free(ptr noundef %.0211220) #26
+  call void @free(ptr noundef nonnull %.0211220) #26
   br label %hwloc_linux_free_cpuinfo.exit
 
 hwloc_linux_free_cpuinfo.exit:                    ; preds = %2284, %._crit_edge.i206

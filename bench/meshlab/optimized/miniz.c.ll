@@ -7261,7 +7261,7 @@ tdefl_init.exit:                                  ; preds = %tdefl_output_buffer
   br i1 %.not59, label %108, label %106
 
 106:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %14) #30
+  call void @free(ptr noundef nonnull %14) #30
   %107 = load ptr, ptr %25, align 8
   call void @free(ptr noundef %107) #30
   br label %253

@@ -105,7 +105,12 @@ if.end7:                                          ; preds = %if.end
   %call8 = call ptr @CMAC_CTX_new()
   store ptr %call8, ptr %ctx, align 8
   %cmp.i.not = icmp eq ptr %call8, null
-  br i1 %cmp.i.not, label %if.then15, label %lor.lhs.false
+  br i1 %cmp.i.not, label %cleanup.thread40, label %lor.lhs.false
+
+cleanup.thread40:                                 ; preds = %if.end7
+  %5 = load ptr, ptr @stderr, align 8
+  %call1741 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.7, ptr noundef %name) #8
+  br label %return
 
 lor.lhs.false:                                    ; preds = %if.end7
   %call11 = invoke ptr @EVP_aes_128_cbc()
@@ -117,14 +122,14 @@ invoke.cont:                                      ; preds = %lor.lhs.false
 
 invoke.cont12:                                    ; preds = %invoke.cont
   %tobool14.not = icmp eq i32 %call13, 0
-  br i1 %tobool14.not, label %if.then15, label %for.cond.preheader
+  br i1 %tobool14.not, label %cleanup, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %invoke.cont12
   %cmp19.not18 = icmp eq i64 %msg_len, 0
   br i1 %cmp19.not18, label %if.then.i, label %for.body.us.preheader
 
 for.body.us.preheader:                            ; preds = %for.cond.preheader
-  %5 = trunc nuw nsw i64 %msg_len to i32
+  %6 = trunc nuw nsw i64 %msg_len to i32
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
@@ -147,8 +152,8 @@ invoke.cont43.us:                                 ; preds = %while.cond.while.en
   br i1 %tobool45.not.us, label %if.then46, label %if.end49.us
 
 if.end49.us:                                      ; preds = %invoke.cont43.us
-  %6 = load i64, ptr %out_len, align 8
-  %cmp50.not.us = icmp eq i64 %6, 16
+  %7 = load i64, ptr %out_len, align 8
+  %cmp50.not.us = icmp eq i64 %7, 16
   br i1 %cmp50.not.us, label %if.end55.us, label %if.then51
 
 if.end55.us:                                      ; preds = %if.end49.us
@@ -162,8 +167,8 @@ invoke.cont57.us:                                 ; preds = %if.end55.us
 for.inc.us:                                       ; preds = %invoke.cont57.us
   %inc.us = add nuw nsw i32 %chunk_size.019.us, 1
   %conv.us = zext nneg i32 %inc.us to i64
-  %cmp19.not.us.not = icmp samesign ult i32 %chunk_size.019.us, %5
-  br i1 %cmp19.not.us.not, label %for.body.us, label %cleanup, !llvm.loop !9
+  %cmp19.not.us.not = icmp samesign ult i32 %chunk_size.019.us, %6
+  br i1 %cmp19.not.us.not, label %for.body.us, label %if.then.i, !llvm.loop !9
 
 while.body.us:                                    ; preds = %invoke.cont21.us, %while.cond.us
   %done.017.us = phi i64 [ %add.us, %while.cond.us ], [ 0, %invoke.cont21.us ]
@@ -191,11 +196,6 @@ lpad.loopexit.split.us:                           ; preds = %while.body.us
           cleanup
   br label %lpad
 
-if.then15:                                        ; preds = %invoke.cont12, %if.end7
-  %7 = load ptr, ptr @stderr, align 8
-  %call17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.7, ptr noundef %name) #8
-  br label %cleanup
-
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then60, %invoke.cont, %lor.lhs.false
   %lpad.loopexit.split-lp6 = landingpad { ptr, i32 }
           cleanup
@@ -209,48 +209,49 @@ lpad:                                             ; preds = %lpad.loopexit.split
 if.then24:                                        ; preds = %invoke.cont21.us
   %8 = load ptr, ptr @stderr, align 8
   %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.8, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
-  br label %cleanup
+  br label %if.then.i
 
 if.then37:                                        ; preds = %invoke.cont34.us
   %9 = load ptr, ptr @stderr, align 8
   %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.9, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
-  br label %cleanup
+  br label %if.then.i
 
 if.then46:                                        ; preds = %invoke.cont43.us
   %10 = load ptr, ptr @stderr, align 8
   %call48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.10, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
-  br label %cleanup
+  br label %if.then.i
 
 if.then51:                                        ; preds = %if.end49.us
   %11 = load ptr, ptr @stderr, align 8
-  %conv52 = trunc i64 %6 to i32
+  %conv52 = trunc i64 %7 to i32
   %call54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.11, ptr noundef %name, i32 noundef %chunk_size.019.us, i32 noundef %conv52) #8
-  br label %cleanup
+  br label %if.then.i
 
 if.then60:                                        ; preds = %invoke.cont57.us
   %12 = load ptr, ptr @stderr, align 8
   %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.12, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
   invoke fastcc void @_ZL4dumpPKhS0_m(ptr noundef %out, ptr noundef %expected)
-          to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+          to label %if.then.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-cleanup:                                          ; preds = %for.inc.us, %if.then60, %if.then51, %if.then46, %if.then37, %if.then24, %if.then15
-  %retval.1 = phi i32 [ 0, %if.then37 ], [ 0, %if.then51 ], [ 0, %if.then46 ], [ 0, %if.then24 ], [ 0, %if.then15 ], [ 0, %if.then60 ], [ 1, %for.inc.us ]
-  br i1 %cmp.i.not, label %return, label %if.then.i
+cleanup:                                          ; preds = %invoke.cont12
+  %13 = load ptr, ptr @stderr, align 8
+  %call17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.7, ptr noundef %name) #8
+  br label %if.then.i
 
-if.then.i:                                        ; preds = %for.cond.preheader, %cleanup
-  %retval.138 = phi i32 [ %retval.1, %cleanup ], [ 1, %for.cond.preheader ]
+if.then.i:                                        ; preds = %for.inc.us, %if.then60, %if.then24, %if.then37, %if.then46, %if.then51, %for.cond.preheader, %cleanup
+  %retval.138 = phi i32 [ 0, %cleanup ], [ 1, %for.cond.preheader ], [ 0, %if.then60 ], [ 0, %if.then24 ], [ 0, %if.then46 ], [ 0, %if.then51 ], [ 0, %if.then37 ], [ 1, %for.inc.us ]
   invoke void @CMAC_CTX_free(ptr noundef nonnull %call8)
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #10
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
   unreachable
 
-return:                                           ; preds = %if.then.i, %cleanup, %if.then4, %if.then
-  %retval.0 = phi i32 [ 0, %if.then4 ], [ 0, %if.then ], [ %retval.1, %cleanup ], [ %retval.138, %if.then.i ]
+return:                                           ; preds = %if.then.i, %cleanup.thread40, %if.then4, %if.then
+  %retval.0 = phi i32 [ 0, %if.then4 ], [ 0, %if.then ], [ %retval.138, %if.then.i ], [ 0, %cleanup.thread40 ]
   ret i32 %retval.0
 }
 

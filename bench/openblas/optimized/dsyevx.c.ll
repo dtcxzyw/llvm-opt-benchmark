@@ -464,7 +464,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %54, label %270, label %273
 
 270:                                              ; preds = %261
-  call void @dstein_(ptr noundef nonnull %3, ptr noundef nonnull %217, ptr noundef nonnull %219, ptr noundef nonnull %11, ptr noundef %12, ptr noundef %17, ptr noundef nonnull %267, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %221, ptr noundef nonnull %269, ptr noundef %18, ptr noundef nonnull %19) #7
+  call void @dstein_(ptr noundef nonnull %3, ptr noundef nonnull %217, ptr noundef nonnull %219, ptr noundef nonnull %11, ptr noundef %12, ptr noundef nonnull %17, ptr noundef nonnull %267, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %221, ptr noundef nonnull %269, ptr noundef %18, ptr noundef nonnull %19) #7
   %271 = load i32, ptr %16, align 4, !tbaa !3
   %272 = sub i32 %271, %209
   store i32 %272, ptr %30, align 4, !tbaa !3

@@ -2099,31 +2099,33 @@ _ZL24get_static_tls_area_sizePK14pthread_attr_t.exit: ; preds = %43, %41, %44
   %141 = getelementptr inbounds nuw i8, ptr %8, i64 184
   %142 = load ptr, ptr %141, align 8
   %.not.i.i = icmp eq ptr %142, null
-  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %143
+  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread
 
-143:                                              ; preds = %137
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %137
+  %143 = load volatile i32, ptr %8, align 8
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %.lr.ph.preheader, label %_ZN11MutexLockerD2Ev.exit
+
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %137
   call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %142) #26
-  br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %145 = load volatile i32, ptr %8, align 8
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %.lr.ph.preheader, label %._crit_edge.thread88
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %137, %143
-  %144 = load volatile i32, ptr %8, align 8
-  %145 = icmp eq i32 %144, 0
-  br i1 %145, label %.lr.ph, label %._crit_edge
+.lr.ph.preheader:                                 ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %.lr.ph
-  %146 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %142, i64 noundef 0) #26
-  %147 = load volatile i32, ptr %8, align 8
-  %148 = icmp eq i32 %147, 0
-  br i1 %148, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %147 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %142, i64 noundef 0) #26
+  %148 = load volatile i32, ptr %8, align 8
+  %149 = icmp eq i32 %148, 0
+  br i1 %149, label %.lr.ph, label %._crit_edge.thread88, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %149
-
-149:                                              ; preds = %._crit_edge
+._crit_edge.thread88:                             ; preds = %.lr.ph, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %142) #26
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %149, %._crit_edge, %132
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %._crit_edge.thread88, %132
   %150 = load ptr, ptr %84, align 8
   %.not.i.i.i.i = icmp eq ptr %150, null
   br i1 %.not.i.i.i.i, label %152, label %151

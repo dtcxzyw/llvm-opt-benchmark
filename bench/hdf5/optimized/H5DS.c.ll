@@ -1593,7 +1593,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %40
   br i1 %153, label %.critedge, label %154
 
 154:                                              ; preds = %151
-  call void @free(ptr noundef %71) #10
+  call void @free(ptr noundef nonnull %71) #10
   %155 = call i64 @H5Aopen(i64 noundef %1, ptr noundef nonnull @.str.5, i64 noundef 0) #10
   %156 = icmp slt i64 %155, 0
   br i1 %156, label %.critedge, label %157
@@ -2890,7 +2890,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %19
   br i1 %146, label %.loopexit109, label %147
 
 147:                                              ; preds = %144
-  call void @free(ptr noundef %56) #10
+  call void @free(ptr noundef nonnull %56) #10
   br label %170
 
 .loopexit109:                                     ; preds = %115, %133, %101, %85, %144, %141, %138, %.loopexit, %.split.us, %58, %53, %50, %47, %44, %35, %32

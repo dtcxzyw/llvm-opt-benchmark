@@ -418,7 +418,7 @@ lpad75:                                           ; preds = %invoke.cont95, %if.
 lpad89:                                           ; preds = %delete.notnull
   %24 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %exception88) #17
+  call void @__cxa_free_exception(ptr nonnull %exception88) #17
   br label %ehcleanup104
 
 if.end92:                                         ; preds = %invoke.cont85

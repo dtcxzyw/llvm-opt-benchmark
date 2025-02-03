@@ -816,7 +816,7 @@ Vec_IntFree.exit267:                              ; preds = %.critedge14, %370
 
 377:                                              ; preds = %373, %Vec_IntFree.exit267
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  tail call void @free(ptr noundef %18) #10
+  tail call void @free(ptr noundef nonnull %18) #10
   br label %378
 
 378:                                              ; preds = %376, %377, %Vec_IntFree.exit265, %Vec_IntFree.exit256, %Vec_IntFree.exit, %14, %10

@@ -991,7 +991,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSetD2Ev(ptr noundef nonnull 
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i
-  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.06.i.i) #28
+  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.06.i.i) #28
   %.not.i.i = icmp eq ptr %15, %13
   br i1 %.not.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_D1EvE3$_0EET_S5_.exit", label %.lr.ph.i.i, !llvm.loop !11
 
@@ -9772,7 +9772,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet4SwapEPS2_(ptr noundef no
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i
-  %34 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.06.i.i.i) #28
+  %34 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.06.i.i.i) #28
   %.not.i.i.i = icmp eq ptr %34, %32
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal12ExtensionSet5ClearEv.exit, label %.lr.ph.i.i.i, !llvm.loop !19
 
@@ -9821,7 +9821,7 @@ _ZN6google8protobuf8internal12ExtensionSet5ClearEv.exit: ; preds = %.noexc9, %.n
           to label %.noexc18 unwind label %.loopexit
 
 .noexc18:                                         ; preds = %.lr.ph.i.i.i15
-  %53 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.06.i.i.i16) #28
+  %53 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.06.i.i.i16) #28
   %.not.i.i.i17 = icmp eq ptr %53, %51
   br i1 %.not.i.i.i17, label %_ZN6google8protobuf8internal12ExtensionSet5ClearEv.exit20, label %.lr.ph.i.i.i15, !llvm.loop !19
 

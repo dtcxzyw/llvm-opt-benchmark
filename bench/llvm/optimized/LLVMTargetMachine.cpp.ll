@@ -9314,7 +9314,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit197:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %23, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit209
 
 _ZN4llvmeqENS_9StringRefES0_.exit201:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit193
-  %bcmp.i200 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.15, i64 %16)
+  %bcmp.i200 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.15, i64 %16)
   %24 = icmp eq i32 %bcmp.i200, 0
   br i1 %24, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit205
 
@@ -9329,7 +9329,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit209:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %26, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit225
 
 _ZN4llvmeqENS_9StringRefES0_.exit213:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit205
-  %bcmp.i212 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.18, i64 %16)
+  %bcmp.i212 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.18, i64 %16)
   %27 = icmp eq i32 %bcmp.i212, 0
   br i1 %27, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit217
 
@@ -9359,7 +9359,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit233:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %32, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit245
 
 _ZN4llvmeqENS_9StringRefES0_.exit237:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit229
-  %bcmp.i236 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.24, i64 %16)
+  %bcmp.i236 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.24, i64 %16)
   %33 = icmp eq i32 %bcmp.i236, 0
   br i1 %33, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit241
 
@@ -9374,7 +9374,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit245:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %35, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit341
 
 _ZN4llvmeqENS_9StringRefES0_.exit249:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit241
-  %bcmp.i248 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.27, i64 %16)
+  %bcmp.i248 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.27, i64 %16)
   %36 = icmp eq i32 %bcmp.i248, 0
   br i1 %36, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit253
 
@@ -9389,7 +9389,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit257:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %38, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit269
 
 _ZN4llvmeqENS_9StringRefES0_.exit261:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit217
-  %bcmp.i260 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.30, i64 %16)
+  %bcmp.i260 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.30, i64 %16)
   %39 = icmp eq i32 %bcmp.i260, 0
   br i1 %39, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit265
 
@@ -9399,12 +9399,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit265:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %40, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit273
 
 _ZN4llvmeqENS_9StringRefES0_.exit269:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit257
-  %bcmp.i268 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.32, i64 %16)
+  %bcmp.i268 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.32, i64 %16)
   %41 = icmp eq i32 %bcmp.i268, 0
   br i1 %41, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit281
 
 _ZN4llvmeqENS_9StringRefES0_.exit273:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit265
-  %bcmp.i272 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.33, i64 %16)
+  %bcmp.i272 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.33, i64 %16)
   %42 = icmp eq i32 %bcmp.i272, 0
   br i1 %42, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit277
 
@@ -9414,12 +9414,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit277:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %43, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit285
 
 _ZN4llvmeqENS_9StringRefES0_.exit281:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit269
-  %bcmp.i280 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.35, i64 %16)
+  %bcmp.i280 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.35, i64 %16)
   %44 = icmp eq i32 %bcmp.i280, 0
   br i1 %44, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit293
 
 _ZN4llvmeqENS_9StringRefES0_.exit285:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit277
-  %bcmp.i284 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.36, i64 %16)
+  %bcmp.i284 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.36, i64 %16)
   %45 = icmp eq i32 %bcmp.i284, 0
   br i1 %45, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit289
 
@@ -9429,12 +9429,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit289:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %46, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit297
 
 _ZN4llvmeqENS_9StringRefES0_.exit293:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit281
-  %bcmp.i292 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.38, i64 %16)
+  %bcmp.i292 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.38, i64 %16)
   %47 = icmp eq i32 %bcmp.i292, 0
   br i1 %47, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit305
 
 _ZN4llvmeqENS_9StringRefES0_.exit297:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit289
-  %bcmp.i296 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.39, i64 %16)
+  %bcmp.i296 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.39, i64 %16)
   %48 = icmp eq i32 %bcmp.i296, 0
   br i1 %48, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit301
 
@@ -9444,12 +9444,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit301:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %49, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit309
 
 _ZN4llvmeqENS_9StringRefES0_.exit305:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit293
-  %bcmp.i304 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.41, i64 %16)
+  %bcmp.i304 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.41, i64 %16)
   %50 = icmp eq i32 %bcmp.i304, 0
   br i1 %50, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit317
 
 _ZN4llvmeqENS_9StringRefES0_.exit309:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit301
-  %bcmp.i308 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.42, i64 %16)
+  %bcmp.i308 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.42, i64 %16)
   %51 = icmp eq i32 %bcmp.i308, 0
   br i1 %51, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit313
 
@@ -9459,12 +9459,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit313:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %52, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit321
 
 _ZN4llvmeqENS_9StringRefES0_.exit317:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit305
-  %bcmp.i316 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.44, i64 %16)
+  %bcmp.i316 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.44, i64 %16)
   %53 = icmp eq i32 %bcmp.i316, 0
   br i1 %53, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit329
 
 _ZN4llvmeqENS_9StringRefES0_.exit321:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit313
-  %bcmp.i320 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.45, i64 %16)
+  %bcmp.i320 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.45, i64 %16)
   %54 = icmp eq i32 %bcmp.i320, 0
   br i1 %54, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit325
 
@@ -9474,7 +9474,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit325:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %55, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit333
 
 _ZN4llvmeqENS_9StringRefES0_.exit329:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit317
-  %bcmp.i328 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.47, i64 %16)
+  %bcmp.i328 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.47, i64 %16)
   %56 = icmp eq i32 %bcmp.i328, 0
   br i1 %56, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit345
 
@@ -9494,7 +9494,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit341:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %59, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit381
 
 _ZN4llvmeqENS_9StringRefES0_.exit345:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit329
-  %bcmp.i344 = tail call i32 @bcmp(ptr %15, ptr nonnull @.str.51, i64 %16)
+  %bcmp.i344 = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @.str.51, i64 %16)
   %60 = icmp eq i32 %bcmp.i344, 0
   br i1 %60, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit349
 
@@ -13937,12 +13937,12 @@ _ZN4llvm15InstructionCostpLERKS0_.exit796:        ; preds = %_ZNK4llvm18TargetLo
   %.fca.0.extract229 = extractvalue { i64, i32 } %413, 0
   %.fca.1.extract230 = extractvalue { i64, i32 } %413, 1
   %414 = icmp eq i32 %.fca.1.extract230, 1
-  %415 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE18getCmpSelInstrCostEjPNS_4TypeES4_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 53, ptr noundef %48, ptr noundef %407, i32 noundef 38, i32 noundef %2, ptr noundef null)
+  %415 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE18getCmpSelInstrCostEjPNS_4TypeES4_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 53, ptr noundef nonnull %48, ptr noundef %407, i32 noundef 38, i32 noundef %2, ptr noundef null)
   %.fca.0.extract225 = extractvalue { i64, i32 } %415, 0
   %.fca.1.extract226 = extractvalue { i64, i32 } %415, 1
   %416 = icmp eq i32 %.fca.1.extract226, 1
   %.0.i797 = call i64 @llvm.sadd.sat.i64(i64 %.fca.0.extract229, i64 %.fca.0.extract225)
-  %417 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE18getCmpSelInstrCostEjPNS_4TypeES4_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 57, ptr noundef %48, ptr noundef %407, i32 noundef 38, i32 noundef %2, ptr noundef null)
+  %417 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE18getCmpSelInstrCostEjPNS_4TypeES4_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 57, ptr noundef nonnull %48, ptr noundef %407, i32 noundef 38, i32 noundef %2, ptr noundef null)
   %.fca.0.extract221 = extractvalue { i64, i32 } %417, 0
   %.fca.1.extract222 = extractvalue { i64, i32 } %417, 1
   %418 = add i64 %.fca.0.extract221, 4611686018427387904
@@ -13978,7 +13978,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit815:        ; preds = %_ZNK4llvm18TargetLo
   %.fca.0.extract208 = extractvalue { i64, i32 } %430, 0
   %.fca.1.extract209 = extractvalue { i64, i32 } %430, 1
   %431 = icmp eq i32 %.fca.1.extract209, 1
-  %432 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE18getCmpSelInstrCostEjPNS_4TypeES4_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 57, ptr noundef %48, ptr noundef %424, i32 noundef 42, i32 noundef %2, ptr noundef null)
+  %432 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE18getCmpSelInstrCostEjPNS_4TypeES4_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 57, ptr noundef nonnull %48, ptr noundef %424, i32 noundef 42, i32 noundef %2, ptr noundef null)
   %.fca.0.extract204 = extractvalue { i64, i32 } %432, 0
   %.fca.1.extract205 = extractvalue { i64, i32 } %432, 1
   %433 = icmp eq i32 %.fca.1.extract205, 1
@@ -14010,7 +14010,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit828:    ; preds = %_ZNK4llvm18TargetLo
   %.fca.1.extract182 = extractvalue { i64, i32 } %445, 1
   %446 = icmp eq i32 %.fca.1.extract182, 1
   %.0.i831 = call i64 @llvm.sadd.sat.i64(i64 %.0.i.i821, i64 %.fca.0.extract181)
-  %447 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE16getCastInstrCostEjPNS_4TypeES4_NS_19TargetTransformInfo15CastContextHintENS5_14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 38, ptr noundef %48, ptr noundef %436, i8 noundef zeroext 0, i32 noundef %2, ptr noundef null)
+  %447 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE16getCastInstrCostEjPNS_4TypeES4_NS_19TargetTransformInfo15CastContextHintENS5_14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 38, ptr noundef nonnull %48, ptr noundef %436, i8 noundef zeroext 0, i32 noundef %2, ptr noundef null)
   %.fca.0.extract177 = extractvalue { i64, i32 } %447, 0
   %.fca.1.extract178 = extractvalue { i64, i32 } %447, 1
   %448 = add i64 %.fca.0.extract177, 4611686018427387904
@@ -14022,19 +14022,19 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit828:    ; preds = %_ZNK4llvm18TargetLo
   %452 = icmp eq i32 %.fca.1.extract178, 1
   %.0.i844 = call i64 @llvm.sadd.sat.i64(i64 %.0.i831, i64 %.0.i.i836)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  %453 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE22getArithmeticInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 26, ptr noundef %48, i32 noundef %2, i64 0, i64 2, ptr noundef nonnull byval(%"class.llvm::ArrayRef.436") align 8 %31, ptr noundef null)
+  %453 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE22getArithmeticInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 26, ptr noundef nonnull %48, i32 noundef %2, i64 0, i64 2, ptr noundef nonnull byval(%"class.llvm::ArrayRef.436") align 8 %31, ptr noundef null)
   %.fca.0.extract165 = extractvalue { i64, i32 } %453, 0
   %.fca.1.extract166 = extractvalue { i64, i32 } %453, 1
   %454 = icmp eq i32 %.fca.1.extract166, 1
   %.0.i846 = call i64 @llvm.sadd.sat.i64(i64 %.0.i844, i64 %.fca.0.extract165)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
-  %455 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE22getArithmeticInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 25, ptr noundef %48, i32 noundef %2, i64 0, i64 2, ptr noundef nonnull byval(%"class.llvm::ArrayRef.436") align 8 %32, ptr noundef null)
+  %455 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE22getArithmeticInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 25, ptr noundef nonnull %48, i32 noundef %2, i64 0, i64 2, ptr noundef nonnull byval(%"class.llvm::ArrayRef.436") align 8 %32, ptr noundef null)
   %.fca.0.extract157 = extractvalue { i64, i32 } %455, 0
   %.fca.1.extract158 = extractvalue { i64, i32 } %455, 1
   %456 = icmp eq i32 %.fca.1.extract158, 1
   %.0.i848 = call i64 @llvm.sadd.sat.i64(i64 %.0.i846, i64 %.fca.0.extract157)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  %457 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE22getArithmeticInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 29, ptr noundef %48, i32 noundef %2, i64 0, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.436") align 8 %33, ptr noundef null)
+  %457 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE22getArithmeticInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 29, ptr noundef nonnull %48, i32 noundef %2, i64 0, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.436") align 8 %33, ptr noundef null)
   %.fca.0.extract149 = extractvalue { i64, i32 } %457, 0
   %.fca.1.extract150 = extractvalue { i64, i32 } %457, 1
   %458 = icmp eq i32 %.fca.1.extract150, 1
@@ -14053,13 +14053,13 @@ _ZN4llvm15InstructionCostpLERKS0_.exit853:        ; preds = %_ZNK4llvm18TargetLo
   %.fca.0.extract141 = extractvalue { i64, i32 } %464, 0
   %.fca.1.extract142 = extractvalue { i64, i32 } %464, 1
   %465 = icmp eq i32 %.fca.1.extract142, 1
-  %466 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE18getCmpSelInstrCostEjPNS_4TypeES4_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 57, ptr noundef %48, ptr noundef %463, i32 noundef 38, i32 noundef %2, ptr noundef null)
+  %466 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE18getCmpSelInstrCostEjPNS_4TypeES4_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 57, ptr noundef nonnull %48, ptr noundef %463, i32 noundef 38, i32 noundef %2, ptr noundef null)
   %.fca.0.extract137 = extractvalue { i64, i32 } %466, 0
   %.fca.1.extract138 = extractvalue { i64, i32 } %466, 1
   %467 = icmp eq i32 %.fca.1.extract138, 1
   %.0.i854 = call i64 @llvm.sadd.sat.i64(i64 %.fca.0.extract141, i64 %.fca.0.extract137)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  %468 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE22getArithmeticInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 15, ptr noundef %48, i32 noundef %2, i64 2, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.436") align 8 %34, ptr noundef null)
+  %468 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE22getArithmeticInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 15, ptr noundef nonnull %48, i32 noundef %2, i64 2, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.436") align 8 %34, ptr noundef null)
   %.fca.0.extract129 = extractvalue { i64, i32 } %468, 0
   %.fca.1.extract130 = extractvalue { i64, i32 } %468, 1
   %469 = icmp eq i32 %.fca.1.extract130, 1
@@ -14118,7 +14118,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit867:        ; preds = %_ZN4llvm15Instructi
   %.fca.1.extract95 = extractvalue { i64, i32 } %487, 1
   %488 = icmp eq i32 %.fca.1.extract95, 1
   %.0.i866 = call i64 @llvm.sadd.sat.i64(i64 %.0.i864, i64 %.fca.0.extract94)
-  %489 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE18getCmpSelInstrCostEjPNS_4TypeES4_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 57, ptr noundef %48, ptr noundef %486, i32 noundef 8, i32 noundef %2, ptr noundef null)
+  %489 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE18getCmpSelInstrCostEjPNS_4TypeES4_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 57, ptr noundef nonnull %48, ptr noundef %486, i32 noundef 8, i32 noundef %2, ptr noundef null)
   %.fca.0.extract90 = extractvalue { i64, i32 } %489, 0
   %.fca.1.extract91 = extractvalue { i64, i32 } %489, 1
   %490 = icmp eq i32 %.fca.1.extract91, 1
@@ -14157,7 +14157,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit867:        ; preds = %_ZN4llvm15Instructi
   br i1 %506, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit887, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit900
 
 _ZN4llvmmlERKNS_15InstructionCostES2_.exit887:    ; preds = %493
-  %507 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE18getCmpSelInstrCostEjPNS_4TypeES4_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 57, ptr noundef %48, ptr noundef %496, i32 noundef 42, i32 noundef %2, ptr noundef null)
+  %507 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE18getCmpSelInstrCostEjPNS_4TypeES4_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 57, ptr noundef nonnull %48, ptr noundef %496, i32 noundef 42, i32 noundef %2, ptr noundef null)
   %.fca.0.extract68 = extractvalue { i64, i32 } %507, 0
   %.fca.1.extract69 = extractvalue { i64, i32 } %507, 1
   %508 = add i64 %.fca.0.extract68, 4611686018427387904
@@ -14172,7 +14172,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit887:    ; preds = %493
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit705
 
 _ZN4llvmmlERKNS_15InstructionCostES2_.exit900:    ; preds = %493
-  %513 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE16getCastInstrCostEjPNS_4TypeES4_NS_19TargetTransformInfo15CastContextHintENS5_14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 39, ptr noundef %48, ptr noundef %496, i8 noundef zeroext 0, i32 noundef %2, ptr noundef null)
+  %513 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE16getCastInstrCostEjPNS_4TypeES4_NS_19TargetTransformInfo15CastContextHintENS5_14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 39, ptr noundef nonnull %48, ptr noundef %496, i8 noundef zeroext 0, i32 noundef %2, ptr noundef null)
   %.fca.0.extract60 = extractvalue { i64, i32 } %513, 0
   %.fca.1.extract61 = extractvalue { i64, i32 } %513, 1
   %514 = add i64 %.fca.0.extract60, 4611686018427387904
@@ -14184,7 +14184,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit900:    ; preds = %493
   %518 = icmp eq i32 %.fca.1.extract61, 1
   %.0.i901 = call i64 @llvm.sadd.sat.i64(i64 %.0.i.i874, i64 %.0.i.i893)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  %519 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE22getArithmeticInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 15, ptr noundef %48, i32 noundef %2, i64 0, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.436") align 8 %41, ptr noundef null)
+  %519 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE22getArithmeticInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 15, ptr noundef nonnull %48, i32 noundef %2, i64 0, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.436") align 8 %41, ptr noundef null)
   %.fca.0.extract48 = extractvalue { i64, i32 } %519, 0
   %.fca.1.extract49 = extractvalue { i64, i32 } %519, 1
   %520 = icmp eq i32 %.fca.1.extract49, 1

@@ -943,7 +943,7 @@ common.resume:                                    ; preds = %134, %147, %99, %10
   call void @_ZNK7cmState10GetCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.294") align 8 %8, ptr noundef nonnull align 8 dereferenceable(705) %88, ptr noundef nonnull align 8 dereferenceable(32) %90)
   %91 = load ptr, ptr %14, align 8
   %.not.i.i84 = icmp ne ptr %91, null
-  invoke void @_ZN20cmConditionEvaluator14cmArgumentList12ReduceOneArgINS0_18CurrentAndNextIterEEEvbT_(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %.not.i.i84, ptr nonnull %.sroa.0.0125, ptr %.sroa.29.0124)
+  invoke void @_ZN20cmConditionEvaluator14cmArgumentList12ReduceOneArgINS0_18CurrentAndNextIterEEEvbT_(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %.not.i.i84, ptr nonnull %.sroa.0.0125, ptr nonnull %.sroa.29.0124)
           to label %92 unwind label %99
 
 92:                                               ; preds = %86
@@ -1969,7 +1969,7 @@ _ZN20cmConditionEvaluator14cmArgumentList17make2ArgsIteratorEv.exit: ; preds = %
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.5.016, i64 16
   %11 = tail call noundef zeroext i1 @_ZNK20cmConditionEvaluator34GetBooleanValueWithAutoDereferenceER25cmExpandedCommandArgumentRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeb(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %10, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, i1 noundef zeroext false)
   %12 = xor i1 %11, true
-  tail call void @_ZN20cmConditionEvaluator14cmArgumentList12ReduceOneArgINS0_18CurrentAndNextIterEEEvbT_(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %12, ptr %.sroa.012.015, ptr %.sroa.5.016)
+  tail call void @_ZN20cmConditionEvaluator14cmArgumentList12ReduceOneArgINS0_18CurrentAndNextIterEEEvbT_(ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %12, ptr nonnull %.sroa.012.015, ptr %.sroa.5.016)
   br label %13
 
 13:                                               ; preds = %.lr.ph, %9

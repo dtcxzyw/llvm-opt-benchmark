@@ -3199,7 +3199,7 @@ _init_gres_device.exit.thread78:                  ; preds = %._crit_edge.thread.
   br i1 %.not73, label %115, label %.outer81
 
 .outer81:                                         ; preds = %.loopexit
-  call void @free(ptr noundef %38) #25
+  call void @free(ptr noundef nonnull %38) #25
   %113 = call ptr @hostlist_shift(ptr noundef nonnull %31) #25
   %.not69108 = icmp eq ptr %113, null
   br i1 %.not69108, label %.outer85, label %.lr.ph109, !llvm.loop !31
@@ -15064,25 +15064,25 @@ define range(i32 -1, 1) i32 @gres_job_state_unpack(ptr noundef captures(none) %0
 39:                                               ; preds = %37, %34, %31
   %40 = icmp eq ptr %1, null
   %41 = load i16, ptr %8, align 2
-  %.not299526 = icmp eq i16 %41, 0
-  %or.cond17527 = or i1 %40, %.not299526
-  br i1 %or.cond17527, label %._crit_edge531, label %.lr.ph530
+  %.not299525 = icmp eq i16 %41, 0
+  %or.cond17526 = or i1 %40, %.not299525
+  br i1 %or.cond17526, label %._crit_edge530, label %.lr.ph529
 
-.lr.ph530:                                        ; preds = %39
+.lr.ph529:                                        ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %44 = icmp ugt i16 %3, 10239
-  br i1 %44, label %.lr.ph530.split.us, label %.lr.ph530.split
+  br i1 %44, label %.lr.ph529.split.us, label %.lr.ph529.split
 
-.lr.ph530.split.us:                               ; preds = %.lr.ph530, %.backedge.us
-  %45 = phi i16 [ %267, %.backedge.us ], [ %41, %.lr.ph530 ]
-  %.1276528.us = phi ptr [ %.1276.be.us, %.backedge.us ], [ null, %.lr.ph530 ]
+.lr.ph529.split.us:                               ; preds = %.lr.ph529, %.backedge.us
+  %45 = phi i16 [ %267, %.backedge.us ], [ %41, %.lr.ph529 ]
+  %.1276527.us = phi ptr [ %.1276.be.us, %.backedge.us ], [ null, %.lr.ph529 ]
   %46 = load i32, ptr %42, align 8
   %47 = load i32, ptr %43, align 4
   %48 = icmp eq i32 %46, %47
-  br i1 %48, label %._crit_edge531, label %49
+  br i1 %48, label %._crit_edge530, label %49
 
-49:                                               ; preds = %.lr.ph530.split.us
+49:                                               ; preds = %.lr.ph529.split.us
   %50 = add i16 %45, -1
   store i16 %50, ptr %8, align 2
   %51 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef nonnull %1) #25
@@ -15102,61 +15102,61 @@ define range(i32 -1, 1) i32 @gres_job_state_unpack(ptr noundef captures(none) %0
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 18
   %60 = call i32 @unpack16(ptr noundef nonnull %59, ptr noundef nonnull %1) #25
   %.not340.us = icmp eq i32 %60, 0
-  br i1 %.not340.us, label %61, label %.loopexit419
+  br i1 %.not340.us, label %61, label %.sink.split
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %63 = call i32 @unpack16(ptr noundef nonnull %62, ptr noundef nonnull %1) #25
   %.not341.us = icmp eq i32 %63, 0
-  br i1 %.not341.us, label %64, label %.loopexit419
+  br i1 %.not341.us, label %64, label %.sink.split
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %66 = call i32 @unpack64(ptr noundef nonnull %65, ptr noundef nonnull %1) #25
   %.not342.us = icmp eq i32 %66, 0
-  br i1 %.not342.us, label %67, label %.loopexit419
+  br i1 %.not342.us, label %67, label %.sink.split
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %69 = call i32 @unpack64(ptr noundef nonnull %68, ptr noundef nonnull %1) #25
   %.not343.us = icmp eq i32 %69, 0
-  br i1 %.not343.us, label %70, label %.loopexit419
+  br i1 %.not343.us, label %70, label %.sink.split
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %72 = call i32 @unpack64(ptr noundef nonnull %71, ptr noundef nonnull %1) #25
   %.not344.us = icmp eq i32 %72, 0
-  br i1 %.not344.us, label %73, label %.loopexit419
+  br i1 %.not344.us, label %73, label %.sink.split
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %75 = call i32 @unpack64(ptr noundef nonnull %74, ptr noundef nonnull %1) #25
   %.not345.us = icmp eq i32 %75, 0
-  br i1 %.not345.us, label %76, label %.loopexit419
+  br i1 %.not345.us, label %76, label %.sink.split
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %78 = call i32 @unpack64(ptr noundef nonnull %77, ptr noundef nonnull %1) #25
   %.not346.us = icmp eq i32 %78, 0
-  br i1 %.not346.us, label %79, label %.loopexit419
+  br i1 %.not346.us, label %79, label %.sink.split
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %81 = call i32 @unpack16(ptr noundef nonnull %80, ptr noundef nonnull %1) #25
   %.not347.us = icmp eq i32 %81, 0
-  br i1 %.not347.us, label %82, label %.loopexit419
+  br i1 %.not347.us, label %82, label %.sink.split
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %58, i64 112
   %84 = call i32 @unpack64(ptr noundef nonnull %83, ptr noundef nonnull %1) #25
   %.not348.us = icmp eq i32 %84, 0
-  br i1 %.not348.us, label %85, label %.loopexit419
+  br i1 %.not348.us, label %85, label %.sink.split
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %87 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %86, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not349.us = icmp eq i32 %87, 0
-  br i1 %.not349.us, label %88, label %.loopexit419
+  br i1 %.not349.us, label %88, label %.sink.split
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr %86, align 8
@@ -15221,33 +15221,33 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
 113:                                              ; preds = %111
   %114 = load i8, ptr %9, align 1
   %.not355.us = icmp eq i8 %114, 0
-  %.pre665 = load i32, ptr %99, align 8
+  %.pre689 = load i32, ptr %99, align 8
   br i1 %.not355.us, label %.loopexit426.us, label %115
 
 115:                                              ; preds = %113
-  %.not356.us = icmp eq i32 %.pre665, 0
-  br i1 %.not356.us, label %.thread672, label %116
+  %.not356.us = icmp eq i32 %.pre689, 0
+  br i1 %.not356.us, label %.thread696, label %116
 
 116:                                              ; preds = %115
-  %117 = zext i32 %.pre665 to i64
+  %117 = zext i32 %.pre689 to i64
   %118 = call ptr @slurm_xcalloc(i64 noundef %117, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 7015, ptr noundef nonnull @__func__.gres_job_state_unpack) #25
   %119 = getelementptr inbounds nuw i8, ptr %58, i64 128
   store ptr %118, ptr %119, align 8
   %.not357.us = icmp eq ptr %118, null
   br i1 %.not357.us, label %.sink.split, label %121
 
-.thread672:                                       ; preds = %115
+.thread696:                                       ; preds = %115
   %120 = getelementptr inbounds nuw i8, ptr %58, i64 128
   store ptr null, ptr %120, align 8
   br label %._crit_edge.us
 
 121:                                              ; preds = %116
-  %.pre663 = load i32, ptr %99, align 8
-  %122 = icmp eq i32 %.pre663, 0
-  br i1 %122, label %._crit_edge.us, label %.lr.ph512.us
+  %.pre687 = load i32, ptr %99, align 8
+  %122 = icmp eq i32 %.pre687, 0
+  br i1 %122, label %._crit_edge.us, label %.lr.ph511.us
 
-123:                                              ; preds = %.lr.ph512.us, %148
-  %indvars.iv641 = phi i64 [ 0, %.lr.ph512.us ], [ %indvars.iv.next642, %148 ]
+123:                                              ; preds = %.lr.ph511.us, %148
+  %indvars.iv665 = phi i64 [ 0, %.lr.ph511.us ], [ %indvars.iv.next666, %148 ]
   store ptr null, ptr %10, align 8
   %124 = call i32 @unpack32(ptr noundef nonnull %11, ptr noundef nonnull %1) #25
   %.not386.us = icmp eq i32 %124, 0
@@ -15272,10 +15272,10 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   %132 = zext i32 %130 to i64
   %133 = call ptr @bit_alloc(i64 noundef %132) #25
   %134 = load ptr, ptr %268, align 8
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv641
+  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv665
   store ptr %133, ptr %135, align 8
   %136 = load ptr, ptr %268, align 8
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv641
+  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv665
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %10, align 8
   %140 = call i32 @bit_unfmt_hexmask(ptr noundef %138, ptr noundef %139) #25
@@ -15284,7 +15284,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
 
 141:                                              ; preds = %129
   %142 = load ptr, ptr %268, align 8
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv641
+  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv665
   store ptr null, ptr %143, align 8
   br label %144
 
@@ -15294,23 +15294,23 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
 
 145:                                              ; preds = %125
   %146 = load ptr, ptr %268, align 8
-  %147 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv641
+  %147 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv665
   store ptr null, ptr %147, align 8
   br label %148
 
 148:                                              ; preds = %145, %144
-  %indvars.iv.next642 = add nuw nsw i64 %indvars.iv641, 1
+  %indvars.iv.next666 = add nuw nsw i64 %indvars.iv665, 1
   %149 = load i32, ptr %99, align 8
   %150 = zext i32 %149 to i64
-  %151 = icmp samesign ult i64 %indvars.iv.next642, %150
+  %151 = icmp samesign ult i64 %indvars.iv.next666, %150
   br i1 %151, label %123, label %.loopexit426.us, !llvm.loop !147
 
 .loopexit426.us:                                  ; preds = %148, %113
-  %152 = phi i32 [ %.pre665, %113 ], [ %149, %148 ]
-  %.not588 = icmp eq i32 %152, 0
-  br i1 %.not588, label %._crit_edge.us, label %.lr.ph514.us
+  %152 = phi i32 [ %.pre689, %113 ], [ %149, %148 ]
+  %.not595 = icmp eq i32 %152, 0
+  br i1 %.not595, label %._crit_edge.us, label %.lr.ph513.us
 
-._crit_edge.us:                                   ; preds = %260, %.thread672, %121, %.loopexit426.us
+._crit_edge.us:                                   ; preds = %260, %.thread696, %121, %.loopexit426.us
   %153 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not358.us = icmp eq i32 %153, 0
   br i1 %.not358.us, label %154, label %.sink.split
@@ -15323,7 +15323,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
 156:                                              ; preds = %154
   %157 = load i32, ptr %99, align 8
   %.not360.us = icmp eq i32 %157, 0
-  br i1 %.not360.us, label %.thread675, label %158
+  br i1 %.not360.us, label %.thread699, label %158
 
 158:                                              ; preds = %156
   %159 = zext i32 %157 to i64
@@ -15333,18 +15333,18 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   %.not361.us = icmp eq ptr %160, null
   br i1 %.not361.us, label %.sink.split, label %163
 
-.thread675:                                       ; preds = %156
+.thread699:                                       ; preds = %156
   %162 = getelementptr inbounds nuw i8, ptr %58, i64 152
   store ptr null, ptr %162, align 8
   br label %.loopexit422.us
 
 163:                                              ; preds = %158
-  %.pre667 = load i32, ptr %99, align 8
-  %164 = icmp eq i32 %.pre667, 0
-  br i1 %164, label %.loopexit422.us, label %.lr.ph519.us
+  %.pre691 = load i32, ptr %99, align 8
+  %164 = icmp eq i32 %.pre691, 0
+  br i1 %164, label %.loopexit422.us, label %.lr.ph518.us
 
-165:                                              ; preds = %.lr.ph519.us, %190
-  %indvars.iv647 = phi i64 [ 0, %.lr.ph519.us ], [ %indvars.iv.next648, %190 ]
+165:                                              ; preds = %.lr.ph518.us, %190
+  %indvars.iv671 = phi i64 [ 0, %.lr.ph518.us ], [ %indvars.iv.next672, %190 ]
   store ptr null, ptr %13, align 8
   %166 = call i32 @unpack32(ptr noundef nonnull %14, ptr noundef nonnull %1) #25
   %.not374.us = icmp eq i32 %166, 0
@@ -15369,19 +15369,19 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   %174 = zext i32 %172 to i64
   %175 = call ptr @bit_alloc(i64 noundef %174) #25
   %176 = load ptr, ptr %270, align 8
-  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %indvars.iv647
+  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %indvars.iv671
   store ptr %175, ptr %177, align 8
   %178 = load ptr, ptr %270, align 8
-  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv647
+  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv671
   %180 = load ptr, ptr %179, align 8
   %181 = load ptr, ptr %13, align 8
   %182 = call i32 @bit_unfmt_hexmask(ptr noundef %180, ptr noundef %181) #25
   %.not378.us = icmp eq i32 %182, 0
-  br i1 %.not378.us, label %186, label %.split542.us
+  br i1 %.not378.us, label %186, label %.split541.us
 
 183:                                              ; preds = %171
   %184 = load ptr, ptr %270, align 8
-  %185 = getelementptr inbounds nuw ptr, ptr %184, i64 %indvars.iv647
+  %185 = getelementptr inbounds nuw ptr, ptr %184, i64 %indvars.iv671
   store ptr null, ptr %185, align 8
   br label %186
 
@@ -15391,18 +15391,18 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
 
 187:                                              ; preds = %167
   %188 = load ptr, ptr %270, align 8
-  %189 = getelementptr inbounds nuw ptr, ptr %188, i64 %indvars.iv647
+  %189 = getelementptr inbounds nuw ptr, ptr %188, i64 %indvars.iv671
   store ptr null, ptr %189, align 8
   br label %190
 
 190:                                              ; preds = %187, %186
-  %indvars.iv.next648 = add nuw nsw i64 %indvars.iv647, 1
+  %indvars.iv.next672 = add nuw nsw i64 %indvars.iv671, 1
   %191 = load i32, ptr %99, align 8
   %192 = zext i32 %191 to i64
-  %193 = icmp samesign ult i64 %indvars.iv.next648, %192
+  %193 = icmp samesign ult i64 %indvars.iv.next672, %192
   br i1 %193, label %165, label %.loopexit422.us, !llvm.loop !148
 
-.loopexit422.us:                                  ; preds = %190, %.thread675, %163, %154
+.loopexit422.us:                                  ; preds = %190, %.thread699, %163, %154
   %194 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not362.us = icmp eq i32 %194, 0
   br i1 %.not362.us, label %195, label %.sink.split
@@ -15410,50 +15410,50 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
 195:                                              ; preds = %.loopexit422.us
   %196 = load i8, ptr %9, align 1
   %.not363.us = icmp eq i8 %196, 0
-  %.pre671 = load i32, ptr %99, align 8
+  %.pre695 = load i32, ptr %99, align 8
   br i1 %.not363.us, label %.loopexit420.us, label %197
 
 197:                                              ; preds = %195
-  %.not364.us = icmp eq i32 %.pre671, 0
-  br i1 %.not364.us, label %.thread677, label %198
+  %.not364.us = icmp eq i32 %.pre695, 0
+  br i1 %.not364.us, label %.thread701, label %198
 
 198:                                              ; preds = %197
-  %199 = zext i32 %.pre671 to i64
+  %199 = zext i32 %.pre695 to i64
   %200 = call ptr @slurm_xcalloc(i64 noundef %199, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 7050, ptr noundef nonnull @__func__.gres_job_state_unpack) #25
   %201 = getelementptr inbounds nuw i8, ptr %58, i64 160
   store ptr %200, ptr %201, align 8
   %.not365.us = icmp eq ptr %200, null
   br i1 %.not365.us, label %.sink.split, label %203
 
-.thread677:                                       ; preds = %197
+.thread701:                                       ; preds = %197
   %202 = getelementptr inbounds nuw i8, ptr %58, i64 160
   store ptr null, ptr %202, align 8
   br label %.loopexit418.us
 
 203:                                              ; preds = %198
-  %.pre670 = load i32, ptr %99, align 8
-  %204 = icmp eq i32 %.pre670, 0
-  br i1 %204, label %.loopexit418.us, label %.lr.ph522.us
+  %.pre694 = load i32, ptr %99, align 8
+  %204 = icmp eq i32 %.pre694, 0
+  br i1 %204, label %.loopexit418.us, label %.lr.ph521.us
 
 205:                                              ; preds = %209
-  %indvars.iv.next651 = add nuw nsw i64 %indvars.iv650, 1
+  %indvars.iv.next675 = add nuw nsw i64 %indvars.iv674, 1
   %206 = load i32, ptr %99, align 8
   %207 = zext i32 %206 to i64
-  %208 = icmp samesign ult i64 %indvars.iv.next651, %207
+  %208 = icmp samesign ult i64 %indvars.iv.next675, %207
   br i1 %208, label %209, label %.loopexit420.us, !llvm.loop !149
 
-209:                                              ; preds = %.lr.ph522.us, %205
-  %indvars.iv650 = phi i64 [ 0, %.lr.ph522.us ], [ %indvars.iv.next651, %205 ]
+209:                                              ; preds = %.lr.ph521.us, %205
+  %indvars.iv674 = phi i64 [ 0, %.lr.ph521.us ], [ %indvars.iv.next675, %205 ]
   %210 = load ptr, ptr %271, align 8
-  %211 = getelementptr inbounds nuw i64, ptr %210, i64 %indvars.iv650
+  %211 = getelementptr inbounds nuw i64, ptr %210, i64 %indvars.iv674
   %212 = call i32 @unpack64(ptr noundef %211, ptr noundef nonnull %1) #25
   %.not373.us = icmp eq i32 %212, 0
   br i1 %.not373.us, label %205, label %.sink.split
 
 .loopexit420.us:                                  ; preds = %205, %195
-  %213 = phi i32 [ %.pre671, %195 ], [ %206, %205 ]
-  %.not591 = icmp eq i32 %213, 0
-  br i1 %.not591, label %.loopexit418.us, label %.lr.ph525.us
+  %213 = phi i32 [ %.pre695, %195 ], [ %206, %205 ]
+  %.not598 = icmp eq i32 %213, 0
+  br i1 %.not598, label %.loopexit418.us, label %.lr.ph524.us
 
 .lr.ph.i406.us:                                   ; preds = %.loopexit418.us
   %214 = load ptr, ptr @gres_context, align 8
@@ -15484,8 +15484,8 @@ _find_context_by_id.exit.us:                      ; preds = %215
   call void @list_append(ptr noundef %223, ptr noundef %222) #25
   br label %.backedge.us
 
-224:                                              ; preds = %.lr.ph525.us, %240
-  %indvars.iv653 = phi i64 [ 0, %.lr.ph525.us ], [ %indvars.iv.next654, %240 ]
+224:                                              ; preds = %.lr.ph524.us, %240
+  %indvars.iv677 = phi i64 [ 0, %.lr.ph524.us ], [ %indvars.iv.next678, %240 ]
   %225 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not367.us = icmp eq i32 %225, 0
   br i1 %.not367.us, label %226, label %.sink.split
@@ -15518,20 +15518,20 @@ _find_context_by_id.exit.us:                      ; preds = %215
 
 236:                                              ; preds = %235, %232, %228
   %237 = phi ptr [ null, %235 ], [ %234, %232 ], [ %229, %228 ]
-  %238 = getelementptr inbounds nuw ptr, ptr %237, i64 %indvars.iv653
+  %238 = getelementptr inbounds nuw ptr, ptr %237, i64 %indvars.iv677
   %239 = call i32 @unpack64_array(ptr noundef %238, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not372.us = icmp eq i32 %239, 0
   br i1 %.not372.us, label %240, label %.sink.split
 
 240:                                              ; preds = %236, %226
-  %indvars.iv.next654 = add nuw nsw i64 %indvars.iv653, 1
+  %indvars.iv.next678 = add nuw nsw i64 %indvars.iv677, 1
   %241 = load i32, ptr %99, align 8
   %242 = zext i32 %241 to i64
-  %243 = icmp samesign ult i64 %indvars.iv.next654, %242
+  %243 = icmp samesign ult i64 %indvars.iv.next678, %242
   br i1 %243, label %224, label %.loopexit418.us, !llvm.loop !150
 
-244:                                              ; preds = %.lr.ph514.us, %260
-  %indvars.iv644 = phi i64 [ 0, %.lr.ph514.us ], [ %indvars.iv.next645, %260 ]
+244:                                              ; preds = %.lr.ph513.us, %260
+  %indvars.iv668 = phi i64 [ 0, %.lr.ph513.us ], [ %indvars.iv.next669, %260 ]
   %245 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not380.us = icmp eq i32 %245, 0
   br i1 %.not380.us, label %246, label %.sink.split
@@ -15564,19 +15564,19 @@ _find_context_by_id.exit.us:                      ; preds = %215
 
 256:                                              ; preds = %255, %252, %248
   %257 = phi ptr [ null, %255 ], [ %254, %252 ], [ %249, %248 ]
-  %258 = getelementptr inbounds nuw ptr, ptr %257, i64 %indvars.iv644
+  %258 = getelementptr inbounds nuw ptr, ptr %257, i64 %indvars.iv668
   %259 = call i32 @unpack64_array(ptr noundef %258, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not385.us = icmp eq i32 %259, 0
   br i1 %.not385.us, label %260, label %.sink.split
 
 260:                                              ; preds = %256, %246
-  %indvars.iv.next645 = add nuw nsw i64 %indvars.iv644, 1
+  %indvars.iv.next669 = add nuw nsw i64 %indvars.iv668, 1
   %261 = load i32, ptr %99, align 8
   %262 = zext i32 %261 to i64
-  %263 = icmp samesign ult i64 %indvars.iv.next645, %262
+  %263 = icmp samesign ult i64 %indvars.iv.next669, %262
   br i1 %263, label %244, label %._crit_edge.us, !llvm.loop !151
 
-.loopexit418.us:                                  ; preds = %240, %.thread677, %203, %.loopexit420.us
+.loopexit418.us:                                  ; preds = %240, %.thread701, %203, %.loopexit420.us
   %264 = load i32, ptr %6, align 4
   %265 = load i32, ptr @gres_context_cnt, align 4
   %266 = icmp sgt i32 %265, 0
@@ -15586,41 +15586,41 @@ _find_context_by_id.exit.us:                      ; preds = %215
   %.1276.be.us = phi ptr [ null, %_find_context_by_id.exit.us ], [ %58, %.loopexit.us ]
   %267 = load i16, ptr %8, align 2
   %.not299.us = icmp eq i16 %267, 0
-  br i1 %.not299.us, label %._crit_edge531, label %.lr.ph530.split.us, !llvm.loop !152
+  br i1 %.not299.us, label %._crit_edge530, label %.lr.ph529.split.us, !llvm.loop !152
 
-.lr.ph512.us:                                     ; preds = %121
+.lr.ph511.us:                                     ; preds = %121
   %268 = getelementptr inbounds nuw i8, ptr %58, i64 128
   br label %123
 
-.lr.ph514.us:                                     ; preds = %.loopexit426.us
+.lr.ph513.us:                                     ; preds = %.loopexit426.us
   %269 = getelementptr inbounds nuw i8, ptr %58, i64 144
   br label %244
 
-.lr.ph519.us:                                     ; preds = %163
+.lr.ph518.us:                                     ; preds = %163
   %270 = getelementptr inbounds nuw i8, ptr %58, i64 152
   br label %165
 
-.lr.ph522.us:                                     ; preds = %203
+.lr.ph521.us:                                     ; preds = %203
   %271 = getelementptr inbounds nuw i8, ptr %58, i64 160
   br label %209
 
-.lr.ph525.us:                                     ; preds = %.loopexit420.us
+.lr.ph524.us:                                     ; preds = %.loopexit420.us
   %272 = getelementptr inbounds nuw i8, ptr %58, i64 168
   br label %224
 
-.lr.ph530.split:                                  ; preds = %.lr.ph530
+.lr.ph529.split:                                  ; preds = %.lr.ph529
   %273 = icmp samesign ugt i16 %3, 9983
-  br i1 %273, label %.lr.ph530.split.split.us, label %.lr.ph530.split.split
+  br i1 %273, label %.lr.ph529.split.split.us, label %.lr.ph529.split.split
 
-.lr.ph530.split.split.us:                         ; preds = %.lr.ph530.split, %.backedge.us566
-  %274 = phi i16 [ %456, %.backedge.us566 ], [ %41, %.lr.ph530.split ]
-  %.1276528.us557 = phi ptr [ %.1276.be.us567, %.backedge.us566 ], [ null, %.lr.ph530.split ]
+.lr.ph529.split.split.us:                         ; preds = %.lr.ph529.split, %.backedge.us574
+  %274 = phi i16 [ %456, %.backedge.us574 ], [ %41, %.lr.ph529.split ]
+  %.1276527.us565 = phi ptr [ %.1276.be.us575, %.backedge.us574 ], [ null, %.lr.ph529.split ]
   %275 = load i32, ptr %42, align 8
   %276 = load i32, ptr %43, align 4
   %277 = icmp eq i32 %275, %276
-  br i1 %277, label %._crit_edge531, label %278
+  br i1 %277, label %._crit_edge530, label %278
 
-278:                                              ; preds = %.lr.ph530.split.split.us
+278:                                              ; preds = %.lr.ph529.split.split.us
   %279 = add i16 %274, -1
   store i16 %279, ptr %8, align 2
   %280 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef nonnull %1) #25
@@ -15640,61 +15640,61 @@ _find_context_by_id.exit.us:                      ; preds = %215
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 18
   %289 = call i32 @unpack16(ptr noundef nonnull %288, ptr noundef nonnull %1) #25
   %.not300.us = icmp eq i32 %289, 0
-  br i1 %.not300.us, label %290, label %.loopexit419
+  br i1 %.not300.us, label %290, label %.sink.split
 
 290:                                              ; preds = %286
   %291 = getelementptr inbounds nuw i8, ptr %287, i64 16
   %292 = call i32 @unpack16(ptr noundef nonnull %291, ptr noundef nonnull %1) #25
   %.not301.us = icmp eq i32 %292, 0
-  br i1 %.not301.us, label %293, label %.loopexit419
+  br i1 %.not301.us, label %293, label %.sink.split
 
 293:                                              ; preds = %290
   %294 = getelementptr inbounds nuw i8, ptr %287, i64 24
   %295 = call i32 @unpack64(ptr noundef nonnull %294, ptr noundef nonnull %1) #25
   %.not302.us = icmp eq i32 %295, 0
-  br i1 %.not302.us, label %296, label %.loopexit419
+  br i1 %.not302.us, label %296, label %.sink.split
 
 296:                                              ; preds = %293
   %297 = getelementptr inbounds nuw i8, ptr %287, i64 32
   %298 = call i32 @unpack64(ptr noundef nonnull %297, ptr noundef nonnull %1) #25
   %.not303.us = icmp eq i32 %298, 0
-  br i1 %.not303.us, label %299, label %.loopexit419
+  br i1 %.not303.us, label %299, label %.sink.split
 
 299:                                              ; preds = %296
   %300 = getelementptr inbounds nuw i8, ptr %287, i64 40
   %301 = call i32 @unpack64(ptr noundef nonnull %300, ptr noundef nonnull %1) #25
   %.not304.us = icmp eq i32 %301, 0
-  br i1 %.not304.us, label %302, label %.loopexit419
+  br i1 %.not304.us, label %302, label %.sink.split
 
 302:                                              ; preds = %299
   %303 = getelementptr inbounds nuw i8, ptr %287, i64 48
   %304 = call i32 @unpack64(ptr noundef nonnull %303, ptr noundef nonnull %1) #25
   %.not305.us = icmp eq i32 %304, 0
-  br i1 %.not305.us, label %305, label %.loopexit419
+  br i1 %.not305.us, label %305, label %.sink.split
 
 305:                                              ; preds = %302
   %306 = getelementptr inbounds nuw i8, ptr %287, i64 56
   %307 = call i32 @unpack64(ptr noundef nonnull %306, ptr noundef nonnull %1) #25
   %.not306.us = icmp eq i32 %307, 0
-  br i1 %.not306.us, label %308, label %.loopexit419
+  br i1 %.not306.us, label %308, label %.sink.split
 
 308:                                              ; preds = %305
   %309 = getelementptr inbounds nuw i8, ptr %287, i64 64
   %310 = call i32 @unpack16(ptr noundef nonnull %309, ptr noundef nonnull %1) #25
   %.not307.us = icmp eq i32 %310, 0
-  br i1 %.not307.us, label %311, label %.loopexit419
+  br i1 %.not307.us, label %311, label %.sink.split
 
 311:                                              ; preds = %308
   %312 = getelementptr inbounds nuw i8, ptr %287, i64 112
   %313 = call i32 @unpack64(ptr noundef nonnull %312, ptr noundef nonnull %1) #25
   %.not308.us = icmp eq i32 %313, 0
-  br i1 %.not308.us, label %314, label %.loopexit419
+  br i1 %.not308.us, label %314, label %.sink.split
 
 314:                                              ; preds = %311
   %315 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %316 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %315, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not309.us = icmp eq i32 %316, 0
-  br i1 %.not309.us, label %317, label %.loopexit419
+  br i1 %.not309.us, label %317, label %.sink.split
 
 317:                                              ; preds = %314
   %318 = load ptr, ptr %315, align 8
@@ -15764,7 +15764,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
 344:                                              ; preds = %342
   %345 = load i32, ptr %328, align 8
   %.not316.us = icmp eq i32 %345, 0
-  br i1 %.not316.us, label %.thread680, label %346
+  br i1 %.not316.us, label %.thread704, label %346
 
 346:                                              ; preds = %344
   %347 = zext i32 %345 to i64
@@ -15774,7 +15774,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   %.not317.us = icmp eq ptr %348, null
   br i1 %.not317.us, label %.sink.split, label %351
 
-.thread680:                                       ; preds = %344
+.thread704:                                       ; preds = %344
   %350 = getelementptr inbounds nuw i8, ptr %287, i64 128
   store ptr null, ptr %350, align 8
   br label %.loopexit433.us
@@ -15818,7 +15818,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   %369 = load ptr, ptr %16, align 8
   %370 = call i32 @bit_unfmt_hexmask(ptr noundef %368, ptr noundef %369) #25
   %.not337.us = icmp eq i32 %370, 0
-  br i1 %.not337.us, label %374, label %.split.us574
+  br i1 %.not337.us, label %374, label %.split.us581
 
 371:                                              ; preds = %359
   %372 = load ptr, ptr %457, align 8
@@ -15843,7 +15843,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   %381 = icmp samesign ult i64 %indvars.iv.next, %380
   br i1 %381, label %353, label %.loopexit433.us, !llvm.loop !153
 
-.loopexit433.us:                                  ; preds = %378, %.thread680, %351, %342
+.loopexit433.us:                                  ; preds = %378, %.thread704, %351, %342
   %382 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not318.us = icmp eq i32 %382, 0
   br i1 %.not318.us, label %383, label %.sink.split
@@ -15856,7 +15856,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
 385:                                              ; preds = %383
   %386 = load i32, ptr %328, align 8
   %.not320.us = icmp eq i32 %386, 0
-  br i1 %.not320.us, label %.thread682, label %387
+  br i1 %.not320.us, label %.thread706, label %387
 
 387:                                              ; preds = %385
   %388 = zext i32 %386 to i64
@@ -15866,18 +15866,18 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   %.not321.us = icmp eq ptr %389, null
   br i1 %.not321.us, label %.sink.split, label %392
 
-.thread682:                                       ; preds = %385
+.thread706:                                       ; preds = %385
   %391 = getelementptr inbounds nuw i8, ptr %287, i64 152
   store ptr null, ptr %391, align 8
   br label %.loopexit431.us
 
 392:                                              ; preds = %387
-  %.pre658 = load i32, ptr %328, align 8
-  %393 = icmp eq i32 %.pre658, 0
-  br i1 %393, label %.loopexit431.us, label %.lr.ph506.us
+  %.pre682 = load i32, ptr %328, align 8
+  %393 = icmp eq i32 %.pre682, 0
+  br i1 %393, label %.loopexit431.us, label %.lr.ph505.us
 
-394:                                              ; preds = %.lr.ph506.us, %419
-  %indvars.iv635 = phi i64 [ 0, %.lr.ph506.us ], [ %indvars.iv.next636, %419 ]
+394:                                              ; preds = %.lr.ph505.us, %419
+  %indvars.iv659 = phi i64 [ 0, %.lr.ph505.us ], [ %indvars.iv.next660, %419 ]
   store ptr null, ptr %19, align 8
   %395 = call i32 @unpack32(ptr noundef nonnull %20, ptr noundef nonnull %1) #25
   %.not327.us = icmp eq i32 %395, 0
@@ -15902,19 +15902,19 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   %403 = zext i32 %401 to i64
   %404 = call ptr @bit_alloc(i64 noundef %403) #25
   %405 = load ptr, ptr %458, align 8
-  %406 = getelementptr inbounds nuw ptr, ptr %405, i64 %indvars.iv635
+  %406 = getelementptr inbounds nuw ptr, ptr %405, i64 %indvars.iv659
   store ptr %404, ptr %406, align 8
   %407 = load ptr, ptr %458, align 8
-  %408 = getelementptr inbounds nuw ptr, ptr %407, i64 %indvars.iv635
+  %408 = getelementptr inbounds nuw ptr, ptr %407, i64 %indvars.iv659
   %409 = load ptr, ptr %408, align 8
   %410 = load ptr, ptr %19, align 8
   %411 = call i32 @bit_unfmt_hexmask(ptr noundef %409, ptr noundef %410) #25
   %.not331.us = icmp eq i32 %411, 0
-  br i1 %.not331.us, label %415, label %.split580.us
+  br i1 %.not331.us, label %415, label %.split587.us
 
 412:                                              ; preds = %400
   %413 = load ptr, ptr %458, align 8
-  %414 = getelementptr inbounds nuw ptr, ptr %413, i64 %indvars.iv635
+  %414 = getelementptr inbounds nuw ptr, ptr %413, i64 %indvars.iv659
   store ptr null, ptr %414, align 8
   br label %415
 
@@ -15924,18 +15924,18 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
 
 416:                                              ; preds = %396
   %417 = load ptr, ptr %458, align 8
-  %418 = getelementptr inbounds nuw ptr, ptr %417, i64 %indvars.iv635
+  %418 = getelementptr inbounds nuw ptr, ptr %417, i64 %indvars.iv659
   store ptr null, ptr %418, align 8
   br label %419
 
 419:                                              ; preds = %416, %415
-  %indvars.iv.next636 = add nuw nsw i64 %indvars.iv635, 1
+  %indvars.iv.next660 = add nuw nsw i64 %indvars.iv659, 1
   %420 = load i32, ptr %328, align 8
   %421 = zext i32 %420 to i64
-  %422 = icmp samesign ult i64 %indvars.iv.next636, %421
+  %422 = icmp samesign ult i64 %indvars.iv.next660, %421
   br i1 %422, label %394, label %.loopexit431.us, !llvm.loop !154
 
-.loopexit431.us:                                  ; preds = %419, %.thread682, %392, %383
+.loopexit431.us:                                  ; preds = %419, %.thread706, %392, %383
   %423 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not322.us = icmp eq i32 %423, 0
   br i1 %.not322.us, label %424, label %.sink.split
@@ -15948,7 +15948,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
 426:                                              ; preds = %424
   %427 = load i32, ptr %328, align 8
   %.not324.us = icmp eq i32 %427, 0
-  br i1 %.not324.us, label %.thread684, label %428
+  br i1 %.not324.us, label %.thread708, label %428
 
 428:                                              ; preds = %426
   %429 = zext i32 %427 to i64
@@ -15958,91 +15958,91 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   %.not325.us = icmp eq ptr %430, null
   br i1 %.not325.us, label %.sink.split, label %433
 
-.thread684:                                       ; preds = %426
+.thread708:                                       ; preds = %426
   %432 = getelementptr inbounds nuw i8, ptr %287, i64 160
   store ptr null, ptr %432, align 8
   br label %.loopexit429.us
 
 433:                                              ; preds = %428
-  %.pre661 = load i32, ptr %328, align 8
-  %434 = icmp eq i32 %.pre661, 0
-  br i1 %434, label %.loopexit429.us, label %.lr.ph508.us
+  %.pre685 = load i32, ptr %328, align 8
+  %434 = icmp eq i32 %.pre685, 0
+  br i1 %434, label %.loopexit429.us, label %.lr.ph507.us
 
 435:                                              ; preds = %439
-  %indvars.iv.next639 = add nuw nsw i64 %indvars.iv638, 1
+  %indvars.iv.next663 = add nuw nsw i64 %indvars.iv662, 1
   %436 = load i32, ptr %328, align 8
   %437 = zext i32 %436 to i64
-  %438 = icmp samesign ult i64 %indvars.iv.next639, %437
+  %438 = icmp samesign ult i64 %indvars.iv.next663, %437
   br i1 %438, label %439, label %.loopexit429.us, !llvm.loop !155
 
-439:                                              ; preds = %.lr.ph508.us, %435
-  %indvars.iv638 = phi i64 [ 0, %.lr.ph508.us ], [ %indvars.iv.next639, %435 ]
+439:                                              ; preds = %.lr.ph507.us, %435
+  %indvars.iv662 = phi i64 [ 0, %.lr.ph507.us ], [ %indvars.iv.next663, %435 ]
   %440 = load ptr, ptr %459, align 8
-  %441 = getelementptr inbounds nuw i64, ptr %440, i64 %indvars.iv638
+  %441 = getelementptr inbounds nuw i64, ptr %440, i64 %indvars.iv662
   %442 = call i32 @unpack64(ptr noundef %441, ptr noundef nonnull %1) #25
   %.not326.us = icmp eq i32 %442, 0
   br i1 %.not326.us, label %435, label %.sink.split
 
-.loopexit429.us:                                  ; preds = %435, %.thread684, %433, %424
+.loopexit429.us:                                  ; preds = %435, %.thread708, %433, %424
   %443 = load i32, ptr %6, align 4
   %444 = load i32, ptr @gres_context_cnt, align 4
   %445 = icmp sgt i32 %444, 0
-  br i1 %445, label %.lr.ph.i406.us558, label %.loopexit.us565
+  br i1 %445, label %.lr.ph.i406.us566, label %.loopexit.us573
 
-.lr.ph.i406.us558:                                ; preds = %.loopexit429.us
+.lr.ph.i406.us566:                                ; preds = %.loopexit429.us
   %446 = load ptr, ptr @gres_context, align 8
-  %wide.trip.count.i.us559 = zext nneg i32 %444 to i64
+  %wide.trip.count.i.us567 = zext nneg i32 %444 to i64
   br label %447
 
-447:                                              ; preds = %452, %.lr.ph.i406.us558
-  %indvars.iv.i407.us560 = phi i64 [ 0, %.lr.ph.i406.us558 ], [ %indvars.iv.next.i408.us561, %452 ]
-  %448 = getelementptr inbounds nuw %struct.slurm_gres_context, ptr %446, i64 %indvars.iv.i407.us560
+447:                                              ; preds = %452, %.lr.ph.i406.us566
+  %indvars.iv.i407.us568 = phi i64 [ 0, %.lr.ph.i406.us566 ], [ %indvars.iv.next.i408.us569, %452 ]
+  %448 = getelementptr inbounds nuw %struct.slurm_gres_context, ptr %446, i64 %indvars.iv.i407.us568
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 160
   %450 = load i32, ptr %449, align 8
   %451 = icmp eq i32 %450, %443
-  br i1 %451, label %_find_context_by_id.exit.us563, label %452
+  br i1 %451, label %_find_context_by_id.exit.us571, label %452
 
 452:                                              ; preds = %447
-  %indvars.iv.next.i408.us561 = add nuw nsw i64 %indvars.iv.i407.us560, 1
-  %exitcond.not.i.us562 = icmp eq i64 %indvars.iv.next.i408.us561, %wide.trip.count.i.us559
-  br i1 %exitcond.not.i.us562, label %.loopexit.us565, label %447, !llvm.loop !51
+  %indvars.iv.next.i408.us569 = add nuw nsw i64 %indvars.iv.i407.us568, 1
+  %exitcond.not.i.us570 = icmp eq i64 %indvars.iv.next.i408.us569, %wide.trip.count.i.us567
+  br i1 %exitcond.not.i.us570, label %.loopexit.us573, label %447, !llvm.loop !51
 
-.loopexit.us565:                                  ; preds = %452, %.loopexit429.us
+.loopexit.us573:                                  ; preds = %452, %.loopexit429.us
   %453 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.72, ptr noundef nonnull @__func__.gres_job_state_unpack, i32 noundef %443, i32 noundef %2) #25
   call void @gres_job_state_delete(ptr noundef %287)
-  br label %.backedge.us566
+  br label %.backedge.us574
 
-_find_context_by_id.exit.us563:                   ; preds = %447
+_find_context_by_id.exit.us571:                   ; preds = %447
   %454 = call ptr @gres_create_state(ptr noundef nonnull %448, i32 noundef 1, i32 noundef 2, ptr noundef %287)
   %455 = load ptr, ptr %0, align 8
   call void @list_append(ptr noundef %455, ptr noundef %454) #25
-  br label %.backedge.us566
+  br label %.backedge.us574
 
-.backedge.us566:                                  ; preds = %_find_context_by_id.exit.us563, %.loopexit.us565
-  %.1276.be.us567 = phi ptr [ null, %_find_context_by_id.exit.us563 ], [ %287, %.loopexit.us565 ]
+.backedge.us574:                                  ; preds = %_find_context_by_id.exit.us571, %.loopexit.us573
+  %.1276.be.us575 = phi ptr [ null, %_find_context_by_id.exit.us571 ], [ %287, %.loopexit.us573 ]
   %456 = load i16, ptr %8, align 2
-  %.not299.us568 = icmp eq i16 %456, 0
-  br i1 %.not299.us568, label %._crit_edge531, label %.lr.ph530.split.split.us, !llvm.loop !152
+  %.not299.us576 = icmp eq i16 %456, 0
+  br i1 %.not299.us576, label %._crit_edge530, label %.lr.ph529.split.split.us, !llvm.loop !152
 
 .lr.ph.us:                                        ; preds = %351
   %457 = getelementptr inbounds nuw i8, ptr %287, i64 128
   br label %353
 
-.lr.ph506.us:                                     ; preds = %392
+.lr.ph505.us:                                     ; preds = %392
   %458 = getelementptr inbounds nuw i8, ptr %287, i64 152
   br label %394
 
-.lr.ph508.us:                                     ; preds = %433
+.lr.ph507.us:                                     ; preds = %433
   %459 = getelementptr inbounds nuw i8, ptr %287, i64 160
   br label %439
 
-.lr.ph530.split.split:                            ; preds = %.lr.ph530.split
+.lr.ph529.split.split:                            ; preds = %.lr.ph529.split
   %460 = load i32, ptr %42, align 8
   %461 = load i32, ptr %43, align 4
   %462 = icmp eq i32 %460, %461
-  br i1 %462, label %._crit_edge531, label %.loopexit419.thread689
+  br i1 %462, label %._crit_edge530, label %.loopexit419.thread713
 
-.loopexit419.thread689:                           ; preds = %.lr.ph530.split.split
+.loopexit419.thread713:                           ; preds = %.lr.ph529.split.split
   %463 = add i16 %41, -1
   store i16 %463, ptr %8, align 2
   %464 = zext nneg i16 %3 to i32
@@ -16052,82 +16052,82 @@ _find_context_by_id.exit.us563:                   ; preds = %447
 
 .split.us:                                        ; preds = %131
   %467 = load ptr, ptr %268, align 8
-  %468 = getelementptr inbounds nuw ptr, ptr %467, i64 %indvars.iv641
+  %468 = getelementptr inbounds nuw ptr, ptr %467, i64 %indvars.iv665
   %469 = load ptr, ptr %468, align 8
   %.not391 = icmp eq ptr %469, null
   br i1 %.not391, label %471, label %470
 
 470:                                              ; preds = %.split.us
   call void @slurm_bit_free(ptr noundef nonnull %468) #25
-  %.pre664 = load ptr, ptr %268, align 8
+  %.pre688 = load ptr, ptr %268, align 8
   br label %471
 
 471:                                              ; preds = %470, %.split.us
-  %472 = phi ptr [ %.pre664, %470 ], [ %467, %.split.us ]
-  %473 = getelementptr inbounds nuw ptr, ptr %472, i64 %indvars.iv641
+  %472 = phi ptr [ %.pre688, %470 ], [ %467, %.split.us ]
+  %473 = getelementptr inbounds nuw ptr, ptr %472, i64 %indvars.iv665
   store ptr null, ptr %473, align 8
   br label %.thread.sink.split
 
-.split542.us:                                     ; preds = %173
+.split541.us:                                     ; preds = %173
   %474 = load ptr, ptr %270, align 8
-  %475 = getelementptr inbounds nuw ptr, ptr %474, i64 %indvars.iv647
+  %475 = getelementptr inbounds nuw ptr, ptr %474, i64 %indvars.iv671
   %476 = load ptr, ptr %475, align 8
   %.not379 = icmp eq ptr %476, null
   br i1 %.not379, label %478, label %477
 
-477:                                              ; preds = %.split542.us
+477:                                              ; preds = %.split541.us
   call void @slurm_bit_free(ptr noundef nonnull %475) #25
-  %.pre668 = load ptr, ptr %270, align 8
+  %.pre692 = load ptr, ptr %270, align 8
   br label %478
 
-478:                                              ; preds = %477, %.split542.us
-  %479 = phi ptr [ %.pre668, %477 ], [ %474, %.split542.us ]
-  %480 = getelementptr inbounds nuw ptr, ptr %479, i64 %indvars.iv647
+478:                                              ; preds = %477, %.split541.us
+  %479 = phi ptr [ %.pre692, %477 ], [ %474, %.split541.us ]
+  %480 = getelementptr inbounds nuw ptr, ptr %479, i64 %indvars.iv671
   store ptr null, ptr %480, align 8
   br label %.thread.sink.split
 
-.split.us574:                                     ; preds = %361
+.split.us581:                                     ; preds = %361
   %481 = load ptr, ptr %457, align 8
   %482 = getelementptr inbounds nuw ptr, ptr %481, i64 %indvars.iv
   %483 = load ptr, ptr %482, align 8
   %.not338 = icmp eq ptr %483, null
   br i1 %.not338, label %485, label %484
 
-484:                                              ; preds = %.split.us574
+484:                                              ; preds = %.split.us581
   call void @slurm_bit_free(ptr noundef nonnull %482) #25
-  %.pre656 = load ptr, ptr %457, align 8
+  %.pre680 = load ptr, ptr %457, align 8
   br label %485
 
-485:                                              ; preds = %484, %.split.us574
-  %486 = phi ptr [ %.pre656, %484 ], [ %481, %.split.us574 ]
+485:                                              ; preds = %484, %.split.us581
+  %486 = phi ptr [ %.pre680, %484 ], [ %481, %.split.us581 ]
   %487 = getelementptr inbounds nuw ptr, ptr %486, i64 %indvars.iv
   store ptr null, ptr %487, align 8
   br label %.thread.sink.split
 
-.split580.us:                                     ; preds = %402
+.split587.us:                                     ; preds = %402
   %488 = load ptr, ptr %458, align 8
-  %489 = getelementptr inbounds nuw ptr, ptr %488, i64 %indvars.iv635
+  %489 = getelementptr inbounds nuw ptr, ptr %488, i64 %indvars.iv659
   %490 = load ptr, ptr %489, align 8
   %.not332 = icmp eq ptr %490, null
   br i1 %.not332, label %492, label %491
 
-491:                                              ; preds = %.split580.us
+491:                                              ; preds = %.split587.us
   call void @slurm_bit_free(ptr noundef nonnull %489) #25
-  %.pre659 = load ptr, ptr %458, align 8
+  %.pre683 = load ptr, ptr %458, align 8
   br label %492
 
-492:                                              ; preds = %491, %.split580.us
-  %493 = phi ptr [ %.pre659, %491 ], [ %488, %.split580.us ]
-  %494 = getelementptr inbounds nuw ptr, ptr %493, i64 %indvars.iv635
+492:                                              ; preds = %491, %.split587.us
+  %493 = phi ptr [ %.pre683, %491 ], [ %488, %.split587.us ]
+  %494 = getelementptr inbounds nuw ptr, ptr %493, i64 %indvars.iv659
   store ptr null, ptr %494, align 8
   br label %.thread.sink.split
 
-._crit_edge531:                                   ; preds = %.lr.ph530.split.split.us, %.backedge.us566, %.lr.ph530.split.us, %.backedge.us, %.lr.ph530.split.split, %39
+._crit_edge530:                                   ; preds = %.lr.ph529.split.split.us, %.backedge.us574, %.lr.ph529.split.us, %.backedge.us, %.lr.ph529.split.split, %39
   %495 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
   %.not392 = icmp eq i32 %495, 0
   br i1 %.not392, label %505, label %496
 
-496:                                              ; preds = %._crit_edge531
+496:                                              ; preds = %._crit_edge530
   %497 = tail call ptr @__errno_location() #26
   store i32 %495, ptr %497, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 7156, ptr noundef nonnull @__func__.gres_job_state_unpack) #27
@@ -16139,14 +16139,14 @@ _find_context_by_id.exit.us563:                   ; preds = %447
   call void @slurm_xfree(ptr noundef nonnull %.sink) #25
   br label %.sink.split
 
-.loopexit419:                                     ; preds = %278, %284, %286, %290, %293, %296, %299, %302, %305, %308, %311, %314, %357, %353, %398, %85, %82, %79, %76, %73, %70, %67, %64, %61, %57, %55, %49, %127, %169
-  %.0275 = phi ptr [ %58, %169 ], [ %58, %127 ], [ %58, %85 ], [ %58, %82 ], [ %58, %79 ], [ %58, %76 ], [ %58, %73 ], [ %58, %70 ], [ %58, %67 ], [ %58, %64 ], [ %58, %61 ], [ %58, %57 ], [ %.1276528.us, %55 ], [ %.1276528.us, %49 ], [ %287, %398 ], [ %287, %353 ], [ %287, %357 ], [ %287, %314 ], [ %287, %311 ], [ %287, %308 ], [ %287, %305 ], [ %287, %302 ], [ %287, %299 ], [ %287, %296 ], [ %287, %293 ], [ %287, %290 ], [ %287, %286 ], [ %.1276528.us557, %284 ], [ %.1276528.us557, %278 ]
+.loopexit419:                                     ; preds = %278, %284, %357, %353, %398, %55, %49, %127, %169
+  %.0275 = phi ptr [ %58, %169 ], [ %58, %127 ], [ %.1276527.us, %49 ], [ %.1276527.us, %55 ], [ %287, %398 ], [ %287, %353 ], [ %287, %357 ], [ %.1276527.us565, %284 ], [ %.1276527.us565, %278 ]
   %498 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.73, ptr noundef nonnull @__func__.gres_job_state_unpack, i32 noundef %2) #25
   %.not393 = icmp eq ptr %.0275, null
   br i1 %.not393, label %501, label %500
 
-.sink.split:                                      ; preds = %428, %.loopexit431.us, %387, %.loopexit433.us, %346, %340, %337, %333, %330, %gres_build_id.exit405.us, %394, %439, %gres_build_id.exit.us, %101, %104, %108, %111, %116, %._crit_edge.us, %158, %.loopexit422.us, %198, %123, %244, %252, %256, %165, %209, %224, %232, %236, %.thread.sink.split
-  %.0275413.ph = phi ptr [ %.0275.ph.ph, %.thread.sink.split ], [ %58, %236 ], [ %58, %232 ], [ %58, %224 ], [ %58, %209 ], [ %58, %165 ], [ %58, %256 ], [ %58, %252 ], [ %58, %244 ], [ %58, %123 ], [ %58, %198 ], [ %58, %.loopexit422.us ], [ %58, %158 ], [ %58, %._crit_edge.us ], [ %58, %116 ], [ %58, %111 ], [ %58, %108 ], [ %58, %104 ], [ %58, %101 ], [ %58, %gres_build_id.exit.us ], [ %287, %439 ], [ %287, %394 ], [ %287, %gres_build_id.exit405.us ], [ %287, %330 ], [ %287, %333 ], [ %287, %337 ], [ %287, %340 ], [ %287, %346 ], [ %287, %.loopexit433.us ], [ %287, %387 ], [ %287, %.loopexit431.us ], [ %287, %428 ]
+.sink.split:                                      ; preds = %428, %.loopexit431.us, %387, %.loopexit433.us, %346, %340, %337, %333, %330, %gres_build_id.exit405.us, %314, %311, %308, %305, %302, %299, %296, %293, %290, %286, %394, %439, %57, %61, %64, %67, %70, %73, %76, %79, %82, %85, %gres_build_id.exit.us, %101, %104, %108, %111, %116, %._crit_edge.us, %158, %.loopexit422.us, %198, %123, %244, %252, %256, %165, %209, %224, %232, %236, %.thread.sink.split
+  %.0275413.ph = phi ptr [ %.0275.ph.ph, %.thread.sink.split ], [ %58, %236 ], [ %58, %232 ], [ %58, %224 ], [ %58, %209 ], [ %58, %165 ], [ %58, %256 ], [ %58, %252 ], [ %58, %244 ], [ %58, %123 ], [ %58, %198 ], [ %58, %.loopexit422.us ], [ %58, %158 ], [ %58, %._crit_edge.us ], [ %58, %116 ], [ %58, %111 ], [ %58, %108 ], [ %58, %104 ], [ %58, %101 ], [ %58, %gres_build_id.exit.us ], [ %58, %85 ], [ %58, %82 ], [ %58, %79 ], [ %58, %76 ], [ %58, %73 ], [ %58, %70 ], [ %58, %67 ], [ %58, %64 ], [ %58, %61 ], [ %58, %57 ], [ %287, %439 ], [ %287, %394 ], [ %287, %286 ], [ %287, %290 ], [ %287, %293 ], [ %287, %296 ], [ %287, %299 ], [ %287, %302 ], [ %287, %305 ], [ %287, %308 ], [ %287, %311 ], [ %287, %314 ], [ %287, %gres_build_id.exit405.us ], [ %287, %330 ], [ %287, %333 ], [ %287, %337 ], [ %287, %340 ], [ %287, %346 ], [ %287, %.loopexit433.us ], [ %287, %387 ], [ %287, %.loopexit431.us ], [ %287, %428 ]
   %499 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.73, ptr noundef nonnull @__func__.gres_job_state_unpack, i32 noundef %2) #25
   br label %500
 
@@ -16155,7 +16155,7 @@ _find_context_by_id.exit.us563:                   ; preds = %447
   call void @gres_job_state_delete(ptr noundef nonnull %.0275413)
   br label %501
 
-501:                                              ; preds = %.loopexit419.thread689, %.loopexit419, %500
+501:                                              ; preds = %.loopexit419.thread713, %.loopexit419, %500
   %502 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
   %.not394 = icmp eq i32 %502, 0
   br i1 %.not394, label %505, label %503
@@ -16166,8 +16166,8 @@ _find_context_by_id.exit.us563:                   ; preds = %447
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 7164, ptr noundef nonnull @__func__.gres_job_state_unpack) #27
   unreachable
 
-505:                                              ; preds = %.thread417, %501, %._crit_edge531, %24
-  %.0 = phi i32 [ 0, %24 ], [ 0, %._crit_edge531 ], [ -1, %501 ], [ -1, %.thread417 ]
+505:                                              ; preds = %.thread417, %501, %._crit_edge530, %24
+  %.0 = phi i32 [ 0, %24 ], [ 0, %._crit_edge530 ], [ -1, %501 ], [ -1, %.thread417 ]
   ret i32 %.0
 }
 
@@ -16410,7 +16410,7 @@ define range(i32 -1, 1) i32 @gres_prep_unpack(ptr noundef captures(none) %0, ptr
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %51 = call i32 @unpack32(ptr noundef nonnull %50, ptr noundef nonnull %1) #25
   %.not78.us = icmp eq i32 %51, 0
-  br i1 %.not78.us, label %52, label %.loopexit120
+  br i1 %.not78.us, label %52, label %.sink.split
 
 52:                                               ; preds = %49
   %53 = load i32, ptr %50, align 4
@@ -16657,13 +16657,13 @@ _find_context_by_id.exit.us:                      ; preds = %108
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 7329, ptr noundef nonnull @__func__.gres_prep_unpack) #27
   unreachable
 
-.loopexit120:                                     ; preds = %49, %46, %40
-  %.066 = phi ptr [ %.1139.us, %40 ], [ %47, %46 ], [ %47, %49 ]
+.loopexit120:                                     ; preds = %46, %40
+  %.066 = phi ptr [ %.1139.us, %40 ], [ %47, %46 ]
   %149 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.75, ptr noundef nonnull @__func__.gres_prep_unpack) #25
   %.not94 = icmp eq ptr %.066, null
   br i1 %.not94, label %168, label %151
 
-.sink.split:                                      ; preds = %52, %55, %59, %62, %68, %75, %79, %143
+.sink.split:                                      ; preds = %49, %52, %55, %59, %62, %68, %75, %79, %143
   %150 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.75, ptr noundef nonnull @__func__.gres_prep_unpack) #25
   br label %151
 
@@ -22051,7 +22051,7 @@ define range(i32 -1, 1) i32 @gres_step_state_unpack(ptr noundef captures(none) %
 30:                                               ; preds = %4
   %31 = load i16, ptr %8, align 2
   %32 = icmp eq i16 %31, 0
-  br i1 %32, label %506, label %33
+  br i1 %32, label %504, label %33
 
 33:                                               ; preds = %30
   %34 = call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #25
@@ -22082,11 +22082,11 @@ define range(i32 -1, 1) i32 @gres_step_state_unpack(ptr noundef captures(none) %
 45:                                               ; preds = %43, %40, %37
   %46 = icmp eq ptr %1, null
   %47 = load i16, ptr %8, align 2
-  %.not259448 = icmp eq i16 %47, 0
-  %or.cond5449 = or i1 %46, %.not259448
-  br i1 %or.cond5449, label %._crit_edge, label %.lr.ph450
+  %.not259445 = icmp eq i16 %47, 0
+  %or.cond5446 = or i1 %46, %.not259445
+  br i1 %or.cond5446, label %._crit_edge, label %.lr.ph447
 
-.lr.ph450:                                        ; preds = %45
+.lr.ph447:                                        ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %50 = icmp ugt i16 %3, 10495
@@ -22094,8 +22094,8 @@ define range(i32 -1, 1) i32 @gres_step_state_unpack(ptr noundef captures(none) %
   %52 = icmp samesign ugt i16 %3, 9983
   br label %53
 
-53:                                               ; preds = %.lr.ph450, %.backedge
-  %54 = phi i16 [ %47, %.lr.ph450 ], [ %480, %.backedge ]
+53:                                               ; preds = %.lr.ph447, %.backedge
+  %54 = phi i16 [ %47, %.lr.ph447 ], [ %480, %.backedge ]
   %55 = load i32, ptr %48, align 8
   %56 = load i32, ptr %49, align 4
   %57 = icmp eq i32 %55, %56
@@ -22124,55 +22124,55 @@ define range(i32 -1, 1) i32 @gres_step_state_unpack(ptr noundef captures(none) %
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 18
   %70 = call i32 @unpack16(ptr noundef nonnull %69, ptr noundef nonnull %1) #25
   %.not320 = icmp eq i32 %70, 0
-  br i1 %.not320, label %71, label %.loopexit372
+  br i1 %.not320, label %71, label %.thread
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %73 = call i32 @unpack16(ptr noundef nonnull %72, ptr noundef nonnull %1) #25
   %.not321 = icmp eq i32 %73, 0
-  br i1 %.not321, label %74, label %.loopexit372
+  br i1 %.not321, label %74, label %.thread
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %76 = call i32 @unpack64(ptr noundef nonnull %75, ptr noundef nonnull %1) #25
   %.not322 = icmp eq i32 %76, 0
-  br i1 %.not322, label %77, label %.loopexit372
+  br i1 %.not322, label %77, label %.thread
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %79 = call i32 @unpack64(ptr noundef nonnull %78, ptr noundef nonnull %1) #25
   %.not323 = icmp eq i32 %79, 0
-  br i1 %.not323, label %80, label %.loopexit372
+  br i1 %.not323, label %80, label %.thread
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %82 = call i32 @unpack64(ptr noundef nonnull %81, ptr noundef nonnull %1) #25
   %.not324 = icmp eq i32 %82, 0
-  br i1 %.not324, label %83, label %.loopexit372
+  br i1 %.not324, label %83, label %.thread
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %85 = call i32 @unpack64(ptr noundef nonnull %84, ptr noundef nonnull %1) #25
   %.not325 = icmp eq i32 %85, 0
-  br i1 %.not325, label %86, label %.loopexit372
+  br i1 %.not325, label %86, label %.thread
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %88 = call i32 @unpack64(ptr noundef nonnull %87, ptr noundef nonnull %1) #25
   %.not326 = icmp eq i32 %88, 0
-  br i1 %.not326, label %89, label %.loopexit372
+  br i1 %.not326, label %89, label %.thread
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %91 = call i32 @unpack64(ptr noundef nonnull %90, ptr noundef nonnull %1) #25
   %.not327 = icmp eq i32 %91, 0
-  br i1 %.not327, label %92, label %.loopexit372
+  br i1 %.not327, label %92, label %.thread
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %94 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %93, ptr noundef nonnull %10, ptr noundef nonnull %1) #25
   %.not328 = icmp eq i32 %94, 0
-  br i1 %.not328, label %95, label %.loopexit372
+  br i1 %.not328, label %95, label %.thread
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr %93, align 8
@@ -22206,18 +22206,18 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %106 = getelementptr inbounds nuw i8, ptr %68, i64 96
   %107 = call i32 @unpack32(ptr noundef nonnull %106, ptr noundef nonnull %1) #25
   %.not329 = icmp eq i32 %107, 0
-  br i1 %.not329, label %108, label %.sink.split
+  br i1 %.not329, label %108, label %.thread
 
 108:                                              ; preds = %gres_build_id.exit
   %109 = load i32, ptr %106, align 8
   %110 = icmp eq i32 %109, -1
-  br i1 %110, label %.sink.split, label %111
+  br i1 %110, label %.thread, label %111
 
 111:                                              ; preds = %108
   store ptr null, ptr %11, align 8
   %112 = call i32 @unpack32(ptr noundef nonnull %12, ptr noundef nonnull %1) #25
   %.not330 = icmp eq i32 %112, 0
-  br i1 %.not330, label %113, label %.sink.split
+  br i1 %.not330, label %113, label %.thread
 
 113:                                              ; preds = %111
   %114 = load i32, ptr %12, align 4
@@ -22227,7 +22227,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 115:                                              ; preds = %113
   %116 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %1) #25
   %.not332 = icmp eq i32 %116, 0
-  br i1 %.not332, label %117, label %.sink.split
+  br i1 %.not332, label %117, label %.thread
 
 117:                                              ; preds = %115
   %118 = load i32, ptr %12, align 4
@@ -22275,7 +22275,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 135:                                              ; preds = %133, %132
   %136 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not335 = icmp eq i32 %136, 0
-  br i1 %.not335, label %137, label %.sink.split
+  br i1 %.not335, label %137, label %.thread
 
 137:                                              ; preds = %135
   %138 = load i8, ptr %9, align 1
@@ -22286,36 +22286,36 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %140 = getelementptr inbounds nuw i8, ptr %68, i64 88
   %141 = call i32 @unpack64_array(ptr noundef nonnull %140, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not337 = icmp eq i32 %141, 0
-  br i1 %.not337, label %142, label %.sink.split
+  br i1 %.not337, label %142, label %.thread
 
 142:                                              ; preds = %137, %139
   %143 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not338 = icmp eq i32 %143, 0
-  br i1 %.not338, label %144, label %.sink.split
+  br i1 %.not338, label %144, label %.thread
 
 144:                                              ; preds = %142
   %145 = load i8, ptr %9, align 1
   %.not339 = icmp eq i8 %145, 0
-  %.pre512 = load i32, ptr %106, align 8
+  %.pre507 = load i32, ptr %106, align 8
   br i1 %.not339, label %.loopexit370, label %146
 
 146:                                              ; preds = %144
-  %147 = zext i32 %.pre512 to i64
+  %147 = zext i32 %.pre507 to i64
   %148 = call ptr @slurm_xcalloc(i64 noundef %147, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 9157, ptr noundef nonnull @__func__.gres_step_state_unpack) #25
   %149 = getelementptr inbounds nuw i8, ptr %68, i64 112
   store ptr %148, ptr %149, align 8
   %150 = load i32, ptr %106, align 8
-  %.not455 = icmp eq i32 %150, 0
-  br i1 %.not455, label %.loopexit369, label %.lr.ph442
+  %.not452 = icmp eq i32 %150, 0
+  br i1 %.not452, label %.loopexit369, label %.lr.ph439
 
-.lr.ph442:                                        ; preds = %146, %183
-  %indvars.iv503 = phi i64 [ %indvars.iv.next504, %183 ], [ 0, %146 ]
+.lr.ph439:                                        ; preds = %146, %183
+  %indvars.iv498 = phi i64 [ %indvars.iv.next499, %183 ], [ 0, %146 ]
   store ptr null, ptr %14, align 8
   %151 = call i32 @unpack32(ptr noundef nonnull %15, ptr noundef nonnull %1) #25
   %.not347 = icmp eq i32 %151, 0
-  br i1 %.not347, label %152, label %.sink.split
+  br i1 %.not347, label %152, label %.thread
 
-152:                                              ; preds = %.lr.ph442
+152:                                              ; preds = %.lr.ph439
   %153 = load i32, ptr %15, align 4
   %.not348 = icmp eq i32 %153, -2
   br i1 %.not348, label %180, label %154
@@ -22323,7 +22323,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 154:                                              ; preds = %152
   %155 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %1) #25
   %.not349 = icmp eq i32 %155, 0
-  br i1 %.not349, label %156, label %.sink.split
+  br i1 %.not349, label %156, label %.thread
 
 156:                                              ; preds = %154
   %157 = load i32, ptr %15, align 4
@@ -22334,10 +22334,10 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %159 = zext i32 %157 to i64
   %160 = call ptr @bit_alloc(i64 noundef %159) #25
   %161 = load ptr, ptr %149, align 8
-  %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv503
+  %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv498
   store ptr %160, ptr %162, align 8
   %163 = load ptr, ptr %149, align 8
-  %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv503
+  %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv498
   %165 = load ptr, ptr %164, align 8
   %166 = load ptr, ptr %14, align 8
   %167 = call i32 @bit_unfmt_hexmask(ptr noundef %165, ptr noundef %166) #25
@@ -22346,25 +22346,25 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 
 168:                                              ; preds = %158
   %169 = load ptr, ptr %149, align 8
-  %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv503
+  %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv498
   %171 = load ptr, ptr %170, align 8
   %.not352 = icmp eq ptr %171, null
   br i1 %.not352, label %173, label %172
 
 172:                                              ; preds = %168
   call void @slurm_bit_free(ptr noundef nonnull %170) #25
-  %.pre511 = load ptr, ptr %149, align 8
+  %.pre506 = load ptr, ptr %149, align 8
   br label %173
 
 173:                                              ; preds = %172, %168
-  %174 = phi ptr [ %.pre511, %172 ], [ %169, %168 ]
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv503
+  %174 = phi ptr [ %.pre506, %172 ], [ %169, %168 ]
+  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv498
   store ptr null, ptr %175, align 8
   br label %.thread.sink.split
 
 176:                                              ; preds = %156
   %177 = load ptr, ptr %149, align 8
-  %178 = getelementptr inbounds nuw ptr, ptr %177, i64 %indvars.iv503
+  %178 = getelementptr inbounds nuw ptr, ptr %177, i64 %indvars.iv498
   store ptr null, ptr %178, align 8
   br label %179
 
@@ -22374,31 +22374,31 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 
 180:                                              ; preds = %152
   %181 = load ptr, ptr %149, align 8
-  %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv503
+  %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv498
   store ptr null, ptr %182, align 8
   br label %183
 
 183:                                              ; preds = %180, %179
-  %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
+  %indvars.iv.next499 = add nuw nsw i64 %indvars.iv498, 1
   %184 = load i32, ptr %106, align 8
   %185 = zext i32 %184 to i64
-  %186 = icmp samesign ult i64 %indvars.iv.next504, %185
-  br i1 %186, label %.lr.ph442, label %.loopexit370, !llvm.loop !213
+  %186 = icmp samesign ult i64 %indvars.iv.next499, %185
+  br i1 %186, label %.lr.ph439, label %.loopexit370, !llvm.loop !213
 
 .loopexit370:                                     ; preds = %183, %144
-  %187 = phi i32 [ %.pre512, %144 ], [ %184, %183 ]
-  %.not456 = icmp eq i32 %187, 0
-  br i1 %.not456, label %.loopexit369, label %.lr.ph444
+  %187 = phi i32 [ %.pre507, %144 ], [ %184, %183 ]
+  %.not453 = icmp eq i32 %187, 0
+  br i1 %.not453, label %.loopexit369, label %.lr.ph441
 
-.lr.ph444:                                        ; preds = %.loopexit370
+.lr.ph441:                                        ; preds = %.loopexit370
   %188 = getelementptr inbounds nuw i8, ptr %68, i64 120
   br label %189
 
-189:                                              ; preds = %.lr.ph444, %205
-  %indvars.iv506 = phi i64 [ 0, %.lr.ph444 ], [ %indvars.iv.next507, %205 ]
+189:                                              ; preds = %.lr.ph441, %205
+  %indvars.iv501 = phi i64 [ 0, %.lr.ph441 ], [ %indvars.iv.next502, %205 ]
   %190 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not341 = icmp eq i32 %190, 0
-  br i1 %.not341, label %191, label %.sink.split
+  br i1 %.not341, label %191, label %.thread
 
 191:                                              ; preds = %189
   %192 = load i8, ptr %9, align 1
@@ -22424,20 +22424,20 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %200 = call ptr @slurm_xcalloc(i64 noundef %199, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 9172, ptr noundef nonnull @__func__.gres_step_state_unpack) #25
   store ptr %200, ptr %188, align 8
   %.not345 = icmp eq ptr %200, null
-  br i1 %.not345, label %.sink.split, label %201
+  br i1 %.not345, label %.thread, label %201
 
 201:                                              ; preds = %193, %197, %198
   %202 = phi ptr [ %194, %193 ], [ null, %197 ], [ %200, %198 ]
-  %203 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv506
+  %203 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv501
   %204 = call i32 @unpack64_array(ptr noundef %203, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not346 = icmp eq i32 %204, 0
-  br i1 %.not346, label %205, label %.sink.split
+  br i1 %.not346, label %205, label %.thread
 
 205:                                              ; preds = %201, %191
-  %indvars.iv.next507 = add nuw nsw i64 %indvars.iv506, 1
+  %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
   %206 = load i32, ptr %106, align 8
   %207 = zext i32 %206 to i64
-  %208 = icmp samesign ult i64 %indvars.iv.next507, %207
+  %208 = icmp samesign ult i64 %indvars.iv.next502, %207
   br i1 %208, label %189, label %.loopexit369, !llvm.loop !214
 
 209:                                              ; preds = %58
@@ -22461,66 +22461,66 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 18
   %220 = call i32 @unpack16(ptr noundef nonnull %219, ptr noundef nonnull %1) #25
   %.not287 = icmp eq i32 %220, 0
-  br i1 %.not287, label %221, label %.loopexit372
+  br i1 %.not287, label %221, label %.thread
 
 221:                                              ; preds = %217
   %222 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %223 = call i32 @unpack16(ptr noundef nonnull %222, ptr noundef nonnull %1) #25
   %.not288 = icmp eq i32 %223, 0
-  br i1 %.not288, label %224, label %.loopexit372
+  br i1 %.not288, label %224, label %.thread
 
 224:                                              ; preds = %221
   %225 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %226 = call i32 @unpack64(ptr noundef nonnull %225, ptr noundef nonnull %1) #25
   %.not289 = icmp eq i32 %226, 0
-  br i1 %.not289, label %227, label %.loopexit372
+  br i1 %.not289, label %227, label %.thread
 
 227:                                              ; preds = %224
   %228 = getelementptr inbounds nuw i8, ptr %218, i64 32
   %229 = call i32 @unpack64(ptr noundef nonnull %228, ptr noundef nonnull %1) #25
   %.not290 = icmp eq i32 %229, 0
-  br i1 %.not290, label %230, label %.loopexit372
+  br i1 %.not290, label %230, label %.thread
 
 230:                                              ; preds = %227
   %231 = getelementptr inbounds nuw i8, ptr %218, i64 40
   %232 = call i32 @unpack64(ptr noundef nonnull %231, ptr noundef nonnull %1) #25
   %.not291 = icmp eq i32 %232, 0
-  br i1 %.not291, label %233, label %.loopexit372
+  br i1 %.not291, label %233, label %.thread
 
 233:                                              ; preds = %230
   %234 = getelementptr inbounds nuw i8, ptr %218, i64 48
   %235 = call i32 @unpack64(ptr noundef nonnull %234, ptr noundef nonnull %1) #25
   %.not292 = icmp eq i32 %235, 0
-  br i1 %.not292, label %236, label %.loopexit372
+  br i1 %.not292, label %236, label %.thread
 
 236:                                              ; preds = %233
   %237 = getelementptr inbounds nuw i8, ptr %218, i64 56
   %238 = call i32 @unpack64(ptr noundef nonnull %237, ptr noundef nonnull %1) #25
   %.not293 = icmp eq i32 %238, 0
-  br i1 %.not293, label %239, label %.loopexit372
+  br i1 %.not293, label %239, label %.thread
 
 239:                                              ; preds = %236
   %240 = getelementptr inbounds nuw i8, ptr %218, i64 72
   %241 = call i32 @unpack64(ptr noundef nonnull %240, ptr noundef nonnull %1) #25
   %.not294 = icmp eq i32 %241, 0
-  br i1 %.not294, label %242, label %.loopexit372
+  br i1 %.not294, label %242, label %.thread
 
 242:                                              ; preds = %239
   %243 = getelementptr inbounds nuw i8, ptr %218, i64 96
   %244 = call i32 @unpack32(ptr noundef nonnull %243, ptr noundef nonnull %1) #25
   %.not295 = icmp eq i32 %244, 0
-  br i1 %.not295, label %245, label %.loopexit372
+  br i1 %.not295, label %245, label %.thread
 
 245:                                              ; preds = %242
   %246 = load i32, ptr %243, align 8
   %247 = icmp eq i32 %246, -1
-  br i1 %247, label %.sink.split, label %248
+  br i1 %247, label %.thread, label %248
 
 248:                                              ; preds = %245
   store ptr null, ptr %17, align 8
   %249 = call i32 @unpack32(ptr noundef nonnull %18, ptr noundef nonnull %1) #25
   %.not296 = icmp eq i32 %249, 0
-  br i1 %.not296, label %250, label %.sink.split
+  br i1 %.not296, label %250, label %.thread
 
 250:                                              ; preds = %248
   %251 = load i32, ptr %18, align 4
@@ -22530,7 +22530,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 252:                                              ; preds = %250
   %253 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %1) #25
   %.not298 = icmp eq i32 %253, 0
-  br i1 %.not298, label %254, label %.sink.split
+  br i1 %.not298, label %254, label %.thread
 
 254:                                              ; preds = %252
   %255 = load i32, ptr %18, align 4
@@ -22578,7 +22578,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 272:                                              ; preds = %270, %269
   %273 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not301 = icmp eq i32 %273, 0
-  br i1 %.not301, label %274, label %.sink.split
+  br i1 %.not301, label %274, label %.thread
 
 274:                                              ; preds = %272
   %275 = load i8, ptr %9, align 1
@@ -22589,36 +22589,36 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %277 = getelementptr inbounds nuw i8, ptr %218, i64 88
   %278 = call i32 @unpack64_array(ptr noundef nonnull %277, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not303 = icmp eq i32 %278, 0
-  br i1 %.not303, label %279, label %.sink.split
+  br i1 %.not303, label %279, label %.thread
 
 279:                                              ; preds = %274, %276
   %280 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not304 = icmp eq i32 %280, 0
-  br i1 %.not304, label %281, label %.sink.split
+  br i1 %.not304, label %281, label %.thread
 
 281:                                              ; preds = %279
   %282 = load i8, ptr %9, align 1
   %.not305 = icmp eq i8 %282, 0
-  %.pre510 = load i32, ptr %243, align 8
+  %.pre505 = load i32, ptr %243, align 8
   br i1 %.not305, label %.loopexit375, label %283
 
 283:                                              ; preds = %281
-  %284 = zext i32 %.pre510 to i64
+  %284 = zext i32 %.pre505 to i64
   %285 = call ptr @slurm_xcalloc(i64 noundef %284, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 9205, ptr noundef nonnull @__func__.gres_step_state_unpack) #25
   %286 = getelementptr inbounds nuw i8, ptr %218, i64 112
   store ptr %285, ptr %286, align 8
   %287 = load i32, ptr %243, align 8
-  %.not453 = icmp eq i32 %287, 0
-  br i1 %.not453, label %.loopexit369, label %.lr.ph437
+  %.not450 = icmp eq i32 %287, 0
+  br i1 %.not450, label %.loopexit369, label %.lr.ph434
 
-.lr.ph437:                                        ; preds = %283, %320
-  %indvars.iv497 = phi i64 [ %indvars.iv.next498, %320 ], [ 0, %283 ]
+.lr.ph434:                                        ; preds = %283, %320
+  %indvars.iv492 = phi i64 [ %indvars.iv.next493, %320 ], [ 0, %283 ]
   store ptr null, ptr %20, align 8
   %288 = call i32 @unpack32(ptr noundef nonnull %21, ptr noundef %1) #25
   %.not312 = icmp eq i32 %288, 0
-  br i1 %.not312, label %289, label %.sink.split
+  br i1 %.not312, label %289, label %.thread
 
-289:                                              ; preds = %.lr.ph437
+289:                                              ; preds = %.lr.ph434
   %290 = load i32, ptr %21, align 4
   %.not313 = icmp eq i32 %290, -2
   br i1 %.not313, label %317, label %291
@@ -22626,7 +22626,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 291:                                              ; preds = %289
   %292 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef %1) #25
   %.not314 = icmp eq i32 %292, 0
-  br i1 %.not314, label %293, label %.sink.split
+  br i1 %.not314, label %293, label %.thread
 
 293:                                              ; preds = %291
   %294 = load i32, ptr %21, align 4
@@ -22637,10 +22637,10 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %296 = zext i32 %294 to i64
   %297 = call ptr @bit_alloc(i64 noundef %296) #25
   %298 = load ptr, ptr %286, align 8
-  %299 = getelementptr inbounds nuw ptr, ptr %298, i64 %indvars.iv497
+  %299 = getelementptr inbounds nuw ptr, ptr %298, i64 %indvars.iv492
   store ptr %297, ptr %299, align 8
   %300 = load ptr, ptr %286, align 8
-  %301 = getelementptr inbounds nuw ptr, ptr %300, i64 %indvars.iv497
+  %301 = getelementptr inbounds nuw ptr, ptr %300, i64 %indvars.iv492
   %302 = load ptr, ptr %301, align 8
   %303 = load ptr, ptr %20, align 8
   %304 = call i32 @bit_unfmt_hexmask(ptr noundef %302, ptr noundef %303) #25
@@ -22649,25 +22649,25 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 
 305:                                              ; preds = %295
   %306 = load ptr, ptr %286, align 8
-  %307 = getelementptr inbounds nuw ptr, ptr %306, i64 %indvars.iv497
+  %307 = getelementptr inbounds nuw ptr, ptr %306, i64 %indvars.iv492
   %308 = load ptr, ptr %307, align 8
   %.not317 = icmp eq ptr %308, null
   br i1 %.not317, label %310, label %309
 
 309:                                              ; preds = %305
   call void @slurm_bit_free(ptr noundef nonnull %307) #25
-  %.pre509 = load ptr, ptr %286, align 8
+  %.pre504 = load ptr, ptr %286, align 8
   br label %310
 
 310:                                              ; preds = %309, %305
-  %311 = phi ptr [ %.pre509, %309 ], [ %306, %305 ]
-  %312 = getelementptr inbounds nuw ptr, ptr %311, i64 %indvars.iv497
+  %311 = phi ptr [ %.pre504, %309 ], [ %306, %305 ]
+  %312 = getelementptr inbounds nuw ptr, ptr %311, i64 %indvars.iv492
   store ptr null, ptr %312, align 8
   br label %.thread.sink.split
 
 313:                                              ; preds = %293
   %314 = load ptr, ptr %286, align 8
-  %315 = getelementptr inbounds nuw ptr, ptr %314, i64 %indvars.iv497
+  %315 = getelementptr inbounds nuw ptr, ptr %314, i64 %indvars.iv492
   store ptr null, ptr %315, align 8
   br label %316
 
@@ -22677,31 +22677,31 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 
 317:                                              ; preds = %289
   %318 = load ptr, ptr %286, align 8
-  %319 = getelementptr inbounds nuw ptr, ptr %318, i64 %indvars.iv497
+  %319 = getelementptr inbounds nuw ptr, ptr %318, i64 %indvars.iv492
   store ptr null, ptr %319, align 8
   br label %320
 
 320:                                              ; preds = %317, %316
-  %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 1
+  %indvars.iv.next493 = add nuw nsw i64 %indvars.iv492, 1
   %321 = load i32, ptr %243, align 8
   %322 = zext i32 %321 to i64
-  %323 = icmp samesign ult i64 %indvars.iv.next498, %322
-  br i1 %323, label %.lr.ph437, label %.loopexit375, !llvm.loop !215
+  %323 = icmp samesign ult i64 %indvars.iv.next493, %322
+  br i1 %323, label %.lr.ph434, label %.loopexit375, !llvm.loop !215
 
 .loopexit375:                                     ; preds = %320, %281
-  %324 = phi i32 [ %.pre510, %281 ], [ %321, %320 ]
-  %.not454 = icmp eq i32 %324, 0
-  br i1 %.not454, label %.loopexit369, label %.lr.ph439
+  %324 = phi i32 [ %.pre505, %281 ], [ %321, %320 ]
+  %.not451 = icmp eq i32 %324, 0
+  br i1 %.not451, label %.loopexit369, label %.lr.ph436
 
-.lr.ph439:                                        ; preds = %.loopexit375
+.lr.ph436:                                        ; preds = %.loopexit375
   %325 = getelementptr inbounds nuw i8, ptr %218, i64 120
   br label %326
 
-326:                                              ; preds = %.lr.ph439, %342
-  %indvars.iv500 = phi i64 [ 0, %.lr.ph439 ], [ %indvars.iv.next501, %342 ]
+326:                                              ; preds = %.lr.ph436, %342
+  %indvars.iv495 = phi i64 [ 0, %.lr.ph436 ], [ %indvars.iv.next496, %342 ]
   %327 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
   %.not306 = icmp eq i32 %327, 0
-  br i1 %.not306, label %328, label %.sink.split
+  br i1 %.not306, label %328, label %.thread
 
 328:                                              ; preds = %326
   %329 = load i8, ptr %9, align 1
@@ -22727,20 +22727,20 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %337 = call ptr @slurm_xcalloc(i64 noundef %336, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 9220, ptr noundef nonnull @__func__.gres_step_state_unpack) #25
   store ptr %337, ptr %325, align 8
   %.not310 = icmp eq ptr %337, null
-  br i1 %.not310, label %.sink.split, label %338
+  br i1 %.not310, label %.thread, label %338
 
 338:                                              ; preds = %330, %334, %335
   %339 = phi ptr [ %331, %330 ], [ null, %334 ], [ %337, %335 ]
-  %340 = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv500
+  %340 = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv495
   %341 = call i32 @unpack64_array(ptr noundef %340, ptr noundef nonnull %7, ptr noundef %1) #25
   %.not311 = icmp eq i32 %341, 0
-  br i1 %.not311, label %342, label %.sink.split
+  br i1 %.not311, label %342, label %.thread
 
 342:                                              ; preds = %338, %328
-  %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
+  %indvars.iv.next496 = add nuw nsw i64 %indvars.iv495, 1
   %343 = load i32, ptr %243, align 8
   %344 = zext i32 %343 to i64
-  %345 = icmp samesign ult i64 %indvars.iv.next501, %344
+  %345 = icmp samesign ult i64 %indvars.iv.next496, %344
   br i1 %345, label %326, label %.loopexit369, !llvm.loop !216
 
 346:                                              ; preds = %209
@@ -22764,66 +22764,66 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 18
   %357 = call i32 @unpack16(ptr noundef nonnull %356, ptr noundef nonnull %1) #25
   %.not260 = icmp eq i32 %357, 0
-  br i1 %.not260, label %358, label %.loopexit372
+  br i1 %.not260, label %358, label %.thread
 
 358:                                              ; preds = %354
   %359 = getelementptr inbounds nuw i8, ptr %355, i64 16
   %360 = call i32 @unpack16(ptr noundef nonnull %359, ptr noundef nonnull %1) #25
   %.not261 = icmp eq i32 %360, 0
-  br i1 %.not261, label %361, label %.loopexit372
+  br i1 %.not261, label %361, label %.thread
 
 361:                                              ; preds = %358
   %362 = getelementptr inbounds nuw i8, ptr %355, i64 24
   %363 = call i32 @unpack64(ptr noundef nonnull %362, ptr noundef nonnull %1) #25
   %.not262 = icmp eq i32 %363, 0
-  br i1 %.not262, label %364, label %.loopexit372
+  br i1 %.not262, label %364, label %.thread
 
 364:                                              ; preds = %361
   %365 = getelementptr inbounds nuw i8, ptr %355, i64 32
   %366 = call i32 @unpack64(ptr noundef nonnull %365, ptr noundef nonnull %1) #25
   %.not263 = icmp eq i32 %366, 0
-  br i1 %.not263, label %367, label %.loopexit372
+  br i1 %.not263, label %367, label %.thread
 
 367:                                              ; preds = %364
   %368 = getelementptr inbounds nuw i8, ptr %355, i64 40
   %369 = call i32 @unpack64(ptr noundef nonnull %368, ptr noundef nonnull %1) #25
   %.not264 = icmp eq i32 %369, 0
-  br i1 %.not264, label %370, label %.loopexit372
+  br i1 %.not264, label %370, label %.thread
 
 370:                                              ; preds = %367
   %371 = getelementptr inbounds nuw i8, ptr %355, i64 48
   %372 = call i32 @unpack64(ptr noundef nonnull %371, ptr noundef nonnull %1) #25
   %.not265 = icmp eq i32 %372, 0
-  br i1 %.not265, label %373, label %.loopexit372
+  br i1 %.not265, label %373, label %.thread
 
 373:                                              ; preds = %370
   %374 = getelementptr inbounds nuw i8, ptr %355, i64 56
   %375 = call i32 @unpack64(ptr noundef nonnull %374, ptr noundef nonnull %1) #25
   %.not266 = icmp eq i32 %375, 0
-  br i1 %.not266, label %376, label %.loopexit372
+  br i1 %.not266, label %376, label %.thread
 
 376:                                              ; preds = %373
   %377 = getelementptr inbounds nuw i8, ptr %355, i64 72
   %378 = call i32 @unpack64(ptr noundef nonnull %377, ptr noundef nonnull %1) #25
   %.not267 = icmp eq i32 %378, 0
-  br i1 %.not267, label %379, label %.loopexit372
+  br i1 %.not267, label %379, label %.thread
 
 379:                                              ; preds = %376
   %380 = getelementptr inbounds nuw i8, ptr %355, i64 96
   %381 = call i32 @unpack32(ptr noundef nonnull %380, ptr noundef nonnull %1) #25
   %.not268 = icmp eq i32 %381, 0
-  br i1 %.not268, label %382, label %.loopexit372
+  br i1 %.not268, label %382, label %.thread
 
 382:                                              ; preds = %379
   %383 = load i32, ptr %380, align 8
   %384 = icmp eq i32 %383, -1
-  br i1 %384, label %.sink.split, label %385
+  br i1 %384, label %.thread, label %385
 
 385:                                              ; preds = %382
   store ptr null, ptr %23, align 8
   %386 = call i32 @unpack32(ptr noundef nonnull %24, ptr noundef nonnull %1) #25
   %.not269 = icmp eq i32 %386, 0
-  br i1 %.not269, label %387, label %.sink.split
+  br i1 %.not269, label %387, label %.thread
 
 387:                                              ; preds = %385
   %388 = load i32, ptr %24, align 4
@@ -22833,7 +22833,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 389:                                              ; preds = %387
   %390 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %23, ptr noundef nonnull %25, ptr noundef nonnull %1) #25
   %.not271 = icmp eq i32 %390, 0
-  br i1 %.not271, label %391, label %.sink.split
+  br i1 %.not271, label %391, label %.thread
 
 391:                                              ; preds = %389
   %392 = load i32, ptr %24, align 4
@@ -22881,7 +22881,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 409:                                              ; preds = %407, %406
   %410 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not274 = icmp eq i32 %410, 0
-  br i1 %.not274, label %411, label %.sink.split
+  br i1 %.not274, label %411, label %.thread
 
 411:                                              ; preds = %409
   %412 = load i8, ptr %9, align 1
@@ -22892,12 +22892,12 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %414 = getelementptr inbounds nuw i8, ptr %355, i64 88
   %415 = call i32 @unpack64_array(ptr noundef nonnull %414, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not276 = icmp eq i32 %415, 0
-  br i1 %.not276, label %416, label %.sink.split
+  br i1 %.not276, label %416, label %.thread
 
 416:                                              ; preds = %411, %413
   %417 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not277 = icmp eq i32 %417, 0
-  br i1 %.not277, label %418, label %.sink.split
+  br i1 %.not277, label %418, label %.thread
 
 418:                                              ; preds = %416
   %419 = load i8, ptr %9, align 1
@@ -22911,15 +22911,15 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %424 = getelementptr inbounds nuw i8, ptr %355, i64 112
   store ptr %423, ptr %424, align 8
   %425 = load i32, ptr %380, align 8
-  %.not452 = icmp eq i32 %425, 0
-  br i1 %.not452, label %.loopexit369, label %.lr.ph
+  %.not449 = icmp eq i32 %425, 0
+  br i1 %.not449, label %.loopexit369, label %.lr.ph
 
 .lr.ph:                                           ; preds = %420, %458
   %indvars.iv = phi i64 [ %indvars.iv.next, %458 ], [ 0, %420 ]
   store ptr null, ptr %26, align 8
   %426 = call i32 @unpack32(ptr noundef nonnull %27, ptr noundef %1) #25
   %.not279 = icmp eq i32 %426, 0
-  br i1 %.not279, label %427, label %.sink.split
+  br i1 %.not279, label %427, label %.thread
 
 427:                                              ; preds = %.lr.ph
   %428 = load i32, ptr %27, align 4
@@ -22929,7 +22929,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 429:                                              ; preds = %427
   %430 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %26, ptr noundef nonnull %28, ptr noundef %1) #25
   %.not281 = icmp eq i32 %430, 0
-  br i1 %.not281, label %431, label %.sink.split
+  br i1 %.not281, label %431, label %.thread
 
 431:                                              ; preds = %429
   %432 = load i32, ptr %27, align 4
@@ -23065,7 +23065,7 @@ _find_context_by_id.exit:                         ; preds = %470
 ._crit_edge:                                      ; preds = %53, %.backedge, %45
   %494 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
   %.not354 = icmp eq i32 %494, 0
-  br i1 %.not354, label %506, label %495
+  br i1 %.not354, label %504, label %495
 
 495:                                              ; preds = %._crit_edge
   %496 = tail call ptr @__errno_location() #26
@@ -23077,44 +23077,34 @@ _find_context_by_id.exit:                         ; preds = %470
   %.sink = phi ptr [ %11, %129 ], [ %14, %173 ], [ %17, %266 ], [ %20, %310 ], [ %23, %403 ], [ %26, %448 ]
   %.0239.ph.ph = phi ptr [ %68, %129 ], [ %68, %173 ], [ %218, %266 ], [ %218, %310 ], [ %355, %403 ], [ %355, %448 ]
   call void @slurm_xfree(ptr noundef nonnull %.sink) #25
-  br label %.sink.split
+  br label %.thread
 
 .thread366:                                       ; preds = %60, %65, %210, %215, %347, %352, %4, %462
   %497 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.87, ptr noundef nonnull @__func__.gres_step_state_unpack, ptr noundef %2) #25
-  br label %501
+  br label %499
 
-.loopexit372:                                     ; preds = %379, %376, %373, %370, %367, %364, %361, %358, %354, %242, %239, %236, %233, %230, %227, %224, %221, %217, %92, %89, %86, %83, %80, %77, %74, %71, %67
-  %.0239 = phi ptr [ %68, %67 ], [ %68, %71 ], [ %68, %74 ], [ %68, %77 ], [ %68, %80 ], [ %68, %83 ], [ %68, %86 ], [ %68, %89 ], [ %68, %92 ], [ %218, %217 ], [ %218, %221 ], [ %218, %224 ], [ %218, %227 ], [ %218, %230 ], [ %218, %233 ], [ %218, %236 ], [ %218, %239 ], [ %218, %242 ], [ %355, %354 ], [ %355, %358 ], [ %355, %361 ], [ %355, %364 ], [ %355, %367 ], [ %355, %370 ], [ %355, %373 ], [ %355, %376 ], [ %355, %379 ]
+.thread:                                          ; preds = %416, %413, %409, %389, %385, %382, %379, %376, %373, %370, %367, %364, %361, %358, %354, %279, %276, %272, %252, %248, %245, %242, %239, %236, %233, %230, %227, %224, %221, %217, %142, %139, %135, %115, %111, %108, %gres_build_id.exit, %92, %89, %86, %83, %80, %77, %74, %71, %67, %429, %.lr.ph, %291, %.lr.ph434, %335, %338, %326, %154, %.lr.ph439, %198, %201, %189, %.thread.sink.split
+  %.0239364 = phi ptr [ %.0239.ph.ph, %.thread.sink.split ], [ %68, %189 ], [ %68, %201 ], [ %68, %198 ], [ %68, %.lr.ph439 ], [ %68, %154 ], [ %218, %326 ], [ %218, %338 ], [ %218, %335 ], [ %218, %.lr.ph434 ], [ %218, %291 ], [ %355, %.lr.ph ], [ %355, %429 ], [ %68, %67 ], [ %68, %71 ], [ %68, %74 ], [ %68, %77 ], [ %68, %80 ], [ %68, %83 ], [ %68, %86 ], [ %68, %89 ], [ %68, %92 ], [ %68, %gres_build_id.exit ], [ %68, %108 ], [ %68, %111 ], [ %68, %115 ], [ %68, %135 ], [ %68, %139 ], [ %68, %142 ], [ %218, %217 ], [ %218, %221 ], [ %218, %224 ], [ %218, %227 ], [ %218, %230 ], [ %218, %233 ], [ %218, %236 ], [ %218, %239 ], [ %218, %242 ], [ %218, %245 ], [ %218, %248 ], [ %218, %252 ], [ %218, %272 ], [ %218, %276 ], [ %218, %279 ], [ %355, %354 ], [ %355, %358 ], [ %355, %361 ], [ %355, %364 ], [ %355, %367 ], [ %355, %370 ], [ %355, %373 ], [ %355, %376 ], [ %355, %379 ], [ %355, %382 ], [ %355, %385 ], [ %355, %389 ], [ %355, %409 ], [ %355, %413 ], [ %355, %416 ]
   %498 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.87, ptr noundef nonnull @__func__.gres_step_state_unpack, ptr noundef %2) #25
-  %.not355 = icmp eq ptr %.0239, null
-  br i1 %.not355, label %501, label %500
-
-.sink.split:                                      ; preds = %416, %413, %409, %389, %385, %382, %279, %276, %272, %252, %248, %245, %142, %139, %135, %115, %111, %108, %gres_build_id.exit, %429, %.lr.ph, %291, %.lr.ph437, %335, %338, %326, %154, %.lr.ph442, %198, %201, %189, %.thread.sink.split
-  %.0239364.ph = phi ptr [ %.0239.ph.ph, %.thread.sink.split ], [ %68, %189 ], [ %68, %201 ], [ %68, %198 ], [ %68, %.lr.ph442 ], [ %68, %154 ], [ %218, %326 ], [ %218, %338 ], [ %218, %335 ], [ %218, %.lr.ph437 ], [ %218, %291 ], [ %355, %.lr.ph ], [ %355, %429 ], [ %68, %gres_build_id.exit ], [ %68, %108 ], [ %68, %111 ], [ %68, %115 ], [ %68, %135 ], [ %68, %139 ], [ %68, %142 ], [ %218, %245 ], [ %218, %248 ], [ %218, %252 ], [ %218, %272 ], [ %218, %276 ], [ %218, %279 ], [ %355, %382 ], [ %355, %385 ], [ %355, %389 ], [ %355, %409 ], [ %355, %413 ], [ %355, %416 ]
-  %499 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.87, ptr noundef nonnull @__func__.gres_step_state_unpack, ptr noundef %2) #25
-  br label %500
-
-500:                                              ; preds = %.sink.split, %.loopexit372
-  %.0239364 = phi ptr [ %.0239, %.loopexit372 ], [ %.0239364.ph, %.sink.split ]
   call fastcc void @_step_state_delete(ptr noundef nonnull %.0239364)
-  br label %501
+  br label %499
 
-501:                                              ; preds = %.thread366, %500, %.loopexit372
-  br i1 %.not257, label %502, label %506
+499:                                              ; preds = %.thread366, %.thread
+  br i1 %.not257, label %500, label %504
 
-502:                                              ; preds = %501
-  %503 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
-  %.not356 = icmp eq i32 %503, 0
-  br i1 %.not356, label %506, label %504
+500:                                              ; preds = %499
+  %501 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
+  %.not356 = icmp eq i32 %501, 0
+  br i1 %.not356, label %504, label %502
 
-504:                                              ; preds = %502
-  %505 = tail call ptr @__errno_location() #26
-  store i32 %503, ptr %505, align 4
+502:                                              ; preds = %500
+  %503 = tail call ptr @__errno_location() #26
+  store i32 %501, ptr %503, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 9291, ptr noundef nonnull @__func__.gres_step_state_unpack) #27
   unreachable
 
-506:                                              ; preds = %501, %502, %._crit_edge, %30
-  %.0 = phi i32 [ 0, %30 ], [ 0, %._crit_edge ], [ -1, %502 ], [ -1, %501 ]
+504:                                              ; preds = %499, %500, %._crit_edge, %30
+  %.0 = phi i32 [ 0, %30 ], [ 0, %._crit_edge ], [ -1, %500 ], [ -1, %499 ]
   ret i32 %.0
 }
 
@@ -26126,7 +26116,7 @@ define internal fastcc i32 @_validate_file(ptr noundef %0) unnamed_addr #2 {
 _my_stat.exit:                                    ; preds = %.lr.ph, %13, %14, %17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
   %27 = add nuw nsw i32 %.05, 1
-  tail call void @free(ptr noundef %6) #25
+  tail call void @free(ptr noundef nonnull %6) #25
   %28 = tail call ptr @hostlist_shift(ptr noundef nonnull %3) #25
   %.not8 = icmp eq ptr %28, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !246

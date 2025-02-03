@@ -71,7 +71,7 @@ define internal fastcc noundef ptr @attach_and_init(ptr noundef %0, i64 noundef 
 
 14:                                               ; preds = %13, %8
   %.not9.i = icmp eq ptr %10, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %15
+  br i1 %.not9.i, label %opal_obj_new.exit, label %15
 
 15:                                               ; preds = %14
   store ptr @mca_common_sm_module_t_class, ptr %10, align 8
@@ -80,7 +80,7 @@ define internal fastcc noundef ptr @attach_and_init(ptr noundef %0, i64 noundef 
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_common_sm_module_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i.i = icmp eq ptr %18, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread45, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
   %19 = phi ptr [ %21, %.lr.ph.i.i ], [ %18, %15 ]
@@ -89,26 +89,26 @@ define internal fastcc noundef ptr @attach_and_init(ptr noundef %0, i64 noundef 
   %20 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread45, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread:                         ; preds = %14
+opal_obj_new.exit:                                ; preds = %14
   %22 = tail call ptr @opal_strerror(i32 noundef -2) #7
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %22, ptr noundef nonnull @.str.2, i32 noundef 67) #7
   %23 = tail call i32 @opal_shmem_segment_detach(ptr noundef %0) #7
   br label %62
 
-opal_obj_new.exit.thread45:                       ; preds = %.lr.ph.i.i, %15
+.loopexit:                                        ; preds = %.lr.ph.i.i, %15
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %25 = tail call i32 @opal_shmem_ds_copy(ptr noundef %0, ptr noundef nonnull %24) #7
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %28, label %26
 
-26:                                               ; preds = %opal_obj_new.exit.thread45
+26:                                               ; preds = %.loopexit
   %27 = tail call i32 @opal_shmem_segment_detach(ptr noundef %0) #7
   tail call void @free(ptr noundef nonnull %10) #7
   br label %62
 
-28:                                               ; preds = %opal_obj_new.exit.thread45
+28:                                               ; preds = %.loopexit
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %6, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %6, i64 %2
@@ -168,8 +168,8 @@ opal_obj_new.exit.thread45:                       ; preds = %.lr.ph.i.i, %15
   fence release
   br label %62
 
-62:                                               ; preds = %5, %59, %42, %26, %opal_obj_new.exit.thread
-  %.0 = phi ptr [ null, %opal_obj_new.exit.thread ], [ null, %26 ], [ null, %42 ], [ %10, %59 ], [ null, %5 ]
+62:                                               ; preds = %5, %59, %42, %26, %opal_obj_new.exit
+  %.0 = phi ptr [ null, %opal_obj_new.exit ], [ null, %26 ], [ null, %42 ], [ %10, %59 ], [ null, %5 ]
   ret ptr %.0
 }
 

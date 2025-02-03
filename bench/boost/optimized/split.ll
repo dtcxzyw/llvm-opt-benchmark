@@ -3645,7 +3645,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_18escaped_list_er
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #22
+  tail call void @__cxa_free_exception(ptr nonnull %3) #22
   resume { ptr, i32 } %6
 }
 
@@ -3849,7 +3849,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_18escaped_list_errorE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #22
+  tail call void @__cxa_free_exception(ptr nonnull %2) #22
   resume { ptr, i32 } %5
 }
 

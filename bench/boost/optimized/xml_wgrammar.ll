@@ -3755,7 +3755,7 @@ define linkonce_odr hidden void @_ZN5boost13serialization15throw_exceptionINS_7a
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #20
+  tail call void @__cxa_free_exception(ptr nonnull %2) #20
   resume { ptr, i32 } %5
 }
 

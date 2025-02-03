@@ -12012,7 +12012,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h086c34a58425a53cE.exit: ; 
           to label %.sink.split unwind label %139
 
 129:                                              ; preds = %120
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h00c4a262bb673c07E"(ptr noalias noundef align 8 dereferenceable(1400) %118)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h00c4a262bb673c07E"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %118)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h9394ce440986d654E.llvm.5062695954853193952.exit.i" unwind label %130, !noalias !3625
 
 130:                                              ; preds = %129
@@ -12071,7 +12071,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h086c34a58425a53cE.exit: ; 
 144:                                              ; preds = %141
   call void @llvm.experimental.noalias.scope.decl(metadata !3644)
   %145 = load ptr, ptr %117, align 8, !alias.scope !3647, !noundef !9
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h00c4a262bb673c07E"(ptr noalias noundef align 8 dereferenceable(1400) %145)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h00c4a262bb673c07E"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %145)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h9394ce440986d654E.llvm.5062695954853193952.exit.i.i.i.i.i.i.i" unwind label %146, !noalias !3648
 
 146:                                              ; preds = %144
@@ -12312,7 +12312,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h086c34a58425a53cE.exit: ; 
           to label %.sink.split305 unwind label %252
 
 242:                                              ; preds = %233
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h00c4a262bb673c07E"(ptr noalias noundef align 8 dereferenceable(1400) %90)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h00c4a262bb673c07E"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %90)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h9394ce440986d654E.llvm.5062695954853193952.exit.i164" unwind label %243, !noalias !3691
 
 243:                                              ; preds = %242
@@ -12371,7 +12371,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h086c34a58425a53cE.exit: ; 
 257:                                              ; preds = %254
   call void @llvm.experimental.noalias.scope.decl(metadata !3710)
   %258 = load ptr, ptr %89, align 8, !alias.scope !3713, !noundef !9
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h00c4a262bb673c07E"(ptr noalias noundef align 8 dereferenceable(1400) %258)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h00c4a262bb673c07E"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %258)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h9394ce440986d654E.llvm.5062695954853193952.exit.i.i.i.i.i.i.i124" unwind label %259, !noalias !3714
 
 259:                                              ; preds = %257
@@ -42564,7 +42564,7 @@ common.ret:                                       ; preds = %389, %"_ZN4core3ptr
 60:                                               ; preds = %50
   %61 = extractvalue { ptr, ptr } %57, 0
   %62 = extractvalue { ptr, ptr } %57, 1
-  invoke void @_ZN11http_client6github21latest_github_release17hd10c7b3513657b7eE(ptr noalias noundef nonnull sret([264 x i8]) align 8 captures(none) dereferenceable(264) %43, ptr noalias noundef nonnull readonly align 1 @anon.f01fae504a3be7adad676141572b539e.295, i64 noundef 23, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %61, ptr noalias noundef readonly align 8 dereferenceable(56) %62)
+  invoke void @_ZN11http_client6github21latest_github_release17hd10c7b3513657b7eE(ptr noalias noundef nonnull sret([264 x i8]) align 8 captures(none) dereferenceable(264) %43, ptr noalias noundef nonnull readonly align 1 @anon.f01fae504a3be7adad676141572b539e.295, i64 noundef 23, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %62)
           to label %63 unwind label %58
 
 63:                                               ; preds = %60

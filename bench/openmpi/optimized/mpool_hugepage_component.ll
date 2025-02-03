@@ -98,8 +98,8 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
 
 .preheader.i:                                     ; preds = %opal_obj_run_constructors.exit
   %15 = tail call ptr @getmntent(ptr noundef nonnull %13) #14
-  %.not44.i = icmp eq ptr %15, null
-  br i1 %.not44.i, label %opal_obj_new.exit.thread.i, label %.lr.ph.i12
+  %.not43.i = icmp eq ptr %15, null
+  br i1 %.not43.i, label %opal_obj_new.exit.i, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.preheader.i
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -119,7 +119,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
   %24 = load ptr, ptr %23, align 8
   %25 = call noalias ptr @strdup(ptr noundef %24) #14
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %opal_obj_new.exit.thread.i, label %27
+  br i1 %26, label %opal_obj_new.exit.i, label %27
 
 27:                                               ; preds = %22
   %28 = call ptr @strtok_r(ptr noundef nonnull %25, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #14
@@ -173,7 +173,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
 
 51:                                               ; preds = %50, %45
   %.not9.i.i = icmp eq ptr %47, null
-  br i1 %.not9.i.i, label %opal_obj_new.exit.thread.i, label %52
+  br i1 %.not9.i.i, label %opal_obj_new.exit.i, label %52
 
 52:                                               ; preds = %51
   store ptr @mca_mpool_hugepage_hugepage_t_class, ptr %47, align 8
@@ -182,7 +182,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_hugepage_hugepage_t_class, i64 40), align 8
   %55 = load ptr, ptr %54, align 8
   %.not6.i.i.i = icmp eq ptr %55, null
-  br i1 %.not6.i.i.i, label %opal_obj_new.exit.thread42.i, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %52, %.lr.ph.i.i.i
   %56 = phi ptr [ %58, %.lr.ph.i.i.i ], [ %55, %52 ]
@@ -191,9 +191,9 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
   %57 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not.i.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i.i, label %opal_obj_new.exit.thread42.i, label %.lr.ph.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread42.i:                     ; preds = %.lr.ph.i.i.i, %52
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %52
   %59 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = call noalias ptr @strdup(ptr noundef %60) #14
@@ -208,7 +208,7 @@ opal_obj_new.exit.thread42.i:                     ; preds = %.lr.ph.i.i.i, %52
   %68 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %67) #14
   br i1 %66, label %69, label %84
 
-69:                                               ; preds = %opal_obj_new.exit.thread42.i
+69:                                               ; preds = %.loopexit.i
   br i1 %68, label %70, label %76
 
 70:                                               ; preds = %69
@@ -235,7 +235,7 @@ opal_obj_new.exit.thread42.i:                     ; preds = %.lr.ph.i.i.i, %52
   store volatile i64 %83, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_hugepage_component, i64 336), align 8
   br label %.backedge.i
 
-84:                                               ; preds = %opal_obj_new.exit.thread42.i
+84:                                               ; preds = %.loopexit.i
   br i1 %68, label %85, label %91
 
 85:                                               ; preds = %84
@@ -287,20 +287,20 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %97, %94
   br i1 %.not.i39.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
 opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %102
-  call void @free(ptr noundef %47) #14
+  call void @free(ptr noundef nonnull %47) #14
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i, %76, %42, %17
   %110 = call ptr @getmntent(ptr noundef nonnull %13) #14
   %.not.i13 = icmp eq ptr %110, null
-  br i1 %.not.i13, label %opal_obj_new.exit.thread.i, label %17, !llvm.loop !8
+  br i1 %.not.i13, label %opal_obj_new.exit.i, label %17, !llvm.loop !8
 
-opal_obj_new.exit.thread.i:                       ; preds = %.backedge.i, %51, %22, %.preheader.i
+opal_obj_new.exit.i:                              ; preds = %.backedge.i, %51, %22, %.preheader.i
   %111 = call i32 @opal_list_sort(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_mpool_hugepage_component, i64 280), ptr noundef nonnull @page_compare) #14
   %112 = call i32 @endmntent(ptr noundef nonnull %13) #14
   br label %mca_mpool_hugepage_find_hugepages.exit
 
-mca_mpool_hugepage_find_hugepages.exit:           ; preds = %opal_obj_run_constructors.exit, %opal_obj_new.exit.thread.i
+mca_mpool_hugepage_find_hugepages.exit:           ; preds = %opal_obj_run_constructors.exit, %opal_obj_new.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3)
@@ -409,7 +409,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %17, %20
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %25
-  tail call void @free(ptr noundef %7) #14
+  tail call void @free(ptr noundef nonnull %7) #14
   br label %33
 
 33:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit

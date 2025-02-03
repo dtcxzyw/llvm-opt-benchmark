@@ -1809,7 +1809,7 @@ _ZN14cmConfigureLog9BeginLineEv.exit:             ; preds = %.lr.ph.i, %45
   br label %74
 
 70:                                               ; preds = %38, %64
-  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.016.021) #26
+  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.021) #26
   %.not19 = icmp eq ptr %71, %32
   br i1 %.not19, label %._crit_edge.loopexit, label %34
 

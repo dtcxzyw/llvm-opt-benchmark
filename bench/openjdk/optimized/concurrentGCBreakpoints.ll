@@ -393,20 +393,20 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %14, %_ZN13MonitorLo
 ._crit_edge:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %14
   %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_11ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not7 = icmp eq ptr %20, null
-  br i1 %.not7, label %22, label %21
+  br i1 %.not7, label %.thread, label %21
 
 21:                                               ; preds = %._crit_edge
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_11ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.12)
-  br label %22
+  br label %.thread
 
-22:                                               ; preds = %21, %._crit_edge, %10, %8
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %23
+22:                                               ; preds = %10, %8
+  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %.thread
 
-23:                                               ; preds = %22
+.thread:                                          ; preds = %._crit_edge, %21, %22
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #7
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %22, %23
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %22, %.thread
   ret void
 }
 

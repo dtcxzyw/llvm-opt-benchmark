@@ -2302,7 +2302,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 214:                                              ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit32.thread
   %215 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %212) #26
+  call void @__cxa_free_exception(ptr nonnull %212) #26
   br label %common.resume
 
 216:                                              ; preds = %203, %_ZN3pro14allocate_proxyITkNS_6facadeEN12_GLOBAL__N_14spec8DrawableENS1_9RectangleENSt3pmr21polymorphic_allocatorISt4byteEEJddEEENS_5proxyIT_EERKT1_DpOT2_.exit, %210
@@ -2519,7 +2519,7 @@ _ZNK12_GLOBAL__N_14spec3Log8accessorIN3pro5proxyINS0_6LoggerEEEE3LogIJRA6_KcEEED
   %17 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @__cxa_free_exception(ptr %12) #26
+  call void @__cxa_free_exception(ptr nonnull %12) #26
   br label %20
 
 18:                                               ; preds = %13

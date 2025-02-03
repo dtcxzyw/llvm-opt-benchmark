@@ -1824,7 +1824,7 @@ land.rhs:                                         ; preds = %strbuf_setlen.exit2
 land.end:                                         ; preds = %land.rhs, %strbuf_setlen.exit285
   %cond = phi ptr [ @.str.67, %strbuf_setlen.exit285 ], [ %182, %land.rhs ]
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.65, ptr noundef nonnull %call413, ptr noundef nonnull %cond) #17
-  call void @free(ptr noundef %call413) #17
+  call void @free(ptr noundef nonnull %call413) #17
   %183 = load ptr, ptr %buf.i282, align 8
   call fastcc void @print_path(ptr noundef %183, ptr noundef %prefix.addr.2, i32 noundef %wanted.0, i32 noundef 2)
   br label %for.inc566

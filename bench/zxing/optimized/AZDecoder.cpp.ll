@@ -1591,7 +1591,7 @@ _ZN5ZXing8BitArrayD2Ev.exit:                      ; preds = %388, %389
           cleanup
           catch ptr @_ZTISt9exception
           catch ptr @_ZTIN5ZXing5ErrorE
-  call void @__cxa_free_exception(ptr %407) #19, !noalias !24
+  call void @__cxa_free_exception(ptr nonnull %407) #19, !noalias !24
   br label %.body.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %403, %.lr.ph.i.i.i.i
@@ -1627,7 +1627,7 @@ _ZN5ZXing12BitArrayView8readBitsEi.exit.i.i:      ; preds = %.lr.ph.i.i.i.i
           cleanup
           catch ptr @_ZTISt9exception
           catch ptr @_ZTIN5ZXing5ErrorE
-  call void @__cxa_free_exception(ptr %423) #19, !noalias !24
+  call void @__cxa_free_exception(ptr nonnull %423) #19, !noalias !24
   br label %.body.i
 
 .lr.ph.i.i39.i.i:                                 ; preds = %419, %.lr.ph.i.i39.i.i
@@ -1671,7 +1671,7 @@ _ZN5ZXing12BitArrayView8readBitsEi.exit43.i.i:    ; preds = %.lr.ph.i.i39.i.i
           cleanup
           catch ptr @_ZTISt9exception
           catch ptr @_ZTIN5ZXing5ErrorE
-  call void @__cxa_free_exception(ptr %440) #19, !noalias !24
+  call void @__cxa_free_exception(ptr nonnull %440) #19, !noalias !24
   br label %.body.i
 
 .lr.ph.i.i44.i.i:                                 ; preds = %.lr.ph.i.i38, %.lr.ph.i.i44.i.i
@@ -1770,7 +1770,7 @@ _ZN5ZXing7Content9push_backEh.exit.i.i:           ; preds = %_ZNSt6vectorIhSaIhE
           cleanup
           catch ptr @_ZTISt9exception
           catch ptr @_ZTIN5ZXing5ErrorE
-  call void @__cxa_free_exception(ptr %481) #19, !noalias !24
+  call void @__cxa_free_exception(ptr nonnull %481) #19, !noalias !24
   br label %.body.i
 
 .lr.ph.i.i49.i.i:                                 ; preds = %476, %.lr.ph.i.i49.i.i
@@ -1886,7 +1886,7 @@ _ZN5ZXing5AztecL8GetTableEc.exit.i.i:             ; preds = %521, %520, %519, %5
           cleanup
           catch ptr @_ZTISt9exception
           catch ptr @_ZTIN5ZXing5ErrorE
-  call void @__cxa_free_exception(ptr %532) #19, !noalias !24
+  call void @__cxa_free_exception(ptr nonnull %532) #19, !noalias !24
   br label %.body.i
 
 .lr.ph.i.i55.i.i:                                 ; preds = %528, %.lr.ph.i.i55.i.i
@@ -2010,7 +2010,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
           cleanup
           catch ptr @_ZTISt9exception
           catch ptr @_ZTIN5ZXing5ErrorE
-  call void @__cxa_free_exception(ptr %578) #19, !noalias !24
+  call void @__cxa_free_exception(ptr nonnull %578) #19, !noalias !24
   br label %.body.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i.i.i

@@ -2358,8 +2358,8 @@ define linkonce_odr hidden void @_ZN13ZRelocateTask4workEv(ptr noundef nonnull a
   %19 = load ptr, ptr %14, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 116
   %21 = load volatile i32, ptr %20, align 4
-  %.not11.i50 = icmp eq i32 %21, 0
-  br i1 %.not11.i50, label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread, label %.lr.ph
+  %.not11.i51 = icmp eq i32 %21, 0
+  br i1 %.not11.i51, label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %_ZZN13ZRelocateTask4workEvENKUlP11ZForwardingE_clES1_.exit
   %22 = phi ptr [ %134, %_ZZN13ZRelocateTask4workEvENKUlP11ZForwardingE_clES1_.exit ], [ %20, %18 ]
@@ -2368,7 +2368,7 @@ define linkonce_odr hidden void @_ZN13ZRelocateTask4workEv(ptr noundef nonnull a
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph.i.i4, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit22.thread
+  br i1 %27, label %.lr.ph.i.i4, label %.loopexit42
 
 .lr.ph.i.i4:                                      ; preds = %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 96
@@ -2436,14 +2436,14 @@ _ZN14ZRelocateQueue5pruneEv.exit.i16:             ; preds = %._crit_edge.i.i15
 _ZN14ZRelocateQueue5pruneEv.exit.thread.i17:      ; preds = %51, %_ZN14ZRelocateQueue5pruneEv.exit.i16, %49
   %.pr.i18 = load i32, ptr %25, align 4
   %54 = icmp sgt i32 %.pr.i18, 0
-  br i1 %54, label %.lr.ph.i19, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit22.thread
+  br i1 %54, label %.lr.ph.i19, label %.loopexit42
 
 55:                                               ; preds = %.lr.ph.i19
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %56 = load i32, ptr %25, align 4
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next.i21, %57
-  br i1 %58, label %.lr.ph.i19, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit22.thread, !llvm.loop !12
+  br i1 %58, label %.lr.ph.i19, label %.loopexit42, !llvm.loop !12
 
 .lr.ph.i19:                                       ; preds = %_ZN14ZRelocateQueue5pruneEv.exit.thread.i17, %55
   %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i21, %55 ], [ 0, %_ZN14ZRelocateQueue5pruneEv.exit.thread.i17 ]
@@ -2457,17 +2457,17 @@ _ZN14ZRelocateQueue16synchronize_pollEv.exit.thread36: ; preds = %.lr.ph.i19
   %63 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(120) %23) #15
   br label %127
 
-_ZN14ZRelocateQueue15prune_and_claimEv.exit22.thread: ; preds = %55, %.lr.ph, %_ZN14ZRelocateQueue5pruneEv.exit.thread.i17
+.loopexit42:                                      ; preds = %55, %_ZN14ZRelocateQueue5pruneEv.exit.thread.i17, %.lr.ph
   %64 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %65 = load i8, ptr %64, align 8
   %66 = trunc i8 %65 to i1
   br i1 %66, label %68, label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread33
 
-_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread33: ; preds = %_ZN14ZRelocateQueue15prune_and_claimEv.exit22.thread
+_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread33: ; preds = %.loopexit42
   %67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(120) %23) #15
   br label %_ZN14ZRelocateQueue16synchronize_pollEv.exit.thread
 
-68:                                               ; preds = %_ZN14ZRelocateQueue15prune_and_claimEv.exit22.thread
+68:                                               ; preds = %.loopexit42
   %69 = getelementptr inbounds nuw i8, ptr %23, i64 108
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, 1
@@ -2498,11 +2498,11 @@ _ZN31ZRelocateQueueSynchronizeThreadC2EP14ZRelocateQueue.exit.i: ; preds = %79, 
   %83 = getelementptr inbounds nuw i8, ptr %23, i64 40
   br label %84
 
-84:                                               ; preds = %_ZN14ZRelocateQueue15prune_and_claimEv.exit.thread, %_ZN31ZRelocateQueueSynchronizeThreadC2EP14ZRelocateQueue.exit.i
+84:                                               ; preds = %.loopexit, %_ZN31ZRelocateQueueSynchronizeThreadC2EP14ZRelocateQueue.exit.i
   %85 = call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(120) %23, i64 noundef 0) #15
   %86 = load i32, ptr %25, align 4
   %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %.lr.ph.i.i, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit.thread
+  br i1 %87, label %.lr.ph.i.i, label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %84, %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i
   %.0711.i.i = phi i32 [ %.1.i.i, %_ZN17GrowableArrayViewIP11ZForwardingE9delete_atEi.exit.i.i ], [ 0, %84 ]
@@ -2565,14 +2565,14 @@ _ZN14ZRelocateQueue5pruneEv.exit.i:               ; preds = %._crit_edge.i.i
 _ZN14ZRelocateQueue5pruneEv.exit.thread.i:        ; preds = %109, %_ZN14ZRelocateQueue5pruneEv.exit.i, %107
   %.pr.i = load i32, ptr %25, align 4
   %111 = icmp sgt i32 %.pr.i, 0
-  br i1 %111, label %.lr.ph.i, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit.thread
+  br i1 %111, label %.lr.ph.i, label %.loopexit
 
 112:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %113 = load i32, ptr %25, align 4
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next.i, %114
-  br i1 %115, label %.lr.ph.i, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit.thread, !llvm.loop !12
+  br i1 %115, label %.lr.ph.i, label %.loopexit, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %_ZN14ZRelocateQueue5pruneEv.exit.thread.i, %112
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %112 ], [ 0, %_ZN14ZRelocateQueue5pruneEv.exit.thread.i ]
@@ -2582,13 +2582,13 @@ _ZN14ZRelocateQueue5pruneEv.exit.thread.i:        ; preds = %109, %_ZN14ZRelocat
   %119 = call noundef zeroext i1 @_ZN11ZForwarding5claimEv(ptr noundef nonnull align 8 dereferenceable(184) %118) #15
   br i1 %119, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit, label %112
 
-_ZN14ZRelocateQueue15prune_and_claimEv.exit.thread: ; preds = %112, %84, %_ZN14ZRelocateQueue5pruneEv.exit.thread.i
+.loopexit:                                        ; preds = %112, %_ZN14ZRelocateQueue5pruneEv.exit.thread.i, %84
   %120 = load i8, ptr %64, align 8
   %121 = trunc i8 %120 to i1
   br i1 %121, label %84, label %_ZN14ZRelocateQueue15prune_and_claimEv.exit, !llvm.loop !13
 
-_ZN14ZRelocateQueue15prune_and_claimEv.exit:      ; preds = %_ZN14ZRelocateQueue15prune_and_claimEv.exit.thread, %.lr.ph.i
-  %.0.i229 = phi ptr [ %118, %.lr.ph.i ], [ null, %_ZN14ZRelocateQueue15prune_and_claimEv.exit.thread ]
+_ZN14ZRelocateQueue15prune_and_claimEv.exit:      ; preds = %.loopexit, %.lr.ph.i
+  %.0.i229 = phi ptr [ %118, %.lr.ph.i ], [ null, %.loopexit ]
   %122 = load i32, ptr %69, align 4
   %123 = add i32 %122, -1
   store i32 %123, ptr %69, align 4

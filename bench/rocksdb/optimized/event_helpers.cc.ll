@@ -2786,7 +2786,7 @@ invoke.cont237:                                   ; preds = %for.body
           to label %for.inc unwind label %lpad.loopexit689
 
 for.inc:                                          ; preds = %invoke.cont237
-  %call.i643 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0695) #22
+  %call.i643 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.0695) #22
   %cmp.i634.not = icmp eq ptr %call.i643, %add.ptr.i.i
   br i1 %cmp.i634.not, label %for.end, label %for.body
 

@@ -912,7 +912,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %81
 117:                                              ; preds = %._crit_edge.i
   %118 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %115) #25
+  call void @__cxa_free_exception(ptr nonnull %115) #25
   br label %.body
 
 .noexc137:                                        ; preds = %.lr.ph.i152
@@ -1145,7 +1145,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i140:           ; preds = %210, %_ZNSt6vectorI
 235:                                              ; preds = %._crit_edge.i160
   %236 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %234) #25
+  call void @__cxa_free_exception(ptr nonnull %234) #25
   br label %.body
 
 .noexc149:                                        ; preds = %.lr.ph.i156
@@ -7106,7 +7106,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 22:                                               ; preds = %._crit_edge
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #25
+  call void @__cxa_free_exception(ptr nonnull %20) #25
   br label %24
 
 24:                                               ; preds = %22, %18
@@ -23621,7 +23621,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %90
 129:                                              ; preds = %._crit_edge.i
   %130 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %127) #25
+  call void @__cxa_free_exception(ptr nonnull %127) #25
   br label %.body42
 
 .noexc33:                                         ; preds = %.lr.ph.i39
@@ -25779,7 +25779,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %97
 139:                                              ; preds = %._crit_edge.i
   %140 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %137) #25
+  call void @__cxa_free_exception(ptr nonnull %137) #25
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit39
 
 .noexc118:                                        ; preds = %.lr.ph.i140

@@ -125,7 +125,7 @@ cluster_init_graph.exit:                          ; preds = %._crit_edge27.i, %.
   br label %42
 
 42:                                               ; preds = %35, %39, %._crit_edge
-  tail call void @dotneato_postprocess(ptr noundef %0) #16
+  tail call void @dotneato_postprocess(ptr noundef nonnull %0) #16
   ret void
 }
 

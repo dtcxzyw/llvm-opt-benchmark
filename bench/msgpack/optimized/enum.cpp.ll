@@ -1342,7 +1342,7 @@ common.resume:                                    ; preds = %26, %.body, %11
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #23
+  tail call void @__cxa_free_exception(ptr nonnull %9) #23
   br label %common.resume
 
 13:                                               ; preds = %4
@@ -1406,7 +1406,7 @@ _ZN7msgpack2v26detail12parse_helperINS1_21create_object_visitorEE7executeEPKcmRm
 35:                                               ; preds = %31
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %33) #23
+  call void @__cxa_free_exception(ptr nonnull %33) #23
   br label %.body
 
 37:                                               ; preds = %_ZN7msgpack2v26detail12parse_helperINS1_21create_object_visitorEE7executeEPKcmRm.exit
@@ -5173,7 +5173,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #23
+  tail call void @__cxa_free_exception(ptr nonnull %9) #23
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %3
@@ -5763,7 +5763,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v26detail21create_object_visitor
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #23
+  tail call void @__cxa_free_exception(ptr nonnull %4) #23
   resume { ptr, i32 } %7
 }
 
@@ -5787,7 +5787,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #23
+  tail call void @__cxa_free_exception(ptr nonnull %9) #23
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %3
@@ -5912,7 +5912,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #23
+  tail call void @__cxa_free_exception(ptr nonnull %9) #23
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %3
@@ -7177,7 +7177,7 @@ _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE9push_backERKS3_.exit: ; preds = %78, 
 101:                                              ; preds = %27, %10
   %.sink = phi ptr [ %25, %27 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %11, %10 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #23
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #23
   resume { ptr, i32 } %.pn
 }
 
@@ -7423,7 +7423,7 @@ _ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE9push_backEOS3_.exit: ; preds = %78, %
 101:                                              ; preds = %27, %10
   %.sink = phi ptr [ %25, %27 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %11, %10 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #23
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #23
   resume { ptr, i32 } %.pn
 }
 

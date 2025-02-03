@@ -3957,7 +3957,7 @@ do.cond48.i:                                      ; preds = %do.cond.i
   br i1 %16, label %do.body22.i, label %save.i, !llvm.loop !18
 
 save.i:                                           ; preds = %do.cond48.i, %if.end38.i
-  %call52.i = call fastcc i32 @save_unconsumed_input(ptr noundef %self, ptr noundef %data.i, i32 noundef %call42.i)
+  %call52.i = call fastcc i32 @save_unconsumed_input(ptr noundef nonnull %self, ptr noundef %data.i, i32 noundef %call42.i)
   %cmp53.i = icmp slt i32 %call52.i, 0
   br i1 %cmp53.i, label %abort.i, label %if.end55.i
 

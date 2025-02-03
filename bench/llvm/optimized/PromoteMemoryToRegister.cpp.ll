@@ -4864,7 +4864,7 @@ _ZN4llvm8DebugLocaSERKS0_.exit.i:                 ; preds = %1963, %_ZN4llvm13Tr
   br i1 %.not.i129.i, label %.backedge.sink.split.i, label %.lr.ph.i127.i
 
 .backedge.sink.split.i:                           ; preds = %2001, %"_ZZN12_GLOBAL__N_114PromoteMem2Reg10RenamePassEPN4llvm10BasicBlockES3_RSt6vectorIPNS1_5ValueESaIS6_EERS4_INS1_8DebugLocESaISA_EERS4_INS_14RenamePassDataESaISE_EEENK3$_1clINS1_11SmallVectorIPNS1_20DbgVariableIntrinsicELj1EEEEEDaRT_.exit.i", %1906
-  %spec.select.i.i.sink.i = phi ptr [ %spec.select.i.i.i, %1906 ], [ %spec.select.i.i103.i, %"_ZZN12_GLOBAL__N_114PromoteMem2Reg10RenamePassEPN4llvm10BasicBlockES3_RSt6vectorIPNS1_5ValueESaIS6_EERS4_INS1_8DebugLocESaISA_EERS4_INS_14RenamePassDataESaISE_EEENK3$_1clINS1_11SmallVectorIPNS1_20DbgVariableIntrinsicELj1EEEEEDaRT_.exit.i" ], [ %spec.select.i.i103.i, %2001 ]
+  %spec.select.i.i.sink.i = phi ptr [ %1870, %1906 ], [ %spec.select.i.i103.i, %"_ZZN12_GLOBAL__N_114PromoteMem2Reg10RenamePassEPN4llvm10BasicBlockES3_RSt6vectorIPNS1_5ValueESaIS6_EERS4_INS1_8DebugLocESaISA_EERS4_INS_14RenamePassDataESaISE_EEENK3$_1clINS1_11SmallVectorIPNS1_20DbgVariableIntrinsicELj1EEEEEDaRT_.exit.i" ], [ %spec.select.i.i103.i, %2001 ]
   %2003 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.sink.i) #17
   br label %.backedge.i208
 

@@ -104,7 +104,7 @@ free_field.exit:                                  ; preds = %for.body.i, %switch
 
 if.end:                                           ; preds = %local_strdup.exit23.i
   %call20.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i) #11
-  tail call void @free(ptr noundef %call.i16.i) #10
+  tail call void @free(ptr noundef nonnull %call.i16.i) #10
   %2 = and i64 %call20.i, 4294967295
   %cmp.not = icmp eq i64 %2, 0
   br i1 %cmp.not, label %free_field.exit35, label %land.lhs.true

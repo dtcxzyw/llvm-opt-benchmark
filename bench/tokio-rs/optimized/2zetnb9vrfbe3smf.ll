@@ -1742,8 +1742,6 @@ define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$
 
 33:                                               ; preds = %23
   %34 = shl nsw i64 %.8.val, 4
-  %35 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %35)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %34, i64 noundef 8) #26
   resume { ptr, i32 } %eh.lpad-body.i
 }

@@ -531,7 +531,7 @@ _ZN5boost6locale4conv4impl12uconv_to_utfIcED2Ev.exit: ; preds = %_ZN5boost6local
 58:                                               ; preds = %55
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %56) #21
+  call void @__cxa_free_exception(ptr nonnull %56) #21
   br label %61
 
 60:                                               ; preds = %_ZN5boost6locale4conv4impl12iconv_to_utfIcED2Ev.exit, %_ZN5boost6locale4conv4impl12uconv_to_utfIcED2Ev.exit
@@ -1070,7 +1070,7 @@ _ZN5boost6locale4conv4impl14uconv_from_utfIcED2Ev.exit: ; preds = %_ZN5boost6loc
 58:                                               ; preds = %55
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %56) #21
+  call void @__cxa_free_exception(ptr nonnull %56) #21
   br label %61
 
 60:                                               ; preds = %_ZN5boost6locale4conv4impl14iconv_from_utfIcED2Ev.exit, %_ZN5boost6locale4conv4impl14uconv_from_utfIcED2Ev.exit
@@ -1502,7 +1502,7 @@ _ZN5boost6locale4conv4impl12uconv_to_utfIcED2Ev.exit: ; preds = %_ZN5boost6local
 48:                                               ; preds = %45
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #21
+  call void @__cxa_free_exception(ptr nonnull %46) #21
   br label %51
 
 50:                                               ; preds = %_ZN5boost6locale4conv4impl12iconv_to_utfIcED2Ev.exit.thread, %_ZN5boost6locale4conv4impl12uconv_to_utfIcED2Ev.exit
@@ -1628,7 +1628,7 @@ _ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013Unic
 48:                                               ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #21
+  call void @__cxa_free_exception(ptr nonnull %46) #21
   br label %52
 
 50:                                               ; preds = %47
@@ -1796,7 +1796,7 @@ _ZN5boost6locale4conv4impl14uconv_from_utfIcED2Ev.exit: ; preds = %_ZN5boost6loc
 48:                                               ; preds = %45
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #21
+  call void @__cxa_free_exception(ptr nonnull %46) #21
   br label %51
 
 50:                                               ; preds = %_ZN5boost6locale4conv4impl14iconv_from_utfIcED2Ev.exit.thread, %_ZN5boost6locale4conv4impl14uconv_from_utfIcED2Ev.exit
@@ -1922,7 +1922,7 @@ _ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013Unic
 48:                                               ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #21
+  call void @__cxa_free_exception(ptr nonnull %46) #21
   br label %52
 
 50:                                               ; preds = %47
@@ -2121,7 +2121,7 @@ _ZN5boost6locale4conv4impl12uconv_to_utfIwED2Ev.exit: ; preds = %_ZN5boost6local
 53:                                               ; preds = %50
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %51) #21
+  call void @__cxa_free_exception(ptr nonnull %51) #21
   br label %56
 
 55:                                               ; preds = %_ZN5boost6locale4conv4impl12iconv_to_utfIwED2Ev.exit, %_ZN5boost6locale4conv4impl12uconv_to_utfIwED2Ev.exit
@@ -2497,7 +2497,7 @@ _ZN5boost6locale4conv4impl14uconv_from_utfIwED2Ev.exit: ; preds = %_ZN5boost6loc
 53:                                               ; preds = %50
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %51) #21
+  call void @__cxa_free_exception(ptr nonnull %51) #21
   br label %56
 
 55:                                               ; preds = %_ZN5boost6locale4conv4impl14iconv_from_utfIwED2Ev.exit, %_ZN5boost6locale4conv4impl14uconv_from_utfIwED2Ev.exit
@@ -2842,7 +2842,7 @@ _ZN5boost6locale4conv4impl12uconv_to_utfIwED2Ev.exit: ; preds = %_ZN5boost6local
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #21
+  call void @__cxa_free_exception(ptr nonnull %41) #21
   br label %46
 
 45:                                               ; preds = %_ZN5boost6locale4conv4impl12iconv_to_utfIwED2Ev.exit.thread, %_ZN5boost6locale4conv4impl12uconv_to_utfIwED2Ev.exit
@@ -2938,7 +2938,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4conv4impl12uconv_to_utfIwE7con
 31:                                               ; preds = %27
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #21
+  call void @__cxa_free_exception(ptr nonnull %29) #21
   br label %35
 
 33:                                               ; preds = %30
@@ -3090,7 +3090,7 @@ _ZN5boost6locale4conv4impl14uconv_from_utfIwED2Ev.exit: ; preds = %_ZN5boost6loc
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #21
+  call void @__cxa_free_exception(ptr nonnull %41) #21
   br label %46
 
 45:                                               ; preds = %_ZN5boost6locale4conv4impl14iconv_from_utfIwED2Ev.exit.thread, %_ZN5boost6locale4conv4impl14uconv_from_utfIwED2Ev.exit
@@ -3194,7 +3194,7 @@ _ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013Unic
 40:                                               ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %38) #21
+  call void @__cxa_free_exception(ptr nonnull %38) #21
   br label %44
 
 42:                                               ; preds = %39
@@ -3816,7 +3816,7 @@ _ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013Unic
 48:                                               ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #21
+  call void @__cxa_free_exception(ptr nonnull %46) #21
   br label %52
 
 50:                                               ; preds = %47
@@ -4909,7 +4909,7 @@ _ZN5boost6locale4conv4impl15iconverter_base4convEPPKcPmPPcS7_.exit: ; preds = %.
 32:                                               ; preds = %29
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %30) #21
+  call void @__cxa_free_exception(ptr nonnull %30) #21
   br label %74
 
 34:                                               ; preds = %_ZN5boost6locale4conv4impl15iconverter_base4convEPPKcPmPPcS7_.exit
@@ -4968,7 +4968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %51) #21
+  call void @__cxa_free_exception(ptr nonnull %51) #21
   br label %74
 
 54:                                               ; preds = %.invoke71
@@ -4997,7 +4997,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 63:                                               ; preds = %61
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %62) #21
+  call void @__cxa_free_exception(ptr nonnull %62) #21
   br label %74
 
 65:                                               ; preds = %44
@@ -5023,7 +5023,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 70:                                               ; preds = %65
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %66) #21
+  call void @__cxa_free_exception(ptr nonnull %66) #21
   br label %74
 
 72:                                               ; preds = %56
@@ -5257,7 +5257,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx11
 18:                                               ; preds = %13
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #21
+  call void @__cxa_free_exception(ptr nonnull %14) #21
   br label %28
 
 20:                                               ; preds = %10
@@ -5758,7 +5758,7 @@ _ZN5boost6locale4conv4impl15iconverter_base4convEPPKcPmPPcS7_.exit: ; preds = %.
 32:                                               ; preds = %29
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %30) #21
+  call void @__cxa_free_exception(ptr nonnull %30) #21
   br label %75
 
 34:                                               ; preds = %_ZN5boost6locale4conv4impl15iconverter_base4convEPPKcPmPPcS7_.exit
@@ -5818,7 +5818,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6appendEPKwm.exit: ; preds 
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %52) #21
+  call void @__cxa_free_exception(ptr nonnull %52) #21
   br label %75
 
 55:                                               ; preds = %.invoke71
@@ -5847,7 +5847,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6appendEPKwm.exit: ; preds 
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %63) #21
+  call void @__cxa_free_exception(ptr nonnull %63) #21
   br label %75
 
 66:                                               ; preds = %45
@@ -5873,7 +5873,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6appendEPKwm.exit: ; preds 
 71:                                               ; preds = %66
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %67) #21
+  call void @__cxa_free_exception(ptr nonnull %67) #21
   br label %75
 
 73:                                               ; preds = %57
@@ -6143,7 +6143,7 @@ _ZN5boost6locale4conv4impl15iconverter_base4convEPPKcPmPPcS7_.exit: ; preds = %.
 33:                                               ; preds = %30
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %31) #21
+  call void @__cxa_free_exception(ptr nonnull %31) #21
   br label %75
 
 35:                                               ; preds = %_ZN5boost6locale4conv4impl15iconverter_base4convEPPKcPmPPcS7_.exit
@@ -6202,7 +6202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %52) #21
+  call void @__cxa_free_exception(ptr nonnull %52) #21
   br label %75
 
 55:                                               ; preds = %.invoke71
@@ -6231,7 +6231,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %63) #21
+  call void @__cxa_free_exception(ptr nonnull %63) #21
   br label %75
 
 66:                                               ; preds = %45
@@ -6257,7 +6257,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 71:                                               ; preds = %66
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %67) #21
+  call void @__cxa_free_exception(ptr nonnull %67) #21
   br label %75
 
 73:                                               ; preds = %57
@@ -6365,7 +6365,7 @@ common.resume:                                    ; preds = %32, %22
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #21
+  call void @__cxa_free_exception(ptr nonnull %20) #21
   br label %common.resume
 
 _ZNK5boost6locale8impl_icu17icu_std_converterIwLi4EE15throw_if_neededEv.exit: ; preds = %16

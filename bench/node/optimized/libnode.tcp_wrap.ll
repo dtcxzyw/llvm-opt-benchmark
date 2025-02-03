@@ -4067,7 +4067,7 @@ sw.epilog.sink.split:                             ; preds = %sw.default, %_ZNK2v
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.default, %_ZNK2v85MaybeIbE5CheckEv.exit365, %_ZNK2v85MaybeIbE5CheckEv.exit386
-  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %info.sroa.0.0) #18
+  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef nonnull %info.sroa.0.0) #18
   br label %cleanup
 
 cleanup:                                          ; preds = %sw.epilog, %if.then46

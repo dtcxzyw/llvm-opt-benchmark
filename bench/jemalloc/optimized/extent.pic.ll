@@ -59,7 +59,7 @@ entry:
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @malloc_mutex_lock_slow(ptr noundef %ecache) #9
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %ecache) #9
   %locked.i = getelementptr inbounds nuw i8, ptr %ecache, i64 64
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
@@ -818,7 +818,7 @@ entry:
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @malloc_mutex_lock_slow(ptr noundef %ecache) #9
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %ecache) #9
   %locked.i = getelementptr inbounds nuw i8, ptr %ecache, i64 64
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
@@ -933,7 +933,7 @@ entry:
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @malloc_mutex_lock_slow(ptr noundef %ecache) #9
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %ecache) #9
   %locked.i = getelementptr inbounds nuw i8, ptr %ecache, i64 64
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i

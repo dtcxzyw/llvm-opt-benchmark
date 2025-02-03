@@ -108,7 +108,7 @@ define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef
   %41 = tail call ptr @strerror(i32 noundef %39) #10
   %42 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %19, ptr noundef %41) #10
   tail call void @PMIx_Argv_free(ptr noundef nonnull %16) #10
-  tail call void @free(ptr noundef %19) #10
+  tail call void @free(ptr noundef nonnull %19) #10
   br label %44
 
 43:                                               ; preds = %35, %38
@@ -118,7 +118,7 @@ define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef
 
 ._crit_edge:                                      ; preds = %43, %15
   tail call void @PMIx_Argv_free(ptr noundef %16) #10
-  tail call void @free(ptr noundef %19) #10
+  tail call void @free(ptr noundef nonnull %19) #10
   br label %44
 
 44:                                               ; preds = %4, %2, %._crit_edge, %40, %12

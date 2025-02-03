@@ -242,7 +242,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #13
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214TypedAttributeINS_12PreviewImageEE4castERKNS_9AttributeE.exit: ; preds = %entry
@@ -271,7 +271,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #13
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214TypedAttributeINS_12PreviewImageEE4castEPKNS_9AttributeE.exit: ; preds = %entry
@@ -303,7 +303,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #13
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %dynamic_cast.end
@@ -348,7 +348,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #13
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %dynamic_cast.end
@@ -374,7 +374,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #13
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #13
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214TypedAttributeINS_12PreviewImageEE4castEPNS_9AttributeE.exit: ; preds = %entry
@@ -547,7 +547,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #13
+  call void @__cxa_free_exception(ptr nonnull %exception) #13
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -572,7 +572,7 @@ invoke.cont10:                                    ; preds = %if.then7
 lpad9:                                            ; preds = %if.then7
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception8) #13
+  call void @__cxa_free_exception(ptr nonnull %exception8) #13
   br label %eh.resume
 
 if.end11:                                         ; preds = %if.end

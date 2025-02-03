@@ -266,7 +266,7 @@ lpad15:                                           ; preds = %if.else
 
 eh.resume:                                        ; preds = %lpad15, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad15 ]
-  tail call void @__cxa_free_exception(ptr %exception) #17
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #17
   resume { ptr, i32 } %.pn
 }
 

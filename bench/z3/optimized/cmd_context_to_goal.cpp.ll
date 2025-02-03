@@ -209,7 +209,7 @@ if.end42:                                         ; preds = %for.body32, %for.bo
 eh.resume:                                        ; preds = %lpad10, %lpad
   %exception9.sink = phi ptr [ %exception9, %lpad10 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %5, %lpad10 ], [ %0, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception9.sink) #12
+  tail call void @__cxa_free_exception(ptr nonnull %exception9.sink) #12
   resume { ptr, i32 } %.pn
 }
 

@@ -3263,7 +3263,7 @@ if.then.i744.i.i:                                 ; preds = %_ZNKSt4lessIN3ue212
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i707.i.i) #22
   store ptr %v217.i.i, ptr %ref.tmp9.i707.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i708.i.i) #22
-  %call12.i756.i.i = invoke ptr @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_NS0_8flat_setIjSt4lessIjESaIjEEEESt10_Select1stISG_ESC_IS8_ESaISG_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRSA_EESQ_IJEEEEESt17_Rb_tree_iteratorISG_ESt23_Rb_tree_const_iteratorISG_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i706.i.i, ptr %__y.addr.0.lcssa.i.i.i23.i745.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i707.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i708.i.i)
+  %call12.i756.i.i = invoke ptr @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_NS0_8flat_setIjSt4lessIjESaIjEEEESt10_Select1stISG_ESC_IS8_ESaISG_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRSA_EESQ_IJEEEEESt17_Rb_tree_iteratorISG_ESt23_Rb_tree_const_iteratorISG_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i706.i.i, ptr nonnull %__y.addr.0.lcssa.i.i.i23.i745.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i707.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i708.i.i)
           to label %call12.i.noexc755.i.i unwind label %lpad241.loopexit.split-lp.i.i
 
 call12.i.noexc755.i.i:                            ; preds = %if.then.i744.i.i
@@ -8319,7 +8319,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #22
   resume { ptr, i32 } %0
 }
 
@@ -10936,7 +10936,7 @@ while.cond.i.i.i.split:                           ; preds = %if.end.i.i.i.split,
   %__parent.0.i.i.i43 = phi i64 [ %dec.i.i.i, %while.cond.i.i.i.split ], [ %div2526.i.i.i, %if.end.i.i.i.split ]
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i43, -1
   %add.ptr.i.i.i.i2 = getelementptr inbounds %"struct.(anonymous namespace)::StateSet::State", ptr %__first.coerce, i64 %dec.i.i.i
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18StateSet5StateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_T0_SG_T1_T2_(ptr %__first.coerce, i64 noundef %dec.i.i.i, i64 noundef %sub.ptr.div.i41.lcssa, ptr noundef nonnull byval(%"struct.(anonymous namespace)::StateSet::State") align 8 %add.ptr.i.i.i.i2)
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18StateSet5StateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_T0_SG_T1_T2_(ptr nonnull %__first.coerce, i64 noundef %dec.i.i.i, i64 noundef %sub.ptr.div.i41.lcssa, ptr noundef nonnull byval(%"struct.(anonymous namespace)::StateSet::State") align 8 %add.ptr.i.i.i.i2)
   %cmp9.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp9.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18StateSet5StateESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_RT0_.exit.i.i, label %while.cond.i.i.i.split, !llvm.loop !337
 
@@ -10953,7 +10953,7 @@ while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN
   %sub.ptr.lhs.cast.i.i.i15.i = ptrtoint ptr %incdec.ptr.i.i14.i to i64
   %sub.ptr.sub.i.i.i16.i = sub i64 %sub.ptr.lhs.cast.i.i.i15.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i17.i = ashr exact i64 %sub.ptr.sub.i.i.i16.i, 5
-  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18StateSet5StateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_T0_SG_T1_T2_(ptr %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i17.i, ptr noundef nonnull byval(%"struct.(anonymous namespace)::StateSet::State") align 8 %agg.tmp6.i.i13.i)
+  tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18StateSet5StateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_T0_SG_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i17.i, ptr noundef nonnull byval(%"struct.(anonymous namespace)::StateSet::State") align 8 %agg.tmp6.i.i13.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i13.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i16.i, 32
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !338

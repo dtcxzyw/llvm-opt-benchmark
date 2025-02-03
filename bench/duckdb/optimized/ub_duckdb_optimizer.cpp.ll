@@ -56427,17 +56427,19 @@ _ZNSt12_Vector_baseIN6duckdb18ReplacementBindingESaIS1_EE11_M_allocateEm.exit: ;
   %agg.tmp6.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %__args1, i64 8
   %agg.tmp6.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp6.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !3
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp7.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
-          to label %.noexc unwind label %lpad
+          to label %.noexc unwind label %lpad.body
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN6duckdb18ReplacementBindingESaIS1_EE11_M_allocateEm.exit
   invoke void @_ZN6duckdb18ReplacementBindingC1ENS_13ColumnBindingES1_NS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, i64 %agg.tmp.sroa.0.0.copyload.i.i, i64 %agg.tmp.sroa.2.0.copyload.i.i, i64 %agg.tmp6.sroa.0.0.copyload.i.i, i64 %agg.tmp6.sroa.2.0.copyload.i.i, ptr noundef nonnull %agg.tmp7.i.i)
-          to label %invoke.cont unwind label %lpad.i.i
+          to label %invoke.cont unwind label %lpad.body.thread
 
-lpad.i.i:                                         ; preds = %.noexc
+lpad.body.thread:                                 ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp7.i.i) #29
-  br label %lpad.body
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #29
+  br label %if.then.i65
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp7.i.i) #29
@@ -56494,15 +56496,11 @@ _ZNSt12_Vector_baseIN6duckdb18ReplacementBindingESaIS1_EE13_M_deallocateEPS1_m.e
   store ptr %add.ptr30, ptr %_M_end_of_storage, align 8, !tbaa !256
   ret void
 
-lpad:                                             ; preds = %_ZNSt12_Vector_baseIN6duckdb18ReplacementBindingESaIS1_EE11_M_allocateEm.exit
-  %4 = landingpad { ptr, i32 }
+lpad.body:                                        ; preds = %_ZNSt12_Vector_baseIN6duckdb18ReplacementBindingESaIS1_EE11_M_allocateEm.exit
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  br label %lpad.body
-
-lpad.body:                                        ; preds = %lpad, %lpad.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad ], [ %3, %lpad.i.i ]
-  %5 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %5) #29
+  %7 = extractvalue { ptr, i32 } %6, 0
+  %8 = call ptr @__cxa_begin_catch(ptr %7) #29
   %tobool.not = icmp eq ptr %cond.i51, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i65
 
@@ -56512,12 +56510,12 @@ if.end.thread:                                    ; preds = %lpad.body
   br label %invoke.cont23
 
 lpad21:                                           ; preds = %invoke.cont23
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont24 unwind label %terminate.lpad
 
-if.then.i65:                                      ; preds = %lpad.body
+if.then.i65:                                      ; preds = %lpad.body.thread, %lpad.body
   call void @_ZdlPv(ptr noundef nonnull %cond.i51) #31
   br label %invoke.cont23
 
@@ -56526,13 +56524,13 @@ invoke.cont23:                                    ; preds = %if.then.i65, %if.en
           to label %unreachable unwind label %lpad21
 
 invoke.cont24:                                    ; preds = %lpad21
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 
 terminate.lpad:                                   ; preds = %lpad21
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #33
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #33
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont23

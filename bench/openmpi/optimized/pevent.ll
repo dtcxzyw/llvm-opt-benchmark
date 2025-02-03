@@ -539,7 +539,7 @@ pmix_cmd_line_get_param.exit153:                  ; preds = %.lr.ph.i148
   unreachable
 
 237:                                              ; preds = %222
-  call void @PMIx_Info_free(ptr noundef %141, i64 noundef 3) #12
+  call void @PMIx_Info_free(ptr noundef nonnull %141, i64 noundef 3) #12
   %238 = load i32, ptr @pmix_class_init_epoch, align 4
   %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not120 = icmp eq i32 %238, %239

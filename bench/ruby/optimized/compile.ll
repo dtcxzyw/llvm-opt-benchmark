@@ -31682,7 +31682,7 @@ pm_load_file.exit:                                ; preds = %12, %17
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %pm_load_file.exit.thread, %pm_load_file.exit
-  %23 = call i64 @pm_parse_file(ptr noundef %0, i64 noundef %1)
+  %23 = call i64 @pm_parse_file(ptr noundef nonnull %0, i64 noundef %1)
   br label %24
 
 24:                                               ; preds = %22, %pm_load_file.exit

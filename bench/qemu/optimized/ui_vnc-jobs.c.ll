@@ -918,7 +918,7 @@ vnc_worker_thread_loop.exit:                      ; preds = %if.then90.i, %if.el
   store ptr %110, ptr %109, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next87.i, i8 0, i64 16, i1 false)
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.1, i32 noundef 79) #11
-  call void @qemu_cond_broadcast(ptr noundef %arg) #11
+  call void @qemu_cond_broadcast(ptr noundef nonnull %arg) #11
   call void @g_free(ptr noundef nonnull %.lcssa101.i) #11
   call void @llvm.lifetime.end.p0(i64 66304, ptr nonnull %vs.i)
   br label %while.cond, !llvm.loop !10

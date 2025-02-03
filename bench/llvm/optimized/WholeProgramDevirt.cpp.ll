@@ -11425,7 +11425,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %831, %829
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit224.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit224.i:            ; preds = %842, %840
-  %845 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0229.0443.i) #27
+  %845 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0229.0443.i) #27
   %.not344.i = icmp eq ptr %845, %443
   br i1 %.not344.i, label %.loopexit.i, label %.lr.ph445.i
 
@@ -11742,7 +11742,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZNK4llvm18ModuleSummaryIndex16getTypeIdSummaryENS_9StringRefE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread24.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i
-  %64 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.018.031.i) #27
+  %64 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.018.031.i) #27
   %.not.i = icmp eq ptr %64, %.sroa.3.0.i.i.i
   br i1 %.not.i, label %_ZNK4llvm18ModuleSummaryIndex16getTypeIdSummaryENS_9StringRefE.exit, label %.lr.ph.i
 
@@ -15843,7 +15843,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %29, %_ZN4llvmeqENS_
   br label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread24:       ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.018.031) #27
+  %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.018.031) #27
   %.not = icmp eq ptr %32, %.sroa.3.0.i.i
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -23727,7 +23727,7 @@ define linkonce_odr void @_ZN4llvm4yaml7yamlizeISt8multimapImSt4pairINSt7__cxx11
 _ZN4llvm4yaml2IO11mapRequiredINS_13TypeIdSummaryEEEvPKcRT_.exit.i: ; preds = %25, %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %37 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.06.010.i) #27
+  %37 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.010.i) #27
   %.not.i = icmp eq ptr %37, %18
   br i1 %.not.i, label %_ZN4llvm4yaml19CustomMappingTraitsISt8multimapImSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13TypeIdSummaryEESt4lessImESaIS3_IKmSB_EEEE6outputERNS0_2IOERSH_.exit, label %.lr.ph.i
 
@@ -29868,7 +29868,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %37
   br i1 %38, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread29
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread29:       ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.019.036) #27
+  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.036) #27
   %.not = icmp eq ptr %39, %.sroa.3.0.i.i
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -37609,7 +37609,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %38, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN4llvm11GlobalValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #27
+  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %43 = icmp slt i32 %42, 0
@@ -37675,7 +37675,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %67, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN4llvm11GlobalValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #27
+  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %70) #22
   %72 = icmp slt i32 %71, 0

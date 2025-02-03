@@ -374,7 +374,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__25HgiShaderSectionAttributeE
   %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
   %12 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #14
-  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__25HgiShaderSectionAttributeEEvT_S3_(ptr noundef %2, ptr noundef %.016)
+  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__25HgiShaderSectionAttributeEEvT_S3_(ptr noundef %2, ptr noundef nonnull %.016)
           to label %14 unwind label %15
 
 14:                                               ; preds = %.body

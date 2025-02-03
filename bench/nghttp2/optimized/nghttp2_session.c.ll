@@ -2157,7 +2157,7 @@ if.end52:                                         ; preds = %for.inc, %if.end11,
 if.end57:                                         ; preds = %if.end52
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %call53) #17
   tail call void @nghttp2_frame_rst_stream_init(ptr noundef nonnull %call53, i32 noundef %stream_id, i32 noundef %error_code) #17
-  %call59 = tail call i32 @nghttp2_session_add_item(ptr noundef %session, ptr noundef nonnull %call53)
+  %call59 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %session, ptr noundef nonnull %call53)
   %cmp60.not = icmp eq i32 %call59, 0
   br i1 %cmp60.not, label %return, label %if.then62
 
@@ -6627,7 +6627,7 @@ if.then39:                                        ; preds = %sw.bb
   br i1 %cmp.i160, label %if.else, label %return
 
 if.else:                                          ; preds = %if.then39
-  %call43 = call fastcc i32 @session_handle_invalid_connection(ptr noundef %session, ptr noundef nonnull %frame, i32 noundef -523, ptr noundef null)
+  %call43 = call fastcc i32 @session_handle_invalid_connection(ptr noundef nonnull %session, ptr noundef nonnull %frame, i32 noundef -523, ptr noundef null)
   br label %return
 
 if.end44:                                         ; preds = %sw.bb
@@ -6987,7 +6987,7 @@ if.end61:                                         ; preds = %inflight_settings_n
   %inflight_settings.0 = phi ptr [ %call.i, %inflight_settings_new.exit ], [ null, %if.end45 ]
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %call32) #17
   tail call void @nghttp2_frame_settings_init(ptr noundef nonnull %call32, i8 noundef zeroext %flags, ptr noundef %iv_copy.0, i64 noundef %niv) #17
-  %call63 = tail call i32 @nghttp2_session_add_item(ptr noundef %session, ptr noundef nonnull %call32)
+  %call63 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %session, ptr noundef nonnull %call32)
   %cmp64.not = icmp eq i32 %call63, 0
   br i1 %cmp64.not, label %if.end72, label %if.then66
 
@@ -7615,7 +7615,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 if.end6:                                          ; preds = %if.end
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %call) #17
   tail call void @nghttp2_frame_ping_init(ptr noundef nonnull %call, i8 noundef zeroext %flags, ptr noundef %opaque_data) #17
-  %call8 = tail call i32 @nghttp2_session_add_item(ptr noundef %session, ptr noundef nonnull %call)
+  %call8 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %session, ptr noundef nonnull %call)
   %cmp9.not = icmp eq i32 %call8, 0
   br i1 %cmp9.not, label %if.end12, label %if.then11
 
@@ -8874,7 +8874,7 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %call) #17
   tail call void @nghttp2_frame_window_update_init(ptr noundef nonnull %call, i8 noundef zeroext %flags, i32 noundef %stream_id, i32 noundef %window_size_increment) #17
-  %call3 = tail call i32 @nghttp2_session_add_item(ptr noundef %session, ptr noundef nonnull %call)
+  %call3 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %session, ptr noundef nonnull %call)
   %cmp4.not = icmp eq i32 %call3, 0
   br i1 %cmp4.not, label %return, label %if.then5
 
@@ -12750,7 +12750,7 @@ if.end14:                                         ; preds = %if.end10
   tail call void @nghttp2_frame_goaway_init(ptr noundef nonnull %call11, i32 noundef %last_stream_id., i32 noundef %error_code, ptr noundef %opaque_data_copy.0, i64 noundef %opaque_data_len) #17
   %aux_data18 = getelementptr inbounds nuw i8, ptr %call11, i64 96
   store i8 %aux_flags, ptr %aux_data18, align 1
-  %call19 = tail call i32 @nghttp2_session_add_item(ptr noundef %session, ptr noundef nonnull %call11)
+  %call19 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %session, ptr noundef nonnull %call11)
   %cmp20.not = icmp eq i32 %call19, 0
   br i1 %cmp20.not, label %if.end22, label %if.then21
 
@@ -14813,7 +14813,7 @@ if.then13:                                        ; preds = %if.end10
 if.end.i:                                         ; preds = %if.then13
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %call.i16) #17
   tail call void @nghttp2_frame_window_update_init(ptr noundef nonnull %call.i16, i8 noundef zeroext 0, i32 noundef %12, i32 noundef %13) #17
-  %call3.i = tail call i32 @nghttp2_session_add_item(ptr noundef %11, ptr noundef nonnull %call.i16)
+  %call3.i = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %11, ptr noundef nonnull %call.i16)
   %cmp4.not.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.not.i, label %if.end20, label %if.then5.i
 
@@ -15073,7 +15073,7 @@ if.then10:                                        ; preds = %if.then6
 if.end.i:                                         ; preds = %if.then10
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %call.i) #17
   tail call void @nghttp2_frame_window_update_init(ptr noundef nonnull %call.i, i8 noundef zeroext 0, i32 noundef %stream_id, i32 noundef %add.) #17
-  %call3.i = tail call i32 @nghttp2_session_add_item(ptr noundef %session, ptr noundef nonnull %call.i)
+  %call3.i = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %session, ptr noundef nonnull %call.i)
   %cmp4.not.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.not.i, label %if.end15, label %if.then5.i
 

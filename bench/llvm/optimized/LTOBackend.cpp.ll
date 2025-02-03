@@ -5697,7 +5697,11 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
 31:                                               ; preds = %28
   %32 = load i8, ptr %4, align 8
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit, label %26
+  br i1 %33, label %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit.thread12, label %26
+
+_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit.thread12: ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %39
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %4, align 8
@@ -5719,18 +5723,18 @@ _ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %_ZN4llvm5ErrorD2Ev.exit2
 
-_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit: ; preds = %31, %14
-  %.09.i = phi ptr [ %15, %14 ], [ %.01015.i, %31 ]
+_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit: ; preds = %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.not = icmp eq ptr %.09.i, null
+  %.not = icmp eq ptr %15, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit2, label %39
 
-39:                                               ; preds = %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit
+39:                                               ; preds = %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit.thread12, %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit
+  %.09.i15 = phi ptr [ %.01015.i, %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit.thread12 ], [ %15, %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %41 = load i8, ptr %40, align 8
   %42 = and i8 %41, -2
   store i8 %42, ptr %40, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(64) %.09.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(64) %.09.i15, i64 64, i1 false)
   br label %52
 
 _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit, %_ZN4llvm3lto17findThinLTOModuleENS_15MutableArrayRefINS_13BitcodeModuleEEE.exit.thread

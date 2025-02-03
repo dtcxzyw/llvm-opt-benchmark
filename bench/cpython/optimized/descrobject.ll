@@ -3863,7 +3863,7 @@ entry:
 
 if.then2:                                         ; preds = %entry
   %cmp3.not = icmp eq ptr %obj, null
-  br i1 %cmp3.not, label %if.end23.thread36, label %if.end6
+  br i1 %cmp3.not, label %if.end23, label %if.end6
 
 if.end6:                                          ; preds = %if.then2
   %0 = getelementptr i8, ptr %obj, i64 8
@@ -3874,30 +3874,30 @@ if.end6:                                          ; preds = %if.then2
   %cmp7 = icmp ne ptr %1, null
   %cmp8 = icmp ne ptr %call5, null
   %or.cond = select i1 %cmp7, i1 %cmp8, i1 false
-  br i1 %or.cond, label %if.end23.thread, label %if.else13
+  br i1 %or.cond, label %if.then9, label %if.else13
 
-if.end23.thread:                                  ; preds = %if.end6
+if.then9:                                         ; preds = %if.end6
   %2 = load ptr, ptr @PyExc_AttributeError, align 8
   %cond = select i1 %cmp, ptr @.str.74, ptr @.str.75
   %call12 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull %cond, ptr noundef nonnull %1, ptr noundef nonnull %call5) #8
   br label %if.then.i
 
 if.else13:                                        ; preds = %if.end6
-  br i1 %cmp8, label %if.end23, label %if.end23.thread36
+  br i1 %cmp8, label %if.then15, label %if.end23
 
-if.end23.thread36:                                ; preds = %if.else13, %if.then2
+if.then15:                                        ; preds = %if.else13
   %3 = load ptr, ptr @PyExc_AttributeError, align 8
-  %cond21 = select i1 %cmp, ptr @.str.78, ptr @.str.79
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull %cond21) #8
-  br label %return
-
-if.end23:                                         ; preds = %if.else13
-  %4 = load ptr, ptr @PyExc_AttributeError, align 8
   %cond17 = select i1 %cmp, ptr @.str.76, ptr @.str.77
-  %call18 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull %cond17, ptr noundef nonnull %call5) #8
+  %call18 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull %cond17, ptr noundef nonnull %call5) #8
   br label %if.then.i
 
-if.then.i:                                        ; preds = %if.end23, %if.end23.thread
+if.end23:                                         ; preds = %if.then2, %if.else13
+  %4 = load ptr, ptr @PyExc_AttributeError, align 8
+  %cond21 = select i1 %cmp, ptr @.str.78, ptr @.str.79
+  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull %cond21) #8
+  br label %return
+
+if.then.i:                                        ; preds = %if.then9, %if.then15
   %5 = load i64, ptr %call5, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i2.not.i = icmp eq i64 %6, 0
@@ -3948,8 +3948,8 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %res.0) #8
   br label %return
 
-return:                                           ; preds = %if.end23.thread36, %if.then1.i.i, %if.end.i.i, %if.then.i, %if.end.i, %if.then1.i, %if.end33, %if.end30
-  %retval.0 = phi i32 [ -1, %if.end30 ], [ 0, %if.end33 ], [ 0, %if.then1.i ], [ 0, %if.end.i ], [ -1, %if.then.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ], [ -1, %if.end23.thread36 ]
+return:                                           ; preds = %if.end23, %if.then1.i.i, %if.end.i.i, %if.then.i, %if.end.i, %if.then1.i, %if.end33, %if.end30
+  %retval.0 = phi i32 [ -1, %if.end30 ], [ 0, %if.end33 ], [ 0, %if.then1.i ], [ 0, %if.end.i ], [ -1, %if.end23 ], [ -1, %if.then.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ]
   ret i32 %retval.0
 }
 

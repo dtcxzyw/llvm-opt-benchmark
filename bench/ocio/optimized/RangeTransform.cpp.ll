@@ -403,7 +403,7 @@ lpad10:                                           ; preds = %if.then9
   %3 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
-  tail call void @__cxa_free_exception(ptr %exception) #20
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #20
   br label %catch.dispatch
 
 catch.dispatch:                                   ; preds = %lpad10, %lpad
@@ -453,7 +453,7 @@ lpad18:                                           ; preds = %invoke.cont24, %inv
 lpad23:                                           ; preds = %invoke.cont19
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception21) #20
+  call void @__cxa_free_exception(ptr nonnull %exception21) #20
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad23, %lpad18

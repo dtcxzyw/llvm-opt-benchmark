@@ -596,7 +596,7 @@ invoke.cont:                                      ; preds = %if.then4
 lpad:                                             ; preds = %if.then4
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #20
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #20
   resume { ptr, i32 } %6
 
 cleanup:                                          ; preds = %"_ZZN5sound17ProxySoundManager4stepEfENK3$_0clEv.exit"

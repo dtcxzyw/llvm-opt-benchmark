@@ -12323,7 +12323,7 @@ lpad.body:                                        ; preds = %lpad, %lpad.i.i
   %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad ], [ %7, %lpad.i.i ]
   %11 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %12 = call ptr @__cxa_begin_catch(ptr %11) #27
-  invoke void @_ZSt8_DestroyIP21ChatFormattedFragmentEvT_S2_(ptr noundef %__result, ptr noundef %__cur.020)
+  invoke void @_ZSt8_DestroyIP21ChatFormattedFragmentEvT_S2_(ptr noundef %__result, ptr noundef nonnull %__cur.020)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %lpad.body

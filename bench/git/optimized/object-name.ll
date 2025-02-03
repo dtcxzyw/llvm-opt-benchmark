@@ -3713,7 +3713,7 @@ while.cond.backedge:                              ; preds = %while.body, %land.e
   br i1 %tobool21.not, label %while.end, label %while.body, !llvm.loop !34
 
 if.end28:                                         ; preds = %while.body
-  %call29 = call ptr @repo_get_commit_buffer(ptr noundef %r, ptr noundef %call22, ptr noundef null) #20
+  %call29 = call ptr @repo_get_commit_buffer(ptr noundef %r, ptr noundef nonnull %call22, ptr noundef null) #20
   %call30 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call29, ptr noundef nonnull dereferenceable(1) @.str.49) #21
   %tobool31.not = icmp eq ptr %call30, null
   br i1 %tobool31.not, label %land.end, label %land.rhs
@@ -3727,7 +3727,7 @@ land.rhs:                                         ; preds = %if.end28
 
 land.end:                                         ; preds = %land.rhs, %if.end28
   %land.ext = phi i32 [ 0, %if.end28 ], [ %5, %land.rhs ]
-  call void @repo_unuse_commit_buffer(ptr noundef %r, ptr noundef %call22, ptr noundef nonnull %call29) #20
+  call void @repo_unuse_commit_buffer(ptr noundef %r, ptr noundef nonnull %call22, ptr noundef nonnull %call29) #20
   %tobool34.not = icmp eq i32 %negative.0, %land.ext
   br i1 %tobool34.not, label %while.cond.backedge, label %if.then35
 

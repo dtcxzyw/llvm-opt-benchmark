@@ -156,7 +156,7 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i: ; preds = %if.then.i.i
   br label %lor.lhs.false
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i:      ; preds = %if.then.i.i, %while.body
-  %call.i.i7 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %meta_pos.sroa.0.0145, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %prefix_size)
+  %call.i.i7 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef nonnull %meta_pos.sroa.0.0145, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %prefix_size)
           to label %call.i.i.noexc unwind label %lpad1.loopexit
 
 call.i.i.noexc:                                   ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i

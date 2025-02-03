@@ -23464,7 +23464,7 @@ define hidden noundef ptr @"_ZN84_$LT$$LP$A1$C$A2$RP$$u20$as$u20$wasmtime..runti
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = call noundef i64 @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo17next_field32_size17hbc38c6a8818fe544E(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) @anon.b7ff6e372baf4eb9433dd0bc31178b62.47.llvm.15006262148341195119, ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !3134
-  call fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17h3501933a95006904E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull align 8 %69, ptr %.val.i, ptr %.val5.i, i32 noundef range(i32 0, 23) %66, i32 %68), !noalias !3134
+  call fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17h3501933a95006904E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull align 8 %69, ptr nonnull %.val.i, ptr %.val5.i, i32 noundef range(i32 0, 23) %66, i32 %68), !noalias !3134
   %71 = load i32, ptr %6, align 8, !range !194, !noalias !3134, !noundef !5
   %trunc.i25 = trunc nuw i32 %71 to i1
   br i1 %trunc.i25, label %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5store17he6e9870a8a91f233E.exit", label %72

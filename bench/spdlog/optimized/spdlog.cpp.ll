@@ -2544,7 +2544,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #35
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #35
   resume { ptr, i32 } %0
 }
 
@@ -19313,7 +19313,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
   %38 = tail call ptr @__cxa_begin_catch(ptr %37) #35
-  invoke void @_ZSt8_DestroyIPN6spdlog7details14log_msg_bufferEEvT_S4_(ptr noundef %34, ptr noundef %__cur.010.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6spdlog7details14log_msg_bufferEEvT_S4_(ptr noundef %34, ptr noundef nonnull %__cur.010.i.i.i.i)
           to label %invoke.cont3.i.i.i.i unwind label %lpad2.i.i.i.i
 
 invoke.cont3.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -19399,7 +19399,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #35
-  invoke void @_ZSt8_DestroyIPN6spdlog7details14log_msg_bufferEEvT_S4_(ptr noundef %cond.i, ptr noundef %__cur.010.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN6spdlog7details14log_msg_bufferEEvT_S4_(ptr noundef %cond.i, ptr noundef nonnull %__cur.010.i.i.i.i)
           to label %invoke.cont5.i.i.i.i unwind label %lpad4.i.i.i.i
 
 invoke.cont5.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -39364,7 +39364,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %174 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #35
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #35
   br label %lpad6.body
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %if.then92
@@ -53747,7 +53747,7 @@ invoke.cont.i:                                    ; preds = %if.then.i102
 lpad.i:                                           ; preds = %if.then.i102
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #35
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #35
   resume { ptr, i32 } %24
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %if.then.i

@@ -1438,7 +1438,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %64 = call i32 @hostlist_count(ptr noundef %8) #10
-  call fastcc void @_forward_msg_internal(ptr noundef %8, ptr noundef null, ptr noundef %4, ptr noundef nonnull %63, i32 noundef 0, i32 noundef %64)
+  call fastcc void @_forward_msg_internal(ptr noundef %8, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %63, i32 noundef 0, i32 noundef %64)
   br label %.outer268, !llvm.loop !13
 
 65:                                               ; preds = %.loopexit270
@@ -1809,7 +1809,7 @@ split:                                            ; preds = %184, %._crit_edge45
 
 239:                                              ; preds = %230, %235
   %.2177249 = phi i32 [ %.1176, %235 ], [ %.3, %230 ]
-  call void @free(ptr noundef %218) #10
+  call void @free(ptr noundef nonnull %218) #10
   %240 = call ptr @hostlist_next(ptr noundef %211) #10
   %.not217 = icmp eq ptr %240, null
   br i1 %.not217, label %._crit_edge, label %.lr.ph364, !llvm.loop !16
@@ -2331,7 +2331,7 @@ _fwd_tree_get_addr.exit:                          ; preds = %71, %44
   %152 = load i16, ptr %31, align 8
   %153 = zext i16 %152 to i32
   %.not92 = icmp sgt i32 %110, %153
-  call void @free(ptr noundef %36) #10
+  call void @free(ptr noundef nonnull %36) #10
   br i1 %.not92, label %175, label %154
 
 154:                                              ; preds = %151

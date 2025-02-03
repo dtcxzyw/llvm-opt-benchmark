@@ -126,7 +126,7 @@ define void @dlasd8_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %79 = phi i32 [ 1, %71 ], [ %155, %.loopexit17 ]
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds double, ptr %18, i64 %80
-  call void @dlasd4_(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef %9, ptr noundef %3, ptr noundef %10, ptr noundef nonnull %17, ptr noundef nonnull %81, ptr noundef nonnull %73, ptr noundef nonnull %11) #4
+  call void @dlasd4_(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef %9, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %17, ptr noundef nonnull %81, ptr noundef nonnull %73, ptr noundef nonnull %11) #4
   %82 = load i32, ptr %11, align 4, !tbaa !3
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %.loopexit19

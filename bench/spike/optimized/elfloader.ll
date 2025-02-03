@@ -1005,7 +1005,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %.loopexit, %427
 .thread290:                                       ; preds = %117, %424
   %.sink = phi ptr [ %116, %117 ], [ %422, %424 ]
   %.pn243.ph = phi { ptr, i32 } [ %118, %117 ], [ %425, %424 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #20
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #20
   tail call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #20
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit275
 

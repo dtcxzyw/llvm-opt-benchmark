@@ -13255,7 +13255,7 @@ if.end9:                                          ; preds = %if.end3, %entry, %_
 eh.resume:                                        ; preds = %lpad7, %lpad
   %exception6.sink = phi ptr [ %exception6, %lpad7 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %7, %lpad7 ], [ %3, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception6.sink) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception6.sink) #34
   resume { ptr, i32 } %.pn
 }
 
@@ -16520,7 +16520,7 @@ if.end152:                                        ; preds = %if.end35, %if.end12
 eh.resume:                                        ; preds = %lpad149, %lpad103, %lpad
   %exception148.sink = phi ptr [ %exception148, %lpad149 ], [ %exception102, %lpad103 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %38, %lpad149 ], [ %36, %lpad103 ], [ %27, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception148.sink) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception148.sink) #34
   resume { ptr, i32 } %.pn
 }
 
@@ -18461,7 +18461,7 @@ invoke.cont193.cont:                              ; preds = %invoke.cont193.invo
 lpad192:                                          ; preds = %sw.bb
   %136 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #34
+  call void @__cxa_free_exception(ptr nonnull %exception) #34
   br label %ehcleanup
 
 sw.default:                                       ; preds = %if.then191
@@ -19694,7 +19694,7 @@ invoke.cont143:                                   ; preds = %if.end141
 lpad142:                                          ; preds = %if.end141
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #34
+  call void @__cxa_free_exception(ptr nonnull %exception) #34
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad142, %lpad136
@@ -40259,7 +40259,7 @@ lpad7.i:                                          ; preds = %if.then5.i
 eh.resume.i243:                                   ; preds = %lpad7.i, %lpad.i
   %exception6.sink.i = phi ptr [ %exception6.i, %lpad7.i ], [ %exception.i242, %lpad.i ]
   %.pn.i = phi { ptr, i32 } [ %108, %lpad7.i ], [ %103, %lpad.i ]
-  call void @__cxa_free_exception(ptr %exception6.sink.i) #34
+  call void @__cxa_free_exception(ptr nonnull %exception6.sink.i) #34
   br label %lpad4.body
 
 .noexc236:                                        ; preds = %call.i2.i.noexc, %if.end3.i, %do.body.i
@@ -52788,7 +52788,7 @@ lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds =
   br label %ehcleanup
 
 lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN8uint_set8iteratorC2ERKS_b.exit.i502, %_ZN8uint_set8iteratorC2ERKS_b.exit.i489, %_ZN8uint_set8iteratorC2ERKS_b.exit.i287, %_ZN8uint_set8iteratorC2ERKS_b.exit.i274, %if.else.i.i.i, %.noexc85, %if.then.i.i.i, %if.then.i.i83, %_ZN8uint_set8iteratorC2ERKS_b.exit.i52, %_ZN8uint_set8iteratorC2ERKS_b.exit.i
-  %next.sroa.0.0.ph.ph.ph2015.ph = phi ptr [ %next.sroa.0.1.lcssa2352236123652374, %_ZN8uint_set8iteratorC2ERKS_b.exit.i502 ], [ %next.sroa.0.1.lcssa2352236123652374, %_ZN8uint_set8iteratorC2ERKS_b.exit.i489 ], [ %next.sroa.0.1.lcssa2352236123652374, %_ZN8uint_set8iteratorC2ERKS_b.exit.i287 ], [ %next.sroa.0.1.lcssa2352236123652374, %_ZN8uint_set8iteratorC2ERKS_b.exit.i274 ], [ %next.sroa.0.3, %.noexc85 ], [ %next.sroa.0.3, %if.then.i.i.i ], [ %next.sroa.0.3, %if.else.i.i.i ], [ %next.sroa.0.3, %if.then.i.i83 ], [ null, %_ZN8uint_set8iteratorC2ERKS_b.exit.i52 ], [ null, %_ZN8uint_set8iteratorC2ERKS_b.exit.i ]
+  %next.sroa.0.0.ph.ph.ph2015.ph = phi ptr [ %next.sroa.0.1.lcssa235223642373, %_ZN8uint_set8iteratorC2ERKS_b.exit.i502 ], [ %next.sroa.0.1.lcssa235223642373, %_ZN8uint_set8iteratorC2ERKS_b.exit.i489 ], [ %next.sroa.0.1.lcssa235223642373, %_ZN8uint_set8iteratorC2ERKS_b.exit.i287 ], [ %next.sroa.0.1.lcssa235223642373, %_ZN8uint_set8iteratorC2ERKS_b.exit.i274 ], [ %next.sroa.0.3, %.noexc85 ], [ %next.sroa.0.3, %if.then.i.i.i ], [ %next.sroa.0.3, %if.else.i.i.i ], [ %next.sroa.0.3, %if.then.i.i83 ], [ null, %_ZN8uint_set8iteratorC2ERKS_b.exit.i52 ], [ null, %_ZN8uint_set8iteratorC2ERKS_b.exit.i ]
   %lpad.loopexit.split-lp2691 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -53032,7 +53032,7 @@ if.else.i.i.i:                                    ; preds = %.noexc84
   invoke void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN11max_cliquesIN3sat11neg_literalEE7cliquesERK7svectorIjjER5u_mapI8uint_setER6vectorIS9_Lb1EjEEUljjE_EEEvT_SL_T0_(ptr noundef nonnull %next.sroa.0.3, ptr noundef nonnull %add.ptr.i82, ptr nonnull %conns)
           to label %_ZN6vectorIjLb0EjE3endEv.exit94 unwind label %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN6vectorIjLb0EjE3endEv.exit94:                  ; preds = %if.else.i.i.i, %.noexc85, %_ZN6vectorIjLb0EjE3endEv.exit
+_ZN6vectorIjLb0EjE3endEv.exit94:                  ; preds = %if.else.i.i.i, %_ZN6vectorIjLb0EjE3endEv.exit, %.noexc85
   %arrayidx.i.i90 = getelementptr inbounds i8, ptr %next.sroa.0.3, i64 -4
   %104 = load i32, ptr %arrayidx.i.i90, align 4
   %105 = zext i32 %104 to i64
@@ -53611,8 +53611,8 @@ for.inc82:                                        ; preds = %invoke.cont70, %_ZN
   br i1 %cmp56.not, label %for.end84, label %for.body57
 
 for.end84:                                        ; preds = %for.inc82, %invoke.cont32, %for.end46, %_ZN6vectorIjLb0EjE3endEv.exit94
-  %next.sroa.0.1.lcssa2352236123652374 = phi ptr [ %next.sroa.0.3, %_ZN6vectorIjLb0EjE3endEv.exit94 ], [ null, %for.end46 ], [ null, %invoke.cont32 ], [ %next.sroa.0.3, %for.inc82 ]
-  %cmp.i.i772354236023672373 = phi i1 [ false, %_ZN6vectorIjLb0EjE3endEv.exit94 ], [ true, %for.end46 ], [ true, %invoke.cont32 ], [ false, %for.inc82 ]
+  %cmp.i.i77235423622374 = phi i1 [ false, %_ZN6vectorIjLb0EjE3endEv.exit94 ], [ true, %for.end46 ], [ true, %invoke.cont32 ], [ false, %for.inc82 ]
+  %next.sroa.0.1.lcssa235223642373 = phi ptr [ %next.sroa.0.3, %_ZN6vectorIjLb0EjE3endEv.exit94 ], [ null, %for.end46 ], [ null, %invoke.cont32 ], [ %next.sroa.0.3, %for.inc82 ]
   %shr.i231 = lshr i32 %62, 5
   %161 = load ptr, ptr %am1, align 8
   %cmp.i.i232 = icmp eq ptr %161, null
@@ -55515,10 +55515,10 @@ terminate.lpad.i.i609:                            ; preds = %if.then.i.i.i607
   unreachable
 
 cleanup190:                                       ; preds = %cleanup, %entry.split.i521, %for.end151, %if.then.i.i.i607, %if.then.i.i.i604, %invoke.cont152
-  br i1 %cmp.i.i772354236023672373, label %_ZN7svectorIjjED2Ev.exit615, label %if.then.i.i.i612
+  br i1 %cmp.i.i77235423622374, label %_ZN7svectorIjjED2Ev.exit615, label %if.then.i.i.i612
 
 if.then.i.i.i612:                                 ; preds = %cleanup190
-  %add.ptr.i.i.i.i613 = getelementptr inbounds i8, ptr %next.sroa.0.1.lcssa2352236123652374, i64 -8
+  %add.ptr.i.i.i.i613 = getelementptr inbounds i8, ptr %next.sroa.0.1.lcssa235223642373, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i613)
           to label %_ZN7svectorIjjED2Ev.exit615 unwind label %terminate.lpad.i.i614
 
@@ -55550,7 +55550,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i616
   unreachable
 
 ehcleanup:                                        ; preds = %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad27.loopexit, %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad27.loopexit.split-lp.loopexit, %ehcleanup.i1064, %cleanup.action.i1059, %ehcleanup.i1027, %cleanup.action.i1022, %lpad159.body
-  %next.sroa.0.2 = phi ptr [ %next.sroa.0.1.lcssa2352236123652374, %lpad159.body ], [ %next.sroa.0.3, %cleanup.action.i1022 ], [ %next.sroa.0.3, %ehcleanup.i1027 ], [ %next.sroa.0.1.lcssa2352236123652374, %cleanup.action.i1059 ], [ %next.sroa.0.1.lcssa2352236123652374, %ehcleanup.i1064 ], [ %next.sroa.0.1.lcssa2352236123652374, %lpad27.loopexit ], [ %next.sroa.0.3, %lpad27.loopexit.split-lp.loopexit ], [ %next.sroa.0.12122, %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %next.sroa.0.1.lcssa2352236123652374, %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %next.sroa.0.0.ph.ph.ph2015.ph, %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %next.sroa.0.2 = phi ptr [ %next.sroa.0.1.lcssa235223642373, %lpad159.body ], [ %next.sroa.0.3, %cleanup.action.i1022 ], [ %next.sroa.0.3, %ehcleanup.i1027 ], [ %next.sroa.0.1.lcssa235223642373, %cleanup.action.i1059 ], [ %next.sroa.0.1.lcssa235223642373, %ehcleanup.i1064 ], [ %next.sroa.0.1.lcssa235223642373, %lpad27.loopexit ], [ %next.sroa.0.3, %lpad27.loopexit.split-lp.loopexit ], [ %next.sroa.0.12122, %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %next.sroa.0.1.lcssa235223642373, %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %next.sroa.0.0.ph.ph.ph2015.ph, %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body1705, %lpad159.body ], [ %156, %cleanup.action.i1022 ], [ %155, %ehcleanup.i1027 ], [ %167, %cleanup.action.i1059 ], [ %166, %ehcleanup.i1064 ], [ %lpad.loopexit2009, %lpad27.loopexit ], [ %lpad.loopexit2012, %lpad27.loopexit.split-lp.loopexit ], [ %lpad.loopexit2016, %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit2690, %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp2691, %lpad27.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i617 = icmp eq ptr %next.sroa.0.2, null
   br i1 %tobool.not.i.i.i617, label %_ZN7svectorIjjED2Ev.exit621, label %if.then.i.i.i618

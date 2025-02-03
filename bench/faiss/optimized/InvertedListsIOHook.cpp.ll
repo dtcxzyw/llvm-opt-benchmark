@@ -76,7 +76,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss19InvertedListsIOHook23read_ArrayI
 23:                                               ; preds = %15
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #18
+  call void @__cxa_free_exception(ptr nonnull %19) #18
   br label %25
 
 25:                                               ; preds = %23, %21
@@ -262,7 +262,7 @@ define noundef ptr @_ZN5faiss19InvertedListsIOHook6lookupEi(i32 noundef %0) loca
 31:                                               ; preds = %24
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #18
+  call void @__cxa_free_exception(ptr nonnull %27) #18
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -389,7 +389,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 32:                                               ; preds = %24
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %28) #18
+  call void @__cxa_free_exception(ptr nonnull %28) #18
   br label %34
 
 34:                                               ; preds = %32, %30

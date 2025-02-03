@@ -16575,7 +16575,7 @@ heap_increment.exit.thread.i.i:                   ; preds = %47, %44
   unreachable
 
 53:                                               ; preds = %heap_increment.exit.thread.i.i
-  call fastcc void @gc_continue(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %8)
+  call fastcc void @gc_continue(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %54 = load ptr, ptr %8, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %heap_next_free_page.exit

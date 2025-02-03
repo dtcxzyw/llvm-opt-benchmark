@@ -7885,7 +7885,7 @@ cleanup.action118:                                ; preds = %ehcleanup114, %_ZNK
 
 delete.notnull:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit300
   call void @_ZN8SettingsD1Ev(ptr noundef nonnull align 8 dereferenceable(236) %call) #26
-  call void @_ZdlPv(ptr noundef %call) #25
+  call void @_ZdlPv(ptr noundef nonnull %call) #25
   %call121 = call noundef ptr @_ZN8Settings8getLayerE13SettingsLayer(i32 noundef 0)
   %isnull122 = icmp eq ptr %call121, null
   br i1 %isnull122, label %delete.end124, label %delete.notnull123
@@ -8889,7 +8889,7 @@ cleanup.action228:                                ; preds = %ehcleanup224, %_ZNK
 
 delete.notnull:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit604
   call void @_ZN8SettingsD1Ev(ptr noundef nonnull align 8 dereferenceable(236) %call) #26
-  call void @_ZdlPv(ptr noundef %call) #25
+  call void @_ZdlPv(ptr noundef nonnull %call) #25
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %flagdesc) #26
   ret void
 

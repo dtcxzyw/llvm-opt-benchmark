@@ -2233,7 +2233,7 @@ _ZNSt12__shared_ptrIP15__locale_structLN9__gnu_cxx12_Lock_policyE2EE5resetEv.exi
 107:                                              ; preds = %104
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %105) #22
+  call void @__cxa_free_exception(ptr nonnull %105) #22
   br label %common.resume
 
 .thread:                                          ; preds = %_ZNSt12__shared_ptrIP15__locale_structLN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit, %102

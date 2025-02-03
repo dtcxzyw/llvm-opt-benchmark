@@ -7709,7 +7709,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   br i1 %.not, label %30, label %28
 
 28:                                               ; preds = %2
-  %29 = tail call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE20VisitBuiltinCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef %1)
+  %29 = tail call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE20VisitBuiltinCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull %1)
   br label %_ZN4llvm11SmallVectorIPKN5clang4ExprELj8EED2Ev.exit
 
 30:                                               ; preds = %2
@@ -33874,7 +33874,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   br i1 %.not, label %30, label %28
 
 28:                                               ; preds = %2
-  %29 = tail call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE20VisitBuiltinCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef %1)
+  %29 = tail call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE20VisitBuiltinCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef nonnull %1)
   br label %_ZN4llvm11SmallVectorIPKN5clang4ExprELj8EED2Ev.exit
 
 30:                                               ; preds = %2
@@ -53815,7 +53815,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIN5clang6interp5Scope5LocalELj8EEELb0EE21takeAllocationForGrowEPS6_m.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIN5clang6interp5Scope5LocalELj8EEELb0EE21takeAllocationForGrowEPS6_m.exit: ; preds = %1, %11
-  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %4, i64 noundef %8) #14
+  call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %8) #14
   %12 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %13 = add i64 %12, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %13) #14

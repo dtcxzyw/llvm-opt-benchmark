@@ -1403,13 +1403,9 @@ if.then17:                                        ; preds = %if.then15
   store i32 %7, ptr %parsePos, align 4
   br label %if.end43
 
-lpad11:                                           ; preds = %if.then29, %invoke.cont34, %invoke.cont32
+_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit: ; preds = %if.then29, %invoke.cont34, %invoke.cont32
   %8 = landingpad { ptr, i32 }
           cleanup
-  %isnull.i = icmp eq ptr %call9, null
-  br i1 %isnull.i, label %ehcleanup, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %lpad11
   %vtable.i = load ptr, ptr %call9, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %9 = load ptr, ptr %vfn.i, align 8
@@ -1431,24 +1427,24 @@ if.end25:                                         ; preds = %if.else, %if.then22
 if.then29:                                        ; preds = %if.end25
   store i32 0, ptr %status, align 4
   %call.i19 = invoke noundef nonnull align 8 dereferenceable(28) ptr @_ZNK6icu_7514CurrencyAmount11getCurrencyEv(ptr noundef nonnull align 8 dereferenceable(128) %call9)
-          to label %invoke.cont32 unwind label %lpad11
+          to label %invoke.cont32 unwind label %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit
 
 invoke.cont32:                                    ; preds = %if.then29
   %isoCode.i.i = getelementptr inbounds nuw i8, ptr %call.i19, i64 20
   %call35 = invoke ptr @u_strcpy_75(ptr noundef nonnull %currency, ptr noundef nonnull %isoCode.i.i)
-          to label %invoke.cont34 unwind label %lpad11
+          to label %invoke.cont34 unwind label %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit
 
 invoke.cont34:                                    ; preds = %invoke.cont32
   %number.i = getelementptr inbounds nuw i8, ptr %call9, i64 8
   %call41 = invoke noundef double @_ZNK6icu_7511Formattable9getDoubleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %number.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %if.end43 unwind label %lpad11
+          to label %delete.notnull.i21 unwind label %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit
 
-if.end43:                                         ; preds = %invoke.cont34, %if.end25, %if.then15, %if.then17
-  %doubleVal.0 = phi double [ 0.000000e+00, %if.then17 ], [ 0.000000e+00, %if.then15 ], [ 0.000000e+00, %if.end25 ], [ %call41, %invoke.cont34 ]
+if.end43:                                         ; preds = %if.end25, %if.then15, %if.then17
   %isnull.i20 = icmp eq ptr %call9, null
   br i1 %isnull.i20, label %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit24, label %delete.notnull.i21
 
-delete.notnull.i21:                               ; preds = %if.end43
+delete.notnull.i21:                               ; preds = %invoke.cont34, %if.end43
+  %doubleVal.030 = phi double [ 0.000000e+00, %if.end43 ], [ %call41, %invoke.cont34 ]
   %vtable.i22 = load ptr, ptr %call9, align 8
   %vfn.i23 = getelementptr inbounds nuw i8, ptr %vtable.i22, i64 8
   %10 = load ptr, ptr %vfn.i23, align 8
@@ -1456,18 +1452,19 @@ delete.notnull.i21:                               ; preds = %if.end43
   br label %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit24
 
 _ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit24: ; preds = %if.end43, %delete.notnull.i21
+  %doubleVal.031 = phi double [ 0.000000e+00, %if.end43 ], [ %doubleVal.030, %delete.notnull.i21 ]
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pp) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %src) #10
   br label %return
 
-ehcleanup:                                        ; preds = %delete.notnull.i, %lpad11, %lpad5
-  %.pn = phi { ptr, i32 } [ %5, %lpad5 ], [ %8, %lpad11 ], [ %8, %delete.notnull.i ]
+ehcleanup:                                        ; preds = %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit, %lpad5
+  %.pn = phi { ptr, i32 } [ %8, %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit ], [ %5, %lpad5 ]
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pp) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %src) #10
   br label %eh.resume
 
 return:                                           ; preds = %entry, %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit24
-  %retval.0 = phi double [ %doubleVal.0, %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit24 ], [ 0.000000e+00, %entry ]
+  %retval.0 = phi double [ %doubleVal.031, %_ZN6icu_7512LocalPointerINS_14CurrencyAmountEED2Ev.exit24 ], [ 0.000000e+00, %entry ]
   ret double %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad

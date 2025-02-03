@@ -7143,7 +7143,7 @@ Abc_SclUpsizeRemoveDangling.exit:                 ; preds = %479, %.loopexit, %A
   %491 = sdiv i32 %.0205, %489
   %492 = sdiv i32 %.0201, %489
   %493 = sdiv i32 %.0203, %489
-  call void @Abc_SclUpsizePrint(ptr noundef %78, i32 noundef %.0217, i32 noundef %488, i32 noundef %490, i32 noundef %491, i32 noundef %492, i32 noundef %493, i32 noundef 1)
+  call void @Abc_SclUpsizePrint(ptr noundef nonnull %78, i32 noundef %.0217, i32 noundef %488, i32 noundef %490, i32 noundef %491, i32 noundef %492, i32 noundef %493, i32 noundef 1)
   br label %496
 
 494:                                              ; preds = %Abc_SclUpsizeRemoveDangling.exit

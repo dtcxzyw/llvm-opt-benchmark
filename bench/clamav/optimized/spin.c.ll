@@ -992,7 +992,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
 440:                                              ; preds = %439, %._crit_edge758
   %.0 = phi i32 [ 0, %._crit_edge758 ], [ 1, %439 ]
   tail call void @free(ptr noundef nonnull %406) #7
-  tail call void @free(ptr noundef %403) #7
+  tail call void @free(ptr noundef nonnull %403) #7
   tail call void @free(ptr noundef %261) #7
   br label %.loopexit693
 

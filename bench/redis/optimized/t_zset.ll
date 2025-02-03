@@ -8618,7 +8618,7 @@ for.body72:                                       ; preds = %for.body72.preheade
   br i1 %cmp80.not, label %for.cond68, label %if.then82
 
 if.then82:                                        ; preds = %for.body72
-  call void @zfree(ptr noundef %call8) #19
+  call void @zfree(ptr noundef nonnull %call8) #19
   br label %return
 
 if.else89:                                        ; preds = %land.lhs.true60, %land.lhs.true55

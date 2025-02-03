@@ -107,7 +107,7 @@ invoke.cont:                                      ; preds = %sw.default
 lpad:                                             ; preds = %sw.default
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %1
 
 switch.lookup:                                    ; preds = %entry
@@ -277,7 +277,7 @@ invoke.cont.i:                                    ; preds = %sw.default.i
 lpad.i:                                           ; preds = %sw.default.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #21
   resume { ptr, i32 } %6
 
 switch.lookup:                                    ; preds = %for.body
@@ -460,7 +460,7 @@ invoke.cont.i:                                    ; preds = %sw.default.i
 lpad.i:                                           ; preds = %sw.default.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #21
   resume { ptr, i32 } %9
 
 switch.lookup:                                    ; preds = %for.body
@@ -1605,7 +1605,7 @@ if.end268:                                        ; preds = %for.end253, %while.
 eh.resume:                                        ; preds = %lpad264, %lpad259, %lpad210, %lpad149, %lpad104, %lpad99, %lpad71, %lpad41, %lpad
   %exception263.sink = phi ptr [ %exception263, %lpad264 ], [ %exception258, %lpad259 ], [ %exception209, %lpad210 ], [ %exception148, %lpad149 ], [ %exception103, %lpad104 ], [ %exception98, %lpad99 ], [ %exception70, %lpad71 ], [ %exception40, %lpad41 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %60, %lpad264 ], [ %59, %lpad259 ], [ %48, %lpad210 ], [ %38, %lpad149 ], [ %30, %lpad104 ], [ %29, %lpad99 ], [ %20, %lpad71 ], [ %13, %lpad41 ], [ %6, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception263.sink) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception263.sink) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -3920,7 +3920,7 @@ if.end908:                                        ; preds = %for.inc894, %for.in
 eh.resume:                                        ; preds = %lpad904, %lpad899, %lpad754, %lpad605, %lpad458, %lpad453, %lpad332, %lpad209, %lpad
   %exception903.sink = phi ptr [ %exception903, %lpad904 ], [ %exception898, %lpad899 ], [ %exception753, %lpad754 ], [ %exception604, %lpad605 ], [ %exception457, %lpad458 ], [ %exception452, %lpad453 ], [ %exception331, %lpad332 ], [ %exception208, %lpad209 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %253, %lpad904 ], [ %252, %lpad899 ], [ %214, %lpad754 ], [ %179, %lpad605 ], [ %144, %lpad458 ], [ %143, %lpad453 ], [ %104, %lpad332 ], [ %67, %lpad209 ], [ %30, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception903.sink) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception903.sink) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -4110,7 +4110,7 @@ invoke.cont:                                      ; preds = %sw.default
 lpad:                                             ; preds = %sw.default
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %9
 
 sw.epilog:                                        ; preds = %_ZN7Imf_3_23Xdr4skipINS_9CharPtrIOEPKcEEvRT0_i.exit64, %_ZN7Imf_3_23Xdr4skipINS_9CharPtrIOEPKcEEvRT0_i.exit34, %_ZN7Imf_3_23Xdr4skipINS_9CharPtrIOEPKcEEvRT0_i.exit
@@ -4286,7 +4286,7 @@ invoke.cont:                                      ; preds = %sw.default
 lpad:                                             ; preds = %sw.default
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %13
 
 sw.epilog:                                        ; preds = %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit, %for.cond12.preheader, %for.cond3.preheader, %for.cond.preheader
@@ -4550,7 +4550,7 @@ if.end:                                           ; preds = %for.end40, %while.b
 eh.resume:                                        ; preds = %lpad45, %lpad
   %exception44.sink = phi ptr [ %exception44, %lpad45 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %12, %lpad45 ], [ %8, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception44.sink) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception44.sink) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -5057,7 +5057,7 @@ if.end:                                           ; preds = %for.inc196, %for.in
 eh.resume:                                        ; preds = %lpad201, %lpad
   %exception200.sink = phi ptr [ %exception200, %lpad201 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %65, %lpad201 ], [ %33, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception200.sink) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception200.sink) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -5275,7 +5275,7 @@ if.end:                                           ; preds = %for.inc54, %for.bod
 eh.resume:                                        ; preds = %lpad59, %lpad
   %exception58.sink = phi ptr [ %exception58, %lpad59 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %11, %lpad59 ], [ %6, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception58.sink) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception58.sink) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -5326,7 +5326,7 @@ for.body24:                                       ; preds = %for.end, %for.inc30
   br i1 %cmp27, label %return, label %for.inc30
 
 for.inc30:                                        ; preds = %for.body24
-  %call.i.i6 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i14.sroa.0.018) #23
+  %call.i.i6 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i14.sroa.0.018) #23
   %call20 = tail call ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %call13)
   %cmp.i.i.i4.not = icmp eq ptr %call.i.i6, %call20
   br i1 %cmp.i.i.i4.not, label %return, label %for.body24, !llvm.loop !117
@@ -5400,7 +5400,7 @@ invoke.cont:                                      ; preds = %if.else
 lpad:                                             ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %land.lhs.true, %entry

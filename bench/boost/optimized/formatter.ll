@@ -5690,7 +5690,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx11
 18:                                               ; preds = %13
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #21
+  call void @__cxa_free_exception(ptr nonnull %14) #21
   br label %28
 
 20:                                               ; preds = %10

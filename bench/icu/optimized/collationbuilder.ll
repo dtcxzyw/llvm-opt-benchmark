@@ -238,13 +238,14 @@ lpad10.thread:                                    ; preds = %if.then35, %if.then
           cleanup
   br label %ehcleanup
 
-lpad10:                                           ; preds = %if.end23, %if.then19
+lpad10:                                           ; preds = %if.then19
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %isnull.i = icmp eq ptr %call8, null
   br i1 %isnull.i, label %ehcleanup, label %delete.notnull.i
 
-delete.notnull.i:                                 ; preds = %lpad10
+delete.notnull.i:                                 ; preds = %lpad10.thread29, %lpad10
+  %lpad.thr_comm.split-lp32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp30, %lpad10.thread29 ], [ %lpad.thr_comm.split-lp, %lpad10 ]
   %vtable.i = load ptr, ptr %call8, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %6 = load ptr, ptr %vfn.i, align 8
@@ -254,10 +255,15 @@ delete.notnull.i:                                 ; preds = %lpad10
 if.end23:                                         ; preds = %invoke.cont9
   %actualLocale = getelementptr inbounds nuw i8, ptr %call8, i64 104
   invoke void @_ZN6icu_756Locale10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(217) %actualLocale)
-          to label %invoke.cont26 unwind label %lpad10
+          to label %invoke.cont26 unwind label %lpad10.thread29
+
+lpad10.thread29:                                  ; preds = %if.end23
+  %lpad.thr_comm.split-lp30 = landingpad { ptr, i32 }
+          cleanup
+  br label %delete.notnull.i
 
 invoke.cont26:                                    ; preds = %if.end23
-  invoke void @_ZN6icu_7517RuleBasedCollator14adoptTailoringEPNS_18CollationTailoringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %call8, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  invoke void @_ZN6icu_7517RuleBasedCollator14adoptTailoringEPNS_18CollationTailoringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull %call8, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont29 unwind label %lpad10.thread
 
 invoke.cont29:                                    ; preds = %invoke.cont26
@@ -296,7 +302,7 @@ cleanup.cont:                                     ; preds = %entry, %_ZN6icu_751
   ret void
 
 ehcleanup:                                        ; preds = %delete.notnull.i, %lpad10, %lpad10.thread, %lpad6
-  %.pn = phi { ptr, i32 } [ %5, %lpad6 ], [ %lpad.thr_comm, %lpad10.thread ], [ %lpad.thr_comm.split-lp, %lpad10 ], [ %lpad.thr_comm.split-lp, %delete.notnull.i ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad6 ], [ %lpad.thr_comm, %lpad10.thread ], [ %lpad.thr_comm.split-lp, %lpad10 ], [ %lpad.thr_comm.split-lp32, %delete.notnull.i ]
   call void @_ZN6icu_7519CollationRuleParser8ImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %importer) #12
   call void @_ZN6icu_7516CollationBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %builder) #12
   resume { ptr, i32 } %.pn
@@ -1681,7 +1687,7 @@ lpad:                                             ; preds = %new.notnull
 lpad3:                                            ; preds = %if.end8
   %5 = landingpad { ptr, i32 }
           cleanup
-  br label %delete.notnull.i15
+  br label %_ZN6icu_7512LocalPointerINS_20CollationDataBuilderEED2Ev.exit18
 
 if.end8:                                          ; preds = %_ZN6icu_7512LocalPointerINS_20CollationDataBuilderEEC2EPS1_R10UErrorCode.exit
   %baseData = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1709,7 +1715,7 @@ lpad15:                                           ; preds = %invoke.cont11
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7511CEFinalizerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %finalizer) #12
-  br label %delete.notnull.i15
+  br label %_ZN6icu_7512LocalPointerINS_20CollationDataBuilderEED2Ev.exit18
 
 if.end23:                                         ; preds = %invoke.cont18
   %11 = load ptr, ptr %dataBuilder, align 8
@@ -1742,7 +1748,7 @@ delete.notnull.i:                                 ; preds = %_ZN6icu_7512LocalPo
 cleanup.cont:                                     ; preds = %new.cont, %if.then.i, %cleanup28.thread33, %delete.notnull.i, %entry
   ret void
 
-delete.notnull.i15:                               ; preds = %lpad3, %lpad15
+_ZN6icu_7512LocalPointerINS_20CollationDataBuilderEED2Ev.exit18: ; preds = %lpad15, %lpad3
   %.pn = phi { ptr, i32 } [ %10, %lpad15 ], [ %5, %lpad3 ]
   %vtable.i16 = load ptr, ptr %call2, align 8
   %vfn.i17 = getelementptr inbounds nuw i8, ptr %vtable.i16, i64 8
@@ -1750,8 +1756,8 @@ delete.notnull.i15:                               ; preds = %lpad3, %lpad15
   call void %14(ptr noundef nonnull align 8 dereferenceable(640) %call2) #12
   br label %eh.resume
 
-eh.resume:                                        ; preds = %delete.notnull.i15, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %4, %lpad ], [ %.pn, %delete.notnull.i15 ]
+eh.resume:                                        ; preds = %lpad, %_ZN6icu_7512LocalPointerINS_20CollationDataBuilderEED2Ev.exit18
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN6icu_7512LocalPointerINS_20CollationDataBuilderEED2Ev.exit18 ], [ %4, %lpad ]
   resume { ptr, i32 } %.pn.pn
 }
 

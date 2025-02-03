@@ -722,7 +722,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
 
 for.inc87:                                        ; preds = %for.body51, %invoke.cont81
   %num_includes.1 = phi i32 [ %num_includes.0383, %for.body51 ], [ %inc85, %invoke.cont81 ]
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it42.sroa.0.0382) #28
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it42.sroa.0.0382) #28
   %cmp.i89.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i89.not, label %for.end89, label %for.body51, !llvm.loop !8
 

@@ -9960,7 +9960,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %20, %23
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %proto_item_set_generated.exit
-  %29 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 4, i32 noundef -1) #12
+  %29 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef 4, i32 noundef -1) #12
   br label %30
 
 30:                                               ; preds = %28, %proto_item_set_generated.exit

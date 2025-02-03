@@ -5199,7 +5199,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10sha
 200:                                              ; preds = %195
   %201 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %196) #25
+  call void @__cxa_free_exception(ptr nonnull %196) #25
   br label %204
 
 202:                                              ; preds = %197
@@ -20822,7 +20822,7 @@ _ZNSt8optionalIN4Luau10SourceCodeEED2Ev.exit:     ; preds = %193, %190, %98
   %198 = phi ptr [ %170, %193 ], [ %170, %190 ], [ %41, %98 ]
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %200 = load ptr, ptr %199, align 8
-  invoke void @_ZN4Luau20DataFlowGraphBuilder5buildEPNS_12AstStatBlockENS_7NotNullINS_21InternalErrorReporterEEE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::DataFlowGraph") align 8 %19, ptr noundef %200, ptr %5)
+  invoke void @_ZN4Luau20DataFlowGraphBuilder5buildEPNS_12AstStatBlockENS_7NotNullINS_21InternalErrorReporterEEE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::DataFlowGraph") align 8 %19, ptr noundef %200, ptr nonnull %5)
           to label %201 unwind label %184
 
 201:                                              ; preds = %_ZNSt8optionalIN4Luau10SourceCodeEED2Ev.exit
@@ -20905,7 +20905,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10sha
 
 236:                                              ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEEEC2EOSF_.exit
   %237 = ptrtoint ptr %19 to i64
-  invoke void @_ZN4Luau19ConstraintGeneratorC1ESt10shared_ptrINS_6ModuleEENS_7NotNullINS_10NormalizerEEENS4_INS_14ModuleResolverEEENS4_INS_12BuiltinTypesEEENS4_INS_21InternalErrorReporterEEERKS1_INS_5ScopeEESt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_EEPNS_9DcrLoggerENS4_INS_13DataFlowGraphEEESt6vectorINS_12RequireCycleESaISX_EE(ptr noundef nonnull align 8 dereferenceable(456) %22, ptr noundef nonnull %23, ptr nonnull %21, ptr %35, ptr %4, ptr %5, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %24, ptr noundef %235, i64 %237, ptr noundef nonnull %25)
+  invoke void @_ZN4Luau19ConstraintGeneratorC1ESt10shared_ptrINS_6ModuleEENS_7NotNullINS_10NormalizerEEENS4_INS_14ModuleResolverEEENS4_INS_12BuiltinTypesEEENS4_INS_21InternalErrorReporterEEERKS1_INS_5ScopeEESt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_EEPNS_9DcrLoggerENS4_INS_13DataFlowGraphEEESt6vectorINS_12RequireCycleESaISX_EE(ptr noundef nonnull align 8 dereferenceable(456) %22, ptr noundef nonnull %23, ptr nonnull %21, ptr %35, ptr %4, ptr nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %24, ptr noundef %235, i64 %237, ptr noundef nonnull %25)
           to label %238 unwind label %432
 
 238:                                              ; preds = %236
@@ -22669,7 +22669,7 @@ define linkonce_odr dso_local void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashS
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #25
+  tail call void @__cxa_free_exception(ptr nonnull %10) #25
   br label %common.resume
 
 14:                                               ; preds = %11
@@ -22938,7 +22938,7 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %24
           to label %.invoke unwind label %.loopexit
 
 109:                                              ; preds = %.invoke, %105, %100
-  %110 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0265.0387) #31
+  %110 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0265.0387) #31
   %.not334 = icmp eq ptr %110, %92
   br i1 %.not334, label %._crit_edge390, label %.lr.ph389
 
@@ -23040,7 +23040,7 @@ _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %24
           to label %155 unwind label %.loopexit.split-lp.loopexit
 
 155:                                              ; preds = %.invoke395, %151, %146
-  %156 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0255.0382) #31
+  %156 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0255.0382) #31
   %.not333 = icmp eq ptr %156, %138
   br i1 %.not333, label %._crit_edge385, label %.lr.ph384
 
@@ -39706,7 +39706,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #28
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
+          to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit unwind label %35
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i = icmp eq ptr %6, %1
@@ -39758,32 +39758,32 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %32, ptr %27, align 8
   ret void
 
-33:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
+33:                                               ; preds = %35
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %38 unwind label %39
+          to label %39 unwind label %40
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  %37 = tail call ptr @__cxa_begin_catch(ptr %36) #25
+  %37 = extractvalue { ptr, i32 } %36, 0
+  %38 = tail call ptr @__cxa_begin_catch(ptr %37) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #26
   invoke void @__cxa_rethrow() #27
-          to label %42 unwind label %33
-
-38:                                               ; preds = %33
-  resume { ptr, i32 } %34
+          to label %43 unwind label %33
 
 39:                                               ; preds = %33
-  %40 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %34
+
+40:                                               ; preds = %33
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #29
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #29
   unreachable
 
-42:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
+43:                                               ; preds = %35
   unreachable
 }
 

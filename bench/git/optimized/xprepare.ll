@@ -105,7 +105,7 @@ if.then17:                                        ; preds = %if.end13
   %recs.i = getelementptr inbounds nuw i8, ptr %xe, i64 96
   %9 = load ptr, ptr %recs.i, align 8
   call void @free(ptr noundef %9) #5
-  call void @xdl_cha_free(ptr noundef %xe) #5
+  call void @xdl_cha_free(ptr noundef nonnull %xe) #5
   %10 = load ptr, ptr %rcrecs.i, align 8
   call void @free(ptr noundef %10) #5
   %11 = load ptr, ptr %rchash.i, align 8

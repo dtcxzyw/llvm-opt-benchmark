@@ -2118,9 +2118,7 @@ entry:
   %ref = getelementptr inbounds nuw i8, ptr %ep, i64 1280
   %call = tail call i32 @gpr_unref(ptr noundef nonnull %ref)
   %tobool.not = icmp eq i32 %call, 0
-  %isnull.i = icmp eq ptr %ep, null
-  %or.cond = or i1 %isnull.i, %tobool.not
-  br i1 %or.cond, label %if.end, label %delete.notnull.i
+  br i1 %tobool.not, label %if.end, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %wrapped_ep.i.i = getelementptr inbounds nuw i8, ptr %ep, i64 8
@@ -2312,7 +2310,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i9.i.i, %
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ep, i64 976
   %27 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %27, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115secure_endpointD2Ev.exit.i, label %if.then.i.i.i.i.i10.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZL7destroyPN12_GLOBAL__N_115secure_endpointE.exit, label %if.then.i.i.i.i.i10.i.i
 
 if.then.i.i.i.i.i10.i.i:                          ; preds = %if.end.i.i.i.i
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -2348,7 +2346,7 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %29, %if.then.i.i.i.i.i.i.i.i.i ], [ %32, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115secure_endpointD2Ev.exit.i
+  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZL7destroyPN12_GLOBAL__N_115secure_endpointE.exit
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %27, align 8
@@ -2373,14 +2371,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %35, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %36, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115secure_endpointD2Ev.exit.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZL7destroyPN12_GLOBAL__N_115secure_endpointE.exit
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i11.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %27, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %37 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %27) #18
-  br label %_ZN12_GLOBAL__N_115secure_endpointD2Ev.exit.i
+  br label %_ZL7destroyPN12_GLOBAL__N_115secure_endpointE.exit
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i9.i.i
   %38 = landingpad { ptr, i32 }
@@ -2396,7 +2394,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont12.i.i, 
   tail call void @__clang_call_terminate(ptr %41) #19
   unreachable
 
-_ZN12_GLOBAL__N_115secure_endpointD2Ev.exit.i:    ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end.i.i.i.i
+_ZL7destroyPN12_GLOBAL__N_115secure_endpointE.exit: ; preds = %if.end.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
   %write_mu.i.i = getelementptr inbounds nuw i8, ptr %ep, i64 48
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %write_mu.i.i) #18
   %read_mu.i.i = getelementptr inbounds nuw i8, ptr %ep, i64 40
@@ -2404,7 +2402,7 @@ _ZN12_GLOBAL__N_115secure_endpointD2Ev.exit.i:    ; preds = %if.end8.sink.split.
   tail call void @_ZdlPv(ptr noundef nonnull %ep) #20
   br label %if.end
 
-if.end:                                           ; preds = %_ZN12_GLOBAL__N_115secure_endpointD2Ev.exit.i, %entry
+if.end:                                           ; preds = %_ZL7destroyPN12_GLOBAL__N_115secure_endpointE.exit, %entry
   ret void
 }
 

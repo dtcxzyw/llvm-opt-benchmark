@@ -879,7 +879,7 @@ define linkonce_odr void @_ZN5ZXing9ImageViewC2EPKhiiNS_11ImageFormatEii(ptr nou
 38:                                               ; preds = %35, %27
   %.sink = phi ptr [ %33, %35 ], [ %25, %27 ]
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %28, %27 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #6
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #6
   resume { ptr, i32 } %.pn
 }
 

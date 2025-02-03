@@ -1959,7 +1959,7 @@ define hidden void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h79736554
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
   %15 = load ptr, ptr %14, align 8, !alias.scope !351, !noundef !10
-  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h7973655477c09fe6E.llvm.15131964271339581801"(ptr noalias noundef align 8 dereferenceable(56) %15)
+  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h7973655477c09fe6E.llvm.15131964271339581801"(ptr noalias noundef nonnull align 8 dereferenceable(56) %15)
           to label %"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$ignore..Error$GT$$GT$17hdbba7c4de06673adE.exit" unwind label %16, !noalias !351
 
 common.resume.sink.split:                         ; preds = %16, %30, %74
@@ -2005,7 +2005,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !367)
   %29 = load ptr, ptr %28, align 8, !alias.scope !367, !noundef !10
-  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h7973655477c09fe6E.llvm.15131964271339581801"(ptr noalias noundef align 8 dereferenceable(56) %29)
+  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h7973655477c09fe6E.llvm.15131964271339581801"(ptr noalias noundef nonnull align 8 dereferenceable(56) %29)
           to label %"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$ignore..Error$GT$$GT$17hdbba7c4de06673adE.exit5" unwind label %30, !noalias !367
 
 30:                                               ; preds = %27
@@ -2121,7 +2121,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !418)
   %73 = load ptr, ptr %72, align 8, !alias.scope !418, !noundef !10
-  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h7973655477c09fe6E.llvm.15131964271339581801"(ptr noalias noundef align 8 dereferenceable(56) %73)
+  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h7973655477c09fe6E.llvm.15131964271339581801"(ptr noalias noundef nonnull align 8 dereferenceable(56) %73)
           to label %"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$ignore..Error$GT$$GT$17hdbba7c4de06673adE.exit14" unwind label %74, !noalias !418
 
 74:                                               ; preds = %71
@@ -2617,7 +2617,7 @@ define internal void @"_ZN4core3ptr54drop_in_place$LT$$RF$$RF$rustc_ast..ast..An
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$ignore..Error$GT$$GT$17hdbba7c4de06673adE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !10
-  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h7973655477c09fe6E.llvm.15131964271339581801"(ptr noalias noundef align 8 dereferenceable(56) %2)
+  invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17h7973655477c09fe6E.llvm.15131964271339581801"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1

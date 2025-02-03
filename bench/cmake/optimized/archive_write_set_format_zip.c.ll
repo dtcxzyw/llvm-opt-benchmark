@@ -2408,7 +2408,7 @@ trad_enc_encrypt_update.exit:                     ; preds = %197, %190
   br i1 %250, label %188, label %.loopexit, !llvm.loop !9
 
 251:                                              ; preds = %170
-  %252 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef %1, i64 noundef %spec.select) #13
+  %252 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %spec.select) #13
   %.not130 = icmp eq i32 %252, 0
   br i1 %.not130, label %255, label %253
 
@@ -2574,7 +2574,7 @@ trad_enc_encrypt_update.exit145:                  ; preds = %293, %289, %321, %3
   br i1 %.not127, label %.loopexit, label %281, !llvm.loop !10
 
 347:                                              ; preds = %164
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.45) #13
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.45) #13
   br label %.loopexit155
 
 .loopexit:                                        ; preds = %345, %243, %173, %255

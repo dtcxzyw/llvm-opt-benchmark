@@ -726,7 +726,7 @@ for.inc153:                                       ; preds = %invoke.cont147
 lpad102:                                          ; preds = %invoke.cont99
   %62 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i141142)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i141142)
           to label %ehcleanup188 unwind label %terminate.lpad.i180
 
 terminate.lpad.i180:                              ; preds = %lpad102

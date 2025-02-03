@@ -2920,7 +2920,7 @@ define ptr @h5tools_str_replace(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef %.04555) #20
+  tail call void @free(ptr noundef nonnull %.04555) #20
   br label %.loopexit
 
 19:                                               ; preds = %.lr.ph
@@ -2942,7 +2942,7 @@ define ptr @h5tools_str_replace(ptr noundef readonly captures(none) %0, ptr noun
   %32 = getelementptr inbounds i8, ptr %30, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 %12
   store i8 0, ptr %33, align 1
-  tail call void @free(ptr noundef %.04555) #20
+  tail call void @free(ptr noundef nonnull %.04555) #20
   %34 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %1) #23
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %.loopexit, label %.lr.ph

@@ -2124,7 +2124,7 @@ invoke.cont12:                                    ; preds = %if.end
   %6 = icmp slt i32 %.pre, 1
   br i1 %6, label %if.end18, label %delete.notnull.i15
 
-delete.notnull.i:                                 ; preds = %if.end18
+_ZN6icu_7512LocalPointerINS_17SharedPluralRulesEED2Ev.exit: ; preds = %if.end18
   %7 = landingpad { ptr, i32 }
           cleanup
   %vtable.i = load ptr, ptr %call7, align 8
@@ -2135,7 +2135,7 @@ delete.notnull.i:                                 ; preds = %if.end18
 
 if.end18:                                         ; preds = %invoke.cont12
   invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %call7)
-          to label %_ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit unwind label %delete.notnull.i
+          to label %_ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit unwind label %_ZN6icu_7512LocalPointerINS_17SharedPluralRulesEED2Ev.exit
 
 delete.notnull.i15:                               ; preds = %invoke.cont12
   %vtable.i16 = load ptr, ptr %call7, align 8
@@ -2159,8 +2159,8 @@ _ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit: ; preds = %if.end18, %clea
   %retval.046 = phi ptr [ null, %cleanup26 ], [ null, %delete.notnull.i20 ], [ %call7, %if.end18 ]
   ret ptr %retval.046
 
-eh.resume:                                        ; preds = %delete.notnull.i, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %4, %lpad ], [ %7, %delete.notnull.i ]
+eh.resume:                                        ; preds = %_ZN6icu_7512LocalPointerINS_17SharedPluralRulesEED2Ev.exit, %lpad
+  %.pn.pn = phi { ptr, i32 } [ %4, %lpad ], [ %7, %_ZN6icu_7512LocalPointerINS_17SharedPluralRulesEED2Ev.exit ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2216,7 +2216,7 @@ lpad:                                             ; preds = %new.notnull
 lpad4:                                            ; preds = %if.end9
   %4 = landingpad { ptr, i32 }
           cleanup
-  br label %delete.notnull.i23
+  br label %_ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit26
 
 if.end9:                                          ; preds = %_ZN6icu_7512LocalPointerINS_11PluralRulesEEC2EPS1_R10UErrorCode.exit
   invoke void @_ZN6icu_7511PluralRules19getRuleFromResourceERKNS_6LocaleE11UPluralTypeR10UErrorCode(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %locRule, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(217) %locale, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -2303,7 +2303,7 @@ lpad25:                                           ; preds = %invoke.cont28, %inv
 ehcleanup39:                                      ; preds = %lpad25, %lpad13
   %.pn = phi { ptr, i32 } [ %15, %lpad25 ], [ %9, %lpad13 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %locRule) #27
-  br label %delete.notnull.i23
+  br label %_ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit26
 
 cleanup40:                                        ; preds = %if.then17
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %locRule) #27
@@ -2316,7 +2316,7 @@ delete.notnull.i21:                               ; preds = %_ZN6icu_7512LocalPo
   call void %16(ptr noundef nonnull align 8 dereferenceable(28) %call3) #27
   br label %return
 
-delete.notnull.i23:                               ; preds = %lpad4, %ehcleanup39
+_ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit26: ; preds = %ehcleanup39, %lpad4
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup39 ], [ %4, %lpad4 ]
   %vtable.i24 = load ptr, ptr %call3, align 8
   %vfn.i25 = getelementptr inbounds nuw i8, ptr %vtable.i24, i64 8
@@ -2328,8 +2328,8 @@ return:                                           ; preds = %new.cont, %if.then.
   %retval.0 = phi ptr [ null, %if.then1 ], [ null, %entry ], [ null, %delete.notnull.i21 ], [ %call3, %cleanup40.thread45 ], [ null, %if.then.i ], [ null, %new.cont ]
   ret ptr %retval.0
 
-eh.resume:                                        ; preds = %delete.notnull.i23, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.pn, %delete.notnull.i23 ]
+eh.resume:                                        ; preds = %lpad, %_ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit26
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit26 ], [ %3, %lpad ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 

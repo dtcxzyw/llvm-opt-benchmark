@@ -1264,7 +1264,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef readonly captures(
   br label %42
 
 42:                                               ; preds = %39, %._crit_edge.i
-  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #14
+  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
   %.not19.i = icmp eq i32 %43, 0
   br i1 %.not19.i, label %_launch_handler.exit, label %44
 
@@ -1460,7 +1460,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef readonly captures(
   br label %138
 
 138:                                              ; preds = %135, %.loopexit.i
-  %139 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #14
+  %139 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
   %.not49.i = icmp eq i32 %139, 0
   br i1 %.not49.i, label %_launch_handler.exit, label %140
 

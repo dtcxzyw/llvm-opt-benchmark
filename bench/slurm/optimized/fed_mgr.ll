@@ -13684,7 +13684,7 @@ define internal fastcc ptr @_load_fed_job_list(ptr noundef nonnull %0, i16 nound
 
 34:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @list_append(ptr noundef %11, ptr noundef %13) #17
+  call void @list_append(ptr noundef %11, ptr noundef nonnull %13) #17
   %35 = add nuw nsw i32 %.01227, 1
   %36 = load i32, ptr %4, align 4
   %37 = icmp ult i32 %35, %36

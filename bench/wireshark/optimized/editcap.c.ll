@@ -3496,8 +3496,8 @@ define internal fastcc noalias ptr @fileset_get_filename_by_pattern(i32 noundef 
   br label %abs_time_to_str_with_sec_resolution.exit
 
 abs_time_to_str_with_sec_resolution.exit:         ; preds = %15, %30
-  %31 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %2, ptr noundef nonnull @.str.201, ptr noundef nonnull %5, ptr noundef nonnull @.str.201, ptr noundef %13, ptr noundef %3, ptr noundef null) #22
-  call void @g_free(ptr noundef %13) #22
+  %31 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %2, ptr noundef nonnull @.str.201, ptr noundef nonnull %5, ptr noundef nonnull @.str.201, ptr noundef nonnull %13, ptr noundef %3, ptr noundef null) #22
+  call void @g_free(ptr noundef nonnull %13) #22
   br label %34
 
 32:                                               ; preds = %4

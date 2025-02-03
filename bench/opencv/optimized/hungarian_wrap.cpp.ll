@@ -373,7 +373,7 @@ define hidden void @_ZN3vas2ot13HungarianAlgo5SolveEv(ptr dead_on_unwind noalias
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #14
+  tail call void @__cxa_free_exception(ptr nonnull %9) #14
   br label %38
 
 13:                                               ; preds = %2
@@ -485,7 +485,7 @@ define hidden noundef i32 @_ZN3vas2ot13HungarianAlgo13InitHungarianEi(ptr nounde
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %14) #14
+  tail call void @__cxa_free_exception(ptr nonnull %14) #14
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %10
@@ -823,7 +823,7 @@ define hidden void @_ZN3vas2ot13HungarianAlgo14SolveHungarianEv(ptr noundef nonn
 15:                                               ; preds = %12
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %13) #14
+  tail call void @__cxa_free_exception(ptr nonnull %13) #14
   br label %297
 
 17:                                               ; preds = %7

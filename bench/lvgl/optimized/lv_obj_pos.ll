@@ -2942,7 +2942,7 @@ lv_obj_is_layout_positioned.exit.thread:          ; preds = %3, %1, %lv_obj_is_l
   %.087 = phi i32 [ %109, %104 ], [ %.sroa.0.0.extract.trunc.i111, %102 ], [ %.sroa.0.0.extract.trunc.i111, %99 ]
   %111 = add nsw i32 %.088, %.084
   %112 = add nsw i32 %.087, %.085
-  %113 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 10) #8
+  %113 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 10) #8
   %114 = ptrtoint ptr %113 to i64
   %.sroa.0.0.extract.trunc.i112 = trunc i64 %114 to i32
   switch i32 %.sroa.0.0.extract.trunc.i112, label %.thread [
@@ -3027,7 +3027,7 @@ lv_obj_is_layout_positioned.exit.thread:          ; preds = %3, %1, %lv_obj_is_l
 .thread:                                          ; preds = %110, %115, %150, %144, %139, %133, %130, %126, %.thread116, %120
   %.186 = phi i32 [ %149, %144 ], [ %143, %139 ], [ %138, %133 ], [ %132, %130 ], [ %129, %126 ], [ %112, %.thread116 ], [ %112, %120 ], [ %156, %150 ], [ %112, %115 ], [ %112, %110 ]
   %.1 = phi i32 [ %146, %144 ], [ %141, %139 ], [ %136, %133 ], [ %111, %130 ], [ %111, %126 ], [ %125, %.thread116 ], [ %123, %120 ], [ %153, %150 ], [ %111, %115 ], [ %111, %110 ]
-  tail call void @lv_obj_move_to(ptr noundef %0, i32 noundef %.1, i32 noundef %.186)
+  tail call void @lv_obj_move_to(ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %.186)
   br label %157
 
 157:                                              ; preds = %15, %.thread, %lv_obj_is_layout_positioned.exit

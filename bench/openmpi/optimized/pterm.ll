@@ -331,7 +331,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i144, %79
   br label %360
 
 104:                                              ; preds = %95
-  call void @free(ptr noundef %96) #15
+  call void @free(ptr noundef nonnull %96) #15
   br label %105
 
 105:                                              ; preds = %104, %92

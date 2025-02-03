@@ -113,7 +113,7 @@ define range(i32 -17, 1) i32 @opal_os_dirpath_create(ptr noundef %0, i32 noundef
   %58 = tail call ptr @strerror(i32 noundef %54) #11
   %59 = tail call i32 (ptr, ptr, i32, ...) %57(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef nonnull %30, ptr noundef %58) #11
   tail call void @opal_argv_free(ptr noundef nonnull %27) #11
-  tail call void @free(ptr noundef %30) #11
+  tail call void @free(ptr noundef nonnull %30) #11
   br label %75
 
 60:                                               ; preds = %50
@@ -138,7 +138,7 @@ define range(i32 -17, 1) i32 @opal_os_dirpath_create(ptr noundef %0, i32 noundef
   %72 = tail call ptr @strerror(i32 noundef %71) #11
   %73 = tail call i32 (ptr, ptr, i32, ...) %70(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %30, i32 noundef %1, ptr noundef %72) #11
   tail call void @opal_argv_free(ptr noundef nonnull %27) #11
-  tail call void @free(ptr noundef %30) #11
+  tail call void @free(ptr noundef nonnull %30) #11
   br label %75
 
 74:                                               ; preds = %65, %62, %60
@@ -148,7 +148,7 @@ define range(i32 -17, 1) i32 @opal_os_dirpath_create(ptr noundef %0, i32 noundef
 
 ._crit_edge:                                      ; preds = %74, %26
   tail call void @opal_argv_free(ptr noundef %27) #11
-  tail call void @free(ptr noundef %30) #11
+  tail call void @free(ptr noundef nonnull %30) #11
   br label %75
 
 75:                                               ; preds = %23, %13, %8, %2, %._crit_edge, %69, %56, %17

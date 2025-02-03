@@ -3453,7 +3453,7 @@ FT_Stroker_GetCounts.exit:                        ; preds = %16, %ft_stroke_bord
 
 54:                                               ; preds = %FT_Stroker_GetCounts.exit, %12
   %.1 = phi i32 [ %15, %12 ], [ %49, %FT_Stroker_GetCounts.exit ]
-  call void @FT_Done_Glyph(ptr noundef %13) #11
+  call void @FT_Done_Glyph(ptr noundef nonnull %13) #11
   %.not40 = icmp eq i8 %2, 0
   br i1 %.not40, label %.sink.split, label %55
 
@@ -3583,7 +3583,7 @@ FT_Stroker_GetBorderCounts.exit:                  ; preds = %.lr.ph.i.i, %19, %.
 
 45:                                               ; preds = %FT_Stroker_GetBorderCounts.exit, %13
   %.1 = phi i32 [ %18, %13 ], [ %40, %FT_Stroker_GetBorderCounts.exit ]
-  call void @FT_Done_Glyph(ptr noundef %14) #11
+  call void @FT_Done_Glyph(ptr noundef nonnull %14) #11
   %.not47 = icmp eq i8 %3, 0
   br i1 %.not47, label %.sink.split, label %46
 

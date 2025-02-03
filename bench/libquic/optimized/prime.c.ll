@@ -455,7 +455,7 @@ BN_GENCB_call.exit:                               ; preds = %if.end78
   %16 = load ptr, ptr %callback1.i, align 8
   %call.i83 = tail call i32 %16(i32 noundef 0, i32 noundef %c1.0, ptr noundef nonnull %cb) #5
   %tobool80.not = icmp eq i32 %call.i83, 0
-  br i1 %tobool80.not, label %if.then122.loopexit153, label %if.end82
+  br i1 %tobool80.not, label %if.then122.loopexit154, label %if.end82
 
 if.end82:                                         ; preds = %if.end78, %BN_GENCB_call.exit
   br i1 %tobool99, label %if.else93, label %if.then84
@@ -463,7 +463,7 @@ if.end82:                                         ; preds = %if.end78, %BN_GENCB
 if.then84:                                        ; preds = %if.end82
   %call85 = tail call i32 @BN_is_prime_fasttest_ex(ptr noundef %ret, i32 noundef %cond479398, ptr noundef nonnull %call, i32 noundef 0, ptr noundef %cb)
   switch i32 %call85, label %if.then122 [
-    i32 -1, label %if.then122.loopexit153
+    i32 -1, label %if.then122.loopexit154
     i32 0, label %loop.backedge
   ]
 
@@ -473,10 +473,10 @@ loop.backedge:                                    ; preds = %for.body, %if.end10
 if.else93:                                        ; preds = %if.end82
   %call94 = tail call i32 @BN_rshift1(ptr noundef nonnull %call55, ptr noundef %ret) #5
   %tobool95.not = icmp eq i32 %call94, 0
-  br i1 %tobool95.not, label %if.then122.loopexit153, label %for.body
+  br i1 %tobool95.not, label %if.then122.loopexit154, label %for.body
 
 for.body:                                         ; preds = %if.else93, %for.inc
-  %i.0123 = phi i32 [ %inc119, %for.inc ], [ 0, %if.else93 ]
+  %i.0124 = phi i32 [ %inc119, %for.inc ], [ 0, %if.else93 ]
   %call99 = tail call i32 @BN_is_prime_fasttest_ex(ptr noundef %ret, i32 noundef 1, ptr noundef nonnull %call, i32 noundef 0, ptr noundef null)
   switch i32 %call99, label %if.end106 [
     i32 -1, label %if.then122
@@ -495,26 +495,26 @@ if.end114:                                        ; preds = %if.end106
 
 BN_GENCB_call.exit90:                             ; preds = %if.end114
   %17 = load ptr, ptr %callback1.i, align 8
-  %call.i88 = tail call i32 %17(i32 noundef %i.0123, i32 noundef %c1.0, ptr noundef nonnull %cb) #5
+  %call.i88 = tail call i32 %17(i32 noundef %i.0124, i32 noundef %c1.0, ptr noundef nonnull %cb) #5
   %tobool116.not = icmp eq i32 %call.i88, 0
   br i1 %tobool116.not, label %if.then122, label %for.inc
 
 for.inc:                                          ; preds = %if.end114, %BN_GENCB_call.exit90
-  %inc119 = add nuw nsw i32 %i.0123, 1
+  %inc119 = add nuw nsw i32 %i.0124, 1
   %exitcond.not = icmp eq i32 %inc119, %cond479398
   br i1 %exitcond.not, label %if.then122, label %for.body, !llvm.loop !13
 
-if.then122.loopexit153:                           ; preds = %if.then84, %if.else93, %BN_GENCB_call.exit
+if.then122.loopexit154:                           ; preds = %if.then84, %if.else93, %BN_GENCB_call.exit
   br label %if.then122
 
-if.then122:                                       ; preds = %BN_GENCB_call.exit90, %for.body, %if.end106, %for.inc, %if.then84, %if.then122.loopexit153, %probable_prime.exit.thread, %probable_prime_dh_safe.exit.thread, %probable_prime_dh.exit.thread, %if.end54
-  %found.0113 = phi i32 [ 0, %if.end54 ], [ 0, %probable_prime.exit.thread ], [ 0, %probable_prime_dh_safe.exit.thread ], [ 0, %probable_prime_dh.exit.thread ], [ 0, %if.then122.loopexit153 ], [ 1, %if.then84 ], [ 1, %for.inc ], [ 0, %if.end106 ], [ 0, %for.body ], [ 0, %BN_GENCB_call.exit90 ]
+if.then122:                                       ; preds = %for.inc, %BN_GENCB_call.exit90, %for.body, %if.end106, %if.then84, %if.then122.loopexit154, %probable_prime.exit.thread, %if.end54, %probable_prime_dh_safe.exit.thread, %probable_prime_dh.exit.thread
+  %found.0111 = phi i32 [ 0, %probable_prime_dh.exit.thread ], [ 0, %probable_prime_dh_safe.exit.thread ], [ 0, %if.end54 ], [ 0, %probable_prime.exit.thread ], [ 0, %if.then122.loopexit154 ], [ 1, %if.then84 ], [ 1, %for.inc ], [ 0, %BN_GENCB_call.exit90 ], [ 0, %for.body ], [ 0, %if.end106 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %call) #5
   tail call void @BN_CTX_free(ptr noundef nonnull %call) #5
   br label %return
 
 return:                                           ; preds = %if.end51, %if.then122, %if.then50, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then50 ], [ %found.0113, %if.then122 ], [ 0, %if.end51 ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then50 ], [ %found.0111, %if.then122 ], [ 0, %if.end51 ]
   ret i32 %retval.0
 }
 

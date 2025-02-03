@@ -933,7 +933,7 @@ lookup_string_in_conversion_struct.exit:          ; preds = %326, %320, %._crit_
 ._crit_edge816.loopexit:                          ; preds = %.critedge3
   %356 = icmp eq i32 %.2549, 0
   %putchar590 = call i32 @putchar(i32 10)
-  call void @free(ptr noundef %286) #25
+  call void @free(ptr noundef nonnull %286) #25
   br i1 %356, label %.loopexit711, label %357
 
 357:                                              ; preds = %._crit_edge816.loopexit
@@ -1007,7 +1007,7 @@ lookup_string_in_conversion_struct.exit:          ; preds = %326, %320, %._crit_
 
 .loopexit711.critedge:                            ; preds = %.critedge
   %putchar590.c = call i32 @putchar(i32 10)
-  call void @free(ptr noundef %286) #25
+  call void @free(ptr noundef nonnull %286) #25
   br label %.loopexit711
 
 .loopexit711:                                     ; preds = %389, %.loopexit711.critedge, %357, %._crit_edge816.loopexit
@@ -1266,7 +1266,7 @@ lookup_string_in_conversion_struct.exit:          ; preds = %326, %320, %._crit_
   br i1 %exitcond1046.not, label %._crit_edge871, label %.lr.ph863, !llvm.loop !34
 
 ._crit_edge871:                                   ; preds = %.critedge7, %.critedge5
-  call void @free(ptr noundef %440) #25
+  call void @free(ptr noundef nonnull %440) #25
   %480 = load i32, ptr @comm_method_string_conversion, align 4
   %481 = icmp sgt i32 %480, 0
   br i1 %481, label %.preheader703, label %._crit_edge876

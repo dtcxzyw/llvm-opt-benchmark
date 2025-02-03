@@ -14608,8 +14608,8 @@ _ZN4tlog6StreamlsIA45_cEERS0_RKT_.exit:           ; preds = %5
   call void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #41
   br label %13
 
-common.resume:                                    ; preds = %24, %26, %30, %11
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %25, %30 ], [ %25, %26 ], [ %25, %24 ]
+common.resume:                                    ; preds = %24, %29, %11
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %25, %29 ], [ %25, %24 ]
   resume { ptr, i32 } %common.resume.op
 
 11:                                               ; preds = %5
@@ -14642,20 +14642,16 @@ common.resume:                                    ; preds = %24, %26, %30, %11
 24:                                               ; preds = %13
   %25 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i3.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i3.i.i, label %common.resume, label %26
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %27 = atomicrmw add ptr %26, i64 -1 acq_rel, align 8
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %common.resume
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %28 = atomicrmw add ptr %27, i64 -1 acq_rel, align 8
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %common.resume
-
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %15, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %15) #41
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %15, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load ptr, ptr %31, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %15) #41
   br label %common.resume
 
 _ZN3tev4TaskINSt3__16vectorINS1_10shared_ptrINS_5ImageEEENS1_9allocatorIS5_EEEEE12await_resumeEv.exit: ; preds = %16, %20
@@ -17644,7 +17640,7 @@ define dso_local void @_ZN3tev11ImageViewer12replaceImageENSt3__110shared_ptrINS
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #41
+  tail call void @__cxa_free_exception(ptr nonnull %12) #41
   br label %172
 
 16:                                               ; preds = %4
@@ -20337,7 +20333,7 @@ define dso_local void @_ZN3tev11ImageViewer11insertImageENSt3__110shared_ptrINS_
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #41
+  tail call void @__cxa_free_exception(ptr nonnull %15) #41
   br label %_ZNSt3__18functionIFvvEED2Ev.exit63
 
 19:                                               ; preds = %4
@@ -23259,7 +23255,7 @@ define linkonce_odr dso_local void @_ZN4tlog12timeToStringERKNSt3__112basic_stri
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #41
+  call void @__cxa_free_exception(ptr nonnull %16) #41
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %3
@@ -23305,7 +23301,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #41
+  tail call void @__cxa_free_exception(ptr nonnull %2) #41
   resume { ptr, i32 } %5
 }
 
@@ -23384,7 +23380,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
 32:                                               ; preds = %29
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %30) #41
+  tail call void @__cxa_free_exception(ptr nonnull %30) #41
   br label %319
 
 34:                                               ; preds = %5
@@ -23403,7 +23399,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
 39:                                               ; preds = %36
   %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %37) #41
+  tail call void @__cxa_free_exception(ptr nonnull %37) #41
   br label %319
 
 41:                                               ; preds = %34
@@ -28493,7 +28489,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_out_of_rangeB8ne190000EPKc(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #41
+  tail call void @__cxa_free_exception(ptr nonnull %2) #41
   resume { ptr, i32 } %5
 }
 
@@ -31141,7 +31137,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail18throw_format_errorEPKc(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #41
+  tail call void @__cxa_free_exception(ptr nonnull %2) #41
   resume { ptr, i32 } %5
 }
 
@@ -47233,7 +47229,7 @@ _ZN3fmt2v96detail6bigintmLIiEERS2_T_.exit303:     ; preds = %_ZN3fmt2v96detail6b
 505:                                              ; preds = %502
   %506 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %503) #41
+  call void @__cxa_free_exception(ptr nonnull %503) #41
   br label %.body
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %497
@@ -62121,7 +62117,7 @@ _ZN3fmt2v96detail9normalizeILi0EyEENS1_8basic_fpIT0_EES5_.exit: ; preds = %.lr.p
 118:                                              ; preds = %115
   %119 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %116) #41
+  tail call void @__cxa_free_exception(ptr nonnull %116) #41
   resume { ptr, i32 } %119
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %110

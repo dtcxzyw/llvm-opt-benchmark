@@ -7520,7 +7520,7 @@ _ZN4llvm6detail12DenseSetImplIN5clang12FileEntryRefENS_8DenseMapIS3_NS0_13DenseS
 
 555:                                              ; preds = %550
   %556 = getelementptr inbounds nuw i8, ptr %547, i64 128
-  call fastcc void @"_ZSt16__insertion_sortIPN5clang12FileEntryRefEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorERNS0_10ASTContextEN4llvm9StringRefEE3$_0EEEvT_SF_T0_"(ptr noundef %547, ptr noundef nonnull %556)
+  call fastcc void @"_ZSt16__insertion_sortIPN5clang12FileEntryRefEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorERNS0_10ASTContextEN4llvm9StringRefEE3$_0EEEvT_SF_T0_"(ptr noundef nonnull %547, ptr noundef nonnull %556)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZSt25__unguarded_linear_insertIPN5clang12FileEntryRefEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorERNS0_10ASTContextEN4llvm9StringRefEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %555
@@ -7595,7 +7595,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = 
   br i1 %.not.i.i.i.i.i.i805, label %"_ZN4llvm4sortIRNS_11SmallVectorIN5clang12FileEntryRefELj1EEEZNS2_9ASTWriter17WriteControlBlockERNS2_12PreprocessorERNS2_10ASTContextENS_9StringRefEE3$_0EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !82
 
 579:                                              ; preds = %550
-  call fastcc void @"_ZSt16__insertion_sortIPN5clang12FileEntryRefEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorERNS0_10ASTContextEN4llvm9StringRefEE3$_0EEEvT_SF_T0_"(ptr noundef %547, ptr noundef nonnull %549)
+  call fastcc void @"_ZSt16__insertion_sortIPN5clang12FileEntryRefEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorERNS0_10ASTContextEN4llvm9StringRefEE3$_0EEEvT_SF_T0_"(ptr noundef nonnull %547, ptr noundef nonnull %549)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorIN5clang12FileEntryRefELj1EEEZNS2_9ASTWriter17WriteControlBlockERNS2_12PreprocessorERNS2_10ASTContextENS_9StringRefEE3$_0EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorIN5clang12FileEntryRefELj1EEEZNS2_9ASTWriter17WriteControlBlockERNS2_12PreprocessorERNS2_10ASTContextENS_9StringRefEE3$_0EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIPN5clang12FileEntryRefEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorERNS0_10ASTContextEN4llvm9StringRefEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %_ZN4llvm6detail12DenseSetImplIN5clang12FileEntryRefENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, %579

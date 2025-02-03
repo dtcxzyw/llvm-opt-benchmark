@@ -2487,7 +2487,7 @@ define hidden void @_Z24test_submodule_smart_ptrRN8pybind117module_E(ptr noundef
 376:                                              ; preds = %373
   %377 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %374) #30
+  call void @__cxa_free_exception(ptr nonnull %374) #30
   br label %.body8.i
 
 _ZN8pybind116detail18process_attributesIJNS_6class_I6ObjectJ3refIS3_EEEEEE4initERKS6_PNS0_11type_recordE.exit.i: ; preds = %.noexc6.i
@@ -9056,7 +9056,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i: ; preds = %_ZN8py
 2513:                                             ; preds = %2510
   %2514 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2511) #30
+  call void @__cxa_free_exception(ptr nonnull %2511) #30
   br label %2517
 
 2515:                                             ; preds = %2512
@@ -9106,7 +9106,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i: ; preds = %_ZN8py
 2527:                                             ; preds = %2524
   %2528 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2525) #30
+  call void @__cxa_free_exception(ptr nonnull %2525) #30
   br label %.body32.i
 
 _ZN8pybind116objectD2Ev.exit.i.i:                 ; preds = %.noexc30.i
@@ -10001,7 +10001,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i837: ; preds = %_ZN
 2813:                                             ; preds = %2810
   %2814 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2811) #30
+  call void @__cxa_free_exception(ptr nonnull %2811) #30
   br label %2817
 
 2815:                                             ; preds = %2812
@@ -10051,7 +10051,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i837: ; preds = %_ZN
 2827:                                             ; preds = %2824
   %2828 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2825) #30
+  call void @__cxa_free_exception(ptr nonnull %2825) #30
   br label %.body32.i845
 
 _ZN8pybind116objectD2Ev.exit.i.i850:              ; preds = %.noexc30.i847
@@ -14078,7 +14078,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i1282: ; preds = %_Z
 4121:                                             ; preds = %4118
   %4122 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4119) #30
+  call void @__cxa_free_exception(ptr nonnull %4119) #30
   br label %4125
 
 4123:                                             ; preds = %4120
@@ -14128,7 +14128,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i1282: ; preds = %_Z
 4135:                                             ; preds = %4132
   %4136 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4133) #30
+  call void @__cxa_free_exception(ptr nonnull %4133) #30
   br label %.body34.i
 
 _ZN8pybind116objectD2Ev.exit.i.i1285:             ; preds = %.noexc32.i
@@ -14602,7 +14602,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i1329: ; preds = %_Z
 4283:                                             ; preds = %4280
   %4284 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4281) #30
+  call void @__cxa_free_exception(ptr nonnull %4281) #30
   br label %4287
 
 4285:                                             ; preds = %4282
@@ -14652,7 +14652,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i1329: ; preds = %_Z
 4297:                                             ; preds = %4294
   %4298 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4295) #30
+  call void @__cxa_free_exception(ptr nonnull %4295) #30
   br label %.body34.i1337
 
 _ZN8pybind116objectD2Ev.exit.i.i1342:             ; preds = %.noexc32.i1339
@@ -14995,7 +14995,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i1380: ; preds = %_Z
 4400:                                             ; preds = %4397
   %4401 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4398) #30
+  call void @__cxa_free_exception(ptr nonnull %4398) #30
   br label %4404
 
 4402:                                             ; preds = %4399
@@ -15045,7 +15045,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i1380: ; preds = %_Z
 4414:                                             ; preds = %4411
   %4415 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4412) #30
+  call void @__cxa_free_exception(ptr nonnull %4412) #30
   br label %.body34.i1388
 
 _ZN8pybind116objectD2Ev.exit.i.i1393:             ; preds = %.noexc32.i1390
@@ -15519,7 +15519,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i1443: ; preds = %_Z
 4562:                                             ; preds = %4559
   %4563 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4560) #30
+  call void @__cxa_free_exception(ptr nonnull %4560) #30
   br label %4566
 
 4564:                                             ; preds = %4561
@@ -15569,7 +15569,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i1443: ; preds = %_Z
 4576:                                             ; preds = %4573
   %4577 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %4574) #30
+  call void @__cxa_free_exception(ptr nonnull %4574) #30
   br label %.body34.i1451
 
 _ZN8pybind116objectD2Ev.exit.i.i1456:             ; preds = %.noexc32.i1453
@@ -16948,7 +16948,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i1596: ; preds = %_Z
 5019:                                             ; preds = %5016
   %5020 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %5017) #30
+  call void @__cxa_free_exception(ptr nonnull %5017) #30
   br label %5023
 
 5021:                                             ; preds = %5018
@@ -16998,7 +16998,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i1596: ; preds = %_Z
 5033:                                             ; preds = %5030
   %5034 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %5031) #30
+  call void @__cxa_free_exception(ptr nonnull %5031) #30
   br label %.body34.i1604
 
 _ZN8pybind116objectD2Ev.exit.i.i1609:             ; preds = %.noexc32.i1606
@@ -18062,7 +18062,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i1723: ; preds = %_Z
 5371:                                             ; preds = %5368
   %5372 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %5369) #30
+  call void @__cxa_free_exception(ptr nonnull %5369) #30
   br label %5375
 
 5373:                                             ; preds = %5370
@@ -18112,7 +18112,7 @@ _ZN8pybind1112staticmethod6check_ENS_6handleE.exit.thread.i.i1723: ; preds = %_Z
 5385:                                             ; preds = %5382
   %5386 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %5383) #30
+  call void @__cxa_free_exception(ptr nonnull %5383) #30
   br label %.body34.i1731
 
 _ZN8pybind116objectD2Ev.exit.i.i1736:             ; preds = %.noexc32.i1733
@@ -20756,7 +20756,7 @@ _Z15track_destroyedIN12_GLOBAL__N_19MyObject4EJEEvPT_.exit.i.i: ; preds = %160, 
 _ZN12_GLOBAL__N_19MyObject4D2Ev.exit:             ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @_ZdlPv(ptr noundef %68) #35
+  call void @_ZdlPv(ptr noundef nonnull %68) #35
   br label %170
 
 170:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_19MyObject4D2Ev.exit
@@ -22017,7 +22017,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %16, %18, %21
 35:                                               ; preds = %.noexc84
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %33) #30
+  call void @__cxa_free_exception(ptr nonnull %33) #30
   br label %.body86
 
 37:                                               ; preds = %11
@@ -22241,7 +22241,7 @@ _ZN8pybind116objectD2Ev.exit48:                   ; preds = %_ZN8pybind116detail
 134:                                              ; preds = %131
   %135 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %132) #30
+  call void @__cxa_free_exception(ptr nonnull %132) #30
   br label %138
 
 136:                                              ; preds = %133
@@ -22296,7 +22296,7 @@ _ZN8pybind117capsuleC2EPKvPKcPFvP7_objectE.exit:  ; preds = %.noexc89
 150:                                              ; preds = %147
   %151 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %148) #30
+  call void @__cxa_free_exception(ptr nonnull %148) #30
   br label %.body
 
 _ZN8pybind116objectD2Ev.exit.i:                   ; preds = %.noexc68
@@ -22526,7 +22526,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail21get_python_state_dictEv(pt
 11:                                               ; preds = %6
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #30
+  tail call void @__cxa_free_exception(ptr nonnull %7) #30
   br label %16
 
 13:                                               ; preds = %3
@@ -22604,7 +22604,7 @@ _ZN8pybind114dict8raw_dictEP7_object.exit:        ; preds = %_ZN8pybind114dict6c
 15:                                               ; preds = %12
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %13) #30
+  tail call void @__cxa_free_exception(ptr nonnull %13) #30
   br label %20
 
 17:                                               ; preds = %14
@@ -22671,7 +22671,7 @@ define linkonce_odr hidden void @_ZN8pybind1113pybind11_failEPKc(ptr noundef %0)
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #30
+  tail call void @__cxa_free_exception(ptr nonnull %2) #30
   resume { ptr, i32 } %5
 }
 
@@ -23199,7 +23199,7 @@ _ZNKR8pybind116handle7inc_refEv.exit17:           ; preds = %11, %_ZNKR8pybind11
 35:                                               ; preds = %32
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %33) #30
+  call void @__cxa_free_exception(ptr nonnull %33) #30
   br label %.body
 
 _ZN8pybind117setattrENS_6handleEPKcS0_.exit:      ; preds = %.noexc
@@ -23367,7 +23367,7 @@ _ZNKR8pybind116handle7inc_refEv.exit19:           ; preds = %11, %_ZNKR8pybind11
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %35) #30
+  call void @__cxa_free_exception(ptr nonnull %35) #30
   br label %.body
 
 _ZN8pybind117setattrENS_6handleEPKcS0_.exit:      ; preds = %.noexc
@@ -23571,7 +23571,7 @@ _ZNKR8pybind116handle7inc_refEv.exit24:           ; preds = %17, %_ZNKR8pybind11
 53:                                               ; preds = %50
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %51) #30
+  call void @__cxa_free_exception(ptr nonnull %51) #30
   br label %.body
 
 _ZN8pybind117setattrENS_6handleEPKcS0_.exit:      ; preds = %.noexc
@@ -24371,7 +24371,7 @@ define linkonce_odr hidden void @_ZN8pybind1113pybind11_failERKNSt7__cxx1112basi
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #30
+  tail call void @__cxa_free_exception(ptr nonnull %2) #30
   resume { ptr, i32 } %5
 }
 
@@ -25437,7 +25437,7 @@ define linkonce_odr hidden void @_ZN8pybind113strC2ENS_6handleE(ptr noundef nonn
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %5) #30
+  tail call void @__cxa_free_exception(ptr nonnull %5) #30
   br label %12
 
 9:                                                ; preds = %6
@@ -25964,7 +25964,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %10, %14
 24:                                               ; preds = %21, %8
   %.sink = phi ptr [ %19, %21 ], [ %6, %8 ]
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %9, %8 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #30
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #30
   resume { ptr, i32 } %.pn
 }
 
@@ -26012,7 +26012,7 @@ define linkonce_odr hidden void @_ZN8pybind113strC2EPKc(ptr noundef nonnull alig
 12:                                               ; preds = %7
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #30
+  tail call void @__cxa_free_exception(ptr nonnull %8) #30
   br label %17
 
 14:                                               ; preds = %6
@@ -27793,7 +27793,7 @@ define linkonce_odr hidden void @_ZN8pybind117weakrefC2ENS_6handleES1_(ptr nound
 13:                                               ; preds = %8
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #30
+  tail call void @__cxa_free_exception(ptr nonnull %9) #30
   br label %18
 
 15:                                               ; preds = %7
@@ -28381,7 +28381,7 @@ _ZN8pybind1112cpp_function12strdup_guardclEPKc.exit290: ; preds = %_ZNSt6vectorI
 132:                                              ; preds = %129
   %133 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %130) #30, !noalias !1031
+  call void @__cxa_free_exception(ptr nonnull %130) #30, !noalias !1031
   br label %.body
 
 134:                                              ; preds = %.noexc291
@@ -29420,7 +29420,7 @@ _ZN8pybind1110isinstanceINS_7capsuleETnNSt9enable_ifIXsr3std10is_base_ofINS_6obj
 515:                                              ; preds = %512
   %516 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %513) #30
+  call void @__cxa_free_exception(ptr nonnull %513) #30
   br label %.body376
 
 517:                                              ; preds = %.noexc374
@@ -29845,7 +29845,7 @@ _ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit420: ; preds = 
 669:                                              ; preds = %666
   %670 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %667) #30
+  call void @__cxa_free_exception(ptr nonnull %667) #30
   br label %.body424
 
 _ZN8pybind117capsule11set_pointerEPKv.exit:       ; preds = %.noexc422
@@ -31083,7 +31083,7 @@ define linkonce_odr hidden noundef ptr @_ZNK8pybind117capsule11get_pointerINS_6d
 common.resume:                                    ; preds = %17, %10
   %.sink = phi ptr [ %15, %17 ], [ %8, %10 ]
   %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %11, %10 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #30
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #30
   resume { ptr, i32 } %common.resume.op
 
 10:                                               ; preds = %7
@@ -32026,7 +32026,7 @@ _ZN8pybind114dictD2Ev.exit:                       ; preds = %386, %388, %391, %3
           catch ptr null
   %405 = extractvalue { ptr, i32 } %404, 0
   %406 = extractvalue { ptr, i32 } %404, 1
-  call void @__cxa_free_exception(ptr %401) #30
+  call void @__cxa_free_exception(ptr nonnull %401) #30
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit506
 
 .thread668:                                       ; preds = %378, %373, %382
@@ -32544,7 +32544,7 @@ _ZNKR8pybind116handle7inc_refEv.exit.i.i:         ; preds = %565, %.lr.ph850
           catch ptr @_ZTIN8pybind1117error_already_setE
           catch ptr @_ZTIN10__cxxabiv115__forced_unwindE
           catch ptr null
-  call void @__cxa_free_exception(ptr %570) #30
+  call void @__cxa_free_exception(ptr nonnull %570) #30
   br label %.body419
 
 _ZN8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEED2Ev.exit: ; preds = %.noexc417
@@ -33858,7 +33858,7 @@ _ZNK8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEEcvNS_6objectE
   %999 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8pybind1117error_already_setE
-  call void @__cxa_free_exception(ptr %996) #30, !noalias !1188
+  call void @__cxa_free_exception(ptr nonnull %996) #30, !noalias !1188
   br label %.body548
 
 1000:                                             ; preds = %.noexc546
@@ -34173,7 +34173,7 @@ _ZN8pybind113strD2Ev.exit568:                     ; preds = %_ZN8pybind113strD2E
   %1100 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8pybind1117error_already_setE
-  call void @__cxa_free_exception(ptr %1097) #30, !noalias !1201
+  call void @__cxa_free_exception(ptr nonnull %1097) #30, !noalias !1201
   br label %.body572
 
 1101:                                             ; preds = %.noexc570
@@ -34559,7 +34559,7 @@ define linkonce_odr hidden void @_ZN8pybind117capsuleC2EPKvPKcPFvPvE(ptr noundef
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #30
+  tail call void @__cxa_free_exception(ptr nonnull %9) #30
   br label %.body
 
 _ZN8pybind117capsule35initialize_with_void_ptr_destructorEPKvPKcPFvPvE.exit: ; preds = %.noexc5
@@ -35434,7 +35434,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #30, !noalias !1213
+  tail call void @__cxa_free_exception(ptr nonnull %10) #30, !noalias !1213
   resume { ptr, i32 } %13
 
 _ZN8pybind116detail17accessor_policies8str_attr3getENS_6handleEPKc.exit: ; preds = %4
@@ -36265,7 +36265,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %23, %20, %19
 31:                                               ; preds = %27
   %32 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #30
+  tail call void @__cxa_free_exception(ptr nonnull %28) #30
   br label %55
 
 33:                                               ; preds = %_ZN8pybind116objectD2Ev.exit, %_ZN8pybind116objectC2ERKS0_.exit
@@ -36295,7 +36295,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %23, %20, %19
 40:                                               ; preds = %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %38) #30
+  call void @__cxa_free_exception(ptr nonnull %38) #30
   br label %55
 
 42:                                               ; preds = %36
@@ -37687,7 +37687,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #30, !noalias !1248
+  tail call void @__cxa_free_exception(ptr nonnull %10) #30, !noalias !1248
   resume { ptr, i32 } %13
 
 _ZN8pybind116detail17accessor_policies10tuple_item3getImTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEENS_6objectENS_6handleERKS5_.exit: ; preds = %4
@@ -37760,7 +37760,7 @@ define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorI
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %11) #30, !noalias !1254
+  call void @__cxa_free_exception(ptr nonnull %11) #30, !noalias !1254
   br label %.body
 
 15:                                               ; preds = %.noexc
@@ -37839,7 +37839,7 @@ _ZN8pybind113str6check_ENS_6handleE.exit.thread:  ; preds = %2, %_ZN8pybind113st
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #30
+  tail call void @__cxa_free_exception(ptr nonnull %9) #30
   br label %16
 
 13:                                               ; preds = %10
@@ -38289,7 +38289,7 @@ define linkonce_odr hidden void @_ZZN8pybind117capsule35initialize_with_void_ptr
 16:                                               ; preds = %12
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %13) #30
+  call void @__cxa_free_exception(ptr nonnull %13) #30
   br label %38
 
 18:                                               ; preds = %11, %7
@@ -38320,7 +38320,7 @@ define linkonce_odr hidden void @_ZZN8pybind117capsule35initialize_with_void_ptr
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #30
+  call void @__cxa_free_exception(ptr nonnull %25) #30
   br label %38
 
 29:                                               ; preds = %22
@@ -40472,7 +40472,7 @@ _ZNKR8pybind116handle7inc_refEv.exit.i.i:         ; preds = %66, %65
 73:                                               ; preds = %70
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %71) #30
+  call void @__cxa_free_exception(ptr nonnull %71) #30
   br label %.body56
 
 _ZN8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEED2Ev.exit: ; preds = %.noexc54
@@ -40863,7 +40863,7 @@ _ZN8pybind116objectD2Ev.exit.i89:                 ; preds = %167, %164, %_ZN8pyb
   %193 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8pybind1117error_already_setE
-  call void @__cxa_free_exception(ptr %190) #30, !noalias !1327
+  call void @__cxa_free_exception(ptr nonnull %190) #30, !noalias !1327
   br label %.body96
 
 194:                                              ; preds = %.noexc94
@@ -41526,7 +41526,7 @@ define linkonce_odr hidden void @_ZN8pybind1110make_tupleILNS_19return_value_pol
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #30
+  tail call void @__cxa_free_exception(ptr nonnull %15) #30
   br label %.preheader.preheader
 
 19:                                               ; preds = %.noexc
@@ -41577,7 +41577,7 @@ define linkonce_odr hidden void @_ZN8pybind1110make_tupleILNS_19return_value_pol
 36:                                               ; preds = %33
   %37 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %34) #30
+  tail call void @__cxa_free_exception(ptr nonnull %34) #30
   br label %.preheader.preheader
 
 _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE4castERKS7_NS_19return_value_policyENS_6handleE.exit44: ; preds = %.noexc39
@@ -41801,7 +41801,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #30
+  call void @__cxa_free_exception(ptr nonnull %19) #30
   br label %.body15
 
 _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE4castERKS7_NS_19return_value_policyENS_6handleE.exit: ; preds = %.noexc13
@@ -41929,7 +41929,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %7, %8, %11
 21:                                               ; preds = %16
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #30
+  tail call void @__cxa_free_exception(ptr nonnull %17) #30
   br label %25
 
 23:                                               ; preds = %_ZN8pybind116objectD2Ev.exit
@@ -41974,7 +41974,7 @@ define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorI
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %11) #30, !noalias !1380
+  call void @__cxa_free_exception(ptr nonnull %11) #30, !noalias !1380
   br label %.body
 
 15:                                               ; preds = %.noexc
@@ -42070,7 +42070,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %7, %8, %11
 21:                                               ; preds = %16
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #30
+  tail call void @__cxa_free_exception(ptr nonnull %17) #30
   br label %25
 
 23:                                               ; preds = %_ZN8pybind116objectD2Ev.exit
@@ -42143,7 +42143,7 @@ define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorI
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %11) #30, !noalias !1396
+  call void @__cxa_free_exception(ptr nonnull %11) #30, !noalias !1396
   br label %.body
 
 15:                                               ; preds = %.noexc
@@ -42217,7 +42217,7 @@ define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorI
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %11) #30, !noalias !1402
+  call void @__cxa_free_exception(ptr nonnull %11) #30, !noalias !1402
   br label %.body
 
 15:                                               ; preds = %.noexc
@@ -42313,7 +42313,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %7, %8, %11
 21:                                               ; preds = %16
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #30
+  tail call void @__cxa_free_exception(ptr nonnull %17) #30
   br label %25
 
 23:                                               ; preds = %_ZN8pybind116objectD2Ev.exit
@@ -42382,7 +42382,7 @@ _ZN8pybind116detail17collect_argumentsILNS_19return_value_policyE1EJEvEENS0_16si
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #30, !noalias !1425
+  tail call void @__cxa_free_exception(ptr nonnull %15) #30, !noalias !1425
   br label %.body
 
 19:                                               ; preds = %.noexc
@@ -42453,7 +42453,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #30, !noalias !1431
+  tail call void @__cxa_free_exception(ptr nonnull %9) #30, !noalias !1431
   resume { ptr, i32 } %12
 
 _ZN8pybind116detail17accessor_policies12generic_item3getENS_6handleES3_.exit: ; preds = %4
@@ -43097,7 +43097,7 @@ define linkonce_odr hidden void @_ZN8pybind113strC2ImTnNSt9enable_ifIXsr3std11is
 14:                                               ; preds = %9
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #30
+  tail call void @__cxa_free_exception(ptr nonnull %10) #30
   br label %19
 
 16:                                               ; preds = %8
@@ -43154,7 +43154,7 @@ define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorI
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %11) #30, !noalias !1449
+  call void @__cxa_free_exception(ptr nonnull %11) #30, !noalias !1449
   br label %.body
 
 15:                                               ; preds = %.noexc
@@ -43362,7 +43362,7 @@ _ZNSt13unordered_mapIPviSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_iEEEixERS6_.e
 34:                                               ; preds = %31
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %32) #30
+  tail call void @__cxa_free_exception(ptr nonnull %32) #30
   br label %common.resume
 
 36:                                               ; preds = %_ZNSt13unordered_mapIPviSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_iEEEixERS6_.exit
@@ -45225,7 +45225,7 @@ _ZN8pybind116detail8accessorINS0_17accessor_policies9list_itemEED2Ev.exit: ; pre
 275:                                              ; preds = %272
   %276 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %273) #30
+  call void @__cxa_free_exception(ptr nonnull %273) #30
   br label %279
 
 277:                                              ; preds = %274
@@ -45264,7 +45264,7 @@ _ZN8pybind117capsuleC2EPKvPKcPFvP7_objectE.exit:  ; preds = %268
 285:                                              ; preds = %282
   %286 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %283) #30
+  call void @__cxa_free_exception(ptr nonnull %283) #30
   br label %.body
 
 _ZN8pybind117setattrENS_6handleEPKcS0_.exit:      ; preds = %.noexc93
@@ -46363,7 +46363,7 @@ define linkonce_odr hidden void @_ZN8pybind1110make_tupleILNS_19return_value_pol
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #30
+  tail call void @__cxa_free_exception(ptr nonnull %17) #30
   br label %.preheader.preheader
 
 21:                                               ; preds = %.noexc
@@ -46414,7 +46414,7 @@ define linkonce_odr hidden void @_ZN8pybind1110make_tupleILNS_19return_value_pol
 38:                                               ; preds = %35
   %39 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %36) #30
+  tail call void @__cxa_free_exception(ptr nonnull %36) #30
   br label %.preheader.preheader
 
 40:                                               ; preds = %.noexc43
@@ -47062,7 +47062,7 @@ define linkonce_odr hidden void @_ZN3refI6ObjectED2Ev(ptr noundef nonnull align 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @__cxa_free_exception(ptr %17) #30
+  tail call void @__cxa_free_exception(ptr nonnull %17) #30
   br label %.body
 
 _ZNK6Object6decRefEb.exit:                        ; preds = %13, %9, %1
@@ -48339,7 +48339,7 @@ _ZNKSt8functionIFvP15_heaptypeobjectEEclES1_.exit: ; preds = %316
 353:                                              ; preds = %351
   %354 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %352) #30
+  call void @__cxa_free_exception(ptr nonnull %352) #30
   br label %.body205
 
 355:                                              ; preds = %346
@@ -48377,7 +48377,7 @@ _ZN8pybind117setattrENS_6handleEPKcS0_.exit:      ; preds = %.noexc203, %355
 364:                                              ; preds = %361
   %365 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %362) #30
+  call void @__cxa_free_exception(ptr nonnull %362) #30
   br label %.body205
 
 _ZN8pybind117setattrENS_6handleEPKcS0_.exit212:   ; preds = %.noexc208, %_ZN8pybind117setattrENS_6handleEPKcS0_.exit
@@ -48718,7 +48718,7 @@ define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorI
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %11) #30, !noalias !1556
+  call void @__cxa_free_exception(ptr nonnull %11) #30, !noalias !1556
   br label %.body
 
 15:                                               ; preds = %.noexc
@@ -48998,7 +48998,7 @@ _ZN8pybind113str6check_ENS_6handleE.exit.thread:  ; preds = %2, %_ZN8pybind113st
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %14) #30
+  tail call void @__cxa_free_exception(ptr nonnull %14) #30
   br label %21
 
 18:                                               ; preds = %15
@@ -49064,7 +49064,7 @@ _ZN8pybind115tuple6check_ENS_6handleE.exit.thread: ; preds = %2, %_ZN8pybind115t
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %14) #30
+  tail call void @__cxa_free_exception(ptr nonnull %14) #30
   br label %21
 
 18:                                               ; preds = %15
@@ -50123,7 +50123,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %10) #30, !noalias !1571
+  tail call void @__cxa_free_exception(ptr nonnull %10) #30, !noalias !1571
   resume { ptr, i32 } %13
 
 _ZN8pybind116detail17accessor_policies9list_item3getImTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEENS_6objectENS_6handleERKS5_.exit: ; preds = %4
@@ -50621,7 +50621,7 @@ common.resume:                                    ; preds = %55, %14
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #30, !noalias !1586
+  tail call void @__cxa_free_exception(ptr nonnull %12) #30, !noalias !1586
   br label %common.resume
 
 16:                                               ; preds = %9
@@ -50808,7 +50808,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19loader_life_support11add_p
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #30
+  tail call void @__cxa_free_exception(ptr nonnull %6) #30
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %1
@@ -50856,7 +50856,7 @@ define linkonce_odr hidden noundef ptr @_ZNK8pybind117capsule11get_pointerINS_6d
 common.resume:                                    ; preds = %17, %10
   %.sink = phi ptr [ %15, %17 ], [ %8, %10 ]
   %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %11, %10 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #30
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #30
   resume { ptr, i32 } %common.resume.op
 
 10:                                               ; preds = %7
@@ -51400,7 +51400,7 @@ common.resume:                                    ; preds = %.body, %.body33, %8
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %35) #30
+  call void @__cxa_free_exception(ptr nonnull %35) #30
   br label %.body
 
 _ZN8pybind116objectD2Ev.exit.i:                   ; preds = %.noexc
@@ -51503,7 +51503,7 @@ _ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit: ; pred
 72:                                               ; preds = %69
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %70) #30
+  call void @__cxa_free_exception(ptr nonnull %70) #30
   br label %.body33
 
 _ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit38: ; preds = %.noexc31
@@ -51894,7 +51894,7 @@ define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS0_8accessorI
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %11) #30, !noalias !1627
+  call void @__cxa_free_exception(ptr nonnull %11) #30, !noalias !1627
   br label %.body
 
 15:                                               ; preds = %.noexc
@@ -52966,7 +52966,7 @@ define internal fastcc void @_ZN3refIN12_GLOBAL__N_19MyObject1EED2Ev(ptr noundef
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @__cxa_free_exception(ptr %21) #30
+  tail call void @__cxa_free_exception(ptr nonnull %21) #30
   br label %.body
 
 _ZNK6Object6decRefEb.exit:                        ; preds = %17, %13, %1
@@ -54372,7 +54372,7 @@ define linkonce_odr hidden void @_ZN8pybind1110make_tupleILNS_19return_value_pol
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %16) #30
+  tail call void @__cxa_free_exception(ptr nonnull %16) #30
   br label %.preheader.preheader
 
 20:                                               ; preds = %.noexc
@@ -54423,7 +54423,7 @@ define linkonce_odr hidden void @_ZN8pybind1110make_tupleILNS_19return_value_pol
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %35) #30
+  tail call void @__cxa_free_exception(ptr nonnull %35) #30
   br label %.preheader.preheader
 
 39:                                               ; preds = %.noexc41
@@ -54453,7 +54453,7 @@ define linkonce_odr hidden void @_ZN8pybind1110make_tupleILNS_19return_value_pol
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %45) #30
+  tail call void @__cxa_free_exception(ptr nonnull %45) #30
   br label %.preheader.preheader
 
 _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE4castERKS7_NS_19return_value_policyENS_6handleE.exit53: ; preds = %.noexc48
@@ -54874,7 +54874,7 @@ _ZNKR8pybind116handle7inc_refEv.exit.i.i.i:       ; preds = %.noexc.i
 31:                                               ; preds = %28
   %32 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %29) #30
+  tail call void @__cxa_free_exception(ptr nonnull %29) #30
   br label %.body15.i
 
 _ZN8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEED2Ev.exit.i: ; preds = %.noexc13.i
@@ -55181,7 +55181,7 @@ _ZN8pybind116detail18values_and_holders5beginEv.exit: ; preds = %35, %31
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %53) #30
+  tail call void @__cxa_free_exception(ptr nonnull %53) #30
   br label %78
 
 56:                                               ; preds = %_ZN8pybind116detail18values_and_holders5beginEv.exit
@@ -55205,7 +55205,7 @@ _ZN8pybind116detail18values_and_holders5beginEv.exit: ; preds = %35, %31
 62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %61) #30
+  tail call void @__cxa_free_exception(ptr nonnull %61) #30
   br label %78
 
 64:                                               ; preds = %.invoke66
@@ -55240,7 +55240,7 @@ _ZN8pybind116detail18values_and_holders5beginEv.exit: ; preds = %35, %31
 72:                                               ; preds = %70
   %73 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %71) #30
+  tail call void @__cxa_free_exception(ptr nonnull %71) #30
   br label %78
 
 .sink.split:                                      ; preds = %40, %43, %49, %64
@@ -56706,7 +56706,7 @@ common.resume:                                    ; preds = %.body, %10
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #30
+  tail call void @__cxa_free_exception(ptr nonnull %8) #30
   br label %common.resume
 
 .split:                                           ; preds = %2
@@ -57144,7 +57144,7 @@ common.resume:                                    ; preds = %128, %90, %40, %18
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %16) #30
+  tail call void @__cxa_free_exception(ptr nonnull %16) #30
   br label %common.resume
 
 _ZN8pybind116detail22copyable_holder_casterI6Object3refIS2_EvE19check_holder_compatEv.exit: ; preds = %11
@@ -57192,7 +57192,7 @@ _ZNK8pybind116detail16value_and_holder18holder_constructedEv.exit.i: ; preds = %
 40:                                               ; preds = %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %38) #30
+  tail call void @__cxa_free_exception(ptr nonnull %38) #30
   br label %common.resume
 
 _ZN8pybind116detail22copyable_holder_casterI6Object3refIS2_EvE10load_valueEONS0_16value_and_holderE.exit: ; preds = %_ZNK8pybind116detail16value_and_holder18holder_constructedEv.exit.i
@@ -57284,7 +57284,7 @@ _ZNK8pybind116detail16value_and_holder18holder_constructedEv.exit.i52: ; preds =
 90:                                               ; preds = %87
   %91 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %88) #30
+  tail call void @__cxa_free_exception(ptr nonnull %88) #30
   br label %common.resume
 
 _ZN8pybind116detail22copyable_holder_casterI6Object3refIS2_EvE10load_valueEONS0_16value_and_holderE.exit55: ; preds = %_ZNK8pybind116detail16value_and_holder18holder_constructedEv.exit.i52
@@ -57510,7 +57510,7 @@ _ZNK8pybind116detail16value_and_holder18holder_constructedEv.exit: ; preds = %7,
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %27) #30
+  tail call void @__cxa_free_exception(ptr nonnull %27) #30
   resume { ptr, i32 } %30
 }
 
@@ -57590,7 +57590,7 @@ _Z19track_copy_assignedI7ref_tagJEEvPT_DpOT0_.exit: ; preds = %5, %8, %10
 35:                                               ; preds = %32
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %33) #30
+  call void @__cxa_free_exception(ptr nonnull %33) #30
   resume { ptr, i32 } %36
 
 _ZNK6Object6decRefEb.exitthread-pre-split:        ; preds = %25, %29
@@ -58637,7 +58637,7 @@ common.resume:                                    ; preds = %98, %19
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #30
+  tail call void @__cxa_free_exception(ptr nonnull %17) #30
   br label %common.resume
 
 _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_19MyObject1E3refIS3_EvE19check_holder_compatEv.exit: ; preds = %13
@@ -59317,7 +59317,7 @@ _Z19track_copy_assignedI7ref_tagJEEvPT_DpOT0_.exit.i: ; preds = %129, %127, %_Z1
 154:                                              ; preds = %151
   %155 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %152) #30
+  call void @__cxa_free_exception(ptr nonnull %152) #30
   br label %common.resume
 
 _ZNK6Object6decRefEb.exitthread-pre-split.i:      ; preds = %148, %144
@@ -59350,7 +59350,7 @@ _ZN3refIN12_GLOBAL__N_19MyObject1EEaSERKS2_.exit: ; preds = %33, %_Z19track_copy
 163:                                              ; preds = %160
   %164 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %161) #30
+  tail call void @__cxa_free_exception(ptr nonnull %161) #30
   br label %common.resume
 }
 
@@ -62033,7 +62033,7 @@ common.resume:                                    ; preds = %211, %160, %21
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %19) #30
+  tail call void @__cxa_free_exception(ptr nonnull %19) #30
   br label %common.resume
 
 _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_19MyObject2ESt10shared_ptrIS3_EvE19check_holder_compatEv.exit: ; preds = %15
@@ -62700,7 +62700,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_19MyObject2EEaSERKS2_.exit: ; preds = %17, %_ZNS
 76:                                               ; preds = %73
   %77 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %74) #30
+  tail call void @__cxa_free_exception(ptr nonnull %74) #30
   resume { ptr, i32 } %77
 }
 
@@ -65916,7 +65916,7 @@ common.resume:                                    ; preds = %211, %160, %21
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %19) #30
+  tail call void @__cxa_free_exception(ptr nonnull %19) #30
   br label %common.resume
 
 _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_19MyObject3ESt10shared_ptrIS3_EvE19check_holder_compatEv.exit: ; preds = %15
@@ -66583,7 +66583,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_19MyObject3EEaSERKS2_.exit: ; preds = %17, %_ZNS
 76:                                               ; preds = %73
   %77 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %74) #30
+  tail call void @__cxa_free_exception(ptr nonnull %74) #30
   resume { ptr, i32 } %77
 }
 
@@ -68180,7 +68180,7 @@ _ZN8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_19MyObject4EEEC2Ev.exit.i:
 common.resume.i:                                  ; preds = %35, %27
   %.sink.i = phi ptr [ %33, %35 ], [ %25, %27 ]
   %common.resume.op.i = phi { ptr, i32 } [ %36, %35 ], [ %28, %27 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 27:                                               ; preds = %24
@@ -68337,7 +68337,7 @@ _ZN8pybind116detail15argument_loaderIJRN12_GLOBAL__N_19MyObject4ERKiEE9load_args
 common.resume.i:                                  ; preds = %45, %39
   %.sink.i = phi ptr [ %43, %45 ], [ %37, %39 ]
   %common.resume.op.i = phi { ptr, i32 } [ %46, %45 ], [ %40, %39 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 39:                                               ; preds = %36
@@ -68426,7 +68426,7 @@ _ZN8pybind116detail12get_functionENS_6handleE.exit.thread: ; preds = %3, %_ZN8py
 17:                                               ; preds = %.thread
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #30
+  tail call void @__cxa_free_exception(ptr nonnull %15) #30
   br label %43
 
 _ZN8pybind1110isinstanceINS_7capsuleETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit: ; preds = %12
@@ -68471,7 +68471,7 @@ _ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit: ; preds = %_Z
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #30
+  tail call void @__cxa_free_exception(ptr nonnull %28) #30
   br label %.body
 
 32:                                               ; preds = %29, %25, %_ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit, %34
@@ -68662,7 +68662,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail12generic_type24def_property
 62:                                               ; preds = %59
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %60) #30
+  call void @__cxa_free_exception(ptr nonnull %60) #30
   br label %.body
 
 _ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit: ; preds = %.noexc
@@ -68854,7 +68854,7 @@ define linkonce_odr hidden void @_ZNK8pybind116detail10object_apiINS_6handleEEcl
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %12) #30, !noalias !1898
+  call void @__cxa_free_exception(ptr nonnull %12) #30, !noalias !1898
   br label %.body
 
 16:                                               ; preds = %.noexc
@@ -70515,7 +70515,7 @@ _ZN8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_110MyObject4aEEEC2Ev.exit.
 common.resume.i:                                  ; preds = %35, %27
   %.sink.i = phi ptr [ %33, %35 ], [ %25, %27 ]
   %common.resume.op.i = phi { ptr, i32 } [ %36, %35 ], [ %28, %27 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 27:                                               ; preds = %24
@@ -70641,7 +70641,7 @@ _ZN8pybind116detail15argument_loaderIJRN12_GLOBAL__N_110MyObject4aERKiEE9load_ar
 common.resume.i:                                  ; preds = %45, %39
   %.sink.i = phi ptr [ %43, %45 ], [ %37, %39 ]
   %common.resume.op.i = phi { ptr, i32 } [ %46, %45 ], [ %40, %39 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 39:                                               ; preds = %36
@@ -70730,7 +70730,7 @@ _ZN8pybind116detail12get_functionENS_6handleE.exit.thread: ; preds = %3, %_ZN8py
 17:                                               ; preds = %.thread
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #30
+  tail call void @__cxa_free_exception(ptr nonnull %15) #30
   br label %43
 
 _ZN8pybind1110isinstanceINS_7capsuleETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit: ; preds = %12
@@ -70775,7 +70775,7 @@ _ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit: ; preds = %_Z
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #30
+  tail call void @__cxa_free_exception(ptr nonnull %28) #30
   br label %.body
 
 32:                                               ; preds = %29, %25, %_ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit, %34
@@ -71513,7 +71513,7 @@ common.resume:                                    ; preds = %49, %70, %111, %141
 150:                                              ; preds = %147
   %151 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %148) #30
+  call void @__cxa_free_exception(ptr nonnull %148) #30
   br label %common.resume
 
 _ZN8pybind114list6appendIP7_objectEEvOT_.exit:    ; preds = %142
@@ -72862,7 +72862,7 @@ _ZN8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_19MyObject5EEEC2Ev.exit.i:
 common.resume.i:                                  ; preds = %35, %27
   %.sink.i = phi ptr [ %33, %35 ], [ %25, %27 ]
   %common.resume.op.i = phi { ptr, i32 } [ %36, %35 ], [ %28, %27 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 27:                                               ; preds = %24
@@ -72988,7 +72988,7 @@ _ZN8pybind116detail15argument_loaderIJRN12_GLOBAL__N_19MyObject5ERKiEE9load_args
 common.resume.i:                                  ; preds = %45, %39
   %.sink.i = phi ptr [ %43, %45 ], [ %37, %39 ]
   %common.resume.op.i = phi { ptr, i32 } [ %46, %45 ], [ %40, %39 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 39:                                               ; preds = %36
@@ -73077,7 +73077,7 @@ _ZN8pybind116detail12get_functionENS_6handleE.exit.thread: ; preds = %3, %_ZN8py
 17:                                               ; preds = %.thread
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #30
+  tail call void @__cxa_free_exception(ptr nonnull %15) #30
   br label %43
 
 _ZN8pybind1110isinstanceINS_7capsuleETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit: ; preds = %12
@@ -73122,7 +73122,7 @@ _ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit: ; preds = %_Z
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #30
+  tail call void @__cxa_free_exception(ptr nonnull %28) #30
   br label %.body
 
 32:                                               ; preds = %29, %25, %_ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit, %34
@@ -74690,7 +74690,7 @@ _ZN8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_112SharedPtrRefEEEC2Ev.exi
 common.resume.i:                                  ; preds = %37, %29
   %.sink.i = phi ptr [ %35, %37 ], [ %27, %29 ]
   %common.resume.op.i = phi { ptr, i32 } [ %38, %37 ], [ %30, %29 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %26
@@ -75103,7 +75103,7 @@ _ZN8pybind116detail12get_functionENS_6handleE.exit.thread: ; preds = %3, %_ZN8py
 17:                                               ; preds = %.thread
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #30
+  tail call void @__cxa_free_exception(ptr nonnull %15) #30
   br label %43
 
 _ZN8pybind1110isinstanceINS_7capsuleETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit: ; preds = %12
@@ -75148,7 +75148,7 @@ _ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit: ; preds = %_Z
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #30
+  tail call void @__cxa_free_exception(ptr nonnull %28) #30
   br label %.body
 
 32:                                               ; preds = %29, %25, %_ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit, %34
@@ -75273,7 +75273,7 @@ common.resume.i:                                  ; preds = %44, %37, %29
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #30, !noalias !1963
+  call void @__cxa_free_exception(ptr nonnull %27) #30, !noalias !1963
   br label %common.resume.i
 
 _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %25
@@ -75299,7 +75299,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %25
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %35) #30, !noalias !1968
+  call void @__cxa_free_exception(ptr nonnull %35) #30, !noalias !1968
   br label %common.resume.i
 
 "_ZNO8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_112SharedPtrRefEEE4callINS3_1AENS0_9void_typeERKZ24test_submodule_smart_ptrRNS_7module_EE4$_25EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESG_E4typeEOT1_.exit22.i": ; preds = %33
@@ -75399,7 +75399,7 @@ _ZN8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_112SharedPtrRefEEEC2Ev.exi
 common.resume.i:                                  ; preds = %35, %27
   %.sink.i = phi ptr [ %33, %35 ], [ %25, %27 ]
   %common.resume.op.i = phi { ptr, i32 } [ %36, %35 ], [ %28, %27 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 27:                                               ; preds = %24
@@ -75520,7 +75520,7 @@ common.resume.i:                                  ; preds = %129, %78, %28
 28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #30, !noalias !1973
+  call void @__cxa_free_exception(ptr nonnull %26) #30, !noalias !1973
   br label %common.resume.i
 
 _ZN8pybind116detail7cast_opIRKN12_GLOBAL__N_112SharedPtrRefEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS8_E4typeEEEOSB_.exit.i.i.i: ; preds = %24
@@ -75636,7 +75636,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %_ZNSt16_Sp_counted_
 78:                                               ; preds = %75
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %76) #30, !noalias !1987
+  call void @__cxa_free_exception(ptr nonnull %76) #30, !noalias !1987
   br label %common.resume.i
 
 _ZN8pybind116detail7cast_opIRKN12_GLOBAL__N_112SharedPtrRefEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS8_E4typeEEEOSB_.exit.i.i27.i: ; preds = %74
@@ -75867,7 +75867,7 @@ _ZN8pybind116detail15argument_loaderIJRN12_GLOBAL__N_112SharedPtrRefERKNS3_1AEEE
 common.resume.i.i:                                ; preds = %51, %46
   %.sink.i.i = phi ptr [ %49, %51 ], [ %44, %46 ]
   %common.resume.op.i.i = phi { ptr, i32 } [ %52, %51 ], [ %47, %46 ]
-  call void @__cxa_free_exception(ptr %.sink.i.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i.i) #30
   resume { ptr, i32 } %common.resume.op.i.i
 
 46:                                               ; preds = %43
@@ -76032,7 +76032,7 @@ _ZN8pybind116detail15argument_loaderIJRN12_GLOBAL__N_112SharedPtrRefESt10shared_
 51:                                               ; preds = %48
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %49) #30
+  call void @__cxa_free_exception(ptr nonnull %49) #30
   br label %.body
 
 _ZN8pybind116detail7cast_opIRN12_GLOBAL__N_112SharedPtrRefEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i: ; preds = %43
@@ -76332,7 +76332,7 @@ common.resume:                                    ; preds = %211, %160, %21
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %19) #30
+  tail call void @__cxa_free_exception(ptr nonnull %19) #30
   br label %common.resume
 
 _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_112SharedPtrRef1AESt10shared_ptrIS4_EvE19check_holder_compatEv.exit: ; preds = %15
@@ -76999,7 +76999,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_112SharedPtrRef1AEEaSERKS3_.exit: ; preds = %17,
 76:                                               ; preds = %73
   %77 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %74) #30
+  tail call void @__cxa_free_exception(ptr nonnull %74) #30
   resume { ptr, i32 } %77
 }
 
@@ -79073,7 +79073,7 @@ _ZN8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_117SharedFromThisRefEEEC2E
 common.resume.i:                                  ; preds = %37, %29
   %.sink.i = phi ptr [ %35, %37 ], [ %27, %29 ]
   %common.resume.op.i = phi { ptr, i32 } [ %38, %37 ], [ %30, %29 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %26
@@ -79533,7 +79533,7 @@ _ZN8pybind116detail12get_functionENS_6handleE.exit.thread: ; preds = %3, %_ZN8py
 17:                                               ; preds = %.thread
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #30
+  tail call void @__cxa_free_exception(ptr nonnull %15) #30
   br label %43
 
 _ZN8pybind1110isinstanceINS_7capsuleETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit: ; preds = %12
@@ -79578,7 +79578,7 @@ _ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit: ; preds = %_Z
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #30
+  tail call void @__cxa_free_exception(ptr nonnull %28) #30
   br label %.body
 
 32:                                               ; preds = %29, %25, %_ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit, %34
@@ -79697,7 +79697,7 @@ _ZN8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_117SharedFromThisRefEEEC2E
 common.resume.i:                                  ; preds = %37, %29
   %.sink.i = phi ptr [ %35, %37 ], [ %27, %29 ]
   %common.resume.op.i = phi { ptr, i32 } [ %38, %37 ], [ %30, %29 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %26
@@ -79821,7 +79821,7 @@ common.resume.i:                                  ; preds = %44, %37, %29
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #30, !noalias !2025
+  call void @__cxa_free_exception(ptr nonnull %27) #30, !noalias !2025
   br label %common.resume.i
 
 _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %25
@@ -79847,7 +79847,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %25
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %35) #30, !noalias !2030
+  call void @__cxa_free_exception(ptr nonnull %35) #30, !noalias !2030
   br label %common.resume.i
 
 "_ZNO8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_117SharedFromThisRefEEE4callINS3_1BENS0_9void_typeERKZ24test_submodule_smart_ptrRNS_7module_EE4$_30EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESG_E4typeEOT1_.exit22.i": ; preds = %33
@@ -79947,7 +79947,7 @@ _ZN8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_117SharedFromThisRefEEEC2E
 common.resume.i:                                  ; preds = %35, %27
   %.sink.i = phi ptr [ %33, %35 ], [ %25, %27 ]
   %common.resume.op.i = phi { ptr, i32 } [ %36, %35 ], [ %28, %27 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 27:                                               ; preds = %24
@@ -80068,7 +80068,7 @@ common.resume.i:                                  ; preds = %129, %78, %28
 28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #30, !noalias !2035
+  call void @__cxa_free_exception(ptr nonnull %26) #30, !noalias !2035
   br label %common.resume.i
 
 _ZN8pybind116detail7cast_opIRKN12_GLOBAL__N_117SharedFromThisRefEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS8_E4typeEEEOSB_.exit.i.i.i: ; preds = %24
@@ -80184,7 +80184,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %_ZNSt16_Sp_counted_
 78:                                               ; preds = %75
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %76) #30, !noalias !2049
+  call void @__cxa_free_exception(ptr nonnull %76) #30, !noalias !2049
   br label %common.resume.i
 
 _ZN8pybind116detail7cast_opIRKN12_GLOBAL__N_117SharedFromThisRefEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS8_E4typeEEEOSB_.exit.i.i27.i: ; preds = %74
@@ -80415,7 +80415,7 @@ _ZN8pybind116detail15argument_loaderIJRN12_GLOBAL__N_117SharedFromThisRefERKNS3_
 common.resume.i.i:                                ; preds = %51, %46
   %.sink.i.i = phi ptr [ %49, %51 ], [ %44, %46 ]
   %common.resume.op.i.i = phi { ptr, i32 } [ %52, %51 ], [ %47, %46 ]
-  call void @__cxa_free_exception(ptr %.sink.i.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i.i) #30
   resume { ptr, i32 } %common.resume.op.i.i
 
 46:                                               ; preds = %43
@@ -80580,7 +80580,7 @@ _ZN8pybind116detail15argument_loaderIJRN12_GLOBAL__N_117SharedFromThisRefESt10sh
 51:                                               ; preds = %48
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %49) #30
+  call void @__cxa_free_exception(ptr nonnull %49) #30
   br label %.body
 
 _ZN8pybind116detail7cast_opIRN12_GLOBAL__N_117SharedFromThisRefEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i: ; preds = %43
@@ -80880,7 +80880,7 @@ common.resume:                                    ; preds = %211, %160, %21
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %19) #30
+  tail call void @__cxa_free_exception(ptr nonnull %19) #30
   br label %common.resume
 
 _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_117SharedFromThisRef1BESt10shared_ptrIS4_EvE19check_holder_compatEv.exit: ; preds = %15
@@ -81547,7 +81547,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_117SharedFromThisRef1BEEaSERKS3_.exit: ; preds =
 76:                                               ; preds = %73
   %77 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %74) #30
+  tail call void @__cxa_free_exception(ptr nonnull %74) #30
   resume { ptr, i32 } %77
 }
 
@@ -84797,7 +84797,7 @@ common.resume:                                    ; preds = %98, %19
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %17) #30
+  tail call void @__cxa_free_exception(ptr nonnull %17) #30
   br label %common.resume
 
 _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_126TypeForHolderWithAddressOfENS2_34shared_ptr_with_addressof_operatorIS3_EEvE19check_holder_compatEv.exit: ; preds = %13
@@ -85207,7 +85207,7 @@ _ZN12_GLOBAL__N_134shared_ptr_with_addressof_operatorINS_26TypeForHolderWithAddr
 76:                                               ; preds = %73
   %77 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %74) #30
+  tail call void @__cxa_free_exception(ptr nonnull %74) #30
   resume { ptr, i32 } %77
 }
 
@@ -87299,7 +87299,7 @@ _ZN8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_134TypeForMoveOnlyHolderWi
 common.resume.i:                                  ; preds = %35, %27
   %.sink.i = phi ptr [ %33, %35 ], [ %25, %27 ]
   %common.resume.op.i = phi { ptr, i32 } [ %36, %35 ], [ %28, %27 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 27:                                               ; preds = %24
@@ -87425,7 +87425,7 @@ _ZN8pybind116detail15argument_loaderIJRN12_GLOBAL__N_134TypeForMoveOnlyHolderWit
 common.resume.i:                                  ; preds = %45, %39
   %.sink.i = phi ptr [ %43, %45 ], [ %37, %39 ]
   %common.resume.op.i = phi { ptr, i32 } [ %46, %45 ], [ %40, %39 ]
-  call void @__cxa_free_exception(ptr %.sink.i) #30
+  call void @__cxa_free_exception(ptr nonnull %.sink.i) #30
   resume { ptr, i32 } %common.resume.op.i
 
 39:                                               ; preds = %36
@@ -87514,7 +87514,7 @@ _ZN8pybind116detail12get_functionENS_6handleE.exit.thread: ; preds = %3, %_ZN8py
 17:                                               ; preds = %.thread
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #30
+  tail call void @__cxa_free_exception(ptr nonnull %15) #30
   br label %43
 
 _ZN8pybind1110isinstanceINS_7capsuleETnNSt9enable_ifIXsr3std10is_base_ofINS_6objectET_EE5valueEiE4typeELi0EEEbNS_6handleE.exit: ; preds = %12
@@ -87559,7 +87559,7 @@ _ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit: ; preds = %_Z
 30:                                               ; preds = %27
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #30
+  tail call void @__cxa_free_exception(ptr nonnull %28) #30
   br label %.body
 
 32:                                               ; preds = %29, %25, %_ZN8pybind1118reinterpret_borrowINS_7capsuleEEET_NS_6handleE.exit, %34
@@ -88475,7 +88475,7 @@ common.resume:                                    ; preds = %211, %160, %21
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %19) #30
+  tail call void @__cxa_free_exception(ptr nonnull %19) #30
   br label %common.resume
 
 _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_119HeldByDefaultHolderESt10shared_ptrIS3_EvE19check_holder_compatEv.exit: ; preds = %15
@@ -89142,7 +89142,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_119HeldByDefaultHolderEEaSERKS2_.exit: ; preds =
 76:                                               ; preds = %73
   %77 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %74) #30
+  tail call void @__cxa_free_exception(ptr nonnull %74) #30
   resume { ptr, i32 } %77
 }
 
@@ -91423,7 +91423,7 @@ common.resume:                                    ; preds = %211, %160, %21
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %19) #30
+  tail call void @__cxa_free_exception(ptr nonnull %19) #30
   br label %common.resume
 
 _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_111ElementBaseESt10shared_ptrIS3_EvE19check_holder_compatEv.exit: ; preds = %15
@@ -92090,7 +92090,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEaSERKS2_.exit: ; preds = %17, %_
 76:                                               ; preds = %73
   %77 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %74) #30
+  tail call void @__cxa_free_exception(ptr nonnull %74) #30
   resume { ptr, i32 } %77
 }
 
@@ -92319,7 +92319,7 @@ common.resume.i:                                  ; preds = %59, %12, %7
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %5) #30, !noalias !2171
+  tail call void @__cxa_free_exception(ptr nonnull %5) #30, !noalias !2171
   br label %common.resume.i
 
 _ZN8pybind116detail7cast_opIRN12_GLOBAL__N_111ElementListEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i: ; preds = %1
@@ -92452,7 +92452,7 @@ _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_111ElementBaseESt10sha
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %45) #30, !noalias !2177
+  call void @__cxa_free_exception(ptr nonnull %45) #30, !noalias !2177
   br label %.body.i.i
 
 _ZN8pybind114list6appendINS_6objectEEEvOT_.exit.i.i: ; preds = %.noexc17.i.i

@@ -279,7 +279,7 @@ suggest_state.exit.i:                             ; preds = %51, %49, %46, %44, 
   %129 = load i8, ptr %128, align 1
   %130 = or i8 %129, 32
   store i8 %130, ptr %128, align 1
-  call void @lv_draw_image(ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
+  call void @lv_draw_image(ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %123, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %131
@@ -512,7 +512,7 @@ update_src_info.exit12:                           ; preds = %16, %17, %20
   br label %update_src_info.exit15
 
 update_src_info.exit15:                           ; preds = %23, %24, %27
-  tail call fastcc void @refr_image(ptr noundef %0)
+  tail call fastcc void @refr_image(ptr noundef nonnull %0)
   ret void
 }
 

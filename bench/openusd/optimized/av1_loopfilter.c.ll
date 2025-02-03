@@ -1295,7 +1295,7 @@ define hidden void @av1_loop_filter_frame(ptr noundef %0, ptr noundef %1, ptr no
   %52 = add nsw i32 %.0105122.i, -32
   %53 = load i8, ptr %27, align 4
   tail call void @av1_setup_dst_planes(ptr noundef nonnull %16, i8 noundef zeroext %53, ptr noundef %0, i32 noundef %.0106123.i, i32 noundef %52, i32 noundef %indvars142.i, i32 noundef %40) #8
-  tail call void @av1_filter_block_plane_horz(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %41, i32 noundef %.0106123.i, i32 noundef %52)
+  tail call void @av1_filter_block_plane_horz(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %indvars142.i, ptr noundef nonnull %41, i32 noundef %.0106123.i, i32 noundef %52)
   br label %54
 
 54:                                               ; preds = %51, %.lr.ph.i
@@ -1320,7 +1320,7 @@ define hidden void @av1_loop_filter_frame(ptr noundef %0, ptr noundef %1, ptr no
   %.2128.us.i = phi i32 [ 0, %.preheader.us.i ], [ %62, %60 ]
   %61 = load i8, ptr %27, align 4
   tail call void @av1_setup_dst_planes(ptr noundef nonnull %16, i8 noundef zeroext %61, ptr noundef %0, i32 noundef %.2108131.us.i, i32 noundef %.2128.us.i, i32 noundef %indvars142.i, i32 noundef %42) #8
-  tail call void @av1_filter_block_plane_horz(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %43, i32 noundef %.2108131.us.i, i32 noundef %.2128.us.i)
+  tail call void @av1_filter_block_plane_horz(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %indvars142.i, ptr noundef nonnull %43, i32 noundef %.2108131.us.i, i32 noundef %.2128.us.i)
   %62 = add nuw nsw i32 %.2128.us.i, 32
   %63 = icmp slt i32 %62, %18
   br i1 %63, label %60, label %._crit_edge130.us.i, !llvm.loop !24

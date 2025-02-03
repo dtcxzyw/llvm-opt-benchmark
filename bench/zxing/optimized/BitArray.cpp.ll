@@ -49,7 +49,7 @@ define void @_ZN5ZXing8BitArray10bitwiseXORERKS0_(ptr noundef nonnull readonly a
 20:                                               ; preds = %17
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %18) #8
+  tail call void @__cxa_free_exception(ptr nonnull %18) #8
   resume { ptr, i32 } %21
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph

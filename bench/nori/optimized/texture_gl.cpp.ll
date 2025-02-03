@@ -183,7 +183,7 @@ switch.lookup26:                                  ; preds = %15
 67:                                               ; preds = %64, %22, %12
   %.sink25 = phi ptr [ %62, %64 ], [ %20, %22 ], [ %10, %12 ]
   %.pn = phi { ptr, i32 } [ %65, %64 ], [ %23, %22 ], [ %13, %12 ]
-  tail call void @__cxa_free_exception(ptr %.sink25) #10
+  tail call void @__cxa_free_exception(ptr nonnull %.sink25) #10
   resume { ptr, i32 } %.pn
 }
 
@@ -442,7 +442,7 @@ switch.lookup101:                                 ; preds = %switch.hole_check10
 61:                                               ; preds = %58, %50, %42
   %.sink70 = phi ptr [ %56, %58 ], [ %48, %50 ], [ %40, %42 ]
   %.pn = phi { ptr, i32 } [ %59, %58 ], [ %51, %50 ], [ %43, %42 ]
-  tail call void @__cxa_free_exception(ptr %.sink70) #10
+  tail call void @__cxa_free_exception(ptr nonnull %.sink70) #10
   resume { ptr, i32 } %.pn
 }
 
@@ -476,7 +476,7 @@ define hidden void @_ZN7nanogui7Texture6uploadEPKh(ptr noundef nonnull align 8 c
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %11) #10
+  tail call void @__cxa_free_exception(ptr nonnull %11) #10
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %2
@@ -817,7 +817,7 @@ define hidden void @_ZN7nanogui7Texture17upload_sub_regionEPKhRKNS_5ArrayIiLm2EE
 76:                                               ; preds = %47, %26, %15
   %.sink = phi ptr [ %45, %47 ], [ %24, %26 ], [ %13, %15 ]
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %27, %26 ], [ %16, %15 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #10
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #10
   resume { ptr, i32 } %.pn
 }
 
@@ -923,7 +923,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %47, %32
 52:                                               ; preds = %21, %12
   %.sink = phi ptr [ %19, %21 ], [ %10, %12 ]
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %13, %12 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #10
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #10
   resume { ptr, i32 } %.pn
 }
 

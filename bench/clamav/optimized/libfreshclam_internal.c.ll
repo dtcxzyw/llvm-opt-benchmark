@@ -1617,7 +1617,7 @@ downloadPatch.exit._crit_edge.thread:             ; preds = %downloadPatch.exit,
   br label %.thread284
 
 371:                                              ; preds = %362
-  call void @free(ptr noundef %178) #23
+  call void @free(ptr noundef nonnull %178) #23
   %372 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.48) #23
   %373 = load ptr, ptr @g_cb_download_complete, align 8
   %374 = call i32 %373(ptr noundef nonnull %361, ptr noundef %4) #23

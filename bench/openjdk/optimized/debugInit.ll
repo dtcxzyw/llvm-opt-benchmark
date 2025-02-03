@@ -1924,12 +1924,12 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 8
   %.not39 = icmp eq i32 %27, 0
-  br i1 %.not39, label %145, label %28
+  br i1 %.not39, label %144, label %28
 
 28:                                               ; preds = %24
   tail call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 444) #17
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.41) #17
-  br label %145
+  br label %144
 
 29:                                               ; preds = %23
   store i32 4, ptr %9, align 8
@@ -2019,12 +2019,12 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
 
 75:                                               ; preds = %69, %74
   call fastcc void @initialize(ptr noundef nonnull %1, ptr noundef %2, i32 noundef 4, ptr noundef nonnull %9)
-  br label %139
+  br label %138
 
 76:                                               ; preds = %62
   %77 = load ptr, ptr @initOnException, align 8
   %.not43 = icmp eq ptr %77, null
-  br i1 %.not43, label %139, label %78
+  br i1 %.not43, label %138, label %78
 
 78:                                               ; preds = %76
   %79 = load ptr, ptr @gdata, align 8
@@ -2045,7 +2045,7 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr %87(ptr noundef nonnull %1, ptr noundef %5) #17
   %.not45 = icmp eq ptr %88, null
-  br i1 %.not45, label %.thread, label %89
+  br i1 %.not45, label %.thread59, label %89
 
 89:                                               ; preds = %84
   store ptr null, ptr %10, align 8
@@ -2066,14 +2066,14 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
 
 98:                                               ; preds = %89, %95
   %99 = icmp eq i32 %90, 0
-  br i1 %99, label %100, label %thread-pre-split
+  br i1 %99, label %100, label %112
 
 100:                                              ; preds = %98
   %101 = load ptr, ptr %10, align 8
   %102 = load ptr, ptr @initOnException, align 8
   %103 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %102) #19
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %112
+  br i1 %104, label %105, label %.thread
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr @gdata, align 8
@@ -2090,91 +2090,91 @@ define internal void @cbEarlyException(ptr noundef %0, ptr noundef %1, ptr nound
 
 111:                                              ; preds = %105, %110
   call fastcc void @initialize(ptr noundef nonnull %1, ptr noundef %2, i32 noundef 4, ptr noundef nonnull %9)
-  br label %thread-pre-split
-
-thread-pre-split:                                 ; preds = %111, %98
-  %.pr = load ptr, ptr %10, align 8
   br label %112
 
-112:                                              ; preds = %thread-pre-split, %100
-  %113 = phi ptr [ %.pr, %thread-pre-split ], [ %101, %100 ]
-  %.0 = phi i1 [ %99, %thread-pre-split ], [ false, %100 ]
-  %.not48 = icmp eq ptr %113, null
-  br i1 %.not48, label %115, label %114
+112:                                              ; preds = %98, %111
+  %.0.ph = phi i32 [ 181, %98 ], [ 0, %111 ]
+  %.pr = load ptr, ptr %10, align 8
+  %.not48 = icmp eq ptr %.pr, null
+  br i1 %.not48, label %114, label %.thread
 
-114:                                              ; preds = %112
+.thread:                                          ; preds = %100, %112
+  %.058 = phi i32 [ %.0.ph, %112 ], [ 181, %100 ]
+  %113 = phi ptr [ %.pr, %112 ], [ %101, %100 ]
   call void @jvmtiDeallocate(ptr noundef nonnull %113) #17
-  br label %115
+  br label %114
 
-115:                                              ; preds = %112, %114
-  br i1 %.0, label %139, label %.thread
+114:                                              ; preds = %112, %.thread
+  %.1 = phi i32 [ %.058, %.thread ], [ %.0.ph, %112 ]
+  %.not49 = icmp eq i32 %.1, 0
+  br i1 %.not49, label %138, label %.thread59
 
-.thread:                                          ; preds = %84, %115
-  %116 = load ptr, ptr @gdata, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 528
-  %118 = load i32, ptr %117, align 8
-  %119 = and i32 %118, 8
-  %.not50 = icmp eq i32 %119, 0
-  br i1 %.not50, label %121, label %120
+.thread59:                                        ; preds = %84, %114
+  %115 = load ptr, ptr @gdata, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 528
+  %117 = load i32, ptr %116, align 8
+  %118 = and i32 %117, 8
+  %.not50 = icmp eq i32 %118, 0
+  br i1 %.not50, label %120, label %119
 
-120:                                              ; preds = %.thread
+119:                                              ; preds = %.thread59
   call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 505) #17
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.49) #17
-  br label %121
+  br label %120
 
-121:                                              ; preds = %.thread, %120
+120:                                              ; preds = %.thread59, %119
   %.not51 = icmp eq ptr %56, null
-  %122 = load ptr, ptr @gdata, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 528
-  %124 = load i32, ptr %123, align 8
-  %125 = and i32 %124, 2
-  %.not52 = icmp eq i32 %125, 0
-  br i1 %.not51, label %133, label %126
+  %121 = load ptr, ptr @gdata, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 528
+  %123 = load i32, ptr %122, align 8
+  %124 = and i32 %123, 2
+  %.not52 = icmp eq i32 %124, 0
+  br i1 %.not51, label %132, label %125
 
-126:                                              ; preds = %121
-  br i1 %.not52, label %128, label %127
+125:                                              ; preds = %120
+  br i1 %.not52, label %127, label %126
 
-127:                                              ; preds = %126
+126:                                              ; preds = %125
   call void @log_message_begin(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 507) #17
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.50) #17
-  br label %128
+  br label %127
 
-128:                                              ; preds = %126, %127
-  %129 = load ptr, ptr %1, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 104
-  %131 = load ptr, ptr %130, align 8
-  %132 = call i32 %131(ptr noundef nonnull %1, ptr noundef nonnull %56) #17
-  br label %139
+127:                                              ; preds = %125, %126
+  %128 = load ptr, ptr %1, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 104
+  %130 = load ptr, ptr %129, align 8
+  %131 = call i32 %130(ptr noundef nonnull %1, ptr noundef nonnull %56) #17
+  br label %138
 
-133:                                              ; preds = %121
-  br i1 %.not52, label %135, label %134
+132:                                              ; preds = %120
+  br i1 %.not52, label %134, label %133
 
-134:                                              ; preds = %133
+133:                                              ; preds = %132
   call void @log_message_begin(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 509) #17
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.44) #17
-  br label %135
+  br label %134
 
-135:                                              ; preds = %133, %134
-  %136 = load ptr, ptr %1, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 136
-  %138 = load ptr, ptr %137, align 8
-  call void %138(ptr noundef nonnull %1) #17
-  br label %139
+134:                                              ; preds = %132, %133
+  %135 = load ptr, ptr %1, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 136
+  %137 = load ptr, ptr %136, align 8
+  call void %137(ptr noundef nonnull %1) #17
+  br label %138
 
-139:                                              ; preds = %76, %128, %135, %115, %75
-  %140 = load ptr, ptr @gdata, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 528
-  %142 = load i32, ptr %141, align 8
-  %143 = and i32 %142, 8
-  %.not55 = icmp eq i32 %143, 0
-  br i1 %.not55, label %145, label %144
+138:                                              ; preds = %76, %127, %134, %114, %75
+  %139 = load ptr, ptr @gdata, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 528
+  %141 = load i32, ptr %140, align 8
+  %142 = and i32 %141, 8
+  %.not55 = icmp eq i32 %142, 0
+  br i1 %.not55, label %144, label %143
 
-144:                                              ; preds = %139
+143:                                              ; preds = %138
   call void @log_message_begin(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 515) #17
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.51) #17
-  br label %145
+  br label %144
 
-145:                                              ; preds = %139, %28, %24, %144
+144:                                              ; preds = %138, %28, %24, %143
   ret void
 }
 

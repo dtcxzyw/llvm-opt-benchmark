@@ -580,7 +580,7 @@ invoke.cont26.i:                                  ; preds = %if.then24.i
 lpad25.i:                                         ; preds = %if.then24.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #18
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #18
   resume { ptr, i32 } %1
 
 _ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
@@ -622,7 +622,7 @@ invoke.cont26.i:                                  ; preds = %if.then24.i
 lpad25.i:                                         ; preds = %if.then24.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #18
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #18
   resume { ptr, i32 } %2
 
 _ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i

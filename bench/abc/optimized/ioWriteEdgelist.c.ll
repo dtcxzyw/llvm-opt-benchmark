@@ -857,7 +857,7 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %229, %223, %214
   br label %295
 
 295:                                              ; preds = %293, %291, %273, %270, %268, %250
-  tail call void @free(ptr noundef %233) #11
+  tail call void @free(ptr noundef nonnull %233) #11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.val97.i.i = load i32, ptr %186, align 4
   %296 = sext i32 %.val97.i.i to i64

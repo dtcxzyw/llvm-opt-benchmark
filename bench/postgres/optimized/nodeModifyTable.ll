@@ -2217,7 +2217,7 @@ ExecGetJunkAttribute.exit133:                     ; preds = %254, %slot_getsomea
   br i1 %332, label %333, label %334
 
 333:                                              ; preds = %327
-  call void @ExecAssignExprContext(ptr noundef %300, ptr noundef nonnull %0) #8
+  call void @ExecAssignExprContext(ptr noundef nonnull %300, ptr noundef nonnull %0) #8
   %.pre51.i = load ptr, ptr %77, align 8
   %.pre52.i = load ptr, ptr %326, align 8
   br label %334
@@ -4496,7 +4496,7 @@ define internal fastcc void @ExecInitUpdateProjection(ptr noundef %0, ptr nounde
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %24
-  tail call void @ExecAssignExprContext(ptr noundef %8, ptr noundef nonnull %0) #8
+  tail call void @ExecAssignExprContext(ptr noundef nonnull %8, ptr noundef nonnull %0) #8
   %.pre29 = load ptr, ptr %36, align 8
   %.pre30 = load ptr, ptr %35, align 8
   br label %40

@@ -95,7 +95,7 @@ _.exit:                                           ; preds = %if.then5, %if.end3.
 
 if.end8:                                          ; preds = %oideq.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %result, i8 0, i64 40, i1 false)
-  call void @merge_incore_nonrecursive(ptr noundef %opt, ptr noundef nonnull %merge_base, ptr noundef %head, ptr noundef %merge, ptr noundef nonnull %result) #7
+  call void @merge_incore_nonrecursive(ptr noundef %opt, ptr noundef nonnull %merge_base, ptr noundef %head, ptr noundef nonnull %merge, ptr noundef nonnull %result) #7
   call void @merge_switch_to_result(ptr noundef %opt, ptr noundef %head, ptr noundef nonnull %result, i32 noundef 1, i32 noundef 1) #7
   %8 = load i32, ptr %result, align 8
   br label %return

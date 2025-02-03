@@ -6638,7 +6638,7 @@ define internal void @_ZN12_GLOBAL__N_122UninitValsDiagReporterD2Ev(ptr noundef 
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 1024
-  call fastcc void @_ZSt16__insertion_sortIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_T0_(ptr noundef %50, ptr noundef nonnull %59)
+  call fastcc void @_ZSt16__insertion_sortIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_T0_(ptr noundef nonnull %50, ptr noundef nonnull %59)
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZSt25__unguarded_linear_insertIPN5clang9UninitUseEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_T0_.exit.i, %58
@@ -6911,7 +6911,7 @@ _ZSt25__unguarded_linear_insertIPN5clang9UninitUseEN9__gnu_cxx5__ops14_Val_comp_
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm4sortIRNS_11SmallVectorIN5clang9UninitUseELj2EEEZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS3_S9_E_EEvOT_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !149
 
 206:                                              ; preds = %53
-  call fastcc void @_ZSt16__insertion_sortIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_T0_(ptr noundef %50, ptr noundef nonnull %52)
+  call fastcc void @_ZSt16__insertion_sortIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_T0_(ptr noundef nonnull %50, ptr noundef nonnull %52)
   br label %_ZN4llvm4sortIRNS_11SmallVectorIN5clang9UninitUseELj2EEEZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS3_S9_E_EEvOT_T0_.exit.i
 
 _ZN4llvm4sortIRNS_11SmallVectorIN5clang9UninitUseELj2EEEZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS3_S9_E_EEvOT_T0_.exit.i: ; preds = %_ZSt25__unguarded_linear_insertIPN5clang9UninitUseEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_T0_.exit.i, %206, %49

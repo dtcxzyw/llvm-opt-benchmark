@@ -2392,7 +2392,7 @@ define internal void @process_clusters(ptr readnone captures(none) %0, ptr nound
   br label %435
 
 435:                                              ; preds = %425, %253
-  tail call void @free(ptr noundef %36) #25
+  tail call void @free(ptr noundef nonnull %36) #25
   br i1 %46, label %457, label %436
 
 436:                                              ; preds = %435

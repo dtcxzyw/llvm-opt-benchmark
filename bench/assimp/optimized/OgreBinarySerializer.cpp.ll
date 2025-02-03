@@ -568,7 +568,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit: ; preds = %entry
@@ -606,7 +606,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   resume { ptr, i32 } %4
 
 _ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit: ; preds = %entry
@@ -644,7 +644,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit: ; preds = %entry
@@ -683,7 +683,7 @@ invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i.i) #22
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPhm.exit: ; preds = %entry
@@ -724,7 +724,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   resume { ptr, i32 } %4
 
 _ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit: ; preds = %entry
@@ -762,7 +762,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   resume { ptr, i32 } %4
 
 _ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit: ; preds = %entry
@@ -842,7 +842,7 @@ invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i.i) #22
   br label %lpad.body
 
 lpad:                                             ; preds = %invoke.cont.i.i.i.i, %invoke.cont, %entry
@@ -914,7 +914,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %lpad.body
 
 invoke.cont2:                                     ; preds = %while.body
@@ -973,7 +973,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 common.resume:                                    ; preds = %lpad.i.i.i8, %lpad.i.i.i
   %exception.i.i.i7.sink = phi ptr [ %exception.i.i.i7, %lpad.i.i.i8 ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %8, %lpad.i.i.i8 ], [ %3, %lpad.i.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i7.sink) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i7.sink) #22
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -1046,7 +1046,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #22
   resume { ptr, i32 } %3
 
 _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit: ; preds = %entry
@@ -1079,7 +1079,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #22
   resume { ptr, i32 } %3
 
 _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit: ; preds = %entry
@@ -1120,7 +1120,7 @@ common.resume:                                    ; preds = %lpad, %ehcleanup, %
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit: ; preds = %entry
@@ -1141,7 +1141,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %common.resume
 
 invoke.cont2:                                     ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit
@@ -1172,7 +1172,7 @@ lpad1.loopexit.split-lp:                          ; preds = %invoke.cont7, %if.e
 lpad6:                                            ; preds = %if.then4
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception5) #22
+  call void @__cxa_free_exception(ptr nonnull %exception5) #22
   br label %ehcleanup
 
 if.end8:                                          ; preds = %invoke.cont2
@@ -1333,7 +1333,7 @@ common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit: ; preds = %entry
@@ -1477,7 +1477,7 @@ invoke.cont.i.i.i52:                              ; preds = %if.then.i.i.i49
 lpad.i.i.i51:                                     ; preds = %if.then.i.i.i49
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i50) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i50) #22
   br label %common.resume
 
 sw.bb45:                                          ; preds = %while.body
@@ -1519,7 +1519,7 @@ invoke.cont.i.i.i61:                              ; preds = %if.then.i.i.i58
 lpad.i.i.i60:                                     ; preds = %if.then.i.i.i58
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i59) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i59) #22
   br label %common.resume
 
 sw.epilog:                                        ; preds = %sw.bb49, %sw.bb44, %sw.bb48, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb43, %sw.bb41, %sw.bb40, %sw.bb39, %invoke.cont, %while.body
@@ -1577,7 +1577,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   br label %common.resume
 
 if.end56:                                         ; preds = %if.end, %if.then, %if.then54, %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
@@ -1663,7 +1663,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %19, %lpad.i.i ], [ %3, %lpad.i.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.sink) #22
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -1825,7 +1825,7 @@ common.resume:                                    ; preds = %lpad, %lpad52, %lpa
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit: ; preds = %invoke.cont
@@ -1856,7 +1856,7 @@ invoke.cont.i.i.i17:                              ; preds = %if.then.i.i.i14
 lpad.i.i.i16:                                     ; preds = %if.then.i.i.i14
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i15) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i15) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
@@ -1891,7 +1891,7 @@ invoke.cont.i.i.i27:                              ; preds = %if.then.i.i.i24
 lpad.i.i.i26:                                     ; preds = %if.then.i.i.i24
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i25) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i25) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit28: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
@@ -1961,7 +1961,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 lpad.i.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit: ; preds = %if.then
@@ -2133,7 +2133,7 @@ invoke.cont53:                                    ; preds = %if.then51
 lpad52:                                           ; preds = %if.then51
   %55 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #22
+  call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %common.resume
 
 if.end54:                                         ; preds = %if.then47
@@ -2217,7 +2217,7 @@ invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i50
 lpad.i.i.i.i51:                                   ; preds = %if.then.i.i.i.i50
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer20ReadSubMeshOperationEPNS0_7SubMeshE.exit: ; preds = %sw.bb
@@ -2300,7 +2300,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   br label %common.resume
 
 if.end81:                                         ; preds = %if.end77, %if.then61, %if.then79, %if.end59
@@ -2403,7 +2403,7 @@ invoke.cont:                                      ; preds = %if.then
 common.resume:                                    ; preds = %lpad.i.i.i18, %lpad.i.i.i9, %lpad.i.i.i, %lpad
   %exception.i.i.i17.sink = phi ptr [ %exception.i.i.i17, %lpad.i.i.i18 ], [ %exception.i.i.i8, %lpad.i.i.i9 ], [ %exception.i.i.i, %lpad.i.i.i ], [ %exception, %lpad ]
   %common.resume.op = phi { ptr, i32 } [ %14, %lpad.i.i.i18 ], [ %9, %lpad.i.i.i9 ], [ %4, %lpad.i.i.i ], [ %0, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i17.sink) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i17.sink) #22
   resume { ptr, i32 } %common.resume.op
 
 lpad:                                             ; preds = %if.then
@@ -2595,7 +2595,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 common.resume:                                    ; preds = %lpad.i.i.i.i, %lpad.i.i.i8.i, %lpad, %lpad12, %lpad25, %lpad.i44, %lpad.i.i.i35, %lpad.i.i.i25, %lpad.i, %lpad.i.i.i14, %lpad.i.i.i
   %exception.sink = phi ptr [ %exception, %lpad ], [ %exception11, %lpad12 ], [ %exception24, %lpad25 ], [ %exception.i43, %lpad.i44 ], [ %exception.i.i.i34, %lpad.i.i.i35 ], [ %exception.i.i.i24, %lpad.i.i.i25 ], [ %exception.i, %lpad.i ], [ %exception.i.i.i13, %lpad.i.i.i14 ], [ %exception.i.i.i, %lpad.i.i.i ], [ %exception.i.i.i7.i, %lpad.i.i.i8.i ], [ %exception.i.i.i.i, %lpad.i.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %33, %lpad ], [ %38, %lpad12 ], [ %41, %lpad25 ], [ %44, %lpad.i44 ], [ %43, %lpad.i.i.i35 ], [ %42, %lpad.i.i.i25 ], [ %37, %lpad.i ], [ %8, %lpad.i.i.i14 ], [ %3, %lpad.i.i.i ], [ %40, %lpad.i.i.i8.i ], [ %39, %lpad.i.i.i.i ]
-  call void @__cxa_free_exception(ptr %exception.sink) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.sink) #22
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -2931,7 +2931,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm.exit: ; preds = %entry
@@ -2994,7 +2994,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 common.resume:                                    ; preds = %lpad.i.i, %lpad, %lpad.i.i.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception, %lpad ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %18, %lpad.i.i ], [ %11, %lpad ], [ %9, %lpad.i.i.i ]
-  call void @__cxa_free_exception(ptr %exception.i.i.sink) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.sink) #22
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -3149,7 +3149,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 common.resume:                                    ; preds = %lpad.i.i.i.i, %lpad.i.i.i8.i, %lpad.i.i, %lpad.i77, %lpad.i.i.i68, %lpad.i58, %lpad, %lpad.i48, %lpad.i.i.i39, %lpad.i.i.i30, %lpad.i20, %lpad.i.i.i, %lpad.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception.i76, %lpad.i77 ], [ %exception.i.i.i67, %lpad.i.i.i68 ], [ %exception.i57, %lpad.i58 ], [ %exception, %lpad ], [ %exception.i47, %lpad.i48 ], [ %exception.i.i.i38, %lpad.i.i.i39 ], [ %exception.i.i.i29, %lpad.i.i.i30 ], [ %exception.i19, %lpad.i20 ], [ %exception.i.i.i, %lpad.i.i.i ], [ %exception.i, %lpad.i ], [ %exception.i.i.i7.i, %lpad.i.i.i8.i ], [ %exception.i.i.i.i, %lpad.i.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %64, %lpad.i.i ], [ %57, %lpad.i77 ], [ %52, %lpad.i.i.i68 ], [ %48, %lpad.i58 ], [ %44, %lpad ], [ %33, %lpad.i48 ], [ %28, %lpad.i.i.i39 ], [ %23, %lpad.i.i.i30 ], [ %19, %lpad.i20 ], [ %14, %lpad.i.i.i ], [ %10, %lpad.i ], [ %42, %lpad.i.i.i8.i ], [ %37, %lpad.i.i.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.sink) #22
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i
@@ -3603,7 +3603,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i.i18, %lpad.i.i.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception.i.i.i17, %lpad.i.i.i18 ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %28, %lpad.i.i ], [ %15, %lpad.i.i.i18 ], [ %10, %lpad.i.i.i ]
-  call void @__cxa_free_exception(ptr %exception.i.i.sink) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.sink) #22
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -3841,7 +3841,7 @@ common.resume:                                    ; preds = %lpad.i.i, %lpad, %l
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit: ; preds = %invoke.cont
@@ -3972,7 +3972,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   br label %common.resume
 
 if.end13:                                         ; preds = %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit, %if.then11, %while.end, %entry
@@ -4008,7 +4008,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   resume { ptr, i32 } %6
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm.exit: ; preds = %entry
@@ -4493,7 +4493,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   resume { ptr, i32 } %3
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
@@ -4741,7 +4741,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   resume { ptr, i32 } %12
 
 if.end10:                                         ; preds = %while.body, %if.then8, %while.end, %entry
@@ -4782,7 +4782,7 @@ common.resume:                                    ; preds = %lpad, %lpad9, %lpad
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
@@ -4810,7 +4810,7 @@ invoke.cont.i.i.i13:                              ; preds = %if.then.i.i.i10
 lpad.i.i.i12:                                     ; preds = %if.then.i.i.i10
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i11) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i11) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit14: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
@@ -4832,7 +4832,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %common.resume
 
 if.end:                                           ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit14
@@ -4853,7 +4853,7 @@ invoke.cont10:                                    ; preds = %if.then7
 lpad9:                                            ; preds = %if.then7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception8) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception8) #22
   br label %common.resume
 
 if.end11:                                         ; preds = %if.end
@@ -4888,7 +4888,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 lpad.i.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit: ; preds = %if.end11
@@ -5182,7 +5182,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i.
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
@@ -5211,7 +5211,7 @@ invoke.cont.i.i.i10:                              ; preds = %if.then.i.i.i7
 lpad.i.i.i9:                                      ; preds = %if.then.i.i.i7
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i8) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i8) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit11: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
@@ -5241,7 +5241,7 @@ invoke.cont.i.i.i20:                              ; preds = %if.then.i.i.i17
 lpad.i.i.i19:                                     ; preds = %if.then.i.i.i17
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i18) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i18) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit21: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit11
@@ -5271,7 +5271,7 @@ invoke.cont.i.i.i30:                              ; preds = %if.then.i.i.i27
 lpad.i.i.i29:                                     ; preds = %if.then.i.i.i27
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i28) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i28) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit31: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit21
@@ -5300,7 +5300,7 @@ invoke.cont.i.i.i40:                              ; preds = %if.then.i.i.i37
 lpad.i.i.i39:                                     ; preds = %if.then.i.i.i37
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i38) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i38) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit41: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit31
@@ -5569,7 +5569,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i.i29, %lpad.i.i.i17, %lpad.i.i.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception.i.i.i28, %lpad.i.i.i29 ], [ %exception.i.i.i16, %lpad.i.i.i17 ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %28, %lpad.i.i ], [ %21, %lpad.i.i.i29 ], [ %15, %lpad.i.i.i17 ], [ %9, %lpad.i.i.i ]
-  call void @__cxa_free_exception(ptr %exception.i.i.sink) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.sink) #22
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -5858,7 +5858,7 @@ common.resume:                                    ; preds = %lpad.i.i, %lpad.bod
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit: ; preds = %if.then3
@@ -5919,7 +5919,7 @@ invoke.cont.i.i.i22.cont:                         ; preds = %invoke.cont.i.i.i22
 lpad.i.i.i21:                                     ; preds = %if.then.i.i.i19
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i20) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i20) #22
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %while.body
@@ -5944,7 +5944,7 @@ if.then.i.i.i28:                                  ; preds = %invoke.cont
 lpad.i.i.i30:                                     ; preds = %if.then.i.i.i28
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i29) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i29) #22
   br label %lpad.body
 
 invoke.cont12:                                    ; preds = %invoke.cont
@@ -6050,7 +6050,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   br label %common.resume
 
 if.end25:                                         ; preds = %if.then23, %while.end, %entry
@@ -6143,7 +6143,7 @@ invoke.cont.i.i.i.cont:                           ; preds = %invoke.cont.i.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %if.then8
@@ -6167,7 +6167,7 @@ if.then.i.i.i24:                                  ; preds = %invoke.cont
 lpad.i.i.i26:                                     ; preds = %if.then.i.i.i24
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i25) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i25) #22
   br label %lpad.body
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -6208,7 +6208,7 @@ if.then.i.i.i.i.i:                                ; preds = %call.i.noexc
 lpad.i.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i.i.i) #22
   br label %lpad.body
 
 invoke.cont17:                                    ; preds = %call.i.noexc
@@ -6488,7 +6488,7 @@ if.then.i.i.i84:                                  ; preds = %if.then28
 lpad.i.i.i86:                                     ; preds = %if.then.i.i.i84
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i85) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i85) #22
   br label %lpad30.body
 
 invoke.cont34:                                    ; preds = %if.then28
@@ -6545,7 +6545,7 @@ if.then.i.i.i112:                                 ; preds = %while.body46
 lpad.i.i.i114:                                    ; preds = %if.then.i.i.i112
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i113) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i113) #22
   br label %lpad30.body
 
 invoke.cont47:                                    ; preds = %while.body46
@@ -6571,7 +6571,7 @@ if.then.i.i.i124:                                 ; preds = %invoke.cont47
 lpad.i.i.i126:                                    ; preds = %if.then.i.i.i124
   %81 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i125) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i125) #22
   br label %lpad30.body
 
 invoke.cont49:                                    ; preds = %invoke.cont47
@@ -6738,7 +6738,7 @@ invoke.cont.i.i.cont:                             ; preds = %invoke.cont.i.i.inv
 lpad.i.i:                                         ; preds = %if.then.i.i
   %95 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   br label %lpad30.body
 
 if.end62:                                         ; preds = %invoke.cont52, %if.then59, %invoke.cont57, %invoke.cont34
@@ -6883,7 +6883,7 @@ common.resume:                                    ; preds = %lpad.body, %lpad30.
 lpad.i.i206:                                      ; preds = %if.then.i.i204
   %111 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i205) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i205) #22
   br label %common.resume
 
 if.end75:                                         ; preds = %if.end70, %if.then, %if.then73, %entry
@@ -7559,7 +7559,7 @@ ehcleanup17:                                      ; preds = %lpad11, %lpad.i17, 
 lpad19:                                           ; preds = %if.then18
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #22
+  call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %common.resume
 
 if.end22:                                         ; preds = %invoke.cont14
@@ -7658,7 +7658,7 @@ common.resume:                                    ; preds = %lpad, %ehcleanup, %
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit: ; preds = %entry
@@ -7679,7 +7679,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %common.resume
 
 invoke.cont3:                                     ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit
@@ -7716,7 +7716,7 @@ lpad2.loopexit.split-lp.loopexit.split-lp:        ; preds = %invoke.cont.i.i.i26
 lpad9:                                            ; preds = %if.then7
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception8) #22
+  call void @__cxa_free_exception(ptr nonnull %exception8) #22
   br label %ehcleanup
 
 if.end11:                                         ; preds = %invoke.cont5, %invoke.cont3
@@ -7777,7 +7777,7 @@ if.then.i.i.i:                                    ; preds = %sw.bb
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %sw.bb
@@ -7854,7 +7854,7 @@ invoke.cont.i.i.i26.cont:                         ; preds = %invoke.cont.i.i.i26
 lpad.i.i.i25:                                     ; preds = %if.then.i.i.i23
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i24) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i24) #22
   br label %ehcleanup
 
 _ZN6Assimp4Ogre20OgreBinarySerializer25ReadSkeletonAnimationLinkEPNS0_8SkeletonE.exit: ; preds = %.noexc27
@@ -8380,7 +8380,7 @@ common.resume:                                    ; preds = %lpad, %lpad10, %lpa
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %invoke.cont
@@ -8413,7 +8413,7 @@ invoke.cont.i.i.i10:                              ; preds = %if.then.i.i.i7
 lpad.i.i.i9:                                      ; preds = %if.then.i.i.i7
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i8) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i8) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
@@ -8445,7 +8445,7 @@ invoke.cont.i.i.i22:                              ; preds = %if.then.i.i.i19
 lpad.i.i.i21:                                     ; preds = %if.then.i.i.i19
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i20) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i20) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
@@ -8495,7 +8495,7 @@ invoke.cont.i.i.i34:                              ; preds = %if.then.i.i.i31
 lpad.i.i.i33:                                     ; preds = %if.then.i.i.i31
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i32) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i32) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit35: ; preds = %if.then
@@ -8534,7 +8534,7 @@ invoke.cont11:                                    ; preds = %if.then8
 lpad10:                                           ; preds = %if.then8
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #22
+  call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
@@ -8636,7 +8636,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i.i.i11
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
@@ -8664,7 +8664,7 @@ invoke.cont.i.i.i12:                              ; preds = %if.then.i.i.i9
 lpad.i.i.i11:                                     ; preds = %if.then.i.i.i9
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i10) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i10) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit13: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
@@ -8694,7 +8694,7 @@ invoke.cont:                                      ; preds = %if.else
 lpad:                                             ; preds = %if.else
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #22
+  call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %common.resume
 }
 
@@ -8739,7 +8739,7 @@ common.resume:                                    ; preds = %lpad.i.i, %lpad, %l
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit: ; preds = %invoke.cont
@@ -8790,7 +8790,7 @@ invoke.cont.i.i.i13:                              ; preds = %if.then.i.i.i10
 lpad.i.i.i12:                                     ; preds = %if.then.i.i.i10
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i11) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i11) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit14: ; preds = %if.then6
@@ -8880,7 +8880,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   br label %common.resume
 
 if.end21:                                         ; preds = %while.body, %if.then19, %while.end, %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit
@@ -8991,7 +8991,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm.exit: ; preds = %entry
@@ -9126,7 +9126,7 @@ common.resume:                                    ; preds = %lpad, %lpad3.body, 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #22
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
@@ -9151,7 +9151,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #22
+  call void @__cxa_free_exception(ptr nonnull %exception) #22
   br label %common.resume
 
 if.end:                                           ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
@@ -9262,7 +9262,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #22
   br label %lpad3.body
 
 if.end21:                                         ; preds = %invoke.cont11, %if.then19, %invoke.cont17
@@ -9387,7 +9387,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 common.resume:                                    ; preds = %lpad.i.i.i31, %lpad.i.i.i19, %lpad.i.i.i7, %lpad.i.i.i
   %exception.i.i.i30.sink = phi ptr [ %exception.i.i.i30, %lpad.i.i.i31 ], [ %exception.i.i.i18, %lpad.i.i.i19 ], [ %exception.i.i.i6, %lpad.i.i.i7 ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %20, %lpad.i.i.i31 ], [ %14, %lpad.i.i.i19 ], [ %9, %lpad.i.i.i7 ], [ %3, %lpad.i.i.i ]
-  call void @__cxa_free_exception(ptr %exception.i.i.i30.sink) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i30.sink) #22
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -13990,7 +13990,7 @@ if.end14:                                         ; preds = %if.end
 eh.resume:                                        ; preds = %lpad12, %lpad
   %exception11.sink = phi ptr [ %exception11, %lpad12 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %5, %lpad12 ], [ %1, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception11.sink) #22
+  tail call void @__cxa_free_exception(ptr nonnull %exception11.sink) #22
   resume { ptr, i32 } %.pn
 }
 

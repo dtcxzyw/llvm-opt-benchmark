@@ -53724,7 +53724,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_M_all
 _ZNSt15__new_allocatorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEE9constructIS1_JRKNS0_7TfTokenEEEEvPT_DpOT0_.exit.i: ; preds = %30, %27
   %32 = phi ptr [ %29, %27 ], [ %31, %30 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(32) %32)
-          to label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKNS0_7TfTokenEEEEvRS2_PT_DpOT0_.exit unwind label %52
+          to label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKNS0_7TfTokenEEEEvRS2_PT_DpOT0_.exit unwind label %58
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKNS0_7TfTokenEEEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt15__new_allocatorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEE9constructIS1_JRKNS0_7TfTokenEEEEvPT_DpOT0_.exit.i
   %.not10.i.i.i = icmp eq ptr %6, %1
@@ -53792,15 +53792,15 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_dea
   store ptr %51, ptr %46, align 8
   ret void
 
-52:                                               ; preds = %_ZNSt15__new_allocatorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEE9constructIS1_JRKNS0_7TfTokenEEEEvPT_DpOT0_.exit.i, %30
+52:                                               ; preds = %30
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = tail call ptr @__cxa_begin_catch(ptr %54) #29
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread, label %58
+  br i1 %.not, label %.thread45, label %.thread47
 
-.thread:                                          ; preds = %52
+.thread45:                                        ; preds = %52
   tail call void @_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %23) #29
   br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_deallocateEPS1_m.exit38
 
@@ -53808,28 +53808,35 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_dea
   %57 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %60 unwind label %61
+          to label %63 unwind label %64
 
-58:                                               ; preds = %52
-  %59 = shl nuw nsw i64 %16, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %59) #33
+58:                                               ; preds = %_ZNSt15__new_allocatorIN32pxrInternal_v0_24__pxrReserved__7SdfPathEE9constructIS1_JRKNS0_7TfTokenEEEEvPT_DpOT0_.exit.i
+  %59 = landingpad { ptr, i32 }
+          catch ptr null
+  %60 = extractvalue { ptr, i32 } %59, 0
+  %61 = tail call ptr @__cxa_begin_catch(ptr %60) #29
+  br label %.thread47
+
+.thread47:                                        ; preds = %52, %58
+  %62 = shl nuw nsw i64 %16, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %62) #33
   br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_deallocateEPS1_m.exit38
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %58, %.thread
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %.thread47, %.thread45
   invoke void @__cxa_rethrow() #31
-          to label %64 unwind label %56
+          to label %67 unwind label %56
 
-60:                                               ; preds = %56
+63:                                               ; preds = %56
   resume { ptr, i32 } %57
 
-61:                                               ; preds = %56
-  %62 = landingpad { ptr, i32 }
+64:                                               ; preds = %56
+  %65 = landingpad { ptr, i32 }
           catch ptr null
-  %63 = extractvalue { ptr, i32 } %62, 0
-  tail call void @__clang_call_terminate(ptr %63) #30
+  %66 = extractvalue { ptr, i32 } %65, 0
+  tail call void @__clang_call_terminate(ptr %66) #30
   unreachable
 
-64:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_deallocateEPS1_m.exit38
+67:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_deallocateEPS1_m.exit38
   unreachable
 }
 

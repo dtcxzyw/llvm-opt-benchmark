@@ -136,7 +136,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter9ObjectKeyERKNSt7__cxx1112basic_stringIcS
   store i8 1, ptr %got_key_.i57, align 1
   %second.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.075, i64 64
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpValueERKNS_12experimental4JsonE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(56) %second.i)
-  %call.i55 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.i.sroa.0.075) #10
+  %call.i55 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.i.sroa.0.075) #10
   %cmp.i.not = icmp eq ptr %call.i55, %add.ptr.i.i
   br i1 %cmp.i.not, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10DumpObjectERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEE.exit, label %for.body.i
 

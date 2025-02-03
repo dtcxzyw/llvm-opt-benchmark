@@ -973,13 +973,13 @@ for.inc:                                          ; preds = %invoke.cont18, %if.
   %35 = load i32, ptr %count, align 4
   %36 = sext i32 %35 to i64
   %cmp16 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %cmp16, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp16, label %for.body, label %delete.notnull, !llvm.loop !8
 
-for.end:                                          ; preds = %for.inc, %invoke.cont
+for.end:                                          ; preds = %invoke.cont
   %isnull = icmp eq ptr %call14, null
   br i1 %isnull, label %delete.end117, label %delete.notnull
 
-delete.notnull:                                   ; preds = %for.end
+delete.notnull:                                   ; preds = %for.inc, %for.end
   %37 = getelementptr inbounds i8, ptr %call14, i64 -8
   %38 = load i64, ptr %37, align 8
   %arraydestroy.isempty = icmp eq i64 %38, 0

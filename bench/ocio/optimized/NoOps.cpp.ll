@@ -808,12 +808,12 @@ lpad:                                             ; preds = %if.then.i.i.i.i.i
 lpad4.loopexit:                                   ; preds = %for.body
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %_ZNSt6vectorIfSaIfEED2Ev.exit29
 
 lpad4.loopexit.split-lp:                          ; preds = %invoke.cont, %for.end50
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %_ZNSt6vectorIfSaIfEED2Ev.exit29
 
 for.end:                                          ; preds = %for.inc, %invoke.cont5
   %cmp2145.not = icmp eq i32 %mul1, 0
@@ -871,7 +871,7 @@ lpad52:                                           ; preds = %invoke.cont51
   %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVecD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %agg.result) #21
-  br label %ehcleanup
+  br label %_ZNSt6vectorIfSaIfEED2Ev.exit29
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %invoke.cont51
   call void @_ZdlPv(ptr noundef nonnull %lut3D.sroa.0.0) #24
@@ -947,17 +947,13 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   call void %28(ptr noundef nonnull align 8 dereferenceable(16) %18) #21
   br label %return
 
-ehcleanup:                                        ; preds = %lpad4.loopexit, %lpad4.loopexit.split-lp, %lpad52
+_ZNSt6vectorIfSaIfEED2Ev.exit29:                  ; preds = %lpad4.loopexit, %lpad4.loopexit.split-lp, %lpad52
   %.pn = phi { ptr, i32 } [ %17, %lpad52 ], [ %lpad.loopexit, %lpad4.loopexit ], [ %lpad.loopexit.split-lp, %lpad4.loopexit.split-lp ]
-  %tobool.not.i.i.i27 = icmp eq ptr %lut3D.sroa.0.0, null
-  br i1 %tobool.not.i.i.i27, label %ehcleanup54, label %if.then.i.i.i28
-
-if.then.i.i.i28:                                  ; preds = %ehcleanup
   call void @_ZdlPv(ptr noundef nonnull %lut3D.sroa.0.0) #24
   br label %ehcleanup54
 
-ehcleanup54:                                      ; preds = %if.then.i.i.i28, %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %8, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i28 ]
+ehcleanup54:                                      ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit29, %lpad
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit29 ], [ %8, %lpad ]
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11Lut3DOpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %lut) #21
   br label %common.resume
 
@@ -3620,7 +3616,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %2
 }
 
@@ -3638,7 +3634,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %2
 }
 
@@ -3656,7 +3652,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %2
 }
 
@@ -3674,7 +3670,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %2
 }
 

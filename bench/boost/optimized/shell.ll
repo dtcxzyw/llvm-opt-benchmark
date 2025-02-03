@@ -5629,7 +5629,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_6system12system_e
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #35
+  tail call void @__cxa_free_exception(ptr nonnull %3) #35
   resume { ptr, i32 } %6
 }
 
@@ -6580,7 +6580,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_6system12system_error
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -7155,7 +7155,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_4asio21invalid_se
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -7172,7 +7172,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_4asio22service_al
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -7305,7 +7305,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_4asio21invalid_servic
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -7676,7 +7676,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_4asio22service_alread
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -11659,7 +11659,7 @@ _ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i.lr.ph: ; preds
 _ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i: ; preds = %_ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i.lr.ph, %_ZN5boost7process2v211environment14value_iteratorppEv.exit
   %.sroa.8.072 = phi i64 [ %10, %_ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i.lr.ph ], [ %94, %_ZN5boost7process2v211environment14value_iteratorppEv.exit ]
   %.sroa.034.071 = phi ptr [ %9, %_ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i.lr.ph ], [ %storemerge13.i, %_ZN5boost7process2v211environment14value_iteratorppEv.exit ]
-  %17 = call ptr @memchr(ptr noundef %.sroa.034.071, i32 noundef 58, i64 noundef %.sroa.8.072) #35
+  %17 = call ptr @memchr(ptr noundef nonnull %.sroa.034.071, i32 noundef 58, i64 noundef %.sroa.8.072) #35
   %.not.i.i17 = icmp eq ptr %17, null
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %.sroa.034.071 to i64
@@ -11695,7 +11695,7 @@ _ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i: ; preds = %_Z
   br label %_ZN5boost10filesystem4pathC2EPKcS3_.exit
 
 29:                                               ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %.sroa.034.071, i64 %.pn5.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull align 1 %.sroa.034.071, i64 %.pn5.i, i1 false)
   br label %_ZN5boost10filesystem4pathC2EPKcS3_.exit
 
 _ZN5boost10filesystem4pathC2EPKcS3_.exit:         ; preds = %._crit_edge.i.i.i, %27, %29
@@ -11840,7 +11840,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i29
 
 _ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i29: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i26.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i27.thread
-  %82 = call ptr @memchr(ptr noundef %.sroa.034.071, i32 noundef 58, i64 noundef %.sroa.8.072) #35
+  %82 = call ptr @memchr(ptr noundef nonnull %.sroa.034.071, i32 noundef 58, i64 noundef %.sroa.8.072) #35
   %.not.i.i30 = icmp eq ptr %82, null
   %83 = ptrtoint ptr %82 to i64
   %84 = sub i64 %83, %19
@@ -12097,7 +12097,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt12out_of_rangeEEvR
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #35
+  tail call void @__cxa_free_exception(ptr nonnull %3) #35
   resume { ptr, i32 } %6
 }
 
@@ -12246,7 +12246,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt12out_of_rangeE7rethro
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -14605,7 +14605,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_4asio9execution12bad_
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 
@@ -18071,7 +18071,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt9bad_allocE7rethrowEv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #35
+  tail call void @__cxa_free_exception(ptr nonnull %2) #35
   resume { ptr, i32 } %5
 }
 

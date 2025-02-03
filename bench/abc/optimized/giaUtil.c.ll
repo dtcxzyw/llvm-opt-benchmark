@@ -16259,7 +16259,7 @@ define void @Gia_ManWriteSol(ptr noundef readonly captures(none) %0, ptr noundef
 67:                                               ; preds = %2, %.critedge2
   %.str.67.sink = phi ptr [ @.str.67, %.critedge2 ], [ @.str.65, %2 ]
   %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.67.sink, ptr noundef nonnull %6)
-  tail call void @free(ptr noundef %6) #36
+  tail call void @free(ptr noundef nonnull %6) #36
   ret void
 }
 

@@ -11031,7 +11031,7 @@ define internal void @"_ZN3pro7details25invocation_dispatcher_refIPZN35ProxyInvo
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #27
+  tail call void @__cxa_free_exception(ptr nonnull %3) #27
   resume { ptr, i32 } %8
 }
 
@@ -11954,7 +11954,7 @@ define internal void @_ZN3pro7details26invocation_dispatcher_voidIN12_GLOBAL__N_
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %4) #27
+  tail call void @__cxa_free_exception(ptr nonnull %4) #27
   resume { ptr, i32 } %7
 }
 
@@ -12101,7 +12101,7 @@ define internal void @_ZN3pro7details26invocation_dispatcher_voidIN12_GLOBAL__N_
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #27
+  tail call void @__cxa_free_exception(ptr nonnull %2) #27
   resume { ptr, i32 } %5
 }
 

@@ -534,7 +534,7 @@ _ZN4llvm14sampleprofutil13callsiteIsHotEPKNS_10sampleprof15FunctionSamplesEPNS_1
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %51, %_ZN4llvm14sampleprofutil13callsiteIsHotEPKNS_10sampleprof15FunctionSamplesEPNS_18ProfileSummaryInfoEb.exit
-  %55 = tail call noundef i32 @_ZNK4llvm14sampleprofutil21SampleCoverageTracker16countUsedRecordsEPKNS_10sampleprof15FunctionSamplesEPNS_18ProfileSummaryInfoE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull %46, ptr noundef %2)
+  %55 = tail call noundef i32 @_ZNK4llvm14sampleprofutil21SampleCoverageTracker16countUsedRecordsEPKNS_10sampleprof15FunctionSamplesEPNS_18ProfileSummaryInfoE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull %46, ptr noundef nonnull %2)
   %56 = add i32 %55, %.128
   br label %57
 
@@ -598,7 +598,7 @@ _ZN4llvm14sampleprofutil13callsiteIsHotEPKNS_10sampleprof15FunctionSamplesEPNS_1
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20, %_ZN4llvm14sampleprofutil13callsiteIsHotEPKNS_10sampleprof15FunctionSamplesEPNS_18ProfileSummaryInfoEb.exit
-  %24 = tail call noundef i32 @_ZNK4llvm14sampleprofutil21SampleCoverageTracker16countBodyRecordsEPKNS_10sampleprof15FunctionSamplesEPNS_18ProfileSummaryInfoE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull %15, ptr noundef %2)
+  %24 = tail call noundef i32 @_ZNK4llvm14sampleprofutil21SampleCoverageTracker16countBodyRecordsEPKNS_10sampleprof15FunctionSamplesEPNS_18ProfileSummaryInfoE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull %15, ptr noundef nonnull %2)
   %25 = add i32 %24, %.124
   br label %26
 
@@ -677,7 +677,7 @@ _ZN4llvm14sampleprofutil13callsiteIsHotEPKNS_10sampleprof15FunctionSamplesEPNS_1
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %24, %_ZN4llvm14sampleprofutil13callsiteIsHotEPKNS_10sampleprof15FunctionSamplesEPNS_18ProfileSummaryInfoEb.exit
-  %28 = tail call noundef i64 @_ZNK4llvm14sampleprofutil21SampleCoverageTracker16countBodySamplesEPKNS_10sampleprof15FunctionSamplesEPNS_18ProfileSummaryInfoE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull %19, ptr noundef %2)
+  %28 = tail call noundef i64 @_ZNK4llvm14sampleprofutil21SampleCoverageTracker16countBodySamplesEPKNS_10sampleprof15FunctionSamplesEPNS_18ProfileSummaryInfoE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull %19, ptr noundef nonnull %2)
   %29 = add i64 %28, %.236
   br label %30
 

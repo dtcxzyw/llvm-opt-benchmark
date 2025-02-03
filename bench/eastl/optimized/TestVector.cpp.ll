@@ -17892,7 +17892,7 @@ _ZN5eastl10VectorBaseINS_4listI10TestObjectNS_9allocatorEEES3_EC2EmRKS3_.exit.i:
   %add.ptr.i.i418 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i426, i64 240
   %mCapacityAllocator.i.i.i419 = getelementptr inbounds nuw i8, ptr %toListArray4, i64 16
   store ptr %add.ptr.i.i418, ptr %mCapacityAllocator.i.i.i419, align 8
-  %call.i.i5.i = invoke noundef ptr @_ZN5eastl8Internal23uninitialized_copy_implILb0ELb1ELb1EE4implIPNS_4listI10TestObjectNS_9allocatorEEES8_EET0_T_SA_S9_(ptr noundef %call.i.i.i.i.i308, ptr noundef nonnull %add.ptr.i.i303, ptr noundef %call.i.i.i.i.i426)
+  %call.i.i5.i = invoke noundef ptr @_ZN5eastl8Internal23uninitialized_copy_implILb0ELb1ELb1EE4implIPNS_4listI10TestObjectNS_9allocatorEEES8_EET0_T_SA_S9_(ptr noundef nonnull %call.i.i.i.i.i308, ptr noundef nonnull %add.ptr.i.i303, ptr noundef %call.i.i.i.i.i426)
           to label %invoke.cont133 unwind label %lpad.i420
 
 lpad.i420:                                        ; preds = %_ZN5eastl10VectorBaseINS_4listI10TestObjectNS_9allocatorEEES3_EC2EmRKS3_.exit.i
@@ -26260,7 +26260,7 @@ invoke.cont1905:                                  ; preds = %invoke.cont1901
   %1419 = load ptr, ptr %mpEnd.i.i3304, align 8
   %add.ptr1908 = getelementptr inbounds i8, ptr %1419, i64 -12
   %add.ptr1910 = getelementptr inbounds i8, ptr %1419, i64 -20
-  invoke void @_ZN5eastl6vectorIiNS_9allocatorEE20DoInsertFromIteratorIPiEEvPKiT_S7_NS_26bidirectional_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(24) %v1752, ptr noundef nonnull %add.ptr1908, ptr noundef nonnull %add.ptr1910, ptr noundef %1419)
+  invoke void @_ZN5eastl6vectorIiNS_9allocatorEE20DoInsertFromIteratorIPiEEvPKiT_S7_NS_26bidirectional_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(24) %v1752, ptr noundef nonnull %add.ptr1908, ptr noundef nonnull %add.ptr1910, ptr noundef nonnull %1419)
           to label %invoke.cont1912 unwind label %lpad1881
 
 invoke.cont1912:                                  ; preds = %invoke.cont1905

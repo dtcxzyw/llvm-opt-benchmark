@@ -1355,7 +1355,7 @@ return:                                           ; preds = %invoke.cont114, %if
 lpad:                                             ; preds = %if.end72
   %169 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
           to label %_ZN17btConvexHullShapedlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad

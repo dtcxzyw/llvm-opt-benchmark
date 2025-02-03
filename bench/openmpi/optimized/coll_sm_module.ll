@@ -240,7 +240,7 @@ define noundef ptr @mca_coll_sm_comm_query(ptr noundef %0, ptr noundef writeonly
 12:                                               ; preds = %2, %6, %10
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %14 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %13) #8
-  br i1 %14, label %opal_obj_new.exit.thread.sink.split, label %opal_obj_new.exit.thread
+  br i1 %14, label %opal_obj_new.exit.sink.split, label %opal_obj_new.exit
 
 15:                                               ; preds = %10
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 280), align 8
@@ -251,7 +251,7 @@ define noundef ptr @mca_coll_sm_comm_query(ptr noundef %0, ptr noundef writeonly
 18:                                               ; preds = %15
   %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %20 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %19) #8
-  br i1 %20, label %opal_obj_new.exit.thread.sink.split, label %opal_obj_new.exit.thread
+  br i1 %20, label %opal_obj_new.exit.sink.split, label %opal_obj_new.exit
 
 21:                                               ; preds = %15
   %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_module_t_class, i64 56), align 8
@@ -267,7 +267,7 @@ define noundef ptr @mca_coll_sm_comm_query(ptr noundef %0, ptr noundef writeonly
 
 27:                                               ; preds = %26, %21
   %.not9.i = icmp eq ptr %23, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %28
+  br i1 %.not9.i, label %opal_obj_new.exit, label %28
 
 28:                                               ; preds = %27
   store ptr @mca_coll_sm_module_t_class, ptr %23, align 8
@@ -276,7 +276,7 @@ define noundef ptr @mca_coll_sm_comm_query(ptr noundef %0, ptr noundef writeonly
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_module_t_class, i64 40), align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i.i = icmp eq ptr %31, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread31, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %28, %.lr.ph.i.i
   %32 = phi ptr [ %34, %.lr.ph.i.i ], [ %31, %28 ]
@@ -285,9 +285,9 @@ define noundef ptr @mca_coll_sm_comm_query(ptr noundef %0, ptr noundef writeonly
   %33 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread31, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !6
 
-opal_obj_new.exit.thread31:                       ; preds = %.lr.ph.i.i, %28
+.loopexit:                                        ; preds = %.lr.ph.i.i, %28
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr @sm_module_enable, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -310,20 +310,20 @@ opal_obj_new.exit.thread31:                       ; preds = %.lr.ph.i.i, %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
   %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %46 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %45) #8
-  br i1 %46, label %opal_obj_new.exit.thread.sink.split, label %opal_obj_new.exit.thread
+  br i1 %46, label %opal_obj_new.exit.sink.split, label %opal_obj_new.exit
 
-opal_obj_new.exit.thread.sink.split:              ; preds = %opal_obj_new.exit.thread31, %18, %12
-  %.str.4.sink = phi ptr [ @.str.2, %12 ], [ @.str.3, %18 ], [ @.str.4, %opal_obj_new.exit.thread31 ]
-  %.0.ph = phi ptr [ null, %12 ], [ null, %18 ], [ %23, %opal_obj_new.exit.thread31 ]
+opal_obj_new.exit.sink.split:                     ; preds = %.loopexit, %18, %12
+  %.str.4.sink = phi ptr [ @.str.2, %12 ], [ @.str.3, %18 ], [ @.str.4, %.loopexit ]
+  %.0.ph = phi ptr [ null, %12 ], [ null, %18 ], [ %23, %.loopexit ]
   %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %48 = tail call ptr @ompi_comm_print_cid(ptr noundef %0) #8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %50 = load ptr, ptr %49, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %47, ptr noundef nonnull %.str.4.sink, ptr noundef %48, ptr noundef %50) #8
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %opal_obj_new.exit.thread.sink.split, %27, %opal_obj_new.exit.thread31, %18, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %18 ], [ %23, %opal_obj_new.exit.thread31 ], [ null, %27 ], [ %.0.ph, %opal_obj_new.exit.thread.sink.split ]
+opal_obj_new.exit:                                ; preds = %opal_obj_new.exit.sink.split, %27, %.loopexit, %18, %12
+  %.0 = phi ptr [ null, %12 ], [ null, %18 ], [ %23, %.loopexit ], [ null, %27 ], [ %.0.ph, %opal_obj_new.exit.sink.split ]
   ret ptr %.0
 }
 

@@ -466,7 +466,7 @@ common.resume:                                    ; preds = %lpad.i, %lpad.i.i
 lpad.i.i:                                         ; preds = %if.then.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #19
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i) #19
   br label %common.resume
 
 _ZN6Assimp21BlenderBMeshConverter15AssertValidMeshEv.exit: ; preds = %_ZNK6Assimp21BlenderBMeshConverter13ContainsBMeshEv.exit.i
@@ -583,7 +583,7 @@ invoke.cont.i:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #19
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #19
   resume { ptr, i32 } %4
 
 if.end:                                           ; preds = %_ZNK6Assimp21BlenderBMeshConverter13ContainsBMeshEv.exit
@@ -624,7 +624,7 @@ invoke.cont.i:                                    ; preds = %if.then
 common.resume:                                    ; preds = %lpad.i8, %lpad.i
   %exception.i7.sink = phi ptr [ %exception.i7, %lpad.i8 ], [ %exception.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %8, %lpad.i8 ], [ %4, %lpad.i ]
-  call void @__cxa_free_exception(ptr %exception.i7.sink) #19
+  call void @__cxa_free_exception(ptr nonnull %exception.i7.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
@@ -849,7 +849,7 @@ invoke.cont.i:                                    ; preds = %if.then22
 lpad.i:                                           ; preds = %if.then22
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #19
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #19
   resume { ptr, i32 } %20
 
 if.end:                                           ; preds = %if.then14

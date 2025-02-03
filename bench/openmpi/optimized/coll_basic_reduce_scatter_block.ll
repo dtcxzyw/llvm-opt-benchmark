@@ -110,7 +110,7 @@ opal_datatype_span.exit:                          ; preds = %23, %29
   %.06292 = phi ptr [ %.06193, %62 ], [ %49, %.preheader ]
   %.06691 = phi i32 [ %63, %62 ], [ 1, %.preheader ]
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
-  %61 = call i32 %60(ptr noundef %.06193, i64 noundef %24, ptr noundef nonnull %3, i32 noundef %.06691, i32 noundef -22, ptr noundef nonnull %5, ptr noundef null) #4
+  %61 = call i32 %60(ptr noundef nonnull %.06193, i64 noundef %24, ptr noundef nonnull %3, i32 noundef %.06691, i32 noundef -22, ptr noundef nonnull %5, ptr noundef null) #4
   %.not76 = icmp eq i32 %61, 0
   br i1 %.not76, label %62, label %.loopexit89
 

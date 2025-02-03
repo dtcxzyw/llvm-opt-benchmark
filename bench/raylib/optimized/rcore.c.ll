@@ -38689,7 +38689,7 @@ define void @OpenURL(ptr noundef %0) local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %11, %4
-  tail call void @free(ptr noundef %7) #54
+  tail call void @free(ptr noundef nonnull %7) #54
   br label %13
 
 13:                                               ; preds = %12, %3
@@ -45785,7 +45785,7 @@ define zeroext i1 @ExportAutomationEventList(i64 %0, ptr readonly captures(none)
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %40 = tail call zeroext i1 @SaveFileText(ptr noundef %2, ptr noundef nonnull %7) #54
-  tail call void @free(ptr noundef %7) #54
+  tail call void @free(ptr noundef nonnull %7) #54
   ret i1 %40
 }
 

@@ -3076,7 +3076,7 @@ terminate.lpad.i.i:                               ; preds = %if.then13.i.i.i
   unreachable
 
 _ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEESt3setIS3_St4lessIS3_ESaIS3_EEED2Ev.exit: ; preds = %_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev.exit.i, %if.then.i.i.i, %if.then13.i.i.i
-  %call.i371 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin3114.sroa.0.0577) #18
+  %call.i371 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3114.sroa.0.0577) #18
   %cmp.i323.not = icmp eq ptr %call.i371, %20
   br i1 %cmp.i323.not, label %for.end146, label %for.body122
 

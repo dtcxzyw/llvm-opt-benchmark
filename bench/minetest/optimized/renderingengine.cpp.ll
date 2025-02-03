@@ -2387,7 +2387,7 @@ invoke.cont50.i:                                  ; preds = %for.end.i714
 lpad49.i:                                         ; preds = %for.end.i714
   %216 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #27
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #27
   br label %lpad242.body
 
 invoke.cont243:                                   ; preds = %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EED2Ev.exit70.i, %call3.i.noexc

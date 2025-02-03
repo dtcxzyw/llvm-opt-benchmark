@@ -200,7 +200,7 @@ for.end:                                          ; preds = %for.inc, %if.end
   br i1 %call18, label %if.end20, label %return
 
 if.end20:                                         ; preds = %for.end
-  call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr17, ptr noundef null, ptr noundef null, ptr noundef nonnull @cryptodev_vhost_user_event, ptr noundef null, ptr noundef %call.i, ptr noundef null, i1 noundef zeroext true) #5
+  call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr17, ptr noundef null, ptr noundef null, ptr noundef nonnull @cryptodev_vhost_user_event, ptr noundef null, ptr noundef nonnull %call.i, ptr noundef null, i1 noundef zeroext true) #5
   %crypto_services = getelementptr inbounds nuw i8, ptr %backend, i64 568
   store i32 7, ptr %crypto_services, align 8
   %cipher_algo_l = getelementptr inbounds nuw i8, ptr %backend, i64 572

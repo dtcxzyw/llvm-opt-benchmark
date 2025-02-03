@@ -993,7 +993,7 @@ define noundef i64 @_ZNK5faiss19HStackInvertedLists13get_single_idEmm(ptr nounde
 43:                                               ; preds = %36
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %39) #15
+  call void @__cxa_free_exception(ptr nonnull %39) #15
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -1098,7 +1098,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %17
 53:                                               ; preds = %46
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %49) #15
+  call void @__cxa_free_exception(ptr nonnull %49) #15
   br label %55
 
 55:                                               ; preds = %53, %51
@@ -2500,7 +2500,7 @@ define noundef i64 @_ZNK5faiss22StopWordsInvertedLists13get_single_idEmm(ptr nou
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #15
+  call void @__cxa_free_exception(ptr nonnull %23) #15
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -2565,7 +2565,7 @@ define noundef ptr @_ZNK5faiss22StopWordsInvertedLists15get_single_codeEmm(ptr n
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #15
+  call void @__cxa_free_exception(ptr nonnull %23) #15
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -3235,7 +3235,7 @@ define noundef i64 @_ZNK5faiss13InvertedLists14copy_subset_toERS0_NS0_13subset_t
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #15
+  call void @__cxa_free_exception(ptr nonnull %23) #15
   br label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit165.sink.split
 
 29:                                               ; preds = %5
@@ -3277,7 +3277,7 @@ define noundef i64 @_ZNK5faiss13InvertedLists14copy_subset_toERS0_NS0_13subset_t
 48:                                               ; preds = %41
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %44) #15
+  call void @__cxa_free_exception(ptr nonnull %44) #15
   br label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit165.sink.split
 
 50:                                               ; preds = %29
@@ -3315,7 +3315,7 @@ define noundef i64 @_ZNK5faiss13InvertedLists14copy_subset_toERS0_NS0_13subset_t
 64:                                               ; preds = %57
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %60) #15
+  call void @__cxa_free_exception(ptr nonnull %60) #15
   br label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit165.sink.split
 
 66:                                               ; preds = %50
@@ -4797,7 +4797,7 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %2
 45:                                               ; preds = %36
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %39) #15
+  call void @__cxa_free_exception(ptr nonnull %39) #15
   br label %47
 
 47:                                               ; preds = %45, %43
@@ -5090,7 +5090,7 @@ define void @_ZN5faiss19HStackInvertedListsC2EiPPKNS_13InvertedListsE(ptr nounde
 34:                                               ; preds = %27
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %30) #15
+  call void @__cxa_free_exception(ptr nonnull %30) #15
   br label %36
 
 36:                                               ; preds = %34, %32
@@ -5231,7 +5231,7 @@ _ZNSt6vectorIPKN5faiss13InvertedListsESaIS3_EE9push_backERKS3_.exit: ; preds = %
 91:                                               ; preds = %84
   %92 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %87) #15
+  call void @__cxa_free_exception(ptr nonnull %87) #15
   br label %93
 
 93:                                               ; preds = %91, %89
@@ -5326,7 +5326,7 @@ define internal fastcc noundef i64 @_ZN5faiss12_GLOBAL__N_117translate_list_noEP
 18:                                               ; preds = %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %14) #15
+  call void @__cxa_free_exception(ptr nonnull %14) #15
   br label %20
 
 20:                                               ; preds = %18, %16
@@ -5417,7 +5417,7 @@ _ZN5faiss12_GLOBAL__N_112sum_il_sizesEiPPKNS_13InvertedListsE.exit.thread: ; pre
 34:                                               ; preds = %27
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %30) #15
+  call void @__cxa_free_exception(ptr nonnull %30) #15
   br label %36
 
 36:                                               ; preds = %34, %32
@@ -5557,7 +5557,7 @@ _ZNSt6vectorIPKN5faiss13InvertedListsESaIS3_EE9push_backERKS3_.exit: ; preds = %
 89:                                               ; preds = %82
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %85) #15
+  call void @__cxa_free_exception(ptr nonnull %85) #15
   br label %91
 
 91:                                               ; preds = %89, %87
@@ -5650,7 +5650,7 @@ define internal fastcc noundef range(i32 0, 1073741824) i32 @_ZN5faiss12_GLOBAL_
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #15
+  call void @__cxa_free_exception(ptr nonnull %18) #15
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -5751,7 +5751,7 @@ define void @_ZN5faiss19MaskedInvertedListsC2EPKNS_13InvertedListsES3_(ptr nound
 31:                                               ; preds = %24
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %27) #15
+  call void @__cxa_free_exception(ptr nonnull %27) #15
   br label %53
 
 33:                                               ; preds = %3
@@ -5791,7 +5791,7 @@ define void @_ZN5faiss19MaskedInvertedListsC2EPKNS_13InvertedListsES3_(ptr nound
 50:                                               ; preds = %43
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #15
+  call void @__cxa_free_exception(ptr nonnull %46) #15
   br label %53
 
 52:                                               ; preds = %33

@@ -531,7 +531,7 @@ invoke.cont145:                                   ; preds = %if.then143
 lpad144:                                          ; preds = %if.then143
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #13
+  call void @__cxa_free_exception(ptr nonnull %exception) #13
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit154
 
 if.end146:                                        ; preds = %for.end141

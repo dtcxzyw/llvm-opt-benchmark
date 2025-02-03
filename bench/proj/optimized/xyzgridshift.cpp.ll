@@ -165,7 +165,7 @@ _ZN12_GLOBAL__N_116xyzgridshiftDataD2Ev.exit.i:   ; preds = %38, %_ZSt8_DestroyI
 _ZL26pj_xyzgridshift_destructorP8PJconstsi.exit:  ; preds = %19, %_ZN12_GLOBAL__N_116xyzgridshiftDataD2Ev.exit.i
   store ptr null, ptr %7, align 8
   %39 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
-  br label %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108
+  br label %163
 
 40:                                               ; preds = %1
   tail call void @_Z24pj_inherit_ellipsoid_defPK8PJconstsPS_(ptr noundef nonnull %0, ptr noundef nonnull %17)
@@ -255,7 +255,7 @@ _ZN12_GLOBAL__N_116xyzgridshiftDataD2Ev.exit.i64: ; preds = %71, %_ZSt8_DestroyI
 _ZL26pj_xyzgridshift_destructorP8PJconstsi.exit66: ; preds = %52, %_ZN12_GLOBAL__N_116xyzgridshiftDataD2Ev.exit.i64
   store ptr null, ptr %7, align 8
   %72 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108
+  br label %163
 
 73:                                               ; preds = %51, %45, %40
   %74 = load ptr, ptr %0, align 8
@@ -329,7 +329,7 @@ _ZN12_GLOBAL__N_116xyzgridshiftDataD2Ev.exit.i80: ; preds = %98, %_ZSt8_DestroyI
 _ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82: ; preds = %79, %_ZN12_GLOBAL__N_116xyzgridshiftDataD2Ev.exit.i80
   store ptr null, ptr %7, align 8
   %99 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108
+  br label %163
 
 100:                                              ; preds = %73
   %101 = load ptr, ptr %0, align 8
@@ -356,7 +356,7 @@ _ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82: ; preds = %79, %_ZN12_GLOBAL_
 114:                                              ; preds = %109
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i8 1, ptr %115, align 8
-  br label %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108
+  br label %163
 
 116:                                              ; preds = %109
   call void @_ZN5osgeo4proj20pj_generic_grid_initEP8PJconstsPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.8") align 8 %2, ptr noundef nonnull %0, ptr noundef nonnull @.str.10)
@@ -444,13 +444,13 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_dele
 _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, %140
   %141 = call i32 @proj_errno(ptr noundef nonnull %0)
   %.not50 = icmp eq i32 %141, 0
-  br i1 %.not50, label %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108, label %142
+  br i1 %.not50, label %163, label %142
 
 142:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %143 = load ptr, ptr %7, align 8
   %.not.i93 = icmp eq ptr %143, null
-  br i1 %.not.i93, label %162, label %144
+  br i1 %.not.i93, label %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108, label %144
 
 144:                                              ; preds = %142
   %145 = load ptr, ptr %143, align 8
@@ -505,15 +505,15 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_dele
 
 _ZN12_GLOBAL__N_116xyzgridshiftDataD2Ev.exit.i106: ; preds = %161, %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i104
   call void @_ZdlPv(ptr noundef nonnull %143) #12
-  br label %162
-
-162:                                              ; preds = %_ZN12_GLOBAL__N_116xyzgridshiftDataD2Ev.exit.i106, %142
-  store ptr null, ptr %7, align 8
-  %163 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
   br label %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108
 
-_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108: ; preds = %162, %114, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit66, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit
-  %.0 = phi ptr [ %39, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit ], [ %99, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82 ], [ %72, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit66 ], [ %0, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit ], [ %0, %114 ], [ %163, %162 ]
+_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108: ; preds = %142, %_ZN12_GLOBAL__N_116xyzgridshiftDataD2Ev.exit.i106
+  store ptr null, ptr %7, align 8
+  %162 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
+  br label %163
+
+163:                                              ; preds = %114, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit66, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit
+  %.0 = phi ptr [ %39, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit ], [ %99, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82 ], [ %162, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108 ], [ %72, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit66 ], [ %0, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit ], [ %0, %114 ]
   ret ptr %.0
 }
 

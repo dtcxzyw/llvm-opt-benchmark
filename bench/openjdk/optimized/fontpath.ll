@@ -341,7 +341,7 @@ openFontConfig.exit.i.i:                          ; preds = %25, %22
   br label %77
 
 76:                                               ; preds = %.lr.ph.i.i
-  call void @free(ptr noundef %67) #13
+  call void @free(ptr noundef nonnull %67) #13
   br label %77
 
 77:                                               ; preds = %76, %.critedge.i.i, %59

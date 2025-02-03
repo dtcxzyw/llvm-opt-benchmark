@@ -7642,7 +7642,7 @@ if.end12.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %w
   %144 = load i8, ptr %_M_storage.i.i.i.i.i.i.i, align 8, !range !14, !noundef !15
   %145 = load i8, ptr %_M_storage.i.i.i.i.i17.i, align 8, !range !14, !noundef !15
   %cmp.i.i253 = icmp samesign ult i8 %144, %145
-  br i1 %cmp.i.i253, label %invoke.cont7.i.i, label %if.end.i.i254
+  br i1 %cmp.i.i253, label %invoke.cont7.i.i.thread, label %if.end.i.i254
 
 if.end.i.i254:                                    ; preds = %if.end12.i.i.i.i
   %cmp11.i.i255 = icmp samesign ult i8 %145, %144
@@ -7654,7 +7654,7 @@ do.body14.i.i256:                                 ; preds = %if.end.i.i254
   %hasMaxWidth17.i.i258 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i432, i64 33
   %147 = load i8, ptr %hasMaxWidth17.i.i258, align 1, !range !14, !noundef !15
   %cmp20.i.i259 = icmp samesign ult i8 %146, %147
-  br i1 %cmp20.i.i259, label %invoke.cont7.i.i, label %if.end22.i.i260
+  br i1 %cmp20.i.i259, label %invoke.cont7.i.i.thread, label %if.end22.i.i260
 
 if.end22.i.i260:                                  ; preds = %do.body14.i.i256
   %cmp29.i.i261 = icmp samesign ult i8 %147, %146
@@ -7666,7 +7666,7 @@ do.body34.i.i262:                                 ; preds = %if.end22.i.i260
   %148 = load i64, ptr %castle_cr.i.i263, align 8
   %149 = load i64, ptr %castle_cr35.i.i264, align 8
   %cmp.i25.i.i.i.i.i.i.i.i.i.i265 = icmp ult i64 %148, %149
-  br i1 %cmp.i25.i.i.i.i.i.i.i.i.i.i265, label %invoke.cont7.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i266
+  br i1 %cmp.i25.i.i.i.i.i.i.i.i.i.i265, label %invoke.cont7.i.i.thread, label %if.end.i.i.i.i.i.i.i.i.i.i266
 
 if.end.i.i.i.i.i.i.i.i.i.i266:                    ; preds = %do.body34.i.i262
   %cmp.i26.i.i.i.i.i.i.i.i.i.i267 = icmp ult i64 %149, %148
@@ -7678,7 +7678,7 @@ for.inc.i.i.i.i.i.i.i.i.i.i268:                   ; preds = %if.end.i.i.i.i.i.i.
   %150 = load i64, ptr %__first1.addr.029.i.i.i.i.i.ptr.1.i.i.i.i.i270, align 8
   %151 = load i64, ptr %__first2.addr.030.i.i.i.i.i.ptr.1.i.i.i.i.i269, align 8
   %cmp.i25.i.i.i.i.i.1.i.i.i.i.i271 = icmp ult i64 %150, %151
-  br i1 %cmp.i25.i.i.i.i.i.1.i.i.i.i.i271, label %invoke.cont7.i.i, label %if.end.i.i.i.i.i.1.i.i.i.i.i272
+  br i1 %cmp.i25.i.i.i.i.i.1.i.i.i.i.i271, label %invoke.cont7.i.i.thread, label %if.end.i.i.i.i.i.1.i.i.i.i.i272
 
 if.end.i.i.i.i.i.1.i.i.i.i.i272:                  ; preds = %for.inc.i.i.i.i.i.i.i.i.i.i268
   %cmp.i26.i.i.i.i.i.1.i.i.i.i.i273 = icmp ult i64 %151, %150
@@ -7690,7 +7690,7 @@ for.inc.i.i.i.i.i.1.i.i.i.i.i274:                 ; preds = %if.end.i.i.i.i.i.1.
   %152 = load i64, ptr %__first1.addr.029.i.i.i.i.i.ptr.2.i.i.i.i.i276, align 8
   %153 = load i64, ptr %__first2.addr.030.i.i.i.i.i.ptr.2.i.i.i.i.i275, align 8
   %cmp.i25.i.i.i.i.i.2.i.i.i.i.i277 = icmp ult i64 %152, %153
-  br i1 %cmp.i25.i.i.i.i.i.2.i.i.i.i.i277, label %invoke.cont7.i.i, label %if.end.i.i.i.i.i.2.i.i.i.i.i278
+  br i1 %cmp.i25.i.i.i.i.i.2.i.i.i.i.i277, label %invoke.cont7.i.i.thread, label %if.end.i.i.i.i.i.2.i.i.i.i.i278
 
 if.end.i.i.i.i.i.2.i.i.i.i.i278:                  ; preds = %for.inc.i.i.i.i.i.1.i.i.i.i.i274
   %cmp.i26.i.i.i.i.i.2.i.i.i.i.i279 = icmp ult i64 %153, %152
@@ -7702,7 +7702,7 @@ _ZNK3ue29CharReachltERKS0_.exit.i.i280:           ; preds = %if.end.i.i.i.i.i.2.
   %154 = load i64, ptr %__first1.addr.029.i.i.i.i.i.ptr.3.i.i.i.i.i282, align 8
   %155 = load i64, ptr %__first2.addr.030.i.i.i.i.i.ptr.3.i.i.i.i.i281, align 8
   %cmp.i25.i.i.i.i.i.3.i.i.i.i.i283 = icmp ult i64 %154, %155
-  br i1 %cmp.i25.i.i.i.i.i.3.i.i.i.i.i283, label %invoke.cont7.i.i, label %_ZNK3ue29CharReachltERKS0_.exit91.i.i284
+  br i1 %cmp.i25.i.i.i.i.i.3.i.i.i.i.i283, label %invoke.cont7.i.i.thread, label %_ZNK3ue29CharReachltERKS0_.exit91.i.i284
 
 _ZNK3ue29CharReachltERKS0_.exit91.i.i284:         ; preds = %_ZNK3ue29CharReachltERKS0_.exit.i.i280
   %cmp.i25.i.i.i.i.i.3.i.i.i89.i.i285 = icmp ult i64 %155, %154
@@ -7714,7 +7714,7 @@ do.body45.i.i286:                                 ; preds = %_ZNK3ue29CharReachl
           to label %call47.i.i.noexc291 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 call47.i.i.noexc291:                              ; preds = %do.body45.i.i286
-  br i1 %call47.i.i292, label %invoke.cont7.i.i, label %if.end49.i.i289
+  br i1 %call47.i.i292, label %invoke.cont7.i.i.thread, label %if.end49.i.i289
 
 if.end49.i.i289:                                  ; preds = %call47.i.i.noexc291
   %call52.i.i294 = invoke noundef zeroext i1 @_ZNK3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EEltERKSC_(ptr noundef nonnull align 8 dereferenceable(40) %parents.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %parents.i.i287)
@@ -8326,14 +8326,14 @@ if.end12.i154.i.i.i:                              ; preds = %if.else.i169.i.i.i,
 call16.i158.i.noexc.i.i:                          ; preds = %if.end12.i154.i.i.i
   br i1 %call16.i158.i29.i.i, label %if.then.i.i426, label %if.then.i37.i.i
 
-invoke.cont7.i.i.thread:                          ; preds = %if.then18.i.i.i, %if.then50.i.i.i, %if.then32.i.i.i, %if.then64.i.i.i
-  %retval.sroa.0.2.i.i.i.ph = phi ptr [ %call.i135.i.i.i, %if.then64.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then32.i.i.i ], [ null, %if.then50.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then18.i.i.i ]
-  %retval.sroa.12.2.i.i.i.ph = phi ptr [ %call.i135.i.i.i, %if.then64.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then32.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then50.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then18.i.i.i ]
+invoke.cont7.i.i.thread:                          ; preds = %if.then18.i.i.i, %if.then50.i.i.i, %if.then32.i.i.i, %if.then64.i.i.i, %if.end12.i.i.i.i, %do.body14.i.i256, %_ZNK3ue29CharReachltERKS0_.exit.i.i280, %call47.i.i.noexc291, %do.body34.i.i262, %for.inc.i.i.i.i.i.i.i.i.i.i268, %for.inc.i.i.i.i.i.1.i.i.i.i.i274
+  %retval.sroa.0.2.i.i.i.ph = phi ptr [ %call.i135.i.i.i, %if.then64.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then32.i.i.i ], [ null, %if.then50.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then18.i.i.i ], [ null, %if.end12.i.i.i.i ], [ null, %do.body14.i.i256 ], [ null, %_ZNK3ue29CharReachltERKS0_.exit.i.i280 ], [ null, %call47.i.i.noexc291 ], [ null, %do.body34.i.i262 ], [ null, %for.inc.i.i.i.i.i.i.i.i.i.i268 ], [ null, %for.inc.i.i.i.i.i.1.i.i.i.i.i274 ]
+  %retval.sroa.12.2.i.i.i.ph = phi ptr [ %call.i135.i.i.i, %if.then64.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then32.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then50.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then18.i.i.i ], [ %__y.0.lcssa47.i.i.i.i, %if.end12.i.i.i.i ], [ %__y.0.lcssa47.i.i.i.i, %do.body14.i.i256 ], [ %__y.0.lcssa47.i.i.i.i, %_ZNK3ue29CharReachltERKS0_.exit.i.i280 ], [ %__y.0.lcssa47.i.i.i.i, %call47.i.i.noexc291 ], [ %__y.0.lcssa47.i.i.i.i, %do.body34.i.i262 ], [ %__y.0.lcssa47.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i268 ], [ %__y.0.lcssa47.i.i.i.i, %for.inc.i.i.i.i.i.1.i.i.i.i.i274 ]
   %236 = icmp ne ptr %retval.sroa.0.2.i.i.i.ph, null
   br label %if.then.i.i426
 
-invoke.cont7.i.i:                                 ; preds = %call47.i.i.noexc205.if.then9.i.i.i_crit_edge, %for.inc.i.i.i.i.i.1.i.i.i.i.i274, %for.inc.i.i.i.i.i.i.i.i.i.i268, %do.body34.i.i262, %call47.i.i.noexc291, %_ZNK3ue29CharReachltERKS0_.exit.i.i280, %do.body14.i.i256, %if.end12.i.i.i.i, %if.then.i.i.i.i428
-  %retval.sroa.12.2.i.i.i = phi ptr [ %__y.0.lcssa46.i.i.i.i, %if.then.i.i.i.i428 ], [ %__y.0.lcssa47.i.i.i.i, %if.end12.i.i.i.i ], [ %__y.0.lcssa47.i.i.i.i, %do.body14.i.i256 ], [ %__y.0.lcssa47.i.i.i.i, %_ZNK3ue29CharReachltERKS0_.exit.i.i280 ], [ %__y.0.lcssa47.i.i.i.i, %call47.i.i.noexc291 ], [ %__y.0.lcssa47.i.i.i.i, %do.body34.i.i262 ], [ %__y.0.lcssa47.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i268 ], [ %__y.0.lcssa47.i.i.i.i, %for.inc.i.i.i.i.i.1.i.i.i.i.i274 ], [ %.pre2092, %call47.i.i.noexc205.if.then9.i.i.i_crit_edge ]
+invoke.cont7.i.i:                                 ; preds = %call47.i.i.noexc205.if.then9.i.i.i_crit_edge, %if.then.i.i.i.i428
+  %retval.sroa.12.2.i.i.i = phi ptr [ %__y.0.lcssa46.i.i.i.i, %if.then.i.i.i.i428 ], [ %.pre2092, %call47.i.i.noexc205.if.then9.i.i.i_crit_edge ]
   %tobool.not.i.i = icmp eq ptr %retval.sroa.12.2.i.i.i, null
   br i1 %tobool.not.i.i, label %if.then.i37.i.i, label %if.then.i.i426
 
@@ -15405,7 +15405,7 @@ if.end12.i.i.i.i:                                 ; preds = %.thread1156, %if.el
   %preds.i.i183 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i.i.i.i, i64 40
   %transient.i.i184 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i.i.i.i, i64 80
   %cmp.i.i.i.i187 = icmp ult i64 %148, %147
-  br i1 %cmp.i.i.i.i187, label %invoke.cont7.i.i, label %lor.rhs.i.i.i.i188
+  br i1 %cmp.i.i.i.i187, label %if.then.i.i, label %lor.rhs.i.i.i.i188
 
 lor.rhs.i.i.i.i188:                               ; preds = %if.end12.i.i.i.i
   %cmp4.i.i.i.i189 = icmp ult i64 %147, %148
@@ -16474,15 +16474,15 @@ _ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit686: ; preds = %
   %cmp.i.i9.i.i685 = icmp samesign ult i8 %314, %103
   br i1 %cmp.i.i9.i.i685, label %if.then.i.i, label %_ZNSt6vectorIN3ue27left_idESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i
 
-invoke.cont7.i.i:                                 ; preds = %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i96, %lor.rhs.i.i.i.i.i.i.i.i90, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i207, %lor.rhs.i.i.i.i.i.i.i.i201, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i213, %if.end12.i.i.i.i, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i102, %if.then64.i.i.i, %if.then50.i.i.i, %if.then.i124.i.i.i, %if.then32.i.i.i, %if.then18.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit238, %if.then.i.i.i.i349
-  %retval.sroa.0.2.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i29.i, %if.then18.i.i.i ], [ null, %if.then50.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then32.i.i.i ], [ %call.i135.i.i.i, %if.then64.i.i.i ], [ null, %if.then.i.i.i.i349 ], [ null, %if.then.i124.i.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit238 ], [ null, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i102 ], [ null, %if.end12.i.i.i.i ], [ null, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i213 ], [ null, %lor.rhs.i.i.i.i.i.i.i.i201 ], [ null, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i207 ], [ null, %lor.rhs.i.i.i.i.i.i.i.i90 ], [ null, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i96 ]
-  %retval.sroa.12.2.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i29.i, %if.then18.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then50.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then32.i.i.i ], [ %call.i135.i.i.i, %if.then64.i.i.i ], [ %__y.0.lcssa46.i.i.i.i, %if.then.i.i.i.i349 ], [ %185, %if.then.i124.i.i.i ], [ %__y.0.lcssa47.i.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit238 ], [ %105, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i102 ], [ %__y.0.lcssa47.i.i.i.i, %if.end12.i.i.i.i ], [ %__y.0.lcssa47.i.i.i.i, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i213 ], [ %__y.0.lcssa47.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i201 ], [ %__y.0.lcssa47.i.i.i.i, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i207 ], [ %105, %lor.rhs.i.i.i.i.i.i.i.i90 ], [ %105, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i96 ]
+invoke.cont7.i.i:                                 ; preds = %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i96, %lor.rhs.i.i.i.i.i.i.i.i90, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i207, %lor.rhs.i.i.i.i.i.i.i.i201, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i213, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i102, %if.then64.i.i.i, %if.then50.i.i.i, %if.then.i124.i.i.i, %if.then32.i.i.i, %if.then18.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit238, %if.then.i.i.i.i349
+  %retval.sroa.0.2.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i29.i, %if.then18.i.i.i ], [ null, %if.then50.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then32.i.i.i ], [ %call.i135.i.i.i, %if.then64.i.i.i ], [ null, %if.then.i.i.i.i349 ], [ null, %if.then.i124.i.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit238 ], [ null, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i102 ], [ null, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i213 ], [ null, %lor.rhs.i.i.i.i.i.i.i.i201 ], [ null, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i207 ], [ null, %lor.rhs.i.i.i.i.i.i.i.i90 ], [ null, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i96 ]
+  %retval.sroa.12.2.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i29.i, %if.then18.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then50.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then32.i.i.i ], [ %call.i135.i.i.i, %if.then64.i.i.i ], [ %__y.0.lcssa46.i.i.i.i, %if.then.i.i.i.i349 ], [ %185, %if.then.i124.i.i.i ], [ %__y.0.lcssa47.i.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit238 ], [ %105, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i102 ], [ %__y.0.lcssa47.i.i.i.i, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i213 ], [ %__y.0.lcssa47.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i201 ], [ %__y.0.lcssa47.i.i.i.i, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i207 ], [ %105, %lor.rhs.i.i.i.i.i.i.i.i90 ], [ %105, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i96 ]
   %tobool.not.i.i = icmp eq ptr %retval.sroa.12.2.i.i.i, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN3ue27left_idESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i655, %lor.rhs.i.i.i.i.i.i.i.i649, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i431, %lor.rhs.i.i.i.i.i.i.i.i425, %land.lhs.true.i.i.i, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i661, %if.end12.i154.i.i.i, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i437, %if.end12.i113.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit126, %invoke.cont7.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit686, %if.then.i165.i.i.i, %if.then64.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit462, %if.then32.i.i.i
-  %retval.sroa.12.2.i36.i.i = phi ptr [ %retval.sroa.12.2.i.i.i, %invoke.cont7.i.i ], [ %__y.0.lcssa46.i166.i.i.i, %if.then.i165.i.i.i ], [ %call.i.i.i.i, %if.then32.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then64.i.i.i ], [ %__y.0.lcssa47.i114.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit462 ], [ %__y.0.lcssa47.i155.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit686 ], [ %105, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit126 ], [ %__y.0.lcssa47.i114.i.i.i, %if.end12.i113.i.i.i ], [ %__y.0.lcssa47.i114.i.i.i, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i437 ], [ %__y.0.lcssa47.i155.i.i.i, %if.end12.i154.i.i.i ], [ %__y.0.lcssa47.i155.i.i.i, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i661 ], [ %105, %land.lhs.true.i.i.i ], [ %__y.0.lcssa47.i114.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i425 ], [ %__y.0.lcssa47.i114.i.i.i, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i431 ], [ %__y.0.lcssa47.i155.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i649 ], [ %__y.0.lcssa47.i155.i.i.i, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i655 ]
-  %retval.sroa.0.2.i35.i.i = phi ptr [ %retval.sroa.0.2.i.i.i, %invoke.cont7.i.i ], [ null, %if.then.i165.i.i.i ], [ null, %if.then32.i.i.i ], [ null, %if.then64.i.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit462 ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit686 ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit126 ], [ null, %if.end12.i113.i.i.i ], [ null, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i437 ], [ null, %if.end12.i154.i.i.i ], [ null, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i661 ], [ null, %land.lhs.true.i.i.i ], [ null, %lor.rhs.i.i.i.i.i.i.i.i425 ], [ null, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i431 ], [ null, %lor.rhs.i.i.i.i.i.i.i.i649 ], [ null, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i655 ]
+if.then.i.i:                                      ; preds = %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i655, %lor.rhs.i.i.i.i.i.i.i.i649, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i431, %lor.rhs.i.i.i.i.i.i.i.i425, %if.end12.i.i.i.i, %land.lhs.true.i.i.i, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i661, %if.end12.i154.i.i.i, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i437, %if.end12.i113.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit126, %invoke.cont7.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit686, %if.then.i165.i.i.i, %if.then64.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit462, %if.then32.i.i.i
+  %retval.sroa.12.2.i36.i.i = phi ptr [ %retval.sroa.12.2.i.i.i, %invoke.cont7.i.i ], [ %__y.0.lcssa46.i166.i.i.i, %if.then.i165.i.i.i ], [ %call.i.i.i.i, %if.then32.i.i.i ], [ %__y.addr.0.lcssa.i.i.i29.i, %if.then64.i.i.i ], [ %__y.0.lcssa47.i114.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit462 ], [ %__y.0.lcssa47.i155.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit686 ], [ %105, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit126 ], [ %__y.0.lcssa47.i114.i.i.i, %if.end12.i113.i.i.i ], [ %__y.0.lcssa47.i114.i.i.i, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i437 ], [ %__y.0.lcssa47.i155.i.i.i, %if.end12.i154.i.i.i ], [ %__y.0.lcssa47.i155.i.i.i, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i661 ], [ %__y.0.lcssa47.i.i.i.i, %if.end12.i.i.i.i ], [ %105, %land.lhs.true.i.i.i ], [ %__y.0.lcssa47.i114.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i425 ], [ %__y.0.lcssa47.i114.i.i.i, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i431 ], [ %__y.0.lcssa47.i155.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i649 ], [ %__y.0.lcssa47.i155.i.i.i, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i655 ]
+  %retval.sroa.0.2.i35.i.i = phi ptr [ %retval.sroa.0.2.i.i.i, %invoke.cont7.i.i ], [ null, %if.then.i165.i.i.i ], [ null, %if.then32.i.i.i ], [ null, %if.then64.i.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit462 ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit686 ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_113DedupeLeftKeyEEclERKS2_S5_.exit126 ], [ null, %if.end12.i113.i.i.i ], [ null, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i437 ], [ null, %if.end12.i154.i.i.i ], [ null, %_ZNK3ue28flat_setISt4pairImjESt4lessIS2_ESaIS2_EEltERKS6_.exit.i.i.i661 ], [ null, %if.end12.i.i.i.i ], [ null, %land.lhs.true.i.i.i ], [ null, %lor.rhs.i.i.i.i.i.i.i.i425 ], [ null, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i431 ], [ null, %lor.rhs.i.i.i.i.i.i.i.i649 ], [ null, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairImjEEEbRKT_S7_.exit.i.i.i.i.i.i.i655 ]
   %cmp.not.i.i20.i.i = icmp ne ptr %retval.sroa.0.2.i35.i.i, null
   %cmp2.i.i.i.i = icmp eq ptr %0, %retval.sroa.12.2.i36.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i20.i.i, i1 true, i1 %cmp2.i.i.i.i
@@ -37095,7 +37095,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #19
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #19
   resume { ptr, i32 } %0
 }
 

@@ -11446,7 +11446,7 @@ define linkonce_odr void @_ZN6NewBdd3ManC2EiNS_5ParamE(ptr noundef nonnull align
 29:                                               ; preds = %27
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %28) #25
+  tail call void @__cxa_free_exception(ptr nonnull %28) #25
   br label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %.lr.ph104
@@ -11476,7 +11476,7 @@ define linkonce_odr void @_ZN6NewBdd3ManC2EiNS_5ParamE(ptr noundef nonnull align
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %33) #25
+  tail call void @__cxa_free_exception(ptr nonnull %33) #25
   br label %.loopexit.split-lp
 
 36:                                               ; preds = %31
@@ -11511,7 +11511,7 @@ define linkonce_odr void @_ZN6NewBdd3ManC2EiNS_5ParamE(ptr noundef nonnull align
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %48) #25
+  tail call void @__cxa_free_exception(ptr nonnull %48) #25
   br label %.loopexit.split-lp
 
 51:                                               ; preds = %.thread, %43
@@ -11954,7 +11954,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit66:             ; preds = %241, %239, %237, %2
 262:                                              ; preds = %257
   %263 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %258) #25
+  tail call void @__cxa_free_exception(ptr nonnull %258) #25
   br label %.loopexit.split-lp
 
 .thread147:                                       ; preds = %._crit_edge.thread, %255
@@ -15658,7 +15658,7 @@ define linkonce_odr void @_ZN6NewBdd5CacheC2Eiii(ptr noundef nonnull align 8 der
 10:                                               ; preds = %8
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #25
+  tail call void @__cxa_free_exception(ptr nonnull %9) #25
   br label %63
 
 12:                                               ; preds = %.invoke, %47, %33, %31, %28, %26
@@ -15691,7 +15691,7 @@ define linkonce_odr void @_ZN6NewBdd5CacheC2Eiii(ptr noundef nonnull align 8 der
 22:                                               ; preds = %17
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %18) #25
+  tail call void @__cxa_free_exception(ptr nonnull %18) #25
   br label %63
 
 24:                                               ; preds = %14
@@ -15923,7 +15923,7 @@ define linkonce_odr noundef i32 @_ZN6NewBdd3Man15UniqueCreateIntEtjj(ptr noundef
 common.resume:                                    ; preds = %113
   %92 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %114) #25
+  tail call void @__cxa_free_exception(ptr nonnull %114) #25
   resume { ptr, i32 } %92
 
 93:                                               ; preds = %64
@@ -18626,7 +18626,7 @@ define linkonce_odr noundef i32 @_ZN6NewBdd3Man12UniqueCreateEtjj(ptr noundef no
 38:                                               ; preds = %.split.us
   %39 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %36) #25
+  tail call void @__cxa_free_exception(ptr nonnull %36) #25
   resume { ptr, i32 } %39
 
 40:                                               ; preds = %30, %34
@@ -27330,7 +27330,7 @@ _ZSt4findISt20_List_const_iteratorIiEiET_S2_S2_RKT0_.exit42: ; preds = %.lr.ph.i
 common.resume:                                    ; preds = %314, %285, %252, %223, %189, %159
   %.sink = phi ptr [ %312, %314 ], [ %283, %285 ], [ %250, %252 ], [ %221, %223 ], [ %187, %189 ], [ %157, %159 ]
   %common.resume.op = phi { ptr, i32 } [ %315, %314 ], [ %286, %285 ], [ %253, %252 ], [ %224, %223 ], [ %190, %189 ], [ %160, %159 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #25
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #25
   resume { ptr, i32 } %common.resume.op
 
 159:                                              ; preds = %156
@@ -36992,7 +36992,7 @@ define linkonce_odr void @_ZN5NewTt3ManC2EiNS_5ParamE(ptr noundef nonnull align 
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #25
+  tail call void @__cxa_free_exception(ptr nonnull %12) #25
   br label %130
 
 15:                                               ; preds = %.invoke, %123, %43
@@ -37021,7 +37021,7 @@ define linkonce_odr void @_ZN5NewTt3ManC2EiNS_5ParamE(ptr noundef nonnull align 
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #25
+  tail call void @__cxa_free_exception(ptr nonnull %25) #25
   br label %130
 
 28:                                               ; preds = %17
@@ -37046,7 +37046,7 @@ define linkonce_odr void @_ZN5NewTt3ManC2EiNS_5ParamE(ptr noundef nonnull align 
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %36) #25
+  tail call void @__cxa_free_exception(ptr nonnull %36) #25
   br label %130
 
 39:                                               ; preds = %28
@@ -37087,7 +37087,7 @@ _ZNSt6vectorIySaIyEE6resizeEm.exit:               ; preds = %39, %43
 53:                                               ; preds = %48
   %54 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %49) #25
+  tail call void @__cxa_free_exception(ptr nonnull %49) #25
   br label %130
 
 55:                                               ; preds = %_ZNSt6vectorIySaIyEE6resizeEm.exit
@@ -41475,7 +41475,7 @@ define linkonce_odr noundef i32 @_ZN5NewTt3Man3AndEjj(ptr noundef nonnull align 
 34:                                               ; preds = %31
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %32) #25
+  tail call void @__cxa_free_exception(ptr nonnull %32) #25
   resume { ptr, i32 } %35
 
 36:                                               ; preds = %25, %29, %13, %3

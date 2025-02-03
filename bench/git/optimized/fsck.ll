@@ -3280,7 +3280,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool5.not, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.then3
-  %call7 = tail call i32 (ptr, ptr, i32, i32, ptr, ...) @report(ptr noundef %options, ptr noundef %oid, i32 noundef 3, i32 noundef 31, ptr noundef nonnull @.str.119)
+  %call7 = tail call i32 (ptr, ptr, i32, i32, ptr, ...) @report(ptr noundef nonnull %options, ptr noundef %oid, i32 noundef 3, i32 noundef 31, ptr noundef nonnull @.str.119)
   br label %return
 
 if.end8:                                          ; preds = %if.then3
@@ -3300,7 +3300,7 @@ if.end8.if.end17_crit_edge:                       ; preds = %if.end8
   br label %if.end20
 
 if.then14:                                        ; preds = %if.end8
-  %call15 = call i32 (ptr, ptr, i32, i32, ptr, ...) @report(ptr noundef %options, ptr noundef %oid, i32 noundef 3, i32 noundef 51, ptr noundef nonnull @.str.120)
+  %call15 = call i32 (ptr, ptr, i32, i32, ptr, ...) @report(ptr noundef nonnull %options, ptr noundef %oid, i32 noundef 3, i32 noundef 51, ptr noundef nonnull @.str.120)
   %0 = load i32, ptr %ret11, align 8
   %or = or i32 %0, %call15
   store i32 %or, ptr %ret11, align 8
@@ -3327,7 +3327,7 @@ for.cond.preheader:                               ; preds = %if.then23
   br i1 %tobool29.not32, label %return, label %for.body
 
 if.then26:                                        ; preds = %if.then23
-  %call27 = call i32 (ptr, ptr, i32, i32, ptr, ...) @report(ptr noundef %options, ptr noundef %oid, i32 noundef 3, i32 noundef 38, ptr noundef nonnull @.str.121)
+  %call27 = call i32 (ptr, ptr, i32, i32, ptr, ...) @report(ptr noundef nonnull %options, ptr noundef %oid, i32 noundef 3, i32 noundef 38, ptr noundef nonnull @.str.121)
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end35

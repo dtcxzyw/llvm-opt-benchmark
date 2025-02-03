@@ -2294,7 +2294,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
 lpad11:                                           ; preds = %invoke.cont10
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %delete.notnull.i44
+  br label %_ZN6icu_7512LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit47
 
 lpad15:                                           ; preds = %invoke.cont14, %if.end42, %if.then33, %invoke.cont21
   %18 = landingpad { ptr, i32 }
@@ -2354,7 +2354,7 @@ cleanup:                                          ; preds = %if.end32, %if.end42
 ehcleanup:                                        ; preds = %lpad18, %lpad25, %lpad15
   %.pn = phi { ptr, i32 } [ %18, %lpad15 ], [ %22, %lpad25 ], [ %19, %lpad18 ]
   call void @_ZN6icu_7528FieldPositionIteratorHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %handler) #17
-  br label %delete.notnull.i44
+  br label %_ZN6icu_7512LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit47
 
 cleanup52:                                        ; preds = %cleanup, %if.then7
   %result.sroa.0.0 = phi ptr [ %result.sroa.0.1, %cleanup ], [ %call2, %if.then7 ]
@@ -2368,7 +2368,7 @@ delete.notnull.i:                                 ; preds = %cleanup52
   call void %25(ptr noundef nonnull align 8 dereferenceable(104) %result.sroa.0.0) #17
   br label %return
 
-delete.notnull.i44:                               ; preds = %ehcleanup, %lpad11
+_ZN6icu_7512LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit47: ; preds = %ehcleanup, %lpad11
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %17, %lpad11 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %string) #17
   %vtable.i45 = load ptr, ptr %call2, align 8
@@ -2380,8 +2380,8 @@ delete.notnull.i44:                               ; preds = %ehcleanup, %lpad11
 return:                                           ; preds = %delete.notnull.i, %cleanup52, %if.then
   ret void
 
-eh.resume:                                        ; preds = %delete.notnull.i44, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.pn, %delete.notnull.i44 ]
+eh.resume:                                        ; preds = %lpad, %_ZN6icu_7512LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit47
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN6icu_7512LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit47 ], [ %3, %lpad ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -2849,7 +2849,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
 lpad11:                                           ; preds = %invoke.cont10
   %9 = landingpad { ptr, i32 }
           cleanup
-  br label %delete.notnull.i33
+  br label %_ZN6icu_7512LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit36
 
 lpad15:                                           ; preds = %invoke.cont14, %invoke.cont36, %if.then33, %invoke.cont21
   %10 = landingpad { ptr, i32 }
@@ -2904,7 +2904,7 @@ cleanup:                                          ; preds = %if.end32, %invoke.c
 ehcleanup:                                        ; preds = %lpad18, %lpad25, %lpad15
   %.pn = phi { ptr, i32 } [ %10, %lpad15 ], [ %14, %lpad25 ], [ %11, %lpad18 ]
   call void @_ZN6icu_7528FieldPositionIteratorHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %handler) #17
-  br label %delete.notnull.i33
+  br label %_ZN6icu_7512LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit36
 
 cleanup46:                                        ; preds = %cleanup, %if.then7
   %result.sroa.0.0 = phi ptr [ %result.sroa.0.1, %cleanup ], [ %call2, %if.then7 ]
@@ -2918,7 +2918,7 @@ delete.notnull.i:                                 ; preds = %cleanup46
   call void %16(ptr noundef nonnull align 8 dereferenceable(104) %result.sroa.0.0) #17
   br label %return
 
-delete.notnull.i33:                               ; preds = %ehcleanup, %lpad11
+_ZN6icu_7512LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit36: ; preds = %ehcleanup, %lpad11
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %9, %lpad11 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %string) #17
   %vtable.i34 = load ptr, ptr %call2, align 8
@@ -2930,8 +2930,8 @@ delete.notnull.i33:                               ; preds = %ehcleanup, %lpad11
 return:                                           ; preds = %delete.notnull.i, %cleanup46, %if.then
   ret void
 
-eh.resume:                                        ; preds = %delete.notnull.i33, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.pn, %delete.notnull.i33 ]
+eh.resume:                                        ; preds = %lpad, %_ZN6icu_7512LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit36
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN6icu_7512LocalPointerINS_25FormattedDateIntervalDataEED2Ev.exit36 ], [ %3, %lpad ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 

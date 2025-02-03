@@ -3233,8 +3233,8 @@ Vec_IntGrow.exit.i:                               ; preds = %56, %66
 
 79:                                               ; preds = %37, %53, %Vec_IntGrow.exit.i
   %.0222 = phi i32 [ %78, %Vec_IntGrow.exit.i ], [ %52, %53 ], [ %52, %37 ]
-  call void @free(ptr noundef %40) #17
-  call void @free(ptr noundef %44) #17
+  call void @free(ptr noundef nonnull %40) #17
+  call void @free(ptr noundef nonnull %44) #17
   br label %.loopexit
 
 80:                                               ; preds = %.lr.ph324, %tailrecurse.backedge
@@ -3303,7 +3303,7 @@ Vec_IntGrow.exit.i:                               ; preds = %56, %66
   %116 = getelementptr inbounds nuw i8, ptr %.val259.us, i64 4
   %117 = load i32, ptr %116, align 4
   %118 = tail call i32 @Smt_PrsBuild2_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %117, i32 noundef -1, ptr noundef nonnull %113)
-  tail call void @free(ptr noundef %113) #17
+  tail call void @free(ptr noundef nonnull %113) #17
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %.loopexit, label %120
 
@@ -3343,7 +3343,7 @@ Vec_IntGrow.exit.i:                               ; preds = %56, %66
   %138 = getelementptr inbounds nuw i8, ptr %.val259, i64 4
   %139 = load i32, ptr %138, align 4
   %140 = tail call i32 @Smt_PrsBuild2_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %139, i32 noundef -1, ptr noundef nonnull %136)
-  tail call void @free(ptr noundef %136) #17
+  tail call void @free(ptr noundef nonnull %136) #17
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %.loopexit, label %123
 
@@ -4368,7 +4368,7 @@ Vec_IntPush.exit150:                              ; preds = %.Vec_IntGrow.exit10
   %140 = getelementptr inbounds i32, ptr %136, i64 %139
   store i32 %.0102, ptr %140, align 4
   %141 = add nsw i32 %.0102, %.0172
-  tail call void @free(ptr noundef %38) #17
+  tail call void @free(ptr noundef nonnull %38) #17
   br label %207
 
 142:                                              ; preds = %Smt_VecEntryNode.exit
@@ -4409,7 +4409,7 @@ Smt_VecEntryNode.exit153:                         ; preds = %142
   %163 = getelementptr inbounds nuw i8, ptr %.val111, i64 16
   %164 = load i32, ptr %163, align 4
   %165 = tail call i32 @Smt_PrsBuild2_rec(ptr noundef %7, ptr noundef nonnull %0, i32 noundef %164, i32 noundef %.1103, ptr noundef nonnull %149)
-  tail call void @free(ptr noundef %149) #17
+  tail call void @free(ptr noundef nonnull %149) #17
   br label %207
 
 166:                                              ; preds = %Smt_VecEntryNode.exit

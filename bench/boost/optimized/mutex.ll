@@ -100,7 +100,7 @@ define void @_ZN5boost6fibers5mutex4lockEv(ptr noundef nonnull align 8 dereferen
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %11) #19
+  call void @__cxa_free_exception(ptr nonnull %11) #19
   br label %23
 
 .loopexit:                                        ; preds = %17
@@ -215,7 +215,7 @@ define noundef zeroext i1 @_ZN5boost6fibers5mutex8try_lockEv(ptr noundef nonnull
 10:                                               ; preds = %6
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #19
+  tail call void @__cxa_free_exception(ptr nonnull %7) #19
   br label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit11
 
 12:                                               ; preds = %9
@@ -273,7 +273,7 @@ define void @_ZN5boost6fibers5mutex6unlockEv(ptr noundef nonnull align 8 derefer
 9:                                                ; preds = %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %6) #19
+  tail call void @__cxa_free_exception(ptr nonnull %6) #19
   br label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit6
 
 11:                                               ; preds = %13, %8

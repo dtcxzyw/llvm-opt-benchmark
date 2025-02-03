@@ -11684,7 +11684,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSp
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #11
-  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSprimEE14_PrimTypeEntryEEvT_S6_(ptr noundef %5, ptr noundef %.014.i.i.i)
+  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSprimEE14_PrimTypeEntryEEvT_S6_(ptr noundef %5, ptr noundef nonnull %.014.i.i.i)
           to label %25 unwind label %26
 
 25:                                               ; preds = %21
@@ -11765,7 +11765,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSp
 .body.thread:                                     ; preds = %47
   %49 = extractvalue { ptr, i32 } %48, 0
   %50 = tail call ptr @__cxa_begin_catch(ptr %49) #11
-  br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSprimEE14_PrimTypeEntryESaIS4_EE13_M_deallocateEPS4_m.exit
+  br label %.thread
 
 51:                                               ; preds = %47
   %52 = landingpad { ptr, i32 }
@@ -11788,15 +11788,15 @@ _ZSt27__uninitialized_default_n_aIPN32pxrInternal_v0_24__pxrReserved__16Hd_PrimT
   %58 = tail call ptr @__cxa_begin_catch(ptr %57) #11
   %59 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Hd_PrimTypeIndex<pxrInternal_v0_24__pxrReserved__::HdSprim>::_PrimTypeEntry", ptr %39, i64 %1
   invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSprimEE14_PrimTypeEntryES4_EvT_S6_RSaIT0_E(ptr noundef nonnull %39, ptr noundef nonnull %59, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSprimEE14_PrimTypeEntryESaIS4_EE13_M_deallocateEPS4_m.exit unwind label %60
+          to label %.thread unwind label %60
 
-60:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSprimEE14_PrimTypeEntryESaIS4_EE13_M_deallocateEPS4_m.exit, %.body
+60:                                               ; preds = %.thread, %.body
   %61 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %71
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSprimEE14_PrimTypeEntryESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %.body, %.body.thread
+.thread:                                          ; preds = %.body.thread, %.body
   tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %37) #18
   invoke void @__cxa_rethrow() #19
           to label %74 unwind label %60
@@ -11843,7 +11843,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7H
   tail call void @__clang_call_terminate(ptr %73) #21
   unreachable
 
-74:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdSprimEE14_PrimTypeEntryESaIS4_EE13_M_deallocateEPS4_m.exit
+74:                                               ; preds = %.thread
   unreachable
 }
 
@@ -13799,7 +13799,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBp
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #11
-  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBprimEE14_PrimTypeEntryEEvT_S6_(ptr noundef %5, ptr noundef %.014.i.i.i)
+  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBprimEE14_PrimTypeEntryEEvT_S6_(ptr noundef %5, ptr noundef nonnull %.014.i.i.i)
           to label %25 unwind label %26
 
 25:                                               ; preds = %21
@@ -13880,7 +13880,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBp
 .body.thread:                                     ; preds = %47
   %49 = extractvalue { ptr, i32 } %48, 0
   %50 = tail call ptr @__cxa_begin_catch(ptr %49) #11
-  br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBprimEE14_PrimTypeEntryESaIS4_EE13_M_deallocateEPS4_m.exit
+  br label %.thread
 
 51:                                               ; preds = %47
   %52 = landingpad { ptr, i32 }
@@ -13903,15 +13903,15 @@ _ZSt27__uninitialized_default_n_aIPN32pxrInternal_v0_24__pxrReserved__16Hd_PrimT
   %58 = tail call ptr @__cxa_begin_catch(ptr %57) #11
   %59 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Hd_PrimTypeIndex<pxrInternal_v0_24__pxrReserved__::HdBprim>::_PrimTypeEntry", ptr %39, i64 %1
   invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBprimEE14_PrimTypeEntryES4_EvT_S6_RSaIT0_E(ptr noundef nonnull %39, ptr noundef nonnull %59, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBprimEE14_PrimTypeEntryESaIS4_EE13_M_deallocateEPS4_m.exit unwind label %60
+          to label %.thread unwind label %60
 
-60:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBprimEE14_PrimTypeEntryESaIS4_EE13_M_deallocateEPS4_m.exit, %.body
+60:                                               ; preds = %.thread, %.body
   %61 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %71
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBprimEE14_PrimTypeEntryESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %.body, %.body.thread
+.thread:                                          ; preds = %.body.thread, %.body
   tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %37) #18
   invoke void @__cxa_rethrow() #19
           to label %74 unwind label %60
@@ -13958,7 +13958,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7H
   tail call void @__clang_call_terminate(ptr %73) #21
   unreachable
 
-74:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS0_7HdBprimEE14_PrimTypeEntryESaIS4_EE13_M_deallocateEPS4_m.exit
+74:                                               ; preds = %.thread
   unreachable
 }
 

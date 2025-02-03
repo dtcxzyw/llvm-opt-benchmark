@@ -766,7 +766,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
 70:                                               ; preds = %68
   %71 = load ptr, ptr @stderr, align 8
   %72 = load ptr, ptr %1, align 8
-  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.17, ptr noundef %72, ptr noundef %23) #19
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.17, ptr noundef %72, ptr noundef nonnull %23) #19
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %68, %70, %.loopexit
@@ -775,7 +775,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr @H5_optind, align 4
   store i32 1, ptr @H5_get_option.sp, align 4
-  tail call void @free(ptr noundef %23) #15
+  tail call void @free(ptr noundef nonnull %23) #15
   br label %145
 
 76:                                               ; preds = %13, %._crit_edge112

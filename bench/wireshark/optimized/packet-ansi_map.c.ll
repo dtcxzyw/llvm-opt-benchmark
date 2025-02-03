@@ -5099,7 +5099,7 @@ dissect_invokeData.exit:                          ; preds = %.thread.i, %343, %3
   %414 = load ptr, ptr %388, align 8
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 20
   %416 = load i32, ptr %415, align 4
-  %417 = call ptr @wmem_multimap_lookup32_le(ptr noundef %413, ptr noundef %394, i32 noundef %416) #5
+  %417 = call ptr @wmem_multimap_lookup32_le(ptr noundef %413, ptr noundef nonnull %394, i32 noundef %416) #5
   %.not.i26 = icmp eq ptr %417, null
   br i1 %.not.i26, label %422, label %418
 

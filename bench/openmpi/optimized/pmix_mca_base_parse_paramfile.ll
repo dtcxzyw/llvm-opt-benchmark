@@ -26,20 +26,20 @@ define internal void @save_value(ptr readnone captures(none) %0, i32 %1, ptr nou
   %5 = load ptr, ptr @_param_list, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 240
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %.01522 = load ptr, ptr %6, align 8
-  %.not.not23 = icmp eq ptr %.01522, %7
-  br i1 %.not.not23, label %.critedge, label %.lr.ph
+  %.01521 = load ptr, ptr %6, align 8
+  %.not.not22 = icmp eq ptr %.01521, %7
+  br i1 %.not.not22, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %16
-  %.01524 = phi ptr [ %.015, %16 ], [ %.01522, %4 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.01524, i64 144
+  %.01523 = phi ptr [ %.015, %16 ], [ %.01521, %4 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.01523, i64 144
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.01524, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %.01523, i64 152
   %14 = load ptr, ptr %13, align 8
   %.not19 = icmp eq ptr %14, null
   br i1 %.not19, label %47, label %15
@@ -49,7 +49,7 @@ define internal void @save_value(ptr readnone captures(none) %0, i32 %1, ptr nou
   br label %47
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw i8, ptr %.01524, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %.01523, i64 120
   %.015 = load ptr, ptr %17, align 8
   %.not.not = icmp eq ptr %.015, %7
   br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !4
@@ -68,7 +68,7 @@ define internal void @save_value(ptr readnone captures(none) %0, i32 %1, ptr nou
 
 23:                                               ; preds = %22, %.critedge
   %.not22.i = icmp eq ptr %19, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit.thread, label %24
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %24
 
 24:                                               ; preds = %23
   %25 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %19, ptr noundef null) #8
@@ -83,7 +83,7 @@ define internal void @save_value(ptr readnone captures(none) %0, i32 %1, ptr nou
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 40), align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i.i = icmp eq ptr %31, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread20, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
   %32 = phi ptr [ %34, %.lr.ph.i.i ], [ %31, %24 ]
@@ -92,9 +92,9 @@ define internal void @save_value(ptr readnone captures(none) %0, i32 %1, ptr nou
   %33 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread20, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !6
 
-pmix_obj_new_tma.exit.thread20:                   ; preds = %.lr.ph.i.i, %24
+.loopexit:                                        ; preds = %.lr.ph.i.i, %24
   %35 = tail call noalias ptr @strdup(ptr noundef %2) #8
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 144
   store ptr %35, ptr %36, align 8
@@ -115,8 +115,8 @@ pmix_obj_new_tma.exit.thread20:                   ; preds = %.lr.ph.i.i, %24
   store volatile i64 %46, ptr %44, align 8
   br label %47
 
-47:                                               ; preds = %15, %12, %pmix_obj_new_tma.exit.thread20
-  %.1 = phi ptr [ %19, %pmix_obj_new_tma.exit.thread20 ], [ %.01524, %12 ], [ %.01524, %15 ]
+47:                                               ; preds = %15, %12, %.loopexit
+  %.1 = phi ptr [ %19, %.loopexit ], [ %.01523, %12 ], [ %.01523, %15 ]
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %50, label %48
 
@@ -134,9 +134,9 @@ pmix_obj_new_tma.exit.thread20:                   ; preds = %.lr.ph.i.i, %24
   %55 = load i32, ptr @pmix_util_keyval_parse_lineno, align 4
   %56 = getelementptr inbounds nuw i8, ptr %.1, i64 168
   store i32 %55, ptr %56, align 8
-  br label %pmix_obj_new_tma.exit.thread
+  br label %pmix_obj_new_tma.exit
 
-pmix_obj_new_tma.exit.thread:                     ; preds = %23, %50
+pmix_obj_new_tma.exit:                            ; preds = %23, %50
   ret void
 }
 

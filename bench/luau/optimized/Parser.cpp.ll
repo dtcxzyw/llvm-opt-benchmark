@@ -21844,7 +21844,7 @@ define dso_local void @_ZN4Luau6Parser6reportERKNS_8LocationEPKcP13__va_list_tag
 22:                                               ; preds = %17
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %18) #26
+  call void @__cxa_free_exception(ptr nonnull %18) #26
   br label %.body
 
 24:                                               ; preds = %14

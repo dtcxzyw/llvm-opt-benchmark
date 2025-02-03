@@ -118,7 +118,7 @@ define i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
 
 21:                                               ; preds = %8
   %22 = load ptr, ptr @jobslist, align 8
-  tail call void @slurm_list_enqueue(ptr noundef %22, ptr noundef %10) #9
+  tail call void @slurm_list_enqueue(ptr noundef %22, ptr noundef nonnull %10) #9
   br label %23
 
 23:                                               ; preds = %21, %13, %16, %19

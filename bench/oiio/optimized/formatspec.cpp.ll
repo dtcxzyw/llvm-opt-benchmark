@@ -49417,7 +49417,7 @@ while.end.i.i:                                    ; preds = %_ZN18OpenImageIO_v2
 if.end7.i.i:                                      ; preds = %while.end.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit246
   %length.addr.0.i.i = phi i64 [ %sub.i15.i, %while.end.i.i ], [ %add.i, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit246 ]
   %data.addr.0.i.i = phi ptr [ %add.ptr.i.i, %while.end.i.i ], [ %add.ptr9.i, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit246 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr nonnull align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
   %86 = load i64, ptr %bufsize.i, align 8
   %add.i.i = add i64 %86, %length.addr.0.i.i
   store i64 %add.i.i, ptr %bufsize.i, align 8
@@ -50968,7 +50968,7 @@ while.end.i:                                      ; preds = %_ZN18OpenImageIO_v2
 if.end7.i:                                        ; preds = %while.end.i, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit
   %length.addr.0.i = phi i64 [ %sub.i15, %while.end.i ], [ %add, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit ]
   %data.addr.0.i = phi ptr [ %add.ptr.i, %while.end.i ], [ %add.ptr9, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %this, ptr align 1 %data.addr.0.i, i64 %length.addr.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %this, ptr nonnull align 1 %data.addr.0.i, i64 %length.addr.0.i, i1 false)
   %12 = load i64, ptr %bufsize, align 8
   %add.i = add i64 %12, %length.addr.0.i
   store i64 %add.i, ptr %bufsize, align 8
@@ -61266,7 +61266,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #30
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #30
   resume { ptr, i32 } %0
 }
 
@@ -72246,7 +72246,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad ], [ %0, %lpad.i.i ]
   %2 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #30
-  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %__result, ptr noundef %__cur.012)
+  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %__result, ptr noundef nonnull %__cur.012)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %lpad.body

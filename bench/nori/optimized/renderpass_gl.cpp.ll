@@ -1345,7 +1345,7 @@ define hidden void @_ZN7nanogui10RenderPass14set_depth_testENS0_9DepthTestEb(ptr
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %19) #21
+  tail call void @__cxa_free_exception(ptr nonnull %19) #21
   resume { ptr, i32 } %22
 
 switch.lookup:                                    ; preds = %16
@@ -1410,7 +1410,7 @@ define hidden void @_ZN7nanogui10RenderPass13set_cull_modeENS0_8CullModeE(ptr no
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %14) #21
+  tail call void @__cxa_free_exception(ptr nonnull %14) #21
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %9, %12, %11, %2
@@ -1649,7 +1649,7 @@ define hidden void @_ZN7nanogui10RenderPass7blit_toERKNS_5ArrayIiLm2EEES4_PNS_6O
 67:                                               ; preds = %.thread61
   %68 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %65) #21
+  tail call void @__cxa_free_exception(ptr nonnull %65) #21
   resume { ptr, i32 } %68
 
 .thread65:                                        ; preds = %28, %44, %59, %22, %56, %55, %18

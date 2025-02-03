@@ -2299,7 +2299,7 @@ define internal fastcc i32 @header_pax_extensions(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %8, label %668
 
 8:                                                ; preds = %5
-  %9 = tail call fastcc i32 @tar_read_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
+  %9 = tail call fastcc i32 @tar_read_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %4)
   switch i32 %9, label %668 [
     i32 -20, label %10
     i32 0, label %10

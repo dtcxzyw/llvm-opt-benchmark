@@ -665,7 +665,7 @@ sw.bb4.i:                                         ; preds = %if.else
   %size9.i = getelementptr inbounds nuw i8, ptr %reply5.i, i64 8
   store i32 408, ptr %size9.i, align 4
   store i32 4353, ptr %display_info.i, align 8
-  %call.i103.i = call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE) #7
+  %call.i103.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE) #7
   call void @virtio_gpu_base_fill_display_info(ptr noundef %call.i103.i, ptr noundef nonnull %display_info.i) #7
   %payload11.i = getelementptr inbounds nuw i8, ptr %reply5.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(408) %payload11.i, ptr noundef nonnull align 8 dereferenceable(408) %display_info.i, i64 408, i1 false)

@@ -234,7 +234,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @qemu_get_aio_context() #18
-  tail call void @aio_bh_schedule_oneshot_full(ptr noundef %call1, ptr noundef nonnull @graphic_hw_update_bh, ptr noundef %con, ptr noundef nonnull @.str) #18
+  tail call void @aio_bh_schedule_oneshot_full(ptr noundef %call1, ptr noundef nonnull @graphic_hw_update_bh, ptr noundef nonnull %con, ptr noundef nonnull @.str) #18
   br label %qemu_null_lockable.exit
 
 qemu_null_lockable.exit:                          ; preds = %entry, %if.then

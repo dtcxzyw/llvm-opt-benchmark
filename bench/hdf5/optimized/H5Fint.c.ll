@@ -1568,8 +1568,8 @@ H5F__getenv_prefix_name.exit.thread:              ; preds = %48, %H5F__getenv_pr
   %206 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.6147) #22
   br label %.thread179.thread
 
-.thread179.thread.thread:                         ; preds = %43, %34, %21, %104, %139, %66
-  %.0185192.ph = phi ptr [ null, %66 ], [ null, %139 ], [ null, %104 ], [ %23, %21 ], [ null, %34 ], [ null, %43 ]
+.thread179.thread.thread:                         ; preds = %43, %66, %104, %139, %34, %21
+  %.0185192.ph = phi ptr [ %23, %21 ], [ null, %34 ], [ null, %139 ], [ null, %104 ], [ null, %66 ], [ null, %43 ]
   %207 = tail call ptr @H5MM_xfree(ptr noundef nonnull %12) #22
   br label %211
 

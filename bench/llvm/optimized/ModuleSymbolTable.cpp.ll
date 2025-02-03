@@ -673,8 +673,8 @@ _ZNK4llvm6Target15createMCAsmInfoERKNS_14MCRegisterInfoENS_9StringRefERKNS_15MCT
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  %.not103 = icmp eq ptr %55, null
-  br i1 %.not103, label %_ZNSt10unique_ptrIN4llvm9MCAsmInfoESt14default_deleteIS1_EED2Ev.exit, label %56
+  %.not105 = icmp eq ptr %55, null
+  br i1 %.not105, label %_ZNSt10unique_ptrIN4llvm9MCAsmInfoESt14default_deleteIS1_EED2Ev.exit, label %56
 
 56:                                               ; preds = %_ZNK4llvm6Target15createMCAsmInfoERKNS_14MCRegisterInfoENS_9StringRefERKNS_15MCTargetOptionsE.exit
   %57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #15
@@ -704,8 +704,8 @@ _ZNK4llvm6Target21createMCSubtargetInfoENS_9StringRefES1_S1_.exit: ; preds = %56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  %.not104 = icmp eq ptr %64, null
-  br i1 %.not104, label %_ZNKSt14default_deleteIN4llvm9MCAsmInfoEEclEPS1_.exit.i, label %65
+  %.not106 = icmp eq ptr %64, null
+  br i1 %.not106, label %_ZNKSt14default_deleteIN4llvm9MCAsmInfoEEclEPS1_.exit.i, label %65
 
 65:                                               ; preds = %_ZNK4llvm6Target21createMCSubtargetInfoENS_9StringRefES1_S1_.exit
   %66 = getelementptr inbounds nuw i8, ptr %38, i64 64
@@ -715,8 +715,8 @@ _ZNK4llvm6Target21createMCSubtargetInfoENS_9StringRefES1_S1_.exit: ; preds = %56
 
 _ZNK4llvm6Target17createMCInstrInfoEv.exit:       ; preds = %65
   %68 = call noundef ptr %67() #15
-  %.not105 = icmp eq ptr %68, null
-  br i1 %.not105, label %_ZNKSt14default_deleteIN4llvm15MCSubtargetInfoEEclEPS1_.exit.i, label %69
+  %.not107 = icmp eq ptr %68, null
+  br i1 %.not107, label %_ZNKSt14default_deleteIN4llvm15MCSubtargetInfoEEclEPS1_.exit.i, label %69
 
 69:                                               ; preds = %_ZNK4llvm6Target17createMCInstrInfoEv.exit
   call void @_ZN4llvm12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.60") align 8 %15, ptr %29, i64 %30, ptr nonnull @.str.5, i64 12, i1 noundef zeroext true) #15
@@ -762,8 +762,8 @@ _ZNK4llvm6Target24createNullTargetStreamerERNS_10MCStreamerE.exit: ; preds = %_Z
 
 _ZNK4llvm6Target17createMCAsmParserERKNS_15MCSubtargetInfoERNS_11MCAsmParserERKNS_11MCInstrInfoERKNS_15MCTargetOptionsE.exit: ; preds = %_ZNK4llvm6Target24createNullTargetStreamerERNS_10MCStreamerE.exit
   %85 = call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(288) %64, ptr noundef nonnull align 8 dereferenceable(34) %82, ptr noundef nonnull align 8 dereferenceable(44) %68, ptr noundef nonnull align 8 dereferenceable(201) %14) #15
-  %.not106 = icmp eq ptr %85, null
-  br i1 %.not106, label %_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit, label %86
+  %.not108 = icmp eq ptr %85, null
+  br i1 %.not108, label %_ZNKSt14default_deleteIN4llvm11MCAsmParserEEclEPS1_.exit.i, label %86
 
 86:                                               ; preds = %_ZNK4llvm6Target17createMCAsmParserERKNS_15MCSubtargetInfoERNS_11MCAsmParserERKNS_11MCInstrInfoERKNS_15MCTargetOptionsE.exit
   %87 = ptrtoint ptr %0 to i64
@@ -806,11 +806,11 @@ _ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit.th
   call void %104(ptr noundef nonnull align 8 dereferenceable(304) %85) #15
   br label %_ZNKSt14default_deleteIN4llvm11MCAsmParserEEclEPS1_.exit.i
 
-_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK4llvm6Target24createNullTargetStreamerERNS_10MCStreamerE.exit, %_ZNK4llvm6Target17createMCAsmParserERKNS_15MCSubtargetInfoERNS_11MCAsmParserERKNS_11MCInstrInfoERKNS_15MCTargetOptionsE.exit
+_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK4llvm6Target24createNullTargetStreamerERNS_10MCStreamerE.exit
   %.not.i24 = icmp eq ptr %82, null
   br i1 %.not.i24, label %_ZNSt10unique_ptrIN4llvm11MCAsmParserESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm11MCAsmParserEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4llvm11MCAsmParserEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm11MCAsmParserEEclEPS1_.exit.i: ; preds = %_ZNK4llvm6Target17createMCAsmParserERKNS_15MCSubtargetInfoERNS_11MCAsmParserERKNS_11MCInstrInfoERKNS_15MCTargetOptionsE.exit, %_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit
   %105 = load ptr, ptr %82, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8

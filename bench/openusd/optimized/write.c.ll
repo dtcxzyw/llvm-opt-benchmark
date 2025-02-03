@@ -1129,7 +1129,7 @@ define hidden i32 @avifEncoderAddImageGrid(ptr noundef %0, i32 noundef %1, i32 n
   %13 = icmp eq i32 %12, 0
   %14 = or i32 %4, 2
   %spec.select = select i1 %13, i32 %14, i32 %4
-  %15 = tail call fastcc i32 @avifEncoderAddImageInternal(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef 1, i32 noundef %spec.select)
+  %15 = tail call fastcc i32 @avifEncoderAddImageInternal(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef 1, i32 noundef %spec.select)
   br label %16
 
 16:                                               ; preds = %5, %10
@@ -4816,7 +4816,7 @@ define hidden i32 @avifEncoderWrite(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @avifEncoderFinish(ptr noundef %0, ptr noundef %2)
+  %8 = tail call i32 @avifEncoderFinish(ptr noundef nonnull %0, ptr noundef %2)
   br label %9
 
 9:                                                ; preds = %3, %7

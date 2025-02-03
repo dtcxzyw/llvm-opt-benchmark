@@ -2509,29 +2509,22 @@ invoke.cont170:                                   ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i) #31
   store ptr %add.ptr.i.i443, ptr %__node_gen.i.i, align 8, !tbaa !17
   %call3.i.i.i447 = invoke { ptr, i8 } @_ZNSt10_HashtableIN5folly6detail14TypeDescriptorES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS1_20TypeDescriptorHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIS2_S2_NS4_10_AllocNodeISaINS4_10_Hash_nodeIS2_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS2_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i443, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp168, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp168, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
-          to label %if.else.i.i.i451 unwind label %lpad169
+          to label %if.then3.i.i.i453 unwind label %lpad169
 
-if.else.i.i.i451:                                 ; preds = %invoke.cont170
+if.then3.i.i.i453:                                ; preds = %invoke.cont170
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i) #31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp168) #31
-  br i1 %tobool.not.i.i441, label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit478, label %if.then3.i.i.i453
-
-if.then3.i.i.i453:                                ; preds = %if.else.i.i.i451
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i448) #31
   %165 = atomicrmw and ptr %163, i32 -401 seq_cst, align 4
   %166 = and i32 %165, -401
   store i32 %166, ptr %state.i.i.i.i448, align 4, !tbaa !32
   %and.i.i.i.i.i454 = and i32 %165, 15
   %cmp.not.i.i.i.i.i455 = icmp eq i32 %and.i.i.i.i.i454, 0
-  br i1 %cmp.not.i.i.i.i.i455, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE6unlockEv.exit.i.i.i458, label %if.then.i.i.i.i.i456, !prof !180
+  br i1 %cmp.not.i.i.i.i.i455, label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit478, label %if.then.i.i.i.i.i456, !prof !180
 
 if.then.i.i.i.i.i456:                             ; preds = %if.then3.i.i.i453
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %163, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i448, i32 noundef 15)
-          to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE6unlockEv.exit.i.i.i458 unwind label %terminate.lpad.i.i457
-
-_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE6unlockEv.exit.i.i.i458: ; preds = %if.then.i.i.i.i.i456, %if.then3.i.i.i453
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i448) #31
-  br label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit478
+          to label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit478 unwind label %terminate.lpad.i.i457
 
 terminate.lpad.i.i457:                            ; preds = %if.then.i.i.i.i.i456
   %167 = landingpad { ptr, i32 }
@@ -2540,7 +2533,8 @@ terminate.lpad.i.i457:                            ; preds = %if.then.i.i.i.i.i45
   call void @__clang_call_terminate(ptr %168) #33
   unreachable
 
-_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit478: ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE6unlockEv.exit.i.i.i458, %if.else.i.i.i451
+_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit478: ; preds = %if.then3.i.i.i453, %if.then.i.i.i.i.i456
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i448) #31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp161) #31
   %169 = load ptr, ptr %_M_refcount.i.i.i278, align 8, !tbaa !25
   %cmp.not.i.i479 = icmp eq ptr %169, null

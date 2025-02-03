@@ -2371,7 +2371,7 @@ define range(i32 -1, 1) i32 @slurm_persist_unpack_init_req_msg(ptr noundef write
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = tail call i32 @unpack16(ptr noundef nonnull %6, ptr noundef %1) #12
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %22
+  br i1 %.not, label %8, label %slurm_persist_free_init_req_msg.exit
 
 8:                                                ; preds = %2
   %9 = load i16, ptr %6, align 4
@@ -2381,47 +2381,35 @@ define range(i32 -1, 1) i32 @slurm_persist_unpack_init_req_msg(ptr noundef write
 11:                                               ; preds = %8
   %12 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %1) #12
   %.not15 = icmp eq i32 %12, 0
-  br i1 %.not15, label %13, label %.thread
+  br i1 %.not15, label %13, label %slurm_persist_free_init_req_msg.exit
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = call i32 @unpack16(ptr noundef nonnull %14, ptr noundef %1) #12
   %.not16 = icmp eq i32 %15, 0
-  br i1 %.not16, label %16, label %.thread
+  br i1 %.not16, label %16, label %slurm_persist_free_init_req_msg.exit
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %18 = call i32 @unpack16(ptr noundef nonnull %17, ptr noundef %1) #12
   %.not17 = icmp eq i32 %18, 0
-  br i1 %.not17, label %24, label %.thread
+  br i1 %.not17, label %22, label %slurm_persist_free_init_req_msg.exit
 
 19:                                               ; preds = %8
   %20 = zext nneg i16 %9 to i32
   %21 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.slurm_persist_unpack_init_req_msg, i32 noundef %20) #12
-  br label %.thread
-
-.thread:                                          ; preds = %16, %13, %11, %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %5, ptr %3, align 8
-  br label %23
-
-22:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %5, ptr %3, align 8
-  %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %slurm_persist_free_init_req_msg.exit, label %23
-
-23:                                               ; preds = %.thread, %22
-  call void @slurm_xfree(ptr noundef nonnull %5) #12
-  call void @slurm_xfree(ptr noundef nonnull %3) #12
   br label %slurm_persist_free_init_req_msg.exit
 
-slurm_persist_free_init_req_msg.exit:             ; preds = %22, %23
+slurm_persist_free_init_req_msg.exit:             ; preds = %16, %13, %11, %2, %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  store ptr %5, ptr %3, align 8
+  call void @slurm_xfree(ptr noundef nonnull %5) #12
+  call void @slurm_xfree(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %0, align 8
-  br label %24
+  br label %22
 
-24:                                               ; preds = %16, %slurm_persist_free_init_req_msg.exit
+22:                                               ; preds = %16, %slurm_persist_free_init_req_msg.exit
   %.0 = phi i32 [ -1, %slurm_persist_free_init_req_msg.exit ], [ 0, %16 ]
   ret i32 %.0
 }
@@ -2503,32 +2491,37 @@ define range(i32 -1, 1) i32 @slurm_persist_unpack_rc_msg(ptr noundef writeonly c
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = call i32 @unpack16(ptr noundef nonnull %11, ptr noundef %1) #12
   %.not15 = icmp eq i32 %12, 0
-  br i1 %.not15, label %13, label %22
+  br i1 %.not15, label %13, label %.thread
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %15 = call i32 @unpack32(ptr noundef nonnull %14, ptr noundef %1) #12
   %.not16 = icmp eq i32 %15, 0
-  br i1 %.not16, label %16, label %22
+  br i1 %.not16, label %16, label %.thread
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = call i32 @unpack16(ptr noundef nonnull %17, ptr noundef %1) #12
   %.not17 = icmp eq i32 %18, 0
-  br i1 %.not17, label %24, label %22
+  br i1 %.not17, label %24, label %.thread
 
 19:                                               ; preds = %3
   %20 = zext nneg i16 %2 to i32
   %21 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.slurm_persist_unpack_rc_msg, i32 noundef %20) #12
   br label %22
 
-22:                                               ; preds = %16, %13, %10, %8, %19
+.thread:                                          ; preds = %16, %13, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  store ptr %6, ptr %4, align 8
+  br label %23
+
+22:                                               ; preds = %8, %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %slurm_persist_free_rc_msg.exit, label %23
 
-23:                                               ; preds = %22
+23:                                               ; preds = %.thread, %22
   call void @slurm_xfree(ptr noundef nonnull %6) #12
   call void @slurm_xfree(ptr noundef nonnull %4) #12
   br label %slurm_persist_free_rc_msg.exit

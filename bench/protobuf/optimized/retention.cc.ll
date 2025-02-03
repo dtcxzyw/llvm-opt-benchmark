@@ -1181,7 +1181,7 @@ land.rhs:                                         ; preds = %invoke.cont14
           to label %land.end unwind label %lpad13
 
 land.end:                                         ; preds = %land.rhs
-  br i1 %call20, label %for.body26, label %for.end153.invoke
+  br i1 %call20, label %for.body26, label %for.end38
 
 for.body26:                                       ; preds = %land.end
   %5 = load atomic i32, ptr @_ZZN6google8protobuf8compiler12_GLOBAL__N_138ConvertToDynamicMessageAndStripOptionsERNS0_7MessageERKNS0_14DescriptorPoolEPSt6vectorIS8_IiSaIiEESaISA_EEE42absl_log_internal_stateful_condition_state monotonic, align 8
@@ -1190,14 +1190,14 @@ for.body26:                                       ; preds = %land.end
 
 invoke.cont29:                                    ; preds = %for.body26
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, i64 46, ptr nonnull @.str.1)
-          to label %for.end153.invoke.sink.split unwind label %lpad30
+          to label %for.inc35 unwind label %lpad30
 
 lpad8:                                            ; preds = %invoke.cont9, %invoke.cont7
   %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup159
 
-lpad13:                                           ; preds = %for.end153.invoke, %for.body139, %land.rhs129, %if.end117, %for.body101, %land.rhs91, %invoke.cont80, %if.end78, %for.body62, %land.rhs52, %if.end, %for.body26, %land.rhs, %invoke.cont11
+lpad13:                                           ; preds = %for.end153.invoke, %for.body139, %land.rhs129, %if.end117, %for.body101, %land.rhs91, %invoke.cont80, %if.end78, %for.body62, %land.rhs52, %if.end, %for.end38, %for.body26, %land.rhs, %invoke.cont11
   %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -1207,6 +1207,14 @@ lpad30:                                           ; preds = %invoke.cont29
           cleanup
   call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27) #29
   br label %ehcleanup
+
+for.inc35:                                        ; preds = %invoke.cont29
+  call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27) #29
+  br label %for.end38
+
+for.end38:                                        ; preds = %land.end, %for.inc35
+  invoke fastcc void @_ZN6google8protobuf8compiler12_GLOBAL__N_112StripMessageERNS0_7MessageERSt6vectorIiSaIiEEPS5_IS7_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef %stripped_paths)
+          to label %cleanup161.critedge unwind label %lpad13
 
 if.end:                                           ; preds = %invoke.cont14
   %call42 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #23
@@ -1237,8 +1245,7 @@ invoke.cont65:                                    ; preds = %for.body62
 lpad66:                                           ; preds = %invoke.cont65
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp63) #29
-  br label %ehcleanup
+  br label %ehcleanup.thread
 
 if.end78:                                         ; preds = %invoke.cont43
   invoke fastcc void @_ZN6google8protobuf8compiler12_GLOBAL__N_112StripMessageERNS0_7MessageERSt6vectorIiSaIiEEPS5_IS7_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(16) %call.i28, ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef %stripped_paths)
@@ -1270,8 +1277,7 @@ invoke.cont104:                                   ; preds = %for.body101
 lpad105:                                          ; preds = %invoke.cont104
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp102) #29
-  br label %ehcleanup
+  br label %ehcleanup.thread
 
 if.end117:                                        ; preds = %invoke.cont82
   %call119 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #23
@@ -1281,7 +1287,7 @@ if.end117:                                        ; preds = %invoke.cont82
           to label %invoke.cont120 unwind label %lpad13
 
 invoke.cont120:                                   ; preds = %if.end117
-  br i1 %call121, label %_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit, label %land.rhs129
+  br i1 %call121, label %cleanup161.sink.split.sink.split.sink.split, label %land.rhs129
 
 land.rhs129:                                      ; preds = %invoke.cont120
   %call131 = invoke noundef zeroext i1 @_ZN4absl12lts_2023080212log_internal17LogEveryNSecState9ShouldLogEd(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN6google8protobuf8compiler12_GLOBAL__N_138ConvertToDynamicMessageAndStripOptionsERNS0_7MessageERKNS0_14DescriptorPoolEPSt6vectorIS8_IiSaIiEESaISA_EEE42absl_log_internal_stateful_condition_state_2, double noundef 1.000000e+00)
@@ -1302,29 +1308,32 @@ invoke.cont142:                                   ; preds = %for.body139
 lpad143:                                          ; preds = %invoke.cont142
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp140) #29
-  br label %ehcleanup
+  br label %ehcleanup.thread
 
-for.end153.invoke.sink.split:                     ; preds = %invoke.cont142, %invoke.cont104, %invoke.cont65, %invoke.cont29
-  %ref.tmp140.sink = phi ptr [ %ref.tmp27, %invoke.cont29 ], [ %ref.tmp63, %invoke.cont65 ], [ %ref.tmp102, %invoke.cont104 ], [ %ref.tmp140, %invoke.cont142 ]
+for.end153.invoke.sink.split:                     ; preds = %invoke.cont142, %invoke.cont104, %invoke.cont65
+  %ref.tmp140.sink = phi ptr [ %ref.tmp63, %invoke.cont65 ], [ %ref.tmp102, %invoke.cont104 ], [ %ref.tmp140, %invoke.cont142 ]
   call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp140.sink) #29
   br label %for.end153.invoke
 
-for.end153.invoke:                                ; preds = %for.end153.invoke.sink.split, %land.end132, %land.end94, %land.end55, %land.end
+for.end153.invoke:                                ; preds = %for.end153.invoke.sink.split, %land.end132, %land.end94, %land.end55
   invoke fastcc void @_ZN6google8protobuf8compiler12_GLOBAL__N_112StripMessageERNS0_7MessageERSt6vectorIiSaIiEEPS5_IS7_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef %stripped_paths)
-          to label %cleanup161.critedge unwind label %lpad13
+          to label %cleanup161.sink.split.sink.split.sink.split unwind label %lpad13
 
-_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont120
+ehcleanup.thread:                                 ; preds = %lpad143, %lpad105, %lpad66
+  %ref.tmp140.sink57 = phi ptr [ %ref.tmp140, %lpad143 ], [ %ref.tmp102, %lpad105 ], [ %ref.tmp63, %lpad66 ]
+  %.pn.ph = phi { ptr, i32 } [ %18, %lpad143 ], [ %14, %lpad105 ], [ %12, %lpad66 ]
+  call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp140.sink57) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #23
-  br label %cleanup161.sink.split.sink.split
+  br label %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36
 
-ehcleanup:                                        ; preds = %lpad143, %lpad105, %lpad66, %lpad30, %lpad13
-  %.pn = phi { ptr, i32 } [ %18, %lpad143 ], [ %7, %lpad13 ], [ %14, %lpad105 ], [ %12, %lpad66 ], [ %8, %lpad30 ]
+ehcleanup:                                        ; preds = %lpad30, %lpad13
+  %.pn = phi { ptr, i32 } [ %7, %lpad13 ], [ %8, %lpad30 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #23
   %cmp.not.i35 = icmp eq ptr %call.i28, null
   br i1 %cmp.not.i35, label %ehcleanup159, label %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36
 
-_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36: ; preds = %ehcleanup
+_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36: ; preds = %ehcleanup.thread, %ehcleanup
+  %.pn55 = phi { ptr, i32 } [ %.pn.ph, %ehcleanup.thread ], [ %.pn, %ehcleanup ]
   %vtable.i.i37 = load ptr, ptr %call.i28, align 8
   %vfn.i.i38 = getelementptr inbounds nuw i8, ptr %vtable.i.i37, i64 8
   %19 = load ptr, ptr %vfn.i.i38, align 8
@@ -1332,16 +1341,20 @@ _ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36: ; preds = %e
   br label %ehcleanup159
 
 ehcleanup159:                                     ; preds = %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36, %ehcleanup, %lpad8
-  %.pn.pn = phi { ptr, i32 } [ %6, %lpad8 ], [ %.pn, %ehcleanup ], [ %.pn, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36 ]
+  %.pn.pn = phi { ptr, i32 } [ %6, %lpad8 ], [ %.pn, %ehcleanup ], [ %.pn55, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i36 ]
   call void @_ZN6google8protobuf21DynamicMessageFactoryD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %factory) #23
   br label %ehcleanup164
 
-cleanup161.critedge:                              ; preds = %for.end153.invoke
+cleanup161.critedge:                              ; preds = %for.end38
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #23
   %cmp.not.i40 = icmp eq ptr %call.i28, null
   br i1 %cmp.not.i40, label %cleanup161.sink.split, label %cleanup161.sink.split.sink.split
 
-cleanup161.sink.split.sink.split:                 ; preds = %cleanup161.critedge, %_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit
+cleanup161.sink.split.sink.split.sink.split:      ; preds = %for.end153.invoke, %invoke.cont120
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #23
+  br label %cleanup161.sink.split.sink.split
+
+cleanup161.sink.split.sink.split:                 ; preds = %cleanup161.sink.split.sink.split.sink.split, %cleanup161.critedge
   %vtable.i.i42 = load ptr, ptr %call.i28, align 8
   %vfn.i.i43 = getelementptr inbounds nuw i8, ptr %vtable.i.i42, i64 8
   %20 = load ptr, ptr %vfn.i.i43, align 8

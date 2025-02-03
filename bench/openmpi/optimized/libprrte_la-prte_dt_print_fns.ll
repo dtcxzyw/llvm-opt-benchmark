@@ -1166,7 +1166,7 @@ pmix_pointer_array_get_item.exit82:               ; preds = %pmix_pointer_array_
   br i1 %150, label %151, label %158
 
 151:                                              ; preds = %148
-  call void @prte_proc_print(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull %146)
+  call void @prte_proc_print(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef nonnull %146)
   %152 = load ptr, ptr %7, align 8
   %153 = load ptr, ptr %9, align 8
   %154 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.6, ptr noundef %152, ptr noundef %153) #8

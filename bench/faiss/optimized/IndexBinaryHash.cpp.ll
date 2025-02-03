@@ -415,7 +415,7 @@ define void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParameters
 33:                                               ; preds = %26
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #14
+  call void @__cxa_free_exception(ptr nonnull %29) #14
   br label %69
 
 35:                                               ; preds = %7
@@ -453,7 +453,7 @@ define void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParameters
 50:                                               ; preds = %43
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #14
+  call void @__cxa_free_exception(ptr nonnull %46) #14
   br label %69
 
 52:                                               ; preds = %35
@@ -554,7 +554,7 @@ define void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchRes
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #14
+  call void @__cxa_free_exception(ptr nonnull %26) #14
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -1123,7 +1123,7 @@ define void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParam
 33:                                               ; preds = %26
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #14
+  call void @__cxa_free_exception(ptr nonnull %29) #14
   br label %69
 
 35:                                               ; preds = %7
@@ -1161,7 +1161,7 @@ define void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParam
 50:                                               ; preds = %43
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %46) #14
+  call void @__cxa_free_exception(ptr nonnull %46) #14
   br label %69
 
 52:                                               ; preds = %35
@@ -1262,7 +1262,7 @@ define void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSear
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #14
+  call void @__cxa_free_exception(ptr nonnull %26) #14
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -8002,7 +8002,7 @@ _ZNSt12_Vector_baseISt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlE
 51:                                               ; preds = %38
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %41) #14
+  call void @__cxa_free_exception(ptr nonnull %41) #14
   br label %53
 
 53:                                               ; preds = %51, %49

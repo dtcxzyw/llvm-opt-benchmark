@@ -11162,13 +11162,13 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
 .split.us.i.i:                                    ; preds = %1186
   %1224 = load ptr, ptr @stderr, align 8
   %1225 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1224, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5215) #27
-  call void @free(ptr noundef %.0263.i.i) #24
+  call void @free(ptr noundef nonnull %.0263.i.i) #24
   br label %tng_data_read.exit.i
 
 .split.us347.i.i:                                 ; preds = %1209
   %1226 = load ptr, ptr @stderr, align 8
   %1227 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1226, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5239) #27
-  call void @free(ptr noundef %.0263.i.i) #24
+  call void @free(ptr noundef nonnull %.0263.i.i) #24
   br label %tng_data_read.exit.i
 
 1228:                                             ; preds = %1167
@@ -22472,7 +22472,7 @@ tng_block_init.exit:                              ; preds = %73, %76
   ]
 
 88:                                               ; preds = %86
-  %89 = tail call fastcc i32 @tng_trajectory_mapping_block_read(ptr noundef %0, ptr noundef nonnull %72, i8 noundef signext %7)
+  %89 = tail call fastcc i32 @tng_trajectory_mapping_block_read(ptr noundef nonnull %0, ptr noundef nonnull %72, i8 noundef signext %7)
   br label %94
 
 90:                                               ; preds = %86
@@ -22532,7 +22532,7 @@ tng_block_init.exit:                              ; preds = %73, %76
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %.critedge, %111
-  %112 = tail call i32 @tng_frame_set_write(ptr noundef %0, i8 noundef signext %7)
+  %112 = tail call i32 @tng_frame_set_write(ptr noundef nonnull %0, i8 noundef signext %7)
   %.not309 = icmp eq i32 %112, 0
   br i1 %.not309, label %117, label %113
 
@@ -22579,7 +22579,7 @@ tng_block_init.exit343:                           ; preds = %119, %122
   %131 = tail call i64 @ftello64(ptr noundef %130)
   %132 = load ptr, ptr %18, align 8
   %133 = tail call i32 @fseeko64(ptr noundef %132, i64 noundef %127, i32 noundef 0)
-  %134 = tail call fastcc i32 @tng_block_header_read(ptr noundef %0, ptr noundef %118)
+  %134 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef %118)
   %135 = icmp eq i32 %134, 2
   br i1 %135, label %136, label %152
 

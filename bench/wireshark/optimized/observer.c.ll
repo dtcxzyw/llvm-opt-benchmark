@@ -359,7 +359,7 @@ skip_to_next_packet.exit:                         ; preds = %26, %27
   br i1 %35, label %skip_to_next_packet.exit35, label %16
 
 36:                                               ; preds = %16
-  %37 = call fastcc i32 @process_packet_header(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %1, ptr noundef %3, ptr noundef %4)
+  %37 = call fastcc i32 @process_packet_header(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %4)
   %.not30 = icmp eq i32 %37, 0
   br i1 %.not30, label %skip_to_next_packet.exit35, label %38
 
@@ -450,7 +450,7 @@ define internal range(i32 0, 2) i32 @observer_seek_read(ptr noundef readonly cap
   br i1 %17, label %read_packet_data.exit.thread24, label %18
 
 18:                                               ; preds = %13
-  %19 = call fastcc i32 @process_packet_header(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %2, ptr noundef %4, ptr noundef %5)
+  %19 = call fastcc i32 @process_packet_header(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %2, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %read_packet_data.exit.thread24, label %20
 

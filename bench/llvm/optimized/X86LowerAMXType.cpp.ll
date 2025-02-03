@@ -1579,12 +1579,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit78.i
 
 _ZNK4llvm5Value9hasOneUseEv.exit.thread.sink.split.sink.split.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit78.i, %527, %515, %500, %444, %436
   %.sink.i = phi i64 [ %438, %436 ], [ %446, %444 ], [ %502, %500 ], [ %517, %515 ], [ %529, %527 ], [ %571, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit78.i ]
-  %.sink123.ph.i = phi ptr [ %421, %436 ], [ %421, %444 ], [ %425, %500 ], [ %421, %515 ], [ %spec.select.i.i.i, %527 ], [ %spec.select.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit78.i ]
+  %.sink123.ph.i = phi ptr [ %421, %436 ], [ %421, %444 ], [ %425, %500 ], [ %421, %515 ], [ %421, %527 ], [ %spec.select.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit78.i ]
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %289, i64 noundef %.sink.i, i64 noundef 8) #14
   br label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.sink.split.i
 
 _ZNK4llvm5Value9hasOneUseEv.exit.thread.sink.split.i: ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.thread.sink.split.sink.split.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit78.i, %527, %515, %500, %444, %436
-  %.sink123.i = phi ptr [ %421, %436 ], [ %421, %444 ], [ %425, %500 ], [ %421, %515 ], [ %spec.select.i.i.i, %527 ], [ %spec.select.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit78.i ], [ %.sink123.ph.i, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.sink.split.sink.split.i ]
+  %.sink123.i = phi ptr [ %421, %436 ], [ %421, %444 ], [ %425, %500 ], [ %421, %515 ], [ %421, %527 ], [ %spec.select.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit78.i ], [ %.sink123.ph.i, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.sink.split.sink.split.i ]
   %573 = load ptr, ptr %16, align 8
   %574 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #14
   %575 = getelementptr inbounds ptr, ptr %573, i64 %574

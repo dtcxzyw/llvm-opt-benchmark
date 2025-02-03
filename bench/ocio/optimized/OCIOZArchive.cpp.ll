@@ -2954,7 +2954,7 @@ lpad16:                                           ; preds = %if.then, %for.body
   br label %ehcleanup25
 
 for.inc:                                          ; preds = %invoke.cont17, %invoke.cont21
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.010) #22
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.010) #22
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !26
 

@@ -105,7 +105,7 @@ define internal range(i32 -2, 1) i32 @mca_patcher_overwrite_patch_address(i64 no
 
 8:                                                ; preds = %7, %2
   %.not9.i = icmp eq ptr %4, null
-  br i1 %.not9.i, label %opal_obj_new.exit.thread, label %9
+  br i1 %.not9.i, label %opal_obj_new.exit, label %9
 
 9:                                                ; preds = %8
   store ptr @mca_patcher_base_patch_t_class, ptr %4, align 8
@@ -114,7 +114,7 @@ define internal range(i32 -2, 1) i32 @mca_patcher_overwrite_patch_address(i64 no
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_patcher_base_patch_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i.i = icmp eq ptr %12, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread9, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %13 = phi ptr [ %15, %.lr.ph.i.i ], [ %12, %9 ]
@@ -123,9 +123,9 @@ define internal range(i32 -2, 1) i32 @mca_patcher_overwrite_patch_address(i64 no
   %14 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread9, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread9:                        ; preds = %.lr.ph.i.i, %9
+.loopexit:                                        ; preds = %.lr.ph.i.i, %9
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -158,10 +158,10 @@ opal_obj_new.exit.thread9:                        ; preds = %.lr.ph.i.i, %9
   %32 = add i64 %31, 1
   store volatile i64 %32, ptr getelementptr inbounds nuw (i8, ptr @mca_patcher_overwrite_module, i64 64), align 8
   %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_patcher_overwrite_module, i64 88)) #4
-  br label %opal_obj_new.exit.thread
+  br label %opal_obj_new.exit
 
-opal_obj_new.exit.thread:                         ; preds = %8, %opal_obj_new.exit.thread9
-  %.0 = phi i32 [ 0, %opal_obj_new.exit.thread9 ], [ -2, %8 ]
+opal_obj_new.exit:                                ; preds = %8, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ -2, %8 ]
   ret i32 %.0
 }
 

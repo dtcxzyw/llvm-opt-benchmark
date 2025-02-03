@@ -25797,7 +25797,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjfE
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #19
+  call void @__cxa_free_exception(ptr nonnull %68) #19
   br label %74
 
 72:                                               ; preds = %69
@@ -34218,7 +34218,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImfE
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #19
+  call void @__cxa_free_exception(ptr nonnull %68) #19
   br label %74
 
 72:                                               ; preds = %69
@@ -41733,7 +41733,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjiE
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #19
+  call void @__cxa_free_exception(ptr nonnull %68) #19
   br label %74
 
 72:                                               ; preds = %69
@@ -49347,7 +49347,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImiE
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #19
+  call void @__cxa_free_exception(ptr nonnull %68) #19
   br label %74
 
 72:                                               ; preds = %69
@@ -56873,7 +56873,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerIjlE
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #19
+  call void @__cxa_free_exception(ptr nonnull %68) #19
   br label %74
 
 72:                                               ; preds = %69
@@ -64498,7 +64498,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterINS_4data17RowBlockContainerImlE
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #19
+  call void @__cxa_free_exception(ptr nonnull %68) #19
   br label %74
 
 72:                                               ; preds = %69
@@ -74086,7 +74086,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   store i64 %157, ptr %156, align 8, !tbaa !14
   store i64 0, ptr %10, align 8, !tbaa !14
   %158 = icmp eq ptr %106, %107
-  br i1 %158, label %.loopexit28, label %159
+  br i1 %158, label %.loopexit, label %159
 
 159:                                              ; preds = %155
   %160 = add i64 %141, -8
@@ -74155,21 +74155,21 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %198 = icmp eq ptr %196, %107
-  br i1 %198, label %.loopexit28, label %192, !llvm.loop !1056
+  br i1 %198, label %.loopexit, label %192, !llvm.loop !1056
 
-.loopexit28:                                      ; preds = %192, %155
+.loopexit:                                        ; preds = %192, %155
   %199 = phi ptr [ %154, %155 ], [ %197, %192 ]
   %200 = getelementptr i8, ptr %199, i64 8
   %201 = icmp eq ptr %106, null
   br i1 %201, label %204, label %202
 
-202:                                              ; preds = %.thread, %.loopexit28
-  %203 = phi ptr [ %191, %.thread ], [ %200, %.loopexit28 ]
+202:                                              ; preds = %.thread, %.loopexit
+  %203 = phi ptr [ %191, %.thread ], [ %200, %.loopexit ]
   call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %141) #30
   br label %204
 
-204:                                              ; preds = %202, %.loopexit28
-  %205 = phi ptr [ %203, %202 ], [ %200, %.loopexit28 ]
+204:                                              ; preds = %202, %.loopexit
+  %205 = phi ptr [ %203, %202 ], [ %200, %.loopexit ]
   store ptr %154, ptr %9, align 8, !tbaa !1057
   store ptr %205, ptr %100, align 8, !tbaa !1043
   %206 = getelementptr inbounds nuw %"class.std::thread", ptr %154, i64 %151
@@ -74283,12 +74283,12 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %256, align 8, !tbaa !983
   %257 = icmp eq ptr %211, %213
-  br i1 %257, label %.loopexit, label %.preheader
+  br i1 %257, label %.thread28, label %.preheader
 
 258:                                              ; preds = %.preheader
   %259 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %260 = icmp eq ptr %259, %213
-  br i1 %260, label %.loopexit, label %.preheader, !llvm.loop !1061
+  br i1 %260, label %265, label %.preheader, !llvm.loop !1061
 
 .preheader:                                       ; preds = %255, %258
   %261 = phi ptr [ %259, %258 ], [ %211, %255 ]
@@ -74300,17 +74300,17 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   call void @_ZSt9terminatev() #33
   unreachable
 
-.loopexit:                                        ; preds = %258, %255
-  %265 = icmp eq ptr %211, null
-  br i1 %265, label %269, label %266
+265:                                              ; preds = %258
+  %266 = icmp eq ptr %211, null
+  br i1 %266, label %269, label %.thread28
 
-266:                                              ; preds = %.loopexit
+.thread28:                                        ; preds = %255, %265
   %267 = ptrtoint ptr %211 to i64
   %268 = sub i64 %103, %267
   call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %268) #30
   br label %269
 
-269:                                              ; preds = %266, %.loopexit, %237
+269:                                              ; preds = %.thread28, %265, %237
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
   br label %274
 
@@ -76230,7 +76230,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockCon
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #19
+  call void @__cxa_free_exception(ptr nonnull %68) #19
   br label %74
 
 72:                                               ; preds = %69
@@ -83069,7 +83069,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   store i64 %157, ptr %156, align 8, !tbaa !14
   store i64 0, ptr %10, align 8, !tbaa !14
   %158 = icmp eq ptr %106, %107
-  br i1 %158, label %.loopexit28, label %159
+  br i1 %158, label %.loopexit, label %159
 
 159:                                              ; preds = %155
   %160 = add i64 %141, -8
@@ -83138,21 +83138,21 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %198 = icmp eq ptr %196, %107
-  br i1 %198, label %.loopexit28, label %192, !llvm.loop !1211
+  br i1 %198, label %.loopexit, label %192, !llvm.loop !1211
 
-.loopexit28:                                      ; preds = %192, %155
+.loopexit:                                        ; preds = %192, %155
   %199 = phi ptr [ %154, %155 ], [ %197, %192 ]
   %200 = getelementptr i8, ptr %199, i64 8
   %201 = icmp eq ptr %106, null
   br i1 %201, label %204, label %202
 
-202:                                              ; preds = %.thread, %.loopexit28
-  %203 = phi ptr [ %191, %.thread ], [ %200, %.loopexit28 ]
+202:                                              ; preds = %.thread, %.loopexit
+  %203 = phi ptr [ %191, %.thread ], [ %200, %.loopexit ]
   call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %141) #30
   br label %204
 
-204:                                              ; preds = %202, %.loopexit28
-  %205 = phi ptr [ %203, %202 ], [ %200, %.loopexit28 ]
+204:                                              ; preds = %202, %.loopexit
+  %205 = phi ptr [ %203, %202 ], [ %200, %.loopexit ]
   store ptr %154, ptr %9, align 8, !tbaa !1057
   store ptr %205, ptr %100, align 8, !tbaa !1043
   %206 = getelementptr inbounds nuw %"class.std::thread", ptr %154, i64 %151
@@ -83266,12 +83266,12 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %256, align 8, !tbaa !1180
   %257 = icmp eq ptr %211, %213
-  br i1 %257, label %.loopexit, label %.preheader
+  br i1 %257, label %.thread28, label %.preheader
 
 258:                                              ; preds = %.preheader
   %259 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %260 = icmp eq ptr %259, %213
-  br i1 %260, label %.loopexit, label %.preheader, !llvm.loop !1061
+  br i1 %260, label %265, label %.preheader, !llvm.loop !1061
 
 .preheader:                                       ; preds = %255, %258
   %261 = phi ptr [ %259, %258 ], [ %211, %255 ]
@@ -83283,17 +83283,17 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   call void @_ZSt9terminatev() #33
   unreachable
 
-.loopexit:                                        ; preds = %258, %255
-  %265 = icmp eq ptr %211, null
-  br i1 %265, label %269, label %266
+265:                                              ; preds = %258
+  %266 = icmp eq ptr %211, null
+  br i1 %266, label %269, label %.thread28
 
-266:                                              ; preds = %.loopexit
+.thread28:                                        ; preds = %255, %265
   %267 = ptrtoint ptr %211 to i64
   %268 = sub i64 %103, %267
   call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %268) #30
   br label %269
 
-269:                                              ; preds = %266, %.loopexit, %237
+269:                                              ; preds = %.thread28, %265, %237
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
   br label %274
 
@@ -84338,7 +84338,7 @@ define linkonce_odr void @_ZN4dmlc12ThreadedIterISt6vectorINS_4data17RowBlockCon
 70:                                               ; preds = %67
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %68) #19
+  call void @__cxa_free_exception(ptr nonnull %68) #19
   br label %74
 
 72:                                               ; preds = %69
@@ -96337,7 +96337,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   store i64 %157, ptr %156, align 8, !tbaa !14
   store i64 0, ptr %10, align 8, !tbaa !14
   %158 = icmp eq ptr %106, %107
-  br i1 %158, label %.loopexit28, label %159
+  br i1 %158, label %.loopexit, label %159
 
 159:                                              ; preds = %155
   %160 = add i64 %141, -8
@@ -96406,21 +96406,21 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %198 = icmp eq ptr %196, %107
-  br i1 %198, label %.loopexit28, label %192, !llvm.loop !1401
+  br i1 %198, label %.loopexit, label %192, !llvm.loop !1401
 
-.loopexit28:                                      ; preds = %192, %155
+.loopexit:                                        ; preds = %192, %155
   %199 = phi ptr [ %154, %155 ], [ %197, %192 ]
   %200 = getelementptr i8, ptr %199, i64 8
   %201 = icmp eq ptr %106, null
   br i1 %201, label %204, label %202
 
-202:                                              ; preds = %.thread, %.loopexit28
-  %203 = phi ptr [ %191, %.thread ], [ %200, %.loopexit28 ]
+202:                                              ; preds = %.thread, %.loopexit
+  %203 = phi ptr [ %191, %.thread ], [ %200, %.loopexit ]
   call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %141) #30
   br label %204
 
-204:                                              ; preds = %202, %.loopexit28
-  %205 = phi ptr [ %203, %202 ], [ %200, %.loopexit28 ]
+204:                                              ; preds = %202, %.loopexit
+  %205 = phi ptr [ %203, %202 ], [ %200, %.loopexit ]
   store ptr %154, ptr %9, align 8, !tbaa !1057
   store ptr %205, ptr %100, align 8, !tbaa !1043
   %206 = getelementptr inbounds nuw %"class.std::thread", ptr %154, i64 %151
@@ -96534,12 +96534,12 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %256, align 8, !tbaa !1376
   %257 = icmp eq ptr %211, %213
-  br i1 %257, label %.loopexit, label %.preheader
+  br i1 %257, label %.thread28, label %.preheader
 
 258:                                              ; preds = %.preheader
   %259 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %260 = icmp eq ptr %259, %213
-  br i1 %260, label %.loopexit, label %.preheader, !llvm.loop !1061
+  br i1 %260, label %265, label %.preheader, !llvm.loop !1061
 
 .preheader:                                       ; preds = %255, %258
   %261 = phi ptr [ %259, %258 ], [ %211, %255 ]
@@ -96551,17 +96551,17 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   call void @_ZSt9terminatev() #33
   unreachable
 
-.loopexit:                                        ; preds = %258, %255
-  %265 = icmp eq ptr %211, null
-  br i1 %265, label %269, label %266
+265:                                              ; preds = %258
+  %266 = icmp eq ptr %211, null
+  br i1 %266, label %269, label %.thread28
 
-266:                                              ; preds = %.loopexit
+.thread28:                                        ; preds = %255, %265
   %267 = ptrtoint ptr %211 to i64
   %268 = sub i64 %103, %267
   call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %268) #30
   br label %269
 
-269:                                              ; preds = %266, %.loopexit, %237
+269:                                              ; preds = %.thread28, %265, %237
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
   br label %274
 
@@ -99355,7 +99355,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   store i64 %157, ptr %156, align 8, !tbaa !14
   store i64 0, ptr %10, align 8, !tbaa !14
   %158 = icmp eq ptr %106, %107
-  br i1 %158, label %.loopexit28, label %159
+  br i1 %158, label %.loopexit, label %159
 
 159:                                              ; preds = %155
   %160 = add i64 %141, -8
@@ -99424,21 +99424,21 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %198 = icmp eq ptr %196, %107
-  br i1 %198, label %.loopexit28, label %192, !llvm.loop !1468
+  br i1 %198, label %.loopexit, label %192, !llvm.loop !1468
 
-.loopexit28:                                      ; preds = %192, %155
+.loopexit:                                        ; preds = %192, %155
   %199 = phi ptr [ %154, %155 ], [ %197, %192 ]
   %200 = getelementptr i8, ptr %199, i64 8
   %201 = icmp eq ptr %106, null
   br i1 %201, label %204, label %202
 
-202:                                              ; preds = %.thread, %.loopexit28
-  %203 = phi ptr [ %191, %.thread ], [ %200, %.loopexit28 ]
+202:                                              ; preds = %.thread, %.loopexit
+  %203 = phi ptr [ %191, %.thread ], [ %200, %.loopexit ]
   call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %141) #30
   br label %204
 
-204:                                              ; preds = %202, %.loopexit28
-  %205 = phi ptr [ %203, %202 ], [ %200, %.loopexit28 ]
+204:                                              ; preds = %202, %.loopexit
+  %205 = phi ptr [ %203, %202 ], [ %200, %.loopexit ]
   store ptr %154, ptr %9, align 8, !tbaa !1057
   store ptr %205, ptr %100, align 8, !tbaa !1043
   %206 = getelementptr inbounds nuw %"class.std::thread", ptr %154, i64 %151
@@ -99552,12 +99552,12 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %256, align 8, !tbaa !1443
   %257 = icmp eq ptr %211, %213
-  br i1 %257, label %.loopexit, label %.preheader
+  br i1 %257, label %.thread28, label %.preheader
 
 258:                                              ; preds = %.preheader
   %259 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %260 = icmp eq ptr %259, %213
-  br i1 %260, label %.loopexit, label %.preheader, !llvm.loop !1061
+  br i1 %260, label %265, label %.preheader, !llvm.loop !1061
 
 .preheader:                                       ; preds = %255, %258
   %261 = phi ptr [ %259, %258 ], [ %211, %255 ]
@@ -99569,17 +99569,17 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   call void @_ZSt9terminatev() #33
   unreachable
 
-.loopexit:                                        ; preds = %258, %255
-  %265 = icmp eq ptr %211, null
-  br i1 %265, label %269, label %266
+265:                                              ; preds = %258
+  %266 = icmp eq ptr %211, null
+  br i1 %266, label %269, label %.thread28
 
-266:                                              ; preds = %.loopexit
+.thread28:                                        ; preds = %255, %265
   %267 = ptrtoint ptr %211 to i64
   %268 = sub i64 %103, %267
   call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %268) #30
   br label %269
 
-269:                                              ; preds = %266, %.loopexit, %237
+269:                                              ; preds = %.thread28, %265, %237
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
   br label %274
 
@@ -102379,7 +102379,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   store i64 %157, ptr %156, align 8, !tbaa !14
   store i64 0, ptr %10, align 8, !tbaa !14
   %158 = icmp eq ptr %106, %107
-  br i1 %158, label %.loopexit28, label %159
+  br i1 %158, label %.loopexit, label %159
 
 159:                                              ; preds = %155
   %160 = add i64 %141, -8
@@ -102448,21 +102448,21 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %198 = icmp eq ptr %196, %107
-  br i1 %198, label %.loopexit28, label %192, !llvm.loop !1536
+  br i1 %198, label %.loopexit, label %192, !llvm.loop !1536
 
-.loopexit28:                                      ; preds = %192, %155
+.loopexit:                                        ; preds = %192, %155
   %199 = phi ptr [ %154, %155 ], [ %197, %192 ]
   %200 = getelementptr i8, ptr %199, i64 8
   %201 = icmp eq ptr %106, null
   br i1 %201, label %204, label %202
 
-202:                                              ; preds = %.thread, %.loopexit28
-  %203 = phi ptr [ %191, %.thread ], [ %200, %.loopexit28 ]
+202:                                              ; preds = %.thread, %.loopexit
+  %203 = phi ptr [ %191, %.thread ], [ %200, %.loopexit ]
   call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %141) #30
   br label %204
 
-204:                                              ; preds = %202, %.loopexit28
-  %205 = phi ptr [ %203, %202 ], [ %200, %.loopexit28 ]
+204:                                              ; preds = %202, %.loopexit
+  %205 = phi ptr [ %203, %202 ], [ %200, %.loopexit ]
   store ptr %154, ptr %9, align 8, !tbaa !1057
   store ptr %205, ptr %100, align 8, !tbaa !1043
   %206 = getelementptr inbounds nuw %"class.std::thread", ptr %154, i64 %151
@@ -102576,12 +102576,12 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %256, align 8, !tbaa !1511
   %257 = icmp eq ptr %211, %213
-  br i1 %257, label %.loopexit, label %.preheader
+  br i1 %257, label %.thread28, label %.preheader
 
 258:                                              ; preds = %.preheader
   %259 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %260 = icmp eq ptr %259, %213
-  br i1 %260, label %.loopexit, label %.preheader, !llvm.loop !1061
+  br i1 %260, label %265, label %.preheader, !llvm.loop !1061
 
 .preheader:                                       ; preds = %255, %258
   %261 = phi ptr [ %259, %258 ], [ %211, %255 ]
@@ -102593,17 +102593,17 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   call void @_ZSt9terminatev() #33
   unreachable
 
-.loopexit:                                        ; preds = %258, %255
-  %265 = icmp eq ptr %211, null
-  br i1 %265, label %269, label %266
+265:                                              ; preds = %258
+  %266 = icmp eq ptr %211, null
+  br i1 %266, label %269, label %.thread28
 
-266:                                              ; preds = %.loopexit
+.thread28:                                        ; preds = %255, %265
   %267 = ptrtoint ptr %211 to i64
   %268 = sub i64 %103, %267
   call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %268) #30
   br label %269
 
-269:                                              ; preds = %266, %.loopexit, %237
+269:                                              ; preds = %.thread28, %265, %237
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
   br label %274
 
@@ -105396,7 +105396,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   store i64 %157, ptr %156, align 8, !tbaa !14
   store i64 0, ptr %10, align 8, !tbaa !14
   %158 = icmp eq ptr %106, %107
-  br i1 %158, label %.loopexit28, label %159
+  br i1 %158, label %.loopexit, label %159
 
 159:                                              ; preds = %155
   %160 = add i64 %141, -8
@@ -105465,21 +105465,21 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %198 = icmp eq ptr %196, %107
-  br i1 %198, label %.loopexit28, label %192, !llvm.loop !1603
+  br i1 %198, label %.loopexit, label %192, !llvm.loop !1603
 
-.loopexit28:                                      ; preds = %192, %155
+.loopexit:                                        ; preds = %192, %155
   %199 = phi ptr [ %154, %155 ], [ %197, %192 ]
   %200 = getelementptr i8, ptr %199, i64 8
   %201 = icmp eq ptr %106, null
   br i1 %201, label %204, label %202
 
-202:                                              ; preds = %.thread, %.loopexit28
-  %203 = phi ptr [ %191, %.thread ], [ %200, %.loopexit28 ]
+202:                                              ; preds = %.thread, %.loopexit
+  %203 = phi ptr [ %191, %.thread ], [ %200, %.loopexit ]
   call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %141) #30
   br label %204
 
-204:                                              ; preds = %202, %.loopexit28
-  %205 = phi ptr [ %203, %202 ], [ %200, %.loopexit28 ]
+204:                                              ; preds = %202, %.loopexit
+  %205 = phi ptr [ %203, %202 ], [ %200, %.loopexit ]
   store ptr %154, ptr %9, align 8, !tbaa !1057
   store ptr %205, ptr %100, align 8, !tbaa !1043
   %206 = getelementptr inbounds nuw %"class.std::thread", ptr %154, i64 %151
@@ -105593,12 +105593,12 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %256, align 8, !tbaa !1578
   %257 = icmp eq ptr %211, %213
-  br i1 %257, label %.loopexit, label %.preheader
+  br i1 %257, label %.thread28, label %.preheader
 
 258:                                              ; preds = %.preheader
   %259 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %260 = icmp eq ptr %259, %213
-  br i1 %260, label %.loopexit, label %.preheader, !llvm.loop !1061
+  br i1 %260, label %265, label %.preheader, !llvm.loop !1061
 
 .preheader:                                       ; preds = %255, %258
   %261 = phi ptr [ %259, %258 ], [ %211, %255 ]
@@ -105610,17 +105610,17 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit27:      ; preds = %.noexc26, %58
   call void @_ZSt9terminatev() #33
   unreachable
 
-.loopexit:                                        ; preds = %258, %255
-  %265 = icmp eq ptr %211, null
-  br i1 %265, label %269, label %266
+265:                                              ; preds = %258
+  %266 = icmp eq ptr %211, null
+  br i1 %266, label %269, label %.thread28
 
-266:                                              ; preds = %.loopexit
+.thread28:                                        ; preds = %255, %265
   %267 = ptrtoint ptr %211 to i64
   %268 = sub i64 %103, %267
   call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef %268) #30
   br label %269
 
-269:                                              ; preds = %266, %.loopexit, %237
+269:                                              ; preds = %.thread28, %265, %237
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
   br label %274
 

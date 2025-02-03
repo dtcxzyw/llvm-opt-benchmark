@@ -26978,7 +26978,7 @@ if.end29:                                         ; preds = %invoke.cont25
 
 invoke.cont31:                                    ; preds = %if.end29
   %cmp33.not = icmp eq i32 %call32, 1
-  br i1 %cmp33.not, label %if.end35, label %cleanup
+  br i1 %cmp33.not, label %if.end35, label %if.end.i.i16
 
 if.end35:                                         ; preds = %invoke.cont31
   invoke void @_ZN3smt6kernel9get_modelER3refI5modelE(ptr noundef nonnull align 8 dereferenceable(8) %m_solver, ptr noundef nonnull align 8 dereferenceable(8) %model)
@@ -26987,7 +26987,7 @@ if.end35:                                         ; preds = %invoke.cont31
 invoke.cont37:                                    ; preds = %if.end35
   %9 = load ptr, ptr %model, align 8
   %cmp.i10 = icmp eq ptr %9, null
-  br i1 %cmp.i10, label %cleanup, label %if.end41
+  br i1 %cmp.i10, label %if.end.i.i16, label %if.end41
 
 if.end41:                                         ; preds = %invoke.cont37
   %call43 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
@@ -27047,22 +27047,24 @@ if.end65.cleanup_crit_edge:                       ; preds = %if.end65
   %.pre30 = load ptr, ptr %model_eval, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont37, %invoke.cont31, %if.end65.cleanup_crit_edge, %invoke.cont62
-  %17 = phi ptr [ %15, %invoke.cont62 ], [ %.pre30, %if.end65.cleanup_crit_edge ], [ %3, %invoke.cont31 ], [ %3, %invoke.cont37 ]
-  %retval.1 = phi i32 [ 0, %invoke.cont62 ], [ 1, %if.end65.cleanup_crit_edge ], [ 0, %invoke.cont37 ], [ 1, %invoke.cont31 ]
+cleanup:                                          ; preds = %if.end65.cleanup_crit_edge, %invoke.cont62
+  %17 = phi ptr [ %15, %invoke.cont62 ], [ %.pre30, %if.end65.cleanup_crit_edge ]
+  %retval.1 = phi i32 [ 0, %invoke.cont62 ], [ 1, %if.end65.cleanup_crit_edge ]
   %cmp.i.i15 = icmp eq ptr %17, null
   br i1 %cmp.i.i15, label %cleanup69, label %if.end.i.i16
 
-if.end.i.i16:                                     ; preds = %cleanup
-  call void @_ZN15model_evaluatorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #26
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %17)
+if.end.i.i16:                                     ; preds = %invoke.cont37, %invoke.cont31, %cleanup
+  %retval.134 = phi i32 [ %retval.1, %cleanup ], [ 1, %invoke.cont31 ], [ 0, %invoke.cont37 ]
+  %18 = phi ptr [ %17, %cleanup ], [ %3, %invoke.cont31 ], [ %3, %invoke.cont37 ]
+  call void @_ZN15model_evaluatorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #26
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %18)
           to label %cleanup69 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.end.i.i16
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #27
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #27
   unreachable
 
 ehcleanup:                                        ; preds = %lpad11.loopexit, %lpad11.loopexit.split-lp.loopexit.split-lp, %lpad11.loopexit.split-lp.loopexit, %lpad48
@@ -27071,34 +27073,35 @@ ehcleanup:                                        ; preds = %lpad11.loopexit, %l
   br label %ehcleanup70
 
 cleanup69:                                        ; preds = %if.end.i.i16, %cleanup
+  %retval.135 = phi i32 [ %retval.134, %if.end.i.i16 ], [ %retval.1, %cleanup ]
   %.pr = load ptr, ptr %model, align 8
   %tobool.not.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i, label %_ZN3refI5modelED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup69
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %.pr, i64 16
-  %20 = load i32, ptr %m_ref_count.i.i.i, align 8
-  %dec.i.i.i = add i32 %20, -1
+  %21 = load i32, ptr %m_ref_count.i.i.i, align 8
+  %dec.i.i.i = add i32 %21, -1
   store i32 %dec.i.i.i, ptr %m_ref_count.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN3refI5modelED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %.pr, align 8
-  %21 = load ptr, ptr %vtable.i.i.i.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(96) %.pr) #26
+  %22 = load ptr, ptr %vtable.i.i.i.i, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(96) %.pr) #26
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %.pr)
           to label %_ZN3refI5modelED2Ev.exit unwind label %terminate.lpad.i17
 
 terminate.lpad.i17:                               ; preds = %if.then.i.i.i
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #27
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #27
   unreachable
 
 _ZN3refI5modelED2Ev.exit:                         ; preds = %invoke.cont, %cleanup69, %if.then.i.i, %if.then.i.i.i
-  %retval.020 = phi i32 [ %retval.1, %cleanup69 ], [ %retval.1, %if.then.i.i ], [ %retval.1, %if.then.i.i.i ], [ 0, %invoke.cont ]
+  %retval.020 = phi i32 [ %retval.135, %cleanup69 ], [ %retval.135, %if.then.i.i ], [ %retval.135, %if.then.i.i.i ], [ 0, %invoke.cont ]
   ret i32 %retval.020
 
 ehcleanup70:                                      ; preds = %ehcleanup, %lpad8, %lpad

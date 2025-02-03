@@ -936,7 +936,7 @@ list_length.exit150:                              ; preds = %generate_nonunion_p
   %389 = call fastcc ptr @generate_setop_tlist(ptr noundef %2, ptr noundef %3, i32 noundef %5, i32 noundef 0, i1 noundef zeroext false, ptr noundef %388, ptr noundef %6, ptr noundef %16)
   store ptr %389, ptr %7, align 8
   %390 = call ptr @make_pathtarget_from_tlist(ptr noundef %389) #7
-  %391 = call ptr @set_pathtarget_cost_width(ptr noundef %1, ptr noundef %390) #7
+  %391 = call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %390) #7
   %392 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %393 = load ptr, ptr %392, align 8
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 4

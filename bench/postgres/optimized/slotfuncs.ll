@@ -962,56 +962,56 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   %25 = call zeroext i1 @LWLockAcquire(ptr noundef %24, i32 noundef 1) #11
   %26 = load i32, ptr @max_replication_slots, align 4
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph, label %.thread
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22
   %28 = load ptr, ptr @ReplicationSlotCtl, align 8
   %wide.trip.count = zext nneg i32 %26 to i64
-  br label %34
+  br label %29
 
-.thread:                                          ; preds = %47, %22
-  %29 = load ptr, ptr @MainLWLockArray, align 8
-  %30 = getelementptr i8, ptr %29, i64 4736
-  call void @LWLockRelease(ptr noundef %30) #11
-  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %31)
-  %32 = call i32 @errcode(i32 noundef 67137668) #11
-  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %11) #11
+29:                                               ; preds = %.lr.ph, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %30 = getelementptr [1 x %struct.ReplicationSlot], ptr %28, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %32 = load i8, ptr %31, align 1
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %42
+
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %11) #15
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %42
+
+38:                                               ; preds = %34
+  %39 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %30, i8 1, ptr nonnull elementtype(i8) %30) #11, !srcloc !5
+  %.not68 = icmp eq i8 %39, 0
+  br i1 %.not68, label %48, label %40
+
+40:                                               ; preds = %38
+  %41 = call i32 @s_lock(ptr noundef nonnull %30, ptr noundef nonnull @.str.1, i32 noundef 732, ptr noundef nonnull @__func__.copy_replication_slot) #11
+  br label %48
+
+42:                                               ; preds = %29, %34
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !12
+
+._crit_edge:                                      ; preds = %42, %22
+  %43 = load ptr, ptr @MainLWLockArray, align 8
+  %44 = getelementptr i8, ptr %43, i64 4736
+  call void @LWLockRelease(ptr noundef %44) #11
+  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  call void @llvm.assume(i1 %45)
+  %46 = call i32 @errcode(i32 noundef 67137668) #11
+  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %11) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 745, ptr noundef nonnull @__func__.copy_replication_slot) #11
   unreachable
 
-34:                                               ; preds = %.lr.ph, %47
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %35 = getelementptr [1 x %struct.ReplicationSlot], ptr %28, i64 0, i64 %indvars.iv
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  %37 = load i8, ptr %36, align 1
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %39, label %47
-
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %11) #15
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %47
-
-43:                                               ; preds = %39
-  %44 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i8 1, ptr elementtype(i8) %35) #11, !srcloc !5
-  %.not68 = icmp eq i8 %44, 0
-  br i1 %.not68, label %48, label %45
-
-45:                                               ; preds = %43
-  %46 = call i32 @s_lock(ptr noundef %35, ptr noundef nonnull @.str.1, i32 noundef 732, ptr noundef nonnull @__func__.copy_replication_slot) #11
-  br label %48
-
-47:                                               ; preds = %34, %39
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %34, !llvm.loop !12
-
-48:                                               ; preds = %45, %43
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 8 %35, i64 272, i1 true)
+48:                                               ; preds = %38, %40
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %30, i64 272, i1 true)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
-  store i8 0, ptr %35, align 8
+  store i8 0, ptr %30, align 8
   %49 = load ptr, ptr @MainLWLockArray, align 8
   %50 = getelementptr i8, ptr %49, i64 4736
   call void @LWLockRelease(ptr noundef %50) #11
@@ -1098,18 +1098,18 @@ create_physical_replication_slot.exit:            ; preds = %.thread76
   br label %92
 
 92:                                               ; preds = %create_physical_replication_slot.exit, %84
-  %93 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %35, i8 1, ptr nonnull elementtype(i8) %35) #11, !srcloc !5
+  %93 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %30, i8 1, ptr nonnull elementtype(i8) %30) #11, !srcloc !5
   %.not70 = icmp eq i8 %93, 0
   br i1 %.not70, label %96, label %94
 
 94:                                               ; preds = %92
-  %95 = call i32 @s_lock(ptr noundef nonnull %35, ptr noundef nonnull @.str.1, i32 noundef 822, ptr noundef nonnull @__func__.copy_replication_slot) #11
+  %95 = call i32 @s_lock(ptr noundef nonnull %30, ptr noundef nonnull @.str.1, i32 noundef 822, ptr noundef nonnull @__func__.copy_replication_slot) #11
   br label %96
 
 96:                                               ; preds = %92, %94
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %35, i64 272, i1 true)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %30, i64 272, i1 true)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
-  store i8 0, ptr %35, align 8
+  store i8 0, ptr %30, align 8
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %98 = load i32, ptr %97, align 4
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 16

@@ -23448,7 +23448,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeISt5tupleIJN2cv3ccm2IOES3_NS2_3CAM
 
 .thread:                                          ; preds = %14, %.noexc, %.noexc8, %.noexc9, %.noexc10, %30
   %34 = phi i1 [ true, %14 ], [ true, %.noexc ], [ false, %.noexc8 ], [ true, %.noexc9 ], [ false, %.noexc10 ], [ %33, %30 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %34, ptr noundef %8, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %15) #28
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %34, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 1
@@ -23462,29 +23462,25 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeISt5tupleIJN2cv3ccm2IOES3_NS2_3CAM
   resume { ptr, i32 } %39
 
 40:                                               ; preds = %11
-  %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %_ZNSt8_Rb_treeISt5tupleIJN2cv3ccm2IOES3_NS2_3CAMEEESt4pairIKS5_NS1_3MatEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_Auto_nodeD2Ev.exit, label %41
-
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %42) #28
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %8, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 184
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #28
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 112
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 152
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #28
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #28
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #28
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #28
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #28
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #28
   tail call void @_ZdlPv(ptr noundef nonnull %8) #31
   br label %_ZNSt8_Rb_treeISt5tupleIJN2cv3ccm2IOES3_NS2_3CAMEEESt4pairIKS5_NS1_3MatEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_Auto_nodeD2Ev.exit
 
-_ZNSt8_Rb_treeISt5tupleIJN2cv3ccm2IOES3_NS2_3CAMEEESt4pairIKS5_NS1_3MatEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread, %40, %41
-  %.sroa.0.013 = phi ptr [ %8, %.thread ], [ %12, %40 ], [ %12, %41 ]
+_ZNSt8_Rb_treeISt5tupleIJN2cv3ccm2IOES3_NS2_3CAMEEESt4pairIKS5_NS1_3MatEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread, %40
+  %.sroa.0.013 = phi ptr [ %8, %.thread ], [ %12, %40 ]
   ret ptr %.sroa.0.013
 }
 
@@ -23573,7 +23569,7 @@ _ZNKSt4lessISt5tupleIJN2cv3ccm2IOES3_NS2_3CAMEEEEclERKS5_S8_.exit10.thread: ; pr
   br i1 %49, label %_ZNKSt4lessISt5tupleIJN2cv3ccm2IOES3_NS2_3CAMEEEEclERKS5_S8_.exit12.thread42, label %50
 
 50:                                               ; preds = %_ZNKSt4lessISt5tupleIJN2cv3ccm2IOES3_NS2_3CAMEEEEclERKS5_S8_.exit10.thread
-  %51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #33
+  %51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #33
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %54 = tail call noundef zeroext i1 @_ZNK2cv3ccm2IOltERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %53, ptr noundef nonnull align 8 dereferenceable(72) %33)
@@ -23644,7 +23640,7 @@ _ZNKSt4lessISt5tupleIJN2cv3ccm2IOES3_NS2_3CAMEEEEclERKS5_S8_.exit12.thread: ; pr
   br i1 %86, label %_ZNKSt4lessISt5tupleIJN2cv3ccm2IOES3_NS2_3CAMEEEEclERKS5_S8_.exit12.thread42, label %87
 
 87:                                               ; preds = %_ZNKSt4lessISt5tupleIJN2cv3ccm2IOES3_NS2_3CAMEEEEclERKS5_S8_.exit12.thread
-  %88 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #33
+  %88 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #33
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 112
   %91 = tail call noundef zeroext i1 @_ZNK2cv3ccm2IOltERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %90)
@@ -24296,7 +24292,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_
   br i1 %34, label %_ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St10shared_ptrINS1_3XYZEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_.exit, label %35
 
 35:                                               ; preds = %31
-  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #33
+  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #33
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = tail call noundef zeroext i1 @_ZNK2cv3ccm2IOltERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %37, ptr noundef nonnull align 8 dereferenceable(72) %2)
   br i1 %38, label %39, label %43
@@ -24358,7 +24354,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_
   br i1 %59, label %_ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St10shared_ptrINS1_3XYZEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_.exit, label %60
 
 60:                                               ; preds = %56
-  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #33
+  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #33
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = tail call noundef zeroext i1 @_ZNK2cv3ccm2IOltERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %62)
   br i1 %63, label %64, label %68
@@ -24917,7 +24913,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_
   br i1 %34, label %_ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St10shared_ptrINS1_3LabEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_.exit, label %35
 
 35:                                               ; preds = %31
-  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #33
+  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #33
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = tail call noundef zeroext i1 @_ZNK2cv3ccm2IOltERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %37, ptr noundef nonnull align 8 dereferenceable(72) %2)
   br i1 %38, label %39, label %43
@@ -24979,7 +24975,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_
   br i1 %59, label %_ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St10shared_ptrINS1_3LabEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_.exit, label %60
 
 60:                                               ; preds = %56
-  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #33
+  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #33
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = tail call noundef zeroext i1 @_ZNK2cv3ccm2IOltERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %62)
   br i1 %63, label %64, label %68

@@ -330,7 +330,7 @@ _ZNK4llvm6Target17createMCAsmParserERKNS_15MCSubtargetInfoERNS_11MCAsmParserERKN
   %77 = load i32, ptr %76, align 8
   %78 = add i32 %77, -37
   %spec.select.i = icmp ult i32 %78, 2
-  br i1 %spec.select.i, label %79, label %_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit
+  br i1 %spec.select.i, label %79, label %_ZNSt10unique_ptrIN4llvm11MCAsmParserESt14default_deleteIS1_EED2Ev.exit
 
 79:                                               ; preds = %74
   %80 = load ptr, ptr %62, align 8
@@ -338,7 +338,7 @@ _ZNK4llvm6Target17createMCAsmParserERKNS_15MCSubtargetInfoERNS_11MCAsmParserERKN
   %82 = load ptr, ptr %81, align 8
   tail call void %82(ptr noundef nonnull align 8 dereferenceable(34) %62, i32 noundef %6) #16
   %83 = icmp eq i32 %6, 1
-  br i1 %83, label %84, label %_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit
+  br i1 %83, label %84, label %_ZNSt10unique_ptrIN4llvm11MCAsmParserESt14default_deleteIS1_EED2Ev.exit
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr %62, align 8
@@ -347,9 +347,9 @@ _ZNK4llvm6Target17createMCAsmParserERKNS_15MCSubtargetInfoERNS_11MCAsmParserERKN
   %88 = tail call noundef nonnull align 8 dereferenceable(144) ptr %87(ptr noundef nonnull align 8 dereferenceable(34) %62) #16
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 117
   store i8 1, ptr %89, align 1
-  br label %_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit
+  br label %_ZNSt10unique_ptrIN4llvm11MCAsmParserESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit: ; preds = %79, %84, %74
+_ZNSt10unique_ptrIN4llvm11MCAsmParserESt14default_deleteIS1_EED2Ev.exit: ; preds = %79, %84, %74
   tail call void @_ZN4llvm11MCAsmParser15setTargetParserERNS_17MCTargetAsmParserE(ptr noundef nonnull align 8 dereferenceable(34) %62, ptr noundef nonnull align 8 dereferenceable(304) %73) #16
   %90 = load ptr, ptr %0, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 456
@@ -375,7 +375,7 @@ _ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit: ;
   tail call void %106(ptr noundef nonnull align 8 dereferenceable(34) %62) #16
   br label %107
 
-107:                                              ; preds = %_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit, %32
+107:                                              ; preds = %_ZNSt10unique_ptrIN4llvm11MCAsmParserESt14default_deleteIS1_EED2Ev.exit, %32
   ret void
 }
 

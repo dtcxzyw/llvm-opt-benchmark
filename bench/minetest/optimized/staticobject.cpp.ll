@@ -432,7 +432,7 @@ for.body25:                                       ; preds = %if.end39, %for.body
   br i1 %call27, label %if.then28, label %if.end39
 
 if.then28:                                        ; preds = %for.body25
-  %call.i4.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %it15.sroa.0.0168, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i92) #21
+  %call.i4.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %it15.sroa.0.0168, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i92) #21
   %data.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 56
   %8 = load ptr, ptr %data.i.i.i.i.i.i.i.i.i, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 72

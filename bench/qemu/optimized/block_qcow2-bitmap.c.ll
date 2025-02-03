@@ -1494,12 +1494,20 @@ if.end:                                           ; preds = %entry
   %3 = load i64, ptr %bitmap_directory_size, align 8
   %call = tail call fastcc ptr @bitmap_list_load(ptr noundef nonnull %bs, i64 noundef %2, i64 noundef %3, ptr noundef %errp)
   %cmp1 = icmp eq ptr %call, null
-  br i1 %cmp1, label %out.thread, label %if.end3
+  br i1 %cmp1, label %bitmap_free.exit.thread44, label %if.end3
+
+bitmap_free.exit.thread44:                        ; preds = %if.end
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
+  br label %return
 
 if.end3:                                          ; preds = %if.end
   %bm.04.i = load ptr, ptr %call, align 8
   %tobool.not5.i = icmp eq ptr %bm.04.i, null
-  br i1 %tobool.not5.i, label %out.thread, label %for.body.i
+  br i1 %tobool.not5.i, label %bitmap_free.exit.thread46, label %for.body.i
+
+bitmap_free.exit.thread46:                        ; preds = %if.end3
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
+  br label %while.cond.preheader.i
 
 for.body.i:                                       ; preds = %if.end3, %for.inc.i
   %bm.06.i = phi ptr [ %bm.0.i, %for.inc.i ], [ %bm.04.i, %if.end3 ]
@@ -1513,7 +1521,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %entry2.i = getelementptr inbounds nuw i8, ptr %bm.06.i, i64 48
   %bm.0.i = load ptr, ptr %entry2.i, align 8
   %tobool.not.i = icmp eq ptr %bm.0.i, null
-  br i1 %tobool.not.i, label %out.thread, label %for.body.i, !llvm.loop !17
+  br i1 %tobool.not.i, label %bitmap_free.exit, label %for.body.i, !llvm.loop !17
 
 do.body:                                          ; preds = %for.body.i
   %name1.i.le = getelementptr inbounds nuw i8, ptr %bm.06.i, i64 32
@@ -1569,29 +1577,25 @@ do.end41:                                         ; preds = %if.end17, %if.end37
 if.then44:                                        ; preds = %do.end41
   %sub = sub i32 0, %call42
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1494, ptr noundef nonnull @__func__.qcow2_co_remove_persistent_dirty_bitmap, i32 noundef %sub, ptr noundef nonnull @.str.9) #13
-  br label %if.end.i
+  br label %bitmap_free.exit.thread
 
 if.end45:                                         ; preds = %do.end41
   tail call fastcc void @free_bitmap_clusters(ptr noundef nonnull %bs, ptr noundef %bm.06.i)
-  br label %if.end.i
+  br label %bitmap_free.exit.thread
 
-out.thread:                                       ; preds = %for.inc.i, %if.end, %if.end3
-  %ret.0.ph = phi i32 [ -5, %if.end ], [ 0, %if.end3 ], [ 0, %for.inc.i ]
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
-  br label %bitmap_free.exit
-
-if.end.i:                                         ; preds = %if.then44, %if.end45
+bitmap_free.exit.thread:                          ; preds = %if.end45, %if.then44
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
   %8 = load ptr, ptr %name1.i.le, align 8
   tail call void @g_free(ptr noundef %8) #13
   tail call void @g_free(ptr noundef nonnull %bm.06.i) #13
-  br label %bitmap_free.exit
+  br label %while.cond.preheader.i
 
-bitmap_free.exit:                                 ; preds = %out.thread, %if.end.i
-  %ret.040 = phi i32 [ %ret.0.ph, %out.thread ], [ %call42, %if.end.i ]
-  br i1 %cmp1, label %return, label %while.cond.preheader.i
+bitmap_free.exit:                                 ; preds = %for.inc.i
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
+  br label %while.cond.preheader.i
 
-while.cond.preheader.i:                           ; preds = %bitmap_free.exit
+while.cond.preheader.i:                           ; preds = %bitmap_free.exit, %bitmap_free.exit.thread46, %bitmap_free.exit.thread
+  %ret.04042 = phi i32 [ %call42, %bitmap_free.exit.thread ], [ 0, %bitmap_free.exit ], [ 0, %bitmap_free.exit.thread46 ]
   %9 = load ptr, ptr %call, align 8
   %cmp1.not8.i = icmp eq ptr %9, null
   br i1 %cmp1.not8.i, label %while.end.i, label %do.body.lr.ph.i
@@ -1626,8 +1630,8 @@ while.end.i:                                      ; preds = %bitmap_free.exit.i,
   tail call void @g_free(ptr noundef nonnull %call) #13
   br label %return
 
-return:                                           ; preds = %while.end.i, %bitmap_free.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %ret.040, %bitmap_free.exit ], [ %ret.040, %while.end.i ]
+return:                                           ; preds = %while.end.i, %bitmap_free.exit.thread44, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %ret.04042, %while.end.i ], [ -5, %bitmap_free.exit.thread44 ]
   ret i32 %retval.0
 }
 

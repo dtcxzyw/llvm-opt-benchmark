@@ -2026,7 +2026,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   resume { ptr, i32 } %0
 
 return:                                           ; preds = %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
@@ -2081,7 +2081,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   resume { ptr, i32 } %0
 
 return:                                           ; preds = %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
@@ -2136,7 +2136,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   resume { ptr, i32 } %0
 
 return:                                           ; preds = %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
@@ -2191,7 +2191,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   resume { ptr, i32 } %0
 
 return:                                           ; preds = %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
@@ -2246,7 +2246,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   resume { ptr, i32 } %0
 
 return:                                           ; preds = %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
@@ -2301,7 +2301,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   resume { ptr, i32 } %0
 
 return:                                           ; preds = %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
@@ -2356,7 +2356,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   resume { ptr, i32 } %0
 
 return:                                           ; preds = %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
@@ -2671,7 +2671,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -2977,7 +2977,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -3283,7 +3283,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -3589,7 +3589,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -3895,7 +3895,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -4201,7 +4201,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -45049,7 +45049,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -45355,7 +45355,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -45661,7 +45661,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -45967,7 +45967,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -46273,7 +46273,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -46579,7 +46579,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -87047,7 +87047,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -87353,7 +87353,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -87659,7 +87659,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -87965,7 +87965,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -88271,7 +88271,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -88577,7 +88577,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -129045,7 +129045,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -129351,7 +129351,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -129657,7 +129657,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -129963,7 +129963,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -130269,7 +130269,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -130575,7 +130575,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -171043,7 +171043,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -171349,7 +171349,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -171655,7 +171655,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -171961,7 +171961,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -172267,7 +172267,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -172573,7 +172573,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -218813,7 +218813,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -219119,7 +219119,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -219425,7 +219425,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -219731,7 +219731,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -220037,7 +220037,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit
@@ -220343,7 +220343,7 @@ invoke.cont:                                      ; preds = %sw.epilog
 lpad:                                             ; preds = %sw.epilog
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #25
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #25
   br label %common.resume
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %if.then14, %.noexc.i.i.i.i, %if.then7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit

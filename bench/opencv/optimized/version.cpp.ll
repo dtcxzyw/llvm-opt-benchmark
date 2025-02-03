@@ -16599,8 +16599,8 @@ _ZN5zxing3RefINS_9BitMatrixEEC2EPS1_.exit:        ; preds = %27
   br label %115
 
 115:                                              ; preds = %.lr.ph93, %.split90.us
-  %116 = phi ptr [ %28, %.lr.ph93 ], [ %183, %.split90.us ]
-  %.06791 = phi i64 [ 0, %.lr.ph93 ], [ %184, %.split90.us ]
+  %116 = phi ptr [ %28, %.lr.ph93 ], [ %182, %.split90.us ]
+  %.06791 = phi i64 [ 0, %.lr.ph93 ], [ %183, %.split90.us ]
   %117 = load ptr, ptr %105, align 8
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i32, ptr %118, i64 %.06791
@@ -16655,7 +16655,7 @@ _ZN5zxing3RefINS_9BitMatrixEEC2EPS1_.exit:        ; preds = %27
 
 150:                                              ; preds = %145
   %.not75.us = icmp eq i32 %149, 0
-  br i1 %.not75.us, label %151, label %.split88.us
+  br i1 %.not75.us, label %151, label %.thread103.sink.split
 
 151:                                              ; preds = %150, %.split.us
   %152 = phi ptr [ %134, %150 ], [ %125, %.split.us ]
@@ -16668,12 +16668,12 @@ _ZN5zxing3RefINS_9BitMatrixEEC2EPS1_.exit:        ; preds = %27
           cleanup
   br label %.loopexit
 
-.split:                                           ; preds = %115, %180
-  %154 = phi ptr [ %181, %180 ], [ %116, %115 ]
-  %.086 = phi i64 [ %182, %180 ], [ 0, %115 ]
+.split:                                           ; preds = %115, %179
+  %154 = phi ptr [ %180, %179 ], [ %116, %115 ]
+  %.086 = phi i64 [ %181, %179 ], [ 0, %115 ]
   %155 = icmp eq i64 %.086, 0
   %or.cond = and i1 %123, %155
-  br i1 %or.cond, label %180, label %.thread
+  br i1 %or.cond, label %179, label %.thread
 
 .thread:                                          ; preds = %.split
   %156 = load ptr, ptr %105, align 8
@@ -16711,60 +16711,52 @@ _ZN5zxing3RefINS_9BitMatrixEEC2EPS1_.exit:        ; preds = %27
 
 178:                                              ; preds = %173
   %.not75 = icmp eq i32 %177, 0
-  br i1 %.not75, label %180, label %.split88.us
+  br i1 %.not75, label %179, label %.thread103.sink.split
 
-.split88.us:                                      ; preds = %178, %150
-  %179 = phi ptr [ %134, %150 ], [ %162, %178 ]
-  store ptr null, ptr %0, align 8
-  br label %185
-
-180:                                              ; preds = %178, %.split
-  %181 = phi ptr [ %162, %178 ], [ %154, %.split ]
-  %182 = add nuw i64 %.086, 1
-  %exitcond.not = icmp eq i64 %182, %umax
+179:                                              ; preds = %178, %.split
+  %180 = phi ptr [ %162, %178 ], [ %154, %.split ]
+  %181 = add nuw i64 %.086, 1
+  %exitcond.not = icmp eq i64 %181, %umax
   br i1 %exitcond.not, label %.split90.us, label %.split, !llvm.loop !12
 
-.split90.us:                                      ; preds = %180, %151
-  %183 = phi ptr [ %152, %151 ], [ %181, %180 ]
-  %184 = add nuw i64 %.06791, 1
-  %exitcond102.not = icmp eq i64 %184, %umax
+.split90.us:                                      ; preds = %179, %151
+  %182 = phi ptr [ %152, %151 ], [ %180, %179 ]
+  %183 = add nuw i64 %.06791, 1
+  %exitcond102.not = icmp eq i64 %183, %umax
   br i1 %exitcond102.not, label %._crit_edge94, label %115, !llvm.loop !13
 
 ._crit_edge94:                                    ; preds = %.split90.us, %104
   invoke void @_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %._crit_edge94._crit_edge unwind label %.loopexit.split-lp
+          to label %184 unwind label %.loopexit.split-lp
 
-._crit_edge94._crit_edge:                         ; preds = %._crit_edge94
+184:                                              ; preds = %._crit_edge94
   %.pre = load ptr, ptr %5, align 8
-  br label %185
-
-185:                                              ; preds = %._crit_edge94._crit_edge, %.split88.us
-  %186 = phi ptr [ %.pre, %._crit_edge94._crit_edge ], [ %179, %.split88.us ]
-  %.not.i79 = icmp eq ptr %186, null
+  %.not.i79 = icmp eq ptr %.pre, null
   br i1 %.not.i79, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit80, label %.thread103
 
-.thread103.sink.split:                            ; preds = %103, %36
+.thread103.sink.split:                            ; preds = %178, %150, %103, %36
+  %.ph = phi ptr [ %28, %36 ], [ %28, %103 ], [ %134, %150 ], [ %162, %178 ]
   store ptr null, ptr %0, align 8
   br label %.thread103
 
-.thread103:                                       ; preds = %.thread103.sink.split, %185
-  %187 = phi ptr [ %186, %185 ], [ %28, %.thread103.sink.split ]
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  %189 = load i32, ptr %188, align 8
-  %190 = add i32 %189, -1
-  store i32 %190, ptr %188, align 8
-  %191 = icmp eq i32 %190, 0
-  br i1 %191, label %192, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit80
+.thread103:                                       ; preds = %.thread103.sink.split, %184
+  %185 = phi ptr [ %.pre, %184 ], [ %.ph, %.thread103.sink.split ]
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %187 = load i32, ptr %186, align 8
+  %188 = add i32 %187, -1
+  store i32 %188, ptr %186, align 8
+  %189 = icmp eq i32 %188, 0
+  br i1 %189, label %190, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit80
 
-192:                                              ; preds = %.thread103
-  store i32 -559026175, ptr %188, align 8
-  %193 = load ptr, ptr %187, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
-  %195 = load ptr, ptr %194, align 8
-  call void %195(ptr noundef nonnull align 8 dereferenceable(12) %187) #19
+190:                                              ; preds = %.thread103
+  store i32 -559026175, ptr %186, align 8
+  %191 = load ptr, ptr %185, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
+  %193 = load ptr, ptr %192, align 8
+  call void %193(ptr noundef nonnull align 8 dereferenceable(12) %185) #19
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit80
 
-_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit80:         ; preds = %192, %.thread103, %185, %26
+_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit80:         ; preds = %190, %.thread103, %184, %26
   ret void
 }
 

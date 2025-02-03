@@ -8119,7 +8119,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5042: ; preds = %while.body.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1159, i8 0, i64 24, i1 false)
   call void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull %add.ptr1157, i64 poison, ptr noundef nonnull align 8 dereferenceable(16) %second1130, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1159)
   %add1163 = add i64 %inc2.i5034, %total.1.i3516
-  %call.i3536 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21108.sroa.0.05963) #21
+  %call.i3536 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21108.sroa.0.05963) #21
   %cmp.i3433 = icmp eq ptr %call.i3536, %add.ptr.i.i3431
   br i1 %cmp.i3433, label %for.end1166, label %for.body1117
 

@@ -220,7 +220,7 @@ dhm_read_bignum.exit26:                           ; preds = %73
 79:                                               ; preds = %dhm_read_bignum.exit26.thread41, %dhm_read_bignum.exit26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @mbedtls_mpi_init(ptr noundef nonnull %4) #10
-  %80 = call i32 @mbedtls_mpi_sub_int(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 2) #10
+  %80 = call i32 @mbedtls_mpi_sub_int(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef 2) #10
   %.not.i27 = icmp eq i32 %80, 0
   br i1 %.not.i27, label %81, label %dhm_check_range.exit
 
@@ -362,14 +362,14 @@ dhm_random_below.exit:                            ; preds = %16, %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %26 = tail call i32 @mbedtls_mpi_exp_mod(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef %0, ptr noundef nonnull %25) #10
+  %26 = tail call i32 @mbedtls_mpi_exp_mod(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %0, ptr noundef nonnull %25) #10
   %.not31 = icmp eq i32 %26, 0
   br i1 %.not31, label %27, label %36
 
 27:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @mbedtls_mpi_init(ptr noundef nonnull %5) #10
-  %28 = call i32 @mbedtls_mpi_sub_int(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 2) #10
+  %28 = call i32 @mbedtls_mpi_sub_int(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef 2) #10
   %.not.i33 = icmp eq i32 %28, 0
   br i1 %.not.i33, label %29, label %dhm_check_range.exit
 
@@ -560,7 +560,7 @@ dhm_check_range.exit.thread:                      ; preds = %14, %20, %17
   br i1 %.not68.i, label %40, label %dhm_update_blinding.exit.thread52
 
 40:                                               ; preds = %38
-  %41 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %36, ptr noundef nonnull %36, ptr noundef %0) #10
+  %41 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %36, ptr noundef nonnull %36, ptr noundef nonnull %0) #10
   %.not69.i = icmp eq i32 %41, 0
   br i1 %.not69.i, label %42, label %dhm_update_blinding.exit.thread52
 
@@ -571,12 +571,12 @@ dhm_check_range.exit.thread:                      ; preds = %14, %20, %17
   br i1 %.not70.i, label %45, label %dhm_update_blinding.exit.thread52
 
 45:                                               ; preds = %42
-  %46 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %43, ptr noundef nonnull %43, ptr noundef %0) #10
+  %46 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %43, ptr noundef nonnull %43, ptr noundef nonnull %0) #10
   %.not71.i = icmp eq i32 %46, 0
   br i1 %.not71.i, label %dhm_update_blinding.exit.thread, label %dhm_update_blinding.exit.thread52
 
 47:                                               ; preds = %35
-  %48 = call i32 @mbedtls_mpi_random(ptr noundef nonnull %36, i64 noundef 3, ptr noundef %0, ptr noundef nonnull %4, ptr noundef %5) #10
+  %48 = call i32 @mbedtls_mpi_random(ptr noundef nonnull %36, i64 noundef 3, ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %5) #10
   %.not.i.i = icmp eq i32 %48, 0
   br i1 %.not.i.i, label %dhm_random_below.exit.i, label %dhm_update_blinding.exit.thread52
 
@@ -586,7 +586,7 @@ dhm_random_below.exit.i:                          ; preds = %47
   br i1 %.not61.i, label %50, label %dhm_update_blinding.exit.thread52
 
 50:                                               ; preds = %dhm_random_below.exit.i
-  %51 = call i32 @mbedtls_mpi_random(ptr noundef nonnull %7, i64 noundef 3, ptr noundef %0, ptr noundef nonnull %4, ptr noundef %5) #10
+  %51 = call i32 @mbedtls_mpi_random(ptr noundef nonnull %7, i64 noundef 3, ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %5) #10
   %.not.i75.i = icmp eq i32 %51, 0
   br i1 %.not.i75.i, label %dhm_random_below.exit77.i, label %dhm_update_blinding.exit.thread52
 
@@ -602,12 +602,12 @@ dhm_random_below.exit77.i:                        ; preds = %50
   br i1 %.not63.i, label %56, label %dhm_update_blinding.exit.thread52
 
 56:                                               ; preds = %53
-  %57 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef %0) #10
+  %57 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %0) #10
   %.not64.i = icmp eq i32 %57, 0
   br i1 %.not64.i, label %58, label %dhm_update_blinding.exit.thread52
 
 58:                                               ; preds = %56
-  %59 = call i32 @mbedtls_mpi_inv_mod(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef %0) #10
+  %59 = call i32 @mbedtls_mpi_inv_mod(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %0) #10
   %.not65.i = icmp eq i32 %59, 0
   br i1 %.not65.i, label %60, label %dhm_update_blinding.exit.thread52
 
@@ -617,7 +617,7 @@ dhm_random_below.exit77.i:                        ; preds = %50
   br i1 %.not66.i, label %62, label %dhm_update_blinding.exit.thread52
 
 62:                                               ; preds = %60
-  %63 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef %0) #10
+  %63 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %0) #10
   %.not67.i = icmp eq i32 %63, 0
   br i1 %.not67.i, label %dhm_update_blinding.exit, label %dhm_update_blinding.exit.thread52
 
@@ -633,7 +633,7 @@ dhm_update_blinding.exit.thread52:                ; preds = %27, %29, %32, %38, 
 
 dhm_update_blinding.exit:                         ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %65 = call i32 @mbedtls_mpi_exp_mod(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %24, ptr noundef %0, ptr noundef nonnull %64) #10
+  %65 = call i32 @mbedtls_mpi_exp_mod(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %24, ptr noundef nonnull %0, ptr noundef nonnull %64) #10
   call void @mbedtls_mpi_free(ptr noundef nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %.not38 = icmp eq i32 %65, 0
@@ -646,14 +646,14 @@ dhm_update_blinding.exit:                         ; preds = %62
   br i1 %.not39, label %69, label %.thread
 
 69:                                               ; preds = %66
-  %70 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef %0) #10
+  %70 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %0) #10
   %.not40 = icmp eq i32 %70, 0
   br i1 %.not40, label %71, label %.thread
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %74 = call i32 @mbedtls_mpi_exp_mod(ptr noundef nonnull %72, ptr noundef nonnull %9, ptr noundef nonnull %24, ptr noundef %0, ptr noundef nonnull %73) #10
+  %74 = call i32 @mbedtls_mpi_exp_mod(ptr noundef nonnull %72, ptr noundef nonnull %9, ptr noundef nonnull %24, ptr noundef nonnull %0, ptr noundef nonnull %73) #10
   %.not41 = icmp eq i32 %74, 0
   br i1 %.not41, label %75, label %.thread
 
@@ -664,7 +664,7 @@ dhm_update_blinding.exit:                         ; preds = %62
   br i1 %.not42, label %78, label %.thread
 
 78:                                               ; preds = %75
-  %79 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %72, ptr noundef nonnull %72, ptr noundef %0) #10
+  %79 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %72, ptr noundef nonnull %72, ptr noundef nonnull %0) #10
   %.not43 = icmp eq i32 %79, 0
   br i1 %.not43, label %80, label %.thread
 

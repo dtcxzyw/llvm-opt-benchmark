@@ -24392,7 +24392,7 @@ if.then18:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #45
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #45
   %_M_storage.i.i.i21 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %call.i.i22 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i21, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit25 unwind label %terminate.lpad.i.i23
@@ -24498,7 +24498,7 @@ if.then50:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__position.coerce) #45
+  %call.i74 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #45
   %_M_storage.i.i.i75 = getelementptr inbounds nuw i8, ptr %call.i74, i64 32
   %call.i.i76 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i75)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit79 unwind label %terminate.lpad.i.i77
@@ -25189,7 +25189,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #40
-  invoke void @_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_(ptr noundef %cond.i.i.i, ptr noundef %__cur.0.i15)
+  invoke void @_ZSt8_DestroyIPN9grpc_core12experimental4JsonEEvT_S4_(ptr noundef %cond.i.i.i, ptr noundef nonnull %__cur.0.i15)
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %lpad.i
@@ -26781,7 +26781,7 @@ invoke.cont:                                      ; preds = %if.then
   %call2 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #40
   %resolver_call_canceller_ = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %resolver_call_canceller_, align 8
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.8, i32 noundef 2490, i32 noundef 1, ptr noundef nonnull @.str.149, ptr noundef %call, ptr noundef nonnull %0, ptr noundef %call2, ptr noundef nonnull %arg, ptr noundef %3)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.8, i32 noundef 2490, i32 noundef 1, ptr noundef nonnull @.str.149, ptr noundef nonnull %call, ptr noundef nonnull %0, ptr noundef %call2, ptr noundef nonnull %arg, ptr noundef %3)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -27180,12 +27180,11 @@ for.body.i:                                       ; preds = %land.lhs.true.i.i.i
 
 .noexc1:                                          ; preds = %for.body.i
   %inc.i.i = add i64 %__begin3.sroa.5.010.i, 1
-  %cmp.not1.i.i = icmp eq ptr %__begin3.sroa.0.09.i, null
-  br i1 %cmp.not1.i.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, label %land.rhs.i.i
+  br label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %.noexc1, %while.body.i.i
-  %__begin3.sroa.0.1.i = phi ptr [ %4, %while.body.i.i ], [ %__begin3.sroa.0.09.i, %.noexc1 ]
-  %__begin3.sroa.5.1.i = phi i64 [ 0, %while.body.i.i ], [ %inc.i.i, %.noexc1 ]
+land.rhs.i.i:                                     ; preds = %while.body.i.i, %.noexc1
+  %__begin3.sroa.0.1.i = phi ptr [ %__begin3.sroa.0.09.i, %.noexc1 ], [ %4, %while.body.i.i ]
+  %__begin3.sroa.5.1.i = phi i64 [ %inc.i.i, %.noexc1 ], [ 0, %while.body.i.i ]
   %count.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.1.i, i64 8
   %3 = load i64, ptr %count.i.i, align 8
   %cmp4.i.i = icmp eq i64 %__begin3.sroa.5.1.i, %3
@@ -27196,9 +27195,9 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   %cmp.not.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, label %land.rhs.i.i, !llvm.loop !337
 
-_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i: ; preds = %while.body.i.i, %land.rhs.i.i, %.noexc1
-  %__begin3.sroa.0.2.i = phi ptr [ null, %.noexc1 ], [ null, %while.body.i.i ], [ %__begin3.sroa.0.1.i, %land.rhs.i.i ]
-  %__begin3.sroa.5.2.i = phi i64 [ %inc.i.i, %.noexc1 ], [ 0, %while.body.i.i ], [ %__begin3.sroa.5.1.i, %land.rhs.i.i ]
+_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i: ; preds = %while.body.i.i, %land.rhs.i.i
+  %__begin3.sroa.0.2.i = phi ptr [ null, %while.body.i.i ], [ %__begin3.sroa.0.1.i, %land.rhs.i.i ]
+  %__begin3.sroa.5.2.i = phi i64 [ 0, %while.body.i.i ], [ %__begin3.sroa.5.1.i, %land.rhs.i.i ]
   %cmp.i.i.i = icmp ne ptr %__begin3.sroa.0.2.i, null
   %cmp4.i.i.i = icmp ne i64 %__begin3.sroa.5.2.i, 0
   %.not.i.i = or i1 %cmp.i.i.i, %cmp4.i.i.i
@@ -35754,7 +35753,7 @@ invoke.cont:                                      ; preds = %if.then
   %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #40
   %lb_call_canceller_ = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %lb_call_canceller_, align 16
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.8, i32 noundef 3382, i32 noundef 1, ptr noundef nonnull @.str.188, ptr noundef %1, ptr noundef nonnull %0, ptr noundef %call3, ptr noundef nonnull %arg, ptr noundef %3)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.8, i32 noundef 3382, i32 noundef 1, ptr noundef nonnull @.str.188, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef %call3, ptr noundef nonnull %arg, ptr noundef %3)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont

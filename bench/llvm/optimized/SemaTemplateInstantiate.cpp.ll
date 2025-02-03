@@ -74282,7 +74282,7 @@ _ZN5clang4Sema11ContextRAII3popEv.exit:           ; preds = %697, %701
 707:                                              ; preds = %708, %_ZN5clang4Sema11ContextRAII3popEv.exit
   %.sroa.014.0.i.i = phi ptr [ %705, %_ZN5clang4Sema11ContextRAII3popEv.exit ], [ %709, %708 ]
   %.not18.i.i = icmp eq ptr %.sroa.014.0.i.i, %706
-  br i1 %.not18.i.i, label %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i, label %708
+  br i1 %.not18.i.i, label %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread25.i, label %708
 
 708:                                              ; preds = %707
   %709 = getelementptr inbounds i8, ptr %.sroa.014.0.i.i, i64 -64
@@ -74302,7 +74302,7 @@ _ZN5clang4Sema11ContextRAII3popEv.exit:           ; preds = %697, %701
   %719 = zext i32 %718 to i64
   %.0.in20.i.i = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %.not1221.i.i = icmp eq i64 %.0.in20.i.i, 0
-  br i1 %.not1221.i.i, label %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.i, label %.lr.ph.i.i14
+  br i1 %.not1221.i.i, label %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i, label %.lr.ph.i.i14
 
 .lr.ph.i.i14:                                     ; preds = %711, %.lr.ph.i.i14
   %.0.in22.i.i = phi i64 [ %.0.in.i.i, %.lr.ph.i.i14 ], [ %.0.in20.i.i, %711 ]
@@ -74311,13 +74311,13 @@ _ZN5clang4Sema11ContextRAII3popEv.exit:           ; preds = %697, %701
   %.0.copyload.i.i.i.i.i13.i.i = load i64, ptr %720, align 8, !noalias !410
   %.0.in.i.i = and i64 %.0.copyload.i.i.i.i.i13.i.i, -8
   %.not12.i.i = icmp eq i64 %.0.in.i.i, 0
-  br i1 %.not12.i.i, label %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.i, label %.lr.ph.i.i14, !llvm.loop !29
+  br i1 %.not12.i.i, label %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i, label %.lr.ph.i.i14, !llvm.loop !29
 
-_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.i: ; preds = %.lr.ph.i.i14, %711
-  %.sroa.4.0.i = phi ptr [ %713, %711 ], [ %.0.i.i, %.lr.ph.i.i14 ]
+_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i: ; preds = %.lr.ph.i.i14, %711
+  %.sroa.4.022.i = phi ptr [ %713, %711 ], [ %.0.i.i, %.lr.ph.i.i14 ]
   %721 = getelementptr inbounds nuw i8, ptr %34, i64 1560
   %722 = load ptr, ptr %721, align 8
-  %723 = getelementptr i8, ptr %.sroa.4.0.i, i64 48
+  %723 = getelementptr i8, ptr %.sroa.4.022.i, i64 48
   %.val13.i = load ptr, ptr %723, align 8
   %724 = getelementptr i8, ptr %.val13.i, i64 80
   %.val13.val.i = load i64, ptr %724, align 8
@@ -74332,9 +74332,9 @@ _ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN
   store ptr %728, ptr %11, align 8
   %729 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZN12_GLOBAL__N_123TemplateInstArgsHelpers31isLambdaEnclosedByTypeAliasDeclEPKNS_12FunctionDeclEPKNS_21TypeAliasTemplateDeclEE7VisitorE12TraverseTypeENS_8QualTypeE(ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %.sroa.0.0.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br i1 %729, label %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i, label %730
+  br i1 %729, label %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread25.i, label %730
 
-730:                                              ; preds = %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.i
+730:                                              ; preds = %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i
   %731 = call noundef i32 @_ZNK5clang4Decl16getTemplateDepthEv(ptr noundef nonnull align 8 dereferenceable(33) %713) #23
   %732 = load ptr, ptr %629, align 8
   %733 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(117) %732) #23
@@ -74344,20 +74344,20 @@ _ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN
 
 735:                                              ; preds = %730
   %736 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %716, i64 %719
-  %.not1223.i = icmp eq i32 %718, 0
-  br i1 %.not1223.i, label %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i, label %.lr.ph.i16
+  %.not1232.i = icmp eq i32 %718, 0
+  br i1 %.not1232.i, label %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread25.i, label %.lr.ph.i16
 
 737:                                              ; preds = %.lr.ph.i16
-  %738 = getelementptr inbounds nuw i8, ptr %.01124.i, i64 24
+  %738 = getelementptr inbounds nuw i8, ptr %.01133.i, i64 24
   %.not12.i = icmp eq ptr %738, %736
-  br i1 %.not12.i, label %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i, label %.lr.ph.i16
+  br i1 %.not12.i, label %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread25.i, label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %735, %737
-  %.01124.i = phi ptr [ %738, %737 ], [ %716, %735 ]
-  %739 = call noundef zeroext i1 @_ZNK5clang16TemplateArgument11isDependentEv(ptr noundef nonnull align 8 dereferenceable(24) %.01124.i) #23
+  %.01133.i = phi ptr [ %738, %737 ], [ %716, %735 ]
+  %739 = call noundef zeroext i1 @_ZNK5clang16TemplateArgument11isDependentEv(ptr noundef nonnull align 8 dereferenceable(24) %.01133.i) #23
   br i1 %739, label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit, label %737
 
-_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i: ; preds = %707, %737, %735, %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.i
+_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread25.i: ; preds = %707, %737, %735, %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i
   %740 = getelementptr inbounds nuw i8, ptr %34, i64 1552
   %.val15.i = load ptr, ptr %740, align 8
   %741 = getelementptr i8, ptr %.val15.i, i64 128
@@ -74365,7 +74365,7 @@ _ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN
   %.not.i.i.i.i17 = icmp eq ptr %.val15.val.i, null
   br i1 %.not.i.i.i.i17, label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i
 
-_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i:  ; preds = %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i
+_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i:  ; preds = %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread25.i
   %742 = getelementptr inbounds nuw i8, ptr %.val15.val.i, i64 8
   %743 = load i32, ptr %742, align 8
   %744 = and i32 %743, 1048576
@@ -74378,8 +74378,8 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i:  ; preds = %_ZN12_GLOBAL__N_123
   %748 = and i64 %747, 3
   br label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit
 
-_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %.lr.ph.i16, %730, %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i, %745
-  %.0.i = phi i64 [ 1, %730 ], [ %748, %745 ], [ 0, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ 0, %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread.i ], [ 1, %.lr.ph.i16 ]
+_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %.lr.ph.i16, %730, %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread25.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i, %745
+  %.0.i = phi i64 [ 1, %730 ], [ %748, %745 ], [ 0, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ 0, %_ZN12_GLOBAL__N_123TemplateInstArgsHelpers33getEnclosingTypeAliasTemplateDeclERN5clang4SemaE.exit.thread25.i ], [ 1, %.lr.ph.i16 ]
   %749 = getelementptr inbounds nuw i8, ptr %225, i64 128
   %750 = load ptr, ptr %749, align 8
   %751 = getelementptr inbounds nuw i8, ptr %750, i64 104

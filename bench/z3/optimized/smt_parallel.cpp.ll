@@ -1017,7 +1017,7 @@ sw.bb:                                            ; preds = %if.then165
 lpad167:                                          ; preds = %sw.bb
   %131 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception166) #20
+  call void @__cxa_free_exception(ptr nonnull %exception166) #20
   br label %ehcleanup226
 
 sw.default:                                       ; preds = %if.then165

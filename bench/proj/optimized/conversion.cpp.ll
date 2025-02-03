@@ -2415,7 +2415,7 @@ define void @_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMa
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %21) #28
+  tail call void @__cxa_free_exception(ptr nonnull %21) #28
   br label %54
 
 25:                                               ; preds = %4
@@ -2796,7 +2796,7 @@ define void @_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMa
 25:                                               ; preds = %22
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #28
+  call void @__cxa_free_exception(ptr nonnull %23) #28
   br label %202
 
 27:                                               ; preds = %24
@@ -3873,7 +3873,7 @@ define void @_ZN5osgeo4proj9operation10Conversion9createUTMERKNS0_4util11Propert
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %14) #28
+  tail call void @__cxa_free_exception(ptr nonnull %14) #28
   br label %49
 
 18:                                               ; preds = %4
@@ -9210,7 +9210,7 @@ define void @_ZNK5osgeo4proj9operation10Conversion7inverseEv(ptr dead_on_unwind 
 28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %26) #28
+  tail call void @__cxa_free_exception(ptr nonnull %26) #28
   br label %313
 
 30:                                               ; preds = %22
@@ -14975,7 +14975,7 @@ switch.edge:
 76:                                               ; preds = %73
   %77 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %74) #28
+  tail call void @__cxa_free_exception(ptr nonnull %74) #28
   br label %1290
 
 78:                                               ; preds = %70
@@ -15232,7 +15232,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEED2Ev.exit514: ; preds = %129, %
 195:                                              ; preds = %192
   %196 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %193) #28
+  call void @__cxa_free_exception(ptr nonnull %193) #28
   br label %1288
 
 197:                                              ; preds = %87
@@ -16224,7 +16224,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted
 598:                                              ; preds = %593
   %599 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %594) #28
+  call void @__cxa_free_exception(ptr nonnull %594) #28
   br label %1287
 
 600:                                              ; preds = %588, %584
@@ -16649,7 +16649,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted
 745:                                              ; preds = %741
   %746 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %742) #28
+  call void @__cxa_free_exception(ptr nonnull %742) #28
   br label %1287
 
 747:                                              ; preds = %732
@@ -16694,7 +16694,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted
 765:                                              ; preds = %763
   %766 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %764) #28
+  call void @__cxa_free_exception(ptr nonnull %764) #28
   br label %1287
 
 767:                                              ; preds = %758, %754
@@ -16719,7 +16719,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted
 778:                                              ; preds = %776
   %779 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %777) #28
+  call void @__cxa_free_exception(ptr nonnull %777) #28
   br label %1287
 
 780:                                              ; preds = %752
@@ -16797,7 +16797,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted
 817:                                              ; preds = %.thread646
   %818 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %816) #28
+  call void @__cxa_free_exception(ptr nonnull %816) #28
   br label %1287
 
 819:                                              ; preds = %808, %785
@@ -16822,7 +16822,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted
 826:                                              ; preds = %824
   %827 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %825) #28
+  call void @__cxa_free_exception(ptr nonnull %825) #28
   br label %1287
 
 828:                                              ; preds = %822

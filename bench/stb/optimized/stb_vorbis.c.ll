@@ -8607,7 +8607,7 @@ vorbis_decode_packet.exit:                        ; preds = %entry
 if.then:                                          ; preds = %vorbis_decode_packet.exit
   %4 = load i32, ptr %len, align 4
   %5 = load i32, ptr %left, align 4
-  %call1 = tail call i32 @vorbis_finish_frame(ptr noundef %f, i32 noundef %4, i32 noundef %5, i32 noundef %2)
+  %call1 = tail call i32 @vorbis_finish_frame(ptr noundef nonnull %f, i32 noundef %4, i32 noundef %5, i32 noundef %2)
   br label %if.end
 
 if.end:                                           ; preds = %vorbis_decode_packet.exit.thread, %if.then, %vorbis_decode_packet.exit
@@ -14138,8 +14138,8 @@ if.end134:                                        ; preds = %if.then131, %if.els
 
 while.end135:                                     ; preds = %if.end134, %if.then120, %while.cond27.preheader
   %61 = load i32, ptr %left, align 4
-  %call137 = tail call i32 @set_file_offset(ptr noundef %f, i32 noundef %61)
-  %call138 = tail call i32 @start_page(ptr noundef %f)
+  %call137 = tail call i32 @set_file_offset(ptr noundef nonnull %f, i32 noundef %61)
+  %call138 = tail call i32 @start_page(ptr noundef nonnull %f)
   %tobool139.not = icmp eq i32 %call138, 0
   br i1 %tobool139.not, label %return.sink.split, label %if.end142
 
@@ -14295,7 +14295,7 @@ if.end186:                                        ; preds = %for.end182
   br i1 %cmp188, label %return.sink.split, label %return
 
 error193:                                         ; preds = %set_file_offset.exit, %if.end99, %if.end104, %set_file_offset.exit216, %start_page.exit, %if.end160, %start_page.exit.thread
-  %call194 = tail call i32 @stb_vorbis_seek_start(ptr noundef %f)
+  %call194 = tail call i32 @stb_vorbis_seek_start(ptr noundef nonnull %f)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end186, %while.end135, %if.then20, %if.end, %entry, %error193

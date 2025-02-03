@@ -1091,14 +1091,14 @@ define internal fastcc range(i32 -1, 1) i32 @getParameterStatus(ptr noundef %0) 
 
 5:                                                ; preds = %1
   call void @initPQExpBuffer(ptr noundef nonnull %2) #16
-  %6 = call i32 @pqGets(ptr noundef nonnull %2, ptr noundef %0) #16
+  %6 = call i32 @pqGets(ptr noundef nonnull %2, ptr noundef nonnull %0) #16
   %.not5 = icmp eq i32 %6, 0
   br i1 %.not5, label %7, label %.sink.split
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %2, align 8
-  call void @pqSaveParameterStatus(ptr noundef %0, ptr noundef %8, ptr noundef %9) #16
+  call void @pqSaveParameterStatus(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %9) #16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %7
@@ -1487,7 +1487,7 @@ define internal fastcc void @getAnotherTuple(ptr noundef %0, i32 noundef range(i
   br label %44
 
 44:                                               ; preds = %.sink.split, %._crit_edge
-  call void @pqClearAsyncResult(ptr noundef %0) #16
+  call void @pqClearAsyncResult(ptr noundef nonnull %0) #16
   %45 = load ptr, ptr %3, align 8
   %.not42 = icmp eq ptr %45, null
   br i1 %.not42, label %46, label %47
@@ -1500,7 +1500,7 @@ define internal fastcc void @getAnotherTuple(ptr noundef %0, i32 noundef range(i
   %48 = phi ptr [ @.str.36, %46 ], [ %45, %44 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %49, ptr noundef nonnull @.str.8, ptr noundef nonnull %48) #16
-  call void @pqSaveErrorResult(ptr noundef %0) #16
+  call void @pqSaveErrorResult(ptr noundef nonnull %0) #16
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 900
   %51 = load i32, ptr %50, align 4
   %52 = add nuw i32 %1, 5
@@ -1532,7 +1532,7 @@ define internal fastcc range(i32 -1, 1) i32 @getCopyStart(ptr noundef %0, i32 no
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 108
   store i32 %10, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %13 = tail call i32 @pqGetInt(ptr noundef nonnull %12, i64 noundef 2, ptr noundef %0) #16
+  %13 = tail call i32 @pqGetInt(ptr noundef nonnull %12, i64 noundef 2, ptr noundef nonnull %0) #16
   %.not49 = icmp eq i32 %13, 0
   br i1 %.not49, label %14, label %.loopexit
 
@@ -1585,7 +1585,7 @@ define internal fastcc range(i32 -1, 1) i32 @getCopyStart(ptr noundef %0, i32 no
 
 38:                                               ; preds = %.lr.ph55, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next, %40 ]
-  %39 = call i32 @pqGetInt(ptr noundef nonnull %3, i64 noundef 2, ptr noundef %0) #16
+  %39 = call i32 @pqGetInt(ptr noundef nonnull %3, i64 noundef 2, ptr noundef nonnull %0) #16
   %.not51 = icmp eq i32 %39, 0
   br i1 %.not51, label %40, label %.loopexit
 

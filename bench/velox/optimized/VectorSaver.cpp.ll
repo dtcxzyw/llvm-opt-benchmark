@@ -18780,7 +18780,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #34
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #34
   resume { ptr, i32 } %0
 }
 
@@ -188060,18 +188060,11 @@ invoke.cont10:                                    ; preds = %cond.false4.i.i.i.i
   %cond.neg.i.i9 = select i1 %tobool.not.i.i8, i64 0, i64 -40
   %add.ptr.i.i10 = getelementptr inbounds i8, ptr %3, i64 %cond.neg.i.i9
   invoke void @_ZN8facebook5velox17SelectivityVector6resizeEib(ptr noundef nonnull align 8 dereferenceable(38) %add.ptr.i.i10, i32 noundef %size, i1 noundef zeroext %newAscii)
-          to label %if.else.i.i.i unwind label %lpad9
+          to label %if.then3.i.i.i unwind label %lpad9
 
-if.else.i.i.i:                                    ; preds = %invoke.cont10
-  br i1 %tobool.not.i.i8, label %if.end20, label %if.then3.i.i.i
-
-if.then3.i.i.i:                                   ; preds = %if.else.i.i.i
+if.then3.i.i.i:                                   ; preds = %invoke.cont10
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %.noexc1.i.i unwind label %terminate.lpad.i.i
-
-.noexc1.i.i:                                      ; preds = %if.then3.i.i.i
-  store i8 0, ptr %_M_owns.i.i.i, align 8
-  br label %if.end20
+          to label %if.end20 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i
   %4 = landingpad { ptr, i32 }
@@ -188091,7 +188084,8 @@ lpad9:                                            ; preds = %invoke.cont10
   call void @_ZN5folly9LockedPtrINS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSA_22SynchronizedMutexLevelE1ELNSA_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #34
   br label %ehcleanup
 
-if.end20:                                         ; preds = %.noexc1.i.i, %if.else.i.i.i
+if.end20:                                         ; preds = %if.then3.i.i.i
+  store i8 0, ptr %_M_owns.i.i.i, align 8
   %8 = load atomic i8, ptr %asciiInfo seq_cst, align 8
   %tobool.i.i.i = trunc i8 %8 to i1
   %and4 = and i1 %newAscii, %tobool.i.i.i
@@ -235211,12 +235205,9 @@ invoke.cont6:                                     ; preds = %cond.false4.i.i.i.i
   %add.ptr.i.i4 = getelementptr inbounds i8, ptr %2, i64 %cond.neg.i.i3
   %3 = load i32, ptr %length_, align 8
   invoke void @_ZN8facebook5velox17SelectivityVector6resizeEib(ptr noundef nonnull align 8 dereferenceable(38) %add.ptr.i.i4, i32 noundef %3, i1 noundef zeroext false)
-          to label %if.else.i.i.i unwind label %lpad5
+          to label %if.then3.i.i.i unwind label %lpad5
 
-if.else.i.i.i:                                    ; preds = %invoke.cont6
-  br i1 %tobool.not.i.i2, label %if.end, label %if.then3.i.i.i
-
-if.then3.i.i.i:                                   ; preds = %if.else.i.i.i
+if.then3.i.i.i:                                   ; preds = %invoke.cont6
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %.noexc1.i.i unwind label %terminate.lpad.i.i
 
@@ -235242,7 +235233,7 @@ lpad5:                                            ; preds = %invoke.cont6
   call void @_ZN5folly9LockedPtrINS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSA_22SynchronizedMutexLevelE1ELNSA_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #34
   br label %ehcleanup
 
-if.end:                                           ; preds = %.noexc1.i.i, %if.else.i.i.i, %invoke.cont
+if.end:                                           ; preds = %.noexc1.i.i, %invoke.cont
   %8 = load i8, ptr %state_.i.i.i.i2.i.i.i, align 8
   %tobool.i.i.i.i.i6 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i.i.i6, label %if.then.i.i.i.i, label %_ZN5folly9LockedPtrINS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSA_22SynchronizedMutexLevelE3ELNSA_23SynchronizedMutexMethodE0EEEED2Ev.exit

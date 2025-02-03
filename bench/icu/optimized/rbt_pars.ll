@@ -3847,9 +3847,9 @@ invoke.cont125:                                   ; preds = %if.then124
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i)
   store i16 59, ptr %srcChar.addr.i, align 2
   %call.i176 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %call2.i175, ptr noundef nonnull %srcChar.addr.i, i32 noundef 0, i32 noundef 1)
-          to label %if.end173.thread unwind label %lpad31.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
+          to label %_ZN6icu_7513UnicodeString6appendEDs.exit unwind label %lpad31.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
-if.end173.thread:                                 ; preds = %invoke.cont125
+_ZN6icu_7513UnicodeString6appendEDs.exit:         ; preds = %invoke.cont125
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i)
   br label %delete.notnull175
 
@@ -3863,7 +3863,7 @@ invoke.cont130:                                   ; preds = %if.else129
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i177)
   %canonID132 = getelementptr inbounds nuw i8, ptr %call115, i64 8
   %call134 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6insertEiRKS0_(ptr noundef nonnull align 8 dereferenceable(64) %idBlockResult, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(64) %canonID132)
-          to label %if.end173 unwind label %lpad31.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
+          to label %delete.notnull175 unwind label %lpad31.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
 if.else136:                                       ; preds = %invoke.cont118, %invoke.cont114
   store i32 -1, ptr %withParens, align 4
@@ -3918,13 +3918,13 @@ if.else169:                                       ; preds = %invoke.cont138
   %call171 = invoke noundef i32 @_ZN6icu_7520TransliteratorParser11syntaxErrorE10UErrorCodeRKNS_13UnicodeStringEiRS1_(ptr noundef nonnull align 8 dereferenceable(498) %this, i32 noundef 65569, ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %38, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end173 unwind label %lpad31.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
-if.end173:                                        ; preds = %delete.notnull166, %if.else161, %delete.notnull159, %if.else169, %invoke.cont130
-  %compoundFilterOffset.1 = phi i32 [ %compoundFilterOffset.0.ph292, %invoke.cont130 ], [ %compoundFilterOffset.0.ph292, %delete.notnull159 ], [ %inc61, %if.else161 ], [ %compoundFilterOffset.0.ph292, %delete.notnull166 ], [ %compoundFilterOffset.0.ph292, %if.else169 ]
+if.end173:                                        ; preds = %delete.notnull166, %if.else161, %delete.notnull159, %if.else169
+  %compoundFilterOffset.1 = phi i32 [ %compoundFilterOffset.0.ph292, %delete.notnull159 ], [ %inc61, %if.else161 ], [ %compoundFilterOffset.0.ph292, %delete.notnull166 ], [ %compoundFilterOffset.0.ph292, %if.else169 ]
   %isnull174 = icmp eq ptr %call115, null
   br i1 %isnull174, label %delete.end176, label %delete.notnull175
 
-delete.notnull175:                                ; preds = %if.end173.thread, %if.end173
-  %compoundFilterOffset.1213 = phi i32 [ %compoundFilterOffset.0.ph292, %if.end173.thread ], [ %compoundFilterOffset.1, %if.end173 ]
+delete.notnull175:                                ; preds = %invoke.cont130, %_ZN6icu_7513UnicodeString6appendEDs.exit, %if.end173
+  %compoundFilterOffset.1213 = phi i32 [ %compoundFilterOffset.1, %if.end173 ], [ %compoundFilterOffset.0.ph292, %_ZN6icu_7513UnicodeString6appendEDs.exit ], [ %compoundFilterOffset.0.ph292, %invoke.cont130 ]
   %filter.i = getelementptr inbounds nuw i8, ptr %call115, i64 136
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %filter.i) #16
   %basicID.i = getelementptr inbounds nuw i8, ptr %call115, i64 72

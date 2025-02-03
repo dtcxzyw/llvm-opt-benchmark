@@ -10714,20 +10714,20 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit395: ; preds = %_ZN4llvm13MC
   br i1 %1247, label %_ZN4llvm13MCInstBuilderD2Ev.exit369, label %_ZN4llvm13MCInstBuilderD2Ev.exit369.sink.split
 
 _ZN4llvm13MCInstBuilderD2Ev.exit369.sink.split:   ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit395, %_ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit368
-  %.sink96 = phi ptr [ %1160, %_ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit368 ], [ %1246, %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit395 ]
-  call void @free(ptr noundef %.sink96) #21
+  %.sink97 = phi ptr [ %1160, %_ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit368 ], [ %1246, %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit395 ]
+  call void @free(ptr noundef %.sink97) #21
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit369
 
 _ZN4llvm13MCInstBuilderD2Ev.exit369:              ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit369.sink.split, %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit395, %_ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit368
   %1248 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.054.095) #25
   %.not93 = icmp eq ptr %1248, %69
-  br i1 %.not93, label %._crit_edge, label %132
+  br i1 %.not93, label %_ZNKSt14default_deleteIN4llvm15MCSubtargetInfoEEclEPS1_.exit.i, label %132
 
-._crit_edge:                                      ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit369, %_ZNK4llvm6Target21createMCSubtargetInfoENS_9StringRefES1_S1_.exit
+._crit_edge:                                      ; preds = %_ZNK4llvm6Target21createMCSubtargetInfoENS_9StringRefES1_S1_.exit
   %.not.i397 = icmp eq ptr %.0.i, null
   br i1 %.not.i397, label %_ZNSt10unique_ptrIN4llvm15MCSubtargetInfoESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm15MCSubtargetInfoEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4llvm15MCSubtargetInfoEEclEPS1_.exit.i: ; preds = %._crit_edge
+_ZNKSt14default_deleteIN4llvm15MCSubtargetInfoEEclEPS1_.exit.i: ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit369, %._crit_edge
   %1249 = load ptr, ptr %.0.i, align 8
   %1250 = getelementptr inbounds nuw i8, ptr %1249, i64 8
   %1251 = load ptr, ptr %1250, align 8

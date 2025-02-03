@@ -1336,7 +1336,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %.055 = phi ptr [ %198, %223 ], [ %22, %.critedge ]
   %225 = getelementptr i8, ptr %0, i64 16
   %.val69 = load i32, ptr %225, align 8
-  call void @Gia_ManSetRegNum(ptr noundef %.055, i32 noundef %.val69) #15
+  call void @Gia_ManSetRegNum(ptr noundef nonnull %.055, i32 noundef %.val69) #15
   %226 = load ptr, ptr %13, align 8
   %.not.i89 = icmp eq ptr %226, null
   br i1 %.not.i89, label %Vec_IntFree.exit, label %227

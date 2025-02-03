@@ -2564,12 +2564,12 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %cmp9.i, label %Py_XDECREF.exit.i, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %if.end7.i
-  %call1235.i = call ptr @PyIter_Next(ptr noundef nonnull %call8.i) #6
-  %cmp1336.i = icmp eq ptr %call1235.i, null
-  br i1 %cmp1336.i, label %if.then14.i, label %if.end17.i
+  %call1239.i = call ptr @PyIter_Next(ptr noundef nonnull %call8.i) #6
+  %cmp1340.i = icmp eq ptr %call1239.i, null
+  br i1 %cmp1340.i, label %if.then14.i, label %if.end17.i
 
 while.body.i:                                     ; preds = %if.end25.i
-  %add.i = add i64 %call22.i, %length.037.i
+  %add.i = add i64 %call22.i, %length.041.i
   %call12.i = call ptr @PyIter_Next(ptr noundef nonnull %call8.i) #6
   %cmp13.i = icmp eq ptr %call12.i, null
   br i1 %cmp13.i, label %if.then14.i, label %if.end17.i
@@ -2580,43 +2580,43 @@ if.then14.i:                                      ; preds = %while.body.i, %whil
   br i1 %tobool.not.i, label %while.end.i, label %if.then.i.i
 
 if.end17.i:                                       ; preds = %while.body.preheader.i, %while.body.i
-  %call1238.i = phi ptr [ %call12.i, %while.body.i ], [ %call1235.i, %while.body.preheader.i ]
-  %length.037.i = phi i64 [ %add.i, %while.body.i ], [ 0, %while.body.preheader.i ]
-  %call18.i = call i32 @PyList_Append(ptr noundef nonnull %call.i, ptr noundef nonnull %call1238.i) #6
+  %call1242.i = phi ptr [ %call12.i, %while.body.i ], [ %call1239.i, %while.body.preheader.i ]
+  %length.041.i = phi i64 [ %add.i, %while.body.i ], [ 0, %while.body.preheader.i ]
+  %call18.i = call i32 @PyList_Append(ptr noundef nonnull %call.i, ptr noundef nonnull %call1242.i) #6
   %cmp19.i = icmp slt i32 %call18.i, 0
   br i1 %cmp19.i, label %if.then20.i, label %if.end21.i
 
 if.then20.i:                                      ; preds = %if.end17.i
-  %3 = load i64, ptr %call1238.i, align 8
+  %3 = load i64, ptr %call1242.i, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i69.not.i = icmp eq i64 %4, 0
   br i1 %cmp.i69.not.i, label %if.end.i50.i, label %if.then.i.i
 
 if.end.i50.i:                                     ; preds = %if.then20.i
   %dec.i51.i = add i64 %3, -1
-  store i64 %dec.i51.i, ptr %call1238.i, align 8
+  store i64 %dec.i51.i, ptr %call1242.i, align 8
   %cmp.i52.i = icmp eq i64 %dec.i51.i, 0
   br i1 %cmp.i52.i, label %if.then1.i53.i, label %if.then.i.i
 
 if.then1.i53.i:                                   ; preds = %if.end.i50.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call1238.i) #6
+  call void @_Py_Dealloc(ptr noundef nonnull %call1242.i) #6
   br label %if.then.i.i
 
 if.end21.i:                                       ; preds = %if.end17.i
-  %call22.i = call i64 @PyObject_Size(ptr noundef nonnull %call1238.i) #6
-  %5 = load i64, ptr %call1238.i, align 8
+  %call22.i = call i64 @PyObject_Size(ptr noundef nonnull %call1242.i) #6
+  %5 = load i64, ptr %call1242.i, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i73.not.i = icmp eq i64 %6, 0
   br i1 %cmp.i73.not.i, label %if.end.i41.i, label %Py_DECREF.exit46.i
 
 if.end.i41.i:                                     ; preds = %if.end21.i
   %dec.i42.i = add i64 %5, -1
-  store i64 %dec.i42.i, ptr %call1238.i, align 8
+  store i64 %dec.i42.i, ptr %call1242.i, align 8
   %cmp.i43.i = icmp eq i64 %dec.i42.i, 0
   br i1 %cmp.i43.i, label %if.then1.i44.i, label %Py_DECREF.exit46.i
 
 if.then1.i44.i:                                   ; preds = %if.end.i41.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call1238.i) #6
+  call void @_Py_Dealloc(ptr noundef nonnull %call1242.i) #6
   br label %Py_DECREF.exit46.i
 
 Py_DECREF.exit46.i:                               ; preds = %if.then1.i44.i, %if.end.i41.i, %if.end21.i
@@ -2624,7 +2624,7 @@ Py_DECREF.exit46.i:                               ; preds = %if.then1.i44.i, %if
   br i1 %cmp23.i, label %if.then.i.i, label %if.end25.i
 
 if.end25.i:                                       ; preds = %Py_DECREF.exit46.i
-  %sub.i = sub i64 %.pre, %length.037.i
+  %sub.i = sub i64 %.pre, %length.041.i
   %cmp26.i = icmp sgt i64 %call22.i, %sub.i
   br i1 %cmp26.i, label %while.end.i, label %while.body.i
 

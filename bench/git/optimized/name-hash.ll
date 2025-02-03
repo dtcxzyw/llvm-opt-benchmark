@@ -1382,7 +1382,7 @@ do.body:                                          ; preds = %if.end
   %namelen20 = getelementptr inbounds nuw i8, ptr %call11, i64 28
   store i32 %dec3, ptr %namelen20, align 4
   call void @hashmap_add(ptr noundef nonnull %dir_hash.i.i, ptr noundef nonnull %call11) #13
-  %call22 = call fastcc ptr @hash_dir_entry(ptr noundef %istate, ptr noundef nonnull %ce, i32 noundef %dec3)
+  %call22 = call fastcc ptr @hash_dir_entry(ptr noundef nonnull %istate, ptr noundef nonnull %ce, i32 noundef %dec3)
   %parent = getelementptr inbounds nuw i8, ptr %call11, i64 16
   store ptr %call22, ptr %parent, align 8
   br label %return

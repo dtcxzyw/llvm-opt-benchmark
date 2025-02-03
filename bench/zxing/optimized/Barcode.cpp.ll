@@ -2051,7 +2051,7 @@ define void @_ZN5ZXing30MergeStructuredAppendSequencesERKSt6vectorINS_6ResultESa
 
 115:                                              ; preds = %114, %111
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %5) #25
-  %116 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %75) #29
+  %116 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %75) #29
   %117 = icmp eq ptr %116, %6
   br i1 %117, label %.loopexit, label %74
 
@@ -2929,36 +2929,25 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %10 = extractvalue { ptr, ptr } %8, 0
   %11 = extractvalue { ptr, ptr } %8, 1
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %20, label %13
+  br i1 %12, label %17, label %13
 
 13:                                               ; preds = %9
-  %14 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIN5ZXing6ResultESaISA_EEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSL_PSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %10, ptr noundef nonnull %11, ptr noundef %6) #26
-          to label %23 unwind label %15
+  %14 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIN5ZXing6ResultESaISA_EEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSL_PSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %10, ptr noundef nonnull %11, ptr noundef nonnull %6) #26
+          to label %18 unwind label %15
 
 15:                                               ; preds = %13, %5
   %16 = landingpad { ptr, i32 }
           cleanup
-  %17 = icmp eq ptr %6, null
-  br i1 %17, label %19, label %18
-
-18:                                               ; preds = %15
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIN5ZXing6ResultESaISA_EEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6) #28
-  br label %19
-
-19:                                               ; preds = %18, %15
   resume { ptr, i32 } %16
 
-20:                                               ; preds = %9
-  %21 = icmp eq ptr %6, null
-  br i1 %21, label %23, label %22
-
-22:                                               ; preds = %20
+17:                                               ; preds = %9
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIN5ZXing6ResultESaISA_EEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6) #28
-  br label %23
+  br label %18
 
-23:                                               ; preds = %22, %20, %13
-  %24 = phi ptr [ %10, %20 ], [ %10, %22 ], [ %14, %13 ]
-  ret ptr %24
+18:                                               ; preds = %17, %13
+  %19 = phi ptr [ %10, %17 ], [ %14, %13 ]
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress nounwind optsize uwtable
@@ -3007,7 +2996,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %29, label %67, label %30
 
 30:                                               ; preds = %26
-  %31 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #29
+  %31 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   %34 = icmp slt i32 %33, 0
@@ -3039,7 +3028,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %51, label %67, label %52
 
 52:                                               ; preds = %48
-  %53 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #29
+  %53 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #29
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %54) #26
   %56 = icmp slt i32 %55, 0
@@ -3206,10 +3195,10 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_inser
   %12 = tail call noundef ptr @_ZNSt15__new_allocatorIN5ZXing6ResultEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #26
   %13 = getelementptr inbounds i8, ptr %12, i64 %10
   invoke void @_ZN5ZXing6ResultC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(211) %13, ptr noundef nonnull align 8 dereferenceable(211) %2) #26
-          to label %14 unwind label %23
+          to label %14 unwind label %25
 
 14:                                               ; preds = %3
-  %15 = tail call noundef ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %5, ptr noundef %1, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %0) #28
+  %15 = tail call noundef ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %5, ptr noundef %1, ptr noundef nonnull %12, ptr noundef nonnull align 1 dereferenceable(1) %0) #28
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 216
   %17 = tail call noundef ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %1, ptr noundef %7, ptr noundef nonnull %16, ptr noundef nonnull align 1 dereferenceable(1) %0) #28
   %18 = icmp eq ptr %5, null
@@ -3227,43 +3216,32 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_inser
   store ptr %22, ptr %21, align 8, !tbaa !124
   ret void
 
-23:                                               ; preds = %3
+23:                                               ; preds = %25
   %24 = landingpad { ptr, i32 }
-          catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  %26 = tail call ptr @__cxa_begin_catch(ptr %25) #25
-  %27 = icmp eq ptr %12, null
-  br i1 %27, label %28, label %31
-
-28:                                               ; preds = %23
-  tail call void @_ZNSt15__new_allocatorIN5ZXing6ResultEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13) #28
-  br label %32
-
-29:                                               ; preds = %32
-  %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %33 unwind label %34
+          to label %29 unwind label %30
 
-31:                                               ; preds = %23
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #27
-  br label %32
-
-32:                                               ; preds = %31, %28
-  invoke void @__cxa_rethrow() #33
-          to label %37 unwind label %29
-
-33:                                               ; preds = %29
-  resume { ptr, i32 } %30
-
-34:                                               ; preds = %29
-  %35 = landingpad { ptr, i32 }
+25:                                               ; preds = %3
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #30
+  %27 = extractvalue { ptr, i32 } %26, 0
+  %28 = tail call ptr @__cxa_begin_catch(ptr %27) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #27
+  invoke void @__cxa_rethrow() #33
+          to label %33 unwind label %23
+
+29:                                               ; preds = %23
+  resume { ptr, i32 } %24
+
+30:                                               ; preds = %23
+  %31 = landingpad { ptr, i32 }
+          catch ptr null
+  %32 = extractvalue { ptr, i32 } %31, 0
+  tail call void @__clang_call_terminate(ptr %32) #30
   unreachable
 
-37:                                               ; preds = %32
+33:                                               ; preds = %25
   unreachable
 }
 

@@ -463,7 +463,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 
 85:                                               ; preds = %78
   %86 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef nonnull %80, ptr noundef nonnull %52) #24
-  call void @free(ptr noundef %80) #24
+  call void @free(ptr noundef nonnull %80) #24
   %.val44 = load i8, ptr %34, align 1
   %87 = icmp eq i8 %.val44, -1
   br i1 %87, label %88, label %agxbfree.exit
@@ -474,7 +474,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   br label %agxbfree.exit
 
 89:                                               ; preds = %78
-  call void @free(ptr noundef %80) #24
+  call void @free(ptr noundef nonnull %80) #24
   %.val46 = load i8, ptr %34, align 1
   %90 = icmp eq i8 %.val46, -1
   br i1 %90, label %91, label %agxbfree.exit

@@ -1958,7 +1958,7 @@ _ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5begin
   br label %20
 
 20:                                               ; preds = %.lr.ph, %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit
-  %.sroa.5.071 = phi i64 [ %.0.lcssa.i.i, %.lr.ph ], [ %70, %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit ]
+  %.sroa.5.071 = phi i64 [ %.0.lcssa.i.i, %.lr.ph ], [ %71, %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit ]
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds %"struct.std::pair.54", ptr %21, i64 %.sroa.5.071
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -1970,18 +1970,18 @@ _ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5begin
   store ptr %.sroa.2.0.copyload, ptr %15, align 8
   br label %24
 
-24:                                               ; preds = %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread, %20
-  %.09.i = phi ptr [ %0, %20 ], [ %56, %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread ]
+24:                                               ; preds = %.loopexit, %20
+  %.09.i = phi ptr [ %0, %20 ], [ %56, %.loopexit ]
   %25 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %.09.i, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread, label %29
+  br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %.09.i, i64 40
   %31 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %30)
-  br i1 %31, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread, label %32
+  br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
@@ -2017,260 +2017,260 @@ _ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i:       ; preds = %38, %32
   %48 = load ptr, ptr %25, align 8
   %49 = getelementptr inbounds %"struct.std::pair.54", ptr %48, i64 %.01620.i
   %50 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %50, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit, label %51
+  br i1 %50, label %57, label %51
 
 51:                                               ; preds = %47
   %52 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %30)
-  br i1 %52, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread, label %53
+  br i1 %52, label %.loopexit, label %53
 
 53:                                               ; preds = %51
   %54 = add i64 %.01519.i, 1
   %55 = add i64 %54, %.01620.i
   %.not.i39 = icmp ugt i64 %54, %35
-  br i1 %.not.i39, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread, label %47, !llvm.loop !12
+  br i1 %.not.i39, label %.loopexit, label %47, !llvm.loop !12
 
-_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread: ; preds = %51, %53, %29, %24
+.loopexit:                                        ; preds = %53, %51, %24, %29
   %56 = load ptr, ptr %.09.i, align 8
   %.not.i25 = icmp eq ptr %56, null
   br i1 %.not.i25, label %_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit, label %24, !llvm.loop !8
 
-_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit:       ; preds = %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread
+_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit:       ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %67
+  br label %68
 
-_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit: ; preds = %47
+57:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %57 = load ptr, ptr %23, align 8
-  %58 = load i64, ptr %17, align 8
-  %59 = load i64, ptr %18, align 8
-  %60 = mul i64 %59, 3
-  %61 = lshr i64 %60, 2
-  %.not.i.i26 = icmp ult i64 %58, %61
-  br i1 %.not.i.i26, label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit, label %62
+  %58 = load ptr, ptr %23, align 8
+  %59 = load i64, ptr %17, align 8
+  %60 = load i64, ptr %18, align 8
+  %61 = mul i64 %60, 3
+  %62 = lshr i64 %61, 2
+  %.not.i.i26 = icmp ult i64 %59, %62
+  br i1 %.not.i.i26, label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit, label %63
 
-62:                                               ; preds = %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit
-  %63 = call noundef ptr @_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(16) %22)
-  %.not2.i.i = icmp eq ptr %63, null
-  br i1 %.not2.i.i, label %64, label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit
+63:                                               ; preds = %57
+  %64 = call noundef ptr @_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(16) %22)
+  %.not2.i.i = icmp eq ptr %64, null
+  br i1 %.not2.i.i, label %65, label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit
 
-64:                                               ; preds = %62
+65:                                               ; preds = %63
   call void @_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(48) %16)
   br label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit
 
-_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit: ; preds = %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit, %62, %64
-  %65 = call noundef ptr @_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE13insert_unsafeERS8_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(16) %22)
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store ptr %57, ptr %66, align 8
-  br label %67
+_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit: ; preds = %57, %63, %65
+  %66 = call noundef ptr @_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE13insert_unsafeERS8_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(16) %22)
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  store ptr %58, ptr %67, align 8
+  br label %68
 
-67:                                               ; preds = %_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit, %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit
-  %68 = load i64, ptr %5, align 8
-  br label %69
+68:                                               ; preds = %_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit, %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit
+  %69 = load i64, ptr %5, align 8
+  br label %70
 
-69:                                               ; preds = %72, %67
-  %.sroa.5.1 = phi i64 [ %.sroa.5.071, %67 ], [ %70, %72 ]
-  %70 = add i64 %.sroa.5.1, 1
-  %71 = icmp ult i64 %70, %68
-  br i1 %71, label %72, label %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit
+70:                                               ; preds = %73, %68
+  %.sroa.5.1 = phi i64 [ %.sroa.5.071, %68 ], [ %71, %73 ]
+  %71 = add i64 %.sroa.5.1, 1
+  %72 = icmp ult i64 %71, %69
+  br i1 %72, label %73, label %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds %"struct.std::pair.54", ptr %73, i64 %70
-  %75 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %19)
-  br i1 %75, label %69, label %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit, !llvm.loop !13
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %4, align 8
+  %75 = getelementptr inbounds %"struct.std::pair.54", ptr %74, i64 %71
+  %76 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %19)
+  br i1 %76, label %70, label %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit, !llvm.loop !13
 
-_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit: ; preds = %69, %72
-  %.not = icmp eq i64 %70, %.pre.pre
+_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit: ; preds = %70, %73
+  %.not = icmp eq i64 %71, %.pre.pre
   br i1 %.not, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit, %2, %_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %78 = load i64, ptr %77, align 8
-  %.not.i.i27 = icmp eq i64 %78, 0
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %79 = load i64, ptr %78, align 8
+  %.not.i.i27 = icmp eq i64 %79, 0
   br i1 %.not.i.i27, label %_ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE5beginEv.exit, label %.lr.ph.i.i28
 
 .lr.ph.i.i28:                                     ; preds = %._crit_edge
-  %79 = load ptr, ptr %76, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %81 = load ptr, ptr %80, align 8
-  br label %82
+  %80 = load ptr, ptr %77, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %82 = load ptr, ptr %81, align 8
+  br label %83
 
-82:                                               ; preds = %86, %.lr.ph.i.i28
-  %.04.i.i29 = phi i64 [ 0, %.lr.ph.i.i28 ], [ %87, %86 ]
-  %83 = getelementptr inbounds %"struct.std::pair.56", ptr %79, i64 %.04.i.i29
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp eq ptr %84, %81
-  br i1 %85, label %86, label %_ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE5beginEv.exit
+83:                                               ; preds = %87, %.lr.ph.i.i28
+  %.04.i.i29 = phi i64 [ 0, %.lr.ph.i.i28 ], [ %88, %87 ]
+  %84 = getelementptr inbounds %"struct.std::pair.56", ptr %80, i64 %.04.i.i29
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp eq ptr %85, %82
+  br i1 %86, label %87, label %_ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE5beginEv.exit
 
-86:                                               ; preds = %82
-  %87 = add nuw i64 %.04.i.i29, 1
-  %exitcond.not.i.i = icmp eq i64 %87, %78
-  br i1 %exitcond.not.i.i, label %._crit_edge84, label %82, !llvm.loop !14
+87:                                               ; preds = %83
+  %88 = add nuw i64 %.04.i.i29, 1
+  %exitcond.not.i.i = icmp eq i64 %88, %79
+  br i1 %exitcond.not.i.i, label %._crit_edge84, label %83, !llvm.loop !14
 
-_ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE5beginEv.exit: ; preds = %82, %._crit_edge
-  %.0.lcssa.i.i30 = phi i64 [ 0, %._crit_edge ], [ %.04.i.i29, %82 ]
-  %.not6481 = icmp eq i64 %.0.lcssa.i.i30, %78
+_ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE5beginEv.exit: ; preds = %83, %._crit_edge
+  %.0.lcssa.i.i30 = phi i64 [ 0, %._crit_edge ], [ %.04.i.i29, %83 ]
+  %.not6481 = icmp eq i64 %.0.lcssa.i.i30, %79
   br i1 %.not6481, label %._crit_edge84, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %_ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE5beginEv.exit
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  br label %93
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  br label %94
 
-93:                                               ; preds = %.lr.ph83, %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit
-  %94 = phi i64 [ %78, %.lr.ph83 ], [ %151, %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit ]
+94:                                               ; preds = %.lr.ph83, %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit
+  %95 = phi i64 [ %79, %.lr.ph83 ], [ %152, %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit ]
   %.sroa.4.082 = phi i64 [ %.0.lcssa.i.i30, %.lr.ph83 ], [ %.lcssa86, %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit ]
-  %95 = load ptr, ptr %76, align 8
-  %96 = getelementptr inbounds %"struct.std::pair.56", ptr %95, i64 %.sroa.4.082
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %.sroa.040.075 = load ptr, ptr %97, align 8
+  %96 = load ptr, ptr %77, align 8
+  %97 = getelementptr inbounds %"struct.std::pair.56", ptr %96, i64 %.sroa.4.082
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  %.sroa.040.075 = load ptr, ptr %98, align 8
   %.not6576 = icmp eq ptr %.sroa.040.075, null
   br i1 %.not6576, label %._crit_edge80, label %.lr.ph79
 
-.lr.ph79:                                         ; preds = %93, %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EEixERKS3_.exit
-  %.sroa.040.077 = phi ptr [ %.sroa.040.0, %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EEixERKS3_.exit ], [ %.sroa.040.075, %93 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.040.077, i64 8
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.040.077, i64 40
-  %100 = load ptr, ptr %99, align 8
-  %101 = load i64, ptr %89, align 8
+.lr.ph79:                                         ; preds = %94, %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EEixERKS3_.exit
+  %.sroa.040.077 = phi ptr [ %.sroa.040.0, %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EEixERKS3_.exit ], [ %.sroa.040.075, %94 ]
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.040.077, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.040.077, i64 40
+  %101 = load ptr, ptr %100, align 8
   %102 = load i64, ptr %90, align 8
-  %103 = mul i64 %102, 3
-  %104 = lshr i64 %103, 2
-  %.not.i.i36 = icmp ult i64 %101, %104
-  br i1 %.not.i.i36, label %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14rehash_if_fullERSM_.exit.i, label %105
+  %103 = load i64, ptr %91, align 8
+  %104 = mul i64 %103, 3
+  %105 = lshr i64 %104, 2
+  %.not.i.i36 = icmp ult i64 %102, %105
+  br i1 %.not.i.i36, label %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14rehash_if_fullERSM_.exit.i, label %106
 
-105:                                              ; preds = %.lr.ph79
-  %106 = icmp eq i64 %101, 0
-  br i1 %106, label %.loopexit.i.i, label %107
+106:                                              ; preds = %.lr.ph79
+  %107 = icmp eq i64 %102, 0
+  br i1 %107, label %.loopexit.i.i, label %108
 
-107:                                              ; preds = %105
-  %108 = load ptr, ptr %96, align 8
-  %109 = load ptr, ptr %91, align 8
-  %110 = icmp eq ptr %108, %109
-  br i1 %110, label %.loopexit.i.i, label %111
+108:                                              ; preds = %106
+  %109 = load ptr, ptr %97, align 8
+  %110 = load ptr, ptr %92, align 8
+  %111 = icmp eq ptr %109, %110
+  br i1 %111, label %.loopexit.i.i, label %112
 
-111:                                              ; preds = %107
-  %112 = add i64 %102, -1
-  %113 = ptrtoint ptr %108 to i64
-  %114 = lshr i64 %113, 4
-  %115 = lshr i64 %113, 9
-  %116 = xor i64 %114, %115
-  %117 = load ptr, ptr %88, align 8
-  br label %118
+112:                                              ; preds = %108
+  %113 = add i64 %103, -1
+  %114 = ptrtoint ptr %109 to i64
+  %115 = lshr i64 %114, 4
+  %116 = lshr i64 %114, 9
+  %117 = xor i64 %115, %116
+  %118 = load ptr, ptr %89, align 8
+  br label %119
 
-118:                                              ; preds = %124, %111
-  %.pn.i.i.i = phi i64 [ %116, %111 ], [ %126, %124 ]
-  %.01519.i.i.i = phi i64 [ 0, %111 ], [ %125, %124 ]
-  %.01620.i.i.i = and i64 %.pn.i.i.i, %112
-  %119 = getelementptr inbounds %"struct.std::pair.56", ptr %117, i64 %.01620.i.i.i
-  %120 = load ptr, ptr %119, align 8
-  %121 = icmp eq ptr %120, %108
-  br i1 %121, label %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14rehash_if_fullERSM_.exit.i, label %122
+119:                                              ; preds = %125, %112
+  %.pn.i.i.i = phi i64 [ %117, %112 ], [ %127, %125 ]
+  %.01519.i.i.i = phi i64 [ 0, %112 ], [ %126, %125 ]
+  %.01620.i.i.i = and i64 %.pn.i.i.i, %113
+  %120 = getelementptr inbounds %"struct.std::pair.56", ptr %118, i64 %.01620.i.i.i
+  %121 = load ptr, ptr %120, align 8
+  %122 = icmp eq ptr %121, %109
+  br i1 %122, label %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14rehash_if_fullERSM_.exit.i, label %123
 
-122:                                              ; preds = %118
-  %123 = icmp eq ptr %120, %109
-  br i1 %123, label %.loopexit.i.i, label %124
+123:                                              ; preds = %119
+  %124 = icmp eq ptr %121, %110
+  br i1 %124, label %.loopexit.i.i, label %125
 
-124:                                              ; preds = %122
-  %125 = add i64 %.01519.i.i.i, 1
-  %126 = add i64 %125, %.01620.i.i.i
-  %.not.i.i.i = icmp ugt i64 %125, %112
-  br i1 %.not.i.i.i, label %.loopexit.i.i, label %118, !llvm.loop !9
+125:                                              ; preds = %123
+  %126 = add i64 %.01519.i.i.i, 1
+  %127 = add i64 %126, %.01620.i.i.i
+  %.not.i.i.i = icmp ugt i64 %126, %113
+  br i1 %.not.i.i.i, label %.loopexit.i.i, label %119, !llvm.loop !9
 
-.loopexit.i.i:                                    ; preds = %124, %122, %107, %105
-  call void @_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %88)
-  %.pre.i = load i64, ptr %90, align 8
+.loopexit.i.i:                                    ; preds = %125, %123, %108, %106
+  call void @_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %89)
+  %.pre.i = load i64, ptr %91, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14rehash_if_fullERSM_.exit.i
 
-_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14rehash_if_fullERSM_.exit.i: ; preds = %118, %.loopexit.i.i, %.lr.ph79
-  %127 = phi i64 [ %102, %.lr.ph79 ], [ %.pre.i, %.loopexit.i.i ], [ %102, %118 ]
-  %128 = add i64 %127, -1
-  %129 = load ptr, ptr %96, align 8
-  %130 = ptrtoint ptr %129 to i64
-  %131 = lshr i64 %130, 4
-  %132 = lshr i64 %130, 9
-  %133 = xor i64 %131, %132
-  %134 = load ptr, ptr %88, align 8
-  %135 = load ptr, ptr %91, align 8
-  %.01822.i6.i = and i64 %133, %128
-  %136 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %134, i64 %.01822.i6.i
-  %137 = load ptr, ptr %136, align 8
-  %138 = icmp eq ptr %137, %135
-  br i1 %138, label %._crit_edge.i, label %.lr.ph.i.preheader
+_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14rehash_if_fullERSM_.exit.i: ; preds = %119, %.loopexit.i.i, %.lr.ph79
+  %128 = phi i64 [ %103, %.lr.ph79 ], [ %.pre.i, %.loopexit.i.i ], [ %103, %119 ]
+  %129 = add i64 %128, -1
+  %130 = load ptr, ptr %97, align 8
+  %131 = ptrtoint ptr %130 to i64
+  %132 = lshr i64 %131, 4
+  %133 = lshr i64 %131, 9
+  %134 = xor i64 %132, %133
+  %135 = load ptr, ptr %89, align 8
+  %136 = load ptr, ptr %92, align 8
+  %.01822.i6.i = and i64 %134, %129
+  %137 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %135, i64 %.01822.i6.i
+  %138 = load ptr, ptr %137, align 8
+  %139 = icmp eq ptr %138, %136
+  br i1 %139, label %._crit_edge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14rehash_if_fullERSM_.exit.i
-  %139 = icmp eq ptr %137, %129
-  br i1 %139, label %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EEixERKS3_.exit, label %.lr.ph74
+  %140 = icmp eq ptr %138, %130
+  br i1 %140, label %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EEixERKS3_.exit, label %.lr.ph74
 
 ._crit_edge.i:                                    ; preds = %.lr.ph74, %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14rehash_if_fullERSM_.exit.i
-  %.lcssa.i = phi ptr [ %136, %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14rehash_if_fullERSM_.exit.i ], [ %145, %.lr.ph74 ]
-  store ptr %129, ptr %.lcssa.i, align 8
-  %140 = load i64, ptr %89, align 8
-  %141 = add i64 %140, 1
-  store i64 %141, ptr %89, align 8
+  %.lcssa.i = phi ptr [ %137, %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14rehash_if_fullERSM_.exit.i ], [ %146, %.lr.ph74 ]
+  store ptr %130, ptr %.lcssa.i, align 8
+  %141 = load i64, ptr %90, align 8
+  %142 = add i64 %141, 1
+  store i64 %142, ptr %90, align 8
   br label %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EEixERKS3_.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph74
-  %142 = icmp eq ptr %146, %129
-  br i1 %142, label %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EEixERKS3_.exit, label %.lr.ph74
+  %143 = icmp eq ptr %147, %130
+  br i1 %143, label %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EEixERKS3_.exit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.01721.i7.i73 = phi i64 [ %143, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.01721.i7.i73 = phi i64 [ %144, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.01822.i8.i72 = phi i64 [ %.01822.i.i, %.lr.ph.i ], [ %.01822.i6.i, %.lr.ph.i.preheader ]
-  %143 = add i64 %.01721.i7.i73, 1
-  %144 = add i64 %143, %.01822.i8.i72
-  %.not.i3.i = icmp ule i64 %143, %128
+  %144 = add i64 %.01721.i7.i73, 1
+  %145 = add i64 %144, %.01822.i8.i72
+  %.not.i3.i = icmp ule i64 %144, %129
   call void @llvm.assume(i1 %.not.i3.i)
-  %.01822.i.i = and i64 %144, %128
-  %145 = getelementptr inbounds %"struct.std::pair.56", ptr %134, i64 %.01822.i.i
-  %146 = load ptr, ptr %145, align 8
-  %147 = icmp eq ptr %146, %135
-  br i1 %147, label %._crit_edge.i, label %.lr.ph.i
+  %.01822.i.i = and i64 %145, %129
+  %146 = getelementptr inbounds %"struct.std::pair.56", ptr %135, i64 %.01822.i.i
+  %147 = load ptr, ptr %146, align 8
+  %148 = icmp eq ptr %147, %136
+  br i1 %148, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EEixERKS3_.exit: ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %._crit_edge.i
-  %148 = phi ptr [ %.lcssa.i, %._crit_edge.i ], [ %136, %.lr.ph.i.preheader ], [ %145, %.lr.ph.i ]
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %150 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4Luau3DefEESaISD_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %149, ptr noundef nonnull align 8 dereferenceable(32) %98)
-  store ptr %100, ptr %150, align 8
+  %149 = phi ptr [ %.lcssa.i, %._crit_edge.i ], [ %137, %.lr.ph.i.preheader ], [ %146, %.lr.ph.i ]
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %151 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4Luau3DefEESaISD_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %150, ptr noundef nonnull align 8 dereferenceable(32) %99)
+  store ptr %101, ptr %151, align 8
   %.sroa.040.0 = load ptr, ptr %.sroa.040.077, align 8
   %.not65 = icmp eq ptr %.sroa.040.0, null
   br i1 %.not65, label %._crit_edge80.loopexit, label %.lr.ph79
 
 ._crit_edge80.loopexit:                           ; preds = %_ZN4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EEixERKS3_.exit
-  %.pre88 = load i64, ptr %77, align 8
+  %.pre88 = load i64, ptr %78, align 8
   br label %._crit_edge80
 
-._crit_edge80:                                    ; preds = %._crit_edge80.loopexit, %93
-  %151 = phi i64 [ %.pre88, %._crit_edge80.loopexit ], [ %94, %93 ]
-  %152 = add i64 %.sroa.4.082, 1
-  %umax = call i64 @llvm.umax.i64(i64 %151, i64 %152)
-  %153 = add i64 %umax, -1
-  br label %154
+._crit_edge80:                                    ; preds = %._crit_edge80.loopexit, %94
+  %152 = phi i64 [ %.pre88, %._crit_edge80.loopexit ], [ %95, %94 ]
+  %153 = add i64 %.sroa.4.082, 1
+  %umax = call i64 @llvm.umax.i64(i64 %152, i64 %153)
+  %154 = add i64 %umax, -1
+  br label %155
 
-154:                                              ; preds = %156, %._crit_edge80
-  %155 = phi i64 [ %157, %156 ], [ %.sroa.4.082, %._crit_edge80 ]
-  %exitcond.not = icmp eq i64 %155, %153
-  br i1 %exitcond.not, label %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit, label %156
+155:                                              ; preds = %157, %._crit_edge80
+  %156 = phi i64 [ %158, %157 ], [ %.sroa.4.082, %._crit_edge80 ]
+  %exitcond.not = icmp eq i64 %156, %154
+  br i1 %exitcond.not, label %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit, label %157
 
-156:                                              ; preds = %154
-  %157 = add i64 %155, 1
-  %158 = load ptr, ptr %76, align 8
-  %159 = getelementptr inbounds %"struct.std::pair.56", ptr %158, i64 %157
-  %160 = load ptr, ptr %159, align 8
-  %161 = load ptr, ptr %92, align 8
-  %162 = icmp eq ptr %160, %161
-  br i1 %162, label %154, label %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit, !llvm.loop !15
+157:                                              ; preds = %155
+  %158 = add i64 %156, 1
+  %159 = load ptr, ptr %77, align 8
+  %160 = getelementptr inbounds %"struct.std::pair.56", ptr %159, i64 %158
+  %161 = load ptr, ptr %160, align 8
+  %162 = load ptr, ptr %93, align 8
+  %163 = icmp eq ptr %161, %162
+  br i1 %163, label %155, label %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit, !llvm.loop !15
 
-_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit: ; preds = %154, %156
-  %.lcssa86 = phi i64 [ %umax, %154 ], [ %157, %156 ]
-  %.not64 = icmp eq i64 %.lcssa86, %78
-  br i1 %.not64, label %._crit_edge84, label %93
+_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit: ; preds = %155, %157
+  %.lcssa86 = phi i64 [ %umax, %155 ], [ %158, %157 ]
+  %.not64 = icmp eq i64 %.lcssa86, %79
+  br i1 %.not64, label %._crit_edge84, label %94
 
-._crit_edge84:                                    ; preds = %86, %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit, %_ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE5beginEv.exit
+._crit_edge84:                                    ; preds = %87, %_ZN4Luau6detail14DenseHashTableIPKNS_3DefESt4pairIS4_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISC_ESt8equal_toISC_ESaIS5_IKSC_S4_EEEES5_IKS4_SK_ENS0_16ItemInterfaceMapIS4_SK_EENS_16DenseHashPointerESF_IS4_EE14const_iteratorppEv.exit, %_ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_S3_EEENS_16DenseHashPointerESD_IS3_EE5beginEv.exit
   ret void
 }
 
@@ -3325,8 +3325,8 @@ define dso_local void @_ZN4Luau20DataFlowGraphBuilder12joinBindingsEPNS_8DfgScop
 
 _ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit: ; preds = %11, %15
   %.0.lcssa.i.i = phi i64 [ %.04.i.i, %11 ], [ %16, %15 ]
-  %.not119 = icmp eq i64 %.0.lcssa.i.i, %.pre.pre
-  br i1 %.not119, label %._crit_edge, label %.lr.ph
+  %.not120 = icmp eq i64 %.0.lcssa.i.i, %.pre.pre
+  br i1 %.not120, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3339,9 +3339,9 @@ _ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5begin
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit
-  %.sroa.596.0120 = phi i64 [ %.0.lcssa.i.i, %.lr.ph ], [ %96, %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit ]
+  %.sroa.596.0121 = phi i64 [ %.0.lcssa.i.i, %.lr.ph ], [ %97, %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit ]
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %"struct.std::pair.54", ptr %26, i64 %.sroa.596.0120
+  %27 = getelementptr inbounds %"struct.std::pair.54", ptr %26, i64 %.sroa.596.0121
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = call noundef ptr @_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(16) %27)
   %.not.i34 = icmp eq ptr %29, null
@@ -3373,7 +3373,7 @@ _ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1
   %43 = call noundef ptr @_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE13insert_unsafeERS8_(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(16) %27)
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %35, ptr %44, align 8
-  br label %93
+  br label %94
 
 45:                                               ; preds = %25
   %.sroa.09.0.copyload = load ptr, ptr %27, align 8
@@ -3384,18 +3384,18 @@ _ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1
   store ptr %.sroa.210.0.copyload, ptr %23, align 8
   br label %46
 
-46:                                               ; preds = %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread, %45
-  %.09.i = phi ptr [ %1, %45 ], [ %78, %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread ]
+46:                                               ; preds = %.loopexit114, %45
+  %.09.i = phi ptr [ %1, %45 ], [ %78, %.loopexit114 ]
   %47 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %.09.i, i64 32
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread, label %51
+  br i1 %50, label %.loopexit114, label %51
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %.09.i, i64 40
   %53 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %52)
-  br i1 %53, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread, label %54
+  br i1 %53, label %.loopexit114, label %54
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
@@ -3431,245 +3431,245 @@ _ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i:       ; preds = %60, %54
   %70 = load ptr, ptr %47, align 8
   %71 = getelementptr inbounds %"struct.std::pair.54", ptr %70, i64 %.01620.i
   %72 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  br i1 %72, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit, label %73
+  br i1 %72, label %79, label %73
 
 73:                                               ; preds = %69
   %74 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %52)
-  br i1 %74, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread, label %75
+  br i1 %74, label %.loopexit114, label %75
 
 75:                                               ; preds = %73
   %76 = add i64 %.01519.i, 1
   %77 = add i64 %76, %.01620.i
   %.not.i64 = icmp ugt i64 %76, %57
-  br i1 %.not.i64, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread, label %69, !llvm.loop !12
+  br i1 %.not.i64, label %.loopexit114, label %69, !llvm.loop !12
 
-_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread: ; preds = %73, %75, %51, %46
+.loopexit114:                                     ; preds = %75, %73, %46, %51
   %78 = load ptr, ptr %.09.i, align 8
   %.not.i37 = icmp eq ptr %78, null
   br i1 %.not.i37, label %_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit, label %46, !llvm.loop !8
 
-_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit:       ; preds = %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit.thread
+_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit:       ; preds = %.loopexit114
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %93
+  br label %94
 
-_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit: ; preds = %69
-  %79 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %80 = load ptr, ptr %79, align 8
+79:                                               ; preds = %69
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %81 = load ptr, ptr %80, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %81 = load ptr, ptr %19, align 8
-  %82 = load ptr, ptr %28, align 8
-  %83 = call ptr @_ZN4Luau8DefArena3phiENS_7NotNullIKNS_3DefEEES4_(ptr noundef nonnull align 8 dereferenceable(40) %81, ptr %82, ptr %80)
-  %84 = load i64, ptr %21, align 8
-  %85 = load i64, ptr %22, align 8
-  %86 = mul i64 %85, 3
-  %87 = lshr i64 %86, 2
-  %.not.i.i38 = icmp ult i64 %84, %87
-  br i1 %.not.i.i38, label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit40, label %88
+  %82 = load ptr, ptr %19, align 8
+  %83 = load ptr, ptr %28, align 8
+  %84 = call ptr @_ZN4Luau8DefArena3phiENS_7NotNullIKNS_3DefEEES4_(ptr noundef nonnull align 8 dereferenceable(40) %82, ptr %83, ptr %81)
+  %85 = load i64, ptr %21, align 8
+  %86 = load i64, ptr %22, align 8
+  %87 = mul i64 %86, 3
+  %88 = lshr i64 %87, 2
+  %.not.i.i38 = icmp ult i64 %85, %88
+  br i1 %.not.i.i38, label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit40, label %89
 
-88:                                               ; preds = %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit
-  %89 = call noundef ptr @_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(16) %27)
-  %.not2.i.i39 = icmp eq ptr %89, null
-  br i1 %.not2.i.i39, label %90, label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit40
+89:                                               ; preds = %79
+  %90 = call noundef ptr @_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(16) %27)
+  %.not2.i.i39 = icmp eq ptr %90, null
+  br i1 %.not2.i.i39, label %91, label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit40
 
-90:                                               ; preds = %88
+91:                                               ; preds = %89
   call void @_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(48) %20)
   br label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit40
 
-_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit40: ; preds = %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit, %88, %90
-  %91 = call noundef ptr @_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE13insert_unsafeERS8_(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(16) %27)
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store ptr %83, ptr %92, align 8
-  br label %93
+_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit40: ; preds = %79, %89, %91
+  %92 = call noundef ptr @_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE13insert_unsafeERS8_(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(16) %27)
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store ptr %84, ptr %93, align 8
+  br label %94
 
-93:                                               ; preds = %_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit, %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit, %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit40
-  %94 = load i64, ptr %8, align 8
-  br label %95
+94:                                               ; preds = %_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit, %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit, %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit40
+  %95 = load i64, ptr %8, align 8
+  br label %96
 
-95:                                               ; preds = %98, %93
-  %.sroa.596.1 = phi i64 [ %.sroa.596.0120, %93 ], [ %96, %98 ]
-  %96 = add i64 %.sroa.596.1, 1
-  %97 = icmp ult i64 %96, %94
-  br i1 %97, label %98, label %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit
+96:                                               ; preds = %99, %94
+  %.sroa.596.1 = phi i64 [ %.sroa.596.0121, %94 ], [ %97, %99 ]
+  %97 = add i64 %.sroa.596.1, 1
+  %98 = icmp ult i64 %97, %95
+  br i1 %98, label %99, label %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit
 
-98:                                               ; preds = %95
-  %99 = load ptr, ptr %7, align 8
-  %100 = getelementptr inbounds %"struct.std::pair.54", ptr %99, i64 %96
-  %101 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %24)
-  br i1 %101, label %95, label %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit, !llvm.loop !13
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %7, align 8
+  %101 = getelementptr inbounds %"struct.std::pair.54", ptr %100, i64 %97
+  %102 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %24)
+  br i1 %102, label %96, label %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit, !llvm.loop !13
 
-_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit: ; preds = %95, %98
-  %.not = icmp eq i64 %96, %.pre.pre
+_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit: ; preds = %96, %99
+  %.not = icmp eq i64 %97, %.pre.pre
   br i1 %.not, label %._crit_edge, label %25
 
 ._crit_edge:                                      ; preds = %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit, %4, %_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit
-  %102 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %103 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %104 = load i64, ptr %103, align 8
-  %.not.i.i41 = icmp eq i64 %104, 0
-  br i1 %.not.i.i41, label %._crit_edge124, label %.lr.ph.i.i42
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %105 = load i64, ptr %104, align 8
+  %.not.i.i41 = icmp eq i64 %105, 0
+  br i1 %.not.i.i41, label %._crit_edge125, label %.lr.ph.i.i42
 
 .lr.ph.i.i42:                                     ; preds = %._crit_edge
-  %105 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  br label %106
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  br label %107
 
-106:                                              ; preds = %110, %.lr.ph.i.i42
-  %.04.i.i43 = phi i64 [ 0, %.lr.ph.i.i42 ], [ %111, %110 ]
-  %107 = load ptr, ptr %102, align 8
-  %108 = getelementptr inbounds %"struct.std::pair.54", ptr %107, i64 %.04.i.i43
-  %109 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(16) %105)
-  %.pre130.pre = load i64, ptr %103, align 8
-  br i1 %109, label %110, label %_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit47
+107:                                              ; preds = %111, %.lr.ph.i.i42
+  %.04.i.i43 = phi i64 [ 0, %.lr.ph.i.i42 ], [ %112, %111 ]
+  %108 = load ptr, ptr %103, align 8
+  %109 = getelementptr inbounds %"struct.std::pair.54", ptr %108, i64 %.04.i.i43
+  %110 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(16) %106)
+  %.pre131.pre = load i64, ptr %104, align 8
+  br i1 %110, label %111, label %_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit47
 
-110:                                              ; preds = %106
-  %111 = add nuw i64 %.04.i.i43, 1
-  %112 = icmp ult i64 %111, %.pre130.pre
-  br i1 %112, label %106, label %_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit47, !llvm.loop !11
+111:                                              ; preds = %107
+  %112 = add nuw i64 %.04.i.i43, 1
+  %113 = icmp ult i64 %112, %.pre131.pre
+  br i1 %113, label %107, label %_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit47, !llvm.loop !11
 
-_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit47: ; preds = %106, %110
-  %.0.lcssa.i.i44 = phi i64 [ %.04.i.i43, %106 ], [ %111, %110 ]
-  %.not113121 = icmp eq i64 %.0.lcssa.i.i44, %.pre130.pre
-  br i1 %.not113121, label %._crit_edge124, label %.lr.ph123
+_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit47: ; preds = %107, %111
+  %.0.lcssa.i.i44 = phi i64 [ %.04.i.i43, %107 ], [ %112, %111 ]
+  %.not113122 = icmp eq i64 %.0.lcssa.i.i44, %.pre131.pre
+  br i1 %.not113122, label %._crit_edge125, label %.lr.ph124
 
-.lr.ph123:                                        ; preds = %_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit47
-  %113 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %118 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  br label %119
+.lr.ph124:                                        ; preds = %_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit47
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  br label %120
 
-119:                                              ; preds = %.lr.ph123, %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit62
-  %.sroa.5.0122 = phi i64 [ %.0.lcssa.i.i44, %.lr.ph123 ], [ %173, %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit62 ]
-  %120 = load ptr, ptr %102, align 8
-  %121 = getelementptr inbounds %"struct.std::pair.54", ptr %120, i64 %.sroa.5.0122
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %.sroa.01.0.copyload = load ptr, ptr %121, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 8
+120:                                              ; preds = %.lr.ph124, %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit62
+  %.sroa.5.0123 = phi i64 [ %.0.lcssa.i.i44, %.lr.ph124 ], [ %175, %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit62 ]
+  %121 = load ptr, ptr %103, align 8
+  %122 = getelementptr inbounds %"struct.std::pair.54", ptr %121, i64 %.sroa.5.0123
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %.sroa.01.0.copyload = load ptr, ptr %122, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %.sroa.01.0.copyload, ptr %5, align 8
-  store ptr %.sroa.2.0.copyload, ptr %113, align 8
-  br label %123
+  store ptr %.sroa.2.0.copyload, ptr %114, align 8
+  br label %124
 
-123:                                              ; preds = %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit72.thread, %119
-  %.09.i51 = phi ptr [ %1, %119 ], [ %155, %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit72.thread ]
-  %124 = getelementptr inbounds nuw i8, ptr %.09.i51, i64 16
-  %125 = getelementptr inbounds nuw i8, ptr %.09.i51, i64 32
-  %126 = load i64, ptr %125, align 8
-  %127 = icmp eq i64 %126, 0
-  br i1 %127, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit72.thread, label %128
+124:                                              ; preds = %.loopexit, %120
+  %.09.i51 = phi ptr [ %1, %120 ], [ %156, %.loopexit ]
+  %125 = getelementptr inbounds nuw i8, ptr %.09.i51, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %.09.i51, i64 32
+  %127 = load i64, ptr %126, align 8
+  %128 = icmp eq i64 %127, 0
+  br i1 %128, label %.loopexit, label %129
 
-128:                                              ; preds = %123
-  %129 = getelementptr inbounds nuw i8, ptr %.09.i51, i64 40
-  %130 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %129)
-  br i1 %130, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit72.thread, label %131
+129:                                              ; preds = %124
+  %130 = getelementptr inbounds nuw i8, ptr %.09.i51, i64 40
+  %131 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %130)
+  br i1 %131, label %.loopexit, label %132
 
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds nuw i8, ptr %.09.i51, i64 24
-  %133 = load i64, ptr %132, align 8
-  %134 = add i64 %133, -1
-  %135 = load ptr, ptr %5, align 8
-  %136 = load ptr, ptr %113, align 8
-  %.not.i.i65 = icmp eq ptr %136, null
-  br i1 %.not.i.i65, label %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i66, label %137
+132:                                              ; preds = %129
+  %133 = getelementptr inbounds nuw i8, ptr %.09.i51, i64 24
+  %134 = load i64, ptr %133, align 8
+  %135 = add i64 %134, -1
+  %136 = load ptr, ptr %5, align 8
+  %137 = load ptr, ptr %114, align 8
+  %.not.i.i65 = icmp eq ptr %137, null
+  br i1 %.not.i.i65, label %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i66, label %138
 
-137:                                              ; preds = %131
-  %138 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %136) #23
-  %139 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %136, i64 noundef %138, i64 noundef 3339675911)
-          to label %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i66 unwind label %140
+138:                                              ; preds = %132
+  %139 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %137) #23
+  %140 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %137, i64 noundef %139, i64 noundef 3339675911)
+          to label %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i66 unwind label %141
 
-140:                                              ; preds = %137
-  %141 = landingpad { ptr, i32 }
+141:                                              ; preds = %138
+  %142 = landingpad { ptr, i32 }
           catch ptr null
-  %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #24
+  %143 = extractvalue { ptr, i32 } %142, 0
+  call void @__clang_call_terminate(ptr %143) #24
   unreachable
 
-_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i66:     ; preds = %137, %131
-  %143 = phi i64 [ 0, %131 ], [ %139, %137 ]
-  %144 = ptrtoint ptr %135 to i64
-  %145 = xor i64 %143, %144
-  br label %146
+_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i66:     ; preds = %138, %132
+  %144 = phi i64 [ 0, %132 ], [ %140, %138 ]
+  %145 = ptrtoint ptr %136 to i64
+  %146 = xor i64 %144, %145
+  br label %147
 
-146:                                              ; preds = %152, %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i66
-  %.pn.i67 = phi i64 [ %145, %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i66 ], [ %154, %152 ]
-  %.01519.i68 = phi i64 [ 0, %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i66 ], [ %153, %152 ]
-  %.01620.i69 = and i64 %.pn.i67, %134
-  %147 = load ptr, ptr %124, align 8
-  %148 = getelementptr inbounds %"struct.std::pair.54", ptr %147, i64 %.01620.i69
-  %149 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  br i1 %149, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit72, label %150
+147:                                              ; preds = %153, %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i66
+  %.pn.i67 = phi i64 [ %146, %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i66 ], [ %155, %153 ]
+  %.01519.i68 = phi i64 [ 0, %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit.i66 ], [ %154, %153 ]
+  %.01620.i69 = and i64 %.pn.i67, %135
+  %148 = load ptr, ptr %125, align 8
+  %149 = getelementptr inbounds %"struct.std::pair.54", ptr %148, i64 %.01620.i69
+  %150 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  br i1 %150, label %157, label %151
 
-150:                                              ; preds = %146
-  %151 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %129)
-  br i1 %151, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit72.thread, label %152
+151:                                              ; preds = %147
+  %152 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef nonnull align 8 dereferenceable(16) %130)
+  br i1 %152, label %.loopexit, label %153
 
-152:                                              ; preds = %150
-  %153 = add i64 %.01519.i68, 1
-  %154 = add i64 %153, %.01620.i69
-  %.not.i70 = icmp ugt i64 %153, %134
-  br i1 %.not.i70, label %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit72.thread, label %146, !llvm.loop !12
+153:                                              ; preds = %151
+  %154 = add i64 %.01519.i68, 1
+  %155 = add i64 %154, %.01620.i69
+  %.not.i70 = icmp ugt i64 %154, %135
+  br i1 %.not.i70, label %.loopexit, label %147, !llvm.loop !12
 
-_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit72.thread: ; preds = %150, %152, %128, %123
-  %155 = load ptr, ptr %.09.i51, align 8
-  %.not.i57 = icmp eq ptr %155, null
-  br i1 %.not.i57, label %_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit58, label %123, !llvm.loop !8
+.loopexit:                                        ; preds = %153, %151, %124, %129
+  %156 = load ptr, ptr %.09.i51, align 8
+  %.not.i57 = icmp eq ptr %156, null
+  br i1 %.not.i57, label %_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit58, label %124, !llvm.loop !8
 
-_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit58:     ; preds = %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit72.thread
+_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit58:     ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %170
-
-_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit72: ; preds = %146
-  %156 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %157 = load ptr, ptr %156, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %158 = load ptr, ptr %114, align 8
-  %159 = load ptr, ptr %122, align 8
-  %160 = call ptr @_ZN4Luau8DefArena3phiENS_7NotNullIKNS_3DefEEES4_(ptr noundef nonnull align 8 dereferenceable(40) %158, ptr %159, ptr %157)
-  %161 = load i64, ptr %116, align 8
-  %162 = load i64, ptr %117, align 8
-  %163 = mul i64 %162, 3
-  %164 = lshr i64 %163, 2
-  %.not.i.i59 = icmp ult i64 %161, %164
-  br i1 %.not.i.i59, label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit61, label %165
-
-165:                                              ; preds = %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit72
-  %166 = call noundef ptr @_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_(ptr noundef nonnull align 8 dereferenceable(48) %115, ptr noundef nonnull align 8 dereferenceable(16) %121)
-  %.not2.i.i60 = icmp eq ptr %166, null
-  br i1 %.not2.i.i60, label %167, label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit61
-
-167:                                              ; preds = %165
-  call void @_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(48) %115)
-  br label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit61
-
-_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit61: ; preds = %_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_.exit72, %165, %167
-  %168 = call noundef ptr @_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE13insert_unsafeERS8_(ptr noundef nonnull align 8 dereferenceable(48) %115, ptr noundef nonnull align 8 dereferenceable(16) %121)
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  store ptr %160, ptr %169, align 8
-  br label %170
-
-170:                                              ; preds = %_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit58, %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit61
-  %171 = load i64, ptr %103, align 8
   br label %172
 
-172:                                              ; preds = %175, %170
-  %.sroa.5.1 = phi i64 [ %.sroa.5.0122, %170 ], [ %173, %175 ]
-  %173 = add i64 %.sroa.5.1, 1
-  %174 = icmp ult i64 %173, %171
-  br i1 %174, label %175, label %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit62
+157:                                              ; preds = %147
+  %158 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %159 = load ptr, ptr %158, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  %160 = load ptr, ptr %115, align 8
+  %161 = load ptr, ptr %123, align 8
+  %162 = call ptr @_ZN4Luau8DefArena3phiENS_7NotNullIKNS_3DefEEES4_(ptr noundef nonnull align 8 dereferenceable(40) %160, ptr %161, ptr %159)
+  %163 = load i64, ptr %117, align 8
+  %164 = load i64, ptr %118, align 8
+  %165 = mul i64 %164, 3
+  %166 = lshr i64 %165, 2
+  %.not.i.i59 = icmp ult i64 %163, %166
+  br i1 %.not.i.i59, label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit61, label %167
 
-175:                                              ; preds = %172
-  %176 = load ptr, ptr %102, align 8
-  %177 = getelementptr inbounds %"struct.std::pair.54", ptr %176, i64 %173
-  %178 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull align 8 dereferenceable(16) %118)
-  br i1 %178, label %172, label %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit62, !llvm.loop !13
+167:                                              ; preds = %157
+  %168 = call noundef ptr @_ZNK4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE4findERS8_(ptr noundef nonnull align 8 dereferenceable(48) %116, ptr noundef nonnull align 8 dereferenceable(16) %122)
+  %.not2.i.i60 = icmp eq ptr %168, null
+  br i1 %.not2.i.i60, label %169, label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit61
 
-_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit62: ; preds = %172, %175
-  %.not113 = icmp eq i64 %173, %.pre130.pre
-  br i1 %.not113, label %._crit_edge124, label %119
+169:                                              ; preds = %167
+  call void @_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(48) %116)
+  br label %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit61
 
-._crit_edge124:                                   ; preds = %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit62, %._crit_edge, %_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit47
+_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit61: ; preds = %157, %167, %169
+  %170 = call noundef ptr @_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE13insert_unsafeERS8_(ptr noundef nonnull align 8 dereferenceable(48) %116, ptr noundef nonnull align 8 dereferenceable(16) %122)
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
+  store ptr %162, ptr %171, align 8
+  br label %172
+
+172:                                              ; preds = %_ZNK4Luau8DfgScope6lookupENS_6SymbolE.exit58, %_ZN4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EEixERKS1_.exit61
+  %173 = load i64, ptr %104, align 8
+  br label %174
+
+174:                                              ; preds = %177, %172
+  %.sroa.5.1 = phi i64 [ %.sroa.5.0123, %172 ], [ %175, %177 ]
+  %175 = add i64 %.sroa.5.1, 1
+  %176 = icmp ult i64 %175, %173
+  br i1 %176, label %177, label %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit62
+
+177:                                              ; preds = %174
+  %178 = load ptr, ptr %103, align 8
+  %179 = getelementptr inbounds %"struct.std::pair.54", ptr %178, i64 %175
+  %180 = call noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull align 8 dereferenceable(16) %119)
+  br i1 %180, label %174, label %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit62, !llvm.loop !13
+
+_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit62: ; preds = %174, %177
+  %.not113 = icmp eq i64 %175, %.pre131.pre
+  br i1 %.not113, label %._crit_edge125, label %120
+
+._crit_edge125:                                   ; preds = %_ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0_16ItemInterfaceMapIS2_S6_EESt4hashIS2_ESt8equal_toIS2_EE14const_iteratorppEv.exit62, %._crit_edge, %_ZNK4Luau12DenseHashMapINS_6SymbolEPKNS_3DefESt4hashIS1_ESt8equal_toIS1_EE5beginEv.exit47
   ret void
 }
 

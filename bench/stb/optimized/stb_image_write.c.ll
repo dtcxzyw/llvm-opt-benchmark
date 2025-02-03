@@ -4272,7 +4272,7 @@ if.end41:                                         ; preds = %for.body22
   br i1 %exitcond210.not, label %for.end56, label %for.body, !llvm.loop !45
 
 for.end56:                                        ; preds = %if.end41, %if.end41.us197, %for.body.us, %for.cond.preheader
-  tail call void @free(ptr noundef %call10) #26
+  tail call void @free(ptr noundef nonnull %call10) #26
   %14 = load i32, ptr @stbi_write_png_compression_level, align 4
   %call60 = call ptr @stbi_zlib_compress(ptr noundef nonnull %call, i32 noundef %mul5, ptr noundef nonnull %zlen, i32 noundef %14)
   tail call void @free(ptr noundef nonnull %call) #26

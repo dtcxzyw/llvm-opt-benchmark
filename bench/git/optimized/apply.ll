@@ -14195,12 +14195,12 @@ if.end40.i:                                       ; preds = %if.end29.i, %lor.lh
   %42 = load ptr, ptr %repo.i30, align 8
   %index42.i = getelementptr inbounds nuw i8, ptr %42, i64 240
   %43 = load ptr, ptr %index42.i, align 8
-  %call43.i = call i32 @add_index_entry(ptr noundef %43, ptr noundef %call2.i, i32 noundef 1) #21
+  %call43.i = call i32 @add_index_entry(ptr noundef %43, ptr noundef nonnull %call2.i, i32 noundef 1) #21
   %cmp44.i45 = icmp slt i32 %call43.i, 0
   br i1 %cmp44.i45, label %if.then46.i, label %add_index_file.exit
 
 if.then46.i:                                      ; preds = %if.end40.i
-  call void @discard_cache_entry(ptr noundef %call2.i) #21
+  call void @discard_cache_entry(ptr noundef nonnull %call2.i) #21
   %44 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i47.i = icmp eq i32 %44, 0
   br i1 %tobool1.not.i47.i, label %_.exit51.i, label %if.end3.i48.i

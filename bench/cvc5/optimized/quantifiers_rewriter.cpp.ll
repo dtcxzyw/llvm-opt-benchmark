@@ -13353,7 +13353,7 @@ if.else.i1083:                                    ; preds = %_ZN4cvc58internal12
           to label %for.inc200 unwind label %lpad193.loopexit.split-lp.loopexit
 
 for.inc200:                                       ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i1073, %if.else.i1083
-  %call.i1087 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.01448) #27
+  %call.i1087 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.01448) #27
   %cmp.i1042.not = icmp eq ptr %call.i1087, %add.ptr.i.i1041
   br i1 %cmp.i1042.not, label %for.end202, label %for.body189, !llvm.loop !218
 
@@ -36077,7 +36077,7 @@ terminate.lpad.i2775:                             ; preds = %if.then13.i.i2774
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2776: ; preds = %invoke.cont661, %if.then.i.i2768, %if.then13.i.i2774
-  %call.i2777 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin5.sroa.0.03443) #27
+  %call.i2777 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin5.sroa.0.03443) #27
   %cmp.i2596.not = icmp eq ptr %call.i2777, %add.ptr.i.i2595
   br i1 %cmp.i2596.not, label %for.inc666, label %cond.true635
 

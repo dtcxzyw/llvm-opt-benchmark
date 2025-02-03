@@ -6363,7 +6363,7 @@ invoke.cont:                                      ; preds = %_ZNK9__gnu_cxx5__op
   store ptr %12, ptr %m_ptr.i13.i.i, align 8
   store ptr null, ptr %m_ptr15.i14.i.i, align 8
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %__first.pn17, i64 64
-  %call.i.i.i.i = call noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIP8rationalS4_EET0_T_S6_S5_(ptr noundef %__first, ptr noundef nonnull %__i.018, ptr noundef nonnull %add.ptr3)
+  %call.i.i.i.i = call noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIP8rationalS4_EET0_T_S6_S5_(ptr noundef nonnull %__first, ptr noundef nonnull %__i.018, ptr noundef nonnull %add.ptr3)
   %13 = load i32, ptr %__first, align 4
   %14 = load i32, ptr %__val, align 8
   store i32 %14, ptr %__first, align 4

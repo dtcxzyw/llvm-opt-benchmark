@@ -2449,22 +2449,20 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$L
 13:                                               ; preds = %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %17 = load i64, ptr %16, align 8, !range !348, !invariant.load !21
-  %18 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %19 = load i64, ptr %18, align 8, !range !349, !invariant.load !21
-  %20 = icmp ult i64 %19, -9223372036854775807
-  tail call void @llvm.assume(i1 %20)
-  %21 = icmp eq i64 %17, 0
-  br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h317c918411fc663eE.exit4", label %22
+  %15 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %16 = load i64, ptr %15, align 8, !range !348, !invariant.load !21
+  %17 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  %18 = load i64, ptr %17, align 8, !range !349, !invariant.load !21
+  %19 = icmp ult i64 %18, -9223372036854775807
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp eq i64 %16, 0
+  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h317c918411fc663eE.exit4", label %21
 
-22:                                               ; preds = %13
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #36
+21:                                               ; preds = %13
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %16, i64 noundef range(i64 1, -9223372036854775807) %18) #36
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h317c918411fc663eE.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h317c918411fc663eE.exit4": ; preds = %22, %13
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h317c918411fc663eE.exit4": ; preds = %21, %13
   resume { ptr, i32 } %14
 }
 
@@ -13695,7 +13693,7 @@ default.unreachable.i.i.i:                        ; preds = %96
 .noexc.i20.i:                                     ; preds = %103
   %105 = extractvalue { ptr, ptr } %104, 0
   %106 = extractvalue { ptr, ptr } %104, 1
-  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h8f4f89a4b08697fcE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noundef nonnull align 1 %105, ptr noalias noundef readonly align 8 dereferenceable(56) %106)
+  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h8f4f89a4b08697fcE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noundef nonnull align 1 %105, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %106)
           to label %.noexc9 unwind label %45
 
 .noexc9:                                          ; preds = %.noexc.i20.i
@@ -13734,7 +13732,7 @@ default.unreachable.i.i.i:                        ; preds = %96
 .noexc23.i:                                       ; preds = %112
   %114 = extractvalue { ptr, ptr } %113, 0
   %115 = extractvalue { ptr, ptr } %113, 1
-  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %14, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.105, i64 noundef 8, ptr noundef nonnull align 1 %114, ptr noalias noundef readonly align 8 dereferenceable(56) %115)
+  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %14, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.105, i64 noundef 8, ptr noundef nonnull align 1 %114, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %115)
           to label %.noexc11 unwind label %45
 
 .noexc11:                                         ; preds = %.noexc23.i
@@ -13758,7 +13756,7 @@ default.unreachable.i.i.i:                        ; preds = %96
 119:                                              ; preds = %.noexc12
   %120 = extractvalue { ptr, ptr } %116, 0
   %121 = extractvalue { ptr, ptr } %116, 1
-  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %16, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.108, i64 noundef 9, ptr noundef nonnull align 1 %120, ptr noalias noundef readonly align 8 dereferenceable(56) %121)
+  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %16, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.108, i64 noundef 9, ptr noundef nonnull align 1 %120, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %121)
           to label %122 unwind label %117
 
 122:                                              ; preds = %119
@@ -13774,7 +13772,7 @@ default.unreachable.i.i.i:                        ; preds = %96
 126:                                              ; preds = %122
   %127 = extractvalue { ptr, ptr } %123, 0
   %128 = extractvalue { ptr, ptr } %123, 1
-  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %17, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.109, i64 noundef 10, ptr noundef nonnull align 1 %127, ptr noalias noundef readonly align 8 dereferenceable(56) %128)
+  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %17, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.109, i64 noundef 10, ptr noundef nonnull align 1 %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %128)
           to label %129 unwind label %124
 
 129:                                              ; preds = %126
@@ -13805,7 +13803,7 @@ default.unreachable.i.i.i:                        ; preds = %96
 137:                                              ; preds = %133
   %138 = extractvalue { ptr, ptr } %134, 0
   %139 = extractvalue { ptr, ptr } %134, 1
-  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %33, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %19, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.110, i64 noundef 8, ptr noundef nonnull align 1 %138, ptr noalias noundef readonly align 8 dereferenceable(56) %139)
+  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %33, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %19, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.110, i64 noundef 8, ptr noundef nonnull align 1 %138, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %139)
           to label %140 unwind label %135
 
 140:                                              ; preds = %137
@@ -15900,7 +15898,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
 .noexc18.i:                                       ; preds = %79
   %81 = extractvalue { ptr, ptr } %80, 0
   %82 = extractvalue { ptr, ptr } %80, 1
-  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.105, i64 noundef 8, ptr noundef nonnull align 1 %81, ptr noalias noundef readonly align 8 dereferenceable(56) %82)
+  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.105, i64 noundef 8, ptr noundef nonnull align 1 %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %82)
           to label %.noexc9 unwind label %34
 
 .noexc9:                                          ; preds = %.noexc18.i
@@ -15924,7 +15922,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
 86:                                               ; preds = %.noexc10
   %87 = extractvalue { ptr, ptr } %83, 0
   %88 = extractvalue { ptr, ptr } %83, 1
-  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %7, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.108, i64 noundef 9, ptr noundef nonnull align 1 %87, ptr noalias noundef readonly align 8 dereferenceable(56) %88)
+  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %7, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.108, i64 noundef 9, ptr noundef nonnull align 1 %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %88)
           to label %89 unwind label %84
 
 89:                                               ; preds = %86
@@ -15940,7 +15938,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
 93:                                               ; preds = %89
   %94 = extractvalue { ptr, ptr } %90, 0
   %95 = extractvalue { ptr, ptr } %90, 1
-  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %8, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.109, i64 noundef 10, ptr noundef nonnull align 1 %94, ptr noalias noundef readonly align 8 dereferenceable(56) %95)
+  invoke void @_ZN2ui10components12context_menu11ContextMenu6action17h89cf6cb1420318b2E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %8, ptr noalias noundef nonnull readonly align 1 @anon.5a35085824c4320868dbf35d23e158cc.109, i64 noundef 10, ptr noundef nonnull align 1 %94, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %95)
           to label %96 unwind label %91
 
 96:                                               ; preds = %93

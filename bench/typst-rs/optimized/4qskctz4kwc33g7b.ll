@@ -36032,7 +36032,7 @@ _ZN5wasmi6memory6Memory3new17h6e7069630f6406bdE.exit.i: ; preds = %.noexc151
 .noexc175:                                        ; preds = %496
   %498 = extractvalue { ptr, ptr } %497, 0
   %499 = extractvalue { ptr, ptr } %497, 1
-  %500 = invoke noundef i8 @_ZN5wasmi5table11TableEntity4init17hec26cf36d0d2a875E(ptr noalias noundef align 8 dereferenceable(40) %498, i32 noundef %474, ptr noalias noundef readonly align 8 dereferenceable(24) %499, i32 noundef 0, i32 noundef %487, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %49)
+  %500 = invoke noundef i8 @_ZN5wasmi5table11TableEntity4init17hec26cf36d0d2a875E(ptr noalias noundef nonnull align 8 dereferenceable(40) %498, i32 noundef %474, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %499, i32 noundef 0, i32 noundef %487, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %49)
           to label %.noexc176 unwind label %.loopexit.split-lp.loopexit
 
 .noexc176:                                        ; preds = %.noexc175
@@ -65800,7 +65800,7 @@ thread-pre-split:                                 ; preds = %242, %173, %171
   %214 = and i64 %213, -16
   %215 = getelementptr i8, ptr %212, i64 %214
   %216 = getelementptr i8, ptr %215, i64 16
-  invoke void @_ZN5typst5model6figure13FigureCaption13get_separator17h764c7666621e503fE(ptr noalias noundef nonnull sret({ { { { ptr, ptr } }, {}, {} }, i64 }) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef readonly align 16 dereferenceable(272) %216, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28)
+  invoke void @_ZN5typst5model6figure13FigureCaption13get_separator17h764c7666621e503fE(ptr noalias noundef nonnull sret({ { { { ptr, ptr } }, {}, {} }, i64 }) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 16 dereferenceable(272) %216, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28)
           to label %217 unwind label %247
 
 217:                                              ; preds = %201
@@ -79797,7 +79797,7 @@ define void @"_ZN5typst11foundations7context147_$LT$impl$u20$typst..foundations.
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %63, ptr %66, align 8, !alias.scope !17481
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  invoke void @_ZN5typst11foundations4func4Func9call_impl17he25beaebe2b22a09E(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef readonly align 8 dereferenceable(24) %43, ptr noalias noundef nonnull align 8 dereferenceable(128) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
+  invoke void @_ZN5typst11foundations4func4Func9call_impl17he25beaebe2b22a09E(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %43, ptr noalias noundef nonnull align 8 dereferenceable(128) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
           to label %67 unwind label %28
 
 67:                                               ; preds = %61
@@ -81385,7 +81385,7 @@ define void @"_ZN5typst13introspection7counter156_$LT$impl$u20$typst..foundation
   %50 = trunc nuw i8 %49 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  invoke void @_ZN5typst13introspection7counter7Counter12display_impl17h9250e669cf41f061E(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef readonly align 16 dereferenceable(64) %30, ptr noalias noundef nonnull align 8 dereferenceable(128) %2, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %8, i1 noundef zeroext %50, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
+  invoke void @_ZN5typst13introspection7counter7Counter12display_impl17h9250e669cf41f061E(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %30, ptr noalias noundef nonnull align 8 dereferenceable(128) %2, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %8, i1 noundef zeroext %50, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
           to label %52 unwind label %32
 
 51:                                               ; preds = %45
@@ -81603,7 +81603,7 @@ define internal fastcc { ptr, i64 } @_ZN5typst13introspection12introspector1_15_
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #52
   unreachable
 
-"_ZN4core3ptr75drop_in_place$LT$typst..introspection..introspector.._..__ComemoVariant$GT$17hd48d2ff2e076a4f1E.exit": ; preds = %41, %.sink.split.i
+"_ZN4core3ptr75drop_in_place$LT$typst..introspection..introspector.._..__ComemoVariant$GT$17hd48d2ff2e076a4f1E.exit": ; preds = %.sink.split.i, %41
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
   ret { ptr, i64 } %8
 
@@ -98114,7 +98114,7 @@ _ZN5typst4math3ctx11MathContext15layout_into_run17h791fbc85b59509ecE.exit.i: ; p
   store i64 1, ptr %.sroa.3454.sroa.6.0..sroa_idx, align 8, !noalias !21831
   %.sroa.3454.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %2, ptr %.sroa.3454.sroa.7.0..sroa_idx, align 8, !noalias !21831
-  invoke void @"_ZN5typst4math6attach1_49_$LT$impl$u20$typst..math..attach..AttachElem$GT$2tl17hea7cdf49129d0338E"(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %54, ptr noalias noundef readonly align 8 dereferenceable(216) %100, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %53)
+  invoke void @"_ZN5typst4math6attach1_49_$LT$impl$u20$typst..math..attach..AttachElem$GT$2tl17hea7cdf49129d0338E"(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(216) %100, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %53)
           to label %.noexc272 unwind label %123
 
 .noexc272:                                        ; preds = %125
@@ -122456,14 +122456,14 @@ _ZN4core3cmp9PartialEq2ne17h20b5d842d3acfd89E.llvm.5857379167208991996.exit.i.i:
   br i1 %.not10.i.i, label %.preheader.split.i.i, label %.loopexit295
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6f6078d90e814f2cE.exit": ; preds = %.preheader.split.i.i
-  %163 = invoke { ptr, i64 } @"_ZN80_$LT$typst..foundations..content..Content$u20$as$u20$typst..math..LayoutMath$GT$11layout_math17hd613128867518544E"(ptr noalias noundef readonly align 8 dereferenceable(24) %105, ptr noalias noundef nonnull align 8 dereferenceable(544) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %35)
+  %163 = invoke { ptr, i64 } @"_ZN80_$LT$typst..foundations..content..Content$u20$as$u20$typst..math..LayoutMath$GT$11layout_math17hd613128867518544E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %105, ptr noalias noundef nonnull align 8 dereferenceable(544) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %35)
           to label %164 unwind label %.loopexit.split-lp291
 
 .loopexit295:                                     ; preds = %.noexc178, %_ZN4core3cmp9PartialEq2ne17h20b5d842d3acfd89E.llvm.5857379167208991996.exit.i.i, %146
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  invoke void @_ZN5typst4math3ctx11MathContext14layout_content17hafca82d4a8fa9183E(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %34, ptr noalias noundef nonnull align 8 dereferenceable(544) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %105, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
+  invoke void @_ZN5typst4math3ctx11MathContext14layout_content17hafca82d4a8fa9183E(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %34, ptr noalias noundef nonnull align 8 dereferenceable(544) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %105, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
           to label %169 unwind label %.loopexit.split-lp291
 
 164:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6f6078d90e814f2cE.exit"
@@ -154628,7 +154628,7 @@ define void @"_ZN5typst9visualize4line133_$LT$impl$u20$typst..layout..LayoutSing
   %47 = getelementptr i8, ptr %46, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  invoke void @"_ZN5typst9visualize4line1_50_$LT$impl$u20$typst..visualize..line..LineElem$GT$5start17h169fa36aab10e3e4E"(ptr noalias noundef nonnull sret({ { double, double }, { double, double } }) align 8 captures(none) dereferenceable(32) %17, ptr noalias noundef readonly align 8 dereferenceable(272) %47, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28)
+  invoke void @"_ZN5typst9visualize4line1_50_$LT$impl$u20$typst..visualize..line..LineElem$GT$5start17h169fa36aab10e3e4E"(ptr noalias noundef nonnull sret({ { double, double }, { double, double } }) align 8 captures(none) dereferenceable(32) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(272) %47, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28)
           to label %54 unwind label %52
 
 48:                                               ; preds = %186, %198, %52

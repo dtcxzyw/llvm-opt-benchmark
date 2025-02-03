@@ -828,7 +828,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescEJRKS1_EE
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #16
-  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescEEvT_S3_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescEEvT_S3_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22
@@ -929,7 +929,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__18HgiTextureBindDescEJRKS1_E
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #16
-  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18HgiTextureBindDescEEvT_S3_(ptr noundef %13, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__18HgiTextureBindDescEEvT_S3_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
           to label %25 unwind label %26
 
 25:                                               ; preds = %21

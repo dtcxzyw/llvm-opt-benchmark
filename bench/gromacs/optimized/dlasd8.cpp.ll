@@ -82,7 +82,7 @@ define void @dlasd8_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %storemerge206 = phi i32 [ 1, %.lr.ph208 ], [ %112, %._crit_edge204 ]
   %54 = sext i32 %storemerge206 to i64
   %55 = getelementptr inbounds double, ptr %18, i64 %54
-  call void @dlasd4_(ptr noundef nonnull %1, ptr noundef nonnull %13, ptr noundef %9, ptr noundef %3, ptr noundef %10, ptr noundef nonnull %14, ptr noundef nonnull %55, ptr noundef nonnull %50, ptr noundef nonnull %11)
+  call void @dlasd4_(ptr noundef nonnull %1, ptr noundef nonnull %13, ptr noundef %9, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %55, ptr noundef nonnull %50, ptr noundef nonnull %11)
   %56 = load i32, ptr %11, align 4
   %.not195 = icmp eq i32 %56, 0
   br i1 %.not195, label %57, label %.loopexit

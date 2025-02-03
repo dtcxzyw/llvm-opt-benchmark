@@ -14105,7 +14105,7 @@ invoke.cont132:                                   ; preds = %for.body129
           to label %invoke.cont136 unwind label %lpad131
 
 invoke.cont136:                                   ; preds = %invoke.cont132
-  %call.i266 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1120.sroa.0.0298) #33
+  %call.i266 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1120.sroa.0.0298) #33
   %cmp.i255.not = icmp eq ptr %call.i266, %0
   br i1 %cmp.i255.not, label %for.cond.cleanup128, label %for.body129
 
@@ -85620,11 +85620,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %13 = load i64, ptr %_M_string_length.i28.i.i.i, align 8, !tbaa !47
   %cmp3.i.i.i7.i.i = icmp ult i64 %13, 16
   call void @llvm.assume(i1 %cmp3.i.i.i7.i.i)
-  br label %lpad.body
+  br label %invoke.cont19
 
 if.then.i.i4.i.i:                                 ; preds = %lpad.i.i
   call void @_ZdlPv(ptr noundef %12) #30
-  br label %lpad.body
+  br label %invoke.cont19
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
@@ -85674,32 +85674,21 @@ _ZNSt12_Vector_baseIN6duckdb5ValueESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds =
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !219
   ret void
 
-lpad.body:                                        ; preds = %if.then.i.i4.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i.i
-  %14 = extractvalue { ptr, i32 } %11, 0
-  %15 = call ptr @__cxa_begin_catch(ptr %14) #28
-  %tobool.not = icmp eq ptr %cond.i47, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i59
-
-if.end.thread:                                    ; preds = %lpad.body
-  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr) #28
-  br label %invoke.cont19
-
 lpad17:                                           ; preds = %invoke.cont19
-  %16 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont20 unwind label %terminate.lpad
 
-if.then.i59:                                      ; preds = %lpad.body
+invoke.cont19:                                    ; preds = %if.then.i.i4.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i.i
+  %15 = extractvalue { ptr, i32 } %11, 0
+  %16 = call ptr @__cxa_begin_catch(ptr %15) #28
   call void @_ZdlPv(ptr noundef nonnull %cond.i47) #30
-  br label %invoke.cont19
-
-invoke.cont19:                                    ; preds = %if.then.i59, %if.end.thread
   invoke void @__cxa_rethrow() #32
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %14
 
 terminate.lpad:                                   ; preds = %lpad17
   %17 = landingpad { ptr, i32 }
@@ -87106,17 +87095,19 @@ _ZNSt12_Vector_baseIN6duckdb5ValueESaIS1_EE11_M_allocateEm.exit: ; preds = %cond
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   %3 = load i8, ptr %__args, align 1, !tbaa !744
   invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i, i8 noundef zeroext %3)
-          to label %.noexc unwind label %lpad
+          to label %.noexc unwind label %lpad.body
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN6duckdb5ValueESaIS1_EE11_M_allocateEm.exit
   invoke void @_ZN6duckdb5ValueC1ENS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, ptr noundef nonnull %agg.tmp.i.i)
-          to label %invoke.cont unwind label %lpad.i.i
+          to label %invoke.cont unwind label %lpad.body.thread
 
-lpad.i.i:                                         ; preds = %.noexc
+lpad.body.thread:                                 ; preds = %.noexc
   %4 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i) #28
-  br label %lpad.body
+  %5 = extractvalue { ptr, i32 } %4, 0
+  %6 = call ptr @__cxa_begin_catch(ptr %5) #28
+  br label %if.then.i59
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i) #28
@@ -87167,15 +87158,11 @@ _ZNSt12_Vector_baseIN6duckdb5ValueESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds =
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !219
   ret void
 
-lpad:                                             ; preds = %_ZNSt12_Vector_baseIN6duckdb5ValueESaIS1_EE11_M_allocateEm.exit
-  %5 = landingpad { ptr, i32 }
+lpad.body:                                        ; preds = %_ZNSt12_Vector_baseIN6duckdb5ValueESaIS1_EE11_M_allocateEm.exit
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  br label %lpad.body
-
-lpad.body:                                        ; preds = %lpad, %lpad.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad ], [ %4, %lpad.i.i ]
-  %6 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #28
+  %8 = extractvalue { ptr, i32 } %7, 0
+  %9 = call ptr @__cxa_begin_catch(ptr %8) #28
   %tobool.not = icmp eq ptr %cond.i47, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i59
 
@@ -87184,12 +87171,12 @@ if.end.thread:                                    ; preds = %lpad.body
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont20 unwind label %terminate.lpad
 
-if.then.i59:                                      ; preds = %lpad.body
+if.then.i59:                                      ; preds = %lpad.body.thread, %lpad.body
   call void @_ZdlPv(ptr noundef nonnull %cond.i47) #30
   br label %invoke.cont19
 
@@ -87198,13 +87185,13 @@ invoke.cont19:                                    ; preds = %if.then.i59, %if.en
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %10
 
 terminate.lpad:                                   ; preds = %lpad17
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #31
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #31
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -100309,17 +100296,19 @@ _ZNSt12_Vector_baseIN6duckdb5ValueESaIS1_EE11_M_allocateEm.exit: ; preds = %cond
   %add.ptr = getelementptr inbounds i8, ptr %cond.i47, i64 %sub.ptr.sub.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__args)
-          to label %.noexc unwind label %lpad
+          to label %.noexc unwind label %lpad.body
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN6duckdb5ValueESaIS1_EE11_M_allocateEm.exit
   invoke void @_ZN6duckdb5ValueC1ENS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, ptr noundef nonnull %agg.tmp.i.i)
-          to label %invoke.cont unwind label %lpad.i.i
+          to label %invoke.cont unwind label %lpad.body.thread
 
-lpad.i.i:                                         ; preds = %.noexc
+lpad.body.thread:                                 ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i) #28
-  br label %lpad.body
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %4) #28
+  br label %if.then.i59
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i) #28
@@ -100370,15 +100359,11 @@ _ZNSt12_Vector_baseIN6duckdb5ValueESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds =
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !219
   ret void
 
-lpad:                                             ; preds = %_ZNSt12_Vector_baseIN6duckdb5ValueESaIS1_EE11_M_allocateEm.exit
-  %4 = landingpad { ptr, i32 }
+lpad.body:                                        ; preds = %_ZNSt12_Vector_baseIN6duckdb5ValueESaIS1_EE11_M_allocateEm.exit
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  br label %lpad.body
-
-lpad.body:                                        ; preds = %lpad, %lpad.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad ], [ %3, %lpad.i.i ]
-  %5 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %5) #28
+  %7 = extractvalue { ptr, i32 } %6, 0
+  %8 = call ptr @__cxa_begin_catch(ptr %7) #28
   %tobool.not = icmp eq ptr %cond.i47, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i59
 
@@ -100387,12 +100372,12 @@ if.end.thread:                                    ; preds = %lpad.body
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont20 unwind label %terminate.lpad
 
-if.then.i59:                                      ; preds = %lpad.body
+if.then.i59:                                      ; preds = %lpad.body.thread, %lpad.body
   call void @_ZdlPv(ptr noundef nonnull %cond.i47) #30
   br label %invoke.cont19
 
@@ -100401,13 +100386,13 @@ invoke.cont19:                                    ; preds = %if.then.i59, %if.en
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 
 terminate.lpad:                                   ; preds = %lpad17
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #31
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #31
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19

@@ -2743,84 +2743,80 @@ define internal fastcc i32 @_piwigo_api_post_internal(ptr noundef captures(none)
 
 43:                                               ; preds = %38, %23
   %44 = icmp eq ptr %2, null
-  br i1 %44, label %63, label %45
+  br i1 %44, label %65, label %45
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %0, align 8, !tbaa !39
   %47 = call ptr @curl_mime_init(ptr noundef %46) #13
   %48 = icmp eq ptr %1, null
-  br i1 %48, label %.loopexit5, label %.preheader4
+  br i1 %48, label %.thread, label %.preheader4
 
-.loopexit5:                                       ; preds = %.preheader4, %45
+.thread:                                          ; preds = %.preheader4, %45
   %49 = call ptr @curl_mime_addpart(ptr noundef %47) #13
   %50 = call i32 @curl_mime_name(ptr noundef %49, ptr noundef nonnull @.str.63) #13
   %51 = call i32 @curl_mime_filedata(ptr noundef %49, ptr noundef nonnull %2) #13
   %52 = load ptr, ptr %0, align 8, !tbaa !39
   %53 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %52, i32 noundef 10269, ptr noundef %47) #13
-  br label %83
+  %54 = load ptr, ptr %0, align 8, !tbaa !39
+  %55 = call i32 @curl_easy_perform(ptr noundef %54) #13
+  call void @curl_mime_free(ptr noundef %47) #13
+  br label %87
 
 .preheader4:                                      ; preds = %45, %.preheader4
-  %54 = phi ptr [ %61, %.preheader4 ], [ %1, %45 ]
-  %55 = load ptr, ptr %54, align 8, !tbaa !21
-  %56 = call ptr @curl_mime_addpart(ptr noundef %47) #13
-  %57 = call i32 @curl_mime_name(ptr noundef %56, ptr noundef %55) #13
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 100
-  %59 = call i32 @curl_mime_data(ptr noundef %56, ptr noundef nonnull %58, i64 noundef -1) #13
-  %60 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !85
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %.loopexit5, label %.preheader4
+  %56 = phi ptr [ %63, %.preheader4 ], [ %1, %45 ]
+  %57 = load ptr, ptr %56, align 8, !tbaa !21
+  %58 = call ptr @curl_mime_addpart(ptr noundef %47) #13
+  %59 = call i32 @curl_mime_name(ptr noundef %58, ptr noundef %57) #13
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 100
+  %61 = call i32 @curl_mime_data(ptr noundef %58, ptr noundef nonnull %60, i64 noundef -1) #13
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !85
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %.thread, label %.preheader4
 
-63:                                               ; preds = %43
-  %64 = call ptr @g_string_new(ptr noundef nonnull @.str.8) #13
-  %65 = icmp eq ptr %1, null
-  br i1 %65, label %.loopexit, label %.preheader
+65:                                               ; preds = %43
+  %66 = call ptr @g_string_new(ptr noundef nonnull @.str.8) #13
+  %67 = icmp eq ptr %1, null
+  br i1 %67, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %75, %63
-  %66 = load ptr, ptr %0, align 8, !tbaa !39
-  %67 = load ptr, ptr %64, align 8, !tbaa !90
-  %68 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %66, i32 noundef 10165, ptr noundef %67) #13
-  %69 = call ptr @g_string_free(ptr noundef nonnull %64, i32 noundef 1) #13
-  br label %83
+.preheader:                                       ; preds = %65, %73
+  %68 = phi ptr [ %79, %73 ], [ %1, %65 ]
+  %69 = load ptr, ptr %68, align 8, !tbaa !21
+  %70 = icmp eq ptr %68, %1
+  br i1 %70, label %73, label %71
 
-.preheader:                                       ; preds = %63, %75
-  %70 = phi ptr [ %81, %75 ], [ %1, %63 ]
-  %71 = load ptr, ptr %70, align 8, !tbaa !21
-  %72 = icmp eq ptr %70, %1
-  br i1 %72, label %75, label %73
+71:                                               ; preds = %.preheader
+  %72 = call ptr @g_string_append(ptr noundef %66, ptr noundef nonnull @.str.64) #13
+  br label %73
 
-73:                                               ; preds = %.preheader
-  %74 = call ptr @g_string_append(ptr noundef %64, ptr noundef nonnull @.str.64) #13
-  br label %75
+73:                                               ; preds = %71, %.preheader
+  %74 = call ptr @g_string_append(ptr noundef %66, ptr noundef %69) #13
+  %75 = call ptr @g_string_append(ptr noundef %66, ptr noundef nonnull @.str.65) #13
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 100
+  %77 = call ptr @g_string_append(ptr noundef %66, ptr noundef nonnull %76) #13
+  %78 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !85
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %.loopexit, label %.preheader
 
-75:                                               ; preds = %73, %.preheader
-  %76 = call ptr @g_string_append(ptr noundef %64, ptr noundef %71) #13
-  %77 = call ptr @g_string_append(ptr noundef %64, ptr noundef nonnull @.str.65) #13
-  %78 = getelementptr inbounds nuw i8, ptr %71, i64 100
-  %79 = call ptr @g_string_append(ptr noundef %64, ptr noundef nonnull %78) #13
-  %80 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !85
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %.loopexit, label %.preheader
-
-83:                                               ; preds = %.loopexit, %.loopexit5
-  %84 = phi ptr [ %47, %.loopexit5 ], [ null, %.loopexit ]
+.loopexit:                                        ; preds = %73, %65
+  %81 = load ptr, ptr %0, align 8, !tbaa !39
+  %82 = load ptr, ptr %66, align 8, !tbaa !90
+  %83 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %81, i32 noundef 10165, ptr noundef %82) #13
+  %84 = call ptr @g_string_free(ptr noundef nonnull %66, i32 noundef 1) #13
   %85 = load ptr, ptr %0, align 8, !tbaa !39
   %86 = call i32 @curl_easy_perform(ptr noundef %85) #13
-  br i1 %44, label %88, label %87
+  br label %87
 
-87:                                               ; preds = %83
-  call void @curl_mime_free(ptr noundef %84) #13
-  br label %88
-
-88:                                               ; preds = %87, %83
+87:                                               ; preds = %.loopexit, %.thread
+  %88 = phi i32 [ %55, %.thread ], [ %86, %.loopexit ]
   %89 = call ptr @g_string_free(ptr noundef nonnull %10, i32 noundef 1) #13
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %90, align 8, !tbaa !41
-  %91 = icmp eq i32 %86, 0
+  %91 = icmp eq i32 %88, 0
   br i1 %91, label %92, label %117
 
-92:                                               ; preds = %88
+92:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
   store ptr null, ptr %7, align 8, !tbaa !16
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2862,14 +2858,14 @@ define internal fastcc i32 @_piwigo_api_post_internal(ptr noundef captures(none)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
   br label %119
 
-117:                                              ; preds = %88
+117:                                              ; preds = %87
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %118, align 8, !tbaa !36
   br label %119
 
 119:                                              ; preds = %117, %116
   %120 = call ptr @g_string_free(ptr noundef %11, i32 noundef 1) #13
-  ret i32 %86
+  ret i32 %88
 }
 
 declare void @curl_easy_cleanup(ptr noundef) local_unnamed_addr #5

@@ -24112,7 +24112,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit2042:              ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2046:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit1878
-  %bcmp.i2045 = tail call i32 @bcmp(ptr %.sroa.0907.0.copyload, ptr nonnull @.str.49, i64 %.sroa.2908.0.copyload)
+  %bcmp.i2045 = tail call i32 @bcmp(ptr nonnull %.sroa.0907.0.copyload, ptr nonnull @.str.49, i64 %.sroa.2908.0.copyload)
   %1046 = icmp eq i32 %bcmp.i2045, 0
   br i1 %1046, label %_ZN4llvm12ErrorSuccessD2Ev.exit2048, label %_ZN4llvmeqENS_9StringRefES0_.exit2311
 
@@ -24357,7 +24357,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit2157:              ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2161:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2136
-  %bcmp.i2160 = tail call i32 @bcmp(ptr %.sroa.0907.0.copyload, ptr nonnull @.str.69, i64 %.sroa.2908.0.copyload)
+  %bcmp.i2160 = tail call i32 @bcmp(ptr nonnull %.sroa.0907.0.copyload, ptr nonnull @.str.69, i64 %.sroa.2908.0.copyload)
   %1085 = icmp eq i32 %bcmp.i2160, 0
   br i1 %1085, label %_ZN4llvm12ErrorSuccessD2Ev.exit2163, label %_ZN4llvmeqENS_9StringRefES0_.exit2359
 
@@ -24639,7 +24639,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit2307:              ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2311:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2046
-  %bcmp.i2310 = tail call i32 @bcmp(ptr %.sroa.0907.0.copyload, ptr nonnull @.str.94, i64 %.sroa.2908.0.copyload)
+  %bcmp.i2310 = tail call i32 @bcmp(ptr nonnull %.sroa.0907.0.copyload, ptr nonnull @.str.94, i64 %.sroa.2908.0.copyload)
   %1117 = icmp eq i32 %bcmp.i2310, 0
   br i1 %1117, label %_ZN4llvm12ErrorSuccessD2Ev.exit2313, label %_ZN4llvmeqENS_9StringRefES0_.exit2487
 
@@ -24734,7 +24734,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit2355:              ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2359:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2161
-  %bcmp.i2358 = tail call i32 @bcmp(ptr %.sroa.0907.0.copyload, ptr nonnull @.str.102, i64 %.sroa.2908.0.copyload)
+  %bcmp.i2358 = tail call i32 @bcmp(ptr nonnull %.sroa.0907.0.copyload, ptr nonnull @.str.102, i64 %.sroa.2908.0.copyload)
   %1133 = icmp eq i32 %bcmp.i2358, 0
   br i1 %1133, label %_ZN4llvmeqENS_9StringRefES0_.exit2359.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit2414
 
@@ -24849,7 +24849,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit2410:              ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2414:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2359
-  %bcmp.i2413 = tail call i32 @bcmp(ptr %.sroa.0907.0.copyload, ptr nonnull @.str.111, i64 %.sroa.2908.0.copyload)
+  %bcmp.i2413 = tail call i32 @bcmp(ptr nonnull %.sroa.0907.0.copyload, ptr nonnull @.str.111, i64 %.sroa.2908.0.copyload)
   %1150 = icmp eq i32 %bcmp.i2413, 0
   br i1 %1150, label %_ZN4llvm12ErrorSuccessD2Ev.exit2416, label %_ZN4llvmeqENS_9StringRefES0_.exit2420
 
@@ -24987,7 +24987,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit2465:              ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2469:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2420
-  %bcmp.i2468 = tail call i32 @bcmp(ptr %.sroa.0907.0.copyload, ptr nonnull @.str.120, i64 %.sroa.2908.0.copyload)
+  %bcmp.i2468 = tail call i32 @bcmp(ptr nonnull %.sroa.0907.0.copyload, ptr nonnull @.str.120, i64 %.sroa.2908.0.copyload)
   %1175 = icmp eq i32 %bcmp.i2468, 0
   br i1 %1175, label %_ZN4llvm12ErrorSuccessD2Ev.exit2471, label %_ZN4llvmeqENS_9StringRefES0_.exit2567
 
@@ -25023,7 +25023,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit2483:              ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2487:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2311
-  %bcmp.i2486 = tail call i32 @bcmp(ptr %.sroa.0907.0.copyload, ptr nonnull @.str.123, i64 %.sroa.2908.0.copyload)
+  %bcmp.i2486 = tail call i32 @bcmp(ptr nonnull %.sroa.0907.0.copyload, ptr nonnull @.str.123, i64 %.sroa.2908.0.copyload)
   %1181 = icmp eq i32 %bcmp.i2486, 0
   br i1 %1181, label %_ZN4llvm12ErrorSuccessD2Ev.exit2489, label %_ZN4llvmeqENS_9StringRefES0_.exit2553
 
@@ -25153,7 +25153,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit2549:              ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2553:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2487
-  %bcmp.i2552 = tail call i32 @bcmp(ptr %.sroa.0907.0.copyload, ptr nonnull @.str.134, i64 %.sroa.2908.0.copyload)
+  %bcmp.i2552 = tail call i32 @bcmp(ptr nonnull %.sroa.0907.0.copyload, ptr nonnull @.str.134, i64 %.sroa.2908.0.copyload)
   %1200 = icmp eq i32 %bcmp.i2552, 0
   br i1 %1200, label %_ZN4llvm12ErrorSuccessD2Ev.exit2555, label %_ZN4llvmeqENS_9StringRefES0_.exit2663
 
@@ -25202,7 +25202,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit2563:              ; preds = %1207, %1203, %_ZN4l
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2567:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2469
-  %bcmp.i2566 = tail call i32 @bcmp(ptr %.sroa.0907.0.copyload, ptr nonnull @.str.136, i64 %.sroa.2908.0.copyload)
+  %bcmp.i2566 = tail call i32 @bcmp(ptr nonnull %.sroa.0907.0.copyload, ptr nonnull @.str.136, i64 %.sroa.2908.0.copyload)
   %1211 = icmp eq i32 %bcmp.i2566, 0
   br i1 %1211, label %_ZN4llvm12ErrorSuccessD2Ev.exit2569, label %_ZN4llvmeqENS_9StringRefES0_.exit2663.thread7580
 
@@ -25283,7 +25283,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit2605:              ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2609:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2529
-  %bcmp.i2608 = tail call i32 @bcmp(ptr %.sroa.0907.0.copyload, ptr nonnull @.str.143, i64 %.sroa.2908.0.copyload)
+  %bcmp.i2608 = tail call i32 @bcmp(ptr nonnull %.sroa.0907.0.copyload, ptr nonnull @.str.143, i64 %.sroa.2908.0.copyload)
   %1218 = icmp eq i32 %bcmp.i2608, 0
   br i1 %1218, label %_ZN4llvm12ErrorSuccessD2Ev.exit2611, label %_ZN4llvmeqENS_9StringRefES0_.exit2663.thread7580
 
@@ -25323,7 +25323,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit2629:              ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2633:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2499
-  %bcmp.i2632 = tail call i32 @bcmp(ptr %.sroa.0907.0.copyload, ptr nonnull @.str.147, i64 %.sroa.2908.0.copyload)
+  %bcmp.i2632 = tail call i32 @bcmp(ptr nonnull %.sroa.0907.0.copyload, ptr nonnull @.str.147, i64 %.sroa.2908.0.copyload)
   %1222 = icmp eq i32 %bcmp.i2632, 0
   br i1 %1222, label %_ZN4llvm12ErrorSuccessD2Ev.exit2635, label %_ZN4llvmeqENS_9StringRefES0_.exit2663.thread7580
 
@@ -25374,7 +25374,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit2659:              ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit2663:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit2553
-  %bcmp.i2662 = tail call i32 @bcmp(ptr %.sroa.0907.0.copyload, ptr nonnull @.str.152, i64 %.sroa.2908.0.copyload)
+  %bcmp.i2662 = tail call i32 @bcmp(ptr nonnull %.sroa.0907.0.copyload, ptr nonnull @.str.152, i64 %.sroa.2908.0.copyload)
   %1227 = icmp eq i32 %bcmp.i2662, 0
   br i1 %1227, label %_ZN4llvm12ErrorSuccessD2Ev.exit2665, label %_ZN4llvmeqENS_9StringRefES0_.exit2663.thread7580
 
@@ -28086,7 +28086,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3469:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3473:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3276
-  %bcmp.i3472 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.223, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3472 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.223, i64 %.sroa.2525.0.copyload)
   %2031 = icmp eq i32 %bcmp.i3472, 0
   br i1 %2031, label %_ZN4llvmeqENS_9StringRefES0_.exit3473.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit3655
 
@@ -28582,7 +28582,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3624:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3628:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3464
-  %bcmp.i3627 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.239, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3627 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.239, i64 %.sroa.2525.0.copyload)
   %2168 = icmp eq i32 %bcmp.i3627, 0
   br i1 %2168, label %_ZN4llvmeqENS_9StringRefES0_.exit3628.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit3736
 
@@ -28669,7 +28669,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3651:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3655:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3473
-  %bcmp.i3654 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.242, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3654 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.242, i64 %.sroa.2525.0.copyload)
   %2192 = icmp eq i32 %bcmp.i3654, 0
   br i1 %2192, label %_ZN4llvmeqENS_9StringRefES0_.exit3655.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit3673
 
@@ -28727,7 +28727,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3669:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3673:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3655
-  %bcmp.i3672 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.244, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3672 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.244, i64 %.sroa.2525.0.copyload)
   %2208 = icmp eq i32 %bcmp.i3672, 0
   br i1 %2208, label %_ZN4llvmeqENS_9StringRefES0_.exit3673.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit3691
 
@@ -28785,7 +28785,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3687:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3691:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3673
-  %bcmp.i3690 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.246, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3690 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.246, i64 %.sroa.2525.0.copyload)
   %2224 = icmp eq i32 %bcmp.i3690, 0
   br i1 %2224, label %_ZN4llvmeqENS_9StringRefES0_.exit3691.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit3700
 
@@ -28930,7 +28930,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3732:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3736:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3628
-  %bcmp.i3735 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.251, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3735 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.251, i64 %.sroa.2525.0.copyload)
   %2264 = icmp eq i32 %bcmp.i3735, 0
   br i1 %2264, label %_ZN4llvmeqENS_9StringRefES0_.exit3736.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit3990
 
@@ -29656,7 +29656,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3956:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3960:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3940
-  %bcmp.i3959 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.274, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3959 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.274, i64 %.sroa.2525.0.copyload)
   %2470 = icmp eq i32 %bcmp.i3959, 0
   br i1 %2470, label %_ZN4llvmeqENS_9StringRefES0_.exit3960.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit4033
 
@@ -29754,7 +29754,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit3986:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit3990:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3736
-  %bcmp.i3989 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.277, i64 %.sroa.2525.0.copyload)
+  %bcmp.i3989 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.277, i64 %.sroa.2525.0.copyload)
   %2500 = icmp eq i32 %bcmp.i3989, 0
   br i1 %2500, label %_ZN4llvmeqENS_9StringRefES0_.exit3990.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit4527.thread8087
 
@@ -29886,7 +29886,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit4029:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit4033:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3960
-  %bcmp.i4032 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.281, i64 %.sroa.2525.0.copyload)
+  %bcmp.i4032 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.281, i64 %.sroa.2525.0.copyload)
   %2540 = icmp eq i32 %bcmp.i4032, 0
   br i1 %2540, label %_ZN4llvmeqENS_9StringRefES0_.exit4033.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit4063
 
@@ -29986,7 +29986,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit4059:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit4063:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit4033
-  %bcmp.i4062 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.284, i64 %.sroa.2525.0.copyload)
+  %bcmp.i4062 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.284, i64 %.sroa.2525.0.copyload)
   %2570 = icmp eq i32 %bcmp.i4062, 0
   br i1 %2570, label %_ZN4llvmeqENS_9StringRefES0_.exit4063.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit4123
 
@@ -30082,7 +30082,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit4089:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit4093:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit3700
-  %bcmp.i4092 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.287, i64 %.sroa.2525.0.copyload)
+  %bcmp.i4092 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.287, i64 %.sroa.2525.0.copyload)
   %2600 = icmp eq i32 %bcmp.i4092, 0
   br i1 %2600, label %_ZN4llvmeqENS_9StringRefES0_.exit4093.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit4313
 
@@ -30178,7 +30178,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit4119:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit4123:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit4063
-  %bcmp.i4122 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.290, i64 %.sroa.2525.0.copyload)
+  %bcmp.i4122 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.290, i64 %.sroa.2525.0.copyload)
   %2630 = icmp eq i32 %bcmp.i4122, 0
   br i1 %2630, label %_ZN4llvmeqENS_9StringRefES0_.exit4123.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit4304
 
@@ -30764,7 +30764,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit4300:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit4304:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit4123
-  %bcmp.i4303 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.309, i64 %.sroa.2525.0.copyload)
+  %bcmp.i4303 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.309, i64 %.sroa.2525.0.copyload)
   %2796 = icmp eq i32 %bcmp.i4303, 0
   br i1 %2796, label %_ZN4llvmeqENS_9StringRefES0_.exit4304.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit4517
 
@@ -30793,7 +30793,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit4309:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit4313:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit4093
-  %bcmp.i4312 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.310, i64 %.sroa.2525.0.copyload)
+  %bcmp.i4312 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.310, i64 %.sroa.2525.0.copyload)
   %2804 = icmp eq i32 %bcmp.i4312, 0
   br i1 %2804, label %_ZN4llvmeqENS_9StringRefES0_.exit4313.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit4527.thread8087
 
@@ -31456,7 +31456,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit4513:              ; preds = %_ZNKSt14default_del
   br label %_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit4517:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit4304
-  %bcmp.i4516 = tail call i32 @bcmp(ptr %.sroa.0524.0.copyload, ptr nonnull @.str.330, i64 %.sroa.2525.0.copyload)
+  %bcmp.i4516 = tail call i32 @bcmp(ptr nonnull %.sroa.0524.0.copyload, ptr nonnull @.str.330, i64 %.sroa.2525.0.copyload)
   %2989 = icmp eq i32 %bcmp.i4516, 0
   br i1 %2989, label %_ZN4llvmeqENS_9StringRefES0_.exit4517.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit4527.thread8087
 
@@ -73472,7 +73472,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit281:               ; preds = %_ZN4llvmeqENS_9Stri
   br label %270
 
 _ZN4llvmeqENS_9StringRefES0_.exit285:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
-  %bcmp.i284 = tail call i32 @bcmp(ptr %.sroa.085.0.copyload, ptr nonnull @.str.505, i64 %.sroa.286.0.copyload)
+  %bcmp.i284 = tail call i32 @bcmp(ptr nonnull %.sroa.085.0.copyload, ptr nonnull @.str.505, i64 %.sroa.286.0.copyload)
   %208 = icmp eq i32 %bcmp.i284, 0
   br i1 %208, label %_ZN4llvm12ErrorSuccessD2Ev.exit286, label %_ZN4llvmeqENS_9StringRefES0_.exit315
 
@@ -73540,7 +73540,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit311:               ; preds = %_ZN4llvmeqENS_9Stri
   br label %270
 
 _ZN4llvmeqENS_9StringRefES0_.exit315:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit285
-  %bcmp.i314 = tail call i32 @bcmp(ptr %.sroa.085.0.copyload, ptr nonnull @.str.510, i64 %.sroa.286.0.copyload)
+  %bcmp.i314 = tail call i32 @bcmp(ptr nonnull %.sroa.085.0.copyload, ptr nonnull @.str.510, i64 %.sroa.286.0.copyload)
   %218 = icmp eq i32 %bcmp.i314, 0
   br i1 %218, label %_ZN4llvm12ErrorSuccessD2Ev.exit316, label %_ZN4llvmeqENS_9StringRefES0_.exit320.thread653
 
@@ -76373,7 +76373,7 @@ _ZL36startsWithDefaultPipelineAliasPrefixN4llvm9StringRefE.exit.i: ; preds = %_Z
   br i1 %64, label %_ZL36startsWithDefaultPipelineAliasPrefixN4llvm9StringRefE.exit.thread.i, label %.lr.ph.i.i.i.preheader
 
 _ZL36startsWithDefaultPipelineAliasPrefixN4llvm9StringRefE.exit.thread.i: ; preds = %_ZL36startsWithDefaultPipelineAliasPrefixN4llvm9StringRefE.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit3.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
-  %65 = tail call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) @_ZL17DefaultAliasRegex, ptr %.sroa.033.0.copyload, i64 %.sroa.234.0.copyload, ptr noundef null, ptr noundef null) #25
+  %65 = tail call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) @_ZL17DefaultAliasRegex, ptr nonnull %.sroa.033.0.copyload, i64 %.sroa.234.0.copyload, ptr noundef null, ptr noundef null) #25
   br i1 %65, label %_ZL16isModulePassNameIN4llvm11SmallVectorISt8functionIFbNS0_9StringRefERNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS5_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEELj2EEEEbS3_RT_.exit.thread, label %263
 
 66:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit3.thread17.i.i
@@ -79823,7 +79823,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit153:             ; preds = %_ZN4llvm11PassBuild
   br i1 %21, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit241.thread411
 
 _ZN4llvmeqENS_9StringRefES0_.exit157:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
-  %bcmp.i156 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.355, i64 %1)
+  %bcmp.i156 = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull @.str.355, i64 %1)
   %22 = icmp eq i32 %bcmp.i156, 0
   br i1 %22, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit241.thread411
 
@@ -80127,7 +80127,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit230:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %31, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit274.thread468
 
 _ZN4llvmeqENS_9StringRefES0_.exit234:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
-  %bcmp.i233 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.502, i64 %1)
+  %bcmp.i233 = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull @.str.502, i64 %1)
   %32 = icmp eq i32 %bcmp.i233, 0
   br i1 %32, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit274.thread468
 
@@ -108361,7 +108361,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %38, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE24_M_get_insert_unique_posERS7_.exit, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #30
+  %40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #30
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %43 = icmp slt i32 %42, 0
@@ -108427,7 +108427,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %67, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE24_M_get_insert_unique_posERS7_.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #30
+  %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #30
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %70) #25
   %72 = icmp slt i32 %71, 0

@@ -3364,19 +3364,19 @@ land.rhs.lr.ph:                                   ; preds = %invoke.cont17
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
-  %i.094 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc, %for.inc ]
+  %i.098 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc, %for.inc ]
   %4 = load i32, ptr %count.i, align 8
-  %cmp28 = icmp slt i32 %i.094, %4
+  %cmp28 = icmp slt i32 %i.098, %4
   br i1 %cmp28, label %for.body, label %if.then44
 
 for.body:                                         ; preds = %land.rhs
-  %call30 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %call1, i32 noundef %i.094)
+  %call30 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %call1, i32 noundef %i.098)
           to label %invoke.cont29 unwind label %ehcleanup
 
 invoke.cont29:                                    ; preds = %for.body
   %5 = load ptr, ptr %call30, align 8
   %call.i25 = invoke noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %call5, ptr noundef %5, i32 noundef 0)
-          to label %invoke.cont33 unwind label %ehcleanup
+          to label %invoke.cont33 unwind label %ehcleanup.thread92
 
 invoke.cont33:                                    ; preds = %invoke.cont29
   %cmp.i23 = icmp slt i32 %call.i25, 0
@@ -3384,7 +3384,7 @@ invoke.cont33:                                    ; preds = %invoke.cont29
 
 if.then36:                                        ; preds = %invoke.cont33
   invoke void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call5, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %for.inc unwind label %ehcleanup
+          to label %for.inc unwind label %ehcleanup.thread92
 
 lpad10:                                           ; preds = %new.notnull7
   %6 = landingpad { ptr, i32 }
@@ -3393,7 +3393,7 @@ lpad10:                                           ; preds = %new.notnull7
   br label %eh.resume
 
 for.inc:                                          ; preds = %invoke.cont33, %if.then36
-  %inc = add nuw nsw i32 %i.094, 1
+  %inc = add nuw nsw i32 %i.098, 1
   %7 = load i32, ptr %status, align 4
   %cmp.i21 = icmp sgt i32 %7, 0
   br i1 %cmp.i21, label %delete.notnull.i55, label %land.rhs, !llvm.loop !19
@@ -3424,14 +3424,14 @@ cleanup.action56:                                 ; preds = %delete.notnull5.i, 
   %senum.sroa.0.2 = phi ptr [ null, %delete.notnull5.i ], [ %call45, %new.cont53 ]
   %10 = load ptr, ptr %agg.tmp, align 8
   %isnull.i31 = icmp eq ptr %10, null
-  br i1 %isnull.i31, label %if.end65.thread, label %delete.notnull.i32
+  br i1 %isnull.i31, label %if.end65, label %delete.notnull.i32
 
 delete.notnull.i32:                               ; preds = %cleanup.action56
   %vtable.i33 = load ptr, ptr %10, align 8
   %vfn.i34 = getelementptr inbounds nuw i8, ptr %vtable.i33, i64 8
   %11 = load ptr, ptr %vfn.i34, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(40) %10) #21
-  br label %if.end65.thread
+  br label %if.end65
 
 lpad51:                                           ; preds = %new.notnull47
   %12 = landingpad { ptr, i32 }
@@ -3460,44 +3460,53 @@ delete.end.i48:                                   ; preds = %if.end65.critedge
   store i32 7, ptr %status, align 4
   br label %delete.notnull.i55
 
-if.end65.thread:                                  ; preds = %cleanup.action56, %delete.notnull.i32
-  %.pr = load i32, ptr %status, align 4
-  %cmp.i5298 = icmp sgt i32 %.pr, 0
-  br i1 %cmp.i5298, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59, label %return
+if.end65:                                         ; preds = %delete.notnull.i32, %cleanup.action56
+  %16 = load i32, ptr %status, align 4
+  %cmp.i52 = icmp sgt i32 %16, 0
+  br i1 %cmp.i52, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59, label %return
 
-delete.notnull.i55:                               ; preds = %for.inc, %if.end65.critedge, %delete.end.i48, %invoke.cont17
+delete.notnull.i55:                               ; preds = %for.inc, %invoke.cont17, %if.end65.critedge, %delete.end.i48
   %vtable.i56 = load ptr, ptr %call5, align 8
   %vfn.i57 = getelementptr inbounds nuw i8, ptr %vtable.i56, i64 8
-  %16 = load ptr, ptr %vfn.i57, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(40) %call5) #21
+  %17 = load ptr, ptr %vfn.i57, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(40) %call5) #21
   br label %return
 
-_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59: ; preds = %if.end65.thread
+_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59: ; preds = %if.end65
   %isnull.i60 = icmp eq ptr %senum.sroa.0.2, null
   br i1 %isnull.i60, label %return, label %delete.notnull.i61
 
 delete.notnull.i61:                               ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59
   %vtable.i62 = load ptr, ptr %senum.sroa.0.2, align 8
   %vfn.i63 = getelementptr inbounds nuw i8, ptr %vtable.i62, i64 8
-  %17 = load ptr, ptr %vfn.i63, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(144) %senum.sroa.0.2) #21
+  %18 = load ptr, ptr %vfn.i63, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(144) %senum.sroa.0.2) #21
   br label %return
 
-ehcleanup:                                        ; preds = %for.body, %if.then36, %invoke.cont29
-  %18 = landingpad { ptr, i32 }
+ehcleanup.thread92:                               ; preds = %if.then36, %invoke.cont29
+  %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
+  br label %delete.notnull.i66
+
+ehcleanup:                                        ; preds = %for.body
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %delete.notnull.i66
+
+delete.notnull.i66:                               ; preds = %ehcleanup, %ehcleanup.thread92
+  %lpad.phi95 = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup.thread92 ], [ %lpad.thr_comm.split-lp, %ehcleanup ]
   %vtable.i67 = load ptr, ptr %call5, align 8
   %vfn.i68 = getelementptr inbounds nuw i8, ptr %vtable.i67, i64 8
   %19 = load ptr, ptr %vfn.i68, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(40) %call5) #21
   br label %eh.resume
 
-return:                                           ; preds = %if.then.i, %new.cont15, %delete.notnull.i55, %if.end65.thread, %delete.notnull.i61, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59, %if.then2, %new.notnull, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.then2 ], [ %call3, %new.notnull ], [ null, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59 ], [ null, %delete.notnull.i61 ], [ null, %delete.notnull.i55 ], [ %senum.sroa.0.2, %if.end65.thread ], [ null, %new.cont15 ], [ null, %if.then.i ]
+return:                                           ; preds = %delete.notnull.i55, %if.end65, %new.cont15, %if.then.i, %delete.notnull.i61, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59, %if.then2, %new.notnull, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.then2 ], [ %call3, %new.notnull ], [ null, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59 ], [ null, %delete.notnull.i61 ], [ null, %if.then.i ], [ null, %new.cont15 ], [ null, %delete.notnull.i55 ], [ %senum.sroa.0.2, %if.end65 ]
   ret ptr %retval.0
 
-eh.resume:                                        ; preds = %ehcleanup, %ehcleanup.thread, %lpad10, %lpad
-  %.pn16 = phi { ptr, i32 } [ %1, %lpad ], [ %6, %lpad10 ], [ %12, %ehcleanup.thread ], [ %18, %ehcleanup ]
+eh.resume:                                        ; preds = %delete.notnull.i66, %ehcleanup.thread, %lpad10, %lpad
+  %.pn16 = phi { ptr, i32 } [ %1, %lpad ], [ %6, %lpad10 ], [ %12, %ehcleanup.thread ], [ %lpad.phi95, %delete.notnull.i66 ]
   resume { ptr, i32 } %.pn16
 }
 

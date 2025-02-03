@@ -4054,7 +4054,7 @@ if.then:                                          ; preds = %invoke.cont10
 lpad9:                                            ; preds = %for.end
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i23)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i23)
           to label %_ZN17btCollisionObjectdlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad9
@@ -4239,7 +4239,7 @@ if.then42:                                        ; preds = %invoke.cont41
 lpad40:                                           ; preds = %for.end38
   %28 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i147)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i147)
           to label %_ZN17btCollisionObjectdlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad40
@@ -4495,7 +4495,7 @@ if.then30:                                        ; preds = %invoke.cont29
 lpad28:                                           ; preds = %for.end26
   %28 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i200)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i200)
           to label %_ZN17btCollisionObjectdlEPv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad28
@@ -5048,7 +5048,7 @@ lpad1.loopexit.split-lp:                          ; preds = %invoke.cont, %for.e
 lpad5:                                            ; preds = %invoke.cont3
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i37)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i37)
           to label %ehcleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad5
@@ -5389,7 +5389,7 @@ if.then:                                          ; preds = %for.body51
 lpad29:                                           ; preds = %invoke.cont27
   %17 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i85)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i85)
           to label %ehcleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad29
@@ -5912,7 +5912,7 @@ invoke.cont70:                                    ; preds = %invoke.cont67
 lpad25:                                           ; preds = %invoke.cont23
   %46 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i55)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i55)
           to label %ehcleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad25
@@ -6729,7 +6729,7 @@ for.inc153:                                       ; preds = %invoke.cont147
 lpad102:                                          ; preds = %invoke.cont99
   %62 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i141142)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i141142)
           to label %ehcleanup188 unwind label %terminate.lpad.i180
 
 terminate.lpad.i180:                              ; preds = %lpad102

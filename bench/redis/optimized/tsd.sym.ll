@@ -541,9 +541,9 @@ tsd_set.exit84:                                   ; preds = %if.then4.i79, %if.e
   %15 = ptrtoint ptr %tsd to i64
   %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 112
   store i64 %15, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i, align 8
-  tail call void @tsd_te_init(ptr noundef %tsd) #7
-  tail call void @tsd_san_init(ptr noundef %tsd) #7
-  %call1.i = tail call zeroext i1 @tsd_tcache_enabled_data_init(ptr noundef %tsd) #7
+  tail call void @tsd_te_init(ptr noundef nonnull %tsd) #7
+  tail call void @tsd_san_init(ptr noundef nonnull %tsd) #7
+  %call1.i = tail call zeroext i1 @tsd_tcache_enabled_data_init(ptr noundef nonnull %tsd) #7
   br label %if.end48
 
 if.else17:                                        ; preds = %if.then12

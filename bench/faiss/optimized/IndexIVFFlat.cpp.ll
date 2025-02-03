@@ -271,7 +271,7 @@ define void @_ZN5faiss12IndexIVFFlat8add_coreElPKfPKlS4_Pv(ptr noundef nonnull a
 33:                                               ; preds = %26
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #14
+  call void @__cxa_free_exception(ptr nonnull %29) #14
   br label %84
 
 35:                                               ; preds = %6
@@ -309,7 +309,7 @@ define void @_ZN5faiss12IndexIVFFlat8add_coreElPKfPKlS4_Pv(ptr noundef nonnull a
 49:                                               ; preds = %42
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %45) #14
+  call void @__cxa_free_exception(ptr nonnull %45) #14
   br label %84
 
 51:                                               ; preds = %35
@@ -349,7 +349,7 @@ define void @_ZN5faiss12IndexIVFFlat8add_coreElPKfPKlS4_Pv(ptr noundef nonnull a
 68:                                               ; preds = %61
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %64) #14
+  call void @__cxa_free_exception(ptr nonnull %64) #14
   br label %84
 
 70:                                               ; preds = %51
@@ -427,7 +427,7 @@ define void @_ZNK5faiss12IndexIVFFlat14encode_vectorsElPKfPKlPhb(ptr noundef non
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #14
+  call void @__cxa_free_exception(ptr nonnull %20) #14
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -1147,7 +1147,7 @@ define void @_ZN5faiss17IndexIVFFlatDedup12add_with_idsElPKfPKl(ptr noundef nonn
 29:                                               ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %25) #14
+  call void @__cxa_free_exception(ptr nonnull %25) #14
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -1192,7 +1192,7 @@ define void @_ZN5faiss17IndexIVFFlatDedup12add_with_idsElPKfPKl(ptr noundef nonn
 49:                                               ; preds = %42
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %45) #14
+  call void @__cxa_free_exception(ptr nonnull %45) #14
   br label %51
 
 51:                                               ; preds = %49, %47
@@ -1870,7 +1870,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
 215:                                              ; preds = %208
   %216 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %211) #14
+  call void @__cxa_free_exception(ptr nonnull %211) #14
   br label %217
 
 217:                                              ; preds = %215, %213
@@ -2091,7 +2091,7 @@ define void @_ZNK5faiss17IndexIVFFlatDedup18search_preassignedElPKflPKlS2_PfPlbP
 26:                                               ; preds = %19
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %22) #14
+  call void @__cxa_free_exception(ptr nonnull %22) #14
   br label %28
 
 28:                                               ; preds = %26, %24

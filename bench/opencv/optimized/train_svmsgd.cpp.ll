@@ -1134,7 +1134,7 @@ define hidden noundef zeroext i1 @_Z17findPointsForLineRKN2cv3MatEfPNS_6Point_Ii
 8:                                                ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_Z12fillSegmentsRSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EEii(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %3, i32 noundef %4)
-          to label %.preheader unwind label %.loopexit.split-lp
+          to label %.preheader unwind label %27
 
 .preheader:                                       ; preds = %8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1149,57 +1149,55 @@ define hidden noundef zeroext i1 @_Z17findPointsForLineRKN2cv3MatEfPNS_6Point_Ii
 
 .lr.ph:                                           ; preds = %.preheader, %21
   %16 = phi i64 [ %25, %21 ], [ 0, %.preheader ]
-  %.021 = phi i32 [ %24, %21 ], [ 0, %.preheader ]
-  %.01520 = phi i32 [ %spec.select, %21 ], [ 0, %.preheader ]
+  %.023 = phi i32 [ %24, %21 ], [ 0, %.preheader ]
+  %.01522 = phi i32 [ %spec.select, %21 ], [ 0, %.preheader ]
   %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %16
-  %18 = zext nneg i32 %.01520 to i64
+  %18 = zext nneg i32 %.01522 to i64
   %19 = getelementptr inbounds nuw %"class.cv::Point_", ptr %2, i64 %18
   %20 = invoke noundef zeroext i1 @_Z25findCrossPointWithBordersRKN2cv3MatEfRKSt4pairINS_6Point_IiEES5_ERS5_(ptr noundef nonnull align 8 dereferenceable(96) %0, float noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(8) %19)
-          to label %21 unwind label %.loopexit
+          to label %21 unwind label %.thread24
 
 21:                                               ; preds = %.lr.ph
   %22 = zext i1 %20 to i32
-  %spec.select = add nuw nsw i32 %.01520, %22
+  %spec.select = add nuw nsw i32 %.01522, %22
   %23 = icmp samesign ult i32 %spec.select, 2
-  %24 = add i32 %.021, 1
+  %24 = add i32 %.023, 1
   %25 = zext i32 %24 to i64
   %26 = icmp ugt i64 %15, %25
   %or.cond = select i1 %23, i1 %26, i1 false
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %or.cond, label %.lr.ph, label %.thread, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.lr.ph
+.thread24:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %28
 
-.loopexit.split-lp:                               ; preds = %8
+27:                                               ; preds = %8
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   %.pre = load ptr, ptr %6, align 8
-  br label %27
+  %.not.i.i.i = icmp eq ptr %.pre, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit, label %28
 
-27:                                               ; preds = %.loopexit.split-lp, %.loopexit
-  %28 = phi ptr [ %11, %.loopexit ], [ %.pre, %.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit, label %29
-
-29:                                               ; preds = %27
-  tail call void @_ZdlPv(ptr noundef nonnull %28) #18
+28:                                               ; preds = %.thread24, %27
+  %lpad.phi27 = phi { ptr, i32 } [ %lpad.loopexit, %.thread24 ], [ %lpad.loopexit.split-lp, %27 ]
+  %29 = phi ptr [ %11, %.thread24 ], [ %.pre, %27 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %29) #18
   br label %_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit
 
-_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit: ; preds = %27, %29
-  resume { ptr, i32 } %lpad.phi
+_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit: ; preds = %27, %28
+  %lpad.phi28 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %27 ], [ %lpad.phi27, %28 ]
+  resume { ptr, i32 } %lpad.phi28
 
-._crit_edge:                                      ; preds = %21, %.preheader
+._crit_edge:                                      ; preds = %.preheader
   %.not.i.i.i17 = icmp eq ptr %11, null
-  br i1 %.not.i.i.i17, label %_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit18, label %30
+  br i1 %.not.i.i.i17, label %_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit18, label %.thread
 
-30:                                               ; preds = %._crit_edge
+.thread:                                          ; preds = %21, %._crit_edge
   tail call void @_ZdlPv(ptr noundef nonnull %11) #18
   br label %_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit18
 
-_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit18: ; preds = %30, %._crit_edge, %5
+_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_EED2Ev.exit18: ; preds = %.thread, %._crit_edge, %5
   %.014 = xor i1 %7, true
   ret i1 %.014
 }

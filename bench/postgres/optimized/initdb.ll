@@ -3883,7 +3883,7 @@ set_info_version.exit:                            ; preds = %.critedge.i, %308, 
   unreachable
 
 331:                                              ; preds = %321
-  call void @free(ptr noundef %326) #18
+  call void @free(ptr noundef nonnull %326) #18
   br label %get_su_pwd.exit
 
 332:                                              ; preds = %320

@@ -1806,24 +1806,24 @@ land.lhs.true94:                                  ; preds = %if.end90
   %cmp95 = icmp sle i64 %call86, %sub
   %cmp99 = icmp eq i64 %call86, 0
   %or.cond = or i1 %cmp99, %cmp95
-  br i1 %or.cond, label %if.end111, label %cond.false102
+  br i1 %or.cond, label %done.thread79, label %cond.false102
 
 cond.false98:                                     ; preds = %if.end90
   %cmp99.old = icmp eq i64 %call86, 0
-  br i1 %cmp99.old, label %if.end111, label %cond.false102
+  br i1 %cmp99.old, label %done.thread79, label %cond.false102
 
 cond.false102:                                    ; preds = %land.lhs.true94, %cond.false98
   %call103 = call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %writer, i64 noundef %call86, i32 noundef %35) #12
   %39 = icmp eq i32 %call103, -1
-  br i1 %39, label %if.then.i72, label %if.end111
+  br i1 %39, label %if.then.i72, label %done.thread79
 
-if.end111:                                        ; preds = %land.lhs.true94, %cond.false98, %cond.false102
+done.thread79:                                    ; preds = %cond.false102, %cond.false98, %land.lhs.true94
   %40 = load i32, ptr %format, align 8
   %call112 = call fastcc i32 @fill_number(ptr noundef nonnull %writer, ptr noundef %spec, ptr noundef nonnull %call65, i64 noundef %index.0, ptr noundef null, i64 noundef 0, i32 noundef %40, ptr noundef %locale, i32 noundef 0)
   br label %if.then.i72
 
-if.then.i72:                                      ; preds = %if.end111, %cond.end, %if.end84, %cond.false102
-  %result.0 = phi i32 [ -1, %cond.end ], [ -1, %if.end84 ], [ -1, %cond.false102 ], [ %call112, %if.end111 ]
+if.then.i72:                                      ; preds = %cond.end, %if.end84, %cond.false102, %done.thread79
+  %result.083 = phi i32 [ %call112, %done.thread79 ], [ -1, %cond.false102 ], [ -1, %if.end84 ], [ -1, %cond.end ]
   %41 = load i64, ptr %call65, align 8
   %42 = and i64 %41, 2147483648
   %cmp.i2.not.i = icmp eq i64 %42, 0
@@ -1840,7 +1840,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i73
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.end64, %if.end24, %land.lhs.true, %if.then, %if.then.i72, %if.end.i.i73, %if.then1.i.i
-  %result.078 = phi i32 [ %result.0, %if.then.i72 ], [ %result.0, %if.end.i.i73 ], [ %result.0, %if.then1.i.i ], [ -1, %if.then ], [ -1, %land.lhs.true ], [ -1, %if.end24 ], [ -1, %if.end64 ]
+  %result.078 = phi i32 [ %result.083, %if.then.i72 ], [ %result.083, %if.end.i.i73 ], [ %result.083, %if.then1.i.i ], [ -1, %if.then ], [ -1, %land.lhs.true ], [ -1, %if.end24 ], [ -1, %if.end64 ]
   %43 = load ptr, ptr %locale, align 8
   %cmp.not.i.i = icmp eq ptr %43, null
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i.i74

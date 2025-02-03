@@ -513,7 +513,7 @@ define hidden void @_ZN7nanogui9ImageView9set_imageEPNS_7TextureE(ptr noundef no
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #20
+  tail call void @__cxa_free_exception(ptr nonnull %8) #20
   br label %32
 
 12:                                               ; preds = %2

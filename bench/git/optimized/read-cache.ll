@@ -481,7 +481,7 @@ if.then21.i:                                      ; preds = %if.end18.thread.i, 
   br i1 %tobool22.not.i, label %if.then23.i, label %return
 
 if.then23.i:                                      ; preds = %if.then21.i
-  tail call fastcc void @replace_index_entry(ptr noundef nonnull %istate, i32 noundef %pos.0.i, ptr noundef %ce)
+  tail call fastcc void @replace_index_entry(ptr noundef nonnull %istate, i32 noundef %pos.0.i, ptr noundef nonnull %ce)
   br label %return
 
 if.then30.i:                                      ; preds = %if.end18.i
@@ -2056,9 +2056,9 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %re
   br i1 %tobool.not, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  tail call void @record_resolve_undo(ptr noundef nonnull %istate, ptr noundef %2) #28
-  tail call void @remove_name_hash(ptr noundef nonnull %istate, ptr noundef %2) #28
-  tail call void @save_or_free_index_entry(ptr noundef nonnull %istate, ptr noundef %2) #28
+  tail call void @record_resolve_undo(ptr noundef nonnull %istate, ptr noundef nonnull %2) #28
+  tail call void @remove_name_hash(ptr noundef nonnull %istate, ptr noundef nonnull %2) #28
+  tail call void @save_or_free_index_entry(ptr noundef nonnull %istate, ptr noundef nonnull %2) #28
   %3 = load i32, ptr %cache_changed.i, align 4
   %or.i = or i32 %3, 4
   store i32 %or.i, ptr %cache_changed.i, align 4

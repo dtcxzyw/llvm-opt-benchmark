@@ -757,7 +757,7 @@ define i32 @cli_filecopy(ptr noundef readonly captures(none) %0, ptr noundef rea
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
-  tail call void @free(ptr noundef %11) #22
+  tail call void @free(ptr noundef nonnull %11) #22
   %23 = tail call i32 @close(i32 noundef %3) #22
   %24 = tail call i32 @close(i32 noundef %6) #22
   br label %25

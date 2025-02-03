@@ -13020,7 +13020,7 @@ _ZSt10_ConstructI8_PrimvarJRKS0_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #21
-  invoke void @_ZSt8_DestroyIP8_PrimvarEvT_S2_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIP8_PrimvarEvT_S2_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22
@@ -15632,13 +15632,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8.i.i.i: ; preds = %48, %_
   %53 = ptrtoint ptr %52 to i64
   %54 = and i64 %53, 7
   %.not.i.i9.i.i.i = icmp eq i64 %54, 0
-  br i1 %.not.i.i9.i.i.i, label %134, label %55
+  br i1 %.not.i.i9.i.i.i, label %133, label %55
 
 55:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8.i.i.i
   %56 = and i64 %53, -8
   %57 = inttoptr i64 %56 to ptr
   %58 = atomicrmw sub ptr %57, i32 2 release, align 4
-  br label %134
+  br label %133
 
 _ZNSt16allocator_traitsISaI8_PrimvarEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseI8_PrimvarSaIS0_EE11_M_allocateEm.exit
   %.not14.i.i.i.i.i = icmp eq ptr %6, %1
@@ -15672,7 +15672,7 @@ _ZSt10_ConstructI8_PrimvarJRKS0_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i
   %67 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %131 unwind label %68
+          to label %.thread unwind label %68
 
 68:                                               ; preds = %66
   %69 = landingpad { ptr, i32 }
@@ -15718,7 +15718,7 @@ _ZSt10_ConstructI8_PrimvarJRKS0_EEvPT_DpOT0_.exit.i.i.i.i.i36: ; preds = %.lr.ph
   %81 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %134 unwind label %82
+          to label %133 unwind label %82
 
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
@@ -15830,50 +15830,50 @@ _ZNSt12_Vector_baseI8_PrimvarSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt
   store ptr %130, ptr %125, align 8
   ret void
 
-131:                                              ; preds = %66
-  %132 = extractvalue { ptr, i32 } %67, 0
-  %133 = tail call ptr @__cxa_begin_catch(ptr %132) #21
+.thread:                                          ; preds = %66
+  %131 = extractvalue { ptr, i32 } %67, 0
+  %132 = tail call ptr @__cxa_begin_catch(ptr %131) #21
   tail call void @_ZNSt16allocator_traitsISaI8_PrimvarEE7destroyIS0_EEvRS1_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23) #21
   br label %139
 
-134:                                              ; preds = %55, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8.i.i.i, %80
+133:                                              ; preds = %55, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8.i.i.i, %80
   %.0.lpad-body.ph = phi ptr [ %72, %80 ], [ %22, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8.i.i.i ], [ %22, %55 ]
   %eh.lpad-body.ph = phi { ptr, i32 } [ %81, %80 ], [ %37, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8.i.i.i ], [ %37, %55 ]
-  %135 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
-  %136 = tail call ptr @__cxa_begin_catch(ptr %135) #21
+  %134 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
+  %135 = tail call ptr @__cxa_begin_catch(ptr %134) #21
   invoke void @_ZSt8_DestroyIP8_PrimvarS0_EvT_S2_RSaIT0_E(ptr noundef %22, ptr noundef nonnull %.0.lpad-body.ph, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %139 unwind label %137
+          to label %138 unwind label %136
 
-137:                                              ; preds = %_ZNSt12_Vector_baseI8_PrimvarSaIS0_EE13_M_deallocateEPS0_m.exit44, %134
-  %138 = landingpad { ptr, i32 }
+136:                                              ; preds = %_ZNSt12_Vector_baseI8_PrimvarSaIS0_EE13_M_deallocateEPS0_m.exit44, %133
+  %137 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %142 unwind label %143
+          to label %141 unwind label %142
 
-139:                                              ; preds = %134, %131
+138:                                              ; preds = %133
   %.not.i43 = icmp eq ptr %22, null
-  br i1 %.not.i43, label %_ZNSt12_Vector_baseI8_PrimvarSaIS0_EE13_M_deallocateEPS0_m.exit44, label %140
+  br i1 %.not.i43, label %_ZNSt12_Vector_baseI8_PrimvarSaIS0_EE13_M_deallocateEPS0_m.exit44, label %139
 
-140:                                              ; preds = %139
-  %141 = mul nuw nsw i64 %16, 80
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %141) #24
+139:                                              ; preds = %.thread, %138
+  %140 = mul nuw nsw i64 %16, 80
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %140) #24
   br label %_ZNSt12_Vector_baseI8_PrimvarSaIS0_EE13_M_deallocateEPS0_m.exit44
 
-_ZNSt12_Vector_baseI8_PrimvarSaIS0_EE13_M_deallocateEPS0_m.exit44: ; preds = %140, %139
+_ZNSt12_Vector_baseI8_PrimvarSaIS0_EE13_M_deallocateEPS0_m.exit44: ; preds = %139, %138
   invoke void @__cxa_rethrow() #22
-          to label %146 unwind label %137
+          to label %145 unwind label %136
 
-142:                                              ; preds = %137
-  resume { ptr, i32 } %138
+141:                                              ; preds = %136
+  resume { ptr, i32 } %137
 
-143:                                              ; preds = %137
-  %144 = landingpad { ptr, i32 }
+142:                                              ; preds = %136
+  %143 = landingpad { ptr, i32 }
           catch ptr null
-  %145 = extractvalue { ptr, i32 } %144, 0
-  tail call void @__clang_call_terminate(ptr %145) #23
+  %144 = extractvalue { ptr, i32 } %143, 0
+  tail call void @__clang_call_terminate(ptr %144) #23
   unreachable
 
-146:                                              ; preds = %_ZNSt12_Vector_baseI8_PrimvarSaIS0_EE13_M_deallocateEPS0_m.exit44
+145:                                              ; preds = %_ZNSt12_Vector_baseI8_PrimvarSaIS0_EE13_M_deallocateEPS0_m.exit44
   unreachable
 }
 

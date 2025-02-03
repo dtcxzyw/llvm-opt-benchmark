@@ -1803,7 +1803,7 @@ nfaExecGough8_Q2i.exit:                           ; preds = %if.end124.i
   br i1 %tobool149.i.not.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %nfaExecGough8_Q2i.exit
-  %call5 = tail call signext i8 @nfaExecMcClellan8_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef nonnull %q) #11
+  %call5 = tail call signext i8 @nfaExecMcClellan8_inAccept(ptr noundef nonnull %n, i32 noundef %report, ptr noundef nonnull %q) #11
   %tobool7.not = icmp eq i8 %call5, 0
   %spec.select130 = select i1 %tobool7.not, i8 1, i8 2
   br label %return
@@ -2130,7 +2130,7 @@ nfaExecGough16_Q2i.exit:                          ; preds = %if.end117.i
   br i1 %tobool139.i.not.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %nfaExecGough16_Q2i.exit
-  %call5 = tail call signext i8 @nfaExecMcClellan16_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef nonnull %q) #11
+  %call5 = tail call signext i8 @nfaExecMcClellan16_inAccept(ptr noundef nonnull %n, i32 noundef %report, ptr noundef nonnull %q) #11
   %tobool7.not = icmp eq i8 %call5, 0
   %spec.select130 = select i1 %tobool7.not, i8 1, i8 2
   br label %return
@@ -3615,7 +3615,7 @@ land.lhs.true117.i:                               ; preds = %if.then106.i
 if.then119.i:                                     ; preds = %land.lhs.true117.i
   %81 = getelementptr i8, ptr %add.ptr113.i, i64 80
   %add.ptr113.i.val = load i8, ptr %81, align 16
-  tail call fastcc void @run_accel_prog(ptr noundef nonnull %add.ptr2.i, i8 %add.ptr113.i.val, i32 %80, ptr noundef %buf, i64 noundef %offAdj, ptr noundef nonnull %incdec.ptr55.i, ptr noundef %call114.i, ptr noundef %som)
+  tail call fastcc void @run_accel_prog(ptr noundef nonnull %add.ptr2.i, i8 %add.ptr113.i.val, i32 %80, ptr noundef nonnull %buf, i64 noundef %offAdj, ptr noundef nonnull %incdec.ptr55.i, ptr noundef %call114.i, ptr noundef %som)
   br label %if.end120.i
 
 if.end120.i:                                      ; preds = %if.then119.i, %land.lhs.true117.i, %if.then106.i
@@ -4533,7 +4533,7 @@ land.lhs.true153.i:                               ; preds = %if.then141.i
 if.then155.i:                                     ; preds = %land.lhs.true153.i
   %73 = getelementptr i8, ptr %add.ptr149.i, i64 80
   %add.ptr149.i.val = load i8, ptr %73, align 16
-  tail call fastcc void @run_accel_prog(ptr noundef nonnull %add.ptr.i, i8 %add.ptr149.i.val, i32 %72, ptr noundef %buf, i64 noundef %offAdj, ptr noundef nonnull %incdec.ptr75.i, ptr noundef %call150.i, ptr noundef %som)
+  tail call fastcc void @run_accel_prog(ptr noundef nonnull %add.ptr.i, i8 %add.ptr149.i.val, i32 %72, ptr noundef nonnull %buf, i64 noundef %offAdj, ptr noundef nonnull %incdec.ptr75.i, ptr noundef %call150.i, ptr noundef %som)
   br label %if.end156.i
 
 if.end156.i:                                      ; preds = %if.then155.i, %land.lhs.true153.i, %if.then141.i

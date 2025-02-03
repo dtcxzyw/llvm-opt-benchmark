@@ -5294,7 +5294,7 @@ if.then79:                                        ; preds = %if.end75
   br label %return
 
 if.end80:                                         ; preds = %if.end75
-  call fastcc void @add_main_module(ptr noalias align 8 %tmp81, ptr noundef %0)
+  call fastcc void @add_main_module(ptr noalias align 8 %tmp81, ptr noundef nonnull %0)
   %status.sroa.0.0.copyload52 = load i32, ptr %tmp81, align 8
   %cmp83.not = icmp eq i32 %status.sroa.0.0.copyload52, 0
   br i1 %cmp83.not, label %if.end85, label %if.then84

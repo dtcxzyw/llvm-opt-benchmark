@@ -484,7 +484,7 @@ define void @_ZN5faiss14IndexShardsIVF12add_with_idsElPKfPKl(ptr noundef nonnull
 44:                                               ; preds = %37
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %40) #22
+  call void @__cxa_free_exception(ptr nonnull %40) #22
   br label %46
 
 46:                                               ; preds = %44, %42
@@ -529,7 +529,7 @@ define void @_ZN5faiss14IndexShardsIVF12add_with_idsElPKfPKl(ptr noundef nonnull
 62:                                               ; preds = %55
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %58) #22
+  call void @__cxa_free_exception(ptr nonnull %58) #22
   br label %64
 
 64:                                               ; preds = %62, %60
@@ -574,7 +574,7 @@ define void @_ZN5faiss14IndexShardsIVF12add_with_idsElPKfPKl(ptr noundef nonnull
 82:                                               ; preds = %75
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %78) #22
+  call void @__cxa_free_exception(ptr nonnull %78) #22
   br label %84
 
 84:                                               ; preds = %82, %80
@@ -981,7 +981,7 @@ define void @_ZNK5faiss14IndexShardsIVF6searchElPKflPfPlPKNS_16SearchParametersE
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %31) #22
+  call void @__cxa_free_exception(ptr nonnull %31) #22
   br label %37
 
 37:                                               ; preds = %35, %33
@@ -1033,7 +1033,7 @@ define void @_ZNK5faiss14IndexShardsIVF6searchElPKflPfPlPKNS_16SearchParametersE
 62:                                               ; preds = %55
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %58) #22
+  call void @__cxa_free_exception(ptr nonnull %58) #22
   br label %64
 
 64:                                               ; preds = %62, %60
@@ -1081,7 +1081,7 @@ define void @_ZNK5faiss14IndexShardsIVF6searchElPKflPfPlPKNS_16SearchParametersE
 81:                                               ; preds = %74
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %77) #22
+  call void @__cxa_free_exception(ptr nonnull %77) #22
   br label %83
 
 83:                                               ; preds = %81, %79
@@ -1705,7 +1705,7 @@ define void @_ZN5faiss14IndexShardsIVF8addIndexEPNS_5IndexE(ptr noundef nonnull 
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #22
+  call void @__cxa_free_exception(ptr nonnull %16) #22
   br label %44
 
 22:                                               ; preds = %6
@@ -1747,7 +1747,7 @@ define void @_ZN5faiss14IndexShardsIVF8addIndexEPNS_5IndexE(ptr noundef nonnull 
 41:                                               ; preds = %34
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %37) #22
+  call void @__cxa_free_exception(ptr nonnull %37) #22
   br label %44
 
 43:                                               ; preds = %22
@@ -2052,7 +2052,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
 43:                                               ; preds = %34
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %39) #22
+  call void @__cxa_free_exception(ptr nonnull %39) #22
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -2100,7 +2100,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
 65:                                               ; preds = %58
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %61) #22
+  call void @__cxa_free_exception(ptr nonnull %61) #22
   br label %67
 
 67:                                               ; preds = %65, %63
@@ -2150,7 +2150,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addIndexEPS1_(ptr
 84:                                               ; preds = %77
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %80) #22
+  call void @__cxa_free_exception(ptr nonnull %80) #22
   br label %86
 
 86:                                               ; preds = %84, %82
@@ -4609,7 +4609,7 @@ define internal void @"_ZNSt17_Function_handlerIFviPKN5faiss5IndexEEZNKS0_14Inde
 33:                                               ; preds = %26
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #22
+  call void @__cxa_free_exception(ptr nonnull %29) #22
   br label %35
 
 35:                                               ; preds = %33, %31

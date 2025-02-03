@@ -4956,7 +4956,7 @@ _Py_NewRef.exit:                                  ; preds = %if.end9, %if.end.i.
   %3 = load ptr, ptr %ste_varnames, align 8
   %call.i = tail call ptr @PyDict_New() #11
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %list2dict.exit.thread, label %if.end.i61
+  br i1 %tobool.not.i, label %if.then18, label %if.end.i61
 
 if.end.i61:                                       ; preds = %_Py_NewRef.exit
   %call1.i = tail call i64 @PyList_Size(ptr noundef %3) #11
@@ -4977,13 +4977,13 @@ if.then4.i:                                       ; preds = %for.body.i
   %4 = load i64, ptr %call.i, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i38.not.i = icmp eq i64 %5, 0
-  br i1 %cmp.i38.not.i, label %if.end.i31.i, label %list2dict.exit.thread
+  br i1 %cmp.i38.not.i, label %if.end.i31.i, label %if.then18
 
 if.end.i31.i:                                     ; preds = %if.then4.i
   %dec.i32.i = add i64 %4, -1
   store i64 %dec.i32.i, ptr %call.i, align 8
   %cmp.i33.i = icmp eq i64 %dec.i32.i, 0
-  br i1 %cmp.i33.i, label %return.sink.split.i, label %list2dict.exit.thread
+  br i1 %cmp.i33.i, label %return.sink.split.i, label %if.then18
 
 if.end5.i:                                        ; preds = %for.body.i
   %6 = load ptr, ptr %ob_item.i, align 8
@@ -5013,13 +5013,13 @@ Py_DECREF.exit27.i:                               ; preds = %if.then1.i25.i, %if
   %10 = load i64, ptr %call.i, align 8
   %11 = and i64 %10, 2147483648
   %cmp.i45.not.i = icmp eq i64 %11, 0
-  br i1 %cmp.i45.not.i, label %if.end.i13.i, label %list2dict.exit.thread
+  br i1 %cmp.i45.not.i, label %if.end.i13.i, label %if.then18
 
 if.end.i13.i:                                     ; preds = %Py_DECREF.exit27.i
   %dec.i14.i = add i64 %10, -1
   store i64 %dec.i14.i, ptr %call.i, align 8
   %cmp.i15.i = icmp eq i64 %dec.i14.i, 0
-  br i1 %cmp.i15.i, label %return.sink.split.i, label %list2dict.exit.thread
+  br i1 %cmp.i15.i, label %return.sink.split.i, label %if.then18
 
 if.end9.i:                                        ; preds = %if.end5.i
   br i1 %cmp.i41.not.i, label %if.end.i.i62, label %for.inc.i
@@ -5041,9 +5041,9 @@ for.inc.i:                                        ; preds = %if.then1.i.i, %if.e
 
 return.sink.split.i:                              ; preds = %if.end.i13.i, %if.end.i31.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #11
-  br label %list2dict.exit.thread
+  br label %if.then18
 
-list2dict.exit.thread:                            ; preds = %_Py_NewRef.exit, %if.then4.i, %if.end.i31.i, %Py_DECREF.exit27.i, %if.end.i13.i, %return.sink.split.i
+if.then18:                                        ; preds = %_Py_NewRef.exit, %if.then4.i, %if.end.i31.i, %Py_DECREF.exit27.i, %if.end.i13.i, %return.sink.split.i
   %u_varnames71 = getelementptr inbounds nuw i8, ptr %call, i64 576
   store ptr null, ptr %u_varnames71, align 8
   tail call fastcc void @compiler_unit_free(ptr noundef nonnull %call)
@@ -5079,10 +5079,10 @@ if.then30:                                        ; preds = %if.end27
   br i1 %cmp, label %if.then34, label %if.then30.if.end36_crit_edge
 
 if.then30.if.end36_crit_edge:                     ; preds = %if.then30
-  %.pre81 = load ptr, ptr %call, align 8
-  %ste_needs_classdict.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre81, i64 80
+  %.pre77 = load ptr, ptr %call, align 8
+  %ste_needs_classdict.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre77, i64 80
   %bf.load38.pre = load i8, ptr %ste_needs_classdict.phi.trans.insert, align 8
-  %.pre85.pre = load ptr, ptr %u_cellvars, align 8
+  %.pre81.pre = load ptr, ptr %u_cellvars, align 8
   br label %if.end36
 
 if.then34:                                        ; preds = %if.then30
@@ -5090,21 +5090,21 @@ if.then34:                                        ; preds = %if.then30
   br label %return
 
 if.end36:                                         ; preds = %if.then30.if.end36_crit_edge, %if.end27
-  %.pre85 = phi ptr [ %.pre85.pre, %if.then30.if.end36_crit_edge ], [ %call21, %if.end27 ]
+  %.pre81 = phi ptr [ %.pre81.pre, %if.then30.if.end36_crit_edge ], [ %call21, %if.end27 ]
   %bf.load38 = phi i8 [ %bf.load38.pre, %if.then30.if.end36_crit_edge ], [ %bf.load, %if.end27 ]
-  %16 = phi ptr [ %.pre81, %if.then30.if.end36_crit_edge ], [ %14, %if.end27 ]
+  %16 = phi ptr [ %.pre77, %if.then30.if.end36_crit_edge ], [ %14, %if.end27 ]
   %17 = and i8 %bf.load38, 16
   %tobool42.not = icmp eq i8 %17, 0
   br i1 %tobool42.not, label %if.end51, label %if.then43
 
 if.then43:                                        ; preds = %if.end36
-  %call47 = tail call fastcc i64 @dict_add_o(ptr noundef %.pre85, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27784))
+  %call47 = tail call fastcc i64 @dict_add_o(ptr noundef %.pre81, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27784))
   %cmp48 = icmp slt i64 %call47, 0
   br i1 %cmp48, label %if.then49, label %if.then43.if.end51_crit_edge
 
 if.then43.if.end51_crit_edge:                     ; preds = %if.then43
-  %.pre83 = load ptr, ptr %call, align 8
-  %.pre84 = load ptr, ptr %u_cellvars, align 8
+  %.pre79 = load ptr, ptr %call, align 8
+  %.pre80 = load ptr, ptr %u_cellvars, align 8
   br label %if.end51
 
 if.then49:                                        ; preds = %if.then43
@@ -5112,8 +5112,8 @@ if.then49:                                        ; preds = %if.then43
   br label %return
 
 if.end51:                                         ; preds = %if.then43.if.end51_crit_edge, %if.end36
-  %18 = phi ptr [ %.pre84, %if.then43.if.end51_crit_edge ], [ %.pre85, %if.end36 ]
-  %19 = phi ptr [ %.pre83, %if.then43.if.end51_crit_edge ], [ %16, %if.end36 ]
+  %18 = phi ptr [ %.pre80, %if.then43.if.end51_crit_edge ], [ %.pre81, %if.end36 ]
+  %19 = phi ptr [ %.pre79, %if.then43.if.end51_crit_edge ], [ %16, %if.end36 ]
   %ste_symbols53 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %20 = load ptr, ptr %ste_symbols53, align 8
   %21 = getelementptr i8, ptr %18, i64 16
@@ -5257,12 +5257,12 @@ if.else:                                          ; preds = %if.end100
   br i1 %cmp107, label %return, label %if.else.if.end110_crit_edge
 
 if.else.if.end110_crit_edge:                      ; preds = %if.else
-  %.pre86 = load ptr, ptr %u86, align 8
+  %.pre82 = load ptr, ptr %u86, align 8
   %31 = zext i32 %lineno to i64
   br label %if.end110
 
 if.end110:                                        ; preds = %if.else.if.end110_crit_edge, %if.end100
-  %32 = phi ptr [ %.pre86, %if.else.if.end110_crit_edge ], [ %call, %if.end100 ]
+  %32 = phi ptr [ %.pre82, %if.else.if.end110_crit_edge ], [ %call, %if.end100 ]
   %loc.sroa.0.0 = phi i64 [ %31, %if.else.if.end110_crit_edge ], [ 0, %if.end100 ]
   %u_instr_sequence = getelementptr inbounds nuw i8, ptr %32, i64 24
   %loc.sroa.4.0.insert.ext = zext i32 %lineno to i64
@@ -5273,8 +5273,8 @@ if.end110:                                        ; preds = %if.else.if.end110_c
   %spec.select = sext i1 %cmp113 to i32
   br label %return
 
-return:                                           ; preds = %if.end110, %if.else, %if.then94, %if.then84, %if.then77, %if.then69, %if.then62, %if.then49, %if.then34, %if.then26, %list2dict.exit.thread, %if.then8, %if.then
-  %retval.0 = phi i32 [ -1, %if.then34 ], [ -1, %if.then49 ], [ -1, %if.then94 ], [ -1, %if.then84 ], [ -1, %if.then77 ], [ -1, %if.then69 ], [ -1, %if.then62 ], [ -1, %if.then26 ], [ -1, %list2dict.exit.thread ], [ -1, %if.then8 ], [ -1, %if.then ], [ -1, %if.else ], [ %spec.select, %if.end110 ]
+return:                                           ; preds = %if.end110, %if.else, %if.then94, %if.then84, %if.then77, %if.then69, %if.then62, %if.then49, %if.then34, %if.then26, %if.then18, %if.then8, %if.then
+  %retval.0 = phi i32 [ -1, %if.then34 ], [ -1, %if.then49 ], [ -1, %if.then94 ], [ -1, %if.then84 ], [ -1, %if.then77 ], [ -1, %if.then69 ], [ -1, %if.then62 ], [ -1, %if.then26 ], [ -1, %if.then18 ], [ -1, %if.then8 ], [ -1, %if.then ], [ -1, %if.else ], [ %spec.select, %if.end110 ]
   ret i32 %retval.0
 }
 

@@ -2722,7 +2722,7 @@ for.body123:                                      ; preds = %invoke.cont128, %fo
 
 invoke.cont128:                                   ; preds = %for.body123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i) #23
-  %call.i200 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1114.sroa.0.0223) #27
+  %call.i200 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1114.sroa.0.0223) #27
   %cmp.i197.not = icmp eq ptr %call.i200, %13
   br i1 %cmp.i197.not, label %cleanup147, label %for.body123
 

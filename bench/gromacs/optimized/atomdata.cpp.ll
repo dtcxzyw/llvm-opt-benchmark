@@ -3857,7 +3857,7 @@ _ZNKSt6vectorI23nbnxn_atomdata_output_tSaIS0_EE12_M_check_lenEmPKc.exit: ; preds
   %25 = load i32, ptr %3, align 4
   %26 = load i32, ptr %4, align 4
   invoke void @_ZN23nbnxn_atomdata_output_tC1EN5Nbnxm10KernelTypeEiN3gmx13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(144) %23, i32 noundef %24, i32 noundef %25, i32 noundef %26)
-          to label %_ZNSt16allocator_traitsISaI23nbnxn_atomdata_output_tEE9constructIS0_JRKN5Nbnxm10KernelTypeERKiRKN3gmx13PinningPolicyEEEEvRS1_PT_DpOT0_.exit unwind label %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39
+          to label %_ZNSt16allocator_traitsISaI23nbnxn_atomdata_output_tEE9constructIS0_JRKN5Nbnxm10KernelTypeERKiRKN3gmx13PinningPolicyEEEEvRS1_PT_DpOT0_.exit unwind label %37
 
 _ZNSt16allocator_traitsISaI23nbnxn_atomdata_output_tEE9constructIS0_JRKN5Nbnxm10KernelTypeERKiRKN3gmx13PinningPolicyEEEEvRS1_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorI23nbnxn_atomdata_output_tSaIS0_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i = icmp eq ptr %8, %1
@@ -3906,32 +3906,32 @@ _ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit:
   store ptr %34, ptr %33, align 8
   ret void
 
-35:                                               ; preds = %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39
+35:                                               ; preds = %37
   %36 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %40 unwind label %41
+          to label %41 unwind label %42
 
-_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39: ; preds = %_ZNKSt6vectorI23nbnxn_atomdata_output_tSaIS0_EE12_M_check_lenEmPKc.exit
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %_ZNKSt6vectorI23nbnxn_atomdata_output_tSaIS0_EE12_M_check_lenEmPKc.exit
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  %39 = tail call ptr @__cxa_begin_catch(ptr %38) #22
+  %39 = extractvalue { ptr, i32 } %38, 0
+  %40 = tail call ptr @__cxa_begin_catch(ptr %39) #22
   tail call void @_ZdlPv(ptr noundef nonnull %22) #33
   invoke void @__cxa_rethrow() #30
-          to label %44 unwind label %35
-
-40:                                               ; preds = %35
-  resume { ptr, i32 } %36
+          to label %45 unwind label %35
 
 41:                                               ; preds = %35
-  %42 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %36
+
+42:                                               ; preds = %35
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #31
+  %44 = extractvalue { ptr, i32 } %43, 0
+  tail call void @__clang_call_terminate(ptr %44) #31
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseI23nbnxn_atomdata_output_tSaIS0_EE13_M_deallocateEPS0_m.exit39
+45:                                               ; preds = %37
   unreachable
 }
 

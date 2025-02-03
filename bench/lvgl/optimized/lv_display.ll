@@ -1060,7 +1060,7 @@ define void @lv_display_set_buffers(ptr noundef %0, ptr noundef %1, ptr noundef 
 8:                                                ; preds = %6
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 40), align 8, !tbaa !33
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.preheader83.preheader, label %.thread.i50
+  br i1 %10, label %.preheader79.preheader, label %.thread.i50
 
 .thread.i50:                                      ; preds = %8, %6
   %.08.i = phi ptr [ %0, %6 ], [ %9, %8 ]
@@ -1086,7 +1086,7 @@ lv_display_get_horizontal_resolution.exit:        ; preds = %.thread.i50, %14
 16:                                               ; preds = %lv_display_get_horizontal_resolution.exit
   %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 40), align 8, !tbaa !33
   %17 = icmp eq ptr %.pr, null
-  br i1 %17, label %.preheader83.preheader, label %.thread.i51
+  br i1 %17, label %.preheader79.preheader, label %.thread.i51
 
 .thread.i51:                                      ; preds = %16, %lv_display_get_horizontal_resolution.exit
   %.08.i52 = phi ptr [ %.pr, %16 ], [ %0, %lv_display_get_horizontal_resolution.exit ]
@@ -1108,21 +1108,21 @@ lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i51, %.thre
   %23 = icmp ne i32 %.05.i, 0
   %24 = icmp ne i32 %.05.i53, 0
   %or.cond = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond, label %25, label %.preheader83.preheader
+  br i1 %or.cond, label %25, label %.preheader79.preheader
 
-.preheader83.preheader:                           ; preds = %16, %8, %lv_display_get_vertical_resolution.exit
-  br label %.preheader83
+.preheader79.preheader:                           ; preds = %16, %8, %lv_display_get_vertical_resolution.exit
+  br label %.preheader79
 
-.preheader83:                                     ; preds = %.preheader83.preheader, %.preheader83
-  br label %.preheader83
+.preheader79:                                     ; preds = %.preheader79.preheader, %.preheader79
+  br label %.preheader79
 
 25:                                               ; preds = %lv_display_get_vertical_resolution.exit
   %26 = tail call ptr @lv_draw_buf_align(ptr noundef nonnull %1, i32 noundef %.03.i58) #13
   %27 = icmp eq ptr %1, %26
-  br i1 %27, label %28, label %.preheader82
+  br i1 %27, label %28, label %.preheader78
 
-.preheader82:                                     ; preds = %25, %.preheader82
-  br label %.preheader82
+.preheader78:                                     ; preds = %25, %.preheader78
+  br label %.preheader78
 
 28:                                               ; preds = %25
   %29 = icmp eq ptr %2, null
@@ -1131,10 +1131,10 @@ lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i51, %.thre
 30:                                               ; preds = %28
   %31 = tail call ptr @lv_draw_buf_align(ptr noundef nonnull %2, i32 noundef %.03.i58) #13
   %32 = icmp eq ptr %2, %31
-  br i1 %32, label %33, label %.preheader81
+  br i1 %32, label %33, label %.preheader77
 
-.preheader81:                                     ; preds = %30, %.preheader81
-  br label %.preheader81
+.preheader77:                                     ; preds = %30, %.preheader77
+  br label %.preheader77
 
 33:                                               ; preds = %30, %28
   %34 = tail call i32 @lv_draw_buf_width_to_stride(i32 noundef %.05.i, i32 noundef %.03.i58) #13
@@ -1144,46 +1144,34 @@ lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i51, %.thre
 36:                                               ; preds = %33
   %37 = udiv i32 %3, %34
   %.not48 = icmp ugt i32 %34, %3
-  br i1 %.not48, label %.preheader79, label %40
+  br i1 %.not48, label %.preheader75, label %lv_display_set_render_mode.exit
 
-.preheader79:                                     ; preds = %36, %.preheader79
-  br label %.preheader79
+.preheader75:                                     ; preds = %36, %.preheader75
+  br label %.preheader75
 
 38:                                               ; preds = %33
   %39 = mul i32 %34, %.05.i53
   %.not47 = icmp ugt i32 %39, %3
-  br i1 %.not47, label %.preheader80, label %40
+  br i1 %.not47, label %.preheader76, label %lv_display_set_render_mode.exit
 
-.preheader80:                                     ; preds = %38, %.preheader80
-  br label %.preheader80
+.preheader76:                                     ; preds = %38, %.preheader76
+  br label %.preheader76
 
-40:                                               ; preds = %38, %36
+lv_display_set_render_mode.exit:                  ; preds = %38, %36
   %.0 = phi i32 [ %37, %36 ], [ %.05.i53, %38 ]
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %42 = tail call i32 @lv_draw_buf_init(ptr noundef nonnull %41, i32 noundef %.05.i, i32 noundef %.0, i32 noundef %.03.i58, i32 noundef %34, ptr noundef nonnull %1, i32 noundef %3) #13
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %44 = tail call i32 @lv_draw_buf_init(ptr noundef nonnull %43, i32 noundef %.05.i, i32 noundef %.0, i32 noundef %.03.i58, i32 noundef %34, ptr noundef %2, i32 noundef %3) #13
-  %45 = select i1 %29, ptr null, ptr %43
-  br i1 %7, label %46, label %.thread.i55
-
-46:                                               ; preds = %40
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 40), align 8, !tbaa !33
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %lv_display_set_render_mode.exit, label %.thread.i55
-
-.thread.i55:                                      ; preds = %46, %40
-  %.sink90 = phi ptr [ %0, %40 ], [ %47, %46 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sink90, i64 32
-  store ptr %41, ptr %49, align 8, !tbaa !64
-  %50 = getelementptr inbounds nuw i8, ptr %.sink90, i64 40
-  store ptr %45, ptr %50, align 8, !tbaa !65
-  %51 = getelementptr inbounds nuw i8, ptr %.sink90, i64 48
-  store ptr %41, ptr %51, align 8, !tbaa !66
-  %52 = getelementptr inbounds nuw i8, ptr %.sink90, i64 84
-  store i32 %4, ptr %52, align 4, !tbaa !67
-  br label %lv_display_set_render_mode.exit
-
-lv_display_set_render_mode.exit:                  ; preds = %46, %.thread.i55
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %41 = tail call i32 @lv_draw_buf_init(ptr noundef nonnull %40, i32 noundef %.05.i, i32 noundef %.0, i32 noundef %.03.i58, i32 noundef %34, ptr noundef nonnull %1, i32 noundef %3) #13
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %43 = tail call i32 @lv_draw_buf_init(ptr noundef nonnull %42, i32 noundef %.05.i, i32 noundef %.0, i32 noundef %.03.i58, i32 noundef %34, ptr noundef %2, i32 noundef %3) #13
+  %44 = select i1 %29, ptr null, ptr %42
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %40, ptr %45, align 8, !tbaa !64
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %44, ptr %46, align 8, !tbaa !65
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %40, ptr %47, align 8, !tbaa !66
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %4, ptr %48, align 4, !tbaa !67
   ret void
 }
 
@@ -1249,7 +1237,7 @@ define void @lv_display_set_buffers_with_stride(ptr noundef %0, ptr noundef %1, 
 9:                                                ; preds = %7
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 40), align 8, !tbaa !33
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.preheader71.preheader, label %.thread.i40
+  br i1 %11, label %.preheader67.preheader, label %.thread.i40
 
 .thread.i40:                                      ; preds = %9, %7
   %.08.i = phi ptr [ %0, %7 ], [ %10, %9 ]
@@ -1275,7 +1263,7 @@ lv_display_get_horizontal_resolution.exit:        ; preds = %.thread.i40, %15
 17:                                               ; preds = %lv_display_get_horizontal_resolution.exit
   %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 40), align 8, !tbaa !33
   %18 = icmp eq ptr %.pr, null
-  br i1 %18, label %.preheader71.preheader, label %.thread.i41
+  br i1 %18, label %.preheader67.preheader, label %.thread.i41
 
 .thread.i41:                                      ; preds = %17, %lv_display_get_horizontal_resolution.exit
   %.08.i42 = phi ptr [ %.pr, %17 ], [ %0, %lv_display_get_horizontal_resolution.exit ]
@@ -1297,13 +1285,13 @@ lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i41, %.thre
   %24 = icmp ne i32 %.05.i, 0
   %25 = icmp ne i32 %.05.i43, 0
   %or.cond = select i1 %24, i1 %25, i1 false
-  br i1 %or.cond, label %26, label %.preheader71.preheader
+  br i1 %or.cond, label %26, label %.preheader67.preheader
 
-.preheader71.preheader:                           ; preds = %17, %9, %lv_display_get_vertical_resolution.exit
-  br label %.preheader71
+.preheader67.preheader:                           ; preds = %17, %9, %lv_display_get_vertical_resolution.exit
+  br label %.preheader67
 
-.preheader71:                                     ; preds = %.preheader71.preheader, %.preheader71
-  br label %.preheader71
+.preheader67:                                     ; preds = %.preheader67.preheader, %.preheader67
+  br label %.preheader67
 
 26:                                               ; preds = %lv_display_get_vertical_resolution.exit
   %27 = icmp eq i32 %5, 0
@@ -1312,47 +1300,35 @@ lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i41, %.thre
 28:                                               ; preds = %26
   %29 = udiv i32 %3, %4
   %.not38 = icmp ugt i32 %4, %3
-  br i1 %.not38, label %.preheader69, label %32
+  br i1 %.not38, label %.preheader65, label %lv_display_set_render_mode.exit
 
-.preheader69:                                     ; preds = %28, %.preheader69
-  br label %.preheader69
+.preheader65:                                     ; preds = %28, %.preheader65
+  br label %.preheader65
 
 30:                                               ; preds = %26
   %31 = mul i32 %.05.i43, %4
   %.not37 = icmp ugt i32 %31, %3
-  br i1 %.not37, label %.preheader70, label %32
+  br i1 %.not37, label %.preheader66, label %lv_display_set_render_mode.exit
 
-.preheader70:                                     ; preds = %30, %.preheader70
-  br label %.preheader70
+.preheader66:                                     ; preds = %30, %.preheader66
+  br label %.preheader66
 
-32:                                               ; preds = %30, %28
+lv_display_set_render_mode.exit:                  ; preds = %30, %28
   %.0 = phi i32 [ %29, %28 ], [ %.05.i43, %30 ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %34 = tail call i32 @lv_draw_buf_init(ptr noundef nonnull %33, i32 noundef %.05.i, i32 noundef %.0, i32 noundef %.03.i48, i32 noundef %4, ptr noundef nonnull %1, i32 noundef %3) #13
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %36 = tail call i32 @lv_draw_buf_init(ptr noundef nonnull %35, i32 noundef %.05.i, i32 noundef %.0, i32 noundef %.03.i48, i32 noundef %4, ptr noundef %2, i32 noundef %3) #13
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %33 = tail call i32 @lv_draw_buf_init(ptr noundef nonnull %32, i32 noundef %.05.i, i32 noundef %.0, i32 noundef %.03.i48, i32 noundef %4, ptr noundef nonnull %1, i32 noundef %3) #13
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %35 = tail call i32 @lv_draw_buf_init(ptr noundef nonnull %34, i32 noundef %.05.i, i32 noundef %.0, i32 noundef %.03.i48, i32 noundef %4, ptr noundef %2, i32 noundef %3) #13
   %.not39 = icmp eq ptr %2, null
-  %37 = select i1 %.not39, ptr null, ptr %35
-  br i1 %8, label %38, label %.thread.i45
-
-38:                                               ; preds = %32
-  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 40), align 8, !tbaa !33
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %lv_display_set_render_mode.exit, label %.thread.i45
-
-.thread.i45:                                      ; preds = %38, %32
-  %.sink78 = phi ptr [ %0, %32 ], [ %39, %38 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sink78, i64 32
-  store ptr %33, ptr %41, align 8, !tbaa !64
-  %42 = getelementptr inbounds nuw i8, ptr %.sink78, i64 40
-  store ptr %37, ptr %42, align 8, !tbaa !65
-  %43 = getelementptr inbounds nuw i8, ptr %.sink78, i64 48
-  store ptr %33, ptr %43, align 8, !tbaa !66
-  %44 = getelementptr inbounds nuw i8, ptr %.sink78, i64 84
-  store i32 %5, ptr %44, align 4, !tbaa !67
-  br label %lv_display_set_render_mode.exit
-
-lv_display_set_render_mode.exit:                  ; preds = %38, %.thread.i45
+  %36 = select i1 %.not39, ptr null, ptr %34
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %32, ptr %37, align 8, !tbaa !64
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %36, ptr %38, align 8, !tbaa !65
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %32, ptr %39, align 8, !tbaa !66
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %5, ptr %40, align 4, !tbaa !67
   ret void
 }
 

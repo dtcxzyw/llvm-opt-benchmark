@@ -406,7 +406,7 @@ _unpack_script_complete.exit:                     ; preds = %43, %48
 
 85:                                               ; preds = %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %50
   %86 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._unpack_run_script) #5
-  call void @slurmscriptd_free_run_script_msg(ptr noundef %52) #5
+  call void @slurmscriptd_free_run_script_msg(ptr noundef nonnull %52) #5
   store ptr null, ptr %51, align 8
   br label %_unpack_run_script.exit
 

@@ -926,8 +926,8 @@ png_crc_read.exit:                                ; preds = %png_crc_read.exit.p
 ._crit_edge:                                      ; preds = %png_crc_read.exit, %42
   %.neg = mul i32 %spec.select, -3
   %53 = add i32 %.neg, %2
-  %54 = call i32 @png_crc_finish(ptr noundef %0, i32 noundef %53)
-  call void @png_set_PLTE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef %spec.select) #12
+  %54 = call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %53)
+  call void @png_set_PLTE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef %spec.select) #12
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %56 = load i16, ptr %55, align 8
   %.not60 = icmp eq i16 %56, 0
@@ -2406,12 +2406,12 @@ png_crc_read.exit:                                ; preds = %png_crc_read.exit.p
   br i1 %exitcond.not, label %._crit_edge, label %png_crc_read.exit, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %png_crc_read.exit, %.preheader
-  %41 = call i32 @png_crc_finish(ptr noundef %0, i32 noundef 0)
+  %41 = call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef 0)
   %.not34 = icmp eq i32 %41, 0
   br i1 %.not34, label %42, label %43
 
 42:                                               ; preds = %._crit_edge
-  call void @png_set_hIST(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4) #12
+  call void @png_set_hIST(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #12
   br label %43
 
 43:                                               ; preds = %._crit_edge, %42, %32, %20, %13

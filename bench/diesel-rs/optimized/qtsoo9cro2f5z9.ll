@@ -76,7 +76,7 @@ default.unreachable:                              ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %26 = load ptr, ptr %25, align 8, !alias.scope !28, !noundef !5
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..lit..LitIntRepr$GT$17hea6ba9e954c1e8a4E.llvm.14510580911666860995"(ptr noalias noundef align 8 dereferenceable(56) %26)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..lit..LitIntRepr$GT$17hea6ba9e954c1e8a4E.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(56) %26)
           to label %"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitInt$GT$17h1a52a40378bf6aeeE.exit" unwind label %27, !noalias !28
 
 27:                                               ; preds = %24
@@ -106,7 +106,7 @@ common.resume:                                    ; preds = %36, %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %35 = load ptr, ptr %34, align 8, !alias.scope !35, !noundef !5
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$syn..lit..LitFloatRepr$GT$17hadc3beae0b016020E.llvm.14510580911666860995"(ptr noalias noundef align 8 dereferenceable(56) %35)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$syn..lit..LitFloatRepr$GT$17hadc3beae0b016020E.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(56) %35)
           to label %"_ZN4core3ptr39drop_in_place$LT$syn..lit..LitFloat$GT$17ha69f7deb5145aa8aE.exit" unwind label %36, !noalias !35
 
 36:                                               ; preds = %33

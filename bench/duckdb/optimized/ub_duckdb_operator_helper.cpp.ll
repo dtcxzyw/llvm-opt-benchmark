@@ -2764,7 +2764,7 @@ invoke.cont17:                                    ; preds = %for.inc.i.i.i.i.i
 invoke.cont18:                                    ; preds = %invoke.cont17
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %limit_executor) #27
   %9 = load ptr, ptr %context, align 8, !tbaa !111
-  invoke void @_ZN6duckdb18ExpressionExecutorC1ERNS_13ClientContextEPKNS_10ExpressionE(ptr noundef nonnull align 8 dereferenceable(64) %limit_executor, ptr noundef nonnull align 8 dereferenceable(592) %9, ptr noundef %expr)
+  invoke void @_ZN6duckdb18ExpressionExecutorC1ERNS_13ClientContextEPKNS_10ExpressionE(ptr noundef nonnull align 8 dereferenceable(64) %limit_executor, ptr noundef nonnull align 8 dereferenceable(592) %9, ptr noundef nonnull %expr)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont18

@@ -755,7 +755,7 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
 
 .loopexit.i:                                      ; preds = %283, %273, %.preheader.i167
   %.1.i = phi i32 [ %282, %273 ], [ %.01924.i, %.preheader.i167 ], [ %.01924.i, %283 ]
-  call void @free(ptr noundef %265) #6
+  call void @free(ptr noundef nonnull %265) #6
   %287 = call ptr @hostlist_next(ptr noundef %262) #6
   %.not.i168 = icmp eq ptr %287, null
   br i1 %.not.i168, label %_find_child_switches.exit, label %.preheader.i167, !llvm.loop !18

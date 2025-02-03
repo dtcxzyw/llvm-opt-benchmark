@@ -2753,7 +2753,7 @@ define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic
 49:                                               ; preds = %44
   %50 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %45) #32
+  tail call void @__cxa_free_exception(ptr nonnull %45) #32
   br label %.loopexit
 
 51:                                               ; preds = %43
@@ -3519,7 +3519,7 @@ nvgCreateGL3.exit20:                              ; preds = %56, %73
 79:                                               ; preds = %76
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %77) #32
+  call void @__cxa_free_exception(ptr nonnull %77) #32
   br label %114
 
 81:                                               ; preds = %74

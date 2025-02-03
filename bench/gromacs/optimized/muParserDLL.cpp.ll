@@ -564,7 +564,7 @@ define noundef ptr @mupEvalMulti(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %9 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  tail call void @__cxa_free_exception(ptr %6) #19
+  tail call void @__cxa_free_exception(ptr nonnull %6) #19
   br label %12
 
 10:                                               ; preds = %33, %7

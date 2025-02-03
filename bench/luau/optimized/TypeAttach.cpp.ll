@@ -4941,7 +4941,7 @@ _ZN4Luau9Allocator5allocINS_16AstTypeReferenceEJNS_8LocationERKSt9nullopt_tNS_7A
   %174 = load i32, ptr %24, align 8
   %175 = add nsw i32 %174, -1
   store i32 %175, ptr %24, align 8
-  %176 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.074.090) #26
+  %176 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.074.090) #26
   %.not = icmp eq ptr %176, %146
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -5369,7 +5369,7 @@ _ZN4Luau9Allocator5allocINS_16AstTypeReferenceEJNS_8LocationERKSt9nullopt_tNS_7A
   %90 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %88, i64 %indvars.iv, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %91 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.046.056) #26
+  %91 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.046.056) #26
   %.not = icmp eq ptr %91, %65
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

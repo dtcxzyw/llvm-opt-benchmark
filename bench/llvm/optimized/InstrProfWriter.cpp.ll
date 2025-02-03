@@ -10427,7 +10427,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorISt9nullopt_tEENS_14StringMapE
 
 512:                                              ; preds = %507
   %513 = getelementptr inbounds nuw i8, ptr %504, i64 1280
-  call fastcc void @"_ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefENS1_6detail12DenseMapPairImNS1_15InstrProfRecordEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15InstrProfWriter9writeTextERNS1_14raw_fd_ostreamEE3$_0EEEvT_SH_T0_"(ptr noundef %504, ptr noundef nonnull %513)
+  call fastcc void @"_ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefENS1_6detail12DenseMapPairImNS1_15InstrProfRecordEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15InstrProfWriter9writeTextERNS1_14raw_fd_ostreamEE3$_0EEEvT_SH_T0_"(ptr noundef nonnull %504, ptr noundef nonnull %513)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %512
@@ -10438,7 +10438,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorISt9nullopt_tEENS_14StringMapE
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorISt4pairINS_9StringRefENS_6detail12DenseMapPairImNS_15InstrProfRecordEEEELj4EEEZNS_15InstrProfWriter9writeTextERNS_14raw_fd_ostreamEE3$_0EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !199
 
 515:                                              ; preds = %507
-  call fastcc void @"_ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefENS1_6detail12DenseMapPairImNS1_15InstrProfRecordEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15InstrProfWriter9writeTextERNS1_14raw_fd_ostreamEE3$_0EEEvT_SH_T0_"(ptr noundef %504, ptr noundef nonnull %506)
+  call fastcc void @"_ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefENS1_6detail12DenseMapPairImNS1_15InstrProfRecordEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15InstrProfWriter9writeTextERNS1_14raw_fd_ostreamEE3$_0EEEvT_SH_T0_"(ptr noundef nonnull %504, ptr noundef nonnull %506)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorISt4pairINS_9StringRefENS_6detail12DenseMapPairImNS_15InstrProfRecordEEEELj4EEEZNS_15InstrProfWriter9writeTextERNS_14raw_fd_ostreamEE3$_0EEvOT_T0_.exit"
 
 "_ZN4llvm4sortIRNS_11SmallVectorISt4pairINS_9StringRefENS_6detail12DenseMapPairImNS_15InstrProfRecordEEEELj4EEEZNS_15InstrProfWriter9writeTextERNS_14raw_fd_ostreamEE3$_0EEvOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %503, %515
@@ -26940,7 +26940,7 @@ _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit:        ; preds = %16, %19
   br label %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit8
 
 _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit8:       ; preds = %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit, %22
-  call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm11SmallVectorIhLj10EEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_(ptr %0, i64 noundef %.07, i64 noundef %9, ptr noundef nonnull %5)
+  call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm11SmallVectorIhLj10EEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_(ptr nonnull %0, i64 noundef %.07, i64 noundef %9, ptr noundef nonnull %5)
   %24 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(34) %5) #22
   %25 = load ptr, ptr %5, align 8
   %26 = icmp eq ptr %25, %15

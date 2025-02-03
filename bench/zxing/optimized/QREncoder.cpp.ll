@@ -685,7 +685,7 @@ define void @_ZN5ZXing6QRCode6EncodeERKNSt7__cxx1112basic_stringIwSt11char_trait
 323:                                              ; preds = %297, %281
   %324 = phi ptr [ %296, %297 ], [ %277, %281 ]
   %325 = phi { ptr, i32 } [ %298, %297 ], [ %282, %281 ]
-  call void @__cxa_free_exception(ptr %324) #19
+  call void @__cxa_free_exception(ptr nonnull %324) #19
   br label %1310
 
 326:                                              ; preds = %201
@@ -804,7 +804,7 @@ define void @_ZN5ZXing6QRCode6EncodeERKNSt7__cxx1112basic_stringIwSt11char_trait
 381:                                              ; preds = %376
   %382 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %377) #19
+  call void @__cxa_free_exception(ptr nonnull %377) #19
   br label %438
 
 383:                                              ; preds = %370
@@ -862,7 +862,7 @@ define void @_ZN5ZXing6QRCode6EncodeERKNSt7__cxx1112basic_stringIwSt11char_trait
 413:                                              ; preds = %410
   %414 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %411) #19
+  call void @__cxa_free_exception(ptr nonnull %411) #19
   br label %438
 
 415:                                              ; preds = %412
@@ -1108,7 +1108,7 @@ define void @_ZN5ZXing6QRCode6EncodeERKNSt7__cxx1112basic_stringIwSt11char_trait
 540:                                              ; preds = %521
   %541 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %522) #19
+  call void @__cxa_free_exception(ptr nonnull %522) #19
   br label %1310
 
 542:                                              ; preds = %484, %.loopexit123
@@ -1707,7 +1707,7 @@ _ZN5ZXing6QRCodeL16RecommendVersionENS0_20ErrorCorrectionLevelENS0_9CodecModeERK
 871:                                              ; preds = %867
   %872 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %868) #19
+  call void @__cxa_free_exception(ptr nonnull %868) #19
   br label %1302
 
 873:                                              ; preds = %855
@@ -1792,7 +1792,7 @@ _ZN5ZXing6QRCodeL16RecommendVersionENS0_20ErrorCorrectionLevelENS0_9CodecModeERK
 917:                                              ; preds = %913
   %918 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %914) #19
+  call void @__cxa_free_exception(ptr nonnull %914) #19
   br label %1201
 
 919:                                              ; preds = %904
@@ -1985,7 +1985,7 @@ _ZN5ZXing6QRCodeL16RecommendVersionENS0_20ErrorCorrectionLevelENS0_9CodecModeERK
 1015:                                             ; preds = %1012
   %1016 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1013) #19
+  call void @__cxa_free_exception(ptr nonnull %1013) #19
   br label %1201
 
 1017:                                             ; preds = %1014
@@ -2691,7 +2691,7 @@ define linkonce_odr void @_ZN5ZXing6MatrixINS_4TritEEC2EiiS1_(ptr noundef nonnul
 27:                                               ; preds = %22
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %23) #19
+  call void @__cxa_free_exception(ptr nonnull %23) #19
   br label %30
 
 29:                                               ; preds = %12, %4
@@ -3214,7 +3214,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(120) ptr @_ZN5ZXi
 28:                                               ; preds = %25
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %26) #19
+  tail call void @__cxa_free_exception(ptr nonnull %26) #19
   resume { ptr, i32 } %29
 
 30:                                               ; preds = %9
@@ -4046,7 +4046,7 @@ define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 d
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #19
+  call void @__cxa_free_exception(ptr nonnull %21) #19
   br label %28
 
 25:                                               ; preds = %22

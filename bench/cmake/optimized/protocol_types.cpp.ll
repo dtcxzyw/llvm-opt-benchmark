@@ -33763,7 +33763,7 @@ _ZSt10_ConstructIN3dap8ChecksumEJRKS1_EEvPT_DpOT0_.exit: ; preds = %.noexc
   %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
   %12 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #17
-  invoke void @_ZSt8_DestroyIPN3dap8ChecksumEEvT_S3_(ptr noundef %2, ptr noundef %.016)
+  invoke void @_ZSt8_DestroyIPN3dap8ChecksumEEvT_S3_(ptr noundef %2, ptr noundef nonnull %.016)
           to label %14 unwind label %15
 
 14:                                               ; preds = %.body
@@ -36346,7 +36346,7 @@ _ZSt10_ConstructIN3dap16ColumnDescriptorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pred
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #17
-  invoke void @_ZSt8_DestroyIPN3dap16ColumnDescriptorEEvT_S3_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3dap16ColumnDescriptorEEvT_S3_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22
@@ -36544,7 +36544,7 @@ _ZSt10_ConstructIN3dap26ExceptionBreakpointsFilterEJRKS1_EEvPT_DpOT0_.exit.i.i.i
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #17
-  invoke void @_ZSt8_DestroyIPN3dap26ExceptionBreakpointsFilterEEvT_S3_(ptr noundef %14, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3dap26ExceptionBreakpointsFilterEEvT_S3_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22
@@ -42248,7 +42248,7 @@ _ZNSt16allocator_traitsISaIN3dap20ExceptionPathSegmentEEE8allocateERS2_m.exit.i.
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = tail call ptr @__cxa_begin_catch(ptr %31) #17
-  invoke void @_ZSt8_DestroyIPN3dap20ExceptionPathSegmentEEvT_S3_(ptr noundef %13, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3dap20ExceptionPathSegmentEEvT_S3_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
           to label %33 unwind label %34
 
 33:                                               ; preds = %29
@@ -46988,7 +46988,7 @@ _ZSt10_ConstructIN3dap8ChecksumEJRS1_EEvPT_DpOT0_.exit: ; preds = %.noexc
   %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
   %12 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #17
-  invoke void @_ZSt8_DestroyIPN3dap8ChecksumEEvT_S3_(ptr noundef %2, ptr noundef %.018)
+  invoke void @_ZSt8_DestroyIPN3dap8ChecksumEEvT_S3_(ptr noundef %2, ptr noundef nonnull %.018)
           to label %14 unwind label %15
 
 14:                                               ; preds = %.body
@@ -50449,15 +50449,15 @@ _ZSt10_ConstructIN3dap16ColumnDescriptorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; pr
   %59 = tail call ptr @__cxa_begin_catch(ptr %58) #17
   %60 = getelementptr inbounds %"struct.dap::ColumnDescriptor", ptr %35, i64 %1
   invoke void @_ZSt8_DestroyIPN3dap16ColumnDescriptorES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %35, ptr noundef nonnull %60, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseIN3dap16ColumnDescriptorESaIS1_EE13_M_deallocateEPS1_m.exit unwind label %61
+          to label %.thread unwind label %61
 
-61:                                               ; preds = %_ZNSt12_Vector_baseIN3dap16ColumnDescriptorESaIS1_EE13_M_deallocateEPS1_m.exit, %.body
+61:                                               ; preds = %.thread, %.body
   %62 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %71 unwind label %72
 
-_ZNSt12_Vector_baseIN3dap16ColumnDescriptorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %.body
+.thread:                                          ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %34) #19
   invoke void @__cxa_rethrow() #21
           to label %75 unwind label %61
@@ -50504,7 +50504,7 @@ _ZNSt12_Vector_baseIN3dap16ColumnDescriptorESaIS1_EE13_M_deallocateEPS1_m.exit50
   tail call void @__clang_call_terminate(ptr %74) #18
   unreachable
 
-75:                                               ; preds = %_ZNSt12_Vector_baseIN3dap16ColumnDescriptorESaIS1_EE13_M_deallocateEPS1_m.exit
+75:                                               ; preds = %.thread
   unreachable
 }
 
@@ -50812,7 +50812,7 @@ _ZSt10_ConstructIN3dap16ColumnDescriptorEJRS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
   %115 = tail call ptr @__cxa_begin_catch(ptr %114) #17
-  invoke void @_ZSt8_DestroyIPN3dap16ColumnDescriptorEEvT_S3_(ptr noundef %107, ptr noundef %.016.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3dap16ColumnDescriptorEEvT_S3_(ptr noundef %107, ptr noundef nonnull %.016.i.i.i.i)
           to label %116 unwind label %117
 
 116:                                              ; preds = %112
@@ -50897,7 +50897,7 @@ _ZSt10_ConstructIN3dap16ColumnDescriptorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pred
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #17
-  invoke void @_ZSt8_DestroyIPN3dap16ColumnDescriptorEEvT_S3_(ptr noundef %13, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3dap16ColumnDescriptorEEvT_S3_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
           to label %20 unwind label %21
 
 20:                                               ; preds = %16
@@ -52635,15 +52635,15 @@ _ZSt10_ConstructIN3dap26ExceptionBreakpointsFilterEJRKS1_EEvPT_DpOT0_.exit.i.i.i
   %63 = tail call ptr @__cxa_begin_catch(ptr %62) #17
   %64 = getelementptr inbounds %"struct.dap::ExceptionBreakpointsFilter", ptr %37, i64 %1
   invoke void @_ZSt8_DestroyIPN3dap26ExceptionBreakpointsFilterES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %37, ptr noundef nonnull %64, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseIN3dap26ExceptionBreakpointsFilterESaIS1_EE13_M_deallocateEPS1_m.exit unwind label %65
+          to label %.thread unwind label %65
 
-65:                                               ; preds = %_ZNSt12_Vector_baseIN3dap26ExceptionBreakpointsFilterESaIS1_EE13_M_deallocateEPS1_m.exit, %.body
+65:                                               ; preds = %.thread, %.body
   %66 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %75 unwind label %76
 
-_ZNSt12_Vector_baseIN3dap26ExceptionBreakpointsFilterESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %.body
+.thread:                                          ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %36) #19
   invoke void @__cxa_rethrow() #21
           to label %79 unwind label %65
@@ -52690,7 +52690,7 @@ _ZNSt12_Vector_baseIN3dap26ExceptionBreakpointsFilterESaIS1_EE13_M_deallocateEPS
   tail call void @__clang_call_terminate(ptr %78) #18
   unreachable
 
-79:                                               ; preds = %_ZNSt12_Vector_baseIN3dap26ExceptionBreakpointsFilterESaIS1_EE13_M_deallocateEPS1_m.exit
+79:                                               ; preds = %.thread
   unreachable
 }
 
@@ -53016,7 +53016,7 @@ _ZSt10_ConstructIN3dap26ExceptionBreakpointsFilterEJRS1_EEvPT_DpOT0_.exit.i.i.i.
           catch ptr null
   %128 = extractvalue { ptr, i32 } %127, 0
   %129 = tail call ptr @__cxa_begin_catch(ptr %128) #17
-  invoke void @_ZSt8_DestroyIPN3dap26ExceptionBreakpointsFilterEEvT_S3_(ptr noundef %121, ptr noundef %.016.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3dap26ExceptionBreakpointsFilterEEvT_S3_(ptr noundef %121, ptr noundef nonnull %.016.i.i.i.i)
           to label %130 unwind label %131
 
 130:                                              ; preds = %126
@@ -53101,7 +53101,7 @@ _ZSt10_ConstructIN3dap26ExceptionBreakpointsFilterEJRKS1_EEvPT_DpOT0_.exit.i.i.i
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #17
-  invoke void @_ZSt8_DestroyIPN3dap26ExceptionBreakpointsFilterEEvT_S3_(ptr noundef %13, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3dap26ExceptionBreakpointsFilterEEvT_S3_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
           to label %20 unwind label %21
 
 20:                                               ; preds = %16
@@ -57601,15 +57601,15 @@ _ZNKSt6vectorIN3dap20ExceptionPathSegmentESaIS1_EE12_M_check_lenEmPKc.exit: ; pr
   %51 = tail call ptr @__cxa_begin_catch(ptr %50) #17
   %52 = getelementptr inbounds %"struct.dap::ExceptionPathSegment", ptr %27, i64 %1
   invoke void @_ZSt8_DestroyIPN3dap20ExceptionPathSegmentES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %27, ptr noundef nonnull %52, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseIN3dap20ExceptionPathSegmentESaIS1_EE13_M_deallocateEPS1_m.exit unwind label %53
+          to label %.thread unwind label %53
 
-53:                                               ; preds = %_ZNSt12_Vector_baseIN3dap20ExceptionPathSegmentESaIS1_EE13_M_deallocateEPS1_m.exit, %.body
+53:                                               ; preds = %.thread, %.body
   %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %66 unwind label %67
 
-_ZNSt12_Vector_baseIN3dap20ExceptionPathSegmentESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %.body
+.thread:                                          ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %26) #19
   invoke void @__cxa_rethrow() #21
           to label %70 unwind label %53
@@ -57676,7 +57676,7 @@ _ZNSt12_Vector_baseIN3dap20ExceptionPathSegmentESaIS1_EE13_M_deallocateEPS1_m.ex
   tail call void @__clang_call_terminate(ptr %69) #18
   unreachable
 
-70:                                               ; preds = %_ZNSt12_Vector_baseIN3dap20ExceptionPathSegmentESaIS1_EE13_M_deallocateEPS1_m.exit
+70:                                               ; preds = %.thread
   unreachable
 }
 
@@ -57988,7 +57988,7 @@ _ZSt4copyIPN3dap20ExceptionPathSegmentES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt4cop
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
   %94 = tail call ptr @__cxa_begin_catch(ptr %93) #17
-  invoke void @_ZSt8_DestroyIPN3dap20ExceptionPathSegmentEEvT_S3_(ptr noundef %78, ptr noundef %.016.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3dap20ExceptionPathSegmentEEvT_S3_(ptr noundef %78, ptr noundef nonnull %.016.i.i.i.i)
           to label %95 unwind label %96
 
 95:                                               ; preds = %91
@@ -58082,7 +58082,7 @@ _ZNSt12_Vector_baseIN3dap20ExceptionPathSegmentESaIS1_EE11_M_allocateEm.exit: ; 
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
   %27 = tail call ptr @__cxa_begin_catch(ptr %26) #17
-  invoke void @_ZSt8_DestroyIPN3dap20ExceptionPathSegmentEEvT_S3_(ptr noundef %13, ptr noundef %.014.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3dap20ExceptionPathSegmentEEvT_S3_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
           to label %28 unwind label %29
 
 28:                                               ; preds = %24

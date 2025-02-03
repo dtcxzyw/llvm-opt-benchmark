@@ -741,8 +741,8 @@ entry:
   %cmp.i = icmp ne i32 %call.i, 0
   %0 = load ptr, ptr %lt.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lt.i)
-  %cmp223 = icmp eq ptr %0, null
-  %cmp2 = select i1 %cmp.i, i1 true, i1 %cmp223
+  %cmp224 = icmp eq ptr %0, null
+  %cmp2 = select i1 %cmp.i, i1 true, i1 %cmp224
   br i1 %cmp2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -860,13 +860,7 @@ _ZNSt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEED2Ev.exit: ; preds = %in
 if.then6:                                         ; preds = %_ZNSt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEED2Ev.exit
   %call8 = call noundef i32 %17(ptr noundef nonnull %call3, ptr noundef %on_create_extra)
   %cmp9.not = icmp eq i32 %call8, 0
-  br i1 %cmp9.not, label %if.then14, label %if.end12.thread
-
-if.end12.thread:                                  ; preds = %if.then6
-  %call11 = call noundef i32 @_ZN4toku8locktree17release_referenceEv(ptr noundef nonnull align 8 dereferenceable(400) %call3)
-  call void @_ZN4toku8locktree7destroyEv(ptr noundef nonnull align 8 dereferenceable(400) %call3)
-  call void @_Z9toku_freePv(ptr noundef nonnull %call3)
-  br label %if.end16
+  br i1 %cmp9.not, label %if.then14, label %if.end12
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEEC2ERKS2_.exit
   %18 = landingpad { ptr, i32 }
@@ -874,7 +868,13 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   call void @_ZNSt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4) #13
   resume { ptr, i32 } %18
 
-if.then14:                                        ; preds = %_ZNSt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEED2Ev.exit, %if.then6
+if.end12:                                         ; preds = %if.then6
+  %call11 = call noundef i32 @_ZN4toku8locktree17release_referenceEv(ptr noundef nonnull align 8 dereferenceable(400) %call3)
+  call void @_ZN4toku8locktree7destroyEv(ptr noundef nonnull align 8 dereferenceable(400) %call3)
+  call void @_Z9toku_freePv(ptr noundef nonnull %call3)
+  br label %if.end16
+
+if.then14:                                        ; preds = %if.then6, %_ZNSt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lt.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store ptr %call3, ptr %lt.addr.i, align 8
@@ -889,8 +889,8 @@ if.else:                                          ; preds = %entry
   call void @_ZN4toku8locktree13add_referenceEv(ptr noundef nonnull align 8 dereferenceable(400) %0)
   br label %if.end16
 
-if.end16:                                         ; preds = %if.end12.thread, %if.then14, %if.else
-  %lt.1 = phi ptr [ %call3, %if.then14 ], [ %0, %if.else ], [ null, %if.end12.thread ]
+if.end16:                                         ; preds = %if.end12, %if.then14, %if.else
+  %lt.1 = phi ptr [ %call3, %if.then14 ], [ null, %if.end12 ], [ %0, %if.else ]
   %call.i.i20 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i) #13
   ret ptr %lt.1
 }

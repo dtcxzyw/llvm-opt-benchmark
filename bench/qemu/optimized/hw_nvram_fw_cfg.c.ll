@@ -2146,10 +2146,10 @@ if.end6:                                          ; preds = %entry
   br i1 %tobool9, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %if.end6
-  %call.i18 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
+  %call.i18 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   %dma_iomem = getelementptr inbounds nuw i8, ptr %call.i18, i64 912
-  %call.i19 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
-  call void @memory_region_init_io(ptr noundef nonnull %dma_iomem, ptr noundef %call.i, ptr noundef nonnull @fw_cfg_dma_mem_ops, ptr noundef %call.i19, ptr noundef nonnull @.str.106, i64 noundef 8) #20
+  %call.i19 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
+  call void @memory_region_init_io(ptr noundef nonnull %dma_iomem, ptr noundef nonnull %call.i, ptr noundef nonnull @fw_cfg_dma_mem_ops, ptr noundef %call.i19, ptr noundef nonnull @.str.106, i64 noundef 8) #20
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.end6

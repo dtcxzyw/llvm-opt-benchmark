@@ -552,7 +552,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -732,7 +732,7 @@ invoke.cont31:                                    ; preds = %if.then28
 lpad30:                                           ; preds = %if.then28
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception29) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception29) #21
   br label %eh.resume
 
 if.end33:                                         ; preds = %_ZN6duckdb11LogicalTypeaSERKS0_.exit
@@ -1907,7 +1907,7 @@ invoke.cont13:                                    ; preds = %if.then10
 lpad12:                                           ; preds = %if.then10
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception11) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception11) #21
   br label %eh.resume
 
 if.end15:                                         ; preds = %if.end

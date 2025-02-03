@@ -2686,7 +2686,7 @@ lpad151:                                          ; preds = %invoke.cont188, %if
 lpad156:                                          ; preds = %if.then
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #21
+  call void @__cxa_free_exception(ptr nonnull %exception) #21
   br label %ehcleanup195
 
 if.then161:                                       ; preds = %invoke.cont152

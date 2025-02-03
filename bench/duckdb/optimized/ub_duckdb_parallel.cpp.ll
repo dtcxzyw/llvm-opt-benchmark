@@ -22525,7 +22525,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #37
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #37
   resume { ptr, i32 } %29
 
 _ZN6duckdb16PipelineExecutor11EndOperatorERNS_16PhysicalOperatorENS_12optional_ptrINS_9DataChunkEEE.exit: ; preds = %if.then39
@@ -22689,7 +22689,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #37
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #37
   resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %entry
@@ -23000,7 +23000,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #37
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #37
   resume { ptr, i32 } %7
 
 _ZN6duckdb16PipelineExecutor11EndOperatorERNS_16PhysicalOperatorENS_12optional_ptrINS_9DataChunkEEE.exit: ; preds = %if.then14
@@ -23560,7 +23560,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #37
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #37
   br label %ehcleanup110
 
 if.end:                                           ; preds = %for.body
@@ -23792,7 +23792,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #37
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #37
   resume { ptr, i32 } %5
 
 _ZN6duckdb16PipelineExecutor11EndOperatorERNS_16PhysicalOperatorENS_12optional_ptrINS_9DataChunkEEE.exit: ; preds = %entry
@@ -24119,7 +24119,7 @@ common.resume:                                    ; preds = %lpad.i, %lpad
 lpad:                                             ; preds = %if.then10
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #37
+  call void @__cxa_free_exception(ptr nonnull %exception) #37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %current_idx) #37
   br label %common.resume
 
@@ -24184,7 +24184,7 @@ invoke.cont.i:                                    ; preds = %if.then.i101
 lpad.i:                                           ; preds = %if.then.i101
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #37
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #37
   br label %common.resume
 
 _ZN6duckdb16PipelineExecutor11EndOperatorERNS_16PhysicalOperatorENS_12optional_ptrINS_9DataChunkEEE.exit: ; preds = %cond.end25

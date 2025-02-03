@@ -46390,7 +46390,7 @@ invoke.cont4.i:                                   ; preds = %if.then.i
 lpad.i8:                                          ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertIaEENS_9hugeint_tET_.exit: ; preds = %_ZN6duckdb12NumericStats6GetMaxIaEET_RKNS_14BaseStatisticsE.exit
@@ -46430,7 +46430,7 @@ invoke.cont4.i18:                                 ; preds = %if.then.i14
 lpad.i17:                                         ; preds = %if.then.i14
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i15) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i15) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertIaEENS_9hugeint_tET_.exit24: ; preds = %_ZN6duckdb12NumericStats6GetMinIaEET_RKNS_14BaseStatisticsE.exit
@@ -46489,7 +46489,7 @@ invoke.cont3.i:                                   ; preds = %if.then.i
 lpad.i8:                                          ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertIsEENS_9hugeint_tET_.exit: ; preds = %_ZN6duckdb12NumericStats6GetMaxIsEET_RKNS_14BaseStatisticsE.exit
@@ -46529,7 +46529,7 @@ invoke.cont3.i18:                                 ; preds = %if.then.i14
 lpad.i17:                                         ; preds = %if.then.i14
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i15) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i15) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertIsEENS_9hugeint_tET_.exit24: ; preds = %_ZN6duckdb12NumericStats6GetMinIsEET_RKNS_14BaseStatisticsE.exit
@@ -46588,7 +46588,7 @@ invoke.cont3.i:                                   ; preds = %if.then.i
 lpad.i8:                                          ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertIiEENS_9hugeint_tET_.exit: ; preds = %_ZN6duckdb12NumericStats6GetMaxIiEET_RKNS_14BaseStatisticsE.exit
@@ -46628,7 +46628,7 @@ invoke.cont3.i18:                                 ; preds = %if.then.i14
 lpad.i17:                                         ; preds = %if.then.i14
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i15) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i15) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertIiEENS_9hugeint_tET_.exit24: ; preds = %_ZN6duckdb12NumericStats6GetMinIiEET_RKNS_14BaseStatisticsE.exit
@@ -46687,7 +46687,7 @@ invoke.cont3.i:                                   ; preds = %if.then.i
 lpad.i8:                                          ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertIlEENS_9hugeint_tET_.exit: ; preds = %_ZN6duckdb12NumericStats6GetMaxIlEET_RKNS_14BaseStatisticsE.exit
@@ -46727,7 +46727,7 @@ invoke.cont3.i18:                                 ; preds = %if.then.i14
 lpad.i17:                                         ; preds = %if.then.i14
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i15) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i15) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertIlEENS_9hugeint_tET_.exit24: ; preds = %_ZN6duckdb12NumericStats6GetMinIlEET_RKNS_14BaseStatisticsE.exit
@@ -46786,7 +46786,7 @@ invoke.cont3.i:                                   ; preds = %if.then.i
 lpad.i8:                                          ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertIhEENS_9hugeint_tET_.exit: ; preds = %_ZN6duckdb12NumericStats6GetMaxIhEET_RKNS_14BaseStatisticsE.exit
@@ -46826,7 +46826,7 @@ invoke.cont3.i18:                                 ; preds = %if.then.i14
 lpad.i17:                                         ; preds = %if.then.i14
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i15) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i15) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertIhEENS_9hugeint_tET_.exit24: ; preds = %_ZN6duckdb12NumericStats6GetMinIhEET_RKNS_14BaseStatisticsE.exit
@@ -46885,7 +46885,7 @@ invoke.cont3.i:                                   ; preds = %if.then.i
 lpad.i8:                                          ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertItEENS_9hugeint_tET_.exit: ; preds = %_ZN6duckdb12NumericStats6GetMaxItEET_RKNS_14BaseStatisticsE.exit
@@ -46925,7 +46925,7 @@ invoke.cont3.i18:                                 ; preds = %if.then.i14
 lpad.i17:                                         ; preds = %if.then.i14
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i15) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i15) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertItEENS_9hugeint_tET_.exit24: ; preds = %_ZN6duckdb12NumericStats6GetMinItEET_RKNS_14BaseStatisticsE.exit
@@ -46984,7 +46984,7 @@ invoke.cont3.i:                                   ; preds = %if.then.i
 lpad.i8:                                          ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertIjEENS_9hugeint_tET_.exit: ; preds = %_ZN6duckdb12NumericStats6GetMaxIjEET_RKNS_14BaseStatisticsE.exit
@@ -47024,7 +47024,7 @@ invoke.cont3.i18:                                 ; preds = %if.then.i14
 lpad.i17:                                         ; preds = %if.then.i14
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i15) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i15) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertIjEENS_9hugeint_tET_.exit24: ; preds = %_ZN6duckdb12NumericStats6GetMinIjEET_RKNS_14BaseStatisticsE.exit
@@ -47083,7 +47083,7 @@ invoke.cont3.i:                                   ; preds = %if.then.i
 lpad.i8:                                          ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertImEENS_9hugeint_tET_.exit: ; preds = %_ZN6duckdb12NumericStats6GetMaxImEET_RKNS_14BaseStatisticsE.exit
@@ -47123,7 +47123,7 @@ invoke.cont3.i18:                                 ; preds = %if.then.i14
 lpad.i17:                                         ; preds = %if.then.i14
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i15) #22
+  call void @__cxa_free_exception(ptr nonnull %exception.i15) #22
   br label %common.resume
 
 _ZN6duckdb7Hugeint7ConvertImEENS_9hugeint_tET_.exit24: ; preds = %_ZN6duckdb12NumericStats6GetMinImEET_RKNS_14BaseStatisticsE.exit

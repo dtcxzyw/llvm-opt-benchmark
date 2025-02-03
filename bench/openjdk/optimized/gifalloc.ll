@@ -345,7 +345,7 @@ GifBitSize.exit:                                  ; preds = %.preheader
   br i1 %95, label %GifFreeMapObject.exit88, label %96
 
 GifFreeMapObject.exit88:                          ; preds = %92
-  tail call void @free(ptr noundef %16) #14
+  tail call void @free(ptr noundef nonnull %16) #14
   tail call void @free(ptr noundef nonnull %12) #14
   br label %GifMakeMapObject.exit.thread
 

@@ -13251,7 +13251,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16
           to label %80 unwind label %.loopexit35
 
 80:                                               ; preds = %79
-  %81 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.016.037) #26
+  %81 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.037) #26
   %.not33 = icmp eq ptr %81, %66
   br i1 %.not33, label %.loopexit34.loopexit, label %68
 
@@ -13648,8 +13648,8 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorINS0_34UsdImaging
   br i1 %61, label %62, label %_ZN32pxrInternal_v0_24__pxrReserved__L13_DeletePrefixERKNS_7SdfPathEPSt3mapIS0_St6vectorINS_34UsdImagingSelectionSceneIndex_Impl10_SelectionESaIS6_EESt4lessIS0_ESaISt4pairIS1_S8_EEE.exit
 
 62:                                               ; preds = %.noexc16
-  %63 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %storemerge9.i) #26
-  %64 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %storemerge9.i, ptr noundef nonnull align 8 dereferenceable(32) %48) #21
+  %63 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %storemerge9.i) #26
+  %64 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %storemerge9.i, ptr noundef nonnull align 8 dereferenceable(32) %48) #21
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %67 = load ptr, ptr %66, align 8

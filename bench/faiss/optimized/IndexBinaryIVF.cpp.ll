@@ -583,7 +583,7 @@ define void @_ZNK5faiss14IndexBinaryIVF6searchElPKhlPiPlPKNS_16SearchParametersE
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #22
+  call void @__cxa_free_exception(ptr nonnull %20) #22
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -626,7 +626,7 @@ define void @_ZNK5faiss14IndexBinaryIVF6searchElPKhlPiPlPKNS_16SearchParametersE
 42:                                               ; preds = %35
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %38) #22
+  call void @__cxa_free_exception(ptr nonnull %38) #22
   br label %44
 
 44:                                               ; preds = %42, %40
@@ -671,7 +671,7 @@ define void @_ZNK5faiss14IndexBinaryIVF6searchElPKhlPiPlPKNS_16SearchParametersE
 61:                                               ; preds = %54
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %57) #22
+  call void @__cxa_free_exception(ptr nonnull %57) #22
   br label %63
 
 63:                                               ; preds = %61, %59
@@ -807,7 +807,7 @@ define void @_ZNK5faiss14IndexBinaryIVF12range_searchElPKhiPNS_17RangeSearchResu
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %17) #22
+  call void @__cxa_free_exception(ptr nonnull %17) #22
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -997,7 +997,7 @@ define void @_ZNK5faiss14IndexBinaryIVF13reconstruct_nEllPh(ptr noundef nonnull 
 26:                                               ; preds = %19
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %22) #22
+  call void @__cxa_free_exception(ptr nonnull %22) #22
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -1110,7 +1110,7 @@ define void @_ZNK5faiss14IndexBinaryIVF22search_and_reconstructElPKhlPiPlPhPKNS_
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #22
+  call void @__cxa_free_exception(ptr nonnull %21) #22
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -1158,7 +1158,7 @@ define void @_ZNK5faiss14IndexBinaryIVF22search_and_reconstructElPKhlPiPlPhPKNS_
 48:                                               ; preds = %41
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %44) #22
+  call void @__cxa_free_exception(ptr nonnull %44) #22
   br label %50
 
 50:                                               ; preds = %48, %46
@@ -1201,7 +1201,7 @@ define void @_ZNK5faiss14IndexBinaryIVF22search_and_reconstructElPKhlPiPlPhPKNS_
 65:                                               ; preds = %58
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %61) #22
+  call void @__cxa_free_exception(ptr nonnull %61) #22
   br label %67
 
 67:                                               ; preds = %65, %63
@@ -1404,7 +1404,7 @@ define void @_ZNK5faiss14IndexBinaryIVF26check_compatible_for_mergeERKNS_11Index
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #22
+  call void @__cxa_free_exception(ptr nonnull %19) #22
   br label %136
 
 25:                                               ; preds = %2
@@ -1446,7 +1446,7 @@ define void @_ZNK5faiss14IndexBinaryIVF26check_compatible_for_mergeERKNS_11Index
 44:                                               ; preds = %37
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %40) #22
+  call void @__cxa_free_exception(ptr nonnull %40) #22
   br label %136
 
 46:                                               ; preds = %25
@@ -1488,7 +1488,7 @@ define void @_ZNK5faiss14IndexBinaryIVF26check_compatible_for_mergeERKNS_11Index
 65:                                               ; preds = %58
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %61) #22
+  call void @__cxa_free_exception(ptr nonnull %61) #22
   br label %136
 
 67:                                               ; preds = %46
@@ -1530,7 +1530,7 @@ define void @_ZNK5faiss14IndexBinaryIVF26check_compatible_for_mergeERKNS_11Index
 86:                                               ; preds = %79
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %82) #22
+  call void @__cxa_free_exception(ptr nonnull %82) #22
   br label %136
 
 88:                                               ; preds = %67
@@ -1576,7 +1576,7 @@ define void @_ZNK5faiss14IndexBinaryIVF26check_compatible_for_mergeERKNS_11Index
 109:                                              ; preds = %102
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %105) #22
+  call void @__cxa_free_exception(ptr nonnull %105) #22
   br label %136
 
 111:                                              ; preds = %92
@@ -1629,7 +1629,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread35:            ; preds = %118, %_ZNKSt9type_i
 134:                                              ; preds = %127
   %135 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %130) #22
+  call void @__cxa_free_exception(ptr nonnull %130) #22
   br label %136
 
 _ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %111, %_ZNKSt9type_infoeqERKS_.exit
@@ -1810,7 +1810,7 @@ define void @_ZN5faiss14IndexBinaryIVFC2EPNS_11IndexBinaryEmm(ptr noundef nonnul
 52:                                               ; preds = %41
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %44) #22
+  call void @__cxa_free_exception(ptr nonnull %44) #22
   br label %54
 
 54:                                               ; preds = %52, %50
@@ -2049,7 +2049,7 @@ define void @_ZN5faiss14IndexBinaryIVF8add_coreElPKhPKlS4_(ptr noundef nonnull a
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #22
+  call void @__cxa_free_exception(ptr nonnull %19) #22
   br label %25
 
 25:                                               ; preds = %23, %21
@@ -6844,7 +6844,7 @@ define void @_ZN5faiss14IndexBinaryIVF16replace_invlistsEPNS_13InvertedListsEb(p
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #22
+  call void @__cxa_free_exception(ptr nonnull %26) #22
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -9388,7 +9388,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
 77:                                               ; preds = %70
   %78 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %73) #22, !noalias !232
+  call void @__cxa_free_exception(ptr nonnull %73) #22, !noalias !232
   br label %79
 
 79:                                               ; preds = %77, %75
@@ -9430,7 +9430,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
 94:                                               ; preds = %87
   %95 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %90) #22, !noalias !232
+  call void @__cxa_free_exception(ptr nonnull %90) #22, !noalias !232
   br label %96
 
 96:                                               ; preds = %94, %92
@@ -10502,7 +10502,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComput
 576:                                              ; preds = %569
   %577 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %572) #22, !noalias !325
+  call void @__cxa_free_exception(ptr nonnull %572) #22, !noalias !325
   br label %578
 
 578:                                              ; preds = %576, %574
@@ -10544,7 +10544,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComput
 593:                                              ; preds = %586
   %594 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %589) #22, !noalias !325
+  call void @__cxa_free_exception(ptr nonnull %589) #22, !noalias !325
   br label %595
 
 595:                                              ; preds = %593, %591
@@ -11619,7 +11619,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComput
 1082:                                             ; preds = %1075
   %1083 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1078) #22, !noalias !417
+  call void @__cxa_free_exception(ptr nonnull %1078) #22, !noalias !417
   br label %1084
 
 1084:                                             ; preds = %1082, %1080
@@ -11661,7 +11661,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_16HammingComput
 1099:                                             ; preds = %1092
   %1100 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1095) #22, !noalias !417
+  call void @__cxa_free_exception(ptr nonnull %1095) #22, !noalias !417
   br label %1101
 
 1101:                                             ; preds = %1099, %1097
@@ -12725,7 +12725,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComput
 1606:                                             ; preds = %1599
   %1607 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1602) #22, !noalias !509
+  call void @__cxa_free_exception(ptr nonnull %1602) #22, !noalias !509
   br label %1608
 
 1608:                                             ; preds = %1606, %1604
@@ -12767,7 +12767,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComput
 1623:                                             ; preds = %1616
   %1624 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %1619) #22, !noalias !509
+  call void @__cxa_free_exception(ptr nonnull %1619) #22, !noalias !509
   br label %1625
 
 1625:                                             ; preds = %1623, %1621
@@ -13887,7 +13887,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComput
 2178:                                             ; preds = %2171
   %2179 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2174) #22, !noalias !601
+  call void @__cxa_free_exception(ptr nonnull %2174) #22, !noalias !601
   br label %2180
 
 2180:                                             ; preds = %2178, %2176
@@ -13929,7 +13929,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComput
 2195:                                             ; preds = %2188
   %2196 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2191) #22, !noalias !601
+  call void @__cxa_free_exception(ptr nonnull %2191) #22, !noalias !601
   br label %2197
 
 2197:                                             ; preds = %2195, %2193
@@ -15105,7 +15105,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComput
 2798:                                             ; preds = %2791
   %2799 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2794) #22, !noalias !693
+  call void @__cxa_free_exception(ptr nonnull %2794) #22, !noalias !693
   br label %2800
 
 2800:                                             ; preds = %2798, %2796
@@ -15147,7 +15147,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComput
 2815:                                             ; preds = %2808
   %2816 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %2811) #22, !noalias !693
+  call void @__cxa_free_exception(ptr nonnull %2811) #22, !noalias !693
   br label %2817
 
 2817:                                             ; preds = %2815, %2813
@@ -16555,7 +16555,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComput
 3610:                                             ; preds = %3603
   %3611 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3606) #22, !noalias !775
+  call void @__cxa_free_exception(ptr nonnull %3606) #22, !noalias !775
   br label %3612
 
 3612:                                             ; preds = %3610, %3608
@@ -16597,7 +16597,7 @@ _ZN5faiss12_GLOBAL__N_134Run_search_knn_hamming_per_invlist1fINS_17HammingComput
 3627:                                             ; preds = %3620
   %3628 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %3623) #22, !noalias !775
+  call void @__cxa_free_exception(ptr nonnull %3623) #22, !noalias !775
   br label %3629
 
 3629:                                             ; preds = %3627, %3625
@@ -25408,7 +25408,7 @@ define internal void @_ZNK5faiss14IndexBinaryIVF24range_search_preassignedElPKhi
 99:                                               ; preds = %91
   %100 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %95) #22
+  call void @__cxa_free_exception(ptr nonnull %95) #22
   br label %101
 
 101:                                              ; preds = %99, %97

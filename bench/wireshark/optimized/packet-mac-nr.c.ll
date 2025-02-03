@@ -2794,7 +2794,7 @@ dissect_rar.exit:                                 ; preds = %245, %247
 
 dissect_pcch.exit:                                ; preds = %proto_item_set_hidden.exit.i, %177, %proto_item_set_generated.exit150, %259, %258, %257, %dissect_rar.exit
   %260 = load i32, ptr @mac_nr_tap, align 4
-  call void @tap_queue_packet(i32 noundef %260, ptr noundef %1, ptr noundef nonnull %12) #12
+  call void @tap_queue_packet(i32 noundef %260, ptr noundef nonnull %1, ptr noundef nonnull %12) #12
   br label %261
 
 261:                                              ; preds = %dissect_pcch.exit, %24

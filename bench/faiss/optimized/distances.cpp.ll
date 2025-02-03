@@ -6015,7 +6015,7 @@ define void @_ZN5faiss17knn_inner_productEPKfS1_mmmPNS_9HeapArrayINS_4CMinIflEEE
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #2
+  call void @__cxa_free_exception(ptr nonnull %20) #2
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -11653,7 +11653,7 @@ define void @_ZN5faiss9knn_L2sqrEPKfS1_mmmPNS_9HeapArrayINS_4CMaxIflEEEES1_PKNS_
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %21) #2
+  call void @__cxa_free_exception(ptr nonnull %21) #2
   br label %27
 
 27:                                               ; preds = %25, %23

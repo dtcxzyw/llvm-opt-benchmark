@@ -2402,7 +2402,7 @@ invoke.cont7:                                     ; preds = %_ZN9grpc_core7ExecC
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont7
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 1015, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %server, ptr noundef %addr, ptr noundef %creds)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 1015, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef nonnull %server, ptr noundef %addr, ptr noundef %creds)
           to label %if.end unwind label %lpad8
 
 ehcleanup111.thread:                              ; preds = %_ZN9grpc_core7ExecCtxC2Ev.exit
@@ -5648,59 +5648,55 @@ cleanup.cont.i:                                   ; preds = %_ZN9grpc_core13RefC
   %cmp.i.i.i172 = icmp eq ptr %170, null
   br i1 %cmp.i.i.i172, label %cleanup13.critedge.i.i, label %cleanup.i.i
 
-lpad3.i.i:                                        ; preds = %cleanup.cont.i.i
-  %171 = landingpad { ptr, i32 }
-          cleanup
-  %cmp.not.i19.i.i = icmp eq ptr %.pre.i.i.i, null
-  br i1 %cmp.not.i19.i.i, label %if.then.i23.i, label %if.then.i20.i.i
-
 cleanup.i.i:                                      ; preds = %.noexc.i
   %refs_.i.i5.i.i = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %172 = atomicrmw add ptr %refs_.i.i5.i.i, i64 1 monotonic, align 8
+  %171 = atomicrmw add ptr %refs_.i.i5.i.i, i64 1 monotonic, align 8
   %.pre.i.i.i = load ptr, ptr %handshake_mgr_.i.i, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i.i)
           to label %cleanup.cont.i.i unwind label %terminate.lpad.i7.i.i
 
 terminate.lpad.i7.i.i:                            ; preds = %cleanup.i.i
-  %173 = landingpad { ptr, i32 }
+  %172 = landingpad { ptr, i32 }
           catch ptr null
-  %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #26
+  %173 = extractvalue { ptr, i32 } %172, 0
+  call void @__clang_call_terminate(ptr %173) #26
   unreachable
 
 cleanup.cont.i.i:                                 ; preds = %cleanup.i.i
   %deadline_.i.i = getelementptr inbounds nuw i8, ptr %handshaking_state_.val.i, i64 48
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %deadline_.i.i, align 8
   %acceptor_.i.i = getelementptr inbounds nuw i8, ptr %handshaking_state_.val.i, i64 32
-  %175 = load ptr, ptr %acceptor_.i.i, align 8
-  invoke void @_ZN9grpc_core16HandshakeManager11DoHandshakeEP13grpc_endpointRKNS_11ChannelArgsENS_9TimestampEP24grpc_tcp_server_acceptorPFvPvN4absl12lts_202308026StatusEES9_(ptr noundef nonnull align 8 dereferenceable(216) %.pre.i.i.i, ptr noundef %tcp, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %agg.tmp.sroa.0.0.copyload.i.i, ptr noundef %175, ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnection16HandshakingState15OnHandshakeDoneEPvN4absl12lts_202308026StatusE, ptr noundef nonnull align 8 dereferenceable(120) %handshaking_state_.val.i)
-          to label %if.then.i12.i.i unwind label %lpad3.i.i
+  %174 = load ptr, ptr %acceptor_.i.i, align 8
+  invoke void @_ZN9grpc_core16HandshakeManager11DoHandshakeEP13grpc_endpointRKNS_11ChannelArgsENS_9TimestampEP24grpc_tcp_server_acceptorPFvPvN4absl12lts_202308026StatusEES9_(ptr noundef nonnull align 8 dereferenceable(216) %.pre.i.i.i, ptr noundef %tcp, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %agg.tmp.sroa.0.0.copyload.i.i, ptr noundef %174, ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_120Chttp2ServerListener16ActiveConnection16HandshakingState15OnHandshakeDoneEPvN4absl12lts_202308026StatusE, ptr noundef nonnull align 8 dereferenceable(120) %handshaking_state_.val.i)
+          to label %if.then.i12.i.i unwind label %if.then.i20.i.i
 
 cleanup13.critedge.i.i:                           ; preds = %.noexc.i
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i.i)
           to label %if.then.i13.i unwind label %terminate.lpad.i9.i.i
 
 terminate.lpad.i9.i.i:                            ; preds = %cleanup13.critedge.i.i
-  %176 = landingpad { ptr, i32 }
+  %175 = landingpad { ptr, i32 }
           catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #26
+  %176 = extractvalue { ptr, i32 } %175, 0
+  call void @__clang_call_terminate(ptr %176) #26
   unreachable
 
 if.then.i12.i.i:                                  ; preds = %cleanup.cont.i.i
   %refs_.i.i13.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 8
-  %178 = atomicrmw sub ptr %refs_.i.i13.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i.i14.i.i = icmp eq i64 %178, 1
+  %177 = atomicrmw sub ptr %refs_.i.i13.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i.i14.i.i = icmp eq i64 %177, 1
   br i1 %cmp.i.i.i14.i.i, label %if.then.i.i16.i.i, label %if.then.i13.i
 
 if.then.i.i16.i.i:                                ; preds = %if.then.i12.i.i
   %vtable.i.i.i17.i.i = load ptr, ptr %.pre.i.i.i, align 8
   %vfn.i.i.i18.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i17.i.i, i64 8
-  %179 = load ptr, ptr %vfn.i.i.i18.i.i, align 8
-  call void %179(ptr noundef nonnull align 8 dereferenceable(216) %.pre.i.i.i) #27
+  %178 = load ptr, ptr %vfn.i.i.i18.i.i, align 8
+  call void %178(ptr noundef nonnull align 8 dereferenceable(216) %.pre.i.i.i) #27
   br label %if.then.i13.i
 
-if.then.i20.i.i:                                  ; preds = %lpad3.i.i
+if.then.i20.i.i:                                  ; preds = %cleanup.cont.i.i
+  %179 = landingpad { ptr, i32 }
+          cleanup
   %refs_.i.i21.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 8
   %180 = atomicrmw sub ptr %refs_.i.i21.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i22.i.i = icmp eq i64 %180, 1
@@ -5741,8 +5737,8 @@ ehcleanup.i:                                      ; preds = %cleanup.cont.i
           cleanup
   br label %if.then.i23.i
 
-if.then.i23.i:                                    ; preds = %ehcleanup.i, %if.then.i.i24.i.i, %if.then.i20.i.i, %lpad3.i.i
-  %eh.lpad-body39.i = phi { ptr, i32 } [ %186, %ehcleanup.i ], [ %171, %if.then.i.i24.i.i ], [ %171, %if.then.i20.i.i ], [ %171, %lpad3.i.i ]
+if.then.i23.i:                                    ; preds = %ehcleanup.i, %if.then.i.i24.i.i, %if.then.i20.i.i
+  %eh.lpad-body39.i = phi { ptr, i32 } [ %186, %ehcleanup.i ], [ %179, %if.then.i.i24.i.i ], [ %179, %if.then.i20.i.i ]
   %187 = atomicrmw sub ptr %refs_.i.i.i171, i64 1 acq_rel, align 8
   %cmp.i.i.i25.i = icmp eq i64 %187, 1
   br i1 %cmp.i.i.i25.i, label %if.then.i.i26.i, label %lpad107.body

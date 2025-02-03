@@ -1502,12 +1502,12 @@ if.end54.i:                                       ; preds = %if.end34.i, %if.the
   %202 = load i32, ptr %trailing_metadata_writes_.i.i, align 8
   %inc.i.i117 = add nsw i32 %202, 1
   store i32 %inc.i.i117, ptr %trailing_metadata_writes_.i.i, align 8
-  call void @_Z28grpc_chttp2_reset_ping_clockP21grpc_chttp2_transport(ptr noundef %write_context.val.i)
+  call void @_Z28grpc_chttp2_reset_ping_clockP21grpc_chttp2_transport(ptr noundef nonnull %write_context.val.i)
   call fastcc void @_ZN12_GLOBAL__N_118StreamWriteContext13SentLastFrameEv(ptr noundef nonnull readonly align 8 dereferenceable(38) %stream_ctx)
   store i8 1, ptr %early_results_scheduled.i.i, align 2
   %send_trailing_metadata_finished.i = getelementptr inbounds nuw i8, ptr %51, i64 184
   store i64 0, ptr %agg.tmp60.i, align 8, !alias.scope !28
-  invoke void @_Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE(ptr noundef %write_context.val.i, ptr noundef nonnull %51, ptr noundef nonnull %send_trailing_metadata_finished.i, ptr noundef nonnull %agg.tmp60.i, ptr noundef nonnull @.str.47)
+  invoke void @_Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE(ptr noundef nonnull %write_context.val.i, ptr noundef nonnull %51, ptr noundef nonnull %send_trailing_metadata_finished.i, ptr noundef nonnull %agg.tmp60.i, ptr noundef nonnull @.str.47)
           to label %invoke.cont62.i unwind label %lpad.i119
 
 invoke.cont62.i:                                  ; preds = %if.end54.i
@@ -3473,12 +3473,11 @@ for.body.i:                                       ; preds = %land.lhs.true.i.i.i
 
 .noexc2:                                          ; preds = %for.body.i
   %inc.i.i = add i64 %__begin3.sroa.5.010.i, 1
-  %cmp.not1.i.i = icmp eq ptr %__begin3.sroa.0.09.i, null
-  br i1 %cmp.not1.i.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, label %land.rhs.i.i
+  br label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %.noexc2, %while.body.i.i
-  %__begin3.sroa.0.1.i = phi ptr [ %4, %while.body.i.i ], [ %__begin3.sroa.0.09.i, %.noexc2 ]
-  %__begin3.sroa.5.1.i = phi i64 [ 0, %while.body.i.i ], [ %inc.i.i, %.noexc2 ]
+land.rhs.i.i:                                     ; preds = %while.body.i.i, %.noexc2
+  %__begin3.sroa.0.1.i = phi ptr [ %__begin3.sroa.0.09.i, %.noexc2 ], [ %4, %while.body.i.i ]
+  %__begin3.sroa.5.1.i = phi i64 [ %inc.i.i, %.noexc2 ], [ 0, %while.body.i.i ]
   %count.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.1.i, i64 8
   %3 = load i64, ptr %count.i.i, align 8
   %cmp4.i.i = icmp eq i64 %__begin3.sroa.5.1.i, %3
@@ -3489,9 +3488,9 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   %cmp.not.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, label %land.rhs.i.i, !llvm.loop !44
 
-_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i: ; preds = %while.body.i.i, %land.rhs.i.i, %.noexc2
-  %__begin3.sroa.0.2.i = phi ptr [ null, %.noexc2 ], [ null, %while.body.i.i ], [ %__begin3.sroa.0.1.i, %land.rhs.i.i ]
-  %__begin3.sroa.5.2.i = phi i64 [ %inc.i.i, %.noexc2 ], [ 0, %while.body.i.i ], [ %__begin3.sroa.5.1.i, %land.rhs.i.i ]
+_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i: ; preds = %while.body.i.i, %land.rhs.i.i
+  %__begin3.sroa.0.2.i = phi ptr [ null, %while.body.i.i ], [ %__begin3.sroa.0.1.i, %land.rhs.i.i ]
+  %__begin3.sroa.5.2.i = phi i64 [ 0, %while.body.i.i ], [ %__begin3.sroa.5.1.i, %land.rhs.i.i ]
   %cmp.i.i.i = icmp ne ptr %__begin3.sroa.0.2.i, null
   %cmp4.i.i.i = icmp ne i64 %__begin3.sroa.5.2.i, 0
   %.not.i.i = or i1 %cmp.i.i.i, %cmp4.i.i.i

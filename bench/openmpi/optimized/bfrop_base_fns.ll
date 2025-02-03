@@ -3548,7 +3548,7 @@ define range(i32 -32, 1) i32 @PMIx_Info_list_add(ptr noundef %0, ptr noundef %1,
 
 10:                                               ; preds = %9, %4
   %.not22.i = icmp eq ptr %6, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit.thread, label %11
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %11
 
 11:                                               ; preds = %10
   %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %6, ptr noundef null) #22
@@ -3563,7 +3563,7 @@ define range(i32 -32, 1) i32 @PMIx_Info_list_add(ptr noundef %0, ptr noundef %1,
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_infolist_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i.i = icmp eq ptr %18, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread9, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %11, %.lr.ph.i.i
   %19 = phi ptr [ %21, %.lr.ph.i.i ], [ %18, %11 ]
@@ -3572,9 +3572,9 @@ define range(i32 -32, 1) i32 @PMIx_Info_list_add(ptr noundef %0, ptr noundef %1,
   %20 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread9, label %.lr.ph.i.i, !llvm.loop !29
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !29
 
-pmix_obj_new_tma.exit.thread9:                    ; preds = %.lr.ph.i.i, %11
+.loopexit:                                        ; preds = %.lr.ph.i.i, %11
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %23 = tail call i32 @PMIx_Info_load(ptr noundef nonnull %22, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3591,10 +3591,10 @@ pmix_obj_new_tma.exit.thread9:                    ; preds = %.lr.ph.i.i, %11
   %31 = load volatile i64, ptr %30, align 8
   %32 = add i64 %31, 1
   store volatile i64 %32, ptr %30, align 8
-  br label %pmix_obj_new_tma.exit.thread
+  br label %pmix_obj_new_tma.exit
 
-pmix_obj_new_tma.exit.thread:                     ; preds = %10, %pmix_obj_new_tma.exit.thread9
-  %.0 = phi i32 [ 0, %pmix_obj_new_tma.exit.thread9 ], [ -32, %10 ]
+pmix_obj_new_tma.exit:                            ; preds = %10, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ -32, %10 ]
   ret i32 %.0
 }
 
@@ -3615,7 +3615,7 @@ define range(i32 -32, 1) i32 @PMIx_Info_list_prepend(ptr noundef %0, ptr noundef
 
 10:                                               ; preds = %9, %4
   %.not22.i = icmp eq ptr %6, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit.thread, label %11
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %11
 
 11:                                               ; preds = %10
   %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %6, ptr noundef null) #22
@@ -3630,7 +3630,7 @@ define range(i32 -32, 1) i32 @PMIx_Info_list_prepend(ptr noundef %0, ptr noundef
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_infolist_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i.i = icmp eq ptr %18, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread9, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %11, %.lr.ph.i.i
   %19 = phi ptr [ %21, %.lr.ph.i.i ], [ %18, %11 ]
@@ -3639,9 +3639,9 @@ define range(i32 -32, 1) i32 @PMIx_Info_list_prepend(ptr noundef %0, ptr noundef
   %20 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread9, label %.lr.ph.i.i, !llvm.loop !29
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !29
 
-pmix_obj_new_tma.exit.thread9:                    ; preds = %.lr.ph.i.i, %11
+.loopexit:                                        ; preds = %.lr.ph.i.i, %11
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %23 = tail call i32 @PMIx_Info_load(ptr noundef nonnull %22, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3658,10 +3658,10 @@ pmix_obj_new_tma.exit.thread9:                    ; preds = %.lr.ph.i.i, %11
   %31 = load volatile i64, ptr %30, align 8
   %32 = add i64 %31, 1
   store volatile i64 %32, ptr %30, align 8
-  br label %pmix_obj_new_tma.exit.thread
+  br label %pmix_obj_new_tma.exit
 
-pmix_obj_new_tma.exit.thread:                     ; preds = %10, %pmix_obj_new_tma.exit.thread9
-  %.0 = phi i32 [ 0, %pmix_obj_new_tma.exit.thread9 ], [ -32, %10 ]
+pmix_obj_new_tma.exit:                            ; preds = %10, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ -32, %10 ]
   ret i32 %.0
 }
 
@@ -3680,7 +3680,7 @@ define range(i32 -32, 1) i32 @PMIx_Info_list_insert(ptr noundef %0, ptr noundef 
 
 8:                                                ; preds = %7, %2
   %.not22.i = icmp eq ptr %4, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit.thread, label %9
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %9
 
 9:                                                ; preds = %8
   %10 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %4, ptr noundef null) #22
@@ -3695,7 +3695,7 @@ define range(i32 -32, 1) i32 @PMIx_Info_list_insert(ptr noundef %0, ptr noundef 
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_infolist_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread8, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %17 = phi ptr [ %19, %.lr.ph.i.i ], [ %16, %9 ]
@@ -3704,9 +3704,9 @@ define range(i32 -32, 1) i32 @PMIx_Info_list_insert(ptr noundef %0, ptr noundef 
   %18 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread8, label %.lr.ph.i.i, !llvm.loop !29
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !29
 
-pmix_obj_new_tma.exit.thread8:                    ; preds = %.lr.ph.i.i, %9
+.loopexit:                                        ; preds = %.lr.ph.i.i, %9
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %20, ptr noundef nonnull align 8 dereferenceable(552) %1, i64 552, i1 false)
   tail call void @PMIx_Info_persistent(ptr noundef nonnull %20) #22
@@ -3724,10 +3724,10 @@ pmix_obj_new_tma.exit.thread8:                    ; preds = %.lr.ph.i.i, %9
   %28 = load volatile i64, ptr %27, align 8
   %29 = add i64 %28, 1
   store volatile i64 %29, ptr %27, align 8
-  br label %pmix_obj_new_tma.exit.thread
+  br label %pmix_obj_new_tma.exit
 
-pmix_obj_new_tma.exit.thread:                     ; preds = %8, %pmix_obj_new_tma.exit.thread8
-  %.0 = phi i32 [ 0, %pmix_obj_new_tma.exit.thread8 ], [ -32, %8 ]
+pmix_obj_new_tma.exit:                            ; preds = %8, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ -32, %8 ]
   ret i32 %.0
 }
 
@@ -3748,7 +3748,7 @@ define range(i32 -32, 1) i32 @PMIx_Info_list_xfer(ptr noundef %0, ptr noundef %1
 
 8:                                                ; preds = %7, %2
   %.not22.i = icmp eq ptr %4, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit.thread, label %9
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %9
 
 9:                                                ; preds = %8
   %10 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %4, ptr noundef null) #22
@@ -3763,7 +3763,7 @@ define range(i32 -32, 1) i32 @PMIx_Info_list_xfer(ptr noundef %0, ptr noundef %1
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_infolist_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread7, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %17 = phi ptr [ %19, %.lr.ph.i.i ], [ %16, %9 ]
@@ -3772,9 +3772,9 @@ define range(i32 -32, 1) i32 @PMIx_Info_list_xfer(ptr noundef %0, ptr noundef %1
   %18 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread7, label %.lr.ph.i.i, !llvm.loop !29
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !29
 
-pmix_obj_new_tma.exit.thread7:                    ; preds = %.lr.ph.i.i, %9
+.loopexit:                                        ; preds = %.lr.ph.i.i, %9
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %21 = tail call i32 @PMIx_Info_xfer(ptr noundef nonnull %20, ptr noundef %1) #22
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3791,10 +3791,10 @@ pmix_obj_new_tma.exit.thread7:                    ; preds = %.lr.ph.i.i, %9
   %29 = load volatile i64, ptr %28, align 8
   %30 = add i64 %29, 1
   store volatile i64 %30, ptr %28, align 8
-  br label %pmix_obj_new_tma.exit.thread
+  br label %pmix_obj_new_tma.exit
 
-pmix_obj_new_tma.exit.thread:                     ; preds = %8, %pmix_obj_new_tma.exit.thread7
-  %.0 = phi i32 [ 0, %pmix_obj_new_tma.exit.thread7 ], [ -32, %8 ]
+pmix_obj_new_tma.exit:                            ; preds = %8, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ -32, %8 ]
   ret i32 %.0
 }
 

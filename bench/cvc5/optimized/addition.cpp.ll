@@ -181,7 +181,7 @@ if.end14:                                         ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end14
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.018) #20
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.018) #20
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !4
 
@@ -1253,7 +1253,7 @@ if.else:                                          ; preds = %_ZN4cvc58internal12
   br i1 %call12, label %if.then13, label %if.end19
 
 if.then13:                                        ; preds = %if.else
-  call void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_19RealAlgebraicNumberEESt10_Select1stIS7_ENS1_6theory5arith8rewriter14TermComparatorESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %sum, ptr %retval.sroa.0.012.i.i)
+  call void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_19RealAlgebraicNumberEESt10_Select1stIS7_ENS1_6theory5arith8rewriter14TermComparatorESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %sum, ptr nonnull %retval.sroa.0.012.i.i)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then13, %entry, %if.then6

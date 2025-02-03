@@ -3884,7 +3884,7 @@ _ZN4Luau8VecDequeIiSaIiEE7reserveEm.exit:         ; preds = %0
 163:                                              ; preds = %160
   %164 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %161) #20
+  call void @__cxa_free_exception(ptr nonnull %161) #20
   br label %.body
 
 165:                                              ; preds = %156
@@ -10102,7 +10102,7 @@ _ZN4Luau8VecDequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE9p
 
 _ZN4Luau8VecDequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EED2Ev.exit: ; preds = %.lr.ph13.i.i, %.preheader.i.i
   %383 = shl i64 %368, 5
-  call void @_ZdlPvm(ptr noundef %362, i64 noundef %383) #21
+  call void @_ZdlPvm(ptr noundef nonnull %362, i64 noundef %383) #21
   br i1 %69, label %68, label %384, !llvm.loop !115
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %372, %344, %343, %300, %299, %255, %254, %212, %211, %180, %179, %153, %144, %77
@@ -12186,7 +12186,7 @@ _ZN4Luau8VecDequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE9p
 
 _ZN4Luau8VecDequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EED2Ev.exit: ; preds = %.lr.ph13.i.i, %.preheader.i.i
   %357 = shl i64 %342, 5
-  call void @_ZdlPvm(ptr noundef %336, i64 noundef %357) #21
+  call void @_ZdlPvm(ptr noundef nonnull %336, i64 noundef %357) #21
   br i1 %71, label %70, label %359, !llvm.loop !141
 
 358:                                              ; preds = %.loopexit77, %.loopexit.split-lp, %346, %318, %317, %274, %273, %229, %228, %187, %186, %155, %154, %128
@@ -13855,7 +13855,7 @@ _ZSt18uninitialized_moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
 204:                                              ; preds = %201
   %205 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %202) #20
+  call void @__cxa_free_exception(ptr nonnull %202) #20
   br label %.body
 
 206:                                              ; preds = %199
@@ -27790,7 +27790,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeINSt7__cxx1112basic_stringI
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %5) #20
+  tail call void @__cxa_free_exception(ptr nonnull %5) #20
   resume { ptr, i32 } %8
 
 9:                                                ; preds = %2
@@ -28677,7 +28677,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt10shared_ptrI10TestStruc
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %5) #20
+  tail call void @__cxa_free_exception(ptr nonnull %5) #20
   resume { ptr, i32 } %8
 
 9:                                                ; preds = %2

@@ -1444,7 +1444,7 @@ define dso_local { i64, i32 } @AlterForeignServer(ptr noundef readonly captures(
   br label %70
 
 70:                                               ; preds = %69, %63
-  call void @heap_freetuple(ptr noundef %66) #8
+  call void @heap_freetuple(ptr noundef nonnull %66) #8
   call void @table_close(ptr noundef nonnull %6, i32 noundef 3) #8
   %.sroa.228.0.insert.ext = zext i32 %23 to i64
   %.sroa.228.0.insert.shift = shl nuw i64 %.sroa.228.0.insert.ext, 32
@@ -1786,7 +1786,7 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %32, %39, %.sink.spl
   br label %73
 
 73:                                               ; preds = %72, %66
-  call void @heap_freetuple(ptr noundef %69) #8
+  call void @heap_freetuple(ptr noundef nonnull %69) #8
   call void @table_close(ptr noundef nonnull %8, i32 noundef 3) #8
   %.sroa.233.0.insert.shift = shl nuw i64 %41, 32
   %.sroa.032.0.insert.insert = or disjoint i64 %.sroa.233.0.insert.shift, 1418

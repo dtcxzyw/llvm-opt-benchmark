@@ -638,7 +638,7 @@ common.resume:                                    ; preds = %_ZN5folly8FunctionI
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #31
   br label %common.resume
 
 _ZN5folly12_GLOBAL__N_120ConstIntervalFunctorC2ENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE.exit: ; preds = %entry
@@ -1330,7 +1330,7 @@ common.resume:                                    ; preds = %_ZN5folly8FunctionI
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #31
+  call void @__cxa_free_exception(ptr nonnull %exception.i) #31
   br label %common.resume
 
 _ZN5folly12_GLOBAL__N_126PoissonDistributionFunctorC2ENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE.exit: ; preds = %if.then
@@ -2672,7 +2672,7 @@ common.resume:                                    ; preds = %_ZN5folly8FunctionI
 eh.resume.i:                                      ; preds = %lpad11.i, %lpad.i
   %exception10.sink.i = phi ptr [ %exception10.i, %lpad11.i ], [ %exception.i, %lpad.i ]
   %.pn.i = phi { ptr, i32 } [ %2, %lpad11.i ], [ %1, %lpad.i ]
-  call void @__cxa_free_exception(ptr %exception10.sink.i) #31
+  call void @__cxa_free_exception(ptr nonnull %exception10.sink.i) #31
   br label %common.resume
 
 _ZN5folly12_GLOBAL__N_126UniformDistributionFunctorC2ENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEES6_.exit: ; preds = %if.end.i
@@ -3191,7 +3191,7 @@ common.resume:                                    ; preds = %_ZN5folly8FunctionI
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #31
   br label %common.resume
 
 _ZN5folly12_GLOBAL__N_122ConsistentDelayFunctorC2ENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE.exit: ; preds = %entry
@@ -3489,7 +3489,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #31
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -3510,7 +3510,7 @@ invoke.cont6:                                     ; preds = %if.then3
 lpad5:                                            ; preds = %if.then3
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception4) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception4) #31
   br label %eh.resume
 
 if.end7:                                          ; preds = %if.end
@@ -3529,7 +3529,7 @@ invoke.cont14:                                    ; preds = %if.then11
 lpad13:                                           ; preds = %if.then11
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception12) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception12) #31
   br label %eh.resume
 
 if.end15:                                         ; preds = %if.end7
@@ -4366,7 +4366,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #31
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -4387,7 +4387,7 @@ invoke.cont6:                                     ; preds = %if.then3
 lpad5:                                            ; preds = %if.then3
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception4) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception4) #31
   br label %eh.resume
 
 if.end7:                                          ; preds = %if.end
@@ -4406,7 +4406,7 @@ invoke.cont14:                                    ; preds = %if.then11
 lpad13:                                           ; preds = %if.then11
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception12) #31
+  tail call void @__cxa_free_exception(ptr nonnull %exception12) #31
   br label %eh.resume
 
 if.end15:                                         ; preds = %if.end7

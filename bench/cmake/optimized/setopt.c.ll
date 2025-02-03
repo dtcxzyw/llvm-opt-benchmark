@@ -5352,7 +5352,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %.not1399, label %3017, label %.critedge
 
 3017:                                             ; preds = %3014
-  %3018 = tail call i32 @Curl_ssl_set_engine(ptr noundef %0, ptr noundef nonnull %3011) #8
+  %3018 = tail call i32 @Curl_ssl_set_engine(ptr noundef nonnull %0, ptr noundef nonnull %3011) #8
   br label %.critedge
 
 3019:                                             ; preds = %3

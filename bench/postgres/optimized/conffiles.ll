@@ -82,7 +82,7 @@ define dso_local ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noun
 
 16:                                               ; preds = %13, %11
   store ptr @.str.3, ptr %4, align 8
-  br label %80
+  br label %79
 
 17:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
@@ -123,30 +123,30 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
 
 31:                                               ; preds = %AbsoluteConfigLocation.exit
   %32 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #5
-  br i1 %32, label %33, label %.thread
+  br i1 %32, label %33, label %.thread80
 
 33:                                               ; preds = %31
   %34 = call i32 @errcode_for_file_access() #5
   %35 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %.0.i) #5
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 101, ptr noundef nonnull @__func__.GetConfFilesInDir) #5
-  br label %.thread
+  br label %.thread80
 
-.thread:                                          ; preds = %31, %33
+.thread80:                                        ; preds = %31, %33
   %36 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.5, ptr noundef %.0.i) #5
   store ptr %36, ptr %4, align 8
-  br label %79
+  br label %78
 
 37:                                               ; preds = %AbsoluteConfigLocation.exit
   %38 = call ptr @palloc(i64 noundef 256) #5
   store i32 0, ptr %3, align 4
   %39 = call ptr @ReadDir(ptr noundef nonnull %29, ptr noundef %.0.i) #5
-  %.not8284 = icmp eq ptr %39, null
-  br i1 %.not8284, label %.outer._crit_edge, label %.lr.ph
+  %.not8587 = icmp eq ptr %39, null
+  br i1 %.not8587, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %.outer
-  %40 = phi ptr [ %72, %.outer ], [ %39, %37 ]
-  %.061.ph86 = phi i32 [ %.2, %.outer ], [ 32, %37 ]
-  %.163.ph85 = phi ptr [ %.3, %.outer ], [ %38, %37 ]
+  %40 = phi ptr [ %70, %.outer ], [ %39, %37 ]
+  %.061.ph89 = phi i32 [ %.2, %.outer ], [ 32, %37 ]
+  %.163.ph88 = phi ptr [ %.3, %.outer ], [ %38, %37 ]
   br label %41
 
 41:                                               ; preds = %.lr.ph, %.backedge
@@ -177,72 +177,72 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
   call void @join_path_components(ptr noundef nonnull %7, ptr noundef %.0.i, ptr noundef nonnull %43) #5
   call void @canonicalize_path(ptr noundef nonnull %7) #5
   %55 = call i32 @get_dirent_type(ptr noundef nonnull %7, ptr noundef nonnull %42, i1 noundef zeroext true, i32 noundef %2) #5
-  switch i32 %55, label %58 [
-    i32 0, label %56
+  switch i32 %55, label %56 [
+    i32 0, label %75
     i32 3, label %.outer
   ]
 
 56:                                               ; preds = %54
-  %57 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #5
-  store ptr %57, ptr %4, align 8
-  call void @pfree(ptr noundef %.163.ph85) #5
-  br label %77
+  %57 = load i32, ptr %3, align 4
+  %.not75 = icmp slt i32 %57, %.061.ph89
+  br i1 %.not75, label %63, label %58
 
-58:                                               ; preds = %54
-  %59 = load i32, ptr %3, align 4
-  %.not75 = icmp slt i32 %59, %.061.ph86
-  br i1 %.not75, label %65, label %60
+58:                                               ; preds = %56
+  %59 = add i32 %.061.ph89, 32
+  %60 = sext i32 %59 to i64
+  %61 = shl nsw i64 %60, 3
+  %62 = call ptr @repalloc(ptr noundef %.163.ph88, i64 noundef %61) #5
+  br label %63
 
-60:                                               ; preds = %58
-  %61 = add i32 %.061.ph86, 32
-  %62 = sext i32 %61 to i64
-  %63 = shl nsw i64 %62, 3
-  %64 = call ptr @repalloc(ptr noundef %.163.ph85, i64 noundef %63) #5
-  br label %65
-
-65:                                               ; preds = %60, %58
-  %.264 = phi ptr [ %64, %60 ], [ %.163.ph85, %58 ]
-  %.1 = phi i32 [ %61, %60 ], [ %.061.ph86, %58 ]
-  %66 = call ptr @pstrdup(ptr noundef nonnull %7) #5
-  %67 = load i32, ptr %3, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr ptr, ptr %.264, i64 %68
-  store ptr %66, ptr %69, align 8
-  %70 = load i32, ptr %3, align 4
-  %71 = add i32 %70, 1
-  store i32 %71, ptr %3, align 4
+63:                                               ; preds = %58, %56
+  %.264 = phi ptr [ %62, %58 ], [ %.163.ph88, %56 ]
+  %.1 = phi i32 [ %59, %58 ], [ %.061.ph89, %56 ]
+  %64 = call ptr @pstrdup(ptr noundef nonnull %7) #5
+  %65 = load i32, ptr %3, align 4
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr ptr, ptr %.264, i64 %66
+  store ptr %64, ptr %67, align 8
+  %68 = load i32, ptr %3, align 4
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %3, align 4
   br label %.outer
 
-.outer:                                           ; preds = %54, %65
-  %.3 = phi ptr [ %.264, %65 ], [ %.163.ph85, %54 ]
-  %.2 = phi i32 [ %.1, %65 ], [ %.061.ph86, %54 ]
-  %72 = call ptr @ReadDir(ptr noundef nonnull %29, ptr noundef %.0.i) #5
-  %.not82 = icmp eq ptr %72, null
-  br i1 %.not82, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !5
+.outer:                                           ; preds = %54, %63
+  %.3 = phi ptr [ %.264, %63 ], [ %.163.ph88, %54 ]
+  %.2 = phi i32 [ %.1, %63 ], [ %.061.ph89, %54 ]
+  %70 = call ptr @ReadDir(ptr noundef nonnull %29, ptr noundef %.0.i) #5
+  %.not85 = icmp eq ptr %70, null
+  br i1 %.not85, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !5
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %37
-  %.163.ph.lcssa81 = phi ptr [ %38, %37 ], [ %.163.ph85, %.backedge ], [ %.3, %.outer ]
-  %73 = load i32, ptr %3, align 4
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %75, label %77
+  %.163.ph.lcssa84 = phi ptr [ %38, %37 ], [ %.163.ph88, %.backedge ], [ %.3, %.outer ]
+  %71 = load i32, ptr %3, align 4
+  %72 = icmp sgt i32 %71, 0
+  br i1 %72, label %73, label %.thread
 
-75:                                               ; preds = %.outer._crit_edge
-  %76 = zext nneg i32 %73 to i64
-  call void @pg_qsort(ptr noundef %.163.ph.lcssa81, i64 noundef %76, i64 noundef 8, ptr noundef nonnull @pg_qsort_strcmp) #5
-  br label %77
+73:                                               ; preds = %.outer._crit_edge
+  %74 = zext nneg i32 %71 to i64
+  call void @pg_qsort(ptr noundef %.163.ph.lcssa84, i64 noundef %74, i64 noundef 8, ptr noundef nonnull @pg_qsort_strcmp) #5
+  br label %.thread
 
-77:                                               ; preds = %56, %75, %.outer._crit_edge
-  %.062 = phi ptr [ null, %56 ], [ %.163.ph.lcssa81, %75 ], [ %.163.ph.lcssa81, %.outer._crit_edge ]
-  %78 = call i32 @FreeDir(ptr noundef nonnull %29) #5
+75:                                               ; preds = %54
+  %76 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #5
+  store ptr %76, ptr %4, align 8
+  call void @pfree(ptr noundef %.163.ph88) #5
+  br label %.thread
+
+.thread:                                          ; preds = %75, %73, %.outer._crit_edge
+  %.06278 = phi ptr [ null, %75 ], [ %.163.ph.lcssa84, %.outer._crit_edge ], [ %.163.ph.lcssa84, %73 ]
+  %77 = call i32 @FreeDir(ptr noundef nonnull %29) #5
+  br label %78
+
+78:                                               ; preds = %.thread80, %.thread
+  %.06279 = phi ptr [ %.06278, %.thread ], [ null, %.thread80 ]
+  call void @pfree(ptr noundef %.0.i) #5
   br label %79
 
-79:                                               ; preds = %.thread, %77
-  %.06278 = phi ptr [ null, %.thread ], [ %.062, %77 ]
-  call void @pfree(ptr noundef %.0.i) #5
-  br label %80
-
-80:                                               ; preds = %79, %16
-  %.0 = phi ptr [ null, %16 ], [ %.06278, %79 ]
+79:                                               ; preds = %78, %16
+  %.0 = phi ptr [ null, %16 ], [ %.06279, %78 ]
   ret ptr %.0
 }
 

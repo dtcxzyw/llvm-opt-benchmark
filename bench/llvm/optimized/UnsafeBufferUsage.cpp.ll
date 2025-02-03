@@ -29878,7 +29878,7 @@ _ZNSt3mapIPKN5clang7VarDeclEN4llvm11SmallVectorINS0_9FixItHintELj4EEESt4lessIS3_
   br label %2038
 
 2036:                                             ; preds = %_ZL16overlapWithMacroRKN4llvm11SmallVectorIN5clang9FixItHintELj4EEE.exit.thread
-  %2037 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0505.0702) #23
+  %2037 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0505.0702) #23
   br label %2038
 
 2038:                                             ; preds = %2036, %_ZNSt3mapIPKN5clang7VarDeclEN4llvm11SmallVectorINS0_9FixItHintELj4EEESt4lessIS3_ESaISt4pairIKS3_S7_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISC_E.exit

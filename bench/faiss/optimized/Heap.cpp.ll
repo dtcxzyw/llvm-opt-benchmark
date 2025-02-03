@@ -800,7 +800,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIflEEE26addn_query_subset_with
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #2
+  call void @__cxa_free_exception(ptr nonnull %26) #2
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -2035,7 +2035,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #2
+  call void @__cxa_free_exception(ptr nonnull %26) #2
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -3231,7 +3231,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE26addn_query_subset_with
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #2
+  call void @__cxa_free_exception(ptr nonnull %26) #2
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -4431,7 +4431,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE26addn_query_subset_with
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #2
+  call void @__cxa_free_exception(ptr nonnull %26) #2
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -5630,7 +5630,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #2
+  call void @__cxa_free_exception(ptr nonnull %26) #2
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -6825,7 +6825,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %26) #2
+  call void @__cxa_free_exception(ptr nonnull %26) #2
   br label %32
 
 32:                                               ; preds = %30, %28

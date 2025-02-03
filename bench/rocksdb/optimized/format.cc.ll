@@ -1663,7 +1663,7 @@ if.then180:                                       ; preds = %invoke.cont178.thre
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i146)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i147)
   %add.ptr.i.i149 = getelementptr inbounds i8, ptr %input.sroa.0.5236, i64 %input.sroa.33.5237
-  %call2.i.i150167 = invoke noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef %input.sroa.0.5236, ptr noundef %add.ptr.i.i149, ptr noundef nonnull align 8 dereferenceable(16) %index_handle_182)
+  %call2.i.i150167 = invoke noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef nonnull %input.sroa.0.5236, ptr noundef %add.ptr.i.i149, ptr noundef nonnull align 8 dereferenceable(16) %index_handle_182)
           to label %call2.i.i150.noexc unwind label %lpad177
 
 call2.i.i150.noexc:                               ; preds = %if.then180

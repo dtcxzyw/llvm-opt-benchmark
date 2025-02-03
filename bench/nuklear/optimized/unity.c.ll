@@ -71014,15 +71014,15 @@ for.end:                                          ; preds = %for.cond.for.end_cr
   %length.1 = phi i32 [ %conv25.le74, %while.end.for.end_crit_edge ], [ %conv25.le, %for.cond.for.end_crit_edge ], [ 0, %nk_panel_get_padding.exit ]
   %call30 = tail call i32 @nk_combo_begin_text(ptr noundef nonnull %ctx, ptr noundef nonnull %current_item.0.lcssa, i32 noundef %length.1, <2 x float> %size.sroa.0.4.vec.insert)
   %tobool31.not = icmp eq i32 %call30, 0
-  br i1 %tobool31.not, label %return, label %if.then32
+  br i1 %tobool31.not, label %return, label %lor.lhs.false.i.i
 
-if.then32:                                        ; preds = %for.end
+lor.lhs.false.i.i:                                ; preds = %for.end
   %conv33 = sitofp i32 %item_height to float
   %5 = load ptr, ptr %current, align 8
   %tobool1.not.i.i = icmp eq ptr %5, null
   br i1 %tobool1.not.i.i, label %nk_layout_row_dynamic.exit, label %lor.lhs.false2.i.i
 
-lor.lhs.false2.i.i:                               ; preds = %if.then32
+lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
   %layout.i.i = getelementptr inbounds nuw i8, ptr %5, i64 168
   %6 = load ptr, ptr %layout.i.i, align 8
   %tobool4.not.i.i = icmp eq ptr %6, null
@@ -71097,7 +71097,7 @@ nk_panel_layout.exit.i.i:                         ; preds = %if.then27.i.i.i, %i
   store float 0.000000e+00, ptr %item_width.i.i, align 8
   br label %nk_layout_row_dynamic.exit
 
-nk_layout_row_dynamic.exit:                       ; preds = %if.then32, %lor.lhs.false2.i.i, %nk_panel_layout.exit.i.i
+nk_layout_row_dynamic.exit:                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false2.i.i, %nk_panel_layout.exit.i.i
   br i1 %cmp1868, label %while.cond38.preheader.lr.ph, label %lor.lhs.false.i.i56
 
 while.cond38.preheader.lr.ph:                     ; preds = %nk_layout_row_dynamic.exit
@@ -71120,9 +71120,9 @@ while.cond38:                                     ; preds = %while.cond38, %whil
   %cmp43.not = icmp eq i32 %separator, %conv39
   %or.cond47 = or i1 %tobool40.not, %cmp43.not
   %incdec.ptr47 = getelementptr inbounds nuw i8, ptr %iter.1, i64 1
-  br i1 %or.cond47, label %while.end48, label %while.cond38, !llvm.loop !233
+  br i1 %or.cond47, label %lor.lhs.false.i.i49, label %while.cond38, !llvm.loop !233
 
-while.end48:                                      ; preds = %while.cond38
+lor.lhs.false.i.i49:                              ; preds = %while.cond38
   %sub.ptr.lhs.cast49 = ptrtoint ptr %iter.1 to i64
   %sub.ptr.rhs.cast50 = ptrtoint ptr %current_item.187 to i64
   %sub.ptr.sub51 = sub i64 %sub.ptr.lhs.cast49, %sub.ptr.rhs.cast50
@@ -71132,7 +71132,7 @@ while.end48:                                      ; preds = %while.cond38
   %tobool1.not.i.i51 = icmp eq ptr %20, null
   br i1 %tobool1.not.i.i51, label %for.cond34, label %lor.lhs.false2.i.i52
 
-lor.lhs.false2.i.i52:                             ; preds = %while.end48
+lor.lhs.false2.i.i52:                             ; preds = %lor.lhs.false.i.i49
   %layout.i.i53 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %21 = load ptr, ptr %layout.i.i53, align 8
   %tobool4.not.i.i54 = icmp eq ptr %21, null
@@ -71182,8 +71182,8 @@ nk_popup_close.exit.i.i.i:                        ; preds = %lor.lhs.false2.i17.
   store i32 %or.i.i.i.i, ptr %flags.i.i.i.i, align 8
   br label %for.cond34
 
-for.cond34:                                       ; preds = %cond.end.i.i, %nk_widget_fitting.exit.i.i, %while.end48, %lor.lhs.false2.i.i52, %nk_popup_close.exit.i.i.i, %lor.lhs.false2.i17.i.i, %lor.lhs.false.i14.i.i
-  %30 = phi i32 [ %i.184, %lor.lhs.false.i14.i.i ], [ %i.184, %lor.lhs.false2.i17.i.i ], [ %i.184, %nk_popup_close.exit.i.i.i ], [ %selected.addr.186, %lor.lhs.false2.i.i52 ], [ %selected.addr.186, %while.end48 ], [ %selected.addr.186, %nk_widget_fitting.exit.i.i ], [ %selected.addr.186, %cond.end.i.i ]
+for.cond34:                                       ; preds = %cond.end.i.i, %nk_widget_fitting.exit.i.i, %lor.lhs.false.i.i49, %lor.lhs.false2.i.i52, %nk_popup_close.exit.i.i.i, %lor.lhs.false2.i17.i.i, %lor.lhs.false.i14.i.i
+  %30 = phi i32 [ %i.184, %lor.lhs.false.i14.i.i ], [ %i.184, %lor.lhs.false2.i17.i.i ], [ %i.184, %nk_popup_close.exit.i.i.i ], [ %selected.addr.186, %lor.lhs.false2.i.i52 ], [ %selected.addr.186, %lor.lhs.false.i.i49 ], [ %selected.addr.186, %nk_widget_fitting.exit.i.i ], [ %selected.addr.186, %cond.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bounds.i.i)
   %sext = shl i64 %sub.ptr.sub51, 32
   %idx.ext = ashr exact i64 %sext, 32

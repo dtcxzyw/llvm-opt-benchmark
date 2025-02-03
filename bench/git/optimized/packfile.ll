@@ -1860,7 +1860,7 @@ alloc_packed_git.exit:                            ; preds = %st_add.exit34
   %pack_fd.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 144
   store i32 -1, ptr %pack_fd.i, align 8
   %pack_name = getelementptr inbounds nuw i8, ptr %call1.i, i64 240
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %pack_name, ptr align 1 %path, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %pack_name, ptr nonnull align 1 %path, i64 %sub.i, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %pack_name, i64 %sub.i
   %call6 = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %add.ptr, i64 noundef 10, ptr noundef nonnull @.str.20) #17
   %call9 = tail call i32 @access(ptr noundef nonnull %pack_name, i32 noundef 0) #17
@@ -6253,7 +6253,7 @@ land.lhs.true1:                                   ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %land.lhs.true1, %land.lhs.true
   %conv = trunc i64 %sub.i to i32
-  %call5 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.61, i32 noundef %conv, ptr noundef %full_name) #17
+  %call5 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.61, i32 noundef %conv, ptr noundef nonnull %full_name) #17
   %call6 = tail call i32 @strhash(ptr noundef %call5) #17
   %hash1.i = getelementptr inbounds nuw i8, ptr %hent, i64 8
   store i32 %call6, ptr %hash1.i, align 8
@@ -6269,7 +6269,7 @@ if.then:                                          ; preds = %land.lhs.true1, %la
 if.then9:                                         ; preds = %if.then
   %local = getelementptr inbounds nuw i8, ptr %_data, i64 16
   %3 = load i32, ptr %local, align 8
-  %call10 = call ptr @add_packed_git(ptr noundef %full_name, i64 noundef %full_name_len, i32 noundef %3)
+  %call10 = call ptr @add_packed_git(ptr noundef nonnull %full_name, i64 noundef %full_name_len, i32 noundef %3)
   %tobool11.not = icmp eq ptr %call10, null
   br i1 %tobool11.not, label %if.end14, label %if.then12
 

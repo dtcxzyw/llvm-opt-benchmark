@@ -3601,7 +3601,7 @@ define hidden void @_ZN5boost6locale11gnu_gettext9read_fileEP8_IO_FILE(ptr dead_
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %7) #24
+  tail call void @__cxa_free_exception(ptr nonnull %7) #24
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
@@ -3659,7 +3659,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 30:                                               ; preds = %25
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %26) #24
+  tail call void @__cxa_free_exception(ptr nonnull %26) #24
   br label %33
 
 32:                                               ; preds = %.thread, %.thread16
@@ -5753,7 +5753,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121: ; preds = %_Z
 169:                                              ; preds = %132
   %170 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %133) #24
+  call void @__cxa_free_exception(ptr nonnull %133) #24
   br label %385
 
 171:                                              ; preds = %191, %134
@@ -5945,7 +5945,7 @@ _ZN5boost6locale4conv16narrow_converterD2Ev.exit130: ; preds = %_ZN5boost6locale
 251:                                              ; preds = %248
   %252 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %249) #24
+  call void @__cxa_free_exception(ptr nonnull %249) #24
   br label %.body
 
 253:                                              ; preds = %232
@@ -7852,7 +7852,7 @@ define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext7mo_fileC2ESt6vect
 20:                                               ; preds = %17
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %18) #24
+  tail call void @__cxa_free_exception(ptr nonnull %18) #24
   br label %.body
 
 22:                                               ; preds = %19
@@ -7878,7 +7878,7 @@ define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext7mo_fileC2ESt6vect
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %27) #24
+  tail call void @__cxa_free_exception(ptr nonnull %27) #24
   br label %.body
 
 30:                                               ; preds = %.invoke
@@ -7903,7 +7903,7 @@ define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext7mo_fileC2ESt6vect
 39:                                               ; preds = %37
   %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %38) #24
+  tail call void @__cxa_free_exception(ptr nonnull %38) #24
   br label %.body
 
 41:                                               ; preds = %32
@@ -7925,7 +7925,7 @@ define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext7mo_fileC2ESt6vect
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %48) #24
+  tail call void @__cxa_free_exception(ptr nonnull %48) #24
   br label %.body
 
 51:                                               ; preds = %41
@@ -7945,7 +7945,7 @@ define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext7mo_fileC2ESt6vect
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %56) #24
+  tail call void @__cxa_free_exception(ptr nonnull %56) #24
   br label %.body
 
 59:                                               ; preds = %51
@@ -7966,7 +7966,7 @@ define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext7mo_fileC2ESt6vect
 66:                                               ; preds = %64
   %67 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %65) #24
+  tail call void @__cxa_free_exception(ptr nonnull %65) #24
   br label %.body
 
 68:                                               ; preds = %59
@@ -7995,7 +7995,7 @@ define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext7mo_fileC2ESt6vect
 76:                                               ; preds = %73
   %77 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %74) #24
+  tail call void @__cxa_free_exception(ptr nonnull %74) #24
   br label %.body
 
 78:                                               ; preds = %68
@@ -8214,7 +8214,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5boost6locale11gnu_gettext7mo_file5
 common.resume:                                    ; preds = %47, %28, %20
   %.sink = phi ptr [ %45, %47 ], [ %26, %28 ], [ %18, %20 ]
   %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %29, %28 ], [ %21, %20 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #24
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #24
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %17
@@ -8379,7 +8379,7 @@ _ZN5boost6locale6detail18is_us_ascii_stringEPKc.exit.us: ; preds = %33
 45:                                               ; preds = %.split.us
   %46 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %43) #24
+  tail call void @__cxa_free_exception(ptr nonnull %43) #24
   resume { ptr, i32 } %46
 
 _ZNK5boost6locale11gnu_gettext7mo_file3keyEj.exit: ; preds = %.lr.ph.split
@@ -9716,7 +9716,7 @@ _ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKc.exit32: ; pr
 common.resume:                                    ; preds = %78, %60
   %.sink = phi ptr [ %76, %78 ], [ %58, %60 ]
   %common.resume.op = phi { ptr, i32 } [ %79, %78 ], [ %61, %60 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #24
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #24
   resume { ptr, i32 } %common.resume.op
 
 60:                                               ; preds = %57
@@ -10496,7 +10496,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %_Z
 174:                                              ; preds = %137
   %175 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %138) #24
+  call void @__cxa_free_exception(ptr nonnull %138) #24
   br label %496
 
 176:                                              ; preds = %139
@@ -10976,7 +10976,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 359:                                              ; preds = %356
   %360 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %357) #24
+  call void @__cxa_free_exception(ptr nonnull %357) #24
   br label %.body
 
 361:                                              ; preds = %340

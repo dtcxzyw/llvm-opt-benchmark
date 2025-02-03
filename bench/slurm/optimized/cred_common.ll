@@ -2027,7 +2027,7 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef writeonly captures(no
   br i1 %.not80, label %17, label %112
 
 17:                                               ; preds = %13
-  %18 = tail call i32 @unpack_time(ptr noundef %9, ptr noundef nonnull %0) #5
+  %18 = tail call i32 @unpack_time(ptr noundef nonnull %9, ptr noundef nonnull %0) #5
   %.not81 = icmp eq i32 %18, 0
   br i1 %.not81, label %19, label %112
 

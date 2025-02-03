@@ -2404,7 +2404,7 @@ scaleEdge.exit.i:                                 ; preds = %245, %241, %237, %.
   br i1 %.not104.i, label %.loopexit.i, label %97
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %93, %87
-  %257 = tail call ptr @agfstnode(ptr noundef %0) #23
+  %257 = tail call ptr @agfstnode(ptr noundef nonnull %0) #23
   %.not105114.i = icmp eq ptr %257, null
   br i1 %.not105114.i, label %._crit_edge118.i, label %.lr.ph117.i
 
@@ -2424,17 +2424,17 @@ scaleEdge.exit.i:                                 ; preds = %245, %241, %237, %.
   %268 = load double, ptr %267, align 8
   %269 = fmul double %.182.i, %268
   store double %269, ptr %267, align 8
-  %270 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.184115.i) #23
+  %270 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.184115.i) #23
   %.not105.i = icmp eq ptr %270, null
   br i1 %.not105.i, label %._crit_edge118.i, label %.lr.ph117.i
 
 ._crit_edge118.i:                                 ; preds = %.lr.ph117.i, %.loopexit.i
-  tail call fastcc void @scaleBB(ptr noundef %0, double noundef %.1.i, double noundef %.182.i)
+  tail call fastcc void @scaleBB(ptr noundef nonnull %0, double noundef %.1.i, double noundef %.182.i)
   br label %_neato_set_aspect.exit
 
 _neato_set_aspect.exit:                           ; preds = %1, %4, %30, %36, %57, %61, %._crit_edge118.i
   %.079.i = phi i1 [ true, %._crit_edge118.i ], [ false, %1 ], [ %.085.i, %36 ], [ %.085.i, %57 ], [ %.085.i, %61 ], [ %.085.i, %30 ], [ false, %4 ]
-  %271 = tail call ptr @agfstnode(ptr noundef %0) #23
+  %271 = tail call ptr @agfstnode(ptr noundef nonnull %0) #23
   %.not9 = icmp eq ptr %271, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -2456,7 +2456,7 @@ _neato_set_aspect.exit:                           ; preds = %1, %4, %30, %36, %5
   %284 = fmul double %283, 7.200000e+01
   %285 = getelementptr inbounds nuw i8, ptr %279, i64 40
   store double %284, ptr %285, align 8
-  %286 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.010) #23
+  %286 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.010) #23
   %.not = icmp eq ptr %286, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

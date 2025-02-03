@@ -1088,7 +1088,7 @@ define internal range(i32 -1, 1) i32 @_job_state_unpack(ptr noundef writeonly ca
   br i1 %.not6, label %11, label %33
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @unpack_time(ptr noundef %5, ptr noundef %2) #12
+  %12 = tail call i32 @unpack_time(ptr noundef nonnull %5, ptr noundef %2) #12
   %.not7 = icmp eq i32 %12, 0
   br i1 %.not7, label %13, label %33
 
@@ -1153,7 +1153,7 @@ define internal range(i32 -1, 1) i32 @_cred_state_unpack(ptr noundef writeonly c
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @unpack_time(ptr noundef %5, ptr noundef %2) #12
+  %9 = tail call i32 @unpack_time(ptr noundef nonnull %5, ptr noundef %2) #12
   %.not5 = icmp eq i32 %9, 0
   br i1 %.not5, label %10, label %13
 

@@ -1067,7 +1067,7 @@ while.body.i.i115:                                ; preds = %if.end4.i.i99, %whi
   %buf.118.i.i116 = phi ptr [ %add.ptr7.i.i119, %while.body.i.i115 ], [ %buf.0.i.i101, %if.end4.i.i99 ]
   %size.addr.117.i.i117 = phi i64 [ %sub6.i.i118, %while.body.i.i115 ], [ %size.addr.0.i.i100, %if.end4.i.i99 ]
   %33 = load ptr, ptr @write_block, align 8
-  call void %33(ptr noundef %buf.118.i.i116) #10, !callees !8
+  call void %33(ptr noundef nonnull %buf.118.i.i116) #10, !callees !8
   %sub6.i.i118 = add i64 %size.addr.117.i.i117, -10240
   %add.ptr7.i.i119 = getelementptr inbounds nuw i8, ptr %buf.118.i.i116, i64 10240
   %cmp5.i.i120 = icmp ugt i64 %sub6.i.i118, 10239
@@ -1082,7 +1082,7 @@ while.end.i.i103:                                 ; preds = %while.body.i.i115, 
 if.then9.i.i107:                                  ; preds = %while.end.i.i103
   %34 = load i64, ptr @offset, align 8
   %add.ptr10.i.i108 = getelementptr inbounds i8, ptr @block, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i108, ptr align 1 %buf.1.lcssa.i.i105, i64 %size.addr.1.lcssa.i.i104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i108, ptr nonnull align 1 %buf.1.lcssa.i.i105, i64 %size.addr.1.lcssa.i.i104, i1 false)
   %add11.i.i109 = add i64 %34, %size.addr.1.lcssa.i.i104
   store i64 %add11.i.i109, ptr @offset, align 8
   br label %do_write_blocked.exit.i110

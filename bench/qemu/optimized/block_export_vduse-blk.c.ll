@@ -527,7 +527,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   tail call void @aio_wait_kick() #8
-  tail call void @blk_exp_unref(ptr noundef %call2) #8
+  tail call void @blk_exp_unref(ptr noundef nonnull %call2) #8
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.end, %if.then

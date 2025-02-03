@@ -44656,7 +44656,7 @@ _ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE11_M_all
   %37 = load i64, ptr %6, align 8
   %38 = load i32, ptr %7, align 4
   invoke void @_ZN8WasmEdge9Validator11FormChecker9CtrlFrameC2EN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES7_PKNS_3AST11InstructionEmmNS_6OpCodeE(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr %29, i64 %31, ptr %32, i64 %34, ptr noundef %35, i64 noundef %36, i64 noundef %37, i32 noundef %38)
-          to label %_ZNSt16allocator_traitsISaIN8WasmEdge9Validator11FormChecker9CtrlFrameEEE9constructIS3_JRN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEESC_RPKNS0_3AST11InstructionEmmRNS0_6OpCodeEEEEvRS4_PT_DpOT0_.exit unwind label %.body
+          to label %_ZNSt16allocator_traitsISaIN8WasmEdge9Validator11FormChecker9CtrlFrameEEE9constructIS3_JRN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEESC_RPKNS0_3AST11InstructionEmmRNS0_6OpCodeEEEEvRS4_PT_DpOT0_.exit unwind label %88
 
 _ZNSt16allocator_traitsISaIN8WasmEdge9Validator11FormChecker9CtrlFrameEEE9constructIS3_JRN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEESC_RPKNS0_3AST11InstructionEmmRNS0_6OpCodeEEEEvRS4_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE11_M_allocateEm.exit
   %.not14.i.i.i.i.i = icmp eq ptr %11, %1
@@ -44679,191 +44679,183 @@ _ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
   %44 = tail call ptr @__cxa_begin_catch(ptr %43) #25
-  invoke void @_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameEEvT_S5_(ptr noundef %27, ptr noundef %.016.i.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameEEvT_S5_(ptr noundef %27, ptr noundef nonnull %.016.i.i.i.i.i)
           to label %45 unwind label %46
 
 45:                                               ; preds = %41
   invoke void @__cxa_rethrow() #22
-          to label %53 unwind label %46
+          to label %51 unwind label %46
 
 46:                                               ; preds = %45, %41
   %47 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %.body.thread unwind label %50
+          to label %.thread unwind label %48
 
-.body.thread:                                     ; preds = %46
-  %48 = extractvalue { ptr, i32 } %47, 0
-  %49 = tail call ptr @__cxa_begin_catch(ptr %48) #25
-  br label %95
-
-50:                                               ; preds = %46
-  %51 = landingpad { ptr, i32 }
+48:                                               ; preds = %46
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  tail call void @__clang_call_terminate(ptr %52) #24
+  %50 = extractvalue { ptr, i32 } %49, 0
+  tail call void @__clang_call_terminate(ptr %50) #24
   unreachable
 
-53:                                               ; preds = %45
+51:                                               ; preds = %45
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %_ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN8WasmEdge9Validator11FormChecker9CtrlFrameEEE9constructIS3_JRN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEESC_RPKNS0_3AST11InstructionEmmRNS0_6OpCodeEEEEvRS4_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %27, %_ZNSt16allocator_traitsISaIN8WasmEdge9Validator11FormChecker9CtrlFrameEEE9constructIS3_JRN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEESC_RPKNS0_3AST11InstructionEmmRNS0_6OpCodeEEEEvRS4_PT_DpOT0_.exit ], [ %40, %_ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
-  %54 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 80
+  %52 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 80
   %.not14.i.i.i.i.i33 = icmp eq ptr %1, %10
   br i1 %.not14.i.i.i.i.i33, label %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit43, label %.lr.ph.i.i.i.i.i34
 
 .lr.ph.i.i.i.i.i34:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %_ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i37
-  %.016.i.i.i.i.i35 = phi ptr [ %56, %_ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i37 ], [ %54, %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
-  %.01215.i.i.i.i.i36 = phi ptr [ %55, %_ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i37 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
+  %.016.i.i.i.i.i35 = phi ptr [ %54, %_ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i37 ], [ %52, %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
+  %.01215.i.i.i.i.i36 = phi ptr [ %53, %_ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i37 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
   invoke void @_ZN8WasmEdge9Validator11FormChecker9CtrlFrameC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %.016.i.i.i.i.i35, ptr noundef nonnull align 8 dereferenceable(80) %.01215.i.i.i.i.i36)
-          to label %_ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i37 unwind label %57
+          to label %_ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i37 unwind label %55
 
 _ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i37: ; preds = %.lr.ph.i.i.i.i.i34
-  %55 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i36, i64 80
-  %56 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i35, i64 80
-  %.not.i.i.i.i.i38 = icmp eq ptr %55, %10
+  %53 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i36, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i35, i64 80
+  %.not.i.i.i.i.i38 = icmp eq ptr %53, %10
   br i1 %.not.i.i.i.i.i38, label %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit43, label %.lr.ph.i.i.i.i.i34, !llvm.loop !611
 
-57:                                               ; preds = %.lr.ph.i.i.i.i.i34
-  %58 = landingpad { ptr, i32 }
+55:                                               ; preds = %.lr.ph.i.i.i.i.i34
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  %60 = tail call ptr @__cxa_begin_catch(ptr %59) #25
-  invoke void @_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameEEvT_S5_(ptr noundef nonnull %54, ptr noundef nonnull %.016.i.i.i.i.i35)
-          to label %61 unwind label %62
+  %57 = extractvalue { ptr, i32 } %56, 0
+  %58 = tail call ptr @__cxa_begin_catch(ptr %57) #25
+  invoke void @_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameEEvT_S5_(ptr noundef nonnull %52, ptr noundef nonnull %.016.i.i.i.i.i35)
+          to label %59 unwind label %60
 
-61:                                               ; preds = %57
+59:                                               ; preds = %55
   invoke void @__cxa_rethrow() #22
-          to label %69 unwind label %62
+          to label %65 unwind label %60
 
-62:                                               ; preds = %61, %57
-  %63 = landingpad { ptr, i32 }
+60:                                               ; preds = %59, %55
+  %61 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %.body.thread53 unwind label %66
+          to label %92 unwind label %62
 
-.body.thread53:                                   ; preds = %62
-  %64 = extractvalue { ptr, i32 } %63, 0
-  %65 = tail call ptr @__cxa_begin_catch(ptr %64) #25
-  br label %96
-
-66:                                               ; preds = %62
-  %67 = landingpad { ptr, i32 }
+62:                                               ; preds = %60
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  tail call void @__clang_call_terminate(ptr %68) #24
+  %64 = extractvalue { ptr, i32 } %63, 0
+  tail call void @__clang_call_terminate(ptr %64) #24
   unreachable
 
-69:                                               ; preds = %61
+65:                                               ; preds = %59
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit43: ; preds = %_ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i37, %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.lcssa.i.i.i.i.i39 = phi ptr [ %54, %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %56, %_ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i37 ]
+  %.0.lcssa.i.i.i.i.i39 = phi ptr [ %52, %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %54, %_ZSt10_ConstructIN8WasmEdge9Validator11FormChecker9CtrlFrameEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i37 ]
   %.not4.i.i.i = icmp eq ptr %11, %10
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit43, %_ZSt8_DestroyIN8WasmEdge9Validator11FormChecker9CtrlFrameEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %85, %_ZSt8_DestroyIN8WasmEdge9Validator11FormChecker9CtrlFrameEEvPT_.exit.i.i.i ], [ %11, %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit43 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
-  %71 = load ptr, ptr %70, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit.i.i.i.i.i, label %72
+  %.05.i.i.i = phi ptr [ %81, %_ZSt8_DestroyIN8WasmEdge9Validator11FormChecker9CtrlFrameEEvPT_.exit.i.i.i ], [ %11, %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit43 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
+  %67 = load ptr, ptr %66, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %67, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit.i.i.i.i.i, label %68
 
-72:                                               ; preds = %.lr.ph.i.i.i
-  %73 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 40
-  %74 = load ptr, ptr %73, align 8
-  %75 = ptrtoint ptr %74 to i64
-  %76 = ptrtoint ptr %71 to i64
-  %77 = sub i64 %75, %76
-  tail call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %77) #21
+68:                                               ; preds = %.lr.ph.i.i.i
+  %69 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 40
+  %70 = load ptr, ptr %69, align 8
+  %71 = ptrtoint ptr %70 to i64
+  %72 = ptrtoint ptr %67 to i64
+  %73 = sub i64 %71, %72
+  tail call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef %73) #21
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit.i.i.i.i.i
 
-_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit.i.i.i.i.i: ; preds = %72, %.lr.ph.i.i.i
-  %78 = load ptr, ptr %.05.i.i.i, align 8
-  %.not.i.i.i1.i.i.i.i.i = icmp eq ptr %78, null
-  br i1 %.not.i.i.i1.i.i.i.i.i, label %_ZSt8_DestroyIN8WasmEdge9Validator11FormChecker9CtrlFrameEEvPT_.exit.i.i.i, label %79
+_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit.i.i.i.i.i: ; preds = %68, %.lr.ph.i.i.i
+  %74 = load ptr, ptr %.05.i.i.i, align 8
+  %.not.i.i.i1.i.i.i.i.i = icmp eq ptr %74, null
+  br i1 %.not.i.i.i1.i.i.i.i.i, label %_ZSt8_DestroyIN8WasmEdge9Validator11FormChecker9CtrlFrameEEvPT_.exit.i.i.i, label %75
 
-79:                                               ; preds = %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit.i.i.i.i.i
-  %80 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
-  %81 = load ptr, ptr %80, align 8
-  %82 = ptrtoint ptr %81 to i64
-  %83 = ptrtoint ptr %78 to i64
-  %84 = sub i64 %82, %83
-  tail call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %84) #21
+75:                                               ; preds = %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit.i.i.i.i.i
+  %76 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = ptrtoint ptr %77 to i64
+  %79 = ptrtoint ptr %74 to i64
+  %80 = sub i64 %78, %79
+  tail call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %80) #21
   br label %_ZSt8_DestroyIN8WasmEdge9Validator11FormChecker9CtrlFrameEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyIN8WasmEdge9Validator11FormChecker9CtrlFrameEEvPT_.exit.i.i.i: ; preds = %79, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 80
-  %.not.i.i.i = icmp eq ptr %85, %10
+_ZSt8_DestroyIN8WasmEdge9Validator11FormChecker9CtrlFrameEEvPT_.exit.i.i.i: ; preds = %75, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit.i.i.i.i.i
+  %81 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 80
+  %.not.i.i.i = icmp eq ptr %81, %10
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !4
 
 _ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN8WasmEdge9Validator11FormChecker9CtrlFrameEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN8WasmEdge9Validator11FormChecker9CtrlFrameES4_SaIS3_EET0_T_S7_S6_RT1_.exit43
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i44 = icmp eq ptr %11, null
-  br i1 %.not.i44, label %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit, label %87
+  br i1 %.not.i44, label %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit, label %83
 
-87:                                               ; preds = %_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameES3_EvT_S5_RSaIT0_E.exit
-  %88 = load ptr, ptr %86, align 8
-  %89 = ptrtoint ptr %88 to i64
-  %90 = sub i64 %89, %13
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %90) #21
+83:                                               ; preds = %_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameES3_EvT_S5_RSaIT0_E.exit
+  %84 = load ptr, ptr %82, align 8
+  %85 = ptrtoint ptr %84 to i64
+  %86 = sub i64 %85, %13
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %86) #21
   br label %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameES3_EvT_S5_RSaIT0_E.exit, %87
+_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameES3_EvT_S5_RSaIT0_E.exit, %83
   store ptr %27, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %9, align 8
-  %91 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %27, i64 %21
-  store ptr %91, ptr %86, align 8
+  %87 = getelementptr inbounds nuw %"struct.WasmEdge::Validator::FormChecker::CtrlFrame", ptr %27, i64 %21
+  store ptr %87, ptr %82, align 8
   ret void
 
-.body:                                            ; preds = %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE11_M_allocateEm.exit
-  %92 = landingpad { ptr, i32 }
+88:                                               ; preds = %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE11_M_allocateEm.exit
+  %89 = landingpad { ptr, i32 }
           catch ptr null
-  %93 = extractvalue { ptr, i32 } %92, 0
+  br label %92
+
+.thread:                                          ; preds = %46
+  %90 = extractvalue { ptr, i32 } %47, 0
+  %91 = tail call ptr @__cxa_begin_catch(ptr %90) #25
+  tail call void @_ZNSt16allocator_traitsISaIN8WasmEdge9Validator11FormChecker9CtrlFrameEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %28) #25
+  br label %98
+
+92:                                               ; preds = %88, %60
+  %.0.lpad-body.ph = phi ptr [ %52, %60 ], [ %27, %88 ]
+  %eh.lpad-body.ph = phi { ptr, i32 } [ %61, %60 ], [ %89, %88 ]
+  %93 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
   %94 = tail call ptr @__cxa_begin_catch(ptr %93) #25
-  %.not = icmp eq ptr %27, null
-  br i1 %.not, label %95, label %96
+  invoke void @_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameES3_EvT_S5_RSaIT0_E(ptr noundef %27, ptr noundef nonnull %.0.lpad-body.ph, ptr noundef nonnull align 1 dereferenceable(1) %0)
+          to label %97 unwind label %95
 
-95:                                               ; preds = %.body.thread, %.body
-  tail call void @_ZNSt16allocator_traitsISaIN8WasmEdge9Validator11FormChecker9CtrlFrameEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %28) #25
-  br label %99
-
-96:                                               ; preds = %.body.thread53, %.body
-  %.0.lpad-body57 = phi ptr [ %54, %.body.thread53 ], [ %27, %.body ]
-  invoke void @_ZSt8_DestroyIPN8WasmEdge9Validator11FormChecker9CtrlFrameES3_EvT_S5_RSaIT0_E(ptr noundef %27, ptr noundef nonnull %.0.lpad-body57, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %99 unwind label %97
-
-97:                                               ; preds = %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit46, %96
-  %98 = landingpad { ptr, i32 }
+95:                                               ; preds = %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit46, %92
+  %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %102 unwind label %103
+          to label %100 unwind label %101
 
-99:                                               ; preds = %96, %95
+97:                                               ; preds = %92
   %.not.i45 = icmp eq ptr %27, null
-  br i1 %.not.i45, label %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit46, label %100
+  br i1 %.not.i45, label %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit46, label %98
 
-100:                                              ; preds = %99
-  %101 = mul nuw nsw i64 %21, 80
-  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %101) #21
+98:                                               ; preds = %.thread, %97
+  %99 = mul nuw nsw i64 %21, 80
+  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %99) #21
   br label %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit46
 
-_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit46: ; preds = %100, %99
+_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit46: ; preds = %98, %97
   invoke void @__cxa_rethrow() #22
-          to label %106 unwind label %97
+          to label %104 unwind label %95
 
-102:                                              ; preds = %97
-  resume { ptr, i32 } %98
+100:                                              ; preds = %95
+  resume { ptr, i32 } %96
 
-103:                                              ; preds = %97
-  %104 = landingpad { ptr, i32 }
+101:                                              ; preds = %95
+  %102 = landingpad { ptr, i32 }
           catch ptr null
-  %105 = extractvalue { ptr, i32 } %104, 0
-  tail call void @__clang_call_terminate(ptr %105) #24
+  %103 = extractvalue { ptr, i32 } %102, 0
+  tail call void @__clang_call_terminate(ptr %103) #24
   unreachable
 
-106:                                              ; preds = %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit46
+104:                                              ; preds = %_ZNSt12_Vector_baseIN8WasmEdge9Validator11FormChecker9CtrlFrameESaIS3_EE13_M_deallocateEPS3_m.exit46
   unreachable
 }
 

@@ -108,7 +108,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_problem(i32 noundef %0, ptr
   %.0126.i = phi i32 [ %35, %.thread.i ], [ -2, %43 ]
   %47 = tail call i32 @llvm.smax.i32(i32 %.0126.i, i32 4)
   %48 = zext nneg i32 %47 to i64
-  %49 = tail call i32 @xstrncasecmp(ptr noundef %46, ptr noundef nonnull @.str.6, i64 noundef %48) #7
+  %49 = tail call i32 @xstrncasecmp(ptr noundef nonnull %46, ptr noundef nonnull @.str.6, i64 noundef %48) #7
   %.not103.i = icmp eq i32 %49, 0
   br i1 %.not103.i, label %50, label %51
 

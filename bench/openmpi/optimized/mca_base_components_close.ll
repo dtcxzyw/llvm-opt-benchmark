@@ -31,7 +31,7 @@ define void @mca_base_component_unload(ptr noundef %0, i32 noundef %1) local_unn
   br label %14
 
 14:                                               ; preds = %12, %6
-  tail call void @mca_base_component_repository_release(ptr noundef %0) #3
+  tail call void @mca_base_component_repository_release(ptr noundef nonnull %0) #3
   ret void
 }
 
@@ -183,7 +183,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %30, %27
   br i1 %.not.i.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %35
-  tail call void @free(ptr noundef %.01621.i) #3
+  tail call void @free(ptr noundef nonnull %.01621.i) #3
   br label %43
 
 43:                                               ; preds = %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i, %9
@@ -274,7 +274,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %26, %29
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %34
-  tail call void @free(ptr noundef %.01621) #3
+  tail call void @free(ptr noundef nonnull %.01621) #3
   br label %42
 
 42:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %8

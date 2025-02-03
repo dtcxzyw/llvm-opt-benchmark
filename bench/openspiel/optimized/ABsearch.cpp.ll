@@ -1169,7 +1169,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   %67 = load i8, ptr %66, align 1
   %68 = add i8 %67, -1
   store i8 %68, ptr %66, align 1
-  %69 = tail call noundef zeroext i1 @_Z9ABsearch3P3posiiP10ThreadData(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %32, ptr noundef %3)
+  %69 = tail call noundef zeroext i1 @_Z9ABsearch3P3posiiP10ThreadData(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %32, ptr noundef nonnull %3)
   %70 = load i32, ptr %7, align 4
   %71 = and i32 %70, 3
   %72 = xor i32 %71, 2
@@ -1388,7 +1388,7 @@ define noundef zeroext i1 @_Z9ABsearch3P3posiiP10ThreadData(ptr noundef nonnull 
 
 49:                                               ; preds = %.lr.ph, %.loopexit
   %50 = phi ptr [ %31, %.lr.ph ], [ %47, %.loopexit ]
-  call void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %50, ptr noundef %3)
+  call void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %50, ptr noundef nonnull %3)
   %51 = load i32, ptr %33, align 4
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %33, align 4
