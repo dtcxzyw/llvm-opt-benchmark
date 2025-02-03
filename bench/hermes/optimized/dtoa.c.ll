@@ -2655,7 +2655,7 @@ if.then940.i:                                     ; preds = %if.end937.i
   %243 = load double, ptr %rv.i, align 8
   %mul943.i = fmul double %243, 0x3950000000000000
   store double %mul943.i, ptr %rv.i, align 8
-  %tobool946.not.i = call i1 @llvm.is.fpclass.f64(double %mul943.i, i32 240)
+  %244 = call i1 @llvm.is.fpclass.f64(double %mul943.i, i32 240)
   br i1 %tobool946.not.i, label %if.then947.i, label %ret.i
 
 if.then947.i:                                     ; preds = %if.then940.i
@@ -2674,18 +2674,18 @@ if.then952.i:                                     ; preds = %ret.i
   br label %_hermes_g_strtod.exit
 
 _hermes_g_strtod.exit:                            ; preds = %ret.i, %if.then952.i
-  %244 = load double, ptr %rv.i, align 8
+  %246 = load double, ptr %rv.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bbe.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bbbits.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rv.i)
   %used_heap.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
-  %245 = load i32, ptr %used_heap.i, align 4
-  %tobool.not.i1 = icmp eq i32 %245, 0
+  %247 = load i32, ptr %used_heap.i, align 4
+  %tobool.not.i1 = icmp eq i32 %247, 0
   br i1 %tobool.not.i1, label %dalloc_done.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_hermes_g_strtod.exit
-  %246 = load i32, ptr %dalloc, align 8
-  %idx.ext.i = sext i32 %246 to i64
+  %248 = load i32, ptr %dalloc, align 8
+  %idx.ext.i = sext i32 %248 to i64
   %add.ptr.i = getelementptr inbounds double, ptr %private_mem.i, i64 %idx.ext.i
   %freelist.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 16
   br label %for.body.i3
@@ -2693,13 +2693,13 @@ if.end.i:                                         ; preds = %_hermes_g_strtod.ex
 for.body.i3:                                      ; preds = %for.inc.i7, %if.end.i
   %indvars.iv.i4 = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i8, %for.inc.i7 ]
   %arrayidx.i5 = getelementptr inbounds nuw [8 x ptr], ptr %freelist.i, i64 0, i64 %indvars.iv.i4
-  %247 = load ptr, ptr %arrayidx.i5, align 8
-  %tobool3.not11.i = icmp eq ptr %247, null
+  %249 = load ptr, ptr %arrayidx.i5, align 8
+  %tobool3.not11.i = icmp eq ptr %249, null
   br i1 %tobool3.not11.i, label %for.inc.i7, label %while.body.i
 
 while.body.i:                                     ; preds = %for.body.i3, %while.cond.backedge.i
-  %p.012.i = phi ptr [ %248, %while.cond.backedge.i ], [ %247, %for.body.i3 ]
-  %248 = load ptr, ptr %p.012.i, align 8
+  %p.012.i = phi ptr [ %250, %while.cond.backedge.i ], [ %249, %for.body.i3 ]
+  %250 = load ptr, ptr %p.012.i, align 8
   %cmp4.not.i = icmp uge ptr %p.012.i, %private_mem.i
   %cmp5.i = icmp ult ptr %p.012.i, %add.ptr.i
   %or.cond.i6 = select i1 %cmp4.not.i, i1 %cmp5.i, i1 false
@@ -2710,7 +2710,7 @@ if.end7.i:                                        ; preds = %while.body.i
   br label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end7.i, %while.body.i
-  %tobool3.not.i = icmp eq ptr %248, null
+  %tobool3.not.i = icmp eq ptr %250, null
   br i1 %tobool3.not.i, label %for.inc.i7, label %while.body.i, !llvm.loop !4
 
 for.inc.i7:                                       ; preds = %while.cond.backedge.i, %for.body.i3
@@ -2720,8 +2720,8 @@ for.inc.i7:                                       ; preds = %while.cond.backedge
 
 dalloc_done.exit:                                 ; preds = %for.inc.i7, %_hermes_g_strtod.exit
   %tobool954.not.i = icmp eq i32 %sign.2.i, 0
-  %fneg956.i = fneg double %244
-  %cond959.i = select i1 %tobool954.not.i, double %244, double %fneg956.i
+  %fneg956.i = fneg double %246
+  %cond959.i = select i1 %tobool954.not.i, double %246, double %fneg956.i
   ret double %cond959.i
 }
 

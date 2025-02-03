@@ -2879,14 +2879,14 @@ define hidden void @"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$a
   %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %8, i32 264)
   %9 = fmul float %7, 2.000000e+00
   %10 = fdiv float %9, %8
-  %.0.i.i.i = select i1 %or.cond1.i.i.i, float %10, float 0.000000e+00
+  %11 = select i1 %or.cond1.i.i.i, float %10, float 0.000000e+00
   store float %.sroa.01.0.copyload, ptr %0, align 4
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %.0.i.i.i, ptr %.sroa.43.0..sroa_idx, align 4
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %8, ptr %.sroa.54.0..sroa_idx, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %4, ptr %11, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %4, ptr %14, align 4
   ret void
 }
 
@@ -4284,13 +4284,13 @@ define hidden void @"_ZN152_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palett
   %or.cond1.i = tail call i1 @llvm.is.fpclass.f32(float %8, i32 264)
   %9 = fmul float %7, 2.000000e+00
   %10 = fdiv float %9, %8
-  %.0.i = select i1 %or.cond1.i, float %10, float 0.000000e+00
+  %11 = select i1 %or.cond1.i, float %10, float 0.000000e+00
   %.sroa.02.0.copyload = load float, ptr %1, align 4
   store float %.sroa.02.0.copyload, ptr %0, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.0.i, ptr %11, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %8, ptr %12, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.0.i, ptr %14, align 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %8, ptr %15, align 4
   ret void
 }
 
@@ -31377,13 +31377,13 @@ define hidden void @"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_un
   %or.cond1.i.i = tail call i1 @llvm.is.fpclass.f32(float %9, i32 264)
   %10 = fmul float %8, 2.000000e+00
   %11 = fdiv float %10, %9
-  %.0.i.i = select i1 %or.cond1.i.i, float %11, float 0.000000e+00
+  %12 = select i1 %or.cond1.i.i, float %11, float 0.000000e+00
   %.sroa.02.0.copyload.i = load float, ptr %1, align 4, !alias.scope !6289, !noalias !6286
   store float %.sroa.02.0.copyload.i, ptr %0, align 4, !alias.scope !6286, !noalias !6289
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.0.i.i, ptr %12, align 4, !alias.scope !6286, !noalias !6289
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %9, ptr %13, align 4, !alias.scope !6286, !noalias !6289
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.0.i.i, ptr %15, align 4, !alias.scope !6286, !noalias !6289
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %9, ptr %16, align 4, !alias.scope !6286, !noalias !6289
   ret void
 }
 

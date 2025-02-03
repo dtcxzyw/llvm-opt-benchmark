@@ -2359,7 +2359,7 @@ if.then789:                                       ; preds = %if.end786
   %222 = load double, ptr %rv, align 8
   %mul792 = fmul double %222, 0x3950000000000000
   store double %mul792, ptr %rv, align 8
-  %tobool795.not = tail call i1 @llvm.is.fpclass.f64(double %mul792, i32 240)
+  %223 = tail call i1 @llvm.is.fpclass.f64(double %mul792, i32 240)
   br i1 %tobool795.not, label %if.then796, label %ret
 
 if.then796:                                       ; preds = %if.then789
@@ -2377,15 +2377,15 @@ ret:                                              ; preds = %ret.loopexit, %if.e
   br i1 %tobool800.not, label %if.end802, label %if.then801
 
 if.then801:                                       ; preds = %ret
-  %223 = load ptr, ptr %s, align 8
-  store ptr %223, ptr %se, align 8
+  %225 = load ptr, ptr %s, align 8
+  store ptr %225, ptr %se, align 8
   br label %if.end802
 
 if.end802:                                        ; preds = %if.then801, %ret
   %tobool803.not = icmp eq i32 %sign.2, 0
-  %224 = load double, ptr %rv, align 8
-  %fneg805 = fneg double %224
-  %cond808 = select i1 %tobool803.not, double %224, double %fneg805
+  %226 = load double, ptr %rv, align 8
+  %fneg805 = fneg double %226
+  %cond808 = select i1 %tobool803.not, double %226, double %fneg805
   ret double %cond808
 }
 

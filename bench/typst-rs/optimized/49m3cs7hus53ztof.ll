@@ -4174,15 +4174,15 @@ define hidden void @"_ZN154_$LT$palette..xyz..Xyz$LT$Wp$C$T$GT$$u20$as$u20$palet
   %7 = fsub float 1.000000e+00, %2
   %8 = fsub float %7, %4
   %9 = fdiv float %8, %4
-  %10 = fdiv float %2, %4
-  %.0.i11 = select i1 %or.cond1.i, float %9, float 0.000000e+00
-  %.0.i5 = select i1 %or.cond1.i, float %10, float 0.000000e+00
-  %11 = fmul float %6, %.0.i5
-  %12 = fmul float %6, %.0.i11
-  store float %11, ptr %0, align 4, !alias.scope !654, !noalias !657
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %6, ptr %13, align 4, !alias.scope !654, !noalias !657
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.0.i.i = fdiv float %2, %4
+  %10 = select i1 %or.cond1.i, float %9, float 0.000000e+00
+  %11 = select i1 %or.cond1.i, float %10, float 0.000000e+00
+  %12 = fmul float %6, %11
+  %13 = fmul float %6, %10
+  store float %12, ptr %0, align 4, !alias.scope !654, !noalias !657
+  %.0.i5 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %6, ptr %.0.i5, align 4, !alias.scope !654, !noalias !657
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %12, ptr %14, align 4, !alias.scope !654, !noalias !657
   ret void
 }

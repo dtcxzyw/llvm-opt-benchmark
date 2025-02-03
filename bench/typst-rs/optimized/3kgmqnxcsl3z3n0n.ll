@@ -65596,7 +65596,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha57e4e493c8
   %3 = alloca [9 x float], align 4
   %4 = load i64, ptr %1, align 8, !range !49, !noundef !4
   %trunc = trunc nuw i64 %4 to i1
-  br i1 %trunc, label %78, label %5
+  br i1 %trunc, label %81, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18290)
@@ -65638,13 +65638,13 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha57e4e493c8
   %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %36, i32 264)
   br i1 %or.cond1.i.i.i, label %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h2941e00db1d8e073E.exit", label %37
 
-37:                                               ; preds = %5
+37:; preds = %5
   tail call void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @anon.ecbbdf4ce99fb387dde54de6349d4c38.181, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ecbbdf4ce99fb387dde54de6349d4c38.182) #50, !noalias !18326
   unreachable
 
 "_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h2941e00db1d8e073E.exit": ; preds = %5
-  %38 = fmul float %7, %27
-  %39 = fmul float %18, %30
+  %41 = fmul float %7, %27
+  %42 = fmul float %18, %30
   %40 = fsub float %38, %39
   %41 = fmul float %12, %27
   %42 = fmul float %18, %34
@@ -65676,7 +65676,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha57e4e493c8
   %68 = fmul float %56, %67
   %69 = fmul float %40, %56
   store float %57, ptr %0, align 4, !alias.scope !18301, !noalias !18296
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %59, ptr %70, align 4, !alias.scope !18301, !noalias !18296
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %60, ptr %71, align 4, !alias.scope !18301, !noalias !18296
@@ -65693,11 +65693,11 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha57e4e493c8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %69, ptr %77, align 4, !alias.scope !18301, !noalias !18296
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3), !noalias !18290
-  br label %97
+  br label %100
 
-78:                                               ; preds = %2
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01.0.copyload = load double, ptr %79, align 8
+81:                                               ; preds = %2
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01.0.copyload = load double, ptr %82, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -65714,17 +65714,17 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha57e4e493c8
   %.sroa.86.0.copyload = load double, ptr %.sroa.86.0..sroa_idx, align 8
   %.sroa.97.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.97.0.copyload = load double, ptr %.sroa.97.0..sroa_idx, align 8
-  %80 = fptrunc double %.sroa.01.0.copyload to float
-  %81 = fptrunc double %.sroa.2.0.copyload to float
-  %82 = fptrunc double %.sroa.3.0.copyload to float
-  %83 = fptrunc double %.sroa.42.0.copyload to float
-  %84 = fptrunc double %.sroa.53.0.copyload to float
-  %85 = fptrunc double %.sroa.64.0.copyload to float
-  %86 = fptrunc double %.sroa.75.0.copyload to float
-  %87 = fptrunc double %.sroa.86.0.copyload to float
-  %88 = fptrunc double %.sroa.97.0.copyload to float
-  store float %80, ptr %0, align 4, !alias.scope !18327, !noalias !18332
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %83 = fptrunc double %.sroa.01.0.copyload to float
+  %84 = fptrunc double %.sroa.2.0.copyload to float
+  %85 = fptrunc double %.sroa.3.0.copyload to float
+  %86 = fptrunc double %.sroa.42.0.copyload to float
+  %87 = fptrunc double %.sroa.53.0.copyload to float
+  %88 = fptrunc double %.sroa.64.0.copyload to float
+  %89 = fptrunc double %.sroa.75.0.copyload to float
+  %90 = fptrunc double %.sroa.86.0.copyload to float
+  %91 = fptrunc double %.sroa.97.0.copyload to float
+  store float %83, ptr %0, align 4, !alias.scope !18327, !noalias !18332
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %81, ptr %89, align 4, !alias.scope !18327, !noalias !18332
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %82, ptr %90, align 4, !alias.scope !18327, !noalias !18332
@@ -65740,9 +65740,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha57e4e493c8
   store float %87, ptr %95, align 4, !alias.scope !18327, !noalias !18332
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %88, ptr %96, align 4, !alias.scope !18327, !noalias !18332
-  br label %97
+  br label %100
 
-97:                                               ; preds = %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h2941e00db1d8e073E.exit", %78
+100:                                              ; preds = %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h2941e00db1d8e073E.exit", %81
   ret void
 }
 
@@ -65751,7 +65751,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd4d8c92dddb
   %3 = alloca [9 x float], align 4
   %4 = load i64, ptr %1, align 8, !range !49, !noundef !4
   %trunc = trunc nuw i64 %4 to i1
-  br i1 %trunc, label %78, label %5
+  br i1 %trunc, label %81, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18335)
@@ -65793,13 +65793,13 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd4d8c92dddb
   %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %36, i32 264)
   br i1 %or.cond1.i.i.i, label %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h191ef4c109c0ae32E.exit", label %37
 
-37:                                               ; preds = %5
+37:; preds = %5
   tail call void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @anon.ecbbdf4ce99fb387dde54de6349d4c38.181, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ecbbdf4ce99fb387dde54de6349d4c38.182) #50, !noalias !18371
   unreachable
 
 "_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h191ef4c109c0ae32E.exit": ; preds = %5
-  %38 = fmul float %7, %27
-  %39 = fmul float %18, %30
+  %41 = fmul float %7, %27
+  %42 = fmul float %18, %30
   %40 = fsub float %38, %39
   %41 = fmul float %12, %27
   %42 = fmul float %18, %34
@@ -65831,7 +65831,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd4d8c92dddb
   %68 = fmul float %56, %67
   %69 = fmul float %40, %56
   store float %57, ptr %0, align 4, !alias.scope !18346, !noalias !18341
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %59, ptr %70, align 4, !alias.scope !18346, !noalias !18341
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %60, ptr %71, align 4, !alias.scope !18346, !noalias !18341
@@ -65848,11 +65848,11 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd4d8c92dddb
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %69, ptr %77, align 4, !alias.scope !18346, !noalias !18341
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3), !noalias !18335
-  br label %97
+  br label %100
 
-78:                                               ; preds = %2
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01.0.copyload = load double, ptr %79, align 8
+81:                                               ; preds = %2
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01.0.copyload = load double, ptr %82, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -65869,17 +65869,17 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd4d8c92dddb
   %.sroa.86.0.copyload = load double, ptr %.sroa.86.0..sroa_idx, align 8
   %.sroa.97.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.97.0.copyload = load double, ptr %.sroa.97.0..sroa_idx, align 8
-  %80 = fptrunc double %.sroa.01.0.copyload to float
-  %81 = fptrunc double %.sroa.2.0.copyload to float
-  %82 = fptrunc double %.sroa.3.0.copyload to float
-  %83 = fptrunc double %.sroa.42.0.copyload to float
-  %84 = fptrunc double %.sroa.53.0.copyload to float
-  %85 = fptrunc double %.sroa.64.0.copyload to float
-  %86 = fptrunc double %.sroa.75.0.copyload to float
-  %87 = fptrunc double %.sroa.86.0.copyload to float
-  %88 = fptrunc double %.sroa.97.0.copyload to float
-  store float %80, ptr %0, align 4, !alias.scope !18372, !noalias !18377
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %83 = fptrunc double %.sroa.01.0.copyload to float
+  %84 = fptrunc double %.sroa.2.0.copyload to float
+  %85 = fptrunc double %.sroa.3.0.copyload to float
+  %86 = fptrunc double %.sroa.42.0.copyload to float
+  %87 = fptrunc double %.sroa.53.0.copyload to float
+  %88 = fptrunc double %.sroa.64.0.copyload to float
+  %89 = fptrunc double %.sroa.75.0.copyload to float
+  %90 = fptrunc double %.sroa.86.0.copyload to float
+  %91 = fptrunc double %.sroa.97.0.copyload to float
+  store float %83, ptr %0, align 4, !alias.scope !18372, !noalias !18377
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %81, ptr %89, align 4, !alias.scope !18372, !noalias !18377
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %82, ptr %90, align 4, !alias.scope !18372, !noalias !18377
@@ -65895,9 +65895,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd4d8c92dddb
   store float %87, ptr %95, align 4, !alias.scope !18372, !noalias !18377
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %88, ptr %96, align 4, !alias.scope !18372, !noalias !18377
-  br label %97
+  br label %100
 
-97:                                               ; preds = %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h191ef4c109c0ae32E.exit", %78
+100:                                              ; preds = %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h191ef4c109c0ae32E.exit", %81
   ret void
 }
 
@@ -101404,13 +101404,13 @@ define internal fastcc void @_ZN7palette6matrix17rgb_to_xyz_matrix17h983635fb510
   %or.cond1.i.i = tail call i1 @llvm.is.fpclass.f32(float %42, i32 264)
   br i1 %or.cond1.i.i, label %_ZN7palette6matrix14matrix_inverse17h2a5aca64bb7d8908E.exit, label %43
 
-43:                                               ; preds = %1
+43:; preds = %1
   tail call void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @anon.ecbbdf4ce99fb387dde54de6349d4c38.181, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ecbbdf4ce99fb387dde54de6349d4c38.182) #50, !noalias !25731
   unreachable
 
 _ZN7palette6matrix14matrix_inverse17h2a5aca64bb7d8908E.exit: ; preds = %1
-  %44 = fmul float %14, %21
-  %45 = fmul float %16, %19
+  %47 = fmul float %14, %21
+  %48 = fmul float %16, %19
   %46 = fsub float %44, %45
   %47 = fmul float %14, %26
   %48 = fmul float %16, %24
@@ -101450,18 +101450,18 @@ _ZN7palette6matrix14matrix_inverse17h2a5aca64bb7d8908E.exit: ; preds = %1
   %82 = fmul float %55, %62
   %83 = fsub float %81, %82
   %84 = fmul float %71, 0x3FF16BD900000000
-  %85 = fadd float %84, %83
+  %85 = fadd float %84, %86
   %86 = fmul float %14, %76
   %87 = fmul float %19, %80
   %88 = fmul float %24, %85
   %89 = fmul float %16, %76
-  %90 = fmul float %21, %80
-  %91 = fmul float %26, %85
+  %90 = fmul float %21, %83
+  %91 = fmul float %26, %88
   %92 = fmul float %18, %76
-  %93 = fmul float %23, %80
-  %94 = fmul float %28, %85
+  %93 = fmul float %23, %83
+  %94 = fmul float %28, %88
   store float %86, ptr %0, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %87, ptr %95, align 4
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %88, ptr %96, align 4
