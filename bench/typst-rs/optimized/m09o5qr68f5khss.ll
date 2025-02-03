@@ -104240,22 +104240,20 @@ define void @_ZN5typst11foundations4calc3pow17h28fed3ec78e392cfE(ptr noalias nou
 
 44:                                               ; preds = %42
   %45 = and i64 %.cast.i, 4503599627370495
-  %46 = and i64 %.cast.i, 9218868437227405312
-  %47 = icmp eq i64 %45, 0
-  br i1 %47, label %48, label %49
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %44
+  %switch.selectcmp.i = tail call i1 @llvm.is.fpclass.f64(double %.sroa.4.0.copyload127, i32 264)
+  br label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit"
 
 48:                                               ; preds = %44
-  %switch.selectcmp.case1.i = icmp ne i64 %46, 9218868437227405312
-  %switch.selectcmp.case2.i = icmp ne i64 %46, 0
-  %switch.selectcmp.not.i = and i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
+  %49 = and i64 %.cast.i, 9218868437227405312
+  %50 = icmp ne i64 %49, 0
   br label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit"
 
-49:                                               ; preds = %44
-  %50 = icmp ne i64 %46, 0
-  br label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit"
-
-"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit": ; preds = %42, %48, %49
-  %51 = phi i1 [ false, %42 ], [ %switch.selectcmp.not.i, %48 ], [ %50, %49 ]
+"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit": ; preds = %42, %47, %48
+  %51 = phi i1 [ false, %42 ], [ %switch.selectcmp.i, %47 ], [ %50, %48 ]
   %52 = fcmp oeq double %.sroa.4.0.copyload127, 0.000000e+00
   %or.cond6.not = or i1 %52, %51
   br i1 %or.cond6.not, label %61, label %85
@@ -104971,22 +104969,20 @@ define void @_ZN5typst11foundations4calc3exp17hb9d23054eddad600E(ptr noalias nou
 25:                                               ; preds = %22
   %26 = bitcast double %23 to i64
   %27 = and i64 %26, 4503599627370495
-  %28 = and i64 %26, 9218868437227405312
-  %29 = icmp eq i64 %27, 0
-  br i1 %29, label %30, label %31
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %25
+  %switch.selectcmp.i = tail call i1 @llvm.is.fpclass.f64(double %23, i32 264)
+  br label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit"
 
 30:                                               ; preds = %25
-  %switch.selectcmp.case1.i = icmp ne i64 %28, 9218868437227405312
-  %switch.selectcmp.case2.i = icmp ne i64 %28, 0
-  %switch.selectcmp.not.i = and i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
+  %31 = and i64 %26, 9218868437227405312
+  %32 = icmp ne i64 %31, 0
   br label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit"
 
-31:                                               ; preds = %25
-  %32 = icmp ne i64 %28, 0
-  br label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit"
-
-"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit": ; preds = %22, %30, %31
-  %33 = phi i1 [ false, %22 ], [ %switch.selectcmp.not.i, %30 ], [ %32, %31 ]
+"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit": ; preds = %22, %29, %30
+  %33 = phi i1 [ false, %22 ], [ %switch.selectcmp.i, %29 ], [ %32, %30 ]
   %34 = fcmp oeq double %23, 0.000000e+00
   %or.cond3.not = or i1 %34, %33
   br i1 %or.cond3.not, label %43, label %66
@@ -106131,18 +106127,16 @@ define void @_ZN5typst11foundations4calc3log17hd023542fd4e41767E(ptr noalias nou
 23:                                               ; preds = %21
   %24 = bitcast double %4 to i64
   %25 = and i64 %24, 4503599627370495
-  %26 = and i64 %24, 9218868437227405312
-  %27 = icmp eq i64 %25, 0
-  br i1 %27, label %28, label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit"
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %27, label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit"
 
-28:                                               ; preds = %23
-  switch i64 %26, label %42 [
-    i64 9218868437227405312, label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit.thread"
-    i64 0, label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit.thread"
-  ]
+27:                                               ; preds = %23
+  %switch.selectcmp.i = tail call i1 @llvm.is.fpclass.f64(double %4, i32 264)
+  br i1 %switch.selectcmp.i, label %42, label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit.thread"
 
 "_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit": ; preds = %23
-  %.not = icmp eq i64 %26, 0
+  %28 = and i64 %24, 9218868437227405312
+  %.not = icmp eq i64 %28, 0
   br i1 %.not, label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit.thread", label %42
 
 29:                                               ; preds = %5
@@ -106166,7 +106160,7 @@ define void @_ZN5typst11foundations4calc3log17hd023542fd4e41767E(ptr noalias nou
   %36 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 1 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5c04a1d5f2b09caa3146db3fe8360175.349, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16)
           to label %108 unwind label %103
 
-"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit.thread": ; preds = %28, %28, %21, %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit"
+"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit.thread": ; preds = %21, %27, %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit"
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %14, i8 0, i64 15, i1 false)
@@ -106185,7 +106179,7 @@ define void @_ZN5typst11foundations4calc3log17hd023542fd4e41767E(ptr noalias nou
   %41 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 1 %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5c04a1d5f2b09caa3146db3fe8360175.349, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
           to label %49 unwind label %44
 
-42:                                               ; preds = %28, %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit"
+42:                                               ; preds = %27, %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17h0523c905df5d28f3E.exit"
   %43 = fcmp oeq double %4, 0x4005BF0A8B145769
   br i1 %43, label %65, label %63
 
