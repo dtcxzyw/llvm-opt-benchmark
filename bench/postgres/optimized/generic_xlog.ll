@@ -401,16 +401,12 @@ computeRegionDelta.exit.i:                        ; preds = %102, %.critedge.i.i
   %141 = getelementptr i8, ptr %28, i64 %indvars.iv.next.i27.i
   %142 = load i8, ptr %141, align 1
   %.not76.i28.i = icmp eq i8 %140, %142
-  br i1 %.not76.i28.i, label %.critedge.thread.loopexit.i29.i, label %135, !llvm.loop !8
+  br i1 %.not76.i28.i, label %.critedge.thread.i31.i, label %135, !llvm.loop !8
 
-.critedge.thread.loopexit.i29.i:                  ; preds = %138
-  %.pre.i30.i = and i64 %indvars.iv.next.i27.i, 4294967295
-  br label %.critedge.thread.i31.i
-
-.critedge.thread.i31.i:                           ; preds = %.critedge.thread.loopexit.i29.i, %126
-  %.pre-phi.i32.i = phi i64 [ %.pre.i30.i, %.critedge.thread.loopexit.i29.i ], [ %128, %126 ]
-  %.167.i33.i = phi i32 [ %136, %.critedge.thread.loopexit.i29.i ], [ %.06687.i23.i, %126 ]
-  %.363.i34.i = phi i32 [ %spec.select79.i25.i, %.critedge.thread.loopexit.i29.i ], [ %.16188.i22.i, %126 ]
+.critedge.thread.i31.i:                           ; preds = %138, %126
+  %.pre-phi.i32.i = phi i64 [ %128, %126 ], [ %indvars.iv.next.i27.i, %138 ]
+  %.167.i33.i = phi i32 [ %.06687.i23.i, %126 ], [ %136, %138 ]
+  %.363.i34.i = phi i32 [ %.16188.i22.i, %126 ], [ %spec.select79.i25.i, %138 ]
   br label %143
 
 143:                                              ; preds = %146, %.critedge.thread.i31.i

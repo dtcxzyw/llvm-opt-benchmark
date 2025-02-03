@@ -463,14 +463,10 @@ thread-pre-split:                                 ; preds = %27, %20
   %91 = trunc nuw i64 %indvars.iv.next.lcssa.sink.i to i32
   call void @list_iterator_destroy(ptr noundef %49) #13
   %92 = icmp sgt i32 %91, 0
-  br i1 %92, label %.lr.ph66.preheader.i, label %_query_fed_servers.exit
+  br i1 %92, label %.lr.ph66.i, label %_query_fed_servers.exit
 
-.lr.ph66.preheader.i:                             ; preds = %.outer._crit_edge.i
-  %wide.trip.count.i = and i64 %indvars.iv.next.lcssa.sink.i, 2147483647
-  br label %.lr.ph66.i
-
-.lr.ph66.i:                                       ; preds = %.thread.i55, %.lr.ph66.preheader.i
-  %indvars.iv80.i = phi i64 [ 0, %.lr.ph66.preheader.i ], [ %indvars.iv.next81.i, %.thread.i55 ]
+.lr.ph66.i:                                       ; preds = %.outer._crit_edge.i, %.thread.i55
+  %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %.thread.i55 ], [ 0, %.outer._crit_edge.i ]
   %93 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv80.i
   %94 = load i64, ptr %93, align 8
   %.not45.i = icmp eq i64 %94, 0
@@ -490,7 +486,7 @@ thread-pre-split:                                 ; preds = %27, %20
 
 .thread.i55:                                      ; preds = %97, %95, %.lr.ph66.i
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next81.i, %indvars.iv.next.lcssa.sink.i
   br i1 %exitcond.not.i, label %_query_fed_servers.exit, label %.lr.ph66.i, !llvm.loop !10
 
 _query_fed_servers.exit:                          ; preds = %.thread.i55, %.outer._crit_edge.thread.i, %.outer._crit_edge.i

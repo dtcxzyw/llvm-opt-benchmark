@@ -130212,7 +130212,7 @@ cachedCellSize.exit617.i:                         ; preds = %1175, %cachedCellSi
   br i1 %.not584.i, label %1202, label %1197
 
 1197:                                             ; preds = %.split.us.i
-  %1198 = add nsw i64 %indvars.iv862.i, 4294967294
+  %1198 = add nuw nsw i64 %indvars.iv862.i, 4294967294
   %1199 = and i64 %1198, 4294967295
   %1200 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %1199
   %1201 = load i32, ptr %1200, align 4

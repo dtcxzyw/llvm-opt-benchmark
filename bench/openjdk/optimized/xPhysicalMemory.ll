@@ -81,7 +81,7 @@ define hidden void @_ZN15XPhysicalMemory11add_segmentERK22XPhysicalMemorySegment
   %indvars.iv = phi i64 [ %14, %13 ], [ %9, %2 ]
   %11 = trunc nuw i64 %indvars.iv to i32
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %69
+  br i1 %12, label %13, label %67
 
 13:                                               ; preds = %10
   %14 = add nsw i64 %indvars.iv, -1
@@ -102,7 +102,7 @@ define hidden void @_ZN15XPhysicalMemory11add_segmentERK22XPhysicalMemorySegment
   %24 = trunc i8 %23 to i1
   %.not73 = select i1 %22, i1 true, i1 %24
   %25 = icmp sgt i32 %5, %11
-  br i1 %.not73, label %53, label %26
+  br i1 %.not73, label %52, label %26
 
 26:                                               ; preds = %18
   br i1 %25, label %27, label %._crit_edge94
@@ -110,142 +110,140 @@ define hidden void @_ZN15XPhysicalMemory11add_segmentERK22XPhysicalMemorySegment
 ._crit_edge94:                                    ; preds = %26
   %.phi.trans.insert95 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre96 = load i64, ptr %.phi.trans.insert95, align 8
-  br label %50
+  br label %49
 
 27:                                               ; preds = %26
-  %28 = and i64 %indvars.iv, 2147483647
-  %29 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %7, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val52 = load i64, ptr %30, align 8
-  %.val54 = load i64, ptr %29, align 8
-  %31 = getelementptr i8, ptr %29, i64 16
-  %.val55 = load i8, ptr %31, align 8
-  %32 = icmp ne i64 %.val52, %.val54
-  %33 = xor i8 %.val55, %.val51
-  %34 = trunc i8 %33 to i1
-  %.not77 = select i1 %32, i1 true, i1 %34
-  br i1 %.not77, label %50, label %35
+  %28 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %7, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val52 = load i64, ptr %29, align 8
+  %.val54 = load i64, ptr %28, align 8
+  %30 = getelementptr i8, ptr %28, i64 16
+  %.val55 = load i8, ptr %30, align 8
+  %31 = icmp ne i64 %.val52, %.val54
+  %32 = xor i8 %.val55, %.val51
+  %33 = trunc i8 %32 to i1
+  %.not77 = select i1 %31, i1 true, i1 %33
+  br i1 %.not77, label %49, label %34
 
-35:                                               ; preds = %27
-  %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %37 = load i64, ptr %36, align 8
-  %38 = and i8 %.val51, 1
-  store i64 %37, ptr %19, align 8
-  store i8 %38, ptr %20, align 8
+34:                                               ; preds = %27
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %36 = load i64, ptr %35, align 8
+  %37 = and i8 %.val51, 1
+  store i64 %36, ptr %19, align 8
+  store i8 %37, ptr %20, align 8
   %.06.i.i = add nuw nsw i32 %11, 1
-  %39 = load i32, ptr %0, align 8
-  %40 = icmp slt i32 %.06.i.i, %39
-  br i1 %40, label %.lr.ph.i.i, label %_ZN15XPhysicalMemory14remove_segmentEi.exit
+  %38 = load i32, ptr %0, align 8
+  %39 = icmp slt i32 %.06.i.i, %38
+  br i1 %39, label %.lr.ph.i.i, label %_ZN15XPhysicalMemory14remove_segmentEi.exit
 
-.lr.ph.i.i:                                       ; preds = %35
-  %41 = add nuw nsw i64 %28, 1
-  br label %42
+.lr.ph.i.i:                                       ; preds = %34
+  %40 = add nuw nsw i64 %indvars.iv, 1
+  br label %41
 
-42:                                               ; preds = %42, %.lr.ph.i.i
-  %indvars.iv10.i.i = phi i64 [ %28, %.lr.ph.i.i ], [ %indvars.iv.next11.i.i, %42 ]
-  %indvars.iv.i.i = phi i64 [ %41, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %42 ]
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %43, i64 %indvars.iv.i.i
-  %45 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %43, i64 %indvars.iv10.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %45, ptr noundef nonnull align 8 dereferenceable(17) %44, i64 17, i1 false)
+41:                                               ; preds = %41, %.lr.ph.i.i
+  %indvars.iv10.i.i = phi i64 [ %indvars.iv, %.lr.ph.i.i ], [ %indvars.iv.next11.i.i, %41 ]
+  %indvars.iv.i.i = phi i64 [ %40, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %41 ]
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %42, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %42, i64 %indvars.iv10.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %44, ptr noundef nonnull align 8 dereferenceable(17) %43, i64 17, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %46 = load i32, ptr %0, align 8
-  %47 = sext i32 %46 to i64
-  %48 = icmp slt i64 %indvars.iv.next.i.i, %47
+  %45 = load i32, ptr %0, align 8
+  %46 = sext i32 %45 to i64
+  %47 = icmp slt i64 %indvars.iv.next.i.i, %46
   %indvars.iv.next11.i.i = add nuw nsw i64 %indvars.iv10.i.i, 1
-  br i1 %48, label %42, label %_ZN15XPhysicalMemory14remove_segmentEi.exit, !llvm.loop !8
+  br i1 %47, label %41, label %_ZN15XPhysicalMemory14remove_segmentEi.exit, !llvm.loop !8
 
-_ZN15XPhysicalMemory14remove_segmentEi.exit:      ; preds = %42, %35
-  %.lcssa.i.i = phi i32 [ %39, %35 ], [ %46, %42 ]
-  %49 = add nsw i32 %.lcssa.i.i, -1
-  store i32 %49, ptr %0, align 8
-  br label %83
+_ZN15XPhysicalMemory14remove_segmentEi.exit:      ; preds = %41, %34
+  %.lcssa.i.i = phi i32 [ %38, %34 ], [ %45, %41 ]
+  %48 = add nsw i32 %.lcssa.i.i, -1
+  store i32 %48, ptr %0, align 8
+  br label %81
 
-50:                                               ; preds = %._crit_edge94, %27
-  %51 = phi i64 [ %.pre96, %._crit_edge94 ], [ %.val52, %27 ]
-  %52 = and i8 %.val51, 1
-  store i64 %51, ptr %19, align 8
-  store i8 %52, ptr %20, align 8
-  br label %83
+49:                                               ; preds = %._crit_edge94, %27
+  %50 = phi i64 [ %.pre96, %._crit_edge94 ], [ %.val52, %27 ]
+  %51 = and i8 %.val51, 1
+  store i64 %50, ptr %19, align 8
+  store i8 %51, ptr %20, align 8
+  br label %81
 
-53:                                               ; preds = %18
-  br i1 %25, label %54, label %._crit_edge97
+52:                                               ; preds = %18
+  br i1 %25, label %53, label %._crit_edge97
 
-._crit_edge97:                                    ; preds = %53
+._crit_edge97:                                    ; preds = %52
   %.phi.trans.insert98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre99 = load i64, ptr %.phi.trans.insert98, align 8
-  br label %64
+  br label %62
 
-54:                                               ; preds = %53
-  %55 = and i64 %indvars.iv, 2147483647
-  %56 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %7, i64 %55
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val56 = load i64, ptr %57, align 8
-  %.val58 = load i64, ptr %56, align 8
-  %58 = getelementptr i8, ptr %56, i64 16
-  %.val59 = load i8, ptr %58, align 8
-  %59 = icmp ne i64 %.val56, %.val58
-  %60 = xor i8 %.val59, %.val51
-  %61 = trunc i8 %60 to i1
-  %.not75 = select i1 %59, i1 true, i1 %61
-  br i1 %.not75, label %64, label %62
+53:                                               ; preds = %52
+  %54 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %7, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val56 = load i64, ptr %55, align 8
+  %.val58 = load i64, ptr %54, align 8
+  %56 = getelementptr i8, ptr %54, i64 16
+  %.val59 = load i8, ptr %56, align 8
+  %57 = icmp ne i64 %.val56, %.val58
+  %58 = xor i8 %.val59, %.val51
+  %59 = trunc i8 %58 to i1
+  %.not75 = select i1 %57, i1 true, i1 %59
+  br i1 %.not75, label %62, label %60
 
-62:                                               ; preds = %54
-  %63 = and i8 %.val51, 1
-  store i64 %8, ptr %56, align 8
-  store i8 %63, ptr %58, align 8
-  br label %83
+60:                                               ; preds = %53
+  %61 = and i8 %.val51, 1
+  store i64 %8, ptr %54, align 8
+  store i8 %61, ptr %56, align 8
+  br label %81
 
-64:                                               ; preds = %._crit_edge97, %54
-  %65 = phi i64 [ %.pre99, %._crit_edge97 ], [ %.val56, %54 ]
+62:                                               ; preds = %._crit_edge97, %53
+  %63 = phi i64 [ %.pre99, %._crit_edge97 ], [ %.val56, %53 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %66 = and i8 %.val51, 1
+  %64 = and i8 %.val51, 1
   store i64 %8, ptr %4, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %65, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 %66, ptr %68, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %63, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i8 %64, ptr %66, align 8
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(17) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %83
+  br label %81
 
-69:                                               ; preds = %10
-  %70 = icmp sgt i32 %5, 0
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val60 = load i64, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val61 = load i8, ptr %72, align 8
-  br i1 %70, label %73, label %._crit_edge
+67:                                               ; preds = %10
+  %68 = icmp sgt i32 %5, 0
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val60 = load i64, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val61 = load i8, ptr %70, align 8
+  br i1 %68, label %71, label %._crit_edge
 
-73:                                               ; preds = %69
+71:                                               ; preds = %67
   %.val62 = load i64, ptr %7, align 8
-  %74 = getelementptr i8, ptr %7, i64 16
-  %.val63 = load i8, ptr %74, align 8
-  %75 = icmp ne i64 %.val60, %.val62
-  %76 = xor i8 %.val63, %.val61
-  %77 = trunc i8 %76 to i1
-  %.not71 = select i1 %75, i1 true, i1 %77
-  br i1 %.not71, label %._crit_edge, label %78
+  %72 = getelementptr i8, ptr %7, i64 16
+  %.val63 = load i8, ptr %72, align 8
+  %73 = icmp ne i64 %.val60, %.val62
+  %74 = xor i8 %.val63, %.val61
+  %75 = trunc i8 %74 to i1
+  %.not71 = select i1 %73, i1 true, i1 %75
+  br i1 %.not71, label %._crit_edge, label %76
 
-78:                                               ; preds = %73
-  %79 = and i8 %.val61, 1
+76:                                               ; preds = %71
+  %77 = and i8 %.val61, 1
   store i64 %8, ptr %7, align 8
-  store i8 %79, ptr %74, align 8
-  br label %83
+  store i8 %77, ptr %72, align 8
+  br label %81
 
-._crit_edge:                                      ; preds = %69, %73
+._crit_edge:                                      ; preds = %67, %71
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %80 = and i8 %.val61, 1
+  %78 = and i8 %.val61, 1
   store i64 %8, ptr %3, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.val60, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 %80, ptr %82, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %.val60, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i8 %78, ptr %80, align 8
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(17) %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %83
+  br label %81
 
-83:                                               ; preds = %._crit_edge, %78, %64, %62, %50, %_ZN15XPhysicalMemory14remove_segmentEi.exit
+81:                                               ; preds = %._crit_edge, %76, %62, %60, %49, %_ZN15XPhysicalMemory14remove_segmentEi.exit
   ret void
 }
 

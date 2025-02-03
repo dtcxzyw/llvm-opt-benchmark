@@ -1948,7 +1948,7 @@ ExecProcNode.exit118.us:                          ; preds = %88, %slot_getattr.e
 
 181:                                              ; preds = %138
   %182 = getelementptr inbounds nuw i8, ptr %139, i64 23
-  %183 = trunc i64 %indvars.iv191 to i32
+  %183 = trunc nuw i64 %indvars.iv191 to i32
   %184 = add nsw i32 %183, -1
   %185 = lshr i32 %184, 3
   %186 = zext nneg i32 %185 to i64

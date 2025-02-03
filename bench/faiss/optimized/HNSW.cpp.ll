@@ -7136,7 +7136,7 @@ thread-pre-split:                                 ; preds = %._crit_edge190
 
 .lr.ph.i:                                         ; preds = %.thread.i
   %.02438.i = trunc i64 %117 to i32
-  %133 = add i64 %indvars.iv.i, 4294967294
+  %133 = add nuw nsw i64 %indvars.iv.i, 4294967294
   %134 = and i64 %133, 4294967295
   br label %135
 
@@ -7862,7 +7862,7 @@ define noundef i32 @_ZN5faiss4HNSW11MinimaxHeap7pop_minEPf(ptr noundef nonnull a
   br i1 %.not52, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread
-  %27 = add i64 %indvars.iv, 4294967294
+  %27 = add nuw nsw i64 %indvars.iv, 4294967294
   %28 = and i64 %27, 4294967295
   br label %29
 

@@ -5330,11 +5330,7 @@ for.cond.preheader:                               ; preds = %if.end32, %while.co
   %indvars.iv.next.lcssa.sink = phi i64 [ %indvars.iv, %while.cond.backedge ], [ %indvars.iv.next, %if.end32 ]
   %4 = trunc nuw i64 %indvars.iv.next.lcssa.sink to i32
   %cmp5048 = icmp sgt i32 %4, 0
-  br i1 %cmp5048, label %for.body.preheader, label %for.end
-
-for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count = and i64 %indvars.iv.next.lcssa.sink, 2147483647
-  br label %for.body
+  br i1 %cmp5048, label %for.body, label %for.end
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %call7 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %line, i32 noundef 45) #24
@@ -5400,9 +5396,9 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end32 ], [ 0, %while.cond.preheader ]
   br label %while.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv55 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next56, %for.body ]
-  %errors.050 = phi i32 [ 0, %for.body.preheader ], [ %add, %for.body ]
+for.body:                                         ; preds = %for.cond.preheader, %for.body
+  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %for.body ], [ 0, %for.cond.preheader ]
+  %errors.050 = phi i32 [ %add, %for.body ], [ 0, %for.cond.preheader ]
   %call51 = call i64 @write(i32 noundef %cond.i40, ptr noundef nonnull @.str.277, i64 noundef 1) #22
   %arrayidx56 = getelementptr inbounds nuw [128 x i64], ptr %start_vect, i64 0, i64 %indvars.iv55
   %5 = load i64, ptr %arrayidx56, align 8
@@ -5415,7 +5411,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %cond = select i1 %tobool60.not, ptr @.str.279, ptr @.str.278
   %call61 = call i64 @write(i32 noundef %cond.i40, ptr noundef nonnull %cond, i64 noundef 1) #22
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next56, %indvars.iv.next.lcssa.sink
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
 
 for.end:                                          ; preds = %for.body, %while.cond.preheader, %for.cond.preheader

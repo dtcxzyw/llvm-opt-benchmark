@@ -2429,8 +2429,7 @@ FLAC__metadata_object_vorbiscomment_set_comment.exit.thread: ; preds = %if.then1
 
 FLAC__metadata_object_vorbiscomment_set_comment.exit: ; preds = %if.then16
   %8 = load ptr, ptr %comments.i, align 8
-  %idxprom.i = and i64 %indvars.iv.i, 2147483647
-  %arrayidx.i35 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %8, i64 %idxprom.i
+  %arrayidx.i35 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %8, i64 %indvars.iv.i
   %call4.i = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef %object, ptr noundef %arrayidx.i35, ptr noundef %entry2.i, i32 noundef %copy)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %entry2.i)
   %tobool18.not = icmp eq i32 %call4.i, 0
@@ -2438,7 +2437,7 @@ FLAC__metadata_object_vorbiscomment_set_comment.exit: ; preds = %if.then16
 
 if.end20:                                         ; preds = %FLAC__metadata_object_vorbiscomment_set_comment.exit
   %9 = load ptr, ptr %comments.i, align 8
-  %entry2.sroa.626.0.arrayidx.sroa_idx = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %9, i64 %idxprom.i, i32 1
+  %entry2.sroa.626.0.arrayidx.sroa_idx = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %9, i64 %indvars.iv.i, i32 1
   %entry2.sroa.626.0.copyload = load ptr, ptr %entry2.sroa.626.0.arrayidx.sroa_idx, align 8
   %inc = add nuw i32 %6, 1
   %tobool21.not = icmp eq i32 %all, 0

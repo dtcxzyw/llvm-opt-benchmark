@@ -595,14 +595,10 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
   %100 = trunc nuw i64 %indvars.iv.next.lcssa.sink.i to i32
   call void @list_iterator_destroy(ptr noundef %57) #11
   %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %.lr.ph109.preheader.i, label %._crit_edge110.i
+  br i1 %101, label %.lr.ph109.i, label %._crit_edge110.i
 
-.lr.ph109.preheader.i:                            ; preds = %.outer._crit_edge.i
-  %wide.trip.count.i = and i64 %indvars.iv.next.lcssa.sink.i, 2147483647
-  br label %.lr.ph109.i
-
-.lr.ph109.i:                                      ; preds = %.thread.i20, %.lr.ph109.preheader.i
-  %indvars.iv133.i = phi i64 [ 0, %.lr.ph109.preheader.i ], [ %indvars.iv.next134.i, %.thread.i20 ]
+.lr.ph109.i:                                      ; preds = %.outer._crit_edge.i, %.thread.i20
+  %indvars.iv133.i = phi i64 [ %indvars.iv.next134.i, %.thread.i20 ], [ 0, %.outer._crit_edge.i ]
   %102 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv133.i
   %103 = load i64, ptr %102, align 8
   %.not82.i = icmp eq i64 %103, 0
@@ -622,7 +618,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
 
 .thread.i20:                                      ; preds = %106, %104, %.lr.ph109.i
   %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next134.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next134.i, %indvars.iv.next.lcssa.sink.i
   br i1 %exitcond.not.i, label %._crit_edge110.i, label %.lr.ph109.i, !llvm.loop !9
 
 ._crit_edge110.i:                                 ; preds = %.thread.i20, %.outer._crit_edge.i, %.outer._crit_edge.thread.i

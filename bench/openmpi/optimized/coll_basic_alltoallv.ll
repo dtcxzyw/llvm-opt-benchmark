@@ -135,12 +135,12 @@ ompi_request_cancel.exit.i:                       ; preds = %58, %55
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph100.preheader, label %.lr.ph, !llvm.loop !6
 
-.lr.ph100:                                        ; preds = %.lr.ph100.preheader, %104
-  %indvars.iv107 = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next108, %104 ]
+.lr.ph100:                                        ; preds = %.lr.ph100.preheader, %103
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next108, %103 ]
   %68 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv107
   %69 = load i32, ptr %68, align 4
   %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %71, label %104
+  br i1 %70, label %71, label %103
 
 71:                                               ; preds = %.lr.ph100
   %72 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv107
@@ -155,67 +155,62 @@ ompi_request_cancel.exit.i:                       ; preds = %58, %55
   %81 = trunc nuw nsw i64 %indvars.iv107 to i32
   %82 = tail call i32 %77(ptr noundef %76, i64 noundef %78, ptr noundef %3, i32 noundef %81, i32 noundef -14, i32 noundef 4, ptr noundef %8, ptr noundef nonnull %80) #2
   %.not62 = icmp eq i32 %82, 0
-  br i1 %.not62, label %104, label %83
+  br i1 %.not62, label %103, label %83
 
 83:                                               ; preds = %71
   %84 = and i64 %79, 2147483648
   %85 = icmp eq i64 %84, 0
-  br i1 %85, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit
+  br i1 %85, label %.lr.ph.i69, label %ompi_coll_base_free_reqs.exit
 
-.lr.ph.preheader.i:                               ; preds = %83
-  %86 = add nuw nsw i64 %79, 1
-  %wide.trip.count.i68 = and i64 %86, 4294967295
-  br label %.lr.ph.i69
+.lr.ph.i69:                                       ; preds = %83, %102
+  %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i74, %102 ], [ 0, %83 ]
+  %86 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i70
+  %87 = load ptr, ptr %86, align 8
+  %.not.i71 = icmp eq ptr %87, @ompi_request_null
+  br i1 %.not.i71, label %102, label %88
 
-.lr.ph.i69:                                       ; preds = %103, %.lr.ph.preheader.i
-  %indvars.iv.i70 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i74, %103 ]
-  %87 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i70
-  %88 = load ptr, ptr %87, align 8
-  %.not.i71 = icmp eq ptr %88, @ompi_request_null
-  br i1 %.not.i71, label %103, label %89
-
-89:                                               ; preds = %.lr.ph.i69
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 72
-  %91 = load i32, ptr %90, align 8
-  %.off.i72 = add i32 %91, -75
+88:                                               ; preds = %.lr.ph.i69
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 72
+  %90 = load i32, ptr %89, align 8
+  %.off.i72 = add i32 %90, -75
   %switch.i73 = icmp ult i32 %.off.i72, 3
-  br i1 %switch.i73, label %92, label %99
+  br i1 %switch.i73, label %91, label %98
 
-92:                                               ; preds = %89
-  %93 = getelementptr inbounds nuw i8, ptr %88, i64 128
-  %94 = load ptr, ptr %93, align 8
-  %.not.i.i76 = icmp eq ptr %94, null
-  br i1 %.not.i.i76, label %ompi_request_cancel.exit.i77, label %95
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 128
+  %93 = load ptr, ptr %92, align 8
+  %.not.i.i76 = icmp eq ptr %93, null
+  br i1 %.not.i.i76, label %ompi_request_cancel.exit.i77, label %94
 
-95:                                               ; preds = %92
-  %96 = tail call i32 %94(ptr noundef nonnull %88, i32 noundef 1) #2
+94:                                               ; preds = %91
+  %95 = tail call i32 %93(ptr noundef nonnull %87, i32 noundef 1) #2
   br label %ompi_request_cancel.exit.i77
 
-ompi_request_cancel.exit.i77:                     ; preds = %95, %92
-  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
-  %98 = tail call i32 %97(ptr noundef nonnull %87, ptr noundef null) #2
-  br label %103
+ompi_request_cancel.exit.i77:                     ; preds = %94, %91
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
+  %97 = tail call i32 %96(ptr noundef nonnull %86, ptr noundef null) #2
+  br label %102
 
-99:                                               ; preds = %89
-  %100 = getelementptr inbounds nuw i8, ptr %88, i64 120
-  %101 = load ptr, ptr %100, align 8
-  %102 = tail call i32 %101(ptr noundef nonnull %87) #2
-  br label %103
+98:                                               ; preds = %88
+  %99 = getelementptr inbounds nuw i8, ptr %87, i64 120
+  %100 = load ptr, ptr %99, align 8
+  %101 = tail call i32 %100(ptr noundef nonnull %86) #2
+  br label %102
 
-103:                                              ; preds = %99, %ompi_request_cancel.exit.i77, %.lr.ph.i69
+102:                                              ; preds = %98, %ompi_request_cancel.exit.i77, %.lr.ph.i69
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i70, 1
-  %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, %wide.trip.count.i68
+  %exitcond.not.i75 = icmp eq i64 %indvars.iv.i70, %79
   br i1 %exitcond.not.i75, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i69, !llvm.loop !4
 
-104:                                              ; preds = %.lr.ph100, %71
+103:                                              ; preds = %.lr.ph100, %71
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %33
   br i1 %exitcond111.not, label %._crit_edge, label %.lr.ph100, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %104, %.preheader94
-  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
-  %106 = tail call i32 %105(i64 noundef %27, ptr noundef nonnull %30, ptr noundef null) #2
-  %.not = icmp eq i32 %106, 0
+._crit_edge:                                      ; preds = %103, %.preheader94
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
+  %105 = tail call i32 %104(i64 noundef %27, ptr noundef nonnull %30, ptr noundef null) #2
+  %.not = icmp eq i32 %105, 0
   %brmerge = or i1 %.not, %32
   br i1 %brmerge, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.preheader.i79
 
@@ -223,48 +218,48 @@ ompi_request_cancel.exit.i77:                     ; preds = %95, %92
   %wide.trip.count.i80 = zext nneg i32 %26 to i64
   br label %.lr.ph.i81
 
-.lr.ph.i81:                                       ; preds = %123, %.lr.ph.preheader.i79
-  %indvars.iv.i82 = phi i64 [ 0, %.lr.ph.preheader.i79 ], [ %indvars.iv.next.i86, %123 ]
-  %107 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i82
-  %108 = load ptr, ptr %107, align 8
-  %.not.i83 = icmp eq ptr %108, @ompi_request_null
-  br i1 %.not.i83, label %123, label %109
+.lr.ph.i81:                                       ; preds = %122, %.lr.ph.preheader.i79
+  %indvars.iv.i82 = phi i64 [ 0, %.lr.ph.preheader.i79 ], [ %indvars.iv.next.i86, %122 ]
+  %106 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i82
+  %107 = load ptr, ptr %106, align 8
+  %.not.i83 = icmp eq ptr %107, @ompi_request_null
+  br i1 %.not.i83, label %122, label %108
 
-109:                                              ; preds = %.lr.ph.i81
-  %110 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %111 = load i32, ptr %110, align 8
-  %.off.i84 = add i32 %111, -75
+108:                                              ; preds = %.lr.ph.i81
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 72
+  %110 = load i32, ptr %109, align 8
+  %.off.i84 = add i32 %110, -75
   %switch.i85 = icmp ult i32 %.off.i84, 3
-  br i1 %switch.i85, label %112, label %119
+  br i1 %switch.i85, label %111, label %118
 
-112:                                              ; preds = %109
-  %113 = getelementptr inbounds nuw i8, ptr %108, i64 128
-  %114 = load ptr, ptr %113, align 8
-  %.not.i.i88 = icmp eq ptr %114, null
-  br i1 %.not.i.i88, label %ompi_request_cancel.exit.i89, label %115
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 128
+  %113 = load ptr, ptr %112, align 8
+  %.not.i.i88 = icmp eq ptr %113, null
+  br i1 %.not.i.i88, label %ompi_request_cancel.exit.i89, label %114
 
-115:                                              ; preds = %112
-  %116 = tail call i32 %114(ptr noundef nonnull %108, i32 noundef 1) #2
+114:                                              ; preds = %111
+  %115 = tail call i32 %113(ptr noundef nonnull %107, i32 noundef 1) #2
   br label %ompi_request_cancel.exit.i89
 
-ompi_request_cancel.exit.i89:                     ; preds = %115, %112
-  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
-  %118 = tail call i32 %117(ptr noundef nonnull %107, ptr noundef null) #2
-  br label %123
+ompi_request_cancel.exit.i89:                     ; preds = %114, %111
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
+  %117 = tail call i32 %116(ptr noundef nonnull %106, ptr noundef null) #2
+  br label %122
 
-119:                                              ; preds = %109
-  %120 = getelementptr inbounds nuw i8, ptr %108, i64 120
-  %121 = load ptr, ptr %120, align 8
-  %122 = tail call i32 %121(ptr noundef nonnull %107) #2
-  br label %123
+118:                                              ; preds = %108
+  %119 = getelementptr inbounds nuw i8, ptr %107, i64 120
+  %120 = load ptr, ptr %119, align 8
+  %121 = tail call i32 %120(ptr noundef nonnull %106) #2
+  br label %122
 
-123:                                              ; preds = %119, %ompi_request_cancel.exit.i89, %.lr.ph.i81
+122:                                              ; preds = %118, %ompi_request_cancel.exit.i89, %.lr.ph.i81
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, %wide.trip.count.i80
   br i1 %exitcond.not.i87, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i81, !llvm.loop !4
 
-ompi_coll_base_free_reqs.exit:                    ; preds = %66, %103, %123, %._crit_edge, %83, %ompi_comm_remote_size.exit
-  %.0 = phi i32 [ -2, %ompi_comm_remote_size.exit ], [ %106, %._crit_edge ], [ %82, %83 ], [ %106, %123 ], [ %82, %103 ], [ %47, %66 ]
+ompi_coll_base_free_reqs.exit:                    ; preds = %66, %102, %122, %._crit_edge, %83, %ompi_comm_remote_size.exit
+  %.0 = phi i32 [ -2, %ompi_comm_remote_size.exit ], [ %105, %._crit_edge ], [ %82, %83 ], [ %105, %122 ], [ %82, %102 ], [ %47, %66 ]
   ret i32 %.0
 }
 

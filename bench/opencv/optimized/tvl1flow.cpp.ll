@@ -1901,7 +1901,7 @@ _ZN2cv4Mat_IfE6createENS_5Size_IiEE.exit418:      ; preds = %592, %_ZN2cv4Mat_If
   store i32 0, ptr %648, align 4
   store i32 -2130640891, ptr %44, align 8
   store ptr %702, ptr %649, align 8
-  %703 = add i64 %indvars.iv479, 4294967294
+  %703 = add nuw nsw i64 %indvars.iv479, 4294967294
   %704 = and i64 %703, 4294967295
   %705 = getelementptr inbounds nuw %"class.cv::Mat_", ptr %701, i64 %704
   store i64 0, ptr %651, align 8

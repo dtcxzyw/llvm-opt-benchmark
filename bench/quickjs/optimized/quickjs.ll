@@ -114568,7 +114568,7 @@ js_get_length32.exit:                             ; preds = %46
 
 JS_NewAtomUInt32.exit.thread131:                  ; preds = %60
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %11)
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw i64 %indvars.iv to i32
   %64 = or disjoint i32 %63, -2147483648
   br label %JS_DupAtom.exit
 

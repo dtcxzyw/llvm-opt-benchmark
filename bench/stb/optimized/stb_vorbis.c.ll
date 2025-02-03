@@ -14243,14 +14243,10 @@ for.end171:                                       ; preds = %lor.lhs.false156, %
   store i32 0, ptr %previous_length, align 8
   %next_seg = getelementptr inbounds nuw i8, ptr %f, i64 1768
   store i32 %64, ptr %next_seg, align 8
-  br i1 %cmp145, label %for.body175.lr.ph, label %for.end182
+  br i1 %cmp145, label %for.body175, label %for.end182
 
-for.body175.lr.ph:                                ; preds = %for.end171
-  %wide.trip.count = and i64 %indvars.iv, 2147483647
-  br label %for.body175
-
-for.body175:                                      ; preds = %for.body175.lr.ph, %skip.exit
-  %indvars.iv288 = phi i64 [ 0, %for.body175.lr.ph ], [ %indvars.iv.next289, %skip.exit ]
+for.body175:                                      ; preds = %for.end171, %skip.exit
+  %indvars.iv288 = phi i64 [ %indvars.iv.next289, %skip.exit ], [ 0, %for.end171 ]
   %arrayidx178 = getelementptr inbounds nuw [255 x i8], ptr %segments, i64 0, i64 %indvars.iv288
   %76 = load i8, ptr %arrayidx178, align 1
   %77 = load ptr, ptr %stream.i, align 8
@@ -14280,7 +14276,7 @@ if.end4.i240:                                     ; preds = %for.body175
 
 skip.exit:                                        ; preds = %if.then.i234, %if.then3.i, %if.end4.i240
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next289, %indvars.iv
   br i1 %exitcond.not, label %for.end182, label %for.body175, !llvm.loop !154
 
 for.end182:                                       ; preds = %skip.exit, %for.end171
