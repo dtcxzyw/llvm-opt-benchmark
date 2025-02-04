@@ -9,6 +9,11 @@ supported_project = [
     "bdwgc",
     "brotli",
     "chibicc",
+    "cjson",
+]
+
+modify_only = [
+    "cjson",
 ]
 
 

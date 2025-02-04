@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [7 x i8] c"/%lu%s\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"path\00", align 1
 @.str.3 = private unnamed_addr constant [6 x i8] c"value\00", align 1
-@apply_patch.invalid = internal constant %struct.cJSON zeroinitializer, align 8
+@apply_patch.invalid = internal constant { ptr, ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], double, ptr } zeroinitializer, align 8
 @.str.4 = private unnamed_addr constant [5 x i8] c"from\00", align 1
 @.str.5 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.6 = private unnamed_addr constant [3 x i8] c"op\00", align 1
@@ -28,156 +28,190 @@ define ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef %0, ptr noundef %1) #
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
+  %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 0, ptr %6, align 8
-  store ptr null, ptr %7, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %16, label %13
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store i64 0, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  store ptr null, ptr %7, align 8, !tbaa !3
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %17, label %14
 
-13:                                               ; preds = %2
-  %14 = load ptr, ptr %5, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %17
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %13, %2
+17:                                               ; preds = %14, %2
   store ptr null, ptr %3, align 8
-  br label %94
+  store i32 1, ptr %8, align 4
+  br label %99
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %4, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = icmp eq ptr %18, %19
-  br i1 %20, label %21, label %23
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %24
 
-21:                                               ; preds = %17
-  %22 = call ptr @cJSONUtils_strdup(ptr noundef @.str)
-  store ptr %22, ptr %3, align 8
-  br label %94
+22:                                               ; preds = %18
+  %23 = call ptr @cJSONUtils_strdup(ptr noundef @.str)
+  store ptr %23, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %99
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.cJSON, ptr %24, i32 0, i32 2
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %7, align 8
-  br label %27
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.cJSON, ptr %25, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8, !tbaa !10
+  store ptr %27, ptr %7, align 8, !tbaa !3
+  br label %28
 
-27:                                               ; preds = %87, %23
-  %28 = load ptr, ptr %7, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %93
+28:                                               ; preds = %92, %24
+  %29 = load ptr, ptr %7, align 8, !tbaa !3
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %98
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %7, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = call ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef %31, ptr noundef %32)
-  store ptr %33, ptr %8, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %36, label %86
+31:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %32 = load ptr, ptr %7, align 8, !tbaa !3
+  %33 = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = call ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef %32, ptr noundef %33)
+  store ptr %34, ptr %9, align 8, !tbaa !15
+  %35 = load ptr, ptr %9, align 8, !tbaa !15
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %88
 
-36:                                               ; preds = %30
-  %37 = load ptr, ptr %4, align 8
-  %38 = call i32 @cJSON_IsArray(ptr noundef %37)
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %58
+37:                                               ; preds = %31
+  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %39 = call i32 @cJSON_IsArray(ptr noundef %38)
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %60
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %8, align 8
-  %42 = call i64 @strlen(ptr noundef %41) #6
-  %43 = add i64 %42, 20
-  %44 = add i64 %43, 2
-  %45 = call ptr @cJSON_malloc(i64 noundef %44)
-  store ptr %45, ptr %9, align 8
-  %46 = load i64, ptr %6, align 8
-  %47 = icmp ugt i64 %46, -1
-  br i1 %47, label %48, label %51
+41:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %42 = load ptr, ptr %9, align 8, !tbaa !15
+  %43 = call i64 @strlen(ptr noundef %42) #9
+  %44 = add i64 %43, 20
+  %45 = add i64 %44, 2
+  %46 = call ptr @cJSON_malloc(i64 noundef %45)
+  store ptr %46, ptr %10, align 8, !tbaa !15
+  %47 = load i64, ptr %6, align 8, !tbaa !8
+  %48 = icmp ugt i64 %47, -1
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %40
-  %49 = load ptr, ptr %8, align 8
-  call void @cJSON_free(ptr noundef %49)
-  %50 = load ptr, ptr %9, align 8
+49:                                               ; preds = %41
+  %50 = load ptr, ptr %9, align 8, !tbaa !15
   call void @cJSON_free(ptr noundef %50)
+  %51 = load ptr, ptr %10, align 8, !tbaa !15
+  call void @cJSON_free(ptr noundef %51)
   store ptr null, ptr %3, align 8
-  br label %94
+  store i32 1, ptr %8, align 4
+  br label %59
 
-51:                                               ; preds = %40
-  %52 = load ptr, ptr %9, align 8
-  %53 = load i64, ptr %6, align 8
-  %54 = load ptr, ptr %8, align 8
-  %55 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %52, ptr noundef @.str.1, i64 noundef %53, ptr noundef %54) #7
-  %56 = load ptr, ptr %8, align 8
-  call void @cJSON_free(ptr noundef %56)
-  %57 = load ptr, ptr %9, align 8
-  store ptr %57, ptr %3, align 8
-  br label %94
+52:                                               ; preds = %41
+  %53 = load ptr, ptr %10, align 8, !tbaa !15
+  %54 = load i64, ptr %6, align 8, !tbaa !8
+  %55 = load ptr, ptr %9, align 8, !tbaa !15
+  %56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %53, ptr noundef @.str.1, i64 noundef %54, ptr noundef %55) #8
+  %57 = load ptr, ptr %9, align 8, !tbaa !15
+  call void @cJSON_free(ptr noundef %57)
+  %58 = load ptr, ptr %10, align 8, !tbaa !15
+  store ptr %58, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %59
 
-58:                                               ; preds = %36
-  %59 = load ptr, ptr %4, align 8
-  %60 = call i32 @cJSON_IsObject(ptr noundef %59)
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %84
+59:                                               ; preds = %52, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  br label %89
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %8, align 8
-  %64 = call i64 @strlen(ptr noundef %63) #6
-  %65 = load ptr, ptr %7, align 8
-  %66 = getelementptr inbounds %struct.cJSON, ptr %65, i32 0, i32 7
-  %67 = load ptr, ptr %66, align 8
-  %68 = call i64 @pointer_encoded_length(ptr noundef %67)
-  %69 = add i64 %64, %68
-  %70 = add i64 %69, 2
-  %71 = call ptr @cJSON_malloc(i64 noundef %70)
-  store ptr %71, ptr %10, align 8
-  %72 = load ptr, ptr %10, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 0
-  store i8 47, ptr %73, align 1
-  %74 = load ptr, ptr %10, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1
-  %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %struct.cJSON, ptr %76, i32 0, i32 7
-  %78 = load ptr, ptr %77, align 8
-  call void @encode_string_as_pointer(ptr noundef %75, ptr noundef %78)
-  %79 = load ptr, ptr %10, align 8
-  %80 = load ptr, ptr %8, align 8
-  %81 = call ptr @strcat(ptr noundef %79, ptr noundef %80) #7
-  %82 = load ptr, ptr %8, align 8
-  call void @cJSON_free(ptr noundef %82)
-  %83 = load ptr, ptr %10, align 8
-  store ptr %83, ptr %3, align 8
-  br label %94
+60:                                               ; preds = %37
+  %61 = load ptr, ptr %4, align 8, !tbaa !3
+  %62 = call i32 @cJSON_IsObject(ptr noundef %61)
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %86
 
-84:                                               ; preds = %58
-  %85 = load ptr, ptr %8, align 8
-  call void @cJSON_free(ptr noundef %85)
+64:                                               ; preds = %60
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %65 = load ptr, ptr %9, align 8, !tbaa !15
+  %66 = call i64 @strlen(ptr noundef %65) #9
+  %67 = load ptr, ptr %7, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw %struct.cJSON, ptr %67, i32 0, i32 7
+  %69 = load ptr, ptr %68, align 8, !tbaa !16
+  %70 = call i64 @pointer_encoded_length(ptr noundef %69)
+  %71 = add i64 %66, %70
+  %72 = add i64 %71, 2
+  %73 = call ptr @cJSON_malloc(i64 noundef %72)
+  store ptr %73, ptr %11, align 8, !tbaa !15
+  %74 = load ptr, ptr %11, align 8, !tbaa !15
+  %75 = getelementptr inbounds i8, ptr %74, i64 0
+  store i8 47, ptr %75, align 1, !tbaa !17
+  %76 = load ptr, ptr %11, align 8, !tbaa !15
+  %77 = getelementptr inbounds i8, ptr %76, i64 1
+  %78 = load ptr, ptr %7, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.cJSON, ptr %78, i32 0, i32 7
+  %80 = load ptr, ptr %79, align 8, !tbaa !16
+  call void @encode_string_as_pointer(ptr noundef %77, ptr noundef %80)
+  %81 = load ptr, ptr %11, align 8, !tbaa !15
+  %82 = load ptr, ptr %9, align 8, !tbaa !15
+  %83 = call ptr @strcat(ptr noundef %81, ptr noundef %82) #8
+  %84 = load ptr, ptr %9, align 8, !tbaa !15
+  call void @cJSON_free(ptr noundef %84)
+  %85 = load ptr, ptr %11, align 8, !tbaa !15
+  store ptr %85, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  br label %89
+
+86:                                               ; preds = %60
+  %87 = load ptr, ptr %9, align 8, !tbaa !15
+  call void @cJSON_free(ptr noundef %87)
   store ptr null, ptr %3, align 8
-  br label %94
+  store i32 1, ptr %8, align 4
+  br label %89
 
-86:                                               ; preds = %30
-  br label %87
+88:                                               ; preds = %31
+  store i32 0, ptr %8, align 4
+  br label %89
 
-87:                                               ; preds = %86
-  %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds %struct.cJSON, ptr %88, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %7, align 8
-  %91 = load i64, ptr %6, align 8
-  %92 = add i64 %91, 1
-  store i64 %92, ptr %6, align 8
-  br label %27
+89:                                               ; preds = %88, %86, %64, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  %90 = load i32, ptr %8, align 4
+  switch i32 %90, label %99 [
+    i32 0, label %91
+  ]
 
-93:                                               ; preds = %27
+91:                                               ; preds = %89
+  br label %92
+
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %7, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.cJSON, ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8, !tbaa !18
+  store ptr %95, ptr %7, align 8, !tbaa !3
+  %96 = load i64, ptr %6, align 8, !tbaa !8
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %6, align 8, !tbaa !8
+  br label %28
+
+98:                                               ; preds = %28
   store ptr null, ptr %3, align 8
-  br label %94
+  store i32 1, ptr %8, align 4
+  br label %99
 
-94:                                               ; preds = %93, %84, %62, %51, %48, %21, %16
-  %95 = load ptr, ptr %3, align 8
-  ret ptr %95
+99:                                               ; preds = %98, %89, %22, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %100 = load ptr, ptr %3, align 8
+  ret ptr %100
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @cJSONUtils_strdup(ptr noundef %0) #0 {
@@ -185,101 +219,113 @@ define internal ptr @cJSONUtils_strdup(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 0, ptr %4, align 8
-  store ptr null, ptr %5, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = call i64 @strlen(ptr noundef %6) #6
-  %8 = add i64 %7, 1
-  store i64 %8, ptr %4, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = call ptr @cJSON_malloc(i64 noundef %9)
-  store ptr %10, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %1
-  store ptr null, ptr %2, align 8
-  br label %19
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  store i64 0, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  store ptr null, ptr %5, align 8, !tbaa !15
+  %7 = load ptr, ptr %3, align 8, !tbaa !15
+  %8 = call i64 @strlen(ptr noundef %7) #9
+  %9 = add i64 %8, 1
+  store i64 %9, ptr %4, align 8, !tbaa !8
+  %10 = load i64, ptr %4, align 8, !tbaa !8
+  %11 = call ptr @cJSON_malloc(i64 noundef %10)
+  store ptr %11, ptr %5, align 8, !tbaa !15
+  %12 = load ptr, ptr %5, align 8, !tbaa !15
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %1
-  %15 = load ptr, ptr %5, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = load i64, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %16, i64 %17, i1 false)
-  %18 = load ptr, ptr %5, align 8
-  store ptr %18, ptr %2, align 8
-  br label %19
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %20
 
-19:                                               ; preds = %14, %13
-  %20 = load ptr, ptr %2, align 8
-  ret ptr %20
+15:                                               ; preds = %1
+  %16 = load ptr, ptr %5, align 8, !tbaa !15
+  %17 = load ptr, ptr %3, align 8, !tbaa !15
+  %18 = load i64, ptr %4, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %17, i64 %18, i1 false)
+  %19 = load ptr, ptr %5, align 8, !tbaa !15
+  store ptr %19, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %20
+
+20:                                               ; preds = %15, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %21 = load ptr, ptr %2, align 8
+  ret ptr %21
 }
 
-declare i32 @cJSON_IsArray(ptr noundef) #1
+declare i32 @cJSON_IsArray(ptr noundef) #2
 
-declare ptr @cJSON_malloc(i64 noundef) #1
+declare ptr @cJSON_malloc(i64 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #3
 
-declare void @cJSON_free(ptr noundef) #1
+declare void @cJSON_free(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @sprintf(ptr noundef, ptr noundef, ...) #3
+declare i32 @sprintf(ptr noundef, ptr noundef, ...) #4
 
-declare i32 @cJSON_IsObject(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @cJSON_IsObject(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @pointer_encoded_length(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 0, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  store i64 0, ptr %3, align 8, !tbaa !8
   br label %4
 
 4:                                                ; preds = %23, %1
-  %5 = load ptr, ptr %2, align 8
-  %6 = load i8, ptr %5, align 1
+  %5 = load ptr, ptr %2, align 8, !tbaa !15
+  %6 = load i8, ptr %5, align 1, !tbaa !17
   %7 = zext i8 %6 to i32
   %8 = icmp ne i32 %7, 0
   br i1 %8, label %9, label %28
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = load i8, ptr %10, align 1
+  %10 = load ptr, ptr %2, align 8, !tbaa !15
+  %11 = load i8, ptr %10, align 1, !tbaa !17
   %12 = zext i8 %11 to i32
   %13 = icmp eq i32 %12, 126
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %2, align 8
-  %16 = load i8, ptr %15, align 1
+  %15 = load ptr, ptr %2, align 8, !tbaa !15
+  %16 = load i8, ptr %15, align 1, !tbaa !17
   %17 = zext i8 %16 to i32
   %18 = icmp eq i32 %17, 47
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %14, %9
-  %20 = load i64, ptr %3, align 8
+  %20 = load i64, ptr %3, align 8, !tbaa !8
   %21 = add i64 %20, 1
-  store i64 %21, ptr %3, align 8
+  store i64 %21, ptr %3, align 8, !tbaa !8
   br label %22
 
 22:                                               ; preds = %19, %14
   br label %23
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i32 1
-  store ptr %25, ptr %2, align 8
-  %26 = load i64, ptr %3, align 8
+  %24 = load ptr, ptr %2, align 8, !tbaa !15
+  %25 = getelementptr inbounds nuw i8, ptr %24, i32 1
+  store ptr %25, ptr %2, align 8, !tbaa !15
+  %26 = load i64, ptr %3, align 8, !tbaa !8
   %27 = add i64 %26, 1
-  store i64 %27, ptr %3, align 8
+  store i64 %27, ptr %3, align 8, !tbaa !8
   br label %4
 
 28:                                               ; preds = %4
-  %29 = load i64, ptr %3, align 8
+  %29 = load i64, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret i64 %29
 }
 
@@ -287,65 +333,65 @@ define internal i64 @pointer_encoded_length(ptr noundef %0) #0 {
 define internal void @encode_string_as_pointer(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  store ptr %1, ptr %4, align 8, !tbaa !15
   br label %5
 
 5:                                                ; preds = %45, %2
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !15
   %7 = getelementptr inbounds i8, ptr %6, i64 0
-  %8 = load i8, ptr %7, align 1
+  %8 = load i8, ptr %7, align 1, !tbaa !17
   %9 = zext i8 %8 to i32
   %10 = icmp ne i32 %9, 0
   br i1 %10, label %11, label %50
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8, !tbaa !15
   %13 = getelementptr inbounds i8, ptr %12, i64 0
-  %14 = load i8, ptr %13, align 1
+  %14 = load i8, ptr %13, align 1, !tbaa !17
   %15 = zext i8 %14 to i32
   %16 = icmp eq i32 %15, 47
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !15
   %19 = getelementptr inbounds i8, ptr %18, i64 0
-  store i8 126, ptr %19, align 1
-  %20 = load ptr, ptr %3, align 8
+  store i8 126, ptr %19, align 1, !tbaa !17
+  %20 = load ptr, ptr %3, align 8, !tbaa !15
   %21 = getelementptr inbounds i8, ptr %20, i64 1
-  store i8 49, ptr %21, align 1
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i32 1
-  store ptr %23, ptr %3, align 8
+  store i8 49, ptr %21, align 1, !tbaa !17
+  %22 = load ptr, ptr %3, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw i8, ptr %22, i32 1
+  store ptr %23, ptr %3, align 8, !tbaa !15
   br label %44
 
 24:                                               ; preds = %11
-  %25 = load ptr, ptr %4, align 8
+  %25 = load ptr, ptr %4, align 8, !tbaa !15
   %26 = getelementptr inbounds i8, ptr %25, i64 0
-  %27 = load i8, ptr %26, align 1
+  %27 = load i8, ptr %26, align 1, !tbaa !17
   %28 = zext i8 %27 to i32
   %29 = icmp eq i32 %28, 126
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %24
-  %31 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !15
   %32 = getelementptr inbounds i8, ptr %31, i64 0
-  store i8 126, ptr %32, align 1
-  %33 = load ptr, ptr %3, align 8
+  store i8 126, ptr %32, align 1, !tbaa !17
+  %33 = load ptr, ptr %3, align 8, !tbaa !15
   %34 = getelementptr inbounds i8, ptr %33, i64 1
-  store i8 48, ptr %34, align 1
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i32 1
-  store ptr %36, ptr %3, align 8
+  store i8 48, ptr %34, align 1, !tbaa !17
+  %35 = load ptr, ptr %3, align 8, !tbaa !15
+  %36 = getelementptr inbounds nuw i8, ptr %35, i32 1
+  store ptr %36, ptr %3, align 8, !tbaa !15
   br label %43
 
 37:                                               ; preds = %24
-  %38 = load ptr, ptr %4, align 8
+  %38 = load ptr, ptr %4, align 8, !tbaa !15
   %39 = getelementptr inbounds i8, ptr %38, i64 0
-  %40 = load i8, ptr %39, align 1
-  %41 = load ptr, ptr %3, align 8
+  %40 = load i8, ptr %39, align 1, !tbaa !17
+  %41 = load ptr, ptr %3, align 8, !tbaa !15
   %42 = getelementptr inbounds i8, ptr %41, i64 0
-  store i8 %40, ptr %42, align 1
+  store i8 %40, ptr %42, align 1, !tbaa !17
   br label %43
 
 43:                                               ; preds = %37, %30
@@ -355,32 +401,32 @@ define internal void @encode_string_as_pointer(ptr noundef %0, ptr noundef %1) #
   br label %45
 
 45:                                               ; preds = %44
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i32 1
-  store ptr %47, ptr %4, align 8
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i32 1
-  store ptr %49, ptr %3, align 8
+  %46 = load ptr, ptr %4, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw i8, ptr %46, i32 1
+  store ptr %47, ptr %4, align 8, !tbaa !15
+  %48 = load ptr, ptr %3, align 8, !tbaa !15
+  %49 = getelementptr inbounds nuw i8, ptr %48, i32 1
+  store ptr %49, ptr %3, align 8, !tbaa !15
   br label %5
 
 50:                                               ; preds = %5
-  %51 = load ptr, ptr %3, align 8
+  %51 = load ptr, ptr %3, align 8, !tbaa !15
   %52 = getelementptr inbounds i8, ptr %51, i64 0
-  store i8 0, ptr %52, align 1
+  store i8 0, ptr %52, align 1, !tbaa !17
   ret void
 }
 
 ; Function Attrs: nounwind
-declare ptr @strcat(ptr noundef, ptr noundef) #3
+declare ptr @strcat(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSONUtils_GetPointer(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !15
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !15
   %7 = call ptr @get_item_from_pointer(ptr noundef %5, ptr noundef %6, i32 noundef 0)
   ret ptr %7
 }
@@ -392,167 +438,186 @@ define internal ptr @get_item_from_pointer(ptr noundef %0, ptr noundef %1, i32 n
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %10 = load ptr, ptr %5, align 8
-  store ptr %10, ptr %8, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %3
-  store ptr null, ptr %4, align 8
-  br label %91
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i32 %2, ptr %7, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %11, ptr %8, align 8, !tbaa !3
+  %12 = load ptr, ptr %6, align 8, !tbaa !15
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %3
-  br label %15
-
-15:                                               ; preds = %88, %14
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 0
-  %18 = load i8, ptr %17, align 1
-  %19 = sext i8 %18 to i32
-  %20 = icmp eq i32 %19, 47
-  br i1 %20, label %21, label %24
-
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %8, align 8
-  %23 = icmp ne ptr %22, null
-  br label %24
-
-24:                                               ; preds = %21, %15
-  %25 = phi i1 [ false, %15 ], [ %23, %21 ]
-  br i1 %25, label %26, label %89
-
-26:                                               ; preds = %24
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i32 1
-  store ptr %28, ptr %6, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = call i32 @cJSON_IsArray(ptr noundef %29)
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %41
-
-32:                                               ; preds = %26
-  store i64 0, ptr %9, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = call i32 @decode_array_index_from_pointer(ptr noundef %33, ptr noundef %9)
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %37, label %36
-
-36:                                               ; preds = %32
   store ptr null, ptr %4, align 8
-  br label %91
+  store i32 1, ptr %9, align 4
+  br label %95
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr %8, align 8
-  %39 = load i64, ptr %9, align 8
-  %40 = call ptr @get_array_item(ptr noundef %38, i64 noundef %39)
-  store ptr %40, ptr %8, align 8
-  br label %70
+15:                                               ; preds = %3
+  br label %16
 
-41:                                               ; preds = %26
-  %42 = load ptr, ptr %8, align 8
-  %43 = call i32 @cJSON_IsObject(ptr noundef %42)
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %45, label %68
+16:                                               ; preds = %92, %15
+  %17 = load ptr, ptr %6, align 8, !tbaa !15
+  %18 = getelementptr inbounds i8, ptr %17, i64 0
+  %19 = load i8, ptr %18, align 1, !tbaa !17
+  %20 = sext i8 %19 to i32
+  %21 = icmp eq i32 %20, 47
+  br i1 %21, label %22, label %25
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.cJSON, ptr %46, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %8, align 8
-  br label %49
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %8, align 8, !tbaa !3
+  %24 = icmp ne ptr %23, null
+  br label %25
 
-49:                                               ; preds = %63, %45
-  %50 = load ptr, ptr %8, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %61
+25:                                               ; preds = %22, %16
+  %26 = phi i1 [ false, %16 ], [ %24, %22 ]
+  br i1 %26, label %27, label %93
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct.cJSON, ptr %53, i32 0, i32 7
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %6, align 8
-  %57 = load i32, ptr %7, align 4
-  %58 = call i32 @compare_pointers(ptr noundef %55, ptr noundef %56, i32 noundef %57)
-  %59 = icmp ne i32 %58, 0
-  %60 = xor i1 %59, true
-  br label %61
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %6, align 8, !tbaa !15
+  %29 = getelementptr inbounds nuw i8, ptr %28, i32 1
+  store ptr %29, ptr %6, align 8, !tbaa !15
+  %30 = load ptr, ptr %8, align 8, !tbaa !3
+  %31 = call i32 @cJSON_IsArray(ptr noundef %30)
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %45
 
-61:                                               ; preds = %52, %49
-  %62 = phi i1 [ false, %49 ], [ %60, %52 ]
-  br i1 %62, label %63, label %67
+33:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  store i64 0, ptr %10, align 8, !tbaa !8
+  %34 = load ptr, ptr %6, align 8, !tbaa !15
+  %35 = call i32 @decode_array_index_from_pointer(ptr noundef %34, ptr noundef %10)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %38, label %37
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds %struct.cJSON, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr %8, align 8
-  br label %49
-
-67:                                               ; preds = %61
-  br label %69
-
-68:                                               ; preds = %41
+37:                                               ; preds = %33
   store ptr null, ptr %4, align 8
-  br label %91
+  store i32 1, ptr %9, align 4
+  br label %42
 
-69:                                               ; preds = %67
-  br label %70
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %8, align 8, !tbaa !3
+  %40 = load i64, ptr %10, align 8, !tbaa !8
+  %41 = call ptr @get_array_item(ptr noundef %39, i64 noundef %40)
+  store ptr %41, ptr %8, align 8, !tbaa !3
+  store i32 0, ptr %9, align 4
+  br label %42
 
-70:                                               ; preds = %69, %37
-  br label %71
+42:                                               ; preds = %38, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %43 = load i32, ptr %9, align 4
+  switch i32 %43, label %95 [
+    i32 0, label %44
+  ]
 
-71:                                               ; preds = %85, %70
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 0
-  %74 = load i8, ptr %73, align 1
-  %75 = sext i8 %74 to i32
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %83
+44:                                               ; preds = %42
+  br label %74
 
-77:                                               ; preds = %71
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 0
-  %80 = load i8, ptr %79, align 1
-  %81 = sext i8 %80 to i32
-  %82 = icmp ne i32 %81, 47
-  br label %83
+45:                                               ; preds = %27
+  %46 = load ptr, ptr %8, align 8, !tbaa !3
+  %47 = call i32 @cJSON_IsObject(ptr noundef %46)
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %72
 
-83:                                               ; preds = %77, %71
-  %84 = phi i1 [ false, %71 ], [ %82, %77 ]
-  br i1 %84, label %85, label %88
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %8, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.cJSON, ptr %50, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8, !tbaa !10
+  store ptr %52, ptr %8, align 8, !tbaa !3
+  br label %53
 
-85:                                               ; preds = %83
-  %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i32 1
-  store ptr %87, ptr %6, align 8
-  br label %71
+53:                                               ; preds = %67, %49
+  %54 = load ptr, ptr %8, align 8, !tbaa !3
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %65
 
-88:                                               ; preds = %83
-  br label %15
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %8, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.cJSON, ptr %57, i32 0, i32 7
+  %59 = load ptr, ptr %58, align 8, !tbaa !16
+  %60 = load ptr, ptr %6, align 8, !tbaa !15
+  %61 = load i32, ptr %7, align 4, !tbaa !19
+  %62 = call i32 @compare_pointers(ptr noundef %59, ptr noundef %60, i32 noundef %61)
+  %63 = icmp ne i32 %62, 0
+  %64 = xor i1 %63, true
+  br label %65
 
-89:                                               ; preds = %24
-  %90 = load ptr, ptr %8, align 8
-  store ptr %90, ptr %4, align 8
-  br label %91
+65:                                               ; preds = %56, %53
+  %66 = phi i1 [ false, %53 ], [ %64, %56 ]
+  br i1 %66, label %67, label %71
 
-91:                                               ; preds = %89, %68, %36, %13
-  %92 = load ptr, ptr %4, align 8
-  ret ptr %92
+67:                                               ; preds = %65
+  %68 = load ptr, ptr %8, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw %struct.cJSON, ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8, !tbaa !18
+  store ptr %70, ptr %8, align 8, !tbaa !3
+  br label %53
+
+71:                                               ; preds = %65
+  br label %73
+
+72:                                               ; preds = %45
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %95
+
+73:                                               ; preds = %71
+  br label %74
+
+74:                                               ; preds = %73, %44
+  br label %75
+
+75:                                               ; preds = %89, %74
+  %76 = load ptr, ptr %6, align 8, !tbaa !15
+  %77 = getelementptr inbounds i8, ptr %76, i64 0
+  %78 = load i8, ptr %77, align 1, !tbaa !17
+  %79 = sext i8 %78 to i32
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %87
+
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %6, align 8, !tbaa !15
+  %83 = getelementptr inbounds i8, ptr %82, i64 0
+  %84 = load i8, ptr %83, align 1, !tbaa !17
+  %85 = sext i8 %84 to i32
+  %86 = icmp ne i32 %85, 47
+  br label %87
+
+87:                                               ; preds = %81, %75
+  %88 = phi i1 [ false, %75 ], [ %86, %81 ]
+  br i1 %88, label %89, label %92
+
+89:                                               ; preds = %87
+  %90 = load ptr, ptr %6, align 8, !tbaa !15
+  %91 = getelementptr inbounds nuw i8, ptr %90, i32 1
+  store ptr %91, ptr %6, align 8, !tbaa !15
+  br label %75
+
+92:                                               ; preds = %87
+  br label %16
+
+93:                                               ; preds = %25
+  %94 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %94, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %95
+
+95:                                               ; preds = %93, %72, %42, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %96 = load ptr, ptr %4, align 8
+  ret ptr %96
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSONUtils_GetPointerCaseSensitive(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !15
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !15
   %7 = call ptr @get_item_from_pointer(ptr noundef %5, ptr noundef %6, i32 noundef 1)
   ret ptr %7
 }
@@ -564,552 +629,628 @@ define i32 @cJSONUtils_ApplyPatches(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr null, ptr %6, align 8
-  store i32 0, ptr %7, align 4
-  %8 = load ptr, ptr %5, align 8
-  %9 = call i32 @cJSON_IsArray(ptr noundef %8)
-  %10 = icmp ne i32 %9, 0
-  br i1 %10, label %12, label %11
-
-11:                                               ; preds = %2
-  store i32 1, ptr %3, align 4
-  br label %36
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store ptr null, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  store i32 0, ptr %7, align 4, !tbaa !19
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = call i32 @cJSON_IsArray(ptr noundef %9)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %5, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %19
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %37
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.cJSON, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %6, align 8
-  br label %19
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %20
 
-19:                                               ; preds = %15, %12
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.cJSON, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !10
+  store ptr %19, ptr %6, align 8, !tbaa !3
   br label %20
 
-20:                                               ; preds = %31, %19
-  %21 = load ptr, ptr %6, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %35
+20:                                               ; preds = %16, %13
+  br label %21
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %4, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = call i32 @apply_patch(ptr noundef %24, ptr noundef %25, i32 noundef 0)
-  store i32 %26, ptr %7, align 4
-  %27 = load i32, ptr %7, align 4
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %31
+21:                                               ; preds = %32, %20
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %36
 
-29:                                               ; preds = %23
-  %30 = load i32, ptr %7, align 4
-  store i32 %30, ptr %3, align 4
-  br label %36
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = call i32 @apply_patch(ptr noundef %25, ptr noundef %26, i32 noundef 0)
+  store i32 %27, ptr %7, align 4, !tbaa !19
+  %28 = load i32, ptr %7, align 4, !tbaa !19
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %23
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.cJSON, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %6, align 8
-  br label %20
+30:                                               ; preds = %24
+  %31 = load i32, ptr %7, align 4, !tbaa !19
+  store i32 %31, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %37
 
-35:                                               ; preds = %20
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %6, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.cJSON, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !18
+  store ptr %35, ptr %6, align 8, !tbaa !3
+  br label %21
+
+36:                                               ; preds = %21
   store i32 0, ptr %3, align 4
-  br label %36
+  store i32 1, ptr %8, align 4
+  br label %37
 
-36:                                               ; preds = %35, %29, %11
-  %37 = load i32, ptr %3, align 4
-  ret i32 %37
+37:                                               ; preds = %36, %30, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %38 = load i32, ptr %3, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @apply_patch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = alloca ptr, align 8
+  %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
-  %13 = alloca i32, align 4
-  %14 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
-  %16 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  store ptr null, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  store ptr null, ptr %9, align 8
-  store i32 0, ptr %10, align 4
-  store ptr null, ptr %11, align 8
-  store ptr null, ptr %12, align 8
-  store i32 0, ptr %13, align 4
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = call ptr @get_object_item(ptr noundef %17, ptr noundef @.str.2, i32 noundef %18)
-  store ptr %19, ptr %7, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = call i32 @cJSON_IsString(ptr noundef %20)
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %24, label %23
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  store ptr null, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  store ptr null, ptr %9, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  store ptr null, ptr %10, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  store i32 0, ptr %11, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  store ptr null, ptr %12, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  store ptr null, ptr %13, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  store i32 0, ptr %14, align 4, !tbaa !19
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  %20 = load i32, ptr %7, align 4, !tbaa !19
+  %21 = call ptr @get_object_item(ptr noundef %19, ptr noundef @.str.2, i32 noundef %20)
+  store ptr %21, ptr %8, align 8, !tbaa !3
+  %22 = load ptr, ptr %8, align 8, !tbaa !3
+  %23 = call i32 @cJSON_IsString(ptr noundef %22)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %26, label %25
 
-23:                                               ; preds = %3
-  store i32 2, ptr %13, align 4
-  br label %260
+25:                                               ; preds = %3
+  store i32 2, ptr %14, align 4, !tbaa !19
+  br label %271
 
-24:                                               ; preds = %3
-  %25 = load ptr, ptr %5, align 8
-  %26 = load i32, ptr %6, align 4
-  %27 = call i32 @decode_patch_operation(ptr noundef %25, i32 noundef %26)
-  store i32 %27, ptr %10, align 4
-  %28 = load i32, ptr %10, align 4
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %31
+26:                                               ; preds = %3
+  %27 = load ptr, ptr %6, align 8, !tbaa !3
+  %28 = load i32, ptr %7, align 4, !tbaa !19
+  %29 = call i32 @decode_patch_operation(ptr noundef %27, i32 noundef %28)
+  store i32 %29, ptr %11, align 4, !tbaa !19
+  %30 = load i32, ptr %11, align 4, !tbaa !19
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %33
 
-30:                                               ; preds = %24
-  store i32 3, ptr %13, align 4
-  br label %260
+32:                                               ; preds = %26
+  store i32 3, ptr %14, align 4, !tbaa !19
+  br label %271
 
-31:                                               ; preds = %24
-  %32 = load i32, ptr %10, align 4
-  %33 = icmp eq i32 %32, 6
-  br i1 %33, label %34, label %49
+33:                                               ; preds = %26
+  %34 = load i32, ptr %11, align 4, !tbaa !19
+  %35 = icmp eq i32 %34, 6
+  br i1 %35, label %36, label %51
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %struct.cJSON, ptr %36, i32 0, i32 4
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %6, align 4
-  %40 = call ptr @get_item_from_pointer(ptr noundef %35, ptr noundef %38, i32 noundef %39)
-  %41 = load ptr, ptr %5, align 8
-  %42 = load i32, ptr %6, align 4
-  %43 = call ptr @get_object_item(ptr noundef %41, ptr noundef @.str.3, i32 noundef %42)
-  %44 = load i32, ptr %6, align 4
-  %45 = call i32 @compare_json(ptr noundef %40, ptr noundef %43, i32 noundef %44)
-  %46 = icmp ne i32 %45, 0
-  %47 = xor i1 %46, true
-  %48 = zext i1 %47 to i32
-  store i32 %48, ptr %13, align 4
-  br label %260
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %5, align 8, !tbaa !3
+  %38 = load ptr, ptr %8, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.cJSON, ptr %38, i32 0, i32 4
+  %40 = load ptr, ptr %39, align 8, !tbaa !20
+  %41 = load i32, ptr %7, align 4, !tbaa !19
+  %42 = call ptr @get_item_from_pointer(ptr noundef %37, ptr noundef %40, i32 noundef %41)
+  %43 = load ptr, ptr %6, align 8, !tbaa !3
+  %44 = load i32, ptr %7, align 4, !tbaa !19
+  %45 = call ptr @get_object_item(ptr noundef %43, ptr noundef @.str.3, i32 noundef %44)
+  %46 = load i32, ptr %7, align 4, !tbaa !19
+  %47 = call i32 @compare_json(ptr noundef %42, ptr noundef %45, i32 noundef %46)
+  %48 = icmp ne i32 %47, 0
+  %49 = xor i1 %48, true
+  %50 = zext i1 %49 to i32
+  store i32 %50, ptr %14, align 4, !tbaa !19
+  br label %271
 
-49:                                               ; preds = %31
-  br label %50
+51:                                               ; preds = %33
+  br label %52
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct.cJSON, ptr %51, i32 0, i32 4
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 0
-  %55 = load i8, ptr %54, align 1
-  %56 = sext i8 %55 to i32
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %98
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %8, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.cJSON, ptr %53, i32 0, i32 4
+  %55 = load ptr, ptr %54, align 8, !tbaa !20
+  %56 = getelementptr inbounds i8, ptr %55, i64 0
+  %57 = load i8, ptr %56, align 1, !tbaa !17
+  %58 = sext i8 %57 to i32
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %100
 
-58:                                               ; preds = %50
-  %59 = load i32, ptr %10, align 4
-  %60 = icmp eq i32 %59, 2
-  br i1 %60, label %61, label %63
+60:                                               ; preds = %52
+  %61 = load i32, ptr %11, align 4, !tbaa !19
+  %62 = icmp eq i32 %61, 2
+  br i1 %62, label %63, label %65
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %4, align 8
-  call void @overwrite_item(ptr noundef %62, ptr noundef byval(%struct.cJSON) align 8 @apply_patch.invalid)
-  store i32 0, ptr %13, align 4
-  br label %260
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @overwrite_item(ptr noundef %64, ptr noundef byval(%struct.cJSON) align 8 @apply_patch.invalid)
+  store i32 0, ptr %14, align 4, !tbaa !19
+  br label %271
 
-63:                                               ; preds = %58
-  %64 = load i32, ptr %10, align 4
-  %65 = icmp eq i32 %64, 3
-  br i1 %65, label %69, label %66
+65:                                               ; preds = %60
+  %66 = load i32, ptr %11, align 4, !tbaa !19
+  %67 = icmp eq i32 %66, 3
+  br i1 %67, label %71, label %68
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr %10, align 4
-  %68 = icmp eq i32 %67, 1
-  br i1 %68, label %69, label %97
+68:                                               ; preds = %65
+  %69 = load i32, ptr %11, align 4, !tbaa !19
+  %70 = icmp eq i32 %69, 1
+  br i1 %70, label %71, label %99
 
-69:                                               ; preds = %66, %63
-  %70 = load ptr, ptr %5, align 8
-  %71 = load i32, ptr %6, align 4
-  %72 = call ptr @get_object_item(ptr noundef %70, ptr noundef @.str.3, i32 noundef %71)
-  store ptr %72, ptr %8, align 8
-  %73 = load ptr, ptr %8, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %76
+71:                                               ; preds = %68, %65
+  %72 = load ptr, ptr %6, align 8, !tbaa !3
+  %73 = load i32, ptr %7, align 4, !tbaa !19
+  %74 = call ptr @get_object_item(ptr noundef %72, ptr noundef @.str.3, i32 noundef %73)
+  store ptr %74, ptr %9, align 8, !tbaa !3
+  %75 = load ptr, ptr %9, align 8, !tbaa !3
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %78
 
-75:                                               ; preds = %69
-  store i32 7, ptr %13, align 4
-  br label %260
+77:                                               ; preds = %71
+  store i32 7, ptr %14, align 4, !tbaa !19
+  br label %271
 
-76:                                               ; preds = %69
-  %77 = load ptr, ptr %8, align 8
-  %78 = call ptr @cJSON_Duplicate(ptr noundef %77, i32 noundef 1)
-  store ptr %78, ptr %8, align 8
-  %79 = load ptr, ptr %8, align 8
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %82
+78:                                               ; preds = %71
+  %79 = load ptr, ptr %9, align 8, !tbaa !3
+  %80 = call ptr @cJSON_Duplicate(ptr noundef %79, i32 noundef 1)
+  store ptr %80, ptr %9, align 8, !tbaa !3
+  %81 = load ptr, ptr %9, align 8, !tbaa !3
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %84
 
-81:                                               ; preds = %76
-  store i32 8, ptr %13, align 4
-  br label %260
+83:                                               ; preds = %78
+  store i32 8, ptr %14, align 4, !tbaa !19
+  br label %271
 
-82:                                               ; preds = %76
-  %83 = load ptr, ptr %4, align 8
-  %84 = load ptr, ptr %8, align 8
-  call void @overwrite_item(ptr noundef %83, ptr noundef byval(%struct.cJSON) align 8 %84)
-  %85 = load ptr, ptr %8, align 8
-  call void @cJSON_free(ptr noundef %85)
-  store ptr null, ptr %8, align 8
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.cJSON, ptr %86, i32 0, i32 7
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %96
+84:                                               ; preds = %78
+  %85 = load ptr, ptr %5, align 8, !tbaa !3
+  %86 = load ptr, ptr %9, align 8, !tbaa !3
+  call void @overwrite_item(ptr noundef %85, ptr noundef byval(%struct.cJSON) align 8 %86)
+  %87 = load ptr, ptr %9, align 8, !tbaa !3
+  call void @cJSON_free(ptr noundef %87)
+  store ptr null, ptr %9, align 8, !tbaa !3
+  %88 = load ptr, ptr %5, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw %struct.cJSON, ptr %88, i32 0, i32 7
+  %90 = load ptr, ptr %89, align 8, !tbaa !16
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %92, label %98
 
-90:                                               ; preds = %82
-  %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds %struct.cJSON, ptr %91, i32 0, i32 7
-  %93 = load ptr, ptr %92, align 8
-  call void @cJSON_free(ptr noundef %93)
-  %94 = load ptr, ptr %4, align 8
-  %95 = getelementptr inbounds %struct.cJSON, ptr %94, i32 0, i32 7
-  store ptr null, ptr %95, align 8
-  br label %96
-
-96:                                               ; preds = %90, %82
-  store i32 0, ptr %13, align 4
-  br label %260
-
-97:                                               ; preds = %66
+92:                                               ; preds = %84
+  %93 = load ptr, ptr %5, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.cJSON, ptr %93, i32 0, i32 7
+  %95 = load ptr, ptr %94, align 8, !tbaa !16
+  call void @cJSON_free(ptr noundef %95)
+  %96 = load ptr, ptr %5, align 8, !tbaa !3
+  %97 = getelementptr inbounds nuw %struct.cJSON, ptr %96, i32 0, i32 7
+  store ptr null, ptr %97, align 8, !tbaa !16
   br label %98
 
-98:                                               ; preds = %97, %50
-  %99 = load i32, ptr %10, align 4
-  %100 = icmp eq i32 %99, 2
-  br i1 %100, label %104, label %101
+98:                                               ; preds = %92, %84
+  store i32 0, ptr %14, align 4, !tbaa !19
+  br label %271
 
-101:                                              ; preds = %98
-  %102 = load i32, ptr %10, align 4
-  %103 = icmp eq i32 %102, 3
-  br i1 %103, label %104, label %120
+99:                                               ; preds = %68
+  br label %100
 
-104:                                              ; preds = %101, %98
-  %105 = load ptr, ptr %4, align 8
-  %106 = load ptr, ptr %7, align 8
-  %107 = getelementptr inbounds %struct.cJSON, ptr %106, i32 0, i32 4
-  %108 = load ptr, ptr %107, align 8
-  %109 = load i32, ptr %6, align 4
-  %110 = call ptr @detach_path(ptr noundef %105, ptr noundef %108, i32 noundef %109)
-  store ptr %110, ptr %14, align 8
-  %111 = load ptr, ptr %14, align 8
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %113, label %114
+100:                                              ; preds = %99, %52
+  %101 = load i32, ptr %11, align 4, !tbaa !19
+  %102 = icmp eq i32 %101, 2
+  br i1 %102, label %106, label %103
 
-113:                                              ; preds = %104
-  store i32 13, ptr %13, align 4
-  br label %260
+103:                                              ; preds = %100
+  %104 = load i32, ptr %11, align 4, !tbaa !19
+  %105 = icmp eq i32 %104, 3
+  br i1 %105, label %106, label %125
 
-114:                                              ; preds = %104
-  %115 = load ptr, ptr %14, align 8
-  call void @cJSON_Delete(ptr noundef %115)
-  %116 = load i32, ptr %10, align 4
-  %117 = icmp eq i32 %116, 2
-  br i1 %117, label %118, label %119
+106:                                              ; preds = %103, %100
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %107 = load ptr, ptr %5, align 8, !tbaa !3
+  %108 = load ptr, ptr %8, align 8, !tbaa !3
+  %109 = getelementptr inbounds nuw %struct.cJSON, ptr %108, i32 0, i32 4
+  %110 = load ptr, ptr %109, align 8, !tbaa !20
+  %111 = load i32, ptr %7, align 4, !tbaa !19
+  %112 = call ptr @detach_path(ptr noundef %107, ptr noundef %110, i32 noundef %111)
+  store ptr %112, ptr %15, align 8, !tbaa !3
+  %113 = load ptr, ptr %15, align 8, !tbaa !3
+  %114 = icmp eq ptr %113, null
+  br i1 %114, label %115, label %116
 
-118:                                              ; preds = %114
-  store i32 0, ptr %13, align 4
-  br label %260
+115:                                              ; preds = %106
+  store i32 13, ptr %14, align 4, !tbaa !19
+  store i32 2, ptr %16, align 4
+  br label %122
 
-119:                                              ; preds = %114
-  br label %120
+116:                                              ; preds = %106
+  %117 = load ptr, ptr %15, align 8, !tbaa !3
+  call void @cJSON_Delete(ptr noundef %117)
+  %118 = load i32, ptr %11, align 4, !tbaa !19
+  %119 = icmp eq i32 %118, 2
+  br i1 %119, label %120, label %121
 
-120:                                              ; preds = %119, %101
-  %121 = load i32, ptr %10, align 4
-  %122 = icmp eq i32 %121, 4
-  br i1 %122, label %126, label %123
+120:                                              ; preds = %116
+  store i32 0, ptr %14, align 4, !tbaa !19
+  store i32 2, ptr %16, align 4
+  br label %122
 
-123:                                              ; preds = %120
-  %124 = load i32, ptr %10, align 4
-  %125 = icmp eq i32 %124, 5
-  br i1 %125, label %126, label %168
+121:                                              ; preds = %116
+  store i32 0, ptr %16, align 4
+  br label %122
 
-126:                                              ; preds = %123, %120
-  %127 = load ptr, ptr %5, align 8
-  %128 = load i32, ptr %6, align 4
-  %129 = call ptr @get_object_item(ptr noundef %127, ptr noundef @.str.4, i32 noundef %128)
-  store ptr %129, ptr %15, align 8
-  %130 = load ptr, ptr %15, align 8
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %132, label %133
+122:                                              ; preds = %120, %115, %121
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  %123 = load i32, ptr %16, align 4
+  switch i32 %123, label %283 [
+    i32 0, label %124
+    i32 2, label %271
+  ]
 
-132:                                              ; preds = %126
-  store i32 4, ptr %13, align 4
-  br label %260
+124:                                              ; preds = %122
+  br label %125
 
-133:                                              ; preds = %126
-  %134 = load i32, ptr %10, align 4
-  %135 = icmp eq i32 %134, 4
-  br i1 %135, label %136, label %143
+125:                                              ; preds = %124, %103
+  %126 = load i32, ptr %11, align 4, !tbaa !19
+  %127 = icmp eq i32 %126, 4
+  br i1 %127, label %131, label %128
 
-136:                                              ; preds = %133
-  %137 = load ptr, ptr %4, align 8
-  %138 = load ptr, ptr %15, align 8
-  %139 = getelementptr inbounds %struct.cJSON, ptr %138, i32 0, i32 4
-  %140 = load ptr, ptr %139, align 8
-  %141 = load i32, ptr %6, align 4
-  %142 = call ptr @detach_path(ptr noundef %137, ptr noundef %140, i32 noundef %141)
-  store ptr %142, ptr %8, align 8
-  br label %143
+128:                                              ; preds = %125
+  %129 = load i32, ptr %11, align 4, !tbaa !19
+  %130 = icmp eq i32 %129, 5
+  br i1 %130, label %131, label %176
 
-143:                                              ; preds = %136, %133
-  %144 = load i32, ptr %10, align 4
-  %145 = icmp eq i32 %144, 5
-  br i1 %145, label %146, label %153
+131:                                              ; preds = %128, %125
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %132 = load ptr, ptr %6, align 8, !tbaa !3
+  %133 = load i32, ptr %7, align 4, !tbaa !19
+  %134 = call ptr @get_object_item(ptr noundef %132, ptr noundef @.str.4, i32 noundef %133)
+  store ptr %134, ptr %17, align 8, !tbaa !3
+  %135 = load ptr, ptr %17, align 8, !tbaa !3
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %137, label %138
 
-146:                                              ; preds = %143
-  %147 = load ptr, ptr %4, align 8
-  %148 = load ptr, ptr %15, align 8
-  %149 = getelementptr inbounds %struct.cJSON, ptr %148, i32 0, i32 4
-  %150 = load ptr, ptr %149, align 8
-  %151 = load i32, ptr %6, align 4
-  %152 = call ptr @get_item_from_pointer(ptr noundef %147, ptr noundef %150, i32 noundef %151)
-  store ptr %152, ptr %8, align 8
-  br label %153
+137:                                              ; preds = %131
+  store i32 4, ptr %14, align 4, !tbaa !19
+  store i32 2, ptr %16, align 4
+  br label %173
 
-153:                                              ; preds = %146, %143
-  %154 = load ptr, ptr %8, align 8
-  %155 = icmp eq ptr %154, null
-  br i1 %155, label %156, label %157
+138:                                              ; preds = %131
+  %139 = load i32, ptr %11, align 4, !tbaa !19
+  %140 = icmp eq i32 %139, 4
+  br i1 %140, label %141, label %148
 
-156:                                              ; preds = %153
-  store i32 5, ptr %13, align 4
-  br label %260
+141:                                              ; preds = %138
+  %142 = load ptr, ptr %5, align 8, !tbaa !3
+  %143 = load ptr, ptr %17, align 8, !tbaa !3
+  %144 = getelementptr inbounds nuw %struct.cJSON, ptr %143, i32 0, i32 4
+  %145 = load ptr, ptr %144, align 8, !tbaa !20
+  %146 = load i32, ptr %7, align 4, !tbaa !19
+  %147 = call ptr @detach_path(ptr noundef %142, ptr noundef %145, i32 noundef %146)
+  store ptr %147, ptr %9, align 8, !tbaa !3
+  br label %148
 
-157:                                              ; preds = %153
-  %158 = load i32, ptr %10, align 4
-  %159 = icmp eq i32 %158, 5
-  br i1 %159, label %160, label %163
+148:                                              ; preds = %141, %138
+  %149 = load i32, ptr %11, align 4, !tbaa !19
+  %150 = icmp eq i32 %149, 5
+  br i1 %150, label %151, label %158
 
-160:                                              ; preds = %157
-  %161 = load ptr, ptr %8, align 8
-  %162 = call ptr @cJSON_Duplicate(ptr noundef %161, i32 noundef 1)
-  store ptr %162, ptr %8, align 8
-  br label %163
+151:                                              ; preds = %148
+  %152 = load ptr, ptr %5, align 8, !tbaa !3
+  %153 = load ptr, ptr %17, align 8, !tbaa !3
+  %154 = getelementptr inbounds nuw %struct.cJSON, ptr %153, i32 0, i32 4
+  %155 = load ptr, ptr %154, align 8, !tbaa !20
+  %156 = load i32, ptr %7, align 4, !tbaa !19
+  %157 = call ptr @get_item_from_pointer(ptr noundef %152, ptr noundef %155, i32 noundef %156)
+  store ptr %157, ptr %9, align 8, !tbaa !3
+  br label %158
 
-163:                                              ; preds = %160, %157
-  %164 = load ptr, ptr %8, align 8
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %166, label %167
+158:                                              ; preds = %151, %148
+  %159 = load ptr, ptr %9, align 8, !tbaa !3
+  %160 = icmp eq ptr %159, null
+  br i1 %160, label %161, label %162
 
-166:                                              ; preds = %163
-  store i32 6, ptr %13, align 4
-  br label %260
+161:                                              ; preds = %158
+  store i32 5, ptr %14, align 4, !tbaa !19
+  store i32 2, ptr %16, align 4
+  br label %173
 
-167:                                              ; preds = %163
-  br label %182
+162:                                              ; preds = %158
+  %163 = load i32, ptr %11, align 4, !tbaa !19
+  %164 = icmp eq i32 %163, 5
+  br i1 %164, label %165, label %168
 
-168:                                              ; preds = %123
-  %169 = load ptr, ptr %5, align 8
-  %170 = load i32, ptr %6, align 4
-  %171 = call ptr @get_object_item(ptr noundef %169, ptr noundef @.str.3, i32 noundef %170)
-  store ptr %171, ptr %8, align 8
-  %172 = load ptr, ptr %8, align 8
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %174, label %175
+165:                                              ; preds = %162
+  %166 = load ptr, ptr %9, align 8, !tbaa !3
+  %167 = call ptr @cJSON_Duplicate(ptr noundef %166, i32 noundef 1)
+  store ptr %167, ptr %9, align 8, !tbaa !3
+  br label %168
 
-174:                                              ; preds = %168
-  store i32 7, ptr %13, align 4
-  br label %260
+168:                                              ; preds = %165, %162
+  %169 = load ptr, ptr %9, align 8, !tbaa !3
+  %170 = icmp eq ptr %169, null
+  br i1 %170, label %171, label %172
 
-175:                                              ; preds = %168
-  %176 = load ptr, ptr %8, align 8
-  %177 = call ptr @cJSON_Duplicate(ptr noundef %176, i32 noundef 1)
-  store ptr %177, ptr %8, align 8
-  %178 = load ptr, ptr %8, align 8
-  %179 = icmp eq ptr %178, null
-  br i1 %179, label %180, label %181
+171:                                              ; preds = %168
+  store i32 6, ptr %14, align 4, !tbaa !19
+  store i32 2, ptr %16, align 4
+  br label %173
 
-180:                                              ; preds = %175
-  store i32 8, ptr %13, align 4
-  br label %260
+172:                                              ; preds = %168
+  store i32 0, ptr %16, align 4
+  br label %173
 
-181:                                              ; preds = %175
-  br label %182
+173:                                              ; preds = %171, %161, %137, %172
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  %174 = load i32, ptr %16, align 4
+  switch i32 %174, label %283 [
+    i32 0, label %175
+    i32 2, label %271
+  ]
 
-182:                                              ; preds = %181, %167
-  %183 = load ptr, ptr %7, align 8
-  %184 = getelementptr inbounds %struct.cJSON, ptr %183, i32 0, i32 4
-  %185 = load ptr, ptr %184, align 8
-  %186 = call ptr @cJSONUtils_strdup(ptr noundef %185)
-  store ptr %186, ptr %11, align 8
-  %187 = load ptr, ptr %11, align 8
-  %188 = icmp ne ptr %187, null
-  br i1 %188, label %189, label %192
+175:                                              ; preds = %173
+  br label %190
 
-189:                                              ; preds = %182
-  %190 = load ptr, ptr %11, align 8
-  %191 = call ptr @strrchr(ptr noundef %190, i32 noundef 47) #6
-  store ptr %191, ptr %12, align 8
-  br label %192
+176:                                              ; preds = %128
+  %177 = load ptr, ptr %6, align 8, !tbaa !3
+  %178 = load i32, ptr %7, align 4, !tbaa !19
+  %179 = call ptr @get_object_item(ptr noundef %177, ptr noundef @.str.3, i32 noundef %178)
+  store ptr %179, ptr %9, align 8, !tbaa !3
+  %180 = load ptr, ptr %9, align 8, !tbaa !3
+  %181 = icmp eq ptr %180, null
+  br i1 %181, label %182, label %183
 
-192:                                              ; preds = %189, %182
-  %193 = load ptr, ptr %12, align 8
-  %194 = icmp ne ptr %193, null
-  br i1 %194, label %195, label %200
+182:                                              ; preds = %176
+  store i32 7, ptr %14, align 4, !tbaa !19
+  br label %271
 
-195:                                              ; preds = %192
-  %196 = load ptr, ptr %12, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 0
-  store i8 0, ptr %197, align 1
-  %198 = load ptr, ptr %12, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i32 1
-  store ptr %199, ptr %12, align 8
+183:                                              ; preds = %176
+  %184 = load ptr, ptr %9, align 8, !tbaa !3
+  %185 = call ptr @cJSON_Duplicate(ptr noundef %184, i32 noundef 1)
+  store ptr %185, ptr %9, align 8, !tbaa !3
+  %186 = load ptr, ptr %9, align 8, !tbaa !3
+  %187 = icmp eq ptr %186, null
+  br i1 %187, label %188, label %189
+
+188:                                              ; preds = %183
+  store i32 8, ptr %14, align 4, !tbaa !19
+  br label %271
+
+189:                                              ; preds = %183
+  br label %190
+
+190:                                              ; preds = %189, %175
+  %191 = load ptr, ptr %8, align 8, !tbaa !3
+  %192 = getelementptr inbounds nuw %struct.cJSON, ptr %191, i32 0, i32 4
+  %193 = load ptr, ptr %192, align 8, !tbaa !20
+  %194 = call ptr @cJSONUtils_strdup(ptr noundef %193)
+  store ptr %194, ptr %12, align 8, !tbaa !15
+  %195 = load ptr, ptr %12, align 8, !tbaa !15
+  %196 = icmp ne ptr %195, null
+  br i1 %196, label %197, label %200
+
+197:                                              ; preds = %190
+  %198 = load ptr, ptr %12, align 8, !tbaa !15
+  %199 = call ptr @strrchr(ptr noundef %198, i32 noundef 47) #9
+  store ptr %199, ptr %13, align 8, !tbaa !15
   br label %200
 
-200:                                              ; preds = %195, %192
-  %201 = load ptr, ptr %4, align 8
-  %202 = load ptr, ptr %11, align 8
-  %203 = load i32, ptr %6, align 4
-  %204 = call ptr @get_item_from_pointer(ptr noundef %201, ptr noundef %202, i32 noundef %203)
-  store ptr %204, ptr %9, align 8
-  %205 = load ptr, ptr %12, align 8
-  call void @decode_pointer_inplace(ptr noundef %205)
-  %206 = load ptr, ptr %9, align 8
-  %207 = icmp eq ptr %206, null
-  br i1 %207, label %211, label %208
+200:                                              ; preds = %197, %190
+  %201 = load ptr, ptr %13, align 8, !tbaa !15
+  %202 = icmp ne ptr %201, null
+  br i1 %202, label %203, label %208
 
-208:                                              ; preds = %200
-  %209 = load ptr, ptr %12, align 8
-  %210 = icmp eq ptr %209, null
-  br i1 %210, label %211, label %212
+203:                                              ; preds = %200
+  %204 = load ptr, ptr %13, align 8, !tbaa !15
+  %205 = getelementptr inbounds i8, ptr %204, i64 0
+  store i8 0, ptr %205, align 1, !tbaa !17
+  %206 = load ptr, ptr %13, align 8, !tbaa !15
+  %207 = getelementptr inbounds nuw i8, ptr %206, i32 1
+  store ptr %207, ptr %13, align 8, !tbaa !15
+  br label %208
 
-211:                                              ; preds = %208, %200
-  store i32 9, ptr %13, align 4
-  br label %260
+208:                                              ; preds = %203, %200
+  %209 = load ptr, ptr %5, align 8, !tbaa !3
+  %210 = load ptr, ptr %12, align 8, !tbaa !15
+  %211 = load i32, ptr %7, align 4, !tbaa !19
+  %212 = call ptr @get_item_from_pointer(ptr noundef %209, ptr noundef %210, i32 noundef %211)
+  store ptr %212, ptr %10, align 8, !tbaa !3
+  %213 = load ptr, ptr %13, align 8, !tbaa !15
+  call void @decode_pointer_inplace(ptr noundef %213)
+  %214 = load ptr, ptr %10, align 8, !tbaa !3
+  %215 = icmp eq ptr %214, null
+  br i1 %215, label %219, label %216
 
-212:                                              ; preds = %208
-  %213 = load ptr, ptr %9, align 8
-  %214 = call i32 @cJSON_IsArray(ptr noundef %213)
-  %215 = icmp ne i32 %214, 0
-  br i1 %215, label %216, label %238
+216:                                              ; preds = %208
+  %217 = load ptr, ptr %13, align 8, !tbaa !15
+  %218 = icmp eq ptr %217, null
+  br i1 %218, label %219, label %220
 
-216:                                              ; preds = %212
-  %217 = load ptr, ptr %12, align 8
-  %218 = call i32 @strcmp(ptr noundef %217, ptr noundef @.str.5) #6
-  %219 = icmp eq i32 %218, 0
-  br i1 %219, label %220, label %224
+219:                                              ; preds = %216, %208
+  store i32 9, ptr %14, align 4, !tbaa !19
+  br label %271
 
 220:                                              ; preds = %216
-  %221 = load ptr, ptr %9, align 8
-  %222 = load ptr, ptr %8, align 8
-  %223 = call i32 @cJSON_AddItemToArray(ptr noundef %221, ptr noundef %222)
-  store ptr null, ptr %8, align 8
-  br label %237
+  %221 = load ptr, ptr %10, align 8, !tbaa !3
+  %222 = call i32 @cJSON_IsArray(ptr noundef %221)
+  %223 = icmp ne i32 %222, 0
+  br i1 %223, label %224, label %249
 
-224:                                              ; preds = %216
-  store i64 0, ptr %16, align 8
-  %225 = load ptr, ptr %12, align 8
-  %226 = call i32 @decode_array_index_from_pointer(ptr noundef %225, ptr noundef %16)
-  %227 = icmp ne i32 %226, 0
-  br i1 %227, label %229, label %228
+224:                                              ; preds = %220
+  %225 = load ptr, ptr %13, align 8, !tbaa !15
+  %226 = call i32 @strcmp(ptr noundef %225, ptr noundef @.str.5) #9
+  %227 = icmp eq i32 %226, 0
+  br i1 %227, label %228, label %232
 
 228:                                              ; preds = %224
-  store i32 11, ptr %13, align 4
-  br label %260
+  %229 = load ptr, ptr %10, align 8, !tbaa !3
+  %230 = load ptr, ptr %9, align 8, !tbaa !3
+  %231 = call i32 @cJSON_AddItemToArray(ptr noundef %229, ptr noundef %230)
+  store ptr null, ptr %9, align 8, !tbaa !3
+  br label %248
 
-229:                                              ; preds = %224
-  %230 = load ptr, ptr %9, align 8
-  %231 = load i64, ptr %16, align 8
-  %232 = load ptr, ptr %8, align 8
-  %233 = call i32 @insert_item_in_array(ptr noundef %230, i64 noundef %231, ptr noundef %232)
-  %234 = icmp ne i32 %233, 0
-  br i1 %234, label %236, label %235
+232:                                              ; preds = %224
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  store i64 0, ptr %18, align 8, !tbaa !8
+  %233 = load ptr, ptr %13, align 8, !tbaa !15
+  %234 = call i32 @decode_array_index_from_pointer(ptr noundef %233, ptr noundef %18)
+  %235 = icmp ne i32 %234, 0
+  br i1 %235, label %237, label %236
 
-235:                                              ; preds = %229
-  store i32 10, ptr %13, align 4
-  br label %260
+236:                                              ; preds = %232
+  store i32 11, ptr %14, align 4, !tbaa !19
+  store i32 2, ptr %16, align 4
+  br label %245
 
-236:                                              ; preds = %229
-  store ptr null, ptr %8, align 8
-  br label %237
+237:                                              ; preds = %232
+  %238 = load ptr, ptr %10, align 8, !tbaa !3
+  %239 = load i64, ptr %18, align 8, !tbaa !8
+  %240 = load ptr, ptr %9, align 8, !tbaa !3
+  %241 = call i32 @insert_item_in_array(ptr noundef %238, i64 noundef %239, ptr noundef %240)
+  %242 = icmp ne i32 %241, 0
+  br i1 %242, label %244, label %243
 
-237:                                              ; preds = %236, %220
-  br label %258
+243:                                              ; preds = %237
+  store i32 10, ptr %14, align 4, !tbaa !19
+  store i32 2, ptr %16, align 4
+  br label %245
 
-238:                                              ; preds = %212
-  %239 = load ptr, ptr %9, align 8
-  %240 = call i32 @cJSON_IsObject(ptr noundef %239)
-  %241 = icmp ne i32 %240, 0
-  br i1 %241, label %242, label %256
+244:                                              ; preds = %237
+  store ptr null, ptr %9, align 8, !tbaa !3
+  store i32 0, ptr %16, align 4
+  br label %245
 
-242:                                              ; preds = %238
-  %243 = load i32, ptr %6, align 4
-  %244 = icmp ne i32 %243, 0
-  br i1 %244, label %245, label %248
+245:                                              ; preds = %243, %236, %244
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  %246 = load i32, ptr %16, align 4
+  switch i32 %246, label %283 [
+    i32 0, label %247
+    i32 2, label %271
+  ]
 
-245:                                              ; preds = %242
-  %246 = load ptr, ptr %9, align 8
-  %247 = load ptr, ptr %12, align 8
-  call void @cJSON_DeleteItemFromObjectCaseSensitive(ptr noundef %246, ptr noundef %247)
-  br label %251
+247:                                              ; preds = %245
+  br label %248
 
-248:                                              ; preds = %242
-  %249 = load ptr, ptr %9, align 8
-  %250 = load ptr, ptr %12, align 8
-  call void @cJSON_DeleteItemFromObject(ptr noundef %249, ptr noundef %250)
-  br label %251
+248:                                              ; preds = %247, %228
+  br label %269
 
-251:                                              ; preds = %248, %245
-  %252 = load ptr, ptr %9, align 8
-  %253 = load ptr, ptr %12, align 8
-  %254 = load ptr, ptr %8, align 8
-  %255 = call i32 @cJSON_AddItemToObject(ptr noundef %252, ptr noundef %253, ptr noundef %254)
-  store ptr null, ptr %8, align 8
-  br label %257
+249:                                              ; preds = %220
+  %250 = load ptr, ptr %10, align 8, !tbaa !3
+  %251 = call i32 @cJSON_IsObject(ptr noundef %250)
+  %252 = icmp ne i32 %251, 0
+  br i1 %252, label %253, label %267
 
-256:                                              ; preds = %238
-  store i32 9, ptr %13, align 4
-  br label %260
+253:                                              ; preds = %249
+  %254 = load i32, ptr %7, align 4, !tbaa !19
+  %255 = icmp ne i32 %254, 0
+  br i1 %255, label %256, label %259
 
-257:                                              ; preds = %251
-  br label %258
+256:                                              ; preds = %253
+  %257 = load ptr, ptr %10, align 8, !tbaa !3
+  %258 = load ptr, ptr %13, align 8, !tbaa !15
+  call void @cJSON_DeleteItemFromObjectCaseSensitive(ptr noundef %257, ptr noundef %258)
+  br label %262
 
-258:                                              ; preds = %257, %237
-  br label %259
+259:                                              ; preds = %253
+  %260 = load ptr, ptr %10, align 8, !tbaa !3
+  %261 = load ptr, ptr %13, align 8, !tbaa !15
+  call void @cJSON_DeleteItemFromObject(ptr noundef %260, ptr noundef %261)
+  br label %262
 
-259:                                              ; preds = %258
-  br label %260
+262:                                              ; preds = %259, %256
+  %263 = load ptr, ptr %10, align 8, !tbaa !3
+  %264 = load ptr, ptr %13, align 8, !tbaa !15
+  %265 = load ptr, ptr %9, align 8, !tbaa !3
+  %266 = call i32 @cJSON_AddItemToObject(ptr noundef %263, ptr noundef %264, ptr noundef %265)
+  store ptr null, ptr %9, align 8, !tbaa !3
+  br label %268
 
-260:                                              ; preds = %259, %256, %235, %228, %211, %180, %174, %166, %156, %132, %118, %113, %96, %81, %75, %61, %34, %30, %23
-  %261 = load ptr, ptr %8, align 8
-  %262 = icmp ne ptr %261, null
-  br i1 %262, label %263, label %265
+267:                                              ; preds = %249
+  store i32 9, ptr %14, align 4, !tbaa !19
+  br label %271
 
-263:                                              ; preds = %260
-  %264 = load ptr, ptr %8, align 8
-  call void @cJSON_Delete(ptr noundef %264)
-  br label %265
+268:                                              ; preds = %262
+  br label %269
 
-265:                                              ; preds = %263, %260
-  %266 = load ptr, ptr %11, align 8
-  %267 = icmp ne ptr %266, null
-  br i1 %267, label %268, label %270
-
-268:                                              ; preds = %265
-  %269 = load ptr, ptr %11, align 8
-  call void @cJSON_free(ptr noundef %269)
+269:                                              ; preds = %268, %248
   br label %270
 
-270:                                              ; preds = %268, %265
-  %271 = load i32, ptr %13, align 4
-  ret i32 %271
+270:                                              ; preds = %269
+  br label %271
+
+271:                                              ; preds = %270, %245, %173, %122, %267, %219, %188, %182, %98, %83, %77, %63, %36, %32, %25
+  %272 = load ptr, ptr %9, align 8, !tbaa !3
+  %273 = icmp ne ptr %272, null
+  br i1 %273, label %274, label %276
+
+274:                                              ; preds = %271
+  %275 = load ptr, ptr %9, align 8, !tbaa !3
+  call void @cJSON_Delete(ptr noundef %275)
+  br label %276
+
+276:                                              ; preds = %274, %271
+  %277 = load ptr, ptr %12, align 8, !tbaa !15
+  %278 = icmp ne ptr %277, null
+  br i1 %278, label %279, label %281
+
+279:                                              ; preds = %276
+  %280 = load ptr, ptr %12, align 8, !tbaa !15
+  call void @cJSON_free(ptr noundef %280)
+  br label %281
+
+281:                                              ; preds = %279, %276
+  %282 = load i32, ptr %14, align 4, !tbaa !19
+  store i32 %282, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %283
+
+283:                                              ; preds = %281, %245, %173, %122
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %284 = load i32, ptr %4, align 4
+  ret i32 %284
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1119,67 +1260,75 @@ define i32 @cJSONUtils_ApplyPatchesCaseSensitive(ptr noundef %0, ptr noundef %1)
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr null, ptr %6, align 8
-  store i32 0, ptr %7, align 4
-  %8 = load ptr, ptr %5, align 8
-  %9 = call i32 @cJSON_IsArray(ptr noundef %8)
-  %10 = icmp ne i32 %9, 0
-  br i1 %10, label %12, label %11
-
-11:                                               ; preds = %2
-  store i32 1, ptr %3, align 4
-  br label %36
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store ptr null, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  store i32 0, ptr %7, align 4, !tbaa !19
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = call i32 @cJSON_IsArray(ptr noundef %9)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %5, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %19
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %37
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.cJSON, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %6, align 8
-  br label %19
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %20
 
-19:                                               ; preds = %15, %12
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.cJSON, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !10
+  store ptr %19, ptr %6, align 8, !tbaa !3
   br label %20
 
-20:                                               ; preds = %31, %19
-  %21 = load ptr, ptr %6, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %35
+20:                                               ; preds = %16, %13
+  br label %21
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %4, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = call i32 @apply_patch(ptr noundef %24, ptr noundef %25, i32 noundef 1)
-  store i32 %26, ptr %7, align 4
-  %27 = load i32, ptr %7, align 4
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %31
+21:                                               ; preds = %32, %20
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %36
 
-29:                                               ; preds = %23
-  %30 = load i32, ptr %7, align 4
-  store i32 %30, ptr %3, align 4
-  br label %36
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = call i32 @apply_patch(ptr noundef %25, ptr noundef %26, i32 noundef 1)
+  store i32 %27, ptr %7, align 4, !tbaa !19
+  %28 = load i32, ptr %7, align 4, !tbaa !19
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %23
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.cJSON, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %6, align 8
-  br label %20
+30:                                               ; preds = %24
+  %31 = load i32, ptr %7, align 4, !tbaa !19
+  store i32 %31, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %37
 
-35:                                               ; preds = %20
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %6, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.cJSON, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !18
+  store ptr %35, ptr %6, align 8, !tbaa !3
+  br label %21
+
+36:                                               ; preds = %21
   store i32 0, ptr %3, align 4
-  br label %36
+  store i32 1, ptr %8, align 4
+  br label %37
 
-36:                                               ; preds = %35, %29, %11
-  %37 = load i32, ptr %3, align 4
-  ret i32 %37
+37:                                               ; preds = %36, %30, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %38 = load i32, ptr %3, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1188,14 +1337,14 @@ define void @cJSONUtils_AddPatchToArray(ptr noundef %0, ptr noundef %1, ptr noun
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store ptr %2, ptr %7, align 8, !tbaa !15
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load ptr, ptr %6, align 8, !tbaa !15
+  %11 = load ptr, ptr %7, align 8, !tbaa !15
+  %12 = load ptr, ptr %8, align 8, !tbaa !3
   call void @compose_patch(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef null, ptr noundef %12)
   ret void
 }
@@ -1208,108 +1357,130 @@ define internal void @compose_patch(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca i64, align 8
+  %12 = alloca i32, align 4
   %13 = alloca i64, align 8
-  %14 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  store ptr null, ptr %11, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %23, label %17
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !15
+  store ptr %2, ptr %8, align 8, !tbaa !15
+  store ptr %3, ptr %9, align 8, !tbaa !15
+  store ptr %4, ptr %10, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  store ptr null, ptr %11, align 8, !tbaa !3
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %24, label %18
 
-17:                                               ; preds = %5
-  %18 = load ptr, ptr %7, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %23, label %20
+18:                                               ; preds = %5
+  %19 = load ptr, ptr %7, align 8, !tbaa !15
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %24, label %21
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %24
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %8, align 8, !tbaa !15
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %25
 
-23:                                               ; preds = %20, %17, %5
-  br label %76
+24:                                               ; preds = %21, %18, %5
+  store i32 1, ptr %12, align 4
+  br label %77
 
-24:                                               ; preds = %20
-  %25 = call ptr @cJSON_CreateObject()
-  store ptr %25, ptr %11, align 8
-  %26 = load ptr, ptr %11, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %29
+25:                                               ; preds = %21
+  %26 = call ptr @cJSON_CreateObject()
+  store ptr %26, ptr %11, align 8, !tbaa !3
+  %27 = load ptr, ptr %11, align 8, !tbaa !3
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %24
-  br label %76
+29:                                               ; preds = %25
+  store i32 1, ptr %12, align 4
+  br label %77
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %11, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = call ptr @cJSON_CreateString(ptr noundef %31)
-  %33 = call i32 @cJSON_AddItemToObject(ptr noundef %30, ptr noundef @.str.6, ptr noundef %32)
-  %34 = load ptr, ptr %9, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %41
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %11, align 8, !tbaa !3
+  %32 = load ptr, ptr %7, align 8, !tbaa !15
+  %33 = call ptr @cJSON_CreateString(ptr noundef %32)
+  %34 = call i32 @cJSON_AddItemToObject(ptr noundef %31, ptr noundef @.str.6, ptr noundef %33)
+  %35 = load ptr, ptr %9, align 8, !tbaa !15
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %42
 
-36:                                               ; preds = %29
-  %37 = load ptr, ptr %11, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = call ptr @cJSON_CreateString(ptr noundef %38)
-  %40 = call i32 @cJSON_AddItemToObject(ptr noundef %37, ptr noundef @.str.2, ptr noundef %39)
-  br label %64
+37:                                               ; preds = %30
+  %38 = load ptr, ptr %11, align 8, !tbaa !3
+  %39 = load ptr, ptr %8, align 8, !tbaa !15
+  %40 = call ptr @cJSON_CreateString(ptr noundef %39)
+  %41 = call i32 @cJSON_AddItemToObject(ptr noundef %38, ptr noundef @.str.2, ptr noundef %40)
+  br label %65
 
-41:                                               ; preds = %29
-  %42 = load ptr, ptr %9, align 8
-  %43 = call i64 @pointer_encoded_length(ptr noundef %42)
-  store i64 %43, ptr %12, align 8
-  %44 = load ptr, ptr %8, align 8
-  %45 = call i64 @strlen(ptr noundef %44) #6
-  store i64 %45, ptr %13, align 8
-  %46 = load i64, ptr %13, align 8
-  %47 = load i64, ptr %12, align 8
-  %48 = add i64 %46, %47
-  %49 = add i64 %48, 2
-  %50 = call ptr @cJSON_malloc(i64 noundef %49)
-  store ptr %50, ptr %14, align 8
-  %51 = load ptr, ptr %14, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %51, ptr noundef @.str.13, ptr noundef %52) #7
-  %54 = load ptr, ptr %14, align 8
-  %55 = load i64, ptr %13, align 8
-  %56 = getelementptr inbounds i8, ptr %54, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 1
-  %58 = load ptr, ptr %9, align 8
-  call void @encode_string_as_pointer(ptr noundef %57, ptr noundef %58)
-  %59 = load ptr, ptr %11, align 8
-  %60 = load ptr, ptr %14, align 8
-  %61 = call ptr @cJSON_CreateString(ptr noundef %60)
-  %62 = call i32 @cJSON_AddItemToObject(ptr noundef %59, ptr noundef @.str.2, ptr noundef %61)
-  %63 = load ptr, ptr %14, align 8
-  call void @cJSON_free(ptr noundef %63)
-  br label %64
+42:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %43 = load ptr, ptr %9, align 8, !tbaa !15
+  %44 = call i64 @pointer_encoded_length(ptr noundef %43)
+  store i64 %44, ptr %13, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %45 = load ptr, ptr %8, align 8, !tbaa !15
+  %46 = call i64 @strlen(ptr noundef %45) #9
+  store i64 %46, ptr %14, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %47 = load i64, ptr %14, align 8, !tbaa !8
+  %48 = load i64, ptr %13, align 8, !tbaa !8
+  %49 = add i64 %47, %48
+  %50 = add i64 %49, 2
+  %51 = call ptr @cJSON_malloc(i64 noundef %50)
+  store ptr %51, ptr %15, align 8, !tbaa !15
+  %52 = load ptr, ptr %15, align 8, !tbaa !15
+  %53 = load ptr, ptr %8, align 8, !tbaa !15
+  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %52, ptr noundef @.str.13, ptr noundef %53) #8
+  %55 = load ptr, ptr %15, align 8, !tbaa !15
+  %56 = load i64, ptr %14, align 8, !tbaa !8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
+  %58 = getelementptr inbounds i8, ptr %57, i64 1
+  %59 = load ptr, ptr %9, align 8, !tbaa !15
+  call void @encode_string_as_pointer(ptr noundef %58, ptr noundef %59)
+  %60 = load ptr, ptr %11, align 8, !tbaa !3
+  %61 = load ptr, ptr %15, align 8, !tbaa !15
+  %62 = call ptr @cJSON_CreateString(ptr noundef %61)
+  %63 = call i32 @cJSON_AddItemToObject(ptr noundef %60, ptr noundef @.str.2, ptr noundef %62)
+  %64 = load ptr, ptr %15, align 8, !tbaa !15
+  call void @cJSON_free(ptr noundef %64)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  br label %65
 
-64:                                               ; preds = %41, %36
-  %65 = load ptr, ptr %10, align 8
-  %66 = icmp ne ptr %65, null
-  br i1 %66, label %67, label %72
+65:                                               ; preds = %42, %37
+  %66 = load ptr, ptr %10, align 8, !tbaa !3
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %73
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %11, align 8
-  %69 = load ptr, ptr %10, align 8
-  %70 = call ptr @cJSON_Duplicate(ptr noundef %69, i32 noundef 1)
-  %71 = call i32 @cJSON_AddItemToObject(ptr noundef %68, ptr noundef @.str.3, ptr noundef %70)
-  br label %72
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %11, align 8, !tbaa !3
+  %70 = load ptr, ptr %10, align 8, !tbaa !3
+  %71 = call ptr @cJSON_Duplicate(ptr noundef %70, i32 noundef 1)
+  %72 = call i32 @cJSON_AddItemToObject(ptr noundef %69, ptr noundef @.str.3, ptr noundef %71)
+  br label %73
 
-72:                                               ; preds = %67, %64
-  %73 = load ptr, ptr %6, align 8
-  %74 = load ptr, ptr %11, align 8
-  %75 = call i32 @cJSON_AddItemToArray(ptr noundef %73, ptr noundef %74)
-  br label %76
+73:                                               ; preds = %68, %65
+  %74 = load ptr, ptr %6, align 8, !tbaa !3
+  %75 = load ptr, ptr %11, align 8, !tbaa !3
+  %76 = call i32 @cJSON_AddItemToArray(ptr noundef %74, ptr noundef %75)
+  store i32 0, ptr %12, align 4
+  br label %77
 
-76:                                               ; preds = %72, %28, %23
+77:                                               ; preds = %73, %29, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  %78 = load i32, ptr %12, align 4
+  switch i32 %78, label %80 [
+    i32 0, label %79
+    i32 1, label %79
+  ]
+
+79:                                               ; preds = %77, %77
   ret void
+
+80:                                               ; preds = %77
+  unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1318,39 +1489,44 @@ define ptr @cJSONUtils_GeneratePatches(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr null, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %12, label %9
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store ptr null, ptr %6, align 8, !tbaa !3
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %13, label %10
 
-9:                                                ; preds = %2
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %13
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %9, %2
+13:                                               ; preds = %10, %2
   store ptr null, ptr %3, align 8
-  br label %19
+  store i32 1, ptr %7, align 4
+  br label %20
 
-13:                                               ; preds = %9
-  %14 = call ptr @cJSON_CreateArray()
-  store ptr %14, ptr %6, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = load ptr, ptr %5, align 8
-  call void @create_patches(ptr noundef %15, ptr noundef @.str, ptr noundef %16, ptr noundef %17, i32 noundef 0)
-  %18 = load ptr, ptr %6, align 8
-  store ptr %18, ptr %3, align 8
-  br label %19
+14:                                               ; preds = %10
+  %15 = call ptr @cJSON_CreateArray()
+  store ptr %15, ptr %6, align 8, !tbaa !3
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @create_patches(ptr noundef %16, ptr noundef @.str, ptr noundef %17, ptr noundef %18, i32 noundef 0)
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %19, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %20
 
-19:                                               ; preds = %13, %12
-  %20 = load ptr, ptr %3, align 8
-  ret ptr %20
+20:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %21 = load ptr, ptr %3, align 8
+  ret ptr %21
 }
 
-declare ptr @cJSON_CreateArray() #1
+declare ptr @cJSON_CreateArray() #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @create_patches(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -1363,407 +1539,435 @@ define internal void @create_patches(ptr noundef %0, ptr noundef %1, ptr noundef
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
+  %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
-  %17 = alloca i32, align 4
-  %18 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
   %19 = alloca i64, align 8
-  %20 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store i32 %4, ptr %10, align 4
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %26, label %23
+  %20 = alloca i64, align 8
+  %21 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !15
+  store ptr %2, ptr %8, align 8, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !3
+  store i32 %4, ptr %10, align 4, !tbaa !19
+  %22 = load ptr, ptr %8, align 8, !tbaa !3
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %27, label %24
 
-23:                                               ; preds = %5
-  %24 = load ptr, ptr %9, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %27
+24:                                               ; preds = %5
+  %25 = load ptr, ptr %9, align 8, !tbaa !3
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %23, %5
-  br label %262
+27:                                               ; preds = %24, %5
+  br label %264
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct.cJSON, ptr %28, i32 0, i32 3
-  %30 = load i32, ptr %29, align 8
-  %31 = and i32 %30, 255
-  %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds %struct.cJSON, ptr %32, i32 0, i32 3
-  %34 = load i32, ptr %33, align 8
-  %35 = and i32 %34, 255
-  %36 = icmp ne i32 %31, %35
-  br i1 %36, label %37, label %41
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %8, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.cJSON, ptr %29, i32 0, i32 3
+  %31 = load i32, ptr %30, align 8, !tbaa !21
+  %32 = and i32 %31, 255
+  %33 = load ptr, ptr %9, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.cJSON, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 8, !tbaa !21
+  %36 = and i32 %35, 255
+  %37 = icmp ne i32 %32, %36
+  br i1 %37, label %38, label %42
 
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %6, align 8
-  %39 = load ptr, ptr %7, align 8
-  %40 = load ptr, ptr %9, align 8
-  call void @compose_patch(ptr noundef %38, ptr noundef @.str.9, ptr noundef %39, ptr noundef null, ptr noundef %40)
-  br label %262
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %6, align 8, !tbaa !3
+  %40 = load ptr, ptr %7, align 8, !tbaa !15
+  %41 = load ptr, ptr %9, align 8, !tbaa !3
+  call void @compose_patch(ptr noundef %39, ptr noundef @.str.9, ptr noundef %40, ptr noundef null, ptr noundef %41)
+  br label %264
 
-41:                                               ; preds = %27
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.cJSON, ptr %42, i32 0, i32 3
-  %44 = load i32, ptr %43, align 8
-  %45 = and i32 %44, 255
-  switch i32 %45, label %261 [
-    i32 8, label %46
-    i32 16, label %68
-    i32 32, label %82
-    i32 64, label %162
+42:                                               ; preds = %28
+  %43 = load ptr, ptr %8, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.cJSON, ptr %43, i32 0, i32 3
+  %45 = load i32, ptr %44, align 8, !tbaa !21
+  %46 = and i32 %45, 255
+  switch i32 %46, label %263 [
+    i32 8, label %47
+    i32 16, label %69
+    i32 32, label %83
+    i32 64, label %164
   ]
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct.cJSON, ptr %47, i32 0, i32 5
-  %49 = load i32, ptr %48, align 8
-  %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds %struct.cJSON, ptr %50, i32 0, i32 5
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp ne i32 %49, %52
-  br i1 %53, label %63, label %54
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %8, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.cJSON, ptr %48, i32 0, i32 5
+  %50 = load i32, ptr %49, align 8, !tbaa !22
+  %51 = load ptr, ptr %9, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.cJSON, ptr %51, i32 0, i32 5
+  %53 = load i32, ptr %52, align 8, !tbaa !22
+  %54 = icmp ne i32 %50, %53
+  br i1 %54, label %64, label %55
 
-54:                                               ; preds = %46
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.cJSON, ptr %55, i32 0, i32 6
-  %57 = load double, ptr %56, align 8
-  %58 = load ptr, ptr %9, align 8
-  %59 = getelementptr inbounds %struct.cJSON, ptr %58, i32 0, i32 6
-  %60 = load double, ptr %59, align 8
-  %61 = call i32 @compare_double(double noundef %57, double noundef %60)
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %67, label %63
+55:                                               ; preds = %47
+  %56 = load ptr, ptr %8, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.cJSON, ptr %56, i32 0, i32 6
+  %58 = load double, ptr %57, align 8, !tbaa !23
+  %59 = load ptr, ptr %9, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.cJSON, ptr %59, i32 0, i32 6
+  %61 = load double, ptr %60, align 8, !tbaa !23
+  %62 = call i32 @compare_double(double noundef %58, double noundef %61)
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %68, label %64
 
-63:                                               ; preds = %54, %46
-  %64 = load ptr, ptr %6, align 8
-  %65 = load ptr, ptr %7, align 8
-  %66 = load ptr, ptr %9, align 8
-  call void @compose_patch(ptr noundef %64, ptr noundef @.str.9, ptr noundef %65, ptr noundef null, ptr noundef %66)
-  br label %67
+64:                                               ; preds = %55, %47
+  %65 = load ptr, ptr %6, align 8, !tbaa !3
+  %66 = load ptr, ptr %7, align 8, !tbaa !15
+  %67 = load ptr, ptr %9, align 8, !tbaa !3
+  call void @compose_patch(ptr noundef %65, ptr noundef @.str.9, ptr noundef %66, ptr noundef null, ptr noundef %67)
+  br label %68
 
-67:                                               ; preds = %63, %54
-  br label %262
+68:                                               ; preds = %64, %55
+  br label %264
 
-68:                                               ; preds = %41
-  %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds %struct.cJSON, ptr %69, i32 0, i32 4
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %9, align 8
-  %73 = getelementptr inbounds %struct.cJSON, ptr %72, i32 0, i32 4
-  %74 = load ptr, ptr %73, align 8
-  %75 = call i32 @strcmp(ptr noundef %71, ptr noundef %74) #6
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %81
+69:                                               ; preds = %42
+  %70 = load ptr, ptr %8, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.cJSON, ptr %70, i32 0, i32 4
+  %72 = load ptr, ptr %71, align 8, !tbaa !20
+  %73 = load ptr, ptr %9, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %struct.cJSON, ptr %73, i32 0, i32 4
+  %75 = load ptr, ptr %74, align 8, !tbaa !20
+  %76 = call i32 @strcmp(ptr noundef %72, ptr noundef %75) #9
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %82
 
-77:                                               ; preds = %68
-  %78 = load ptr, ptr %6, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = load ptr, ptr %9, align 8
-  call void @compose_patch(ptr noundef %78, ptr noundef @.str.9, ptr noundef %79, ptr noundef null, ptr noundef %80)
-  br label %81
+78:                                               ; preds = %69
+  %79 = load ptr, ptr %6, align 8, !tbaa !3
+  %80 = load ptr, ptr %7, align 8, !tbaa !15
+  %81 = load ptr, ptr %9, align 8, !tbaa !3
+  call void @compose_patch(ptr noundef %79, ptr noundef @.str.9, ptr noundef %80, ptr noundef null, ptr noundef %81)
+  br label %82
 
-81:                                               ; preds = %77, %68
-  br label %262
+82:                                               ; preds = %78, %69
+  br label %264
 
-82:                                               ; preds = %41
-  store i64 0, ptr %11, align 8
-  %83 = load ptr, ptr %8, align 8
-  %84 = getelementptr inbounds %struct.cJSON, ptr %83, i32 0, i32 2
-  %85 = load ptr, ptr %84, align 8
-  store ptr %85, ptr %12, align 8
-  %86 = load ptr, ptr %9, align 8
-  %87 = getelementptr inbounds %struct.cJSON, ptr %86, i32 0, i32 2
-  %88 = load ptr, ptr %87, align 8
-  store ptr %88, ptr %13, align 8
-  %89 = load ptr, ptr %7, align 8
-  %90 = call i64 @strlen(ptr noundef %89) #6
-  %91 = add i64 %90, 20
-  %92 = add i64 %91, 2
-  %93 = call ptr @cJSON_malloc(i64 noundef %92)
-  store ptr %93, ptr %14, align 8
-  store i64 0, ptr %11, align 8
-  br label %94
+83:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  store i64 0, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %84 = load ptr, ptr %8, align 8, !tbaa !3
+  %85 = getelementptr inbounds nuw %struct.cJSON, ptr %84, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8, !tbaa !10
+  store ptr %86, ptr %12, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %87 = load ptr, ptr %9, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %struct.cJSON, ptr %87, i32 0, i32 2
+  %89 = load ptr, ptr %88, align 8, !tbaa !10
+  store ptr %89, ptr %13, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %90 = load ptr, ptr %7, align 8, !tbaa !15
+  %91 = call i64 @strlen(ptr noundef %90) #9
+  %92 = add i64 %91, 20
+  %93 = add i64 %92, 2
+  %94 = call ptr @cJSON_malloc(i64 noundef %93)
+  store ptr %94, ptr %14, align 8, !tbaa !15
+  store i64 0, ptr %11, align 8, !tbaa !8
+  br label %95
 
-94:                                               ; preds = %117, %82
-  %95 = load ptr, ptr %12, align 8
-  %96 = icmp ne ptr %95, null
-  br i1 %96, label %97, label %100
+95:                                               ; preds = %118, %83
+  %96 = load ptr, ptr %12, align 8, !tbaa !3
+  %97 = icmp ne ptr %96, null
+  br i1 %97, label %98, label %101
 
-97:                                               ; preds = %94
-  %98 = load ptr, ptr %13, align 8
-  %99 = icmp ne ptr %98, null
-  br label %100
+98:                                               ; preds = %95
+  %99 = load ptr, ptr %13, align 8, !tbaa !3
+  %100 = icmp ne ptr %99, null
+  br label %101
 
-100:                                              ; preds = %97, %94
-  %101 = phi i1 [ false, %94 ], [ %99, %97 ]
-  br i1 %101, label %102, label %126
+101:                                              ; preds = %98, %95
+  %102 = phi i1 [ false, %95 ], [ %100, %98 ]
+  br i1 %102, label %103, label %127
 
-102:                                              ; preds = %100
-  %103 = load i64, ptr %11, align 8
-  %104 = icmp ugt i64 %103, -1
-  br i1 %104, label %105, label %107
+103:                                              ; preds = %101
+  %104 = load i64, ptr %11, align 8, !tbaa !8
+  %105 = icmp ugt i64 %104, -1
+  br i1 %105, label %106, label %108
 
-105:                                              ; preds = %102
-  %106 = load ptr, ptr %14, align 8
-  call void @cJSON_free(ptr noundef %106)
-  br label %262
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %14, align 8, !tbaa !15
+  call void @cJSON_free(ptr noundef %107)
+  store i32 1, ptr %15, align 4
+  br label %163
 
-107:                                              ; preds = %102
-  %108 = load ptr, ptr %14, align 8
-  %109 = load ptr, ptr %7, align 8
-  %110 = load i64, ptr %11, align 8
-  %111 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %108, ptr noundef @.str.14, ptr noundef %109, i64 noundef %110) #7
-  %112 = load ptr, ptr %6, align 8
-  %113 = load ptr, ptr %14, align 8
-  %114 = load ptr, ptr %12, align 8
-  %115 = load ptr, ptr %13, align 8
-  %116 = load i32, ptr %10, align 4
-  call void @create_patches(ptr noundef %112, ptr noundef %113, ptr noundef %114, ptr noundef %115, i32 noundef %116)
-  br label %117
+108:                                              ; preds = %103
+  %109 = load ptr, ptr %14, align 8, !tbaa !15
+  %110 = load ptr, ptr %7, align 8, !tbaa !15
+  %111 = load i64, ptr %11, align 8, !tbaa !8
+  %112 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %109, ptr noundef @.str.14, ptr noundef %110, i64 noundef %111) #8
+  %113 = load ptr, ptr %6, align 8, !tbaa !3
+  %114 = load ptr, ptr %14, align 8, !tbaa !15
+  %115 = load ptr, ptr %12, align 8, !tbaa !3
+  %116 = load ptr, ptr %13, align 8, !tbaa !3
+  %117 = load i32, ptr %10, align 4, !tbaa !19
+  call void @create_patches(ptr noundef %113, ptr noundef %114, ptr noundef %115, ptr noundef %116, i32 noundef %117)
+  br label %118
 
-117:                                              ; preds = %107
-  %118 = load ptr, ptr %12, align 8
-  %119 = getelementptr inbounds %struct.cJSON, ptr %118, i32 0, i32 0
-  %120 = load ptr, ptr %119, align 8
-  store ptr %120, ptr %12, align 8
-  %121 = load ptr, ptr %13, align 8
-  %122 = getelementptr inbounds %struct.cJSON, ptr %121, i32 0, i32 0
-  %123 = load ptr, ptr %122, align 8
-  store ptr %123, ptr %13, align 8
-  %124 = load i64, ptr %11, align 8
-  %125 = add i64 %124, 1
-  store i64 %125, ptr %11, align 8
-  br label %94
+118:                                              ; preds = %108
+  %119 = load ptr, ptr %12, align 8, !tbaa !3
+  %120 = getelementptr inbounds nuw %struct.cJSON, ptr %119, i32 0, i32 0
+  %121 = load ptr, ptr %120, align 8, !tbaa !18
+  store ptr %121, ptr %12, align 8, !tbaa !3
+  %122 = load ptr, ptr %13, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.cJSON, ptr %122, i32 0, i32 0
+  %124 = load ptr, ptr %123, align 8, !tbaa !18
+  store ptr %124, ptr %13, align 8, !tbaa !3
+  %125 = load i64, ptr %11, align 8, !tbaa !8
+  %126 = add i64 %125, 1
+  store i64 %126, ptr %11, align 8, !tbaa !8
+  br label %95
 
-126:                                              ; preds = %100
-  br label %127
+127:                                              ; preds = %101
+  br label %128
 
-127:                                              ; preds = %142, %126
-  %128 = load ptr, ptr %12, align 8
-  %129 = icmp ne ptr %128, null
-  br i1 %129, label %130, label %146
+128:                                              ; preds = %143, %127
+  %129 = load ptr, ptr %12, align 8, !tbaa !3
+  %130 = icmp ne ptr %129, null
+  br i1 %130, label %131, label %147
 
-130:                                              ; preds = %127
-  %131 = load i64, ptr %11, align 8
-  %132 = icmp ugt i64 %131, -1
-  br i1 %132, label %133, label %135
+131:                                              ; preds = %128
+  %132 = load i64, ptr %11, align 8, !tbaa !8
+  %133 = icmp ugt i64 %132, -1
+  br i1 %133, label %134, label %136
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %14, align 8
-  call void @cJSON_free(ptr noundef %134)
-  br label %262
+134:                                              ; preds = %131
+  %135 = load ptr, ptr %14, align 8, !tbaa !15
+  call void @cJSON_free(ptr noundef %135)
+  store i32 1, ptr %15, align 4
+  br label %163
 
-135:                                              ; preds = %130
-  %136 = load ptr, ptr %14, align 8
-  %137 = load i64, ptr %11, align 8
-  %138 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %136, ptr noundef @.str.15, i64 noundef %137) #7
-  %139 = load ptr, ptr %6, align 8
-  %140 = load ptr, ptr %7, align 8
-  %141 = load ptr, ptr %14, align 8
-  call void @compose_patch(ptr noundef %139, ptr noundef @.str.8, ptr noundef %140, ptr noundef %141, ptr noundef null)
-  br label %142
+136:                                              ; preds = %131
+  %137 = load ptr, ptr %14, align 8, !tbaa !15
+  %138 = load i64, ptr %11, align 8, !tbaa !8
+  %139 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %137, ptr noundef @.str.15, i64 noundef %138) #8
+  %140 = load ptr, ptr %6, align 8, !tbaa !3
+  %141 = load ptr, ptr %7, align 8, !tbaa !15
+  %142 = load ptr, ptr %14, align 8, !tbaa !15
+  call void @compose_patch(ptr noundef %140, ptr noundef @.str.8, ptr noundef %141, ptr noundef %142, ptr noundef null)
+  br label %143
 
-142:                                              ; preds = %135
-  %143 = load ptr, ptr %12, align 8
-  %144 = getelementptr inbounds %struct.cJSON, ptr %143, i32 0, i32 0
-  %145 = load ptr, ptr %144, align 8
-  store ptr %145, ptr %12, align 8
-  br label %127
+143:                                              ; preds = %136
+  %144 = load ptr, ptr %12, align 8, !tbaa !3
+  %145 = getelementptr inbounds nuw %struct.cJSON, ptr %144, i32 0, i32 0
+  %146 = load ptr, ptr %145, align 8, !tbaa !18
+  store ptr %146, ptr %12, align 8, !tbaa !3
+  br label %128
 
-146:                                              ; preds = %127
-  br label %147
+147:                                              ; preds = %128
+  br label %148
 
-147:                                              ; preds = %154, %146
-  %148 = load ptr, ptr %13, align 8
-  %149 = icmp ne ptr %148, null
-  br i1 %149, label %150, label %160
+148:                                              ; preds = %155, %147
+  %149 = load ptr, ptr %13, align 8, !tbaa !3
+  %150 = icmp ne ptr %149, null
+  br i1 %150, label %151, label %161
 
-150:                                              ; preds = %147
-  %151 = load ptr, ptr %6, align 8
-  %152 = load ptr, ptr %7, align 8
-  %153 = load ptr, ptr %13, align 8
-  call void @compose_patch(ptr noundef %151, ptr noundef @.str.7, ptr noundef %152, ptr noundef @.str.5, ptr noundef %153)
-  br label %154
+151:                                              ; preds = %148
+  %152 = load ptr, ptr %6, align 8, !tbaa !3
+  %153 = load ptr, ptr %7, align 8, !tbaa !15
+  %154 = load ptr, ptr %13, align 8, !tbaa !3
+  call void @compose_patch(ptr noundef %152, ptr noundef @.str.7, ptr noundef %153, ptr noundef @.str.5, ptr noundef %154)
+  br label %155
 
-154:                                              ; preds = %150
-  %155 = load ptr, ptr %13, align 8
-  %156 = getelementptr inbounds %struct.cJSON, ptr %155, i32 0, i32 0
-  %157 = load ptr, ptr %156, align 8
-  store ptr %157, ptr %13, align 8
-  %158 = load i64, ptr %11, align 8
-  %159 = add i64 %158, 1
-  store i64 %159, ptr %11, align 8
-  br label %147
+155:                                              ; preds = %151
+  %156 = load ptr, ptr %13, align 8, !tbaa !3
+  %157 = getelementptr inbounds nuw %struct.cJSON, ptr %156, i32 0, i32 0
+  %158 = load ptr, ptr %157, align 8, !tbaa !18
+  store ptr %158, ptr %13, align 8, !tbaa !3
+  %159 = load i64, ptr %11, align 8, !tbaa !8
+  %160 = add i64 %159, 1
+  store i64 %160, ptr %11, align 8, !tbaa !8
+  br label %148
 
-160:                                              ; preds = %147
-  %161 = load ptr, ptr %14, align 8
-  call void @cJSON_free(ptr noundef %161)
-  br label %262
+161:                                              ; preds = %148
+  %162 = load ptr, ptr %14, align 8, !tbaa !15
+  call void @cJSON_free(ptr noundef %162)
+  store i32 1, ptr %15, align 4
+  br label %163
 
-162:                                              ; preds = %41
-  store ptr null, ptr %15, align 8
-  store ptr null, ptr %16, align 8
-  %163 = load ptr, ptr %8, align 8
-  %164 = load i32, ptr %10, align 4
-  call void @sort_object(ptr noundef %163, i32 noundef %164)
-  %165 = load ptr, ptr %9, align 8
-  %166 = load i32, ptr %10, align 4
+163:                                              ; preds = %161, %134, %106
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  br label %264
+
+164:                                              ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  store ptr null, ptr %16, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  store ptr null, ptr %17, align 8, !tbaa !3
+  %165 = load ptr, ptr %8, align 8, !tbaa !3
+  %166 = load i32, ptr %10, align 4, !tbaa !19
   call void @sort_object(ptr noundef %165, i32 noundef %166)
-  %167 = load ptr, ptr %8, align 8
-  %168 = getelementptr inbounds %struct.cJSON, ptr %167, i32 0, i32 2
-  %169 = load ptr, ptr %168, align 8
-  store ptr %169, ptr %15, align 8
-  %170 = load ptr, ptr %9, align 8
-  %171 = getelementptr inbounds %struct.cJSON, ptr %170, i32 0, i32 2
-  %172 = load ptr, ptr %171, align 8
-  store ptr %172, ptr %16, align 8
-  br label %173
+  %167 = load ptr, ptr %9, align 8, !tbaa !3
+  %168 = load i32, ptr %10, align 4, !tbaa !19
+  call void @sort_object(ptr noundef %167, i32 noundef %168)
+  %169 = load ptr, ptr %8, align 8, !tbaa !3
+  %170 = getelementptr inbounds nuw %struct.cJSON, ptr %169, i32 0, i32 2
+  %171 = load ptr, ptr %170, align 8, !tbaa !10
+  store ptr %171, ptr %16, align 8, !tbaa !3
+  %172 = load ptr, ptr %9, align 8, !tbaa !3
+  %173 = getelementptr inbounds nuw %struct.cJSON, ptr %172, i32 0, i32 2
+  %174 = load ptr, ptr %173, align 8, !tbaa !10
+  store ptr %174, ptr %17, align 8, !tbaa !3
+  br label %175
 
-173:                                              ; preds = %259, %162
-  %174 = load ptr, ptr %15, align 8
-  %175 = icmp ne ptr %174, null
-  br i1 %175, label %179, label %176
+175:                                              ; preds = %261, %164
+  %176 = load ptr, ptr %16, align 8, !tbaa !3
+  %177 = icmp ne ptr %176, null
+  br i1 %177, label %181, label %178
 
-176:                                              ; preds = %173
-  %177 = load ptr, ptr %16, align 8
-  %178 = icmp ne ptr %177, null
-  br label %179
+178:                                              ; preds = %175
+  %179 = load ptr, ptr %17, align 8, !tbaa !3
+  %180 = icmp ne ptr %179, null
+  br label %181
 
-179:                                              ; preds = %176, %173
-  %180 = phi i1 [ true, %173 ], [ %178, %176 ]
-  br i1 %180, label %181, label %260
+181:                                              ; preds = %178, %175
+  %182 = phi i1 [ true, %175 ], [ %180, %178 ]
+  br i1 %182, label %183, label %262
 
-181:                                              ; preds = %179
-  %182 = load ptr, ptr %15, align 8
-  %183 = icmp eq ptr %182, null
-  br i1 %183, label %184, label %185
+183:                                              ; preds = %181
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  %184 = load ptr, ptr %16, align 8, !tbaa !3
+  %185 = icmp eq ptr %184, null
+  br i1 %185, label %186, label %187
 
-184:                                              ; preds = %181
-  store i32 1, ptr %17, align 4
-  br label %199
+186:                                              ; preds = %183
+  store i32 1, ptr %18, align 4, !tbaa !19
+  br label %201
 
-185:                                              ; preds = %181
-  %186 = load ptr, ptr %16, align 8
-  %187 = icmp eq ptr %186, null
-  br i1 %187, label %188, label %189
+187:                                              ; preds = %183
+  %188 = load ptr, ptr %17, align 8, !tbaa !3
+  %189 = icmp eq ptr %188, null
+  br i1 %189, label %190, label %191
 
-188:                                              ; preds = %185
-  store i32 -1, ptr %17, align 4
-  br label %198
+190:                                              ; preds = %187
+  store i32 -1, ptr %18, align 4, !tbaa !19
+  br label %200
 
-189:                                              ; preds = %185
-  %190 = load ptr, ptr %15, align 8
-  %191 = getelementptr inbounds %struct.cJSON, ptr %190, i32 0, i32 7
-  %192 = load ptr, ptr %191, align 8
-  %193 = load ptr, ptr %16, align 8
-  %194 = getelementptr inbounds %struct.cJSON, ptr %193, i32 0, i32 7
-  %195 = load ptr, ptr %194, align 8
-  %196 = load i32, ptr %10, align 4
-  %197 = call i32 @compare_strings(ptr noundef %192, ptr noundef %195, i32 noundef %196)
-  store i32 %197, ptr %17, align 4
-  br label %198
+191:                                              ; preds = %187
+  %192 = load ptr, ptr %16, align 8, !tbaa !3
+  %193 = getelementptr inbounds nuw %struct.cJSON, ptr %192, i32 0, i32 7
+  %194 = load ptr, ptr %193, align 8, !tbaa !16
+  %195 = load ptr, ptr %17, align 8, !tbaa !3
+  %196 = getelementptr inbounds nuw %struct.cJSON, ptr %195, i32 0, i32 7
+  %197 = load ptr, ptr %196, align 8, !tbaa !16
+  %198 = load i32, ptr %10, align 4, !tbaa !19
+  %199 = call i32 @compare_strings(ptr noundef %194, ptr noundef %197, i32 noundef %198)
+  store i32 %199, ptr %18, align 4, !tbaa !19
+  br label %200
 
-198:                                              ; preds = %189, %188
-  br label %199
+200:                                              ; preds = %191, %190
+  br label %201
 
-199:                                              ; preds = %198, %184
-  %200 = load i32, ptr %17, align 4
-  %201 = icmp eq i32 %200, 0
-  br i1 %201, label %202, label %236
+201:                                              ; preds = %200, %186
+  %202 = load i32, ptr %18, align 4, !tbaa !19
+  %203 = icmp eq i32 %202, 0
+  br i1 %203, label %204, label %238
 
-202:                                              ; preds = %199
-  %203 = load ptr, ptr %7, align 8
-  %204 = call i64 @strlen(ptr noundef %203) #6
-  store i64 %204, ptr %18, align 8
-  %205 = load ptr, ptr %15, align 8
-  %206 = getelementptr inbounds %struct.cJSON, ptr %205, i32 0, i32 7
-  %207 = load ptr, ptr %206, align 8
-  %208 = call i64 @pointer_encoded_length(ptr noundef %207)
-  store i64 %208, ptr %19, align 8
-  %209 = load i64, ptr %18, align 8
-  %210 = load i64, ptr %19, align 8
-  %211 = add i64 %209, %210
-  %212 = add i64 %211, 2
-  %213 = call ptr @cJSON_malloc(i64 noundef %212)
-  store ptr %213, ptr %20, align 8
-  %214 = load ptr, ptr %20, align 8
-  %215 = load ptr, ptr %7, align 8
-  %216 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %214, ptr noundef @.str.13, ptr noundef %215) #7
-  %217 = load ptr, ptr %20, align 8
-  %218 = load i64, ptr %18, align 8
-  %219 = getelementptr inbounds i8, ptr %217, i64 %218
-  %220 = getelementptr inbounds i8, ptr %219, i64 1
-  %221 = load ptr, ptr %15, align 8
-  %222 = getelementptr inbounds %struct.cJSON, ptr %221, i32 0, i32 7
-  %223 = load ptr, ptr %222, align 8
-  call void @encode_string_as_pointer(ptr noundef %220, ptr noundef %223)
-  %224 = load ptr, ptr %6, align 8
-  %225 = load ptr, ptr %20, align 8
-  %226 = load ptr, ptr %15, align 8
-  %227 = load ptr, ptr %16, align 8
-  %228 = load i32, ptr %10, align 4
-  call void @create_patches(ptr noundef %224, ptr noundef %225, ptr noundef %226, ptr noundef %227, i32 noundef %228)
-  %229 = load ptr, ptr %20, align 8
-  call void @cJSON_free(ptr noundef %229)
-  %230 = load ptr, ptr %15, align 8
-  %231 = getelementptr inbounds %struct.cJSON, ptr %230, i32 0, i32 0
-  %232 = load ptr, ptr %231, align 8
-  store ptr %232, ptr %15, align 8
-  %233 = load ptr, ptr %16, align 8
-  %234 = getelementptr inbounds %struct.cJSON, ptr %233, i32 0, i32 0
-  %235 = load ptr, ptr %234, align 8
-  store ptr %235, ptr %16, align 8
-  br label %259
+204:                                              ; preds = %201
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
+  %205 = load ptr, ptr %7, align 8, !tbaa !15
+  %206 = call i64 @strlen(ptr noundef %205) #9
+  store i64 %206, ptr %19, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #8
+  %207 = load ptr, ptr %16, align 8, !tbaa !3
+  %208 = getelementptr inbounds nuw %struct.cJSON, ptr %207, i32 0, i32 7
+  %209 = load ptr, ptr %208, align 8, !tbaa !16
+  %210 = call i64 @pointer_encoded_length(ptr noundef %209)
+  store i64 %210, ptr %20, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  %211 = load i64, ptr %19, align 8, !tbaa !8
+  %212 = load i64, ptr %20, align 8, !tbaa !8
+  %213 = add i64 %211, %212
+  %214 = add i64 %213, 2
+  %215 = call ptr @cJSON_malloc(i64 noundef %214)
+  store ptr %215, ptr %21, align 8, !tbaa !15
+  %216 = load ptr, ptr %21, align 8, !tbaa !15
+  %217 = load ptr, ptr %7, align 8, !tbaa !15
+  %218 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %216, ptr noundef @.str.13, ptr noundef %217) #8
+  %219 = load ptr, ptr %21, align 8, !tbaa !15
+  %220 = load i64, ptr %19, align 8, !tbaa !8
+  %221 = getelementptr inbounds nuw i8, ptr %219, i64 %220
+  %222 = getelementptr inbounds i8, ptr %221, i64 1
+  %223 = load ptr, ptr %16, align 8, !tbaa !3
+  %224 = getelementptr inbounds nuw %struct.cJSON, ptr %223, i32 0, i32 7
+  %225 = load ptr, ptr %224, align 8, !tbaa !16
+  call void @encode_string_as_pointer(ptr noundef %222, ptr noundef %225)
+  %226 = load ptr, ptr %6, align 8, !tbaa !3
+  %227 = load ptr, ptr %21, align 8, !tbaa !15
+  %228 = load ptr, ptr %16, align 8, !tbaa !3
+  %229 = load ptr, ptr %17, align 8, !tbaa !3
+  %230 = load i32, ptr %10, align 4, !tbaa !19
+  call void @create_patches(ptr noundef %226, ptr noundef %227, ptr noundef %228, ptr noundef %229, i32 noundef %230)
+  %231 = load ptr, ptr %21, align 8, !tbaa !15
+  call void @cJSON_free(ptr noundef %231)
+  %232 = load ptr, ptr %16, align 8, !tbaa !3
+  %233 = getelementptr inbounds nuw %struct.cJSON, ptr %232, i32 0, i32 0
+  %234 = load ptr, ptr %233, align 8, !tbaa !18
+  store ptr %234, ptr %16, align 8, !tbaa !3
+  %235 = load ptr, ptr %17, align 8, !tbaa !3
+  %236 = getelementptr inbounds nuw %struct.cJSON, ptr %235, i32 0, i32 0
+  %237 = load ptr, ptr %236, align 8, !tbaa !18
+  store ptr %237, ptr %17, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  br label %261
 
-236:                                              ; preds = %199
-  %237 = load i32, ptr %17, align 4
-  %238 = icmp slt i32 %237, 0
-  br i1 %238, label %239, label %248
+238:                                              ; preds = %201
+  %239 = load i32, ptr %18, align 4, !tbaa !19
+  %240 = icmp slt i32 %239, 0
+  br i1 %240, label %241, label %250
 
-239:                                              ; preds = %236
-  %240 = load ptr, ptr %6, align 8
-  %241 = load ptr, ptr %7, align 8
-  %242 = load ptr, ptr %15, align 8
-  %243 = getelementptr inbounds %struct.cJSON, ptr %242, i32 0, i32 7
-  %244 = load ptr, ptr %243, align 8
-  call void @compose_patch(ptr noundef %240, ptr noundef @.str.8, ptr noundef %241, ptr noundef %244, ptr noundef null)
-  %245 = load ptr, ptr %15, align 8
-  %246 = getelementptr inbounds %struct.cJSON, ptr %245, i32 0, i32 0
-  %247 = load ptr, ptr %246, align 8
-  store ptr %247, ptr %15, align 8
-  br label %258
+241:                                              ; preds = %238
+  %242 = load ptr, ptr %6, align 8, !tbaa !3
+  %243 = load ptr, ptr %7, align 8, !tbaa !15
+  %244 = load ptr, ptr %16, align 8, !tbaa !3
+  %245 = getelementptr inbounds nuw %struct.cJSON, ptr %244, i32 0, i32 7
+  %246 = load ptr, ptr %245, align 8, !tbaa !16
+  call void @compose_patch(ptr noundef %242, ptr noundef @.str.8, ptr noundef %243, ptr noundef %246, ptr noundef null)
+  %247 = load ptr, ptr %16, align 8, !tbaa !3
+  %248 = getelementptr inbounds nuw %struct.cJSON, ptr %247, i32 0, i32 0
+  %249 = load ptr, ptr %248, align 8, !tbaa !18
+  store ptr %249, ptr %16, align 8, !tbaa !3
+  br label %260
 
-248:                                              ; preds = %236
-  %249 = load ptr, ptr %6, align 8
-  %250 = load ptr, ptr %7, align 8
-  %251 = load ptr, ptr %16, align 8
-  %252 = getelementptr inbounds %struct.cJSON, ptr %251, i32 0, i32 7
-  %253 = load ptr, ptr %252, align 8
-  %254 = load ptr, ptr %16, align 8
-  call void @compose_patch(ptr noundef %249, ptr noundef @.str.7, ptr noundef %250, ptr noundef %253, ptr noundef %254)
-  %255 = load ptr, ptr %16, align 8
-  %256 = getelementptr inbounds %struct.cJSON, ptr %255, i32 0, i32 0
-  %257 = load ptr, ptr %256, align 8
-  store ptr %257, ptr %16, align 8
-  br label %258
+250:                                              ; preds = %238
+  %251 = load ptr, ptr %6, align 8, !tbaa !3
+  %252 = load ptr, ptr %7, align 8, !tbaa !15
+  %253 = load ptr, ptr %17, align 8, !tbaa !3
+  %254 = getelementptr inbounds nuw %struct.cJSON, ptr %253, i32 0, i32 7
+  %255 = load ptr, ptr %254, align 8, !tbaa !16
+  %256 = load ptr, ptr %17, align 8, !tbaa !3
+  call void @compose_patch(ptr noundef %251, ptr noundef @.str.7, ptr noundef %252, ptr noundef %255, ptr noundef %256)
+  %257 = load ptr, ptr %17, align 8, !tbaa !3
+  %258 = getelementptr inbounds nuw %struct.cJSON, ptr %257, i32 0, i32 0
+  %259 = load ptr, ptr %258, align 8, !tbaa !18
+  store ptr %259, ptr %17, align 8, !tbaa !3
+  br label %260
 
-258:                                              ; preds = %248, %239
-  br label %259
+260:                                              ; preds = %250, %241
+  br label %261
 
-259:                                              ; preds = %258, %202
-  br label %173
+261:                                              ; preds = %260, %204
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  br label %175
 
-260:                                              ; preds = %179
-  br label %262
+262:                                              ; preds = %181
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  br label %264
 
-261:                                              ; preds = %41
-  br label %262
+263:                                              ; preds = %42
+  br label %264
 
-262:                                              ; preds = %261, %260, %160, %133, %105, %81, %67, %37, %26
+264:                                              ; preds = %27, %38, %68, %82, %163, %262, %263
   ret void
 }
 
@@ -1773,43 +1977,48 @@ define ptr @cJSONUtils_GeneratePatchesCaseSensitive(ptr noundef %0, ptr noundef 
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr null, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %12, label %9
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store ptr null, ptr %6, align 8, !tbaa !3
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %13, label %10
 
-9:                                                ; preds = %2
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %13
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %9, %2
+13:                                               ; preds = %10, %2
   store ptr null, ptr %3, align 8
-  br label %19
+  store i32 1, ptr %7, align 4
+  br label %20
 
-13:                                               ; preds = %9
-  %14 = call ptr @cJSON_CreateArray()
-  store ptr %14, ptr %6, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = load ptr, ptr %5, align 8
-  call void @create_patches(ptr noundef %15, ptr noundef @.str, ptr noundef %16, ptr noundef %17, i32 noundef 1)
-  %18 = load ptr, ptr %6, align 8
-  store ptr %18, ptr %3, align 8
-  br label %19
+14:                                               ; preds = %10
+  %15 = call ptr @cJSON_CreateArray()
+  store ptr %15, ptr %6, align 8, !tbaa !3
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @create_patches(ptr noundef %16, ptr noundef @.str, ptr noundef %17, ptr noundef %18, i32 noundef 1)
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %19, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %20
 
-19:                                               ; preds = %13, %12
-  %20 = load ptr, ptr %3, align 8
-  ret ptr %20
+20:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %21 = load ptr, ptr %3, align 8
+  ret ptr %21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @cJSONUtils_SortObject(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   call void @sort_object(ptr noundef %3, i32 noundef 0)
   ret void
 }
@@ -1818,9 +2027,9 @@ define void @cJSONUtils_SortObject(ptr noundef %0) #0 {
 define internal void @sort_object(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !19
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
@@ -1828,14 +2037,14 @@ define internal void @sort_object(ptr noundef %0, i32 noundef %1) #0 {
   br label %16
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.cJSON, ptr %9, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
-  %12 = load i32, ptr %4, align 4
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.cJSON, ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8, !tbaa !10
+  %12 = load i32, ptr %4, align 4, !tbaa !19
   %13 = call ptr @sort_list(ptr noundef %11, i32 noundef %12)
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.cJSON, ptr %14, i32 0, i32 2
-  store ptr %13, ptr %15, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.cJSON, ptr %14, i32 0, i32 2
+  store ptr %13, ptr %15, align 8, !tbaa !10
   br label %16
 
 16:                                               ; preds = %8, %7
@@ -1845,8 +2054,8 @@ define internal void @sort_object(ptr noundef %0, i32 noundef %1) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define void @cJSONUtils_SortObjectCaseSensitive(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   call void @sort_object(ptr noundef %3, i32 noundef 1)
   ret void
 }
@@ -1855,10 +2064,10 @@ define void @cJSONUtils_SortObjectCaseSensitive(ptr noundef %0) #0 {
 define ptr @cJSONUtils_MergePatch(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = call ptr @merge_patch(ptr noundef %5, ptr noundef %6, i32 noundef 0)
   ret ptr %7
 }
@@ -1870,155 +2079,175 @@ define internal ptr @merge_patch(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
+  %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store ptr null, ptr %8, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = call i32 @cJSON_IsObject(ptr noundef %11)
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %18, label %14
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  store ptr null, ptr %8, align 8, !tbaa !3
+  %12 = load ptr, ptr %6, align 8, !tbaa !3
+  %13 = call i32 @cJSON_IsObject(ptr noundef %12)
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %19, label %15
 
-14:                                               ; preds = %3
-  %15 = load ptr, ptr %5, align 8
-  call void @cJSON_Delete(ptr noundef %15)
-  %16 = load ptr, ptr %6, align 8
-  %17 = call ptr @cJSON_Duplicate(ptr noundef %16, i32 noundef 1)
-  store ptr %17, ptr %4, align 8
-  br label %87
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @cJSON_Delete(ptr noundef %16)
+  %17 = load ptr, ptr %6, align 8, !tbaa !3
+  %18 = call ptr @cJSON_Duplicate(ptr noundef %17, i32 noundef 1)
+  store ptr %18, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %91
 
-18:                                               ; preds = %3
-  %19 = load ptr, ptr %5, align 8
-  %20 = call i32 @cJSON_IsObject(ptr noundef %19)
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %25, label %22
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  %21 = call i32 @cJSON_IsObject(ptr noundef %20)
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %26, label %23
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %5, align 8
-  call void @cJSON_Delete(ptr noundef %23)
-  %24 = call ptr @cJSON_CreateObject()
-  store ptr %24, ptr %5, align 8
-  br label %25
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @cJSON_Delete(ptr noundef %24)
+  %25 = call ptr @cJSON_CreateObject()
+  store ptr %25, ptr %5, align 8, !tbaa !3
+  br label %26
 
-25:                                               ; preds = %22, %18
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.cJSON, ptr %26, i32 0, i32 2
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %8, align 8
-  br label %29
+26:                                               ; preds = %23, %19
+  %27 = load ptr, ptr %6, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.cJSON, ptr %27, i32 0, i32 2
+  %29 = load ptr, ptr %28, align 8, !tbaa !10
+  store ptr %29, ptr %8, align 8, !tbaa !3
+  br label %30
 
-29:                                               ; preds = %81, %25
-  %30 = load ptr, ptr %8, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %85
+30:                                               ; preds = %85, %26
+  %31 = load ptr, ptr %8, align 8, !tbaa !3
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %89
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %8, align 8
-  %34 = call i32 @cJSON_IsNull(ptr noundef %33)
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %50
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %8, align 8, !tbaa !3
+  %35 = call i32 @cJSON_IsNull(ptr noundef %34)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %51
 
-36:                                               ; preds = %32
-  %37 = load i32, ptr %7, align 4
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %44
+37:                                               ; preds = %33
+  %38 = load i32, ptr %7, align 4, !tbaa !19
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %45
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr %5, align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.cJSON, ptr %41, i32 0, i32 7
-  %43 = load ptr, ptr %42, align 8
-  call void @cJSON_DeleteItemFromObjectCaseSensitive(ptr noundef %40, ptr noundef %43)
-  br label %49
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %5, align 8, !tbaa !3
+  %42 = load ptr, ptr %8, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.cJSON, ptr %42, i32 0, i32 7
+  %44 = load ptr, ptr %43, align 8, !tbaa !16
+  call void @cJSON_DeleteItemFromObjectCaseSensitive(ptr noundef %41, ptr noundef %44)
+  br label %50
 
-44:                                               ; preds = %36
-  %45 = load ptr, ptr %5, align 8
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.cJSON, ptr %46, i32 0, i32 7
-  %48 = load ptr, ptr %47, align 8
-  call void @cJSON_DeleteItemFromObject(ptr noundef %45, ptr noundef %48)
-  br label %49
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %5, align 8, !tbaa !3
+  %47 = load ptr, ptr %8, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.cJSON, ptr %47, i32 0, i32 7
+  %49 = load ptr, ptr %48, align 8, !tbaa !16
+  call void @cJSON_DeleteItemFromObject(ptr noundef %46, ptr noundef %49)
+  br label %50
 
-49:                                               ; preds = %44, %39
-  br label %81
+50:                                               ; preds = %45, %40
+  br label %85
 
-50:                                               ; preds = %32
-  store ptr null, ptr %9, align 8
-  store ptr null, ptr %10, align 8
-  %51 = load i32, ptr %7, align 4
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %59
+51:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  store ptr null, ptr %10, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  store ptr null, ptr %11, align 8, !tbaa !3
+  %52 = load i32, ptr %7, align 4, !tbaa !19
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %60
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %5, align 8
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.cJSON, ptr %55, i32 0, i32 7
-  %57 = load ptr, ptr %56, align 8
-  %58 = call ptr @cJSON_DetachItemFromObjectCaseSensitive(ptr noundef %54, ptr noundef %57)
-  store ptr %58, ptr %9, align 8
-  br label %65
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %5, align 8, !tbaa !3
+  %56 = load ptr, ptr %8, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.cJSON, ptr %56, i32 0, i32 7
+  %58 = load ptr, ptr %57, align 8, !tbaa !16
+  %59 = call ptr @cJSON_DetachItemFromObjectCaseSensitive(ptr noundef %55, ptr noundef %58)
+  store ptr %59, ptr %10, align 8, !tbaa !3
+  br label %66
 
-59:                                               ; preds = %50
-  %60 = load ptr, ptr %5, align 8
-  %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds %struct.cJSON, ptr %61, i32 0, i32 7
-  %63 = load ptr, ptr %62, align 8
-  %64 = call ptr @cJSON_DetachItemFromObject(ptr noundef %60, ptr noundef %63)
-  store ptr %64, ptr %9, align 8
-  br label %65
+60:                                               ; preds = %51
+  %61 = load ptr, ptr %5, align 8, !tbaa !3
+  %62 = load ptr, ptr %8, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.cJSON, ptr %62, i32 0, i32 7
+  %64 = load ptr, ptr %63, align 8, !tbaa !16
+  %65 = call ptr @cJSON_DetachItemFromObject(ptr noundef %61, ptr noundef %64)
+  store ptr %65, ptr %10, align 8, !tbaa !3
+  br label %66
 
-65:                                               ; preds = %59, %53
-  %66 = load ptr, ptr %9, align 8
-  %67 = load ptr, ptr %8, align 8
-  %68 = load i32, ptr %7, align 4
-  %69 = call ptr @merge_patch(ptr noundef %66, ptr noundef %67, i32 noundef %68)
-  store ptr %69, ptr %10, align 8
-  %70 = load ptr, ptr %10, align 8
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %74
+66:                                               ; preds = %60, %54
+  %67 = load ptr, ptr %10, align 8, !tbaa !3
+  %68 = load ptr, ptr %8, align 8, !tbaa !3
+  %69 = load i32, ptr %7, align 4, !tbaa !19
+  %70 = call ptr @merge_patch(ptr noundef %67, ptr noundef %68, i32 noundef %69)
+  store ptr %70, ptr %11, align 8, !tbaa !3
+  %71 = load ptr, ptr %11, align 8, !tbaa !3
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %75
 
-72:                                               ; preds = %65
-  %73 = load ptr, ptr %5, align 8
-  call void @cJSON_Delete(ptr noundef %73)
+73:                                               ; preds = %66
+  %74 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @cJSON_Delete(ptr noundef %74)
   store ptr null, ptr %4, align 8
-  br label %87
+  store i32 1, ptr %9, align 4
+  br label %82
 
-74:                                               ; preds = %65
-  %75 = load ptr, ptr %5, align 8
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds %struct.cJSON, ptr %76, i32 0, i32 7
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %10, align 8
-  %80 = call i32 @cJSON_AddItemToObject(ptr noundef %75, ptr noundef %78, ptr noundef %79)
-  br label %81
+75:                                               ; preds = %66
+  %76 = load ptr, ptr %5, align 8, !tbaa !3
+  %77 = load ptr, ptr %8, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.cJSON, ptr %77, i32 0, i32 7
+  %79 = load ptr, ptr %78, align 8, !tbaa !16
+  %80 = load ptr, ptr %11, align 8, !tbaa !3
+  %81 = call i32 @cJSON_AddItemToObject(ptr noundef %76, ptr noundef %79, ptr noundef %80)
+  store i32 0, ptr %9, align 4
+  br label %82
 
-81:                                               ; preds = %74, %49
-  %82 = load ptr, ptr %8, align 8
-  %83 = getelementptr inbounds %struct.cJSON, ptr %82, i32 0, i32 0
-  %84 = load ptr, ptr %83, align 8
-  store ptr %84, ptr %8, align 8
-  br label %29
+82:                                               ; preds = %75, %73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %83 = load i32, ptr %9, align 4
+  switch i32 %83, label %91 [
+    i32 0, label %84
+  ]
 
-85:                                               ; preds = %29
-  %86 = load ptr, ptr %5, align 8
-  store ptr %86, ptr %4, align 8
-  br label %87
+84:                                               ; preds = %82
+  br label %85
 
-87:                                               ; preds = %85, %72, %14
-  %88 = load ptr, ptr %4, align 8
-  ret ptr %88
+85:                                               ; preds = %84, %50
+  %86 = load ptr, ptr %8, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.cJSON, ptr %86, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8, !tbaa !18
+  store ptr %88, ptr %8, align 8, !tbaa !3
+  br label %30
+
+89:                                               ; preds = %30
+  %90 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %90, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %91
+
+91:                                               ; preds = %89, %82, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %92 = load ptr, ptr %4, align 8
+  ret ptr %92
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSONUtils_MergePatchCaseSensitive(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = call ptr @merge_patch(ptr noundef %5, ptr noundef %6, i32 noundef 1)
   ret ptr %7
 }
@@ -2027,10 +2256,10 @@ define ptr @cJSONUtils_MergePatchCaseSensitive(ptr noundef %0, ptr noundef %1) #
 define ptr @cJSONUtils_GenerateMergePatch(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = call ptr @generate_merge_patch(ptr noundef %5, ptr noundef %6, i32 noundef 0)
   ret ptr %7
 }
@@ -2045,223 +2274,237 @@ define internal ptr @generate_merge_patch(ptr noundef %0, ptr noundef %1, i32 no
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store ptr null, ptr %8, align 8
-  store ptr null, ptr %9, align 8
-  store ptr null, ptr %10, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %16
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  store ptr null, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  store ptr null, ptr %9, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  store ptr null, ptr %10, align 8, !tbaa !3
+  %13 = load ptr, ptr %6, align 8, !tbaa !3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %3
-  %15 = call ptr @cJSON_CreateNull()
-  store ptr %15, ptr %4, align 8
-  br label %128
-
-16:                                               ; preds = %3
-  %17 = load ptr, ptr %6, align 8
-  %18 = call i32 @cJSON_IsObject(ptr noundef %17)
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %24
-
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %5, align 8
-  %22 = call i32 @cJSON_IsObject(ptr noundef %21)
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %27, label %24
-
-24:                                               ; preds = %20, %16
-  %25 = load ptr, ptr %6, align 8
-  %26 = call ptr @cJSON_Duplicate(ptr noundef %25, i32 noundef 1)
-  store ptr %26, ptr %4, align 8
-  br label %128
-
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %7, align 4
-  call void @sort_object(ptr noundef %28, i32 noundef %29)
-  %30 = load ptr, ptr %6, align 8
-  %31 = load i32, ptr %7, align 4
-  call void @sort_object(ptr noundef %30, i32 noundef %31)
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.cJSON, ptr %32, i32 0, i32 2
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %8, align 8
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct.cJSON, ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %9, align 8
-  %38 = call ptr @cJSON_CreateObject()
-  store ptr %38, ptr %10, align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %42
-
-41:                                               ; preds = %27
-  store ptr null, ptr %4, align 8
-  br label %128
-
-42:                                               ; preds = %27
-  br label %43
-
-43:                                               ; preds = %118, %42
-  %44 = load ptr, ptr %8, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %49, label %46
-
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %9, align 8
-  %48 = icmp ne ptr %47, null
-  br label %49
-
-49:                                               ; preds = %46, %43
-  %50 = phi i1 [ true, %43 ], [ %48, %46 ]
-  br i1 %50, label %51, label %119
-
-51:                                               ; preds = %49
-  %52 = load ptr, ptr %8, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %67
-
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %9, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %65
-
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.cJSON, ptr %58, i32 0, i32 7
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %9, align 8
-  %62 = getelementptr inbounds %struct.cJSON, ptr %61, i32 0, i32 7
-  %63 = load ptr, ptr %62, align 8
-  %64 = call i32 @strcmp(ptr noundef %60, ptr noundef %63) #6
-  store i32 %64, ptr %11, align 4
-  br label %66
-
-65:                                               ; preds = %54
-  store i32 -1, ptr %11, align 4
-  br label %66
-
-66:                                               ; preds = %65, %57
-  br label %68
-
-67:                                               ; preds = %51
+15:                                               ; preds = %3
+  %16 = call ptr @cJSON_CreateNull()
+  store ptr %16, ptr %4, align 8
   store i32 1, ptr %11, align 4
-  br label %68
+  br label %129
 
-68:                                               ; preds = %67, %66
-  %69 = load i32, ptr %11, align 4
-  %70 = icmp slt i32 %69, 0
-  br i1 %70, label %71, label %81
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = call i32 @cJSON_IsObject(ptr noundef %18)
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %25
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr %10, align 8
-  %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds %struct.cJSON, ptr %73, i32 0, i32 7
-  %75 = load ptr, ptr %74, align 8
-  %76 = call ptr @cJSON_CreateNull()
-  %77 = call i32 @cJSON_AddItemToObject(ptr noundef %72, ptr noundef %75, ptr noundef %76)
-  %78 = load ptr, ptr %8, align 8
-  %79 = getelementptr inbounds %struct.cJSON, ptr %78, i32 0, i32 0
-  %80 = load ptr, ptr %79, align 8
-  store ptr %80, ptr %8, align 8
-  br label %118
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = call i32 @cJSON_IsObject(ptr noundef %22)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %28, label %25
 
-81:                                               ; preds = %68
-  %82 = load i32, ptr %11, align 4
-  %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %84, label %95
+25:                                               ; preds = %21, %17
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = call ptr @cJSON_Duplicate(ptr noundef %26, i32 noundef 1)
+  store ptr %27, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %129
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %10, align 8
-  %86 = load ptr, ptr %9, align 8
-  %87 = getelementptr inbounds %struct.cJSON, ptr %86, i32 0, i32 7
-  %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr %9, align 8
-  %90 = call ptr @cJSON_Duplicate(ptr noundef %89, i32 noundef 1)
-  %91 = call i32 @cJSON_AddItemToObject(ptr noundef %85, ptr noundef %88, ptr noundef %90)
-  %92 = load ptr, ptr %9, align 8
-  %93 = getelementptr inbounds %struct.cJSON, ptr %92, i32 0, i32 0
-  %94 = load ptr, ptr %93, align 8
-  store ptr %94, ptr %9, align 8
-  br label %117
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %5, align 8, !tbaa !3
+  %30 = load i32, ptr %7, align 4, !tbaa !19
+  call void @sort_object(ptr noundef %29, i32 noundef %30)
+  %31 = load ptr, ptr %6, align 8, !tbaa !3
+  %32 = load i32, ptr %7, align 4, !tbaa !19
+  call void @sort_object(ptr noundef %31, i32 noundef %32)
+  %33 = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.cJSON, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8, !tbaa !10
+  store ptr %35, ptr %8, align 8, !tbaa !3
+  %36 = load ptr, ptr %6, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.cJSON, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8, !tbaa !10
+  store ptr %38, ptr %9, align 8, !tbaa !3
+  %39 = call ptr @cJSON_CreateObject()
+  store ptr %39, ptr %10, align 8, !tbaa !3
+  %40 = load ptr, ptr %10, align 8, !tbaa !3
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %43
 
-95:                                               ; preds = %81
-  %96 = load ptr, ptr %8, align 8
-  %97 = load ptr, ptr %9, align 8
-  %98 = load i32, ptr %7, align 4
-  %99 = call i32 @compare_json(ptr noundef %96, ptr noundef %97, i32 noundef %98)
-  %100 = icmp ne i32 %99, 0
-  br i1 %100, label %110, label %101
-
-101:                                              ; preds = %95
-  %102 = load ptr, ptr %10, align 8
-  %103 = load ptr, ptr %9, align 8
-  %104 = getelementptr inbounds %struct.cJSON, ptr %103, i32 0, i32 7
-  %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %8, align 8
-  %107 = load ptr, ptr %9, align 8
-  %108 = call ptr @cJSONUtils_GenerateMergePatch(ptr noundef %106, ptr noundef %107)
-  %109 = call i32 @cJSON_AddItemToObject(ptr noundef %102, ptr noundef %105, ptr noundef %108)
-  br label %110
-
-110:                                              ; preds = %101, %95
-  %111 = load ptr, ptr %8, align 8
-  %112 = getelementptr inbounds %struct.cJSON, ptr %111, i32 0, i32 0
-  %113 = load ptr, ptr %112, align 8
-  store ptr %113, ptr %8, align 8
-  %114 = load ptr, ptr %9, align 8
-  %115 = getelementptr inbounds %struct.cJSON, ptr %114, i32 0, i32 0
-  %116 = load ptr, ptr %115, align 8
-  store ptr %116, ptr %9, align 8
-  br label %117
-
-117:                                              ; preds = %110, %84
-  br label %118
-
-118:                                              ; preds = %117, %71
-  br label %43
-
-119:                                              ; preds = %49
-  %120 = load ptr, ptr %10, align 8
-  %121 = getelementptr inbounds %struct.cJSON, ptr %120, i32 0, i32 2
-  %122 = load ptr, ptr %121, align 8
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %124, label %126
-
-124:                                              ; preds = %119
-  %125 = load ptr, ptr %10, align 8
-  call void @cJSON_Delete(ptr noundef %125)
+42:                                               ; preds = %28
   store ptr null, ptr %4, align 8
-  br label %128
+  store i32 1, ptr %11, align 4
+  br label %129
 
-126:                                              ; preds = %119
-  %127 = load ptr, ptr %10, align 8
-  store ptr %127, ptr %4, align 8
-  br label %128
+43:                                               ; preds = %28
+  br label %44
 
-128:                                              ; preds = %126, %124, %41, %24, %14
-  %129 = load ptr, ptr %4, align 8
-  ret ptr %129
+44:                                               ; preds = %119, %43
+  %45 = load ptr, ptr %8, align 8, !tbaa !3
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %50, label %47
+
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %9, align 8, !tbaa !3
+  %49 = icmp ne ptr %48, null
+  br label %50
+
+50:                                               ; preds = %47, %44
+  %51 = phi i1 [ true, %44 ], [ %49, %47 ]
+  br i1 %51, label %52, label %120
+
+52:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %53 = load ptr, ptr %8, align 8, !tbaa !3
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %68
+
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %9, align 8, !tbaa !3
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %66
+
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %8, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.cJSON, ptr %59, i32 0, i32 7
+  %61 = load ptr, ptr %60, align 8, !tbaa !16
+  %62 = load ptr, ptr %9, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.cJSON, ptr %62, i32 0, i32 7
+  %64 = load ptr, ptr %63, align 8, !tbaa !16
+  %65 = call i32 @strcmp(ptr noundef %61, ptr noundef %64) #9
+  store i32 %65, ptr %12, align 4, !tbaa !19
+  br label %67
+
+66:                                               ; preds = %55
+  store i32 -1, ptr %12, align 4, !tbaa !19
+  br label %67
+
+67:                                               ; preds = %66, %58
+  br label %69
+
+68:                                               ; preds = %52
+  store i32 1, ptr %12, align 4, !tbaa !19
+  br label %69
+
+69:                                               ; preds = %68, %67
+  %70 = load i32, ptr %12, align 4, !tbaa !19
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %72, label %82
+
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %10, align 8, !tbaa !3
+  %74 = load ptr, ptr %8, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.cJSON, ptr %74, i32 0, i32 7
+  %76 = load ptr, ptr %75, align 8, !tbaa !16
+  %77 = call ptr @cJSON_CreateNull()
+  %78 = call i32 @cJSON_AddItemToObject(ptr noundef %73, ptr noundef %76, ptr noundef %77)
+  %79 = load ptr, ptr %8, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.cJSON, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8, !tbaa !18
+  store ptr %81, ptr %8, align 8, !tbaa !3
+  br label %119
+
+82:                                               ; preds = %69
+  %83 = load i32, ptr %12, align 4, !tbaa !19
+  %84 = icmp sgt i32 %83, 0
+  br i1 %84, label %85, label %96
+
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %10, align 8, !tbaa !3
+  %87 = load ptr, ptr %9, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %struct.cJSON, ptr %87, i32 0, i32 7
+  %89 = load ptr, ptr %88, align 8, !tbaa !16
+  %90 = load ptr, ptr %9, align 8, !tbaa !3
+  %91 = call ptr @cJSON_Duplicate(ptr noundef %90, i32 noundef 1)
+  %92 = call i32 @cJSON_AddItemToObject(ptr noundef %86, ptr noundef %89, ptr noundef %91)
+  %93 = load ptr, ptr %9, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.cJSON, ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8, !tbaa !18
+  store ptr %95, ptr %9, align 8, !tbaa !3
+  br label %118
+
+96:                                               ; preds = %82
+  %97 = load ptr, ptr %8, align 8, !tbaa !3
+  %98 = load ptr, ptr %9, align 8, !tbaa !3
+  %99 = load i32, ptr %7, align 4, !tbaa !19
+  %100 = call i32 @compare_json(ptr noundef %97, ptr noundef %98, i32 noundef %99)
+  %101 = icmp ne i32 %100, 0
+  br i1 %101, label %111, label %102
+
+102:                                              ; preds = %96
+  %103 = load ptr, ptr %10, align 8, !tbaa !3
+  %104 = load ptr, ptr %9, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %struct.cJSON, ptr %104, i32 0, i32 7
+  %106 = load ptr, ptr %105, align 8, !tbaa !16
+  %107 = load ptr, ptr %8, align 8, !tbaa !3
+  %108 = load ptr, ptr %9, align 8, !tbaa !3
+  %109 = call ptr @cJSONUtils_GenerateMergePatch(ptr noundef %107, ptr noundef %108)
+  %110 = call i32 @cJSON_AddItemToObject(ptr noundef %103, ptr noundef %106, ptr noundef %109)
+  br label %111
+
+111:                                              ; preds = %102, %96
+  %112 = load ptr, ptr %8, align 8, !tbaa !3
+  %113 = getelementptr inbounds nuw %struct.cJSON, ptr %112, i32 0, i32 0
+  %114 = load ptr, ptr %113, align 8, !tbaa !18
+  store ptr %114, ptr %8, align 8, !tbaa !3
+  %115 = load ptr, ptr %9, align 8, !tbaa !3
+  %116 = getelementptr inbounds nuw %struct.cJSON, ptr %115, i32 0, i32 0
+  %117 = load ptr, ptr %116, align 8, !tbaa !18
+  store ptr %117, ptr %9, align 8, !tbaa !3
+  br label %118
+
+118:                                              ; preds = %111, %85
+  br label %119
+
+119:                                              ; preds = %118, %72
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  br label %44
+
+120:                                              ; preds = %50
+  %121 = load ptr, ptr %10, align 8, !tbaa !3
+  %122 = getelementptr inbounds nuw %struct.cJSON, ptr %121, i32 0, i32 2
+  %123 = load ptr, ptr %122, align 8, !tbaa !10
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %125, label %127
+
+125:                                              ; preds = %120
+  %126 = load ptr, ptr %10, align 8, !tbaa !3
+  call void @cJSON_Delete(ptr noundef %126)
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %129
+
+127:                                              ; preds = %120
+  %128 = load ptr, ptr %10, align 8, !tbaa !3
+  store ptr %128, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %129
+
+129:                                              ; preds = %127, %125, %42, %25, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %130 = load ptr, ptr %4, align 8
+  ret ptr %130
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSONUtils_GenerateMergePatchCaseSensitive(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = call ptr @generate_merge_patch(ptr noundef %5, ptr noundef %6, i32 noundef 1)
   ret ptr %7
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @decode_array_index_from_pointer(ptr noundef %0, ptr noundef %1) #0 {
@@ -2270,114 +2513,122 @@ define internal i32 @decode_array_index_from_pointer(ptr noundef %0, ptr noundef
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 0, ptr %6, align 8
-  store i64 0, ptr %7, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 0
-  %10 = load i8, ptr %9, align 1
-  %11 = zext i8 %10 to i32
-  %12 = icmp eq i32 %11, 48
-  br i1 %12, label %13, label %26
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  store i64 0, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  store i64 0, ptr %7, align 8, !tbaa !8
+  %9 = load ptr, ptr %4, align 8, !tbaa !15
+  %10 = getelementptr inbounds i8, ptr %9, i64 0
+  %11 = load i8, ptr %10, align 1, !tbaa !17
+  %12 = zext i8 %11 to i32
+  %13 = icmp eq i32 %12, 48
+  br i1 %13, label %14, label %27
 
-13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  %18 = icmp ne i32 %17, 0
-  br i1 %18, label %19, label %26
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !15
+  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %17 = load i8, ptr %16, align 1, !tbaa !17
+  %18 = zext i8 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %27
 
-19:                                               ; preds = %13
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = icmp ne i32 %23, 47
-  br i1 %24, label %25, label %26
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %4, align 8, !tbaa !15
+  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %23 = load i8, ptr %22, align 1, !tbaa !17
+  %24 = zext i8 %23 to i32
+  %25 = icmp ne i32 %24, 47
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %19
+26:                                               ; preds = %20
   store i32 0, ptr %3, align 4
-  br label %74
+  store i32 1, ptr %8, align 4
+  br label %75
 
-26:                                               ; preds = %19, %13, %2
-  store i64 0, ptr %7, align 8
-  br label %27
+27:                                               ; preds = %20, %14, %2
+  store i64 0, ptr %7, align 8, !tbaa !8
+  br label %28
 
-27:                                               ; preds = %53, %26
-  %28 = load ptr, ptr %4, align 8
-  %29 = load i64, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 %29
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = icmp sge i32 %32, 48
-  br i1 %33, label %34, label %40
+28:                                               ; preds = %54, %27
+  %29 = load ptr, ptr %4, align 8, !tbaa !15
+  %30 = load i64, ptr %7, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !17
+  %33 = zext i8 %32 to i32
+  %34 = icmp sge i32 %33, 48
+  br i1 %34, label %35, label %41
 
-34:                                               ; preds = %27
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 0
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  %39 = icmp sle i32 %38, 57
-  br label %40
+35:                                               ; preds = %28
+  %36 = load ptr, ptr %4, align 8, !tbaa !15
+  %37 = getelementptr inbounds i8, ptr %36, i64 0
+  %38 = load i8, ptr %37, align 1, !tbaa !17
+  %39 = zext i8 %38 to i32
+  %40 = icmp sle i32 %39, 57
+  br label %41
 
-40:                                               ; preds = %34, %27
-  %41 = phi i1 [ false, %27 ], [ %39, %34 ]
-  br i1 %41, label %42, label %56
+41:                                               ; preds = %35, %28
+  %42 = phi i1 [ false, %28 ], [ %40, %35 ]
+  br i1 %42, label %43, label %57
 
-42:                                               ; preds = %40
-  %43 = load i64, ptr %6, align 8
-  %44 = mul i64 10, %43
-  %45 = load ptr, ptr %4, align 8
-  %46 = load i64, ptr %7, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = sub nsw i32 %49, 48
-  %51 = sext i32 %50 to i64
-  %52 = add i64 %44, %51
-  store i64 %52, ptr %6, align 8
-  br label %53
+43:                                               ; preds = %41
+  %44 = load i64, ptr %6, align 8, !tbaa !8
+  %45 = mul i64 10, %44
+  %46 = load ptr, ptr %4, align 8, !tbaa !15
+  %47 = load i64, ptr %7, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !17
+  %50 = zext i8 %49 to i32
+  %51 = sub nsw i32 %50, 48
+  %52 = sext i32 %51 to i64
+  %53 = add i64 %45, %52
+  store i64 %53, ptr %6, align 8, !tbaa !8
+  br label %54
 
-53:                                               ; preds = %42
-  %54 = load i64, ptr %7, align 8
-  %55 = add i64 %54, 1
-  store i64 %55, ptr %7, align 8
-  br label %27
+54:                                               ; preds = %43
+  %55 = load i64, ptr %7, align 8, !tbaa !8
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %7, align 8, !tbaa !8
+  br label %28
 
-56:                                               ; preds = %40
-  %57 = load ptr, ptr %4, align 8
-  %58 = load i64, ptr %7, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 %58
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %71
+57:                                               ; preds = %41
+  %58 = load ptr, ptr %4, align 8, !tbaa !15
+  %59 = load i64, ptr %7, align 8, !tbaa !8
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !17
+  %62 = zext i8 %61 to i32
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %72
 
-63:                                               ; preds = %56
-  %64 = load ptr, ptr %4, align 8
-  %65 = load i64, ptr %7, align 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 %65
-  %67 = load i8, ptr %66, align 1
-  %68 = zext i8 %67 to i32
-  %69 = icmp ne i32 %68, 47
-  br i1 %69, label %70, label %71
+64:                                               ; preds = %57
+  %65 = load ptr, ptr %4, align 8, !tbaa !15
+  %66 = load i64, ptr %7, align 8, !tbaa !8
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %66
+  %68 = load i8, ptr %67, align 1, !tbaa !17
+  %69 = zext i8 %68 to i32
+  %70 = icmp ne i32 %69, 47
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %63
+71:                                               ; preds = %64
   store i32 0, ptr %3, align 4
-  br label %74
+  store i32 1, ptr %8, align 4
+  br label %75
 
-71:                                               ; preds = %63, %56
-  %72 = load i64, ptr %6, align 8
-  %73 = load ptr, ptr %5, align 8
-  store i64 %72, ptr %73, align 8
+72:                                               ; preds = %64, %57
+  %73 = load i64, ptr %6, align 8, !tbaa !8
+  %74 = load ptr, ptr %5, align 8, !tbaa !24
+  store i64 %73, ptr %74, align 8, !tbaa !8
   store i32 1, ptr %3, align 4
-  br label %74
+  store i32 1, ptr %8, align 4
+  br label %75
 
-74:                                               ; preds = %71, %70, %25
-  %75 = load i32, ptr %3, align 4
-  ret i32 %75
+75:                                               ; preds = %72, %71, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %76 = load i32, ptr %3, align 4
+  ret i32 %76
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2385,16 +2636,17 @@ define internal ptr @get_array_item(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
   %7 = icmp ne ptr %6, null
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.cJSON, ptr %9, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.cJSON, ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8, !tbaa !10
   br label %13
 
 12:                                               ; preds = %2
@@ -2402,16 +2654,16 @@ define internal ptr @get_array_item(ptr noundef %0, i64 noundef %1) #0 {
 
 13:                                               ; preds = %12, %8
   %14 = phi ptr [ %11, %8 ], [ null, %12 ]
-  store ptr %14, ptr %5, align 8
+  store ptr %14, ptr %5, align 8, !tbaa !3
   br label %15
 
 15:                                               ; preds = %23, %13
-  %16 = load ptr, ptr %5, align 8
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
   %17 = icmp ne ptr %16, null
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
-  %19 = load i64, ptr %4, align 8
+  %19 = load i64, ptr %4, align 8, !tbaa !8
   %20 = icmp ugt i64 %19, 0
   br label %21
 
@@ -2420,17 +2672,18 @@ define internal ptr @get_array_item(ptr noundef %0, i64 noundef %1) #0 {
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %21
-  %24 = load i64, ptr %4, align 8
+  %24 = load i64, ptr %4, align 8, !tbaa !8
   %25 = add i64 %24, -1
-  store i64 %25, ptr %4, align 8
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.cJSON, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %5, align 8
+  store i64 %25, ptr %4, align 8, !tbaa !8
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.cJSON, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !18
+  store ptr %28, ptr %5, align 8, !tbaa !3
   br label %15
 
 29:                                               ; preds = %21
-  %30 = load ptr, ptr %5, align 8
+  %30 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret ptr %30
 }
 
@@ -2440,191 +2693,215 @@ define internal i32 @compare_pointers(ptr noundef %0, ptr noundef %1, i32 nounde
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %13, label %10
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !15
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i32 %2, ptr %7, align 4, !tbaa !19
+  %12 = load ptr, ptr %5, align 8, !tbaa !15
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %17, label %14
 
-10:                                               ; preds = %3
-  %11 = load ptr, ptr %6, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %6, align 8, !tbaa !15
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-13:                                               ; preds = %10, %3
+17:                                               ; preds = %14, %3
   store i32 0, ptr %4, align 4
-  br label %117
+  br label %133
 
-14:                                               ; preds = %10
-  br label %15
+18:                                               ; preds = %14
+  br label %19
 
-15:                                               ; preds = %91, %14
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %30
+19:                                               ; preds = %107, %18
+  %20 = load ptr, ptr %5, align 8, !tbaa !15
+  %21 = load i8, ptr %20, align 1, !tbaa !17
+  %22 = zext i8 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %34
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %6, align 8
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %30
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %6, align 8, !tbaa !15
+  %26 = load i8, ptr %25, align 1, !tbaa !17
+  %27 = zext i8 %26 to i32
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %34
 
-25:                                               ; preds = %20
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i32
-  %29 = icmp ne i32 %28, 47
-  br label %30
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %6, align 8, !tbaa !15
+  %31 = load i8, ptr %30, align 1, !tbaa !17
+  %32 = zext i8 %31 to i32
+  %33 = icmp ne i32 %32, 47
+  br label %34
 
-30:                                               ; preds = %25, %20, %15
-  %31 = phi i1 [ false, %20 ], [ false, %15 ], [ %29, %25 ]
-  br i1 %31, label %32, label %96
+34:                                               ; preds = %29, %24, %19
+  %35 = phi i1 [ false, %24 ], [ false, %19 ], [ %33, %29 ]
+  br i1 %35, label %36, label %112
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr %6, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = icmp eq i32 %35, 126
-  br i1 %36, label %37, label %64
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %6, align 8, !tbaa !15
+  %38 = load i8, ptr %37, align 1, !tbaa !17
+  %39 = zext i8 %38 to i32
+  %40 = icmp eq i32 %39, 126
+  br i1 %40, label %41, label %68
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = icmp ne i32 %41, 48
-  br i1 %42, label %48, label %43
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %6, align 8, !tbaa !15
+  %43 = getelementptr inbounds i8, ptr %42, i64 1
+  %44 = load i8, ptr %43, align 1, !tbaa !17
+  %45 = zext i8 %44 to i32
+  %46 = icmp ne i32 %45, 48
+  br i1 %46, label %52, label %47
 
-43:                                               ; preds = %37
-  %44 = load ptr, ptr %5, align 8
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i32
-  %47 = icmp ne i32 %46, 126
-  br i1 %47, label %48, label %60
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %5, align 8, !tbaa !15
+  %49 = load i8, ptr %48, align 1, !tbaa !17
+  %50 = zext i8 %49 to i32
+  %51 = icmp ne i32 %50, 126
+  br i1 %51, label %52, label %64
 
-48:                                               ; preds = %43, %37
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = icmp ne i32 %52, 49
-  br i1 %53, label %59, label %54
+52:                                               ; preds = %47, %41
+  %53 = load ptr, ptr %6, align 8, !tbaa !15
+  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  %55 = load i8, ptr %54, align 1, !tbaa !17
+  %56 = zext i8 %55 to i32
+  %57 = icmp ne i32 %56, 49
+  br i1 %57, label %63, label %58
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr %5, align 8
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = icmp ne i32 %57, 47
-  br i1 %58, label %59, label %60
+58:                                               ; preds = %52
+  %59 = load ptr, ptr %5, align 8, !tbaa !15
+  %60 = load i8, ptr %59, align 1, !tbaa !17
+  %61 = zext i8 %60 to i32
+  %62 = icmp ne i32 %61, 47
+  br i1 %62, label %63, label %64
 
-59:                                               ; preds = %54, %48
+63:                                               ; preds = %58, %52
   store i32 0, ptr %4, align 4
-  br label %117
+  br label %133
 
-60:                                               ; preds = %54, %43
-  %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i32 1
-  store ptr %62, ptr %6, align 8
-  br label %63
-
-63:                                               ; preds = %60
-  br label %90
-
-64:                                               ; preds = %32
-  %65 = load i32, ptr %7, align 4
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %77, label %67
+64:                                               ; preds = %58, %47
+  %65 = load ptr, ptr %6, align 8, !tbaa !15
+  %66 = getelementptr inbounds nuw i8, ptr %65, i32 1
+  store ptr %66, ptr %6, align 8, !tbaa !15
+  br label %67
 
 67:                                               ; preds = %64
-  %68 = load ptr, ptr %5, align 8
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  %71 = call i32 @tolower(i32 noundef %70) #6
-  %72 = load ptr, ptr %6, align 8
-  %73 = load i8, ptr %72, align 1
-  %74 = zext i8 %73 to i32
-  %75 = call i32 @tolower(i32 noundef %74) #6
-  %76 = icmp ne i32 %71, %75
-  br i1 %76, label %88, label %77
-
-77:                                               ; preds = %67, %64
-  %78 = load i32, ptr %7, align 4
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %89
-
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %5, align 8
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = load ptr, ptr %6, align 8
-  %85 = load i8, ptr %84, align 1
-  %86 = zext i8 %85 to i32
-  %87 = icmp ne i32 %83, %86
-  br i1 %87, label %88, label %89
-
-88:                                               ; preds = %80, %67
-  store i32 0, ptr %4, align 4
-  br label %117
-
-89:                                               ; preds = %80, %77
-  br label %90
-
-90:                                               ; preds = %89, %63
-  br label %91
-
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i32 1
-  store ptr %93, ptr %5, align 8
-  %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i32 1
-  store ptr %95, ptr %6, align 8
-  br label %15
-
-96:                                               ; preds = %30
-  %97 = load ptr, ptr %6, align 8
-  %98 = load i8, ptr %97, align 1
-  %99 = zext i8 %98 to i32
-  %100 = icmp ne i32 %99, 0
-  br i1 %100, label %101, label %106
-
-101:                                              ; preds = %96
-  %102 = load ptr, ptr %6, align 8
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  %105 = icmp ne i32 %104, 47
   br label %106
 
-106:                                              ; preds = %101, %96
-  %107 = phi i1 [ false, %96 ], [ %105, %101 ]
-  %108 = zext i1 %107 to i32
-  %109 = load ptr, ptr %5, align 8
-  %110 = load i8, ptr %109, align 1
-  %111 = zext i8 %110 to i32
-  %112 = icmp ne i32 %111, 0
-  %113 = zext i1 %112 to i32
-  %114 = icmp ne i32 %108, %113
-  br i1 %114, label %115, label %116
+68:                                               ; preds = %36
+  %69 = load i32, ptr %7, align 4, !tbaa !19
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %93, label %71
 
-115:                                              ; preds = %106
+71:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %72 = call ptr @__ctype_tolower_loc() #10
+  %73 = load ptr, ptr %72, align 8, !tbaa !26
+  %74 = load ptr, ptr %5, align 8, !tbaa !15
+  %75 = load i8, ptr %74, align 1, !tbaa !17
+  %76 = zext i8 %75 to i32
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i32, ptr %73, i64 %77
+  %79 = load i32, ptr %78, align 4, !tbaa !19
+  store i32 %79, ptr %8, align 4, !tbaa !19
+  %80 = load i32, ptr %8, align 4, !tbaa !19
+  store i32 %80, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %81 = load i32, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %82 = call ptr @__ctype_tolower_loc() #10
+  %83 = load ptr, ptr %82, align 8, !tbaa !26
+  %84 = load ptr, ptr %6, align 8, !tbaa !15
+  %85 = load i8, ptr %84, align 1, !tbaa !17
+  %86 = zext i8 %85 to i32
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds i32, ptr %83, i64 %87
+  %89 = load i32, ptr %88, align 4, !tbaa !19
+  store i32 %89, ptr %10, align 4, !tbaa !19
+  %90 = load i32, ptr %10, align 4, !tbaa !19
+  store i32 %90, ptr %11, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %91 = load i32, ptr %11, align 4, !tbaa !19
+  %92 = icmp ne i32 %81, %91
+  br i1 %92, label %104, label %93
+
+93:                                               ; preds = %71, %68
+  %94 = load i32, ptr %7, align 4, !tbaa !19
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %105
+
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %5, align 8, !tbaa !15
+  %98 = load i8, ptr %97, align 1, !tbaa !17
+  %99 = zext i8 %98 to i32
+  %100 = load ptr, ptr %6, align 8, !tbaa !15
+  %101 = load i8, ptr %100, align 1, !tbaa !17
+  %102 = zext i8 %101 to i32
+  %103 = icmp ne i32 %99, %102
+  br i1 %103, label %104, label %105
+
+104:                                              ; preds = %96, %71
   store i32 0, ptr %4, align 4
-  br label %117
+  br label %133
 
-116:                                              ; preds = %106
+105:                                              ; preds = %96, %93
+  br label %106
+
+106:                                              ; preds = %105, %67
+  br label %107
+
+107:                                              ; preds = %106
+  %108 = load ptr, ptr %5, align 8, !tbaa !15
+  %109 = getelementptr inbounds nuw i8, ptr %108, i32 1
+  store ptr %109, ptr %5, align 8, !tbaa !15
+  %110 = load ptr, ptr %6, align 8, !tbaa !15
+  %111 = getelementptr inbounds nuw i8, ptr %110, i32 1
+  store ptr %111, ptr %6, align 8, !tbaa !15
+  br label %19
+
+112:                                              ; preds = %34
+  %113 = load ptr, ptr %6, align 8, !tbaa !15
+  %114 = load i8, ptr %113, align 1, !tbaa !17
+  %115 = zext i8 %114 to i32
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %122
+
+117:                                              ; preds = %112
+  %118 = load ptr, ptr %6, align 8, !tbaa !15
+  %119 = load i8, ptr %118, align 1, !tbaa !17
+  %120 = zext i8 %119 to i32
+  %121 = icmp ne i32 %120, 47
+  br label %122
+
+122:                                              ; preds = %117, %112
+  %123 = phi i1 [ false, %112 ], [ %121, %117 ]
+  %124 = zext i1 %123 to i32
+  %125 = load ptr, ptr %5, align 8, !tbaa !15
+  %126 = load i8, ptr %125, align 1, !tbaa !17
+  %127 = zext i8 %126 to i32
+  %128 = icmp ne i32 %127, 0
+  %129 = zext i1 %128 to i32
+  %130 = icmp ne i32 %124, %129
+  br i1 %130, label %131, label %132
+
+131:                                              ; preds = %122
+  store i32 0, ptr %4, align 4
+  br label %133
+
+132:                                              ; preds = %122
   store i32 1, ptr %4, align 4
-  br label %117
+  br label %133
 
-117:                                              ; preds = %116, %115, %88, %59, %13
-  %118 = load i32, ptr %4, align 4
-  ret i32 %118
+133:                                              ; preds = %132, %131, %104, %63, %17
+  %134 = load i32, ptr %4, align 4
+  ret i32 %134
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @tolower(i32 noundef) #2
+; Function Attrs: nounwind willreturn memory(none)
+declare ptr @__ctype_tolower_loc() #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @get_object_item(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -2632,23 +2909,23 @@ define internal ptr @get_object_item(ptr noundef %0, ptr noundef %1, i32 noundef
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %8 = load i32, ptr %7, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i32 %2, ptr %7, align 4, !tbaa !19
+  %8 = load i32, ptr %7, align 4, !tbaa !19
   %9 = icmp ne i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = load ptr, ptr %6, align 8, !tbaa !15
   %13 = call ptr @cJSON_GetObjectItemCaseSensitive(ptr noundef %11, ptr noundef %12)
   store ptr %13, ptr %4, align 8
   br label %18
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %5, align 8
-  %16 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = load ptr, ptr %6, align 8, !tbaa !15
   %17 = call ptr @cJSON_GetObjectItem(ptr noundef %15, ptr noundef %16)
   store ptr %17, ptr %4, align 8
   br label %18
@@ -2658,7 +2935,7 @@ define internal ptr @get_object_item(ptr noundef %0, ptr noundef %1, i32 noundef
   ret ptr %19
 }
 
-declare i32 @cJSON_IsString(ptr noundef) #1
+declare i32 @cJSON_IsString(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @decode_patch_operation(ptr noundef %0, i32 noundef %1) #0 {
@@ -2666,100 +2943,111 @@ define internal i32 @decode_patch_operation(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %5, align 4
-  %9 = call ptr @get_object_item(ptr noundef %7, ptr noundef @.str.6, i32 noundef %8)
-  store ptr %9, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = call i32 @cJSON_IsString(ptr noundef %10)
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %14, label %13
-
-13:                                               ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %57
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = load i32, ptr %5, align 4, !tbaa !19
+  %10 = call ptr @get_object_item(ptr noundef %8, ptr noundef @.str.6, i32 noundef %9)
+  store ptr %10, ptr %6, align 8, !tbaa !3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  %12 = call i32 @cJSON_IsString(ptr noundef %11)
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.cJSON, ptr %15, i32 0, i32 4
-  %17 = load ptr, ptr %16, align 8
-  %18 = call i32 @strcmp(ptr noundef %17, ptr noundef @.str.7) #6
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %14
-  store i32 1, ptr %3, align 4
-  br label %57
-
-21:                                               ; preds = %14
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.cJSON, ptr %22, i32 0, i32 4
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @strcmp(ptr noundef %24, ptr noundef @.str.8) #6
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %28
-
-27:                                               ; preds = %21
-  store i32 2, ptr %3, align 4
-  br label %57
-
-28:                                               ; preds = %21
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct.cJSON, ptr %29, i32 0, i32 4
-  %31 = load ptr, ptr %30, align 8
-  %32 = call i32 @strcmp(ptr noundef %31, ptr noundef @.str.9) #6
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %35
-
-34:                                               ; preds = %28
-  store i32 3, ptr %3, align 4
-  br label %57
-
-35:                                               ; preds = %28
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.cJSON, ptr %36, i32 0, i32 4
-  %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @strcmp(ptr noundef %38, ptr noundef @.str.10) #6
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %42
-
-41:                                               ; preds = %35
-  store i32 4, ptr %3, align 4
-  br label %57
-
-42:                                               ; preds = %35
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct.cJSON, ptr %43, i32 0, i32 4
-  %45 = load ptr, ptr %44, align 8
-  %46 = call i32 @strcmp(ptr noundef %45, ptr noundef @.str.11) #6
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %49
-
-48:                                               ; preds = %42
-  store i32 5, ptr %3, align 4
-  br label %57
-
-49:                                               ; preds = %42
-  %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds %struct.cJSON, ptr %50, i32 0, i32 4
-  %52 = load ptr, ptr %51, align 8
-  %53 = call i32 @strcmp(ptr noundef %52, ptr noundef @.str.12) #6
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %56
-
-55:                                               ; preds = %49
-  store i32 6, ptr %3, align 4
-  br label %57
-
-56:                                               ; preds = %49
   store i32 0, ptr %3, align 4
-  br label %57
+  store i32 1, ptr %7, align 4
+  br label %58
 
-57:                                               ; preds = %56, %55, %48, %41, %34, %27, %20, %13
-  %58 = load i32, ptr %3, align 4
-  ret i32 %58
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.cJSON, ptr %16, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8, !tbaa !20
+  %19 = call i32 @strcmp(ptr noundef %18, ptr noundef @.str.7) #9
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %15
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %58
+
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %6, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.cJSON, ptr %23, i32 0, i32 4
+  %25 = load ptr, ptr %24, align 8, !tbaa !20
+  %26 = call i32 @strcmp(ptr noundef %25, ptr noundef @.str.8) #9
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %22
+  store i32 2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %58
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.cJSON, ptr %30, i32 0, i32 4
+  %32 = load ptr, ptr %31, align 8, !tbaa !20
+  %33 = call i32 @strcmp(ptr noundef %32, ptr noundef @.str.9) #9
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %29
+  store i32 3, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %58
+
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %6, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.cJSON, ptr %37, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8, !tbaa !20
+  %40 = call i32 @strcmp(ptr noundef %39, ptr noundef @.str.10) #9
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %36
+  store i32 4, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %58
+
+43:                                               ; preds = %36
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.cJSON, ptr %44, i32 0, i32 4
+  %46 = load ptr, ptr %45, align 8, !tbaa !20
+  %47 = call i32 @strcmp(ptr noundef %46, ptr noundef @.str.11) #9
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %50
+
+49:                                               ; preds = %43
+  store i32 5, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %58
+
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %6, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.cJSON, ptr %51, i32 0, i32 4
+  %53 = load ptr, ptr %52, align 8, !tbaa !20
+  %54 = call i32 @strcmp(ptr noundef %53, ptr noundef @.str.12) #9
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %57
+
+56:                                               ; preds = %50
+  store i32 6, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %58
+
+57:                                               ; preds = %50
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %58
+
+58:                                               ; preds = %57, %56, %49, %42, %35, %28, %21, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %59 = load i32, ptr %3, align 4
+  ret i32 %59
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2770,276 +3058,309 @@ define internal i32 @compare_json(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %25, label %12
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !19
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %26, label %13
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %6, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %25, label %15
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %26, label %16
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.cJSON, ptr %16, i32 0, i32 3
-  %18 = load i32, ptr %17, align 8
-  %19 = and i32 %18, 255
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.cJSON, ptr %20, i32 0, i32 3
-  %22 = load i32, ptr %21, align 8
-  %23 = and i32 %22, 255
-  %24 = icmp ne i32 %19, %23
-  br i1 %24, label %25, label %26
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.cJSON, ptr %17, i32 0, i32 3
+  %19 = load i32, ptr %18, align 8, !tbaa !21
+  %20 = and i32 %19, 255
+  %21 = load ptr, ptr %6, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.cJSON, ptr %21, i32 0, i32 3
+  %23 = load i32, ptr %22, align 8, !tbaa !21
+  %24 = and i32 %23, 255
+  %25 = icmp ne i32 %20, %24
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %15, %12, %3
+26:                                               ; preds = %16, %13, %3
   store i32 0, ptr %4, align 4
-  br label %156
+  br label %163
 
-26:                                               ; preds = %15
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.cJSON, ptr %27, i32 0, i32 3
-  %29 = load i32, ptr %28, align 8
-  %30 = and i32 %29, 255
-  switch i32 %30, label %154 [
-    i32 8, label %31
-    i32 16, label %50
-    i32 32, label %61
-    i32 64, label %100
+27:                                               ; preds = %16
+  %28 = load ptr, ptr %5, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.cJSON, ptr %28, i32 0, i32 3
+  %30 = load i32, ptr %29, align 8, !tbaa !21
+  %31 = and i32 %30, 255
+  switch i32 %31, label %161 [
+    i32 8, label %32
+    i32 16, label %51
+    i32 32, label %62
+    i32 64, label %104
   ]
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.cJSON, ptr %32, i32 0, i32 5
-  %34 = load i32, ptr %33, align 8
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct.cJSON, ptr %35, i32 0, i32 5
-  %37 = load i32, ptr %36, align 8
-  %38 = icmp ne i32 %34, %37
-  br i1 %38, label %48, label %39
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.cJSON, ptr %33, i32 0, i32 5
+  %35 = load i32, ptr %34, align 8, !tbaa !22
+  %36 = load ptr, ptr %6, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.cJSON, ptr %36, i32 0, i32 5
+  %38 = load i32, ptr %37, align 8, !tbaa !22
+  %39 = icmp ne i32 %35, %38
+  br i1 %39, label %49, label %40
 
-39:                                               ; preds = %31
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.cJSON, ptr %40, i32 0, i32 6
-  %42 = load double, ptr %41, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct.cJSON, ptr %43, i32 0, i32 6
-  %45 = load double, ptr %44, align 8
-  %46 = call i32 @compare_double(double noundef %42, double noundef %45)
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %49, label %48
+40:                                               ; preds = %32
+  %41 = load ptr, ptr %5, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.cJSON, ptr %41, i32 0, i32 6
+  %43 = load double, ptr %42, align 8, !tbaa !23
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.cJSON, ptr %44, i32 0, i32 6
+  %46 = load double, ptr %45, align 8, !tbaa !23
+  %47 = call i32 @compare_double(double noundef %43, double noundef %46)
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %50, label %49
 
-48:                                               ; preds = %39, %31
+49:                                               ; preds = %40, %32
   store i32 0, ptr %4, align 4
-  br label %156
+  br label %163
 
-49:                                               ; preds = %39
+50:                                               ; preds = %40
   store i32 1, ptr %4, align 4
-  br label %156
+  br label %163
 
-50:                                               ; preds = %26
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.cJSON, ptr %51, i32 0, i32 4
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds %struct.cJSON, ptr %54, i32 0, i32 4
-  %56 = load ptr, ptr %55, align 8
-  %57 = call i32 @strcmp(ptr noundef %53, ptr noundef %56) #6
-  %58 = icmp ne i32 %57, 0
-  br i1 %58, label %59, label %60
+51:                                               ; preds = %27
+  %52 = load ptr, ptr %5, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.cJSON, ptr %52, i32 0, i32 4
+  %54 = load ptr, ptr %53, align 8, !tbaa !20
+  %55 = load ptr, ptr %6, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.cJSON, ptr %55, i32 0, i32 4
+  %57 = load ptr, ptr %56, align 8, !tbaa !20
+  %58 = call i32 @strcmp(ptr noundef %54, ptr noundef %57) #9
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %61
 
-59:                                               ; preds = %50
+60:                                               ; preds = %51
   store i32 0, ptr %4, align 4
-  br label %156
+  br label %163
 
-60:                                               ; preds = %50
+61:                                               ; preds = %51
   store i32 1, ptr %4, align 4
-  br label %156
+  br label %163
 
-61:                                               ; preds = %26
-  %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds %struct.cJSON, ptr %62, i32 0, i32 2
-  %64 = load ptr, ptr %63, align 8
-  store ptr %64, ptr %5, align 8
-  %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds %struct.cJSON, ptr %65, i32 0, i32 2
-  %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr %6, align 8
-  br label %68
+62:                                               ; preds = %27
+  %63 = load ptr, ptr %5, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.cJSON, ptr %63, i32 0, i32 2
+  %65 = load ptr, ptr %64, align 8, !tbaa !10
+  store ptr %65, ptr %5, align 8, !tbaa !3
+  %66 = load ptr, ptr %6, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.cJSON, ptr %66, i32 0, i32 2
+  %68 = load ptr, ptr %67, align 8, !tbaa !10
+  store ptr %68, ptr %6, align 8, !tbaa !3
+  br label %69
 
-68:                                               ; preds = %85, %61
-  %69 = load ptr, ptr %5, align 8
-  %70 = icmp ne ptr %69, null
-  br i1 %70, label %71, label %74
+69:                                               ; preds = %89, %62
+  %70 = load ptr, ptr %5, align 8, !tbaa !3
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %72, label %75
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr %6, align 8
-  %73 = icmp ne ptr %72, null
-  br label %74
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %6, align 8, !tbaa !3
+  %74 = icmp ne ptr %73, null
+  br label %75
 
-74:                                               ; preds = %71, %68
-  %75 = phi i1 [ false, %68 ], [ %73, %71 ]
-  br i1 %75, label %76, label %92
+75:                                               ; preds = %72, %69
+  %76 = phi i1 [ false, %69 ], [ %74, %72 ]
+  br i1 %76, label %77, label %96
 
-76:                                               ; preds = %74
-  %77 = load ptr, ptr %5, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = load i32, ptr %7, align 4
-  %80 = call i32 @compare_json(ptr noundef %77, ptr noundef %78, i32 noundef %79)
-  store i32 %80, ptr %8, align 4
-  %81 = load i32, ptr %8, align 4
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %84, label %83
+77:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %78 = load ptr, ptr %5, align 8, !tbaa !3
+  %79 = load ptr, ptr %6, align 8, !tbaa !3
+  %80 = load i32, ptr %7, align 4, !tbaa !19
+  %81 = call i32 @compare_json(ptr noundef %78, ptr noundef %79, i32 noundef %80)
+  store i32 %81, ptr %8, align 4, !tbaa !19
+  %82 = load i32, ptr %8, align 4, !tbaa !19
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %85, label %84
 
-83:                                               ; preds = %76
+84:                                               ; preds = %77
   store i32 0, ptr %4, align 4
-  br label %156
+  store i32 1, ptr %9, align 4
+  br label %86
 
-84:                                               ; preds = %76
-  br label %85
-
-85:                                               ; preds = %84
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.cJSON, ptr %86, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  store ptr %88, ptr %5, align 8
-  %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds %struct.cJSON, ptr %89, i32 0, i32 0
-  %91 = load ptr, ptr %90, align 8
-  store ptr %91, ptr %6, align 8
-  br label %68
-
-92:                                               ; preds = %74
-  %93 = load ptr, ptr %5, align 8
-  %94 = icmp ne ptr %93, null
-  br i1 %94, label %98, label %95
-
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %6, align 8
-  %97 = icmp ne ptr %96, null
-  br i1 %97, label %98, label %99
-
-98:                                               ; preds = %95, %92
-  store i32 0, ptr %4, align 4
-  br label %156
-
-99:                                               ; preds = %95
-  store i32 1, ptr %4, align 4
-  br label %156
-
-100:                                              ; preds = %26
-  %101 = load ptr, ptr %5, align 8
-  %102 = load i32, ptr %7, align 4
-  call void @sort_object(ptr noundef %101, i32 noundef %102)
-  %103 = load ptr, ptr %6, align 8
-  %104 = load i32, ptr %7, align 4
-  call void @sort_object(ptr noundef %103, i32 noundef %104)
-  %105 = load ptr, ptr %5, align 8
-  %106 = getelementptr inbounds %struct.cJSON, ptr %105, i32 0, i32 2
-  %107 = load ptr, ptr %106, align 8
-  store ptr %107, ptr %5, align 8
-  %108 = load ptr, ptr %6, align 8
-  %109 = getelementptr inbounds %struct.cJSON, ptr %108, i32 0, i32 2
-  %110 = load ptr, ptr %109, align 8
-  store ptr %110, ptr %6, align 8
-  br label %111
-
-111:                                              ; preds = %139, %100
-  %112 = load ptr, ptr %5, align 8
-  %113 = icmp ne ptr %112, null
-  br i1 %113, label %114, label %117
-
-114:                                              ; preds = %111
-  %115 = load ptr, ptr %6, align 8
-  %116 = icmp ne ptr %115, null
-  br label %117
-
-117:                                              ; preds = %114, %111
-  %118 = phi i1 [ false, %111 ], [ %116, %114 ]
-  br i1 %118, label %119, label %146
-
-119:                                              ; preds = %117
+85:                                               ; preds = %77
   store i32 0, ptr %9, align 4
-  %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds %struct.cJSON, ptr %120, i32 0, i32 7
-  %122 = load ptr, ptr %121, align 8
-  %123 = load ptr, ptr %6, align 8
-  %124 = getelementptr inbounds %struct.cJSON, ptr %123, i32 0, i32 7
-  %125 = load ptr, ptr %124, align 8
-  %126 = load i32, ptr %7, align 4
-  %127 = call i32 @compare_strings(ptr noundef %122, ptr noundef %125, i32 noundef %126)
-  %128 = icmp ne i32 %127, 0
-  br i1 %128, label %129, label %130
+  br label %86
 
-129:                                              ; preds = %119
+86:                                               ; preds = %85, %84
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %87 = load i32, ptr %9, align 4
+  switch i32 %87, label %165 [
+    i32 0, label %88
+    i32 1, label %163
+  ]
+
+88:                                               ; preds = %86
+  br label %89
+
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %5, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw %struct.cJSON, ptr %90, i32 0, i32 0
+  %92 = load ptr, ptr %91, align 8, !tbaa !18
+  store ptr %92, ptr %5, align 8, !tbaa !3
+  %93 = load ptr, ptr %6, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.cJSON, ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8, !tbaa !18
+  store ptr %95, ptr %6, align 8, !tbaa !3
+  br label %69
+
+96:                                               ; preds = %75
+  %97 = load ptr, ptr %5, align 8, !tbaa !3
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %102, label %99
+
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %6, align 8, !tbaa !3
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %102, label %103
+
+102:                                              ; preds = %99, %96
   store i32 0, ptr %4, align 4
-  br label %156
+  br label %163
 
-130:                                              ; preds = %119
-  %131 = load ptr, ptr %5, align 8
-  %132 = load ptr, ptr %6, align 8
-  %133 = load i32, ptr %7, align 4
-  %134 = call i32 @compare_json(ptr noundef %131, ptr noundef %132, i32 noundef %133)
-  store i32 %134, ptr %9, align 4
-  %135 = load i32, ptr %9, align 4
-  %136 = icmp ne i32 %135, 0
-  br i1 %136, label %138, label %137
-
-137:                                              ; preds = %130
-  store i32 0, ptr %4, align 4
-  br label %156
-
-138:                                              ; preds = %130
-  br label %139
-
-139:                                              ; preds = %138
-  %140 = load ptr, ptr %5, align 8
-  %141 = getelementptr inbounds %struct.cJSON, ptr %140, i32 0, i32 0
-  %142 = load ptr, ptr %141, align 8
-  store ptr %142, ptr %5, align 8
-  %143 = load ptr, ptr %6, align 8
-  %144 = getelementptr inbounds %struct.cJSON, ptr %143, i32 0, i32 0
-  %145 = load ptr, ptr %144, align 8
-  store ptr %145, ptr %6, align 8
-  br label %111
-
-146:                                              ; preds = %117
-  %147 = load ptr, ptr %5, align 8
-  %148 = icmp ne ptr %147, null
-  br i1 %148, label %152, label %149
-
-149:                                              ; preds = %146
-  %150 = load ptr, ptr %6, align 8
-  %151 = icmp ne ptr %150, null
-  br i1 %151, label %152, label %153
-
-152:                                              ; preds = %149, %146
-  store i32 0, ptr %4, align 4
-  br label %156
-
-153:                                              ; preds = %149
+103:                                              ; preds = %99
   store i32 1, ptr %4, align 4
-  br label %156
+  br label %163
 
-154:                                              ; preds = %26
-  br label %155
+104:                                              ; preds = %27
+  %105 = load ptr, ptr %5, align 8, !tbaa !3
+  %106 = load i32, ptr %7, align 4, !tbaa !19
+  call void @sort_object(ptr noundef %105, i32 noundef %106)
+  %107 = load ptr, ptr %6, align 8, !tbaa !3
+  %108 = load i32, ptr %7, align 4, !tbaa !19
+  call void @sort_object(ptr noundef %107, i32 noundef %108)
+  %109 = load ptr, ptr %5, align 8, !tbaa !3
+  %110 = getelementptr inbounds nuw %struct.cJSON, ptr %109, i32 0, i32 2
+  %111 = load ptr, ptr %110, align 8, !tbaa !10
+  store ptr %111, ptr %5, align 8, !tbaa !3
+  %112 = load ptr, ptr %6, align 8, !tbaa !3
+  %113 = getelementptr inbounds nuw %struct.cJSON, ptr %112, i32 0, i32 2
+  %114 = load ptr, ptr %113, align 8, !tbaa !10
+  store ptr %114, ptr %6, align 8, !tbaa !3
+  br label %115
 
-155:                                              ; preds = %154
+115:                                              ; preds = %146, %104
+  %116 = load ptr, ptr %5, align 8, !tbaa !3
+  %117 = icmp ne ptr %116, null
+  br i1 %117, label %118, label %121
+
+118:                                              ; preds = %115
+  %119 = load ptr, ptr %6, align 8, !tbaa !3
+  %120 = icmp ne ptr %119, null
+  br label %121
+
+121:                                              ; preds = %118, %115
+  %122 = phi i1 [ false, %115 ], [ %120, %118 ]
+  br i1 %122, label %123, label %153
+
+123:                                              ; preds = %121
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  store i32 0, ptr %10, align 4, !tbaa !19
+  %124 = load ptr, ptr %5, align 8, !tbaa !3
+  %125 = getelementptr inbounds nuw %struct.cJSON, ptr %124, i32 0, i32 7
+  %126 = load ptr, ptr %125, align 8, !tbaa !16
+  %127 = load ptr, ptr %6, align 8, !tbaa !3
+  %128 = getelementptr inbounds nuw %struct.cJSON, ptr %127, i32 0, i32 7
+  %129 = load ptr, ptr %128, align 8, !tbaa !16
+  %130 = load i32, ptr %7, align 4, !tbaa !19
+  %131 = call i32 @compare_strings(ptr noundef %126, ptr noundef %129, i32 noundef %130)
+  %132 = icmp ne i32 %131, 0
+  br i1 %132, label %133, label %134
+
+133:                                              ; preds = %123
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %143
+
+134:                                              ; preds = %123
+  %135 = load ptr, ptr %5, align 8, !tbaa !3
+  %136 = load ptr, ptr %6, align 8, !tbaa !3
+  %137 = load i32, ptr %7, align 4, !tbaa !19
+  %138 = call i32 @compare_json(ptr noundef %135, ptr noundef %136, i32 noundef %137)
+  store i32 %138, ptr %10, align 4, !tbaa !19
+  %139 = load i32, ptr %10, align 4, !tbaa !19
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %142, label %141
+
+141:                                              ; preds = %134
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %143
+
+142:                                              ; preds = %134
+  store i32 0, ptr %9, align 4
+  br label %143
+
+143:                                              ; preds = %142, %141, %133
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %144 = load i32, ptr %9, align 4
+  switch i32 %144, label %165 [
+    i32 0, label %145
+    i32 1, label %163
+  ]
+
+145:                                              ; preds = %143
+  br label %146
+
+146:                                              ; preds = %145
+  %147 = load ptr, ptr %5, align 8, !tbaa !3
+  %148 = getelementptr inbounds nuw %struct.cJSON, ptr %147, i32 0, i32 0
+  %149 = load ptr, ptr %148, align 8, !tbaa !18
+  store ptr %149, ptr %5, align 8, !tbaa !3
+  %150 = load ptr, ptr %6, align 8, !tbaa !3
+  %151 = getelementptr inbounds nuw %struct.cJSON, ptr %150, i32 0, i32 0
+  %152 = load ptr, ptr %151, align 8, !tbaa !18
+  store ptr %152, ptr %6, align 8, !tbaa !3
+  br label %115
+
+153:                                              ; preds = %121
+  %154 = load ptr, ptr %5, align 8, !tbaa !3
+  %155 = icmp ne ptr %154, null
+  br i1 %155, label %159, label %156
+
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %6, align 8, !tbaa !3
+  %158 = icmp ne ptr %157, null
+  br i1 %158, label %159, label %160
+
+159:                                              ; preds = %156, %153
+  store i32 0, ptr %4, align 4
+  br label %163
+
+160:                                              ; preds = %156
   store i32 1, ptr %4, align 4
-  br label %156
+  br label %163
 
-156:                                              ; preds = %155, %153, %152, %137, %129, %99, %98, %83, %60, %59, %49, %48, %25
-  %157 = load i32, ptr %4, align 4
-  ret i32 %157
+161:                                              ; preds = %27
+  br label %162
+
+162:                                              ; preds = %161
+  store i32 1, ptr %4, align 4
+  br label %163
+
+163:                                              ; preds = %162, %160, %159, %143, %103, %102, %86, %61, %60, %50, %49, %26
+  %164 = load i32, ptr %4, align 4
+  ret i32 %164
+
+165:                                              ; preds = %143, %86
+  unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @overwrite_item(ptr noundef %0, ptr noundef byval(%struct.cJSON) align 8 %1) #0 {
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
@@ -3047,49 +3368,49 @@ define internal void @overwrite_item(ptr noundef %0, ptr noundef byval(%struct.c
   br label %36
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.cJSON, ptr %8, i32 0, i32 7
-  %10 = load ptr, ptr %9, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.cJSON, ptr %8, i32 0, i32 7
+  %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = icmp ne ptr %10, null
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.cJSON, ptr %13, i32 0, i32 7
-  %15 = load ptr, ptr %14, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.cJSON, ptr %13, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
   call void @cJSON_free(ptr noundef %15)
   br label %16
 
 16:                                               ; preds = %12, %7
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.cJSON, ptr %17, i32 0, i32 4
-  %19 = load ptr, ptr %18, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.cJSON, ptr %17, i32 0, i32 4
+  %19 = load ptr, ptr %18, align 8, !tbaa !20
   %20 = icmp ne ptr %19, null
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %16
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.cJSON, ptr %22, i32 0, i32 4
-  %24 = load ptr, ptr %23, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.cJSON, ptr %22, i32 0, i32 4
+  %24 = load ptr, ptr %23, align 8, !tbaa !20
   call void @cJSON_free(ptr noundef %24)
   br label %25
 
 25:                                               ; preds = %21, %16
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.cJSON, ptr %26, i32 0, i32 2
-  %28 = load ptr, ptr %27, align 8
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.cJSON, ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8, !tbaa !10
   %29 = icmp ne ptr %28, null
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.cJSON, ptr %31, i32 0, i32 2
-  %33 = load ptr, ptr %32, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.cJSON, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8, !tbaa !10
   call void @cJSON_Delete(ptr noundef %33)
   br label %34
 
 34:                                               ; preds = %30, %25
-  %35 = load ptr, ptr %3, align 8
+  %35 = load ptr, ptr %3, align 8, !tbaa !3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %1, i64 64, i1 false)
   br label %36
 
@@ -3097,221 +3418,267 @@ define internal void @overwrite_item(ptr noundef %0, ptr noundef byval(%struct.c
   ret void
 }
 
-declare ptr @cJSON_Duplicate(ptr noundef, i32 noundef) #1
+declare ptr @cJSON_Duplicate(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @detach_path(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  store ptr null, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  store ptr null, ptr %9, align 8
-  store ptr null, ptr %10, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call ptr @cJSONUtils_strdup(ptr noundef %12)
-  store ptr %13, ptr %7, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %17
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i32 %2, ptr %7, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  store ptr null, ptr %8, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  store ptr null, ptr %9, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  store ptr null, ptr %10, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  store ptr null, ptr %11, align 8, !tbaa !3
+  %14 = load ptr, ptr %6, align 8, !tbaa !15
+  %15 = call ptr @cJSONUtils_strdup(ptr noundef %14)
+  store ptr %15, ptr %8, align 8, !tbaa !15
+  %16 = load ptr, ptr %8, align 8, !tbaa !15
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
-16:                                               ; preds = %3
-  br label %56
-
-17:                                               ; preds = %3
-  %18 = load ptr, ptr %7, align 8
-  %19 = call ptr @strrchr(ptr noundef %18, i32 noundef 47) #6
-  store ptr %19, ptr %8, align 8
-  %20 = load ptr, ptr %8, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %17
-  br label %56
-
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 0
-  store i8 0, ptr %25, align 1
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i32 1
-  store ptr %27, ptr %8, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = load i32, ptr %6, align 4
-  %31 = call ptr @get_item_from_pointer(ptr noundef %28, ptr noundef %29, i32 noundef %30)
-  store ptr %31, ptr %9, align 8
-  %32 = load ptr, ptr %8, align 8
-  call void @decode_pointer_inplace(ptr noundef %32)
-  %33 = load ptr, ptr %9, align 8
-  %34 = call i32 @cJSON_IsArray(ptr noundef %33)
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %45
-
-36:                                               ; preds = %23
-  store i64 0, ptr %11, align 8
-  %37 = load ptr, ptr %8, align 8
-  %38 = call i32 @decode_array_index_from_pointer(ptr noundef %37, ptr noundef %11)
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %41, label %40
-
-40:                                               ; preds = %36
-  br label %56
-
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %9, align 8
-  %43 = load i64, ptr %11, align 8
-  %44 = call ptr @detach_item_from_array(ptr noundef %42, i64 noundef %43)
-  store ptr %44, ptr %10, align 8
-  br label %55
-
-45:                                               ; preds = %23
-  %46 = load ptr, ptr %9, align 8
-  %47 = call i32 @cJSON_IsObject(ptr noundef %46)
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %49, label %53
-
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %9, align 8
-  %51 = load ptr, ptr %8, align 8
-  %52 = call ptr @cJSON_DetachItemFromObject(ptr noundef %50, ptr noundef %51)
-  store ptr %52, ptr %10, align 8
-  br label %54
-
-53:                                               ; preds = %45
-  br label %56
-
-54:                                               ; preds = %49
-  br label %55
-
-55:                                               ; preds = %54, %41
-  br label %56
-
-56:                                               ; preds = %55, %53, %40, %22, %16
-  %57 = load ptr, ptr %7, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %61
-
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %7, align 8
-  call void @cJSON_free(ptr noundef %60)
+18:                                               ; preds = %3
   br label %61
 
-61:                                               ; preds = %59, %56
-  %62 = load ptr, ptr %10, align 8
-  ret ptr %62
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %8, align 8, !tbaa !15
+  %21 = call ptr @strrchr(ptr noundef %20, i32 noundef 47) #9
+  store ptr %21, ptr %9, align 8, !tbaa !15
+  %22 = load ptr, ptr %9, align 8, !tbaa !15
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %19
+  br label %61
+
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %9, align 8, !tbaa !15
+  %27 = getelementptr inbounds i8, ptr %26, i64 0
+  store i8 0, ptr %27, align 1, !tbaa !17
+  %28 = load ptr, ptr %9, align 8, !tbaa !15
+  %29 = getelementptr inbounds nuw i8, ptr %28, i32 1
+  store ptr %29, ptr %9, align 8, !tbaa !15
+  %30 = load ptr, ptr %5, align 8, !tbaa !3
+  %31 = load ptr, ptr %8, align 8, !tbaa !15
+  %32 = load i32, ptr %7, align 4, !tbaa !19
+  %33 = call ptr @get_item_from_pointer(ptr noundef %30, ptr noundef %31, i32 noundef %32)
+  store ptr %33, ptr %10, align 8, !tbaa !3
+  %34 = load ptr, ptr %9, align 8, !tbaa !15
+  call void @decode_pointer_inplace(ptr noundef %34)
+  %35 = load ptr, ptr %10, align 8, !tbaa !3
+  %36 = call i32 @cJSON_IsArray(ptr noundef %35)
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %50
+
+38:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  store i64 0, ptr %12, align 8, !tbaa !8
+  %39 = load ptr, ptr %9, align 8, !tbaa !15
+  %40 = call i32 @decode_array_index_from_pointer(ptr noundef %39, ptr noundef %12)
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %43, label %42
+
+42:                                               ; preds = %38
+  store i32 2, ptr %13, align 4
+  br label %47
+
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %10, align 8, !tbaa !3
+  %45 = load i64, ptr %12, align 8, !tbaa !8
+  %46 = call ptr @detach_item_from_array(ptr noundef %44, i64 noundef %45)
+  store ptr %46, ptr %11, align 8, !tbaa !3
+  store i32 0, ptr %13, align 4
+  br label %47
+
+47:                                               ; preds = %42, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  %48 = load i32, ptr %13, align 4
+  switch i32 %48, label %68 [
+    i32 0, label %49
+    i32 2, label %61
+  ]
+
+49:                                               ; preds = %47
+  br label %60
+
+50:                                               ; preds = %25
+  %51 = load ptr, ptr %10, align 8, !tbaa !3
+  %52 = call i32 @cJSON_IsObject(ptr noundef %51)
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %58
+
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %10, align 8, !tbaa !3
+  %56 = load ptr, ptr %9, align 8, !tbaa !15
+  %57 = call ptr @cJSON_DetachItemFromObject(ptr noundef %55, ptr noundef %56)
+  store ptr %57, ptr %11, align 8, !tbaa !3
+  br label %59
+
+58:                                               ; preds = %50
+  br label %61
+
+59:                                               ; preds = %54
+  br label %60
+
+60:                                               ; preds = %59, %49
+  br label %61
+
+61:                                               ; preds = %60, %47, %58, %24, %18
+  %62 = load ptr, ptr %8, align 8, !tbaa !15
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %66
+
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %8, align 8, !tbaa !15
+  call void @cJSON_free(ptr noundef %65)
+  br label %66
+
+66:                                               ; preds = %64, %61
+  %67 = load ptr, ptr %11, align 8, !tbaa !3
+  store ptr %67, ptr %4, align 8
+  store i32 1, ptr %13, align 4
+  br label %68
+
+68:                                               ; preds = %66, %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %69 = load ptr, ptr %4, align 8
+  ret ptr %69
 }
 
-declare void @cJSON_Delete(ptr noundef) #1
+declare void @cJSON_Delete(ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strrchr(ptr noundef, i32 noundef) #2
+declare ptr @strrchr(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @decode_pointer_inplace(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %1
-  br label %51
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %5 = load ptr, ptr %2, align 8, !tbaa !15
+  store ptr %5, ptr %3, align 8, !tbaa !15
+  %6 = load ptr, ptr %2, align 8, !tbaa !15
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
-  br label %9
+  store i32 1, ptr %4, align 4
+  br label %52
 
-9:                                                ; preds = %43, %8
-  %10 = load ptr, ptr %2, align 8
-  %11 = load i8, ptr %10, align 1
-  %12 = icmp ne i8 %11, 0
-  br i1 %12, label %13, label %48
+9:                                                ; preds = %1
+  br label %10
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 0
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  %18 = icmp eq i32 %17, 126
-  br i1 %18, label %19, label %42
+10:                                               ; preds = %44, %9
+  %11 = load ptr, ptr %2, align 8, !tbaa !15
+  %12 = load i8, ptr %11, align 1, !tbaa !17
+  %13 = icmp ne i8 %12, 0
+  br i1 %13, label %14, label %49
 
-19:                                               ; preds = %13
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = icmp eq i32 %23, 48
-  br i1 %24, label %25, label %28
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %2, align 8, !tbaa !15
+  %16 = getelementptr inbounds i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !17
+  %18 = zext i8 %17 to i32
+  %19 = icmp eq i32 %18, 126
+  br i1 %19, label %20, label %43
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 0
-  store i8 126, ptr %27, align 1
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %2, align 8, !tbaa !15
+  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %23 = load i8, ptr %22, align 1, !tbaa !17
+  %24 = zext i8 %23 to i32
+  %25 = icmp eq i32 %24, 48
+  br i1 %25, label %26, label %29
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %3, align 8, !tbaa !15
+  %28 = getelementptr inbounds i8, ptr %27, i64 0
+  store i8 126, ptr %28, align 1, !tbaa !17
+  br label %40
+
+29:                                               ; preds = %20
+  %30 = load ptr, ptr %2, align 8, !tbaa !15
+  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %32 = load i8, ptr %31, align 1, !tbaa !17
+  %33 = zext i8 %32 to i32
+  %34 = icmp eq i32 %33, 49
+  br i1 %34, label %35, label %38
+
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %3, align 8, !tbaa !15
+  %37 = getelementptr inbounds i8, ptr %36, i64 1
+  store i8 47, ptr %37, align 1, !tbaa !17
   br label %39
 
-28:                                               ; preds = %19
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = icmp eq i32 %32, 49
-  br i1 %33, label %34, label %37
+38:                                               ; preds = %29
+  store i32 1, ptr %4, align 4
+  br label %52
 
-34:                                               ; preds = %28
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
-  store i8 47, ptr %36, align 1
-  br label %38
+39:                                               ; preds = %35
+  br label %40
 
-37:                                               ; preds = %28
-  br label %51
-
-38:                                               ; preds = %34
-  br label %39
-
-39:                                               ; preds = %38, %25
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i32 1
-  store ptr %41, ptr %2, align 8
-  br label %42
-
-42:                                               ; preds = %39, %13
+40:                                               ; preds = %39, %26
+  %41 = load ptr, ptr %2, align 8, !tbaa !15
+  %42 = getelementptr inbounds nuw i8, ptr %41, i32 1
+  store ptr %42, ptr %2, align 8, !tbaa !15
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i32 1
-  store ptr %45, ptr %3, align 8
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i32 1
-  store ptr %47, ptr %2, align 8
-  br label %9
+43:                                               ; preds = %40, %14
+  br label %44
 
-48:                                               ; preds = %9
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 0
-  store i8 0, ptr %50, align 1
-  br label %51
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %3, align 8, !tbaa !15
+  %46 = getelementptr inbounds nuw i8, ptr %45, i32 1
+  store ptr %46, ptr %3, align 8, !tbaa !15
+  %47 = load ptr, ptr %2, align 8, !tbaa !15
+  %48 = getelementptr inbounds nuw i8, ptr %47, i32 1
+  store ptr %48, ptr %2, align 8, !tbaa !15
+  br label %10
 
-51:                                               ; preds = %48, %37, %7
+49:                                               ; preds = %10
+  %50 = load ptr, ptr %3, align 8, !tbaa !15
+  %51 = getelementptr inbounds i8, ptr %50, i64 0
+  store i8 0, ptr %51, align 1, !tbaa !17
+  store i32 0, ptr %4, align 4
+  br label %52
+
+52:                                               ; preds = %49, %38, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  %53 = load i32, ptr %4, align 4
+  switch i32 %53, label %55 [
+    i32 0, label %54
+    i32 1, label %54
+  ]
+
+54:                                               ; preds = %52, %52
   ret void
+
+55:                                               ; preds = %52
+  unreachable
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
-declare i32 @cJSON_AddItemToArray(ptr noundef, ptr noundef) #1
+declare i32 @cJSON_AddItemToArray(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @insert_item_in_array(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
@@ -3320,152 +3687,160 @@ define internal i32 @insert_item_in_array(ptr noundef %0, i64 noundef %1, ptr no
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.cJSON, ptr %9, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %8, align 8
-  br label %12
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.cJSON, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !10
+  store ptr %12, ptr %8, align 8, !tbaa !3
+  br label %13
 
-12:                                               ; preds = %20, %3
-  %13 = load ptr, ptr %8, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %18
+13:                                               ; preds = %21, %3
+  %14 = load ptr, ptr %8, align 8, !tbaa !3
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %19
 
-15:                                               ; preds = %12
-  %16 = load i64, ptr %6, align 8
-  %17 = icmp ugt i64 %16, 0
-  br label %18
+16:                                               ; preds = %13
+  %17 = load i64, ptr %6, align 8, !tbaa !8
+  %18 = icmp ugt i64 %17, 0
+  br label %19
 
-18:                                               ; preds = %15, %12
-  %19 = phi i1 [ false, %12 ], [ %17, %15 ]
-  br i1 %19, label %20, label %26
+19:                                               ; preds = %16, %13
+  %20 = phi i1 [ false, %13 ], [ %18, %16 ]
+  br i1 %20, label %21, label %27
 
-20:                                               ; preds = %18
-  %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %struct.cJSON, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %8, align 8
-  %24 = load i64, ptr %6, align 8
-  %25 = add i64 %24, -1
-  store i64 %25, ptr %6, align 8
-  br label %12
+21:                                               ; preds = %19
+  %22 = load ptr, ptr %8, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.cJSON, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !18
+  store ptr %24, ptr %8, align 8, !tbaa !3
+  %25 = load i64, ptr %6, align 8, !tbaa !8
+  %26 = add i64 %25, -1
+  store i64 %26, ptr %6, align 8, !tbaa !8
+  br label %13
 
-26:                                               ; preds = %18
-  %27 = load i64, ptr %6, align 8
-  %28 = icmp ugt i64 %27, 0
-  br i1 %28, label %29, label %30
+27:                                               ; preds = %19
+  %28 = load i64, ptr %6, align 8, !tbaa !8
+  %29 = icmp ugt i64 %28, 0
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %26
+30:                                               ; preds = %27
   store i32 0, ptr %4, align 4
-  br label %65
+  store i32 1, ptr %9, align 4
+  br label %66
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %8, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %37
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %8, align 8, !tbaa !3
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %38
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %5, align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = call i32 @cJSON_AddItemToArray(ptr noundef %34, ptr noundef %35)
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %5, align 8, !tbaa !3
+  %36 = load ptr, ptr %7, align 8, !tbaa !3
+  %37 = call i32 @cJSON_AddItemToArray(ptr noundef %35, ptr noundef %36)
   store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %66
+
+38:                                               ; preds = %31
+  %39 = load ptr, ptr %8, align 8, !tbaa !3
+  %40 = load ptr, ptr %7, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.cJSON, ptr %40, i32 0, i32 0
+  store ptr %39, ptr %41, align 8, !tbaa !18
+  %42 = load ptr, ptr %8, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.cJSON, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !28
+  %45 = load ptr, ptr %7, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.cJSON, ptr %45, i32 0, i32 1
+  store ptr %44, ptr %46, align 8, !tbaa !28
+  %47 = load ptr, ptr %7, align 8, !tbaa !3
+  %48 = load ptr, ptr %8, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.cJSON, ptr %48, i32 0, i32 1
+  store ptr %47, ptr %49, align 8, !tbaa !28
+  %50 = load ptr, ptr %8, align 8, !tbaa !3
+  %51 = load ptr, ptr %5, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.cJSON, ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 8, !tbaa !10
+  %54 = icmp eq ptr %50, %53
+  br i1 %54, label %55, label %59
+
+55:                                               ; preds = %38
+  %56 = load ptr, ptr %7, align 8, !tbaa !3
+  %57 = load ptr, ptr %5, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.cJSON, ptr %57, i32 0, i32 2
+  store ptr %56, ptr %58, align 8, !tbaa !10
   br label %65
 
-37:                                               ; preds = %30
-  %38 = load ptr, ptr %8, align 8
-  %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct.cJSON, ptr %39, i32 0, i32 0
-  store ptr %38, ptr %40, align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.cJSON, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct.cJSON, ptr %44, i32 0, i32 1
-  store ptr %43, ptr %45, align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct.cJSON, ptr %47, i32 0, i32 1
-  store ptr %46, ptr %48, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.cJSON, ptr %50, i32 0, i32 2
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %49, %52
-  br i1 %53, label %54, label %58
+59:                                               ; preds = %38
+  %60 = load ptr, ptr %7, align 8, !tbaa !3
+  %61 = load ptr, ptr %7, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.cJSON, ptr %61, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8, !tbaa !28
+  %64 = getelementptr inbounds nuw %struct.cJSON, ptr %63, i32 0, i32 0
+  store ptr %60, ptr %64, align 8, !tbaa !18
+  br label %65
 
-54:                                               ; preds = %37
-  %55 = load ptr, ptr %7, align 8
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %struct.cJSON, ptr %56, i32 0, i32 2
-  store ptr %55, ptr %57, align 8
-  br label %64
-
-58:                                               ; preds = %37
-  %59 = load ptr, ptr %7, align 8
-  %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds %struct.cJSON, ptr %60, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct.cJSON, ptr %62, i32 0, i32 0
-  store ptr %59, ptr %63, align 8
-  br label %64
-
-64:                                               ; preds = %58, %54
+65:                                               ; preds = %59, %55
   store i32 1, ptr %4, align 4
-  br label %65
+  store i32 1, ptr %9, align 4
+  br label %66
 
-65:                                               ; preds = %64, %33, %29
-  %66 = load i32, ptr %4, align 4
-  ret i32 %66
+66:                                               ; preds = %65, %34, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %67 = load i32, ptr %4, align 4
+  ret i32 %67
 }
 
-declare void @cJSON_DeleteItemFromObjectCaseSensitive(ptr noundef, ptr noundef) #1
+declare void @cJSON_DeleteItemFromObjectCaseSensitive(ptr noundef, ptr noundef) #2
 
-declare void @cJSON_DeleteItemFromObject(ptr noundef, ptr noundef) #1
+declare void @cJSON_DeleteItemFromObject(ptr noundef, ptr noundef) #2
 
-declare i32 @cJSON_AddItemToObject(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @cJSON_AddItemToObject(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @cJSON_GetObjectItemCaseSensitive(ptr noundef, ptr noundef) #1
+declare ptr @cJSON_GetObjectItemCaseSensitive(ptr noundef, ptr noundef) #2
 
-declare ptr @cJSON_GetObjectItem(ptr noundef, ptr noundef) #1
+declare ptr @cJSON_GetObjectItem(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @compare_double(double noundef %0, double noundef %1) #0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
-  store double %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
-  %6 = load double, ptr %3, align 8
+  store double %0, ptr %3, align 8, !tbaa !29
+  store double %1, ptr %4, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load double, ptr %3, align 8, !tbaa !29
   %7 = call double @llvm.fabs.f64(double %6)
-  %8 = load double, ptr %4, align 8
+  %8 = load double, ptr %4, align 8, !tbaa !29
   %9 = call double @llvm.fabs.f64(double %8)
   %10 = fcmp ogt double %7, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load double, ptr %3, align 8
+  %12 = load double, ptr %3, align 8, !tbaa !29
   %13 = call double @llvm.fabs.f64(double %12)
   br label %17
 
 14:                                               ; preds = %2
-  %15 = load double, ptr %4, align 8
+  %15 = load double, ptr %4, align 8, !tbaa !29
   %16 = call double @llvm.fabs.f64(double %15)
   br label %17
 
 17:                                               ; preds = %14, %11
   %18 = phi double [ %13, %11 ], [ %16, %14 ]
-  store double %18, ptr %5, align 8
-  %19 = load double, ptr %3, align 8
-  %20 = load double, ptr %4, align 8
+  store double %18, ptr %5, align 8, !tbaa !29
+  %19 = load double, ptr %3, align 8, !tbaa !29
+  %20 = load double, ptr %4, align 8, !tbaa !29
   %21 = fsub double %19, %20
   %22 = call double @llvm.fabs.f64(double %21)
-  %23 = load double, ptr %5, align 8
+  %23 = load double, ptr %5, align 8, !tbaa !29
   %24 = fmul double %23, 0x3CB0000000000000
   %25 = fcmp ole double %22, %24
   %26 = zext i1 %25 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret i32 %26
 }
 
@@ -3475,102 +3850,150 @@ define internal i32 @compare_strings(ptr noundef %0, ptr noundef %1, i32 noundef
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %13, label %10
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !15
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i32 %2, ptr %7, align 4, !tbaa !19
+  %16 = load ptr, ptr %5, align 8, !tbaa !15
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %21, label %18
 
-10:                                               ; preds = %3
-  %11 = load ptr, ptr %6, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %6, align 8, !tbaa !15
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
 
-13:                                               ; preds = %10, %3
+21:                                               ; preds = %18, %3
   store i32 1, ptr %4, align 4
-  br label %59
+  br label %91
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %5, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = icmp eq ptr %15, %16
-  br i1 %17, label %18, label %19
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %5, align 8, !tbaa !15
+  %24 = load ptr, ptr %6, align 8, !tbaa !15
+  %25 = icmp eq ptr %23, %24
+  br i1 %25, label %26, label %27
 
-18:                                               ; preds = %14
+26:                                               ; preds = %22
   store i32 0, ptr %4, align 4
-  br label %59
+  br label %91
 
-19:                                               ; preds = %14
-  %20 = load i32, ptr %7, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %26
+27:                                               ; preds = %22
+  %28 = load i32, ptr %7, align 4, !tbaa !19
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %34
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = call i32 @strcmp(ptr noundef %23, ptr noundef %24) #6
-  store i32 %25, ptr %4, align 4
-  br label %59
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %5, align 8, !tbaa !15
+  %32 = load ptr, ptr %6, align 8, !tbaa !15
+  %33 = call i32 @strcmp(ptr noundef %31, ptr noundef %32) #9
+  store i32 %33, ptr %4, align 4
+  br label %91
 
-26:                                               ; preds = %19
-  br label %27
+34:                                               ; preds = %27
+  br label %35
 
-27:                                               ; preds = %44, %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %31 = call i32 @tolower(i32 noundef %30) #6
-  %32 = load ptr, ptr %6, align 8
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = call i32 @tolower(i32 noundef %34) #6
-  %36 = icmp eq i32 %31, %35
-  br i1 %36, label %37, label %49
-
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %5, align 8
-  %39 = load i8, ptr %38, align 1
+35:                                               ; preds = %64, %34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %36 = call ptr @__ctype_tolower_loc() #10
+  %37 = load ptr, ptr %36, align 8, !tbaa !26
+  %38 = load ptr, ptr %5, align 8, !tbaa !15
+  %39 = load i8, ptr %38, align 1, !tbaa !17
   %40 = zext i8 %39 to i32
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %43
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i32, ptr %37, i64 %41
+  %43 = load i32, ptr %42, align 4, !tbaa !19
+  store i32 %43, ptr %8, align 4, !tbaa !19
+  %44 = load i32, ptr %8, align 4, !tbaa !19
+  store i32 %44, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %45 = load i32, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %46 = call ptr @__ctype_tolower_loc() #10
+  %47 = load ptr, ptr %46, align 8, !tbaa !26
+  %48 = load ptr, ptr %6, align 8, !tbaa !15
+  %49 = load i8, ptr %48, align 1, !tbaa !17
+  %50 = zext i8 %49 to i32
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i32, ptr %47, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !19
+  store i32 %53, ptr %10, align 4, !tbaa !19
+  %54 = load i32, ptr %10, align 4, !tbaa !19
+  store i32 %54, ptr %11, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %55 = load i32, ptr %11, align 4, !tbaa !19
+  %56 = icmp eq i32 %45, %55
+  br i1 %56, label %57, label %69
 
-42:                                               ; preds = %37
+57:                                               ; preds = %35
+  %58 = load ptr, ptr %5, align 8, !tbaa !15
+  %59 = load i8, ptr %58, align 1, !tbaa !17
+  %60 = zext i8 %59 to i32
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %57
   store i32 0, ptr %4, align 4
-  br label %59
+  br label %91
 
-43:                                               ; preds = %37
-  br label %44
+63:                                               ; preds = %57
+  br label %64
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i32 1
-  store ptr %46, ptr %5, align 8
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i32 1
-  store ptr %48, ptr %6, align 8
-  br label %27
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %5, align 8, !tbaa !15
+  %66 = getelementptr inbounds nuw i8, ptr %65, i32 1
+  store ptr %66, ptr %5, align 8, !tbaa !15
+  %67 = load ptr, ptr %6, align 8, !tbaa !15
+  %68 = getelementptr inbounds nuw i8, ptr %67, i32 1
+  store ptr %68, ptr %6, align 8, !tbaa !15
+  br label %35
 
-49:                                               ; preds = %27
-  %50 = load ptr, ptr %5, align 8
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = call i32 @tolower(i32 noundef %52) #6
-  %54 = load ptr, ptr %6, align 8
-  %55 = load i8, ptr %54, align 1
-  %56 = zext i8 %55 to i32
-  %57 = call i32 @tolower(i32 noundef %56) #6
-  %58 = sub nsw i32 %53, %57
-  store i32 %58, ptr %4, align 4
-  br label %59
+69:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %70 = call ptr @__ctype_tolower_loc() #10
+  %71 = load ptr, ptr %70, align 8, !tbaa !26
+  %72 = load ptr, ptr %5, align 8, !tbaa !15
+  %73 = load i8, ptr %72, align 1, !tbaa !17
+  %74 = zext i8 %73 to i32
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds i32, ptr %71, i64 %75
+  %77 = load i32, ptr %76, align 4, !tbaa !19
+  store i32 %77, ptr %12, align 4, !tbaa !19
+  %78 = load i32, ptr %12, align 4, !tbaa !19
+  store i32 %78, ptr %13, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  %79 = load i32, ptr %13, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %80 = call ptr @__ctype_tolower_loc() #10
+  %81 = load ptr, ptr %80, align 8, !tbaa !26
+  %82 = load ptr, ptr %6, align 8, !tbaa !15
+  %83 = load i8, ptr %82, align 1, !tbaa !17
+  %84 = zext i8 %83 to i32
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i32, ptr %81, i64 %85
+  %87 = load i32, ptr %86, align 4, !tbaa !19
+  store i32 %87, ptr %14, align 4, !tbaa !19
+  %88 = load i32, ptr %14, align 4, !tbaa !19
+  store i32 %88, ptr %15, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  %89 = load i32, ptr %15, align 4, !tbaa !19
+  %90 = sub nsw i32 %79, %89
+  store i32 %90, ptr %4, align 4
+  br label %91
 
-59:                                               ; preds = %49, %42, %22, %18, %13
-  %60 = load i32, ptr %4, align 4
-  ret i32 %60
+91:                                               ; preds = %69, %62, %30, %26, %21
+  %92 = load i32, ptr %4, align 4
+  ret i32 %92
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #5
+declare double @llvm.fabs.f64(double) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @detach_item_from_array(ptr noundef %0, i64 noundef %1) #0 {
@@ -3578,143 +4001,148 @@ define internal ptr @detach_item_from_array(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.cJSON, ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  br label %10
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.cJSON, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !10
+  store ptr %10, ptr %6, align 8, !tbaa !3
+  br label %11
 
-10:                                               ; preds = %18, %2
-  %11 = load ptr, ptr %6, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %16
+11:                                               ; preds = %19, %2
+  %12 = load ptr, ptr %6, align 8, !tbaa !3
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %10
-  %14 = load i64, ptr %5, align 8
-  %15 = icmp ugt i64 %14, 0
-  br label %16
+14:                                               ; preds = %11
+  %15 = load i64, ptr %5, align 8, !tbaa !8
+  %16 = icmp ugt i64 %15, 0
+  br label %17
 
-16:                                               ; preds = %13, %10
-  %17 = phi i1 [ false, %10 ], [ %15, %13 ]
-  br i1 %17, label %18, label %24
+17:                                               ; preds = %14, %11
+  %18 = phi i1 [ false, %11 ], [ %16, %14 ]
+  br i1 %18, label %19, label %25
 
-18:                                               ; preds = %16
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.cJSON, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %6, align 8
-  %22 = load i64, ptr %5, align 8
-  %23 = add i64 %22, -1
-  store i64 %23, ptr %5, align 8
-  br label %10
+19:                                               ; preds = %17
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.cJSON, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !18
+  store ptr %22, ptr %6, align 8, !tbaa !3
+  %23 = load i64, ptr %5, align 8, !tbaa !8
+  %24 = add i64 %23, -1
+  store i64 %24, ptr %5, align 8, !tbaa !8
+  br label %11
 
-24:                                               ; preds = %16
-  %25 = load ptr, ptr %6, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %28, label %27
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %29, label %28
 
-27:                                               ; preds = %24
+28:                                               ; preds = %25
   store ptr null, ptr %3, align 8
-  br label %87
+  store i32 1, ptr %7, align 4
+  br label %88
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %6, align 8
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.cJSON, ptr %30, i32 0, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp ne ptr %29, %32
-  br i1 %33, label %34, label %42
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = load ptr, ptr %4, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.cJSON, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8, !tbaa !10
+  %34 = icmp ne ptr %30, %33
+  br i1 %34, label %35, label %43
 
-34:                                               ; preds = %28
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct.cJSON, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.cJSON, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.cJSON, ptr %40, i32 0, i32 0
-  store ptr %37, ptr %41, align 8
-  br label %42
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %6, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.cJSON, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !18
+  %39 = load ptr, ptr %6, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.cJSON, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !28
+  %42 = getelementptr inbounds nuw %struct.cJSON, ptr %41, i32 0, i32 0
+  store ptr %38, ptr %42, align 8, !tbaa !18
+  br label %43
 
-42:                                               ; preds = %34, %28
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct.cJSON, ptr %43, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %47, label %55
+43:                                               ; preds = %35, %29
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.cJSON, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !18
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %56
 
-47:                                               ; preds = %42
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct.cJSON, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.cJSON, ptr %51, i32 0, i32 0
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.cJSON, ptr %53, i32 0, i32 1
-  store ptr %50, ptr %54, align 8
-  br label %55
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %6, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.cJSON, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8, !tbaa !28
+  %52 = load ptr, ptr %6, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.cJSON, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !18
+  %55 = getelementptr inbounds nuw %struct.cJSON, ptr %54, i32 0, i32 1
+  store ptr %51, ptr %55, align 8, !tbaa !28
+  br label %56
 
-55:                                               ; preds = %47, %42
-  %56 = load ptr, ptr %6, align 8
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.cJSON, ptr %57, i32 0, i32 2
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %56, %59
-  br i1 %60, label %61, label %67
+56:                                               ; preds = %48, %43
+  %57 = load ptr, ptr %6, align 8, !tbaa !3
+  %58 = load ptr, ptr %4, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %struct.cJSON, ptr %58, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8, !tbaa !10
+  %61 = icmp eq ptr %57, %60
+  br i1 %61, label %62, label %68
 
-61:                                               ; preds = %55
-  %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds %struct.cJSON, ptr %62, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.cJSON, ptr %65, i32 0, i32 2
-  store ptr %64, ptr %66, align 8
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %6, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.cJSON, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8, !tbaa !18
+  %66 = load ptr, ptr %4, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.cJSON, ptr %66, i32 0, i32 2
+  store ptr %65, ptr %67, align 8, !tbaa !10
+  br label %82
+
+68:                                               ; preds = %56
+  %69 = load ptr, ptr %6, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.cJSON, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8, !tbaa !18
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %81
+
+73:                                               ; preds = %68
+  %74 = load ptr, ptr %6, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.cJSON, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8, !tbaa !28
+  %77 = load ptr, ptr %4, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.cJSON, ptr %77, i32 0, i32 2
+  %79 = load ptr, ptr %78, align 8, !tbaa !10
+  %80 = getelementptr inbounds nuw %struct.cJSON, ptr %79, i32 0, i32 1
+  store ptr %76, ptr %80, align 8, !tbaa !28
   br label %81
 
-67:                                               ; preds = %55
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.cJSON, ptr %68, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %80
+81:                                               ; preds = %73, %68
+  br label %82
 
-72:                                               ; preds = %67
-  %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds %struct.cJSON, ptr %73, i32 0, i32 1
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct.cJSON, ptr %76, i32 0, i32 2
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.cJSON, ptr %78, i32 0, i32 1
-  store ptr %75, ptr %79, align 8
-  br label %80
+82:                                               ; preds = %81, %62
+  %83 = load ptr, ptr %6, align 8, !tbaa !3
+  %84 = getelementptr inbounds nuw %struct.cJSON, ptr %83, i32 0, i32 0
+  store ptr null, ptr %84, align 8, !tbaa !18
+  %85 = load ptr, ptr %6, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw %struct.cJSON, ptr %85, i32 0, i32 1
+  store ptr null, ptr %86, align 8, !tbaa !28
+  %87 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %87, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %88
 
-80:                                               ; preds = %72, %67
-  br label %81
-
-81:                                               ; preds = %80, %61
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %struct.cJSON, ptr %82, i32 0, i32 0
-  store ptr null, ptr %83, align 8
-  %84 = load ptr, ptr %6, align 8
-  %85 = getelementptr inbounds %struct.cJSON, ptr %84, i32 0, i32 1
-  store ptr null, ptr %85, align 8
-  %86 = load ptr, ptr %6, align 8
-  store ptr %86, ptr %3, align 8
-  br label %87
-
-87:                                               ; preds = %81, %27
-  %88 = load ptr, ptr %3, align 8
-  ret ptr %88
+88:                                               ; preds = %82, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %89 = load ptr, ptr %3, align 8
+  ret ptr %89
 }
 
-declare ptr @cJSON_DetachItemFromObject(ptr noundef, ptr noundef) #1
+declare ptr @cJSON_DetachItemFromObject(ptr noundef, ptr noundef) #2
 
-declare ptr @cJSON_CreateObject() #1
+declare ptr @cJSON_CreateObject() #2
 
-declare ptr @cJSON_CreateString(ptr noundef) #1
+declare ptr @cJSON_CreateString(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @sort_list(ptr noundef %0, i32 noundef %1) #0 {
@@ -3726,324 +4154,371 @@ define internal ptr @sort_list(ptr noundef %0, i32 noundef %1) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %12 = load ptr, ptr %4, align 8
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %4, align 8
-  store ptr %13, ptr %7, align 8
-  %14 = load ptr, ptr %4, align 8
-  store ptr %14, ptr %8, align 8
-  %15 = load ptr, ptr %4, align 8
-  store ptr %15, ptr %9, align 8
-  store ptr null, ptr %10, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %23, label %18
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %13, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %14, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %15, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %16, ptr %9, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  store ptr null, ptr %10, align 8, !tbaa !3
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %24, label %19
 
-18:                                               ; preds = %2
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.cJSON, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %25
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.cJSON, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !18
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %18, %2
-  %24 = load ptr, ptr %9, align 8
-  store ptr %24, ptr %3, align 8
-  br label %184
+24:                                               ; preds = %19, %2
+  %25 = load ptr, ptr %9, align 8, !tbaa !3
+  store ptr %25, ptr %3, align 8
+  store i32 1, ptr %11, align 4
+  br label %185
 
-25:                                               ; preds = %18
-  br label %26
+26:                                               ; preds = %19
+  br label %27
 
-26:                                               ; preds = %48, %25
-  %27 = load ptr, ptr %8, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %46
+27:                                               ; preds = %49, %26
+  %28 = load ptr, ptr %8, align 8, !tbaa !3
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %47
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds %struct.cJSON, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp ne ptr %32, null
-  br i1 %33, label %34, label %46
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %8, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.cJSON, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !18
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %47
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds %struct.cJSON, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.cJSON, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.cJSON, ptr %40, i32 0, i32 7
-  %42 = load ptr, ptr %41, align 8
-  %43 = load i32, ptr %5, align 4
-  %44 = call i32 @compare_strings(ptr noundef %37, ptr noundef %42, i32 noundef %43)
-  %45 = icmp slt i32 %44, 0
-  br label %46
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %8, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.cJSON, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !16
+  %39 = load ptr, ptr %8, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.cJSON, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !18
+  %42 = getelementptr inbounds nuw %struct.cJSON, ptr %41, i32 0, i32 7
+  %43 = load ptr, ptr %42, align 8, !tbaa !16
+  %44 = load i32, ptr %5, align 4, !tbaa !19
+  %45 = call i32 @compare_strings(ptr noundef %38, ptr noundef %43, i32 noundef %44)
+  %46 = icmp slt i32 %45, 0
+  br label %47
 
-46:                                               ; preds = %34, %29, %26
-  %47 = phi i1 [ false, %29 ], [ false, %26 ], [ %45, %34 ]
-  br i1 %47, label %48, label %52
+47:                                               ; preds = %35, %30, %27
+  %48 = phi i1 [ false, %30 ], [ false, %27 ], [ %46, %35 ]
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %46
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.cJSON, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %8, align 8
-  br label %26
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %8, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.cJSON, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8, !tbaa !18
+  store ptr %52, ptr %8, align 8, !tbaa !3
+  br label %27
 
-52:                                               ; preds = %46
-  %53 = load ptr, ptr %8, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %60, label %55
+53:                                               ; preds = %47
+  %54 = load ptr, ptr %8, align 8, !tbaa !3
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %61, label %56
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct.cJSON, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %62
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %8, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.cJSON, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !18
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %55, %52
-  %61 = load ptr, ptr %9, align 8
-  store ptr %61, ptr %3, align 8
-  br label %184
+61:                                               ; preds = %56, %53
+  %62 = load ptr, ptr %9, align 8, !tbaa !3
+  store ptr %62, ptr %3, align 8
+  store i32 1, ptr %11, align 4
+  br label %185
 
-62:                                               ; preds = %55
-  %63 = load ptr, ptr %4, align 8
-  store ptr %63, ptr %8, align 8
-  br label %64
+63:                                               ; preds = %56
+  %64 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %64, ptr %8, align 8, !tbaa !3
+  br label %65
 
-64:                                               ; preds = %80, %62
-  %65 = load ptr, ptr %8, align 8
-  %66 = icmp ne ptr %65, null
-  br i1 %66, label %67, label %81
+65:                                               ; preds = %81, %63
+  %66 = load ptr, ptr %8, align 8, !tbaa !3
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %82
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct.cJSON, ptr %68, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  store ptr %70, ptr %7, align 8
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds %struct.cJSON, ptr %71, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %8, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = icmp ne ptr %74, null
-  br i1 %75, label %76, label %80
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %7, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.cJSON, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8, !tbaa !18
+  store ptr %71, ptr %7, align 8, !tbaa !3
+  %72 = load ptr, ptr %8, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw %struct.cJSON, ptr %72, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8, !tbaa !18
+  store ptr %74, ptr %8, align 8, !tbaa !3
+  %75 = load ptr, ptr %8, align 8, !tbaa !3
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %77, label %81
 
-76:                                               ; preds = %67
-  %77 = load ptr, ptr %8, align 8
-  %78 = getelementptr inbounds %struct.cJSON, ptr %77, i32 0, i32 0
-  %79 = load ptr, ptr %78, align 8
-  store ptr %79, ptr %8, align 8
-  br label %80
+77:                                               ; preds = %68
+  %78 = load ptr, ptr %8, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.cJSON, ptr %78, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8, !tbaa !18
+  store ptr %80, ptr %8, align 8, !tbaa !3
+  br label %81
 
-80:                                               ; preds = %76, %67
-  br label %64
+81:                                               ; preds = %77, %68
+  br label %65
 
-81:                                               ; preds = %64
-  %82 = load ptr, ptr %7, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %96
+82:                                               ; preds = %65
+  %83 = load ptr, ptr %7, align 8, !tbaa !3
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %97
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %7, align 8
-  %86 = getelementptr inbounds %struct.cJSON, ptr %85, i32 0, i32 1
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp ne ptr %87, null
-  br i1 %88, label %89, label %96
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %7, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.cJSON, ptr %86, i32 0, i32 1
+  %88 = load ptr, ptr %87, align 8, !tbaa !28
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %97
 
-89:                                               ; preds = %84
-  %90 = load ptr, ptr %7, align 8
-  %91 = getelementptr inbounds %struct.cJSON, ptr %90, i32 0, i32 1
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds %struct.cJSON, ptr %92, i32 0, i32 0
-  store ptr null, ptr %93, align 8
-  %94 = load ptr, ptr %7, align 8
-  %95 = getelementptr inbounds %struct.cJSON, ptr %94, i32 0, i32 1
-  store ptr null, ptr %95, align 8
-  br label %96
+90:                                               ; preds = %85
+  %91 = load ptr, ptr %7, align 8, !tbaa !3
+  %92 = getelementptr inbounds nuw %struct.cJSON, ptr %91, i32 0, i32 1
+  %93 = load ptr, ptr %92, align 8, !tbaa !28
+  %94 = getelementptr inbounds nuw %struct.cJSON, ptr %93, i32 0, i32 0
+  store ptr null, ptr %94, align 8, !tbaa !18
+  %95 = load ptr, ptr %7, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw %struct.cJSON, ptr %95, i32 0, i32 1
+  store ptr null, ptr %96, align 8, !tbaa !28
+  br label %97
 
-96:                                               ; preds = %89, %84, %81
-  %97 = load ptr, ptr %6, align 8
-  %98 = load i32, ptr %5, align 4
-  %99 = call ptr @sort_list(ptr noundef %97, i32 noundef %98)
-  store ptr %99, ptr %6, align 8
-  %100 = load ptr, ptr %7, align 8
-  %101 = load i32, ptr %5, align 4
-  %102 = call ptr @sort_list(ptr noundef %100, i32 noundef %101)
-  store ptr %102, ptr %7, align 8
-  store ptr null, ptr %9, align 8
-  br label %103
+97:                                               ; preds = %90, %85, %82
+  %98 = load ptr, ptr %6, align 8, !tbaa !3
+  %99 = load i32, ptr %5, align 4, !tbaa !19
+  %100 = call ptr @sort_list(ptr noundef %98, i32 noundef %99)
+  store ptr %100, ptr %6, align 8, !tbaa !3
+  %101 = load ptr, ptr %7, align 8, !tbaa !3
+  %102 = load i32, ptr %5, align 4, !tbaa !19
+  %103 = call ptr @sort_list(ptr noundef %101, i32 noundef %102)
+  store ptr %103, ptr %7, align 8, !tbaa !3
+  store ptr null, ptr %9, align 8, !tbaa !3
+  br label %104
 
-103:                                              ; preds = %151, %96
-  %104 = load ptr, ptr %6, align 8
-  %105 = icmp ne ptr %104, null
-  br i1 %105, label %106, label %109
+104:                                              ; preds = %152, %97
+  %105 = load ptr, ptr %6, align 8, !tbaa !3
+  %106 = icmp ne ptr %105, null
+  br i1 %106, label %107, label %110
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %7, align 8
-  %108 = icmp ne ptr %107, null
-  br label %109
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %7, align 8, !tbaa !3
+  %109 = icmp ne ptr %108, null
+  br label %110
 
-109:                                              ; preds = %106, %103
-  %110 = phi i1 [ false, %103 ], [ %108, %106 ]
-  br i1 %110, label %111, label %152
+110:                                              ; preds = %107, %104
+  %111 = phi i1 [ false, %104 ], [ %109, %107 ]
+  br i1 %111, label %112, label %153
 
-111:                                              ; preds = %109
-  store ptr null, ptr %11, align 8
-  %112 = load ptr, ptr %6, align 8
-  %113 = getelementptr inbounds %struct.cJSON, ptr %112, i32 0, i32 7
-  %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr %7, align 8
-  %116 = getelementptr inbounds %struct.cJSON, ptr %115, i32 0, i32 7
-  %117 = load ptr, ptr %116, align 8
-  %118 = load i32, ptr %5, align 4
-  %119 = call i32 @compare_strings(ptr noundef %114, ptr noundef %117, i32 noundef %118)
-  %120 = icmp slt i32 %119, 0
-  br i1 %120, label %121, label %123
+112:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  store ptr null, ptr %12, align 8, !tbaa !3
+  %113 = load ptr, ptr %6, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw %struct.cJSON, ptr %113, i32 0, i32 7
+  %115 = load ptr, ptr %114, align 8, !tbaa !16
+  %116 = load ptr, ptr %7, align 8, !tbaa !3
+  %117 = getelementptr inbounds nuw %struct.cJSON, ptr %116, i32 0, i32 7
+  %118 = load ptr, ptr %117, align 8, !tbaa !16
+  %119 = load i32, ptr %5, align 4, !tbaa !19
+  %120 = call i32 @compare_strings(ptr noundef %115, ptr noundef %118, i32 noundef %119)
+  %121 = icmp slt i32 %120, 0
+  br i1 %121, label %122, label %124
 
-121:                                              ; preds = %111
-  %122 = load ptr, ptr %6, align 8
-  store ptr %122, ptr %11, align 8
-  br label %125
+122:                                              ; preds = %112
+  %123 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %123, ptr %12, align 8, !tbaa !3
+  br label %126
 
-123:                                              ; preds = %111
-  %124 = load ptr, ptr %7, align 8
-  store ptr %124, ptr %11, align 8
-  br label %125
+124:                                              ; preds = %112
+  %125 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %125, ptr %12, align 8, !tbaa !3
+  br label %126
 
-125:                                              ; preds = %123, %121
-  %126 = load ptr, ptr %9, align 8
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %128, label %131
+126:                                              ; preds = %124, %122
+  %127 = load ptr, ptr %9, align 8, !tbaa !3
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %129, label %132
 
-128:                                              ; preds = %125
-  %129 = load ptr, ptr %11, align 8
-  store ptr %129, ptr %10, align 8
-  %130 = load ptr, ptr %11, align 8
-  store ptr %130, ptr %9, align 8
-  br label %139
+129:                                              ; preds = %126
+  %130 = load ptr, ptr %12, align 8, !tbaa !3
+  store ptr %130, ptr %10, align 8, !tbaa !3
+  %131 = load ptr, ptr %12, align 8, !tbaa !3
+  store ptr %131, ptr %9, align 8, !tbaa !3
+  br label %140
 
-131:                                              ; preds = %125
-  %132 = load ptr, ptr %11, align 8
-  %133 = load ptr, ptr %10, align 8
-  %134 = getelementptr inbounds %struct.cJSON, ptr %133, i32 0, i32 0
-  store ptr %132, ptr %134, align 8
-  %135 = load ptr, ptr %10, align 8
-  %136 = load ptr, ptr %11, align 8
-  %137 = getelementptr inbounds %struct.cJSON, ptr %136, i32 0, i32 1
-  store ptr %135, ptr %137, align 8
-  %138 = load ptr, ptr %11, align 8
-  store ptr %138, ptr %10, align 8
-  br label %139
+132:                                              ; preds = %126
+  %133 = load ptr, ptr %12, align 8, !tbaa !3
+  %134 = load ptr, ptr %10, align 8, !tbaa !3
+  %135 = getelementptr inbounds nuw %struct.cJSON, ptr %134, i32 0, i32 0
+  store ptr %133, ptr %135, align 8, !tbaa !18
+  %136 = load ptr, ptr %10, align 8, !tbaa !3
+  %137 = load ptr, ptr %12, align 8, !tbaa !3
+  %138 = getelementptr inbounds nuw %struct.cJSON, ptr %137, i32 0, i32 1
+  store ptr %136, ptr %138, align 8, !tbaa !28
+  %139 = load ptr, ptr %12, align 8, !tbaa !3
+  store ptr %139, ptr %10, align 8, !tbaa !3
+  br label %140
 
-139:                                              ; preds = %131, %128
-  %140 = load ptr, ptr %6, align 8
-  %141 = load ptr, ptr %11, align 8
-  %142 = icmp eq ptr %140, %141
-  br i1 %142, label %143, label %147
+140:                                              ; preds = %132, %129
+  %141 = load ptr, ptr %6, align 8, !tbaa !3
+  %142 = load ptr, ptr %12, align 8, !tbaa !3
+  %143 = icmp eq ptr %141, %142
+  br i1 %143, label %144, label %148
 
-143:                                              ; preds = %139
-  %144 = load ptr, ptr %6, align 8
-  %145 = getelementptr inbounds %struct.cJSON, ptr %144, i32 0, i32 0
-  %146 = load ptr, ptr %145, align 8
-  store ptr %146, ptr %6, align 8
-  br label %151
+144:                                              ; preds = %140
+  %145 = load ptr, ptr %6, align 8, !tbaa !3
+  %146 = getelementptr inbounds nuw %struct.cJSON, ptr %145, i32 0, i32 0
+  %147 = load ptr, ptr %146, align 8, !tbaa !18
+  store ptr %147, ptr %6, align 8, !tbaa !3
+  br label %152
 
-147:                                              ; preds = %139
-  %148 = load ptr, ptr %7, align 8
-  %149 = getelementptr inbounds %struct.cJSON, ptr %148, i32 0, i32 0
-  %150 = load ptr, ptr %149, align 8
-  store ptr %150, ptr %7, align 8
-  br label %151
+148:                                              ; preds = %140
+  %149 = load ptr, ptr %7, align 8, !tbaa !3
+  %150 = getelementptr inbounds nuw %struct.cJSON, ptr %149, i32 0, i32 0
+  %151 = load ptr, ptr %150, align 8, !tbaa !18
+  store ptr %151, ptr %7, align 8, !tbaa !3
+  br label %152
 
-151:                                              ; preds = %147, %143
-  br label %103
+152:                                              ; preds = %148, %144
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  br label %104
 
-152:                                              ; preds = %109
-  %153 = load ptr, ptr %6, align 8
-  %154 = icmp ne ptr %153, null
-  br i1 %154, label %155, label %167
+153:                                              ; preds = %110
+  %154 = load ptr, ptr %6, align 8, !tbaa !3
+  %155 = icmp ne ptr %154, null
+  br i1 %155, label %156, label %168
 
-155:                                              ; preds = %152
-  %156 = load ptr, ptr %9, align 8
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %158, label %160
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %9, align 8, !tbaa !3
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %159, label %161
 
-158:                                              ; preds = %155
-  %159 = load ptr, ptr %6, align 8
-  store ptr %159, ptr %3, align 8
-  br label %184
+159:                                              ; preds = %156
+  %160 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %160, ptr %3, align 8
+  store i32 1, ptr %11, align 4
+  br label %185
 
-160:                                              ; preds = %155
-  %161 = load ptr, ptr %6, align 8
-  %162 = load ptr, ptr %10, align 8
-  %163 = getelementptr inbounds %struct.cJSON, ptr %162, i32 0, i32 0
-  store ptr %161, ptr %163, align 8
-  %164 = load ptr, ptr %10, align 8
-  %165 = load ptr, ptr %6, align 8
-  %166 = getelementptr inbounds %struct.cJSON, ptr %165, i32 0, i32 1
-  store ptr %164, ptr %166, align 8
-  br label %167
+161:                                              ; preds = %156
+  %162 = load ptr, ptr %6, align 8, !tbaa !3
+  %163 = load ptr, ptr %10, align 8, !tbaa !3
+  %164 = getelementptr inbounds nuw %struct.cJSON, ptr %163, i32 0, i32 0
+  store ptr %162, ptr %164, align 8, !tbaa !18
+  %165 = load ptr, ptr %10, align 8, !tbaa !3
+  %166 = load ptr, ptr %6, align 8, !tbaa !3
+  %167 = getelementptr inbounds nuw %struct.cJSON, ptr %166, i32 0, i32 1
+  store ptr %165, ptr %167, align 8, !tbaa !28
+  br label %168
 
-167:                                              ; preds = %160, %152
-  %168 = load ptr, ptr %7, align 8
-  %169 = icmp ne ptr %168, null
-  br i1 %169, label %170, label %182
+168:                                              ; preds = %161, %153
+  %169 = load ptr, ptr %7, align 8, !tbaa !3
+  %170 = icmp ne ptr %169, null
+  br i1 %170, label %171, label %183
 
-170:                                              ; preds = %167
-  %171 = load ptr, ptr %9, align 8
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %173, label %175
+171:                                              ; preds = %168
+  %172 = load ptr, ptr %9, align 8, !tbaa !3
+  %173 = icmp eq ptr %172, null
+  br i1 %173, label %174, label %176
 
-173:                                              ; preds = %170
-  %174 = load ptr, ptr %7, align 8
-  store ptr %174, ptr %3, align 8
-  br label %184
+174:                                              ; preds = %171
+  %175 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %175, ptr %3, align 8
+  store i32 1, ptr %11, align 4
+  br label %185
 
-175:                                              ; preds = %170
-  %176 = load ptr, ptr %7, align 8
-  %177 = load ptr, ptr %10, align 8
-  %178 = getelementptr inbounds %struct.cJSON, ptr %177, i32 0, i32 0
-  store ptr %176, ptr %178, align 8
-  %179 = load ptr, ptr %10, align 8
-  %180 = load ptr, ptr %7, align 8
-  %181 = getelementptr inbounds %struct.cJSON, ptr %180, i32 0, i32 1
-  store ptr %179, ptr %181, align 8
-  br label %182
+176:                                              ; preds = %171
+  %177 = load ptr, ptr %7, align 8, !tbaa !3
+  %178 = load ptr, ptr %10, align 8, !tbaa !3
+  %179 = getelementptr inbounds nuw %struct.cJSON, ptr %178, i32 0, i32 0
+  store ptr %177, ptr %179, align 8, !tbaa !18
+  %180 = load ptr, ptr %10, align 8, !tbaa !3
+  %181 = load ptr, ptr %7, align 8, !tbaa !3
+  %182 = getelementptr inbounds nuw %struct.cJSON, ptr %181, i32 0, i32 1
+  store ptr %180, ptr %182, align 8, !tbaa !28
+  br label %183
 
-182:                                              ; preds = %175, %167
-  %183 = load ptr, ptr %9, align 8
-  store ptr %183, ptr %3, align 8
-  br label %184
+183:                                              ; preds = %176, %168
+  %184 = load ptr, ptr %9, align 8, !tbaa !3
+  store ptr %184, ptr %3, align 8
+  store i32 1, ptr %11, align 4
+  br label %185
 
-184:                                              ; preds = %182, %173, %158, %60, %23
-  %185 = load ptr, ptr %3, align 8
-  ret ptr %185
+185:                                              ; preds = %183, %174, %159, %61, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %186 = load ptr, ptr %3, align 8
+  ret ptr %186
 }
 
-declare i32 @cJSON_IsNull(ptr noundef) #1
+declare i32 @cJSON_IsNull(ptr noundef) #2
 
-declare ptr @cJSON_DetachItemFromObjectCaseSensitive(ptr noundef, ptr noundef) #1
+declare ptr @cJSON_DetachItemFromObjectCaseSensitive(ptr noundef, ptr noundef) #2
 
-declare ptr @cJSON_CreateNull() #1
+declare ptr @cJSON_CreateNull() #2
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { nounwind }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS5cJSON", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !4, i64 16}
+!11 = !{!"cJSON", !4, i64 0, !4, i64 8, !4, i64 16, !12, i64 24, !13, i64 32, !12, i64 40, !14, i64 48, !13, i64 56}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!"p1 omnipotent char", !5, i64 0}
+!14 = !{!"double", !6, i64 0}
+!15 = !{!13, !13, i64 0}
+!16 = !{!11, !13, i64 56}
+!17 = !{!6, !6, i64 0}
+!18 = !{!11, !4, i64 0}
+!19 = !{!12, !12, i64 0}
+!20 = !{!11, !13, i64 32}
+!21 = !{!11, !12, i64 24}
+!22 = !{!11, !12, i64 40}
+!23 = !{!11, !14, i64 48}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 long", !5, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 int", !5, i64 0}
+!28 = !{!11, !4, i64 8}
+!29 = !{!14, !14, i64 0}
