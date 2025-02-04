@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/SelectorLocationsKind.cpp.ll'
-source_filename = "bench/llvm/original/SelectorLocationsKind.cpp.ll"
+; ModuleID = 'bench/llvm/original/SelectorLocationsKind.ll'
+source_filename = "bench/llvm/original/SelectorLocationsKind.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -34,11 +34,11 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang23hasStandardSelectorLocs
   %14 = add i32 %.02243.us.i, 1
   %15 = zext i32 %14 to i64
   %.not.us.i = icmp eq i64 %2, %15
-  br i1 %.not.us.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.lr.ph.split.us.i, !llvm.loop !4
+  br i1 %.not.us.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.lr.ph.split.us.i, !llvm.loop !3
 
 16:                                               ; preds = %.lr.ph.split.us.i
   %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %10
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !5
   %19 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %18) #5
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i
 
@@ -59,8 +59,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i64, ptr %27, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !10
+  %28 = load i64, ptr %27, align 8, !tbaa !14
   %29 = trunc i64 %28 to i32
   %.neg.i.i.us.i = xor i32 %29, -1
   br label %30
@@ -73,7 +73,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit.us.i: ; preds = %30, %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i
   %.sroa.015.0.i.i.us.i = phi i32 [ %31, %30 ], [ 0, %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %32 = load i32, ptr %11, align 4
+  %32 = load i32, ptr %11, align 4, !tbaa !17
   %.not39.us.i = icmp eq i32 %32, %.sroa.015.0.i.i.us.i
   br i1 %.not39.us.i, label %13, label %.preheader.i
 
@@ -81,7 +81,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
   %34 = add i32 %.02243.i, 1
   %35 = zext i32 %34 to i64
   %.not.i = icmp eq i64 %2, %35
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.lr.ph.split.i, !llvm.loop !4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.lr.ph.split.i, !llvm.loop !3
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %33
   %36 = phi i64 [ %35, %33 ], [ 0, %.lr.ph.i ]
@@ -92,7 +92,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
 
 39:                                               ; preds = %.lr.ph.split.i
   %40 = getelementptr inbounds nuw ptr, ptr %3, i64 %36
-  %41 = load ptr, ptr %40, align 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !5
   %42 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %41) #5
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.i
 
@@ -111,8 +111,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = load i64, ptr %49, align 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !10
+  %50 = load i64, ptr %49, align 8, !tbaa !14
   %51 = trunc i64 %50 to i32
   br label %52
 
@@ -132,8 +132,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = load i64, ptr %61, align 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !10
+  %62 = load i64, ptr %61, align 8, !tbaa !14
   %63 = trunc i64 %62 to i32
   %.neg.i.i.i = xor i32 %63, -1
   br label %64
@@ -146,7 +146,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit.i: ; preds = %64, %55, %52
   %.sroa.015.0.i.i.i = phi i32 [ %54, %52 ], [ %65, %64 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %66 = load i32, ptr %37, align 4
+  %66 = load i32, ptr %37, align 4, !tbaa !17
   %.not39.i = icmp eq i32 %66, %.sroa.015.0.i.i.i
   br i1 %.not39.i, label %33, label %.preheader.i
 
@@ -164,11 +164,11 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
   %71 = add i32 %.144.us.i, 1
   %72 = zext i32 %71 to i64
   %.not25.us.i = icmp eq i64 %2, %72
-  br i1 %.not25.us.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.preheader.split45.us.i, !llvm.loop !6
+  br i1 %.not25.us.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.preheader.split45.us.i, !llvm.loop !19
 
 73:                                               ; preds = %.preheader.split45.us.i
   %74 = getelementptr inbounds nuw ptr, ptr %3, i64 %67
-  %75 = load ptr, ptr %74, align 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !5
   %76 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %75) #5
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i
 
@@ -189,8 +189,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = load i64, ptr %84, align 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !10
+  %85 = load i64, ptr %84, align 8, !tbaa !14
   %86 = trunc i64 %85 to i32
   %.neg.i.i29.us.i = xor i32 %86, -1
   br label %87
@@ -204,7 +204,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.us.i: ; preds = %87, %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i
   %.sroa.015.0.i.i31.us.i = phi i32 [ %88, %87 ], [ 0, %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %89 = load i32, ptr %68, align 4
+  %89 = load i32, ptr %68, align 4, !tbaa !17
   %.not40.us.i = icmp eq i32 %89, %.sroa.015.0.i.i31.us.i
   br i1 %.not40.us.i, label %70, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit
 
@@ -212,7 +212,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
   %91 = add i32 %.144.i, 1
   %92 = zext i32 %91 to i64
   %.not25.i = icmp eq i64 %2, %92
-  br i1 %.not25.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.preheader.split45.i, !llvm.loop !6
+  br i1 %.not25.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.preheader.split45.i, !llvm.loop !19
 
 .preheader.split45.i:                             ; preds = %.preheader.i, %90
   %93 = phi i64 [ %92, %90 ], [ 0, %.preheader.i ]
@@ -223,7 +223,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
 
 96:                                               ; preds = %.preheader.split45.i
   %97 = getelementptr inbounds nuw ptr, ptr %3, i64 %93
-  %98 = load ptr, ptr %97, align 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !5
   %99 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %98) #5
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.i
 
@@ -242,8 +242,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %106 = load ptr, ptr %105, align 8
-  %107 = load i64, ptr %106, align 8
+  %106 = load ptr, ptr %105, align 8, !tbaa !10
+  %107 = load i64, ptr %106, align 8, !tbaa !14
   %108 = trunc i64 %107 to i32
   br label %109
 
@@ -263,8 +263,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 116:                                              ; preds = %114
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %118 = load ptr, ptr %117, align 8
-  %119 = load i64, ptr %118, align 8
+  %118 = load ptr, ptr %117, align 8, !tbaa !10
+  %119 = load i64, ptr %118, align 8, !tbaa !14
   %120 = trunc i64 %119 to i32
   %.neg.i.i29.i = xor i32 %120, -1
   br label %121
@@ -278,7 +278,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE.exit33.i: ; preds = %121, %112, %109
   %.sroa.015.0.i.i31.i = phi i32 [ %111, %109 ], [ %122, %121 ], [ 0, %112 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %123 = load i32, ptr %94, align 4
+  %123 = load i32, ptr %94, align 4, !tbaa !17
   %.not40.i = icmp eq i32 %123, %.sroa.015.0.i.i31.i
   br i1 %.not40.i, label %90, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit
 
@@ -296,7 +296,7 @@ define dso_local i32 @_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8Ar
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %8
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !5
   %13 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %12) #5
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit
 
@@ -319,8 +319,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i64, ptr %22, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !10
+  %23 = load i64, ptr %22, align 8, !tbaa !14
   %24 = trunc i64 %23 to i32
   br label %25
 
@@ -340,8 +340,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRef
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = load i64, ptr %34, align 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !10
+  %35 = load i64, ptr %34, align 8, !tbaa !14
   %36 = trunc i64 %35 to i32
   %.neg.i = xor i32 %36, -1
   br label %37
@@ -382,11 +382,11 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang23hasStandardSelectorLocs
   %14 = add i32 %.02244.us.i, 1
   %15 = zext i32 %14 to i64
   %.not.us.i = icmp eq i64 %2, %15
-  br i1 %.not.us.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.lr.ph.split.us.i, !llvm.loop !7
+  br i1 %.not.us.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.lr.ph.split.us.i, !llvm.loop !20
 
 16:                                               ; preds = %.lr.ph.split.us.i
   %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %10
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !21
   %19 = call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %18) #6
   %spec.select.i.i.i.us.i = call range(i32 0, -1) i32 @llvm.usub.sat.i32(i32 %19, i32 1)
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i
@@ -408,8 +408,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i64, ptr %27, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !10
+  %28 = load i64, ptr %27, align 8, !tbaa !14
   %29 = trunc i64 %28 to i32
   %.neg.i.i.us.i = xor i32 %29, -1
   br label %30
@@ -422,7 +422,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit.us.i: ; preds = %30, %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i
   %.sroa.015.0.i.i.us.i = phi i32 [ %31, %30 ], [ 0, %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %32 = load i32, ptr %11, align 4
+  %32 = load i32, ptr %11, align 4, !tbaa !17
   %.not40.us.i = icmp eq i32 %32, %.sroa.015.0.i.i.us.i
   br i1 %.not40.us.i, label %13, label %.preheader.i
 
@@ -430,7 +430,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
   %34 = add i32 %.02244.i, 1
   %35 = zext i32 %34 to i64
   %.not.i = icmp eq i64 %2, %35
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.lr.ph.split.i, !llvm.loop !7
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.lr.ph.split.i, !llvm.loop !20
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %33
   %36 = phi i64 [ %35, %33 ], [ 0, %.lr.ph.i ]
@@ -441,7 +441,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
 
 39:                                               ; preds = %.lr.ph.split.i
   %40 = getelementptr inbounds nuw ptr, ptr %3, i64 %36
-  %41 = load ptr, ptr %40, align 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !21
   %42 = call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %41) #6
   %spec.select.i.i.i.i = call range(i32 0, -1) i32 @llvm.usub.sat.i32(i32 %42, i32 1)
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.i
@@ -461,8 +461,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = load i64, ptr %49, align 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !10
+  %50 = load i64, ptr %49, align 8, !tbaa !14
   %51 = trunc i64 %50 to i32
   br label %52
 
@@ -482,8 +482,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = load i64, ptr %61, align 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !10
+  %62 = load i64, ptr %61, align 8, !tbaa !14
   %63 = trunc i64 %62 to i32
   %.neg.i.i.i = xor i32 %63, -1
   br label %64
@@ -496,7 +496,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit.i: ; preds = %64, %55, %52
   %.sroa.015.0.i.i.i = phi i32 [ %54, %52 ], [ %65, %64 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %66 = load i32, ptr %37, align 4
+  %66 = load i32, ptr %37, align 4, !tbaa !17
   %.not40.i = icmp eq i32 %66, %.sroa.015.0.i.i.i
   br i1 %.not40.i, label %33, label %.preheader.i
 
@@ -514,11 +514,11 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
   %71 = add i32 %.145.us.i, 1
   %72 = zext i32 %71 to i64
   %.not25.us.i = icmp eq i64 %2, %72
-  br i1 %.not25.us.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.preheader.split46.us.i, !llvm.loop !8
+  br i1 %.not25.us.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.preheader.split46.us.i, !llvm.loop !23
 
 73:                                               ; preds = %.preheader.split46.us.i
   %74 = getelementptr inbounds nuw ptr, ptr %3, i64 %67
-  %75 = load ptr, ptr %74, align 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !21
   %76 = call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %75) #6
   %spec.select.i.i.i33.us.i = call range(i32 0, -1) i32 @llvm.usub.sat.i32(i32 %76, i32 1)
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i
@@ -540,8 +540,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = load i64, ptr %84, align 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !10
+  %85 = load i64, ptr %84, align 8, !tbaa !14
   %86 = trunc i64 %85 to i32
   %.neg.i.i29.us.i = xor i32 %86, -1
   br label %87
@@ -555,7 +555,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.us.i: ; preds = %87, %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i
   %.sroa.015.0.i.i31.us.i = phi i32 [ %88, %87 ], [ 0, %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %89 = load i32, ptr %68, align 4
+  %89 = load i32, ptr %68, align 4, !tbaa !17
   %.not41.us.i = icmp eq i32 %89, %.sroa.015.0.i.i31.us.i
   br i1 %.not41.us.i, label %70, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit
 
@@ -563,7 +563,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
   %91 = add i32 %.145.i, 1
   %92 = zext i32 %91 to i64
   %.not25.i = icmp eq i64 %2, %92
-  br i1 %.not25.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.preheader.split46.i, !llvm.loop !8
+  br i1 %.not25.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.preheader.split46.i, !llvm.loop !23
 
 .preheader.split46.i:                             ; preds = %.preheader.i, %90
   %93 = phi i64 [ %92, %90 ], [ 0, %.preheader.i ]
@@ -574,7 +574,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
 
 96:                                               ; preds = %.preheader.split46.i
   %97 = getelementptr inbounds nuw ptr, ptr %3, i64 %93
-  %98 = load ptr, ptr %97, align 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !21
   %99 = call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %98) #6
   %spec.select.i.i.i33.i = call range(i32 0, -1) i32 @llvm.usub.sat.i32(i32 %99, i32 1)
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.i
@@ -594,8 +594,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %106 = load ptr, ptr %105, align 8
-  %107 = load i64, ptr %106, align 8
+  %106 = load ptr, ptr %105, align 8, !tbaa !10
+  %107 = load i64, ptr %106, align 8, !tbaa !14
   %108 = trunc i64 %107 to i32
   br label %109
 
@@ -615,8 +615,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 116:                                              ; preds = %114
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %118 = load ptr, ptr %117, align 8
-  %119 = load i64, ptr %118, align 8
+  %118 = load ptr, ptr %117, align 8, !tbaa !10
+  %119 = load i64, ptr %118, align 8, !tbaa !14
   %120 = trunc i64 %119 to i32
   %.neg.i.i29.i = xor i32 %120, -1
   br label %121
@@ -630,7 +630,7 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE.exit34.i: ; preds = %121, %112, %109
   %.sroa.015.0.i.i31.i = phi i32 [ %111, %109 ], [ %122, %121 ], [ 0, %112 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %123 = load i32, ptr %94, align 4
+  %123 = load i32, ptr %94, align 4, !tbaa !17
   %.not41.i = icmp eq i32 %123, %.sroa.015.0.i.i31.i
   br i1 %.not41.i, label %90, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit
 
@@ -648,7 +648,7 @@ define dso_local i32 @_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8Ar
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %8
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !21
   %13 = tail call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %12) #6
   %spec.select.i.i = tail call range(i32 0, -1) i32 @llvm.usub.sat.i32(i32 %13, i32 1)
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit
@@ -672,8 +672,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i64, ptr %22, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !10
+  %23 = load i64, ptr %22, align 8, !tbaa !14
   %24 = trunc i64 %23 to i32
   br label %25
 
@@ -693,8 +693,8 @@ _ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = load i64, ptr %34, align 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !10
+  %35 = load i64, ptr %34, align 8, !tbaa !14
   %36 = trunc i64 %35 to i32
   %.neg.i = xor i32 %36, -1
   br label %37
@@ -712,40 +712,55 @@ _ZL17getStandardSelLocjN5clang8SelectorEbNS_14SourceLocationES1_.exit: ; preds =
   ret i32 %.sroa.015.0.i
 }
 
-declare noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare noundef ptr @_ZNK5clang8Selector24getIdentifierInfoForSlotEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
+declare noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+
+declare noundef ptr @_ZNK5clang8Selector24getIdentifierInfoForSlotEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
-declare i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68)) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #4
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind willreturn memory(read) }
 attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"p1 _ZTSN5clang4ExprE", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!11, !13, i64 16}
+!11 = !{!"_ZTSN5clang14IdentifierInfoE", !12, i64 0, !12, i64 1, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 4, !12, i64 4, !12, i64 4, !12, i64 4, !12, i64 4, !12, i64 4, !12, i64 4, !12, i64 4, !12, i64 5, !12, i64 5, !7, i64 8, !13, i64 16}
+!12 = !{!"int", !8, i64 0}
+!13 = !{!"p1 _ZTSN4llvm14StringMapEntryIPN5clang14IdentifierInfoEEE", !7, i64 0}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !16, i64 0}
+!16 = !{!"long", !8, i64 0}
+!17 = !{!18, !12, i64 0}
+!18 = !{!"_ZTSN5clang14SourceLocationE", !12, i64 0}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTSN5clang11ParmVarDeclE", !7, i64 0}
+!23 = distinct !{!23, !4}

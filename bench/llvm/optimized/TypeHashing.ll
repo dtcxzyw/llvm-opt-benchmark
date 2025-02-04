@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/TypeHashing.cpp.ll'
-source_filename = "bench/llvm/original/TypeHashing.cpp.ll"
+; ModuleID = 'bench/llvm/original/TypeHashing.ll'
+source_filename = "bench/llvm/original/TypeHashing.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -40,13 +40,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm8codeview17LocallyHashedType8hashTypeENS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::codeview::LocallyHashedType") align 8 captures(none) initializes((0, 24)) %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %5 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %1, ptr noundef %4)
   store i64 %5, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %6, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !3
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %2, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !8
   ret void
 }
 
@@ -56,136 +56,156 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %8 = alloca %"class.llvm::SmallVector", align 8
   %9 = alloca %"class.llvm::TruncatedBLAKE3", align 8
   %10 = alloca %"class.llvm::codeview::TypeIndex", align 4
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #9
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %11, i64 noundef 4) #8
-  call void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %8) #8
-  call void @llvm_blake3_hasher_init(ptr noundef nonnull align 8 dereferenceable(1912) %9) #8
-  call void @llvm_blake3_hasher_init(ptr noundef nonnull align 8 dereferenceable(1912) %9) #8
+  store ptr %11, ptr %8, align 8, !tbaa !10
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 0, ptr %12, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 4, ptr %13, align 4, !tbaa !14
+  call void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %8) #9
+  call void @llvm.lifetime.start.p0(i64 1912, ptr nonnull %9) #9
+  call void @llvm_blake3_hasher_init(ptr noundef nonnull align 8 dereferenceable(1912) %9) #9
+  call void @llvm_blake3_hasher_init(ptr noundef nonnull align 8 dereferenceable(1912) %9) #9
   %..i = call i64 @llvm.umin.i64(i64 %1, i64 4)
-  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef %0, i64 noundef %..i) #8
-  %12 = add i64 %1, -4
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %14 = load ptr, ptr %8, align 8
-  %15 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
-  %16 = getelementptr inbounds %"struct.llvm::codeview::TiReference", ptr %14, i64 %15
-  %.not75 = icmp eq i64 %15, 0
-  br i1 %.not75, label %._crit_edge80, label %.lr.ph79
+  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef %0, i64 noundef %..i) #9
+  %14 = add i64 %1, -4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %16 = load ptr, ptr %8, align 8, !tbaa !10
+  %17 = load i32, ptr %12, align 8, !tbaa !13
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %16, i64 %18
+  %.not102 = icmp eq i32 %17, 0
+  br i1 %.not102, label %.thread95, label %.lr.ph106
 
-.lr.ph79:                                         ; preds = %6, %._crit_edge
-  %.077 = phi i32 [ %49, %._crit_edge ], [ 0, %6 ]
-  %.03776 = phi ptr [ %50, %._crit_edge ], [ %14, %6 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.03776, i64 4
-  %18 = load i32, ptr %17, align 4
-  %19 = sub i32 %18, %.077
-  %20 = zext i32 %.077 to i64
-  %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 %20
-  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %22, i64 noundef %21) #8
-  %23 = load i32, ptr %.03776, align 4
-  %24 = icmp eq i32 %23, 1
-  %.sroa.056.0.copyload.sroa.speculated = select i1 %24, ptr %4, ptr %2
-  %.sroa.358.0.copyload.sroa.speculated = select i1 %24, i64 %5, i64 %3
-  %25 = load i32, ptr %17, align 4
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %.03776, i64 8
-  %28 = load i32, ptr %27, align 4
+.lr.ph106:                                        ; preds = %6, %._crit_edge
+  %.0104 = phi i32 [ %51, %._crit_edge ], [ 0, %6 ]
+  %.048103 = phi ptr [ %52, %._crit_edge ], [ %16, %6 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.048103, i64 4
+  %21 = load i32, ptr %20, align 4, !tbaa !15
+  %22 = sub i32 %21, %.0104
+  %23 = zext i32 %.0104 to i64
+  %24 = zext i32 %22 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 %23
+  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %25, i64 noundef %24) #9
+  %26 = load i32, ptr %.048103, align 4, !tbaa !18
+  %27 = icmp eq i32 %26, 1
+  %.sroa.071.0.copyload.sroa.speculated = select i1 %27, ptr %4, ptr %2
+  %.sroa.573.0.copyload.sroa.speculated = select i1 %27, i64 %5, i64 %3
+  %28 = load i32, ptr %20, align 4, !tbaa !15
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %13, i64 %26
-  %31 = getelementptr inbounds nuw %"class.llvm::codeview::TypeIndex", ptr %30, i64 %29
-  %.not3973 = icmp eq i32 %28, 0
-  br i1 %.not3973, label %._crit_edge, label %.lr.ph
+  %30 = getelementptr inbounds nuw i8, ptr %.048103, i64 8
+  %31 = load i32, ptr %30, align 4, !tbaa !19
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 %29
+  %34 = getelementptr inbounds nuw %"class.llvm::codeview::TypeIndex", ptr %33, i64 %32
+  %.not53100 = icmp eq i32 %31, 0
+  br i1 %.not53100, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph79
+.lr.ph:                                           ; preds = %.lr.ph106
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
-  br label %32
+  br label %35
 
-32:                                               ; preds = %.lr.ph, %44
-  %.03874 = phi ptr [ %30, %.lr.ph ], [ %45, %44 ]
-  %33 = load i32, ptr %.03874, align 1
-  store i32 %33, ptr %10, align 4
-  %34 = icmp ult i32 %33, 4096
-  br i1 %34, label %44, label %35
+35:                                               ; preds = %.lr.ph, %.critedge
+  %.052101 = phi ptr [ %33, %.lr.ph ], [ %47, %.critedge ]
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  %36 = load i32, ptr %.052101, align 1, !tbaa !20
+  store i32 %36, ptr %10, align 4, !tbaa !20
+  %37 = icmp ult i32 %36, 4096
+  br i1 %37, label %.critedge, label %38
 
-35:                                               ; preds = %32
+38:                                               ; preds = %35
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
-  %36 = and i32 %33, 2147483647
-  %37 = add nsw i32 %36, -4096
-  %38 = zext i32 %37 to i64
-  %.not40 = icmp ugt i64 %.sroa.358.0.copyload.sroa.speculated, %38
-  br i1 %.not40, label %39, label %.loopexit
+  %39 = and i32 %36, 2147483647
+  %40 = add nsw i32 %39, -4096
+  %41 = zext i32 %40 to i64
+  %.not54 = icmp ugt i64 %.sroa.573.0.copyload.sroa.speculated, %41
+  br i1 %.not54, label %42, label %53
 
-39:                                               ; preds = %35
+42:                                               ; preds = %38
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
-  %40 = getelementptr inbounds nuw %"struct.llvm::codeview::GloballyHashedType", ptr %.sroa.056.0.copyload.sroa.speculated, i64 %38
-  %41 = load i64, ptr %40, align 8
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %.loopexit, label %43
+  %43 = getelementptr inbounds nuw %"struct.llvm::codeview::GloballyHashedType", ptr %.sroa.071.0.copyload.sroa.speculated, i64 %41
+  %44 = load i64, ptr %43, align 8, !tbaa !8
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %53, label %46
 
-43:                                               ; preds = %39
+46:                                               ; preds = %42
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
-  br label %44
+  br label %.critedge
 
-44:                                               ; preds = %32, %43
-  %.sroa.4.2 = phi i64 [ 8, %43 ], [ 4, %32 ]
-  %.sroa.051.2 = phi ptr [ %40, %43 ], [ %10, %32 ]
-  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %.sroa.051.2, i64 noundef %.sroa.4.2) #8
-  %45 = getelementptr inbounds nuw i8, ptr %.03874, i64 4
-  %.not39 = icmp eq ptr %45, %31
-  br i1 %.not39, label %._crit_edge.loopexit, label %32
+.critedge:                                        ; preds = %35, %46
+  %.sroa.7.2 = phi i64 [ 8, %46 ], [ 4, %35 ]
+  %.sroa.066.2 = phi ptr [ %43, %46 ], [ %10, %35 ]
+  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %.sroa.066.2, i64 noundef %.sroa.7.2) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  %47 = getelementptr inbounds nuw i8, ptr %.052101, i64 4
+  %.not53 = icmp eq ptr %47, %34
+  br i1 %.not53, label %._crit_edge.loopexit, label %35
 
-._crit_edge.loopexit:                             ; preds = %44
-  %.pre = load i32, ptr %17, align 4
-  %.pre81 = load i32, ptr %27, align 4
-  %46 = shl i32 %.pre81, 2
+._crit_edge.loopexit:                             ; preds = %.critedge
+  %.pre = load i32, ptr %20, align 4, !tbaa !15
+  %.pre107 = load i32, ptr %30, align 4, !tbaa !19
+  %48 = shl i32 %.pre107, 2
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph79
-  %47 = phi i32 [ %46, %._crit_edge.loopexit ], [ 0, %.lr.ph79 ]
-  %48 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %25, %.lr.ph79 ]
-  %49 = add i32 %47, %48
-  %50 = getelementptr inbounds nuw i8, ptr %.03776, i64 12
-  %.not = icmp eq ptr %50, %16
-  br i1 %.not, label %._crit_edge80.loopexit, label %.lr.ph79
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph106
+  %49 = phi i32 [ %48, %._crit_edge.loopexit ], [ 0, %.lr.ph106 ]
+  %50 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %28, %.lr.ph106 ]
+  %51 = add i32 %49, %50
+  %52 = getelementptr inbounds nuw i8, ptr %.048103, i64 12
+  %.not = icmp eq ptr %52, %19
+  br i1 %.not, label %.thread95.loopexit, label %.lr.ph106
 
-._crit_edge80.loopexit:                           ; preds = %._crit_edge
-  %51 = zext i32 %49 to i64
-  br label %._crit_edge80
+53:                                               ; preds = %42, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  br label %58
 
-._crit_edge80:                                    ; preds = %._crit_edge80.loopexit, %6
-  %.0.lcssa = phi i64 [ 0, %6 ], [ %51, %._crit_edge80.loopexit ]
-  %52 = sub i64 %12, %.0.lcssa
-  %53 = getelementptr inbounds nuw i8, ptr %13, i64 %.0.lcssa
-  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %53, i64 noundef %52) #8
+.thread95.loopexit:                               ; preds = %._crit_edge
+  %54 = zext i32 %51 to i64
+  br label %.thread95
+
+.thread95:                                        ; preds = %.thread95.loopexit, %6
+  %.0.lcssa = phi i64 [ 0, %6 ], [ %54, %.thread95.loopexit ]
+  %55 = sub i64 %14, %.0.lcssa
+  %56 = getelementptr inbounds nuw i8, ptr %15, i64 %.0.lcssa
+  call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %56, i64 noundef %55) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm_blake3_hasher_finalize(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %7, i64 noundef 8) #8
-  %54 = load i64, ptr %7, align 8
+  call void @llvm_blake3_hasher_finalize(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %7, i64 noundef 8) #9
+  %57 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %.loopexit
+  br label %58
 
-.loopexit:                                        ; preds = %35, %39, %._crit_edge80
-  %.sroa.071.0 = phi i64 [ %54, %._crit_edge80 ], [ 0, %39 ], [ 0, %35 ]
-  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %8) #8
-  %56 = load ptr, ptr %8, align 8
-  %57 = icmp eq ptr %56, %11
-  br i1 %57, label %_ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit, label %58
+58:                                               ; preds = %53, %.thread95
+  %.sroa.086.4 = phi i64 [ %57, %.thread95 ], [ 0, %53 ]
+  call void @llvm.lifetime.end.p0(i64 1912, ptr nonnull %9) #9
+  %59 = load ptr, ptr %8, align 8, !tbaa !10
+  %60 = icmp eq ptr %59, %11
+  br i1 %60, label %_ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit, label %61
 
-58:                                               ; preds = %.loopexit
-  call void @free(ptr noundef %56) #8
+61:                                               ; preds = %58
+  call void @free(ptr noundef %59) #9
   br label %_ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit: ; preds = %.loopexit, %58
-  ret i64 %.sroa.071.0
+_ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit: ; preds = %58, %61
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #9
+  ret i64 %.sroa.086.4
 }
 
-declare void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr, i64, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare void @llvm_blake3_hasher_init(ptr noundef) local_unnamed_addr #2
+declare void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr, i64, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
-declare void @llvm_blake3_hasher_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+declare void @llvm_blake3_hasher_init(ptr noundef) local_unnamed_addr #3
+
+declare void @llvm_blake3_hasher_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 comdat {
@@ -201,32 +221,32 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
 
 9:                                                ; preds = %2
   %10 = and i64 %5, -64
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.0.copyload.i.i.i = load i64, ptr %12, align 1, !noalias !4
+  %.0.copyload.i.i.i = load i64, ptr %12, align 1, !noalias !21
   %13 = add i64 %.0.copyload.i.i.i, -8345775121483124050
   %.0.i.i.i = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 27)
   %14 = mul i64 %.0.i.i.i, -5435081209227447693
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.0.copyload.i7.i.i = load i64, ptr %15, align 1, !noalias !4
+  %.0.copyload.i7.i.i = load i64, ptr %15, align 1, !noalias !21
   %16 = add i64 %.0.copyload.i7.i.i, -4705135293385828636
   %.0.i8.i.i = tail call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 22)
   %17 = mul i64 %.0.i8.i.i, -5435081209227447693
   %18 = xor i64 %14, -599882191873993834
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.0.copyload.i9.i.i = load i64, ptr %19, align 1, !noalias !4
+  %.0.copyload.i9.i.i = load i64, ptr %19, align 1, !noalias !21
   %20 = add i64 %.0.copyload.i9.i.i, -8296710342493395487
   %21 = add i64 %20, %17
   %22 = add i64 %18, -49064778989800850
-  %.0.copyload.i.i.i.i = load i64, ptr %0, align 1, !noalias !4
+  %.0.copyload.i.i.i.i = load i64, ptr %0, align 1, !noalias !21
   %23 = add i64 %.0.copyload.i.i.i.i, 2994313307402683989
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.0.copyload.i15.i.i.i = load i64, ptr %24, align 1, !noalias !4
+  %.0.copyload.i15.i.i.i = load i64, ptr %24, align 1, !noalias !21
   %25 = add i64 %22, %23
   %26 = add i64 %25, %.0.copyload.i15.i.i.i
   %.0.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 43)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.0.copyload.i17.i.i.i = load i64, ptr %27, align 1, !noalias !4
+  %.0.copyload.i17.i.i.i = load i64, ptr %27, align 1, !noalias !21
   %28 = add i64 %23, %.0.copyload.i.i.i
   %29 = add i64 %28, %.0.copyload.i17.i.i.i
   %.0.i18.i.i.i = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 20)
@@ -235,10 +255,10 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
   %32 = add i64 %29, %.0.copyload.i15.i.i.i
   %33 = add i64 %21, %.0.copyload.i17.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.0.copyload.i.i12.i.i = load i64, ptr %34, align 1, !noalias !4
+  %.0.copyload.i.i12.i.i = load i64, ptr %34, align 1, !noalias !21
   %35 = add i64 %.0.copyload.i.i12.i.i, 5473611571550975290
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.0.copyload.i15.i13.i.i = load i64, ptr %36, align 1, !noalias !4
+  %.0.copyload.i15.i13.i.i = load i64, ptr %36, align 1, !noalias !21
   %37 = add i64 %33, %35
   %38 = add i64 %37, %.0.copyload.i15.i13.i.i
   %.0.i.i14.i.i = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 43)
@@ -248,7 +268,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
   %41 = add i64 %.0.i18.i17.i.i, %35
   %42 = add i64 %41, %.0.i.i14.i.i
   %43 = add i64 %40, %.0.copyload.i15.i13.i.i
-  %.not58 = icmp eq i64 %10, 64
+  %.not58 = icmp samesign eq i64 %10, 64
   br i1 %.not58, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %9
@@ -259,35 +279,35 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
   %.067 = phi ptr [ %.0, %.lr.ph ], [ %.057, %.lr.ph.preheader ]
   %.pn66 = phi ptr [ %.067, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.sroa.0.065 = phi i64 [ %58, %.lr.ph ], [ 6073493763424969124, %.lr.ph.preheader ]
-  %.sroa.10.064 = phi i64 [ %56, %.lr.ph ], [ %21, %.lr.ph.preheader ]
-  %.sroa.18.063 = phi i64 [ %53, %.lr.ph ], [ %18, %.lr.ph.preheader ]
-  %.sroa.26.062 = phi i64 [ %70, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %.sroa.36.061 = phi i64 [ %69, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %.sroa.46.060 = phi i64 [ %82, %.lr.ph ], [ %43, %.lr.ph.preheader ]
-  %.sroa.56.059 = phi i64 [ %81, %.lr.ph ], [ %42, %.lr.ph.preheader ]
+  %.sroa.12.064 = phi i64 [ %56, %.lr.ph ], [ %21, %.lr.ph.preheader ]
+  %.sroa.20.063 = phi i64 [ %53, %.lr.ph ], [ %18, %.lr.ph.preheader ]
+  %.sroa.28.062 = phi i64 [ %70, %.lr.ph ], [ %32, %.lr.ph.preheader ]
+  %.sroa.38.061 = phi i64 [ %69, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %.sroa.48.060 = phi i64 [ %82, %.lr.ph ], [ %43, %.lr.ph.preheader ]
+  %.sroa.58.059 = phi i64 [ %81, %.lr.ph ], [ %42, %.lr.ph.preheader ]
   %44 = getelementptr inbounds nuw i8, ptr %.pn66, i64 72
   %.0.copyload.i.i = load i64, ptr %44, align 1
-  %45 = add i64 %.sroa.10.064, %.sroa.26.062
+  %45 = add i64 %.sroa.12.064, %.sroa.28.062
   %46 = add i64 %45, %.sroa.0.065
   %47 = add i64 %46, %.0.copyload.i.i
   %.0.i.i = tail call i64 @llvm.fshl.i64(i64 %47, i64 %47, i64 27)
   %48 = mul i64 %.0.i.i, -5435081209227447693
-  %49 = add i64 %.sroa.10.064, %.sroa.36.061
+  %49 = add i64 %.sroa.12.064, %.sroa.38.061
   %50 = getelementptr inbounds nuw i8, ptr %.pn66, i64 112
   %.0.copyload.i7.i = load i64, ptr %50, align 1
   %51 = add i64 %49, %.0.copyload.i7.i
   %.0.i8.i = tail call i64 @llvm.fshl.i64(i64 %51, i64 %51, i64 22)
   %52 = mul i64 %.0.i8.i, -5435081209227447693
-  %53 = xor i64 %48, %.sroa.56.059
+  %53 = xor i64 %48, %.sroa.58.059
   %54 = getelementptr inbounds nuw i8, ptr %.pn66, i64 104
   %.0.copyload.i9.i = load i64, ptr %54, align 1
-  %55 = add i64 %.0.copyload.i9.i, %.sroa.26.062
+  %55 = add i64 %.0.copyload.i9.i, %.sroa.28.062
   %56 = add i64 %55, %52
-  %57 = add i64 %.sroa.18.063, %.sroa.46.060
+  %57 = add i64 %.sroa.20.063, %.sroa.48.060
   %.0.i10.i = tail call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 31)
   %58 = mul i64 %.0.i10.i, -5435081209227447693
-  %59 = mul i64 %.sroa.36.061, -5435081209227447693
-  %60 = add i64 %53, %.sroa.46.060
+  %59 = mul i64 %.sroa.38.061, -5435081209227447693
+  %60 = add i64 %53, %.sroa.48.060
   %.0.copyload.i.i.i21 = load i64, ptr %.067, align 1
   %61 = add i64 %.0.copyload.i.i.i21, %59
   %62 = getelementptr inbounds nuw i8, ptr %.pn66, i64 88
@@ -303,7 +323,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
   %68 = add i64 %.0.i18.i.i, %61
   %69 = add i64 %68, %.0.i.i.i22
   %70 = add i64 %67, %.0.copyload.i15.i.i
-  %71 = add i64 %58, %.sroa.56.059
+  %71 = add i64 %58, %.sroa.58.059
   %72 = add i64 %56, %.0.copyload.i17.i.i
   %73 = getelementptr inbounds nuw i8, ptr %.pn66, i64 96
   %.0.copyload.i.i12.i = load i64, ptr %73, align 1
@@ -321,15 +341,15 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
   %82 = add i64 %79, %.0.copyload.i15.i13.i
   %.0 = getelementptr inbounds nuw i8, ptr %.067, i64 64
   %.not = icmp eq ptr %.0, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
-  %.sroa.56.0.lcssa = phi i64 [ %42, %9 ], [ %81, %.lr.ph ]
-  %.sroa.46.0.lcssa = phi i64 [ %43, %9 ], [ %82, %.lr.ph ]
-  %.sroa.36.0.lcssa = phi i64 [ %31, %9 ], [ %69, %.lr.ph ]
-  %.sroa.26.0.lcssa = phi i64 [ %32, %9 ], [ %70, %.lr.ph ]
-  %.sroa.18.0.lcssa = phi i64 [ %18, %9 ], [ %53, %.lr.ph ]
-  %.sroa.10.0.lcssa = phi i64 [ %21, %9 ], [ %56, %.lr.ph ]
+  %.sroa.58.0.lcssa = phi i64 [ %42, %9 ], [ %81, %.lr.ph ]
+  %.sroa.48.0.lcssa = phi i64 [ %43, %9 ], [ %82, %.lr.ph ]
+  %.sroa.38.0.lcssa = phi i64 [ %31, %9 ], [ %69, %.lr.ph ]
+  %.sroa.28.0.lcssa = phi i64 [ %32, %9 ], [ %70, %.lr.ph ]
+  %.sroa.20.0.lcssa = phi i64 [ %18, %9 ], [ %53, %.lr.ph ]
+  %.sroa.12.0.lcssa = phi i64 [ %21, %9 ], [ %56, %.lr.ph ]
   %.sroa.0.0.lcssa = phi i64 [ 6073493763424969124, %9 ], [ %58, %.lr.ph ]
   %83 = and i64 %5, 63
   %.not20 = icmp eq i64 %83, 0
@@ -339,27 +359,27 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
   %85 = getelementptr inbounds i8, ptr %1, i64 -64
   %86 = getelementptr inbounds i8, ptr %1, i64 -56
   %.0.copyload.i.i23 = load i64, ptr %86, align 1
-  %87 = add i64 %.sroa.10.0.lcssa, %.sroa.26.0.lcssa
+  %87 = add i64 %.sroa.12.0.lcssa, %.sroa.28.0.lcssa
   %88 = add i64 %87, %.sroa.0.0.lcssa
   %89 = add i64 %88, %.0.copyload.i.i23
   %.0.i.i24 = tail call i64 @llvm.fshl.i64(i64 %89, i64 %89, i64 27)
   %90 = mul i64 %.0.i.i24, -5435081209227447693
-  %91 = add i64 %.sroa.10.0.lcssa, %.sroa.36.0.lcssa
+  %91 = add i64 %.sroa.12.0.lcssa, %.sroa.38.0.lcssa
   %92 = getelementptr inbounds i8, ptr %1, i64 -16
   %.0.copyload.i7.i25 = load i64, ptr %92, align 1
   %93 = add i64 %91, %.0.copyload.i7.i25
   %.0.i8.i26 = tail call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 22)
   %94 = mul i64 %.0.i8.i26, -5435081209227447693
-  %95 = xor i64 %90, %.sroa.56.0.lcssa
+  %95 = xor i64 %90, %.sroa.58.0.lcssa
   %96 = getelementptr inbounds i8, ptr %1, i64 -24
   %.0.copyload.i9.i27 = load i64, ptr %96, align 1
-  %97 = add i64 %.0.copyload.i9.i27, %.sroa.26.0.lcssa
+  %97 = add i64 %.0.copyload.i9.i27, %.sroa.28.0.lcssa
   %98 = add i64 %97, %94
-  %99 = add i64 %.sroa.18.0.lcssa, %.sroa.46.0.lcssa
+  %99 = add i64 %.sroa.20.0.lcssa, %.sroa.48.0.lcssa
   %.0.i10.i28 = tail call i64 @llvm.fshl.i64(i64 %99, i64 %99, i64 31)
   %100 = mul i64 %.0.i10.i28, -5435081209227447693
-  %101 = mul i64 %.sroa.36.0.lcssa, -5435081209227447693
-  %102 = add i64 %95, %.sroa.46.0.lcssa
+  %101 = mul i64 %.sroa.38.0.lcssa, -5435081209227447693
+  %102 = add i64 %95, %.sroa.48.0.lcssa
   %.0.copyload.i.i.i29 = load i64, ptr %85, align 1
   %103 = add i64 %.0.copyload.i.i.i29, %101
   %104 = getelementptr inbounds i8, ptr %1, i64 -40
@@ -375,7 +395,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
   %110 = add i64 %.0.i18.i.i34, %103
   %111 = add i64 %110, %.0.i.i.i31
   %112 = add i64 %109, %.0.copyload.i15.i.i30
-  %113 = add i64 %100, %.sroa.56.0.lcssa
+  %113 = add i64 %100, %.sroa.58.0.lcssa
   %114 = add i64 %98, %.0.copyload.i17.i.i33
   %115 = getelementptr inbounds i8, ptr %1, i64 -32
   %.0.copyload.i.i12.i36 = load i64, ptr %115, align 1
@@ -394,31 +414,31 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
   br label %125
 
 125:                                              ; preds = %84, %._crit_edge
-  %.sroa.56.1 = phi i64 [ %.sroa.56.0.lcssa, %._crit_edge ], [ %123, %84 ]
-  %.sroa.46.1 = phi i64 [ %.sroa.46.0.lcssa, %._crit_edge ], [ %124, %84 ]
-  %.sroa.36.1 = phi i64 [ %.sroa.36.0.lcssa, %._crit_edge ], [ %111, %84 ]
-  %.sroa.26.1 = phi i64 [ %.sroa.26.0.lcssa, %._crit_edge ], [ %112, %84 ]
-  %.sroa.18.1 = phi i64 [ %.sroa.18.0.lcssa, %._crit_edge ], [ %95, %84 ]
-  %.sroa.10.1 = phi i64 [ %.sroa.10.0.lcssa, %._crit_edge ], [ %98, %84 ]
+  %.sroa.58.1 = phi i64 [ %.sroa.58.0.lcssa, %._crit_edge ], [ %123, %84 ]
+  %.sroa.48.1 = phi i64 [ %.sroa.48.0.lcssa, %._crit_edge ], [ %124, %84 ]
+  %.sroa.38.1 = phi i64 [ %.sroa.38.0.lcssa, %._crit_edge ], [ %111, %84 ]
+  %.sroa.28.1 = phi i64 [ %.sroa.28.0.lcssa, %._crit_edge ], [ %112, %84 ]
+  %.sroa.20.1 = phi i64 [ %.sroa.20.0.lcssa, %._crit_edge ], [ %95, %84 ]
+  %.sroa.12.1 = phi i64 [ %.sroa.12.0.lcssa, %._crit_edge ], [ %98, %84 ]
   %.sroa.0.1 = phi i64 [ %.sroa.0.0.lcssa, %._crit_edge ], [ %100, %84 ]
-  %126 = xor i64 %.sroa.26.1, %.sroa.46.1
+  %126 = xor i64 %.sroa.28.1, %.sroa.48.1
   %127 = mul i64 %126, -7070675565921424023
   %128 = lshr i64 %127, 47
-  %129 = xor i64 %.sroa.46.1, %128
+  %129 = xor i64 %.sroa.48.1, %128
   %130 = xor i64 %129, %127
   %131 = mul i64 %130, -7070675565921424023
   %132 = lshr i64 %131, 47
   %133 = xor i64 %132, %131
   %134 = mul i64 %133, -7070675565921424023
-  %135 = lshr i64 %.sroa.10.1, 47
-  %136 = xor i64 %135, %.sroa.10.1
+  %135 = lshr i64 %.sroa.12.1, 47
+  %136 = xor i64 %135, %.sroa.12.1
   %137 = mul i64 %136, -5435081209227447693
-  %138 = add i64 %137, %.sroa.18.1
+  %138 = add i64 %137, %.sroa.20.1
   %139 = add i64 %138, %134
-  %140 = xor i64 %.sroa.36.1, %.sroa.56.1
+  %140 = xor i64 %.sroa.38.1, %.sroa.58.1
   %141 = mul i64 %140, -7070675565921424023
   %142 = lshr i64 %141, 47
-  %143 = xor i64 %.sroa.56.1, %142
+  %143 = xor i64 %.sroa.58.1, %142
   %144 = xor i64 %143, %141
   %145 = mul i64 %144, -7070675565921424023
   %146 = lshr i64 %145, 47
@@ -445,8 +465,8 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
   ret i64 %.sroa.056.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 comdat {
   %4 = add i64 %1, -4
   %or.cond = icmp ult i64 %4, 5
   br i1 %or.cond, label %5, label %22
@@ -545,7 +565,7 @@ define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcm
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.0.copyload.i.i32 = load i64, ptr %71, align 1
   %.0.copyload.i46.i = load i64, ptr %0, align 1
-  %72 = getelementptr inbounds i8, ptr %0, i64 %1
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %73 = getelementptr inbounds i8, ptr %72, i64 -16
   %.0.copyload.i47.i = load i64, ptr %73, align 1
   %74 = add i64 %.0.copyload.i47.i, %1
@@ -604,13 +624,13 @@ define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcm
   br i1 %.not, label %133, label %111
 
 111:                                              ; preds = %110
-  %112 = load i8, ptr %0, align 1
+  %112 = load i8, ptr %0, align 1, !tbaa !20
   %113 = lshr i64 %1, 1
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 %113
-  %115 = load i8, ptr %114, align 1
+  %115 = load i8, ptr %114, align 1, !tbaa !20
   %116 = getelementptr i8, ptr %0, i64 %1
   %117 = getelementptr i8, ptr %116, i64 -1
-  %118 = load i8, ptr %117, align 1
+  %118 = load i8, ptr %117, align 1, !tbaa !20
   %119 = zext i8 %112 to i64
   %120 = zext i8 %115 to i64
   %121 = shl nuw nsw i64 %120, 8
@@ -636,19 +656,15 @@ define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcm
   ret i64 %.0
 }
 
-declare void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #2
-
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
-declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
-
-declare void @llvm_blake3_hasher_finalize(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @llvm_blake3_hasher_finalize(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @_GLOBAL__sub_I_TypeHashing.cpp() #5 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_TypeHashing.cpp() #7 section ".text.startup" {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE5EmptyE, i8 0, i64 24, i1 false)
-  store i64 -1, ptr @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE9TombstoneE, align 8
+  store i64 -1, ptr @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE9TombstoneE, align 8, !tbaa !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE9TombstoneE, i64 8), i8 0, i64 16, i1 false)
   store i64 0, ptr @_ZN4llvm12DenseMapInfoINS_8codeview18GloballyHashedTypeEvE5EmptyE, align 1
   store i64 255, ptr @_ZN4llvm12DenseMapInfoINS_8codeview18GloballyHashedTypeEvE9TombstoneE, align 1
@@ -656,38 +672,52 @@ define internal void @_GLOBAL__sub_I_TypeHashing.cpp() #5 section ".text.startup
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshr.i64(i64, i64, i64) #6
+declare i64 @llvm.fshr.i64(i64, i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #6
+declare i64 @llvm.fshl.i64(i64, i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare i64 @llvm.umin.i64(i64, i64) #8
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm: argument 0"}
-!6 = distinct !{!6, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !5, i64 0}
+!11 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !5, i64 0, !12, i64 8, !12, i64 12}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!11, !12, i64 8}
+!14 = !{!11, !12, i64 12}
+!15 = !{!16, !12, i64 4}
+!16 = !{!"_ZTSN4llvm8codeview11TiReferenceE", !17, i64 0, !12, i64 4, !12, i64 8}
+!17 = !{!"_ZTSN4llvm8codeview9TiRefKindE", !6, i64 0}
+!18 = !{!16, !17, i64 0}
+!19 = !{!16, !12, i64 8}
+!20 = !{!6, !6, i64 0}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm: argument 0"}
+!23 = distinct !{!23, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm"}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!27, !9, i64 0}
+!27 = !{!"_ZTSN4llvm9hash_codeE", !9, i64 0}

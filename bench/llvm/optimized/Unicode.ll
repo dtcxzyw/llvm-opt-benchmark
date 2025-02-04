@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/Unicode.cpp.ll'
-source_filename = "bench/llvm/original/Unicode.cpp.ll"
+; ModuleID = 'bench/llvm/original/Unicode.ll'
+source_filename = "bench/llvm/original/Unicode.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -32,7 +32,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i: ; preds = %1, 
   %.112.i.i.i = select i1 %5, i64 %8, i64 %3
   %.1.i.i.i = select i1 %5, ptr %6, ptr %.017.i.i.i
   %9 = icmp sgt i64 %.112.i.i.i, 0
-  br i1 %9, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, !llvm.loop !4
+  br i1 %9, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, !llvm.loop !3
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i
   %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm3sys7unicode11isPrintableEiE15PrintableRanges, i64 5688)
@@ -68,7 +68,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i: ; preds = %_ZS
   %.112.i.i.i = select i1 %4, i64 %7, i64 %2
   %.1.i.i.i = select i1 %4, ptr %5, ptr %.017.i.i.i
   %8 = icmp sgt i64 %.112.i.i.i, 0
-  br i1 %8, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, !llvm.loop !4
+  br i1 %8, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, !llvm.loop !3
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i
   %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm3sys7unicode12isFormattingEiE2Cf, i64 168)
@@ -90,51 +90,54 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode15columnWidthUTF8ENS_9StringRe
   %3 = alloca [1 x i32], align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %.not39 = icmp eq i64 %1, 0
-  br i1 %.not39, label %_ZN4llvm3sys7unicodeL9charWidthEi.exit, label %.lr.ph
+  %.not3243.not = icmp eq i64 %1, 0
+  br i1 %.not3243.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %7
 
-7:                                                ; preds = %.lr.ph, %50
-  %.01828 = phi i32 [ 0, %.lr.ph ], [ %.1, %50 ]
-  %.01927 = phi i64 [ 0, %.lr.ph ], [ %.pre-phi41, %50 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 %.01927
-  %9 = load i8, ptr %8, align 1
-  %10 = call noundef i32 @_ZN4llvm18getNumBytesForUTF8Eh(i8 noundef zeroext %9) #3
+7:                                                ; preds = %.lr.ph, %49
+  %.02445 = phi i32 [ 0, %.lr.ph ], [ %.226, %49 ]
+  %.02944 = phi i64 [ 0, %.lr.ph ], [ %.pre-phi53, %49 ]
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.02944
+  %9 = load i8, ptr %8, align 1, !tbaa !5
+  %10 = call noundef i32 @_ZN4llvm18getNumBytesForUTF8Eh(i8 noundef zeroext %9) #4
   switch i32 %10, label %17 [
     i32 1, label %11
-    i32 0, label %_ZN4llvm3sys7unicodeL9charWidthEi.exit
+    i32 0, label %.loopexit
   ]
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr %8, align 1
+  %12 = load i8, ptr %8, align 1, !tbaa !5
   %13 = add i8 %12, -32
   %14 = icmp ult i8 %13, 95
-  br i1 %14, label %15, label %_ZN4llvm3sys7unicodeL9charWidthEi.exit
+  br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %11
-  %16 = add i32 %.01828, 1
-  %.pre40 = add nuw i64 %.01927, 1
-  br label %50
+  %16 = add i32 %.02445, 1
+  %.pre52 = add nuw i64 %.02944, 1
+  br label %49
 
 17:                                               ; preds = %7
   %18 = zext i32 %10 to i64
-  %19 = add i64 %.01927, %18
+  %19 = add i64 %.02944, %18
   %20 = icmp ugt i64 %19, %1
-  br i1 %20, label %_ZN4llvm3sys7unicodeL9charWidthEi.exit, label %21
+  br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %17
-  store ptr %8, ptr %4, align 8
-  store ptr %3, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  store ptr %8, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  store ptr %3, ptr %5, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 %18
-  %23 = call noundef i32 @_ZN4llvm18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0) #3
+  %23 = call noundef i32 @_ZN4llvm18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0) #4
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %24, label %_ZN4llvm3sys7unicodeL9charWidthEi.exit
+  br i1 %.not, label %24, label %.loopexit.sink.split
 
 24:                                               ; preds = %21
-  %25 = load i32, ptr %3, align 4
+  %25 = load i32, ptr %3, align 4, !tbaa !13
   %26 = icmp eq i32 %25, 173
   br i1 %26, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.preheader, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.i
 
@@ -153,17 +156,17 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.i: ; preds = 
   %.112.i.i.i.i.i = select i1 %29, i64 %32, i64 %27
   %.1.i.i.i.i.i = select i1 %29, ptr %30, ptr %.017.i.i.i.i.i
   %33 = icmp sgt i64 %.112.i.i.i.i.i, 0
-  br i1 %33, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i, !llvm.loop !4
+  br i1 %33, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i, !llvm.loop !3
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm3sys7unicode11isPrintableEiE15PrintableRanges, i64 5688)
-  br i1 %.not.i.i.i.i, label %_ZN4llvm3sys7unicodeL9charWidthEi.exit, label %_ZN4llvm3sys7unicode11isPrintableEi.exit.i
+  br i1 %.not.i.i.i.i, label %.loopexit.sink.split, label %_ZN4llvm3sys7unicode11isPrintableEi.exit.i
 
 _ZN4llvm3sys7unicode11isPrintableEi.exit.i:       ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %.1.i.i.i.i.i, align 4
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.0.0.copyload.i.i.i.i to i32
   %.not.i = icmp ult i32 %25, %.sroa.0.0.extract.trunc.i.i.i.i.i
-  br i1 %.not.i, label %_ZN4llvm3sys7unicodeL9charWidthEi.exit, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.preheader
+  br i1 %.not.i, label %.loopexit.sink.split, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.preheader
 
 _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.preheader: ; preds = %_ZN4llvm3sys7unicode11isPrintableEi.exit.i, %24
   br label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i
@@ -183,7 +186,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i: ; preds = %_
   %.112.i.i.i.i = select i1 %36, i64 %39, i64 %34
   %.1.i.i.i.i = select i1 %36, ptr %37, ptr %.017.i.i.i.i
   %40 = icmp sgt i64 %.112.i.i.i.i, 0
-  br i1 %40, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i, !llvm.loop !4
+  br i1 %40, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i, !llvm.loop !3
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm3sys7unicodeL9charWidthEiE24CombiningCharacterRanges, i64 2744)
@@ -193,7 +196,7 @@ _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i:  ; preds = %_ZSt13__lower_bound
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %.1.i.i.i.i, align 4
   %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %.sroa.0.0.copyload.i.i.i to i32
   %.not21.i = icmp ult i32 %25, %.sroa.0.0.extract.trunc.i.i.i.i
-  br i1 %.not21.i, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i.preheader, label %48
+  br i1 %.not21.i, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i.preheader, label %.thread39
 
 _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i.preheader: ; preds = %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i
   br label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i
@@ -213,11 +216,11 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i: ; preds = %
   %.112.i.i.i12.i = select i1 %43, i64 %46, i64 %41
   %.1.i.i.i13.i = select i1 %43, ptr %44, ptr %.017.i.i.i5.i
   %47 = icmp sgt i64 %.112.i.i.i12.i, 0
-  br i1 %47, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14.i, !llvm.loop !4
+  br i1 %47, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14.i, !llvm.loop !3
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i
   %.not.i.i15.i = icmp eq ptr %.1.i.i.i13.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm3sys7unicodeL9charWidthEiE26DoubleWidthCharacterRanges, i64 800)
-  br i1 %.not.i.i15.i, label %48, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18.i
+  br i1 %.not.i.i15.i, label %.thread39, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18.i
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18.i: ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14.i
   %.sroa.0.0.copyload.i.i16.i = load i64, ptr %.1.i.i.i13.i, align 4
@@ -225,39 +228,65 @@ _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18.i: ; preds = %_ZSt13__lower_boun
   %.sroa.0.0.extract.trunc.i.i.i17.i = trunc i64 %.sroa.0.0.copyload.i.i16.fr.i to i32
   %.not22.i = icmp ult i32 %25, %.sroa.0.0.extract.trunc.i.i.i17.i
   %spec.select.i = select i1 %.not22.i, i32 1, i32 2
-  br label %48
+  br label %.thread39
 
-48:                                               ; preds = %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14.i, %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18.i
+.thread39:                                        ; preds = %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14.i, %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18.i
   %.0.i.ph = phi i32 [ %spec.select.i, %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18.i ], [ 1, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14.i ], [ 0, %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i ]
-  %49 = add i32 %.0.i.ph, %.01828
-  br label %50
+  %48 = add i32 %.0.i.ph, %.02445
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  br label %49
 
-50:                                               ; preds = %48, %15
-  %.pre-phi41 = phi i64 [ %19, %48 ], [ %.pre40, %15 ]
-  %.1 = phi i32 [ %49, %48 ], [ %16, %15 ]
-  %51 = icmp ult i64 %.pre-phi41, %1
-  br i1 %51, label %7, label %_ZN4llvm3sys7unicodeL9charWidthEi.exit, !llvm.loop !6
+49:                                               ; preds = %.thread39, %15
+  %.pre-phi53 = phi i64 [ %19, %.thread39 ], [ %.pre52, %15 ]
+  %.226 = phi i32 [ %48, %.thread39 ], [ %16, %15 ]
+  %.not32 = icmp ult i64 %.pre-phi53, %1
+  br i1 %.not32, label %7, label %.loopexit, !llvm.loop !15
 
-_ZN4llvm3sys7unicodeL9charWidthEi.exit:           ; preds = %11, %7, %17, %21, %50, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i, %_ZN4llvm3sys7unicode11isPrintableEi.exit.i, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %_ZN4llvm3sys7unicode11isPrintableEi.exit.i ], [ -1, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i ], [ %.1, %50 ], [ -2, %21 ], [ -2, %17 ], [ -2, %7 ], [ -1, %11 ]
-  ret i32 %.0
+.loopexit.sink.split:                             ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i, %_ZN4llvm3sys7unicode11isPrintableEi.exit.i, %21
+  %spec.select.ph = phi i32 [ -2, %21 ], [ -1, %_ZN4llvm3sys7unicode11isPrintableEi.exit.i ], [ -1, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %49, %11, %7, %17, %.loopexit.sink.split, %2
+  %spec.select = phi i32 [ 0, %2 ], [ %spec.select.ph, %.loopexit.sink.split ], [ %.226, %49 ], [ -1, %11 ], [ -2, %7 ], [ -2, %17 ]
+  ret i32 %spec.select
 }
 
-declare noundef i32 @_ZN4llvm18getNumBytesForUTF8Eh(i8 noundef zeroext) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare noundef i32 @_ZN4llvm18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN4llvm18getNumBytesForUTF8Eh(i8 noundef zeroext) local_unnamed_addr #3
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+declare noundef i32 @_ZN4llvm18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 int", !10, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !6, i64 0}
+!15 = distinct !{!15, !4}

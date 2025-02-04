@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/RISCVELFObjectWriter.cpp.ll'
-source_filename = "bench/llvm/original/RISCVELFObjectWriter.cpp.ll"
+; ModuleID = 'bench/llvm/original/RISCVELFObjectWriter.ll'
+source_filename = "bench/llvm/original/RISCVELFObjectWriter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -13,13 +13,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
 
-$_ZNK4llvm23MCELFObjectTargetWriter9getFormatEv = comdat any
+$_ZN4llvm20MCObjectTargetWriterD2Ev = comdat any
 
-$_ZNK4llvm23MCELFObjectTargetWriter22getMemtagRelocsSectionERNS_9MCContextE = comdat any
+$_ZNK4llvm23MCELFObjectTargetWriter9getFormatEv = comdat any
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
-@_ZTVN12_GLOBAL__N_120RISCVELFObjectWriterE = internal unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr null, ptr @_ZN12_GLOBAL__N_120RISCVELFObjectWriterD2Ev, ptr @_ZN12_GLOBAL__N_120RISCVELFObjectWriterD0Ev, ptr @_ZNK4llvm23MCELFObjectTargetWriter9getFormatEv, ptr @_ZNK12_GLOBAL__N_120RISCVELFObjectWriter12getRelocTypeERN4llvm9MCContextERKNS1_7MCValueERKNS1_7MCFixupEb, ptr @_ZNK12_GLOBAL__N_120RISCVELFObjectWriter23needsRelocateWithSymbolERKN4llvm7MCValueERKNS1_8MCSymbolEj, ptr @_ZN4llvm23MCELFObjectTargetWriter10sortRelocsERKNS_11MCAssemblerERSt6vectorINS_18ELFRelocationEntryESaIS5_EE, ptr @_ZNK4llvm23MCELFObjectTargetWriter22getMemtagRelocsSectionERNS_9MCContextE] }, align 8
+@_ZTVN12_GLOBAL__N_120RISCVELFObjectWriterE = internal unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr null, ptr @_ZN4llvm20MCObjectTargetWriterD2Ev, ptr @_ZN12_GLOBAL__N_120RISCVELFObjectWriterD0Ev, ptr @_ZNK4llvm23MCELFObjectTargetWriter9getFormatEv, ptr @_ZNK12_GLOBAL__N_120RISCVELFObjectWriter12getRelocTypeERN4llvm9MCContextERKNS1_7MCValueERKNS1_7MCFixupEb, ptr @_ZNK12_GLOBAL__N_120RISCVELFObjectWriter23needsRelocateWithSymbolERKN4llvm7MCValueERKNS1_8MCSymbolEj, ptr @_ZN4llvm23MCELFObjectTargetWriter10sortRelocsERKNS_11MCAssemblerERSt6vectorINS_18ELFRelocationEntryESaIS5_EE] }, align 8
 @.str = private unnamed_addr constant [28 x i8] c"unsupported relocation type\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"1-byte data relocations not supported\00", align 1
 @.str.2 = private unnamed_addr constant [38 x i8] c"2-byte data relocations not supported\00", align 1
@@ -27,26 +27,32 @@ $_ZNK4llvm23MCELFObjectTargetWriter22getMemtagRelocsSectionERNS_9MCContextE = co
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm26createRISCVELFObjectWriterEhb(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %0, i8 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_120RISCVELFObjectWriterESt14default_deleteIS1_EED2Ev.exit:
-  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #5, !noalias !4
-  tail call void @_ZN4llvm23MCELFObjectTargetWriterC2Ebhtbh(ptr noundef nonnull align 8 dereferenceable(13) %3, i1 noundef zeroext %2, i8 noundef zeroext %1, i16 noundef zeroext 243, i1 noundef zeroext true, i8 noundef zeroext 0) #6, !noalias !4
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_120RISCVELFObjectWriterE, i64 16), ptr %3, align 8, !noalias !4
-  store ptr %3, ptr %0, align 8
+  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #6, !noalias !3
+  tail call void @_ZN4llvm23MCELFObjectTargetWriterC2Ebhtbh(ptr noundef nonnull align 8 dereferenceable(13) %3, i1 noundef zeroext %2, i8 noundef zeroext %1, i16 noundef zeroext 243, i1 noundef zeroext true, i8 noundef zeroext 0) #7, !noalias !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_120RISCVELFObjectWriterE, i64 16), ptr %3, align 8, !tbaa !6, !noalias !3
+  store ptr %3, ptr %0, align 8, !tbaa !9
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm23MCELFObjectTargetWriterC2Ebhtbh(ptr noundef nonnull align 8 dereferenceable(13), i1 noundef zeroext, i8 noundef zeroext, i16 noundef zeroext, i1 noundef zeroext, i8 noundef zeroext) unnamed_addr #2
+declare void @_ZN4llvm23MCELFObjectTargetWriterC2Ebhtbh(ptr noundef nonnull align 8 dereferenceable(13), i1 noundef zeroext, i8 noundef zeroext, i16 noundef zeroext, i1 noundef zeroext, i8 noundef zeroext) unnamed_addr #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_120RISCVELFObjectWriterD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm20MCObjectTargetWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120RISCVELFObjectWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #7
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #8
   ret void
 }
 
@@ -61,9 +67,9 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_120RISCVELFObje
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
-  %10 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !21
   %13 = icmp ugt i32 %12, 255
   br i1 %13, label %14, label %16
 
@@ -99,18 +105,20 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_120RISCVELFObje
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i = load ptr, ptr %19, align 8
+  %.sroa.0.0.copyload.i = load ptr, ptr %19, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %21, align 1
-  store ptr @.str, ptr %6, align 8
-  store i8 3, ptr %20, align 8
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %6) #6
+  store i8 1, ptr %21, align 1, !tbaa !23
+  store ptr @.str, ptr %6, align 8, !tbaa !26
+  store i8 3, ptr %20, align 8, !tbaa !27
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %6) #7
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7
   br label %78
 
 22:                                               ; preds = %17, %17
-  %23 = tail call noundef zeroext i16 @_ZNK4llvm7MCValue16getAccessVariantEv(ptr noundef nonnull align 8 dereferenceable(28) %2) #6
-  %24 = icmp eq i16 %23, 12
+  %23 = tail call noundef zeroext i16 @_ZNK4llvm7MCValue16getAccessVariantEv(ptr noundef nonnull align 8 dereferenceable(28) %2) #7
+  %24 = icmp eq i16 %23, 13
   %25 = select i1 %24, i32 59, i32 57
   br label %78
 
@@ -178,13 +186,15 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_120RISCVELFObje
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i24 = load ptr, ptr %42, align 8
+  %.sroa.0.0.copyload.i24 = load ptr, ptr %42, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #7
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %44, align 1
-  store ptr @.str, ptr %7, align 8
-  store i8 3, ptr %43, align 8
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i24, ptr noundef nonnull align 8 dereferenceable(34) %7) #6
+  store i8 1, ptr %44, align 1, !tbaa !23
+  store ptr @.str, ptr %7, align 8, !tbaa !26
+  store i8 3, ptr %43, align 8, !tbaa !27
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i24, ptr noundef nonnull align 8 dereferenceable(34) %7) #7
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #7
   br label %78
 
 45:                                               ; preds = %40
@@ -195,43 +205,47 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_120RISCVELFObje
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i25 = load ptr, ptr %48, align 8
+  %.sroa.0.0.copyload.i25 = load ptr, ptr %48, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #7
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 1, ptr %50, align 1
-  store ptr @.str.1, ptr %8, align 8
-  store i8 3, ptr %49, align 8
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i25, ptr noundef nonnull align 8 dereferenceable(34) %8) #6
+  store i8 1, ptr %50, align 1, !tbaa !23
+  store ptr @.str.1, ptr %8, align 8, !tbaa !26
+  store i8 3, ptr %49, align 8, !tbaa !27
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i25, ptr noundef nonnull align 8 dereferenceable(34) %8) #7
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #7
   br label %78
 
 51:                                               ; preds = %40
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i26 = load ptr, ptr %52, align 8
+  %.sroa.0.0.copyload.i26 = load ptr, ptr %52, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #7
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 1, ptr %54, align 1
-  store ptr @.str.2, ptr %9, align 8
-  store i8 3, ptr %53, align 8
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i26, ptr noundef nonnull align 8 dereferenceable(34) %9) #6
+  store i8 1, ptr %54, align 1, !tbaa !23
+  store ptr @.str.2, ptr %9, align 8, !tbaa !26
+  store i8 3, ptr %53, align 8, !tbaa !27
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i26, ptr noundef nonnull align 8 dereferenceable(34) %9) #7
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #7
   br label %78
 
 55:                                               ; preds = %40
-  %56 = load i8, ptr %10, align 8
+  %56 = load i8, ptr %10, align 8, !tbaa !28
   %57 = icmp eq i8 %56, 4
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %60 = load i32, ptr %59, align 8
+  %60 = load i32, ptr %59, align 8, !tbaa !31
   %61 = icmp eq i32 %60, 13
   br i1 %61, label %78, label %62
 
 62:                                               ; preds = %58, %55
-  %63 = load ptr, ptr %2, align 8
+  %63 = load ptr, ptr %2, align 8, !tbaa !35
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   %65 = load i32, ptr %64, align 1
   %66 = and i32 %65, 65535
-  %67 = icmp eq i32 %66, 6
+  %67 = icmp eq i32 %66, 7
   %. = select i1 %67, i32 41, i32 1
   br label %78
 
@@ -271,39 +285,67 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_120RISCVELFObje
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVELFObjectWriter23needsRelocateWithSymbolERKN4llvm7MCValueERKNS1_8MCSymbolEj(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, i32 %3) unnamed_addr #3 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVELFObjectWriter23needsRelocateWithSymbolERKN4llvm7MCValueERKNS1_8MCSymbolEj(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, i32 %3) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
-declare void @_ZN4llvm23MCELFObjectTargetWriter10sortRelocsERKNS_11MCAssemblerERSt6vectorINS_18ELFRelocationEntryESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(13), ptr noundef nonnull align 1, ptr noundef nonnull align 1) unnamed_addr #2
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK4llvm23MCELFObjectTargetWriter22getMemtagRelocsSectionERNS_9MCContextE(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(2432) %1) unnamed_addr #0 comdat align 2 {
-  ret ptr null
-}
+declare void @_ZN4llvm23MCELFObjectTargetWriter10sortRelocsERKNS_11MCAssemblerERSt6vectorINS_18ELFRelocationEntryESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(13), ptr noundef nonnull align 1, ptr noundef nonnull align 1) unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432), ptr, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
+declare void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432), ptr, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #3
 
-declare noundef zeroext i16 @_ZNK4llvm7MCValue16getAccessVariantEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #2
+declare noundef zeroext i16 @_ZNK4llvm7MCValue16getAccessVariantEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #3
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { builtin nounwind allocsize(0) }
-attributes #6 = { nounwind }
-attributes #7 = { builtin nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { builtin nounwind allocsize(0) }
+attributes #7 = { nounwind }
+attributes #8 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_120RISCVELFObjectWriterEJRhRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_120RISCVELFObjectWriterEJRhRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!3 = !{!4}
+!4 = distinct !{!4, !5, !"_ZSt11make_uniqueIN12_GLOBAL__N_120RISCVELFObjectWriterEJRhRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!5 = distinct !{!5, !"_ZSt11make_uniqueIN12_GLOBAL__N_120RISCVELFObjectWriterEJRhRbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"vtable pointer", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm20MCObjectTargetWriterELb0EE", !11, i64 0}
+!11 = !{!"p1 _ZTSN4llvm20MCObjectTargetWriterE", !12, i64 0}
+!12 = !{!"any pointer", !13, i64 0}
+!13 = !{!"omnipotent char", !8, i64 0}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"_ZTSN4llvm7MCFixupE", !16, i64 0, !17, i64 8, !18, i64 12, !19, i64 16}
+!16 = !{!"p1 _ZTSN4llvm6MCExprE", !12, i64 0}
+!17 = !{!"int", !13, i64 0}
+!18 = !{!"_ZTSN4llvm11MCFixupKindE", !13, i64 0}
+!19 = !{!"_ZTSN4llvm5SMLocE", !20, i64 0}
+!20 = !{!"p1 omnipotent char", !12, i64 0}
+!21 = !{!15, !18, i64 12}
+!22 = !{!20, !20, i64 0}
+!23 = !{!24, !25, i64 33}
+!24 = !{!"_ZTSN4llvm5TwineE", !13, i64 0, !13, i64 16, !25, i64 32, !25, i64 33}
+!25 = !{!"_ZTSN4llvm5Twine8NodeKindE", !13, i64 0}
+!26 = !{!13, !13, i64 0}
+!27 = !{!24, !25, i64 32}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"_ZTSN4llvm6MCExprE", !30, i64 0, !17, i64 1, !19, i64 8}
+!30 = !{!"_ZTSN4llvm6MCExpr8ExprKindE", !13, i64 0}
+!31 = !{!32, !34, i64 32}
+!32 = !{!"_ZTSN4llvm11RISCVMCExprE", !33, i64 0, !16, i64 24, !34, i64 32}
+!33 = !{!"_ZTSN4llvm12MCTargetExprE", !29, i64 8}
+!34 = !{!"_ZTSN4llvm11RISCVMCExpr11VariantKindE", !13, i64 0}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"_ZTSN4llvm7MCValueE", !37, i64 0, !37, i64 8, !38, i64 16, !17, i64 24}
+!37 = !{!"p1 _ZTSN4llvm15MCSymbolRefExprE", !12, i64 0}
+!38 = !{!"long", !13, i64 0}

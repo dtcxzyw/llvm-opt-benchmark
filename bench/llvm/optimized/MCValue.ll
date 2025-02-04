@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/MCValue.cpp.ll'
-source_filename = "bench/llvm/original/MCValue.cpp.ll"
+; ModuleID = 'bench/llvm/original/MCValue.ll'
+source_filename = "bench/llvm/original/MCValue.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm7MCValue5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr %0, align 8
+  %3 = load ptr, ptr %0, align 8, !tbaa !3
   %.not.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -20,21 +20,21 @@ define dso_local void @_ZNK4llvm7MCValue5printERNS_11raw_ostreamE(ptr noundef no
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8
+  %9 = load i64, ptr %8, align 8, !tbaa !11
   %10 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %9) #5
   br label %70
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i32, ptr %12, align 8
+  %13 = load i32, ptr %12, align 8, !tbaa !12
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %_ZN4llvm11raw_ostreamlsEc.exit12, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !19
   %.not.i9 = icmp ult ptr %16, %18
   br i1 %.not.i9, label %21, label %19
 
@@ -44,19 +44,19 @@ define dso_local void @_ZNK4llvm7MCValue5printERNS_11raw_ostreamE(ptr noundef no
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  store ptr %22, ptr %15, align 8
-  store i8 58, ptr %16, align 1
+  store ptr %22, ptr %15, align 8, !tbaa !13
+  store i8 58, ptr %16, align 1, !tbaa !20
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %19, %21
   %.0.i = phi ptr [ %20, %19 ], [ %1, %21 ]
-  %23 = load i32, ptr %12, align 8
+  %23 = load i32, ptr %12, align 8, !tbaa !12
   %24 = zext i32 %23 to i64
   %25 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i, i64 noundef %24) #5
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !13
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !19
   %.not.i10 = icmp ult ptr %27, %29
   br i1 %.not.i10, label %32, label %30
 
@@ -66,22 +66,22 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %19, %21
 
 32:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store ptr %33, ptr %26, align 8
-  store i8 58, ptr %27, align 1
+  store ptr %33, ptr %26, align 8, !tbaa !13
+  store i8 58, ptr %27, align 1, !tbaa !20
   br label %_ZN4llvm11raw_ostreamlsEc.exit12
 
 _ZN4llvm11raw_ostreamlsEc.exit12:                 ; preds = %32, %30, %11
-  %34 = load ptr, ptr %0, align 8
+  %34 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_ZNK4llvm6MCExpr5printERNS_11raw_ostreamEPKNS_9MCAsmInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef null, i1 noundef zeroext false) #5
-  %35 = load ptr, ptr %4, align 8
+  %35 = load ptr, ptr %4, align 8, !tbaa !21
   %.not7 = icmp eq ptr %35, null
   br i1 %.not7, label %51, label %36
 
 36:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit12
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %38 = load ptr, ptr %37, align 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !13
   %41 = ptrtoint ptr %38 to i64
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
@@ -94,27 +94,27 @@ _ZN4llvm11raw_ostreamlsEc.exit12:                 ; preds = %32, %30, %11
 
 47:                                               ; preds = %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %40, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
-  %48 = load ptr, ptr %39, align 8
+  %48 = load ptr, ptr %39, align 8, !tbaa !13
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 3
-  store ptr %49, ptr %39, align 8
+  store ptr %49, ptr %39, align 8, !tbaa !13
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %45, %47
-  %50 = load ptr, ptr %4, align 8
+  %50 = load ptr, ptr %4, align 8, !tbaa !21
   tail call void @_ZNK4llvm6MCExpr5printERNS_11raw_ostreamEPKNS_9MCAsmInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef null, i1 noundef zeroext false) #5
   br label %51
 
 51:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsEc.exit12
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %53 = load i64, ptr %52, align 8
+  %53 = load i64, ptr %52, align 8, !tbaa !11
   %.not8 = icmp eq i64 %53, 0
   br i1 %.not8, label %70, label %54
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %56 = load ptr, ptr %55, align 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !19
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %58 = load ptr, ptr %57, align 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !13
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
@@ -127,14 +127,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %45, %47
 
 65:                                               ; preds = %54
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %58, ptr noundef nonnull align 1 dereferenceable(3) @.str.1, i64 3, i1 false)
-  %66 = load ptr, ptr %57, align 8
+  %66 = load ptr, ptr %57, align 8, !tbaa !13
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 3
-  store ptr %67, ptr %57, align 8
+  store ptr %67, ptr %57, align 8, !tbaa !13
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit15
 
 _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %63, %65
   %.0.i.i14 = phi ptr [ %64, %63 ], [ %1, %65 ]
-  %68 = load i64, ptr %52, align 8
+  %68 = load i64, ptr %52, align 8, !tbaa !11
   %69 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i14, i64 noundef %68) #5
   br label %70
 
@@ -147,7 +147,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
 define dso_local noundef zeroext i16 @_ZNK4llvm7MCValue16getAccessVariantEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
@@ -160,7 +160,7 @@ define dso_local noundef zeroext i16 @_ZNK4llvm7MCValue16getAccessVariantEv(ptr 
   br label %8
 
 8:                                                ; preds = %4, %1
-  %9 = load ptr, ptr %0, align 8
+  %9 = load ptr, ptr %0, align 8, !tbaa !3
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %14, label %10
 
@@ -189,16 +189,34 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSN4llvm7MCValueE", !5, i64 0, !5, i64 8, !9, i64 16, !10, i64 24}
+!5 = !{!"p1 _ZTSN4llvm15MCSymbolRefExprE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"long", !7, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!4, !9, i64 16}
+!12 = !{!4, !10, i64 24}
+!13 = !{!14, !16, i64 32}
+!14 = !{!"_ZTSN4llvm11raw_ostreamE", !15, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !17, i64 40, !18, i64 44}
+!15 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !7, i64 0}
+!16 = !{!"p1 omnipotent char", !6, i64 0}
+!17 = !{!"bool", !7, i64 0}
+!18 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !7, i64 0}
+!19 = !{!14, !16, i64 24}
+!20 = !{!7, !7, i64 0}
+!21 = !{!4, !5, i64 8}

@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/SHA1.cpp.ll'
-source_filename = "bench/llvm/original/SHA1.cpp.ll"
+; ModuleID = 'bench/llvm/original/SHA1.ll'
+source_filename = "bench/llvm/original/SHA1.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -16,38 +16,38 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm4SHA14initEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(92) initializes((64, 89)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 1732584193, ptr %2, align 4
+  store i32 1732584193, ptr %2, align 4, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 -271733879, ptr %3, align 4
+  store i32 -271733879, ptr %3, align 4, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 -1732584194, ptr %4, align 4
+  store i32 -1732584194, ptr %4, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 271733878, ptr %5, align 4
+  store i32 271733878, ptr %5, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 -1009589776, ptr %6, align 4
+  store i32 -1009589776, ptr %6, align 4, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 0, ptr %8, align 4
+  store i8 0, ptr %8, align 4, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load i32, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = xor i32 %9, %7
   %13 = and i32 %12, %5
   %14 = xor i32 %13, %9
-  %15 = load i32, ptr %0, align 4
+  %15 = load i32, ptr %0, align 4, !tbaa !3
   %16 = tail call noundef i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 5)
   %17 = add i32 %16, 1518500249
   %18 = add i32 %17, %11
@@ -58,7 +58,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %23 = and i32 %22, %3
   %24 = xor i32 %23, %7
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %26 = load i32, ptr %25, align 4
+  %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = tail call noundef i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 5)
   %28 = add i32 %9, 1518500249
   %29 = add i32 %28, %24
@@ -69,7 +69,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %34 = and i32 %20, %33
   %35 = xor i32 %34, %21
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = tail call noundef i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 5)
   %39 = add i32 %7, 1518500249
   %40 = add i32 %39, %37
@@ -80,7 +80,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %45 = and i32 %31, %44
   %46 = xor i32 %45, %32
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %48 = load i32, ptr %47, align 4
+  %48 = load i32, ptr %47, align 4, !tbaa !3
   %49 = tail call noundef i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 5)
   %50 = add i32 %21, 1518500249
   %51 = add i32 %50, %48
@@ -91,7 +91,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %56 = and i32 %42, %55
   %57 = xor i32 %56, %43
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i32, ptr %58, align 4
+  %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = tail call noundef i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 5)
   %61 = add i32 %32, 1518500249
   %62 = add i32 %61, %59
@@ -102,7 +102,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %67 = and i32 %53, %66
   %68 = xor i32 %67, %54
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %70 = load i32, ptr %69, align 4
+  %70 = load i32, ptr %69, align 4, !tbaa !3
   %71 = tail call noundef i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 5)
   %72 = add i32 %43, 1518500249
   %73 = add i32 %72, %70
@@ -113,7 +113,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %78 = and i32 %64, %77
   %79 = xor i32 %78, %65
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %81 = load i32, ptr %80, align 4
+  %81 = load i32, ptr %80, align 4, !tbaa !3
   %82 = tail call noundef i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 5)
   %83 = add i32 %81, 1518500249
   %84 = add i32 %83, %54
@@ -124,7 +124,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %89 = and i32 %75, %88
   %90 = xor i32 %89, %76
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %92 = load i32, ptr %91, align 4
+  %92 = load i32, ptr %91, align 4, !tbaa !3
   %93 = tail call noundef i32 @llvm.fshl.i32(i32 %86, i32 %86, i32 5)
   %94 = add i32 %92, 1518500249
   %95 = add i32 %94, %65
@@ -135,7 +135,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %100 = and i32 %86, %99
   %101 = xor i32 %100, %87
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %103 = load i32, ptr %102, align 4
+  %103 = load i32, ptr %102, align 4, !tbaa !3
   %104 = tail call noundef i32 @llvm.fshl.i32(i32 %97, i32 %97, i32 5)
   %105 = add i32 %103, 1518500249
   %106 = add i32 %105, %76
@@ -146,7 +146,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %111 = and i32 %97, %110
   %112 = xor i32 %111, %98
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %114 = load i32, ptr %113, align 4
+  %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = tail call noundef i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 5)
   %116 = add i32 %114, 1518500249
   %117 = add i32 %116, %87
@@ -157,7 +157,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %122 = and i32 %108, %121
   %123 = xor i32 %122, %109
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %125 = load i32, ptr %124, align 4
+  %125 = load i32, ptr %124, align 4, !tbaa !3
   %126 = tail call noundef i32 @llvm.fshl.i32(i32 %119, i32 %119, i32 5)
   %127 = add i32 %125, 1518500249
   %128 = add i32 %127, %98
@@ -168,7 +168,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %133 = and i32 %119, %132
   %134 = xor i32 %133, %120
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %136 = load i32, ptr %135, align 4
+  %136 = load i32, ptr %135, align 4, !tbaa !3
   %137 = tail call noundef i32 @llvm.fshl.i32(i32 %130, i32 %130, i32 5)
   %138 = add i32 %136, 1518500249
   %139 = add i32 %138, %109
@@ -179,7 +179,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %144 = and i32 %130, %143
   %145 = xor i32 %144, %131
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %147 = load i32, ptr %146, align 4
+  %147 = load i32, ptr %146, align 4, !tbaa !3
   %148 = tail call noundef i32 @llvm.fshl.i32(i32 %141, i32 %141, i32 5)
   %149 = add i32 %147, 1518500249
   %150 = add i32 %149, %120
@@ -190,7 +190,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %155 = and i32 %141, %154
   %156 = xor i32 %155, %142
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %158 = load i32, ptr %157, align 4
+  %158 = load i32, ptr %157, align 4, !tbaa !3
   %159 = tail call noundef i32 @llvm.fshl.i32(i32 %152, i32 %152, i32 5)
   %160 = add i32 %158, 1518500249
   %161 = add i32 %160, %131
@@ -201,7 +201,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %166 = and i32 %152, %165
   %167 = xor i32 %166, %153
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %169 = load i32, ptr %168, align 4
+  %169 = load i32, ptr %168, align 4, !tbaa !3
   %170 = tail call noundef i32 @llvm.fshl.i32(i32 %163, i32 %163, i32 5)
   %171 = add i32 %169, 1518500249
   %172 = add i32 %171, %142
@@ -212,7 +212,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %177 = and i32 %163, %176
   %178 = xor i32 %177, %164
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %180 = load i32, ptr %179, align 4
+  %180 = load i32, ptr %179, align 4, !tbaa !3
   %181 = tail call noundef i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 5)
   %182 = add i32 %180, 1518500249
   %183 = add i32 %182, %153
@@ -845,7 +845,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %810 = xor i32 %809, %710
   %811 = xor i32 %810, %776
   %812 = tail call noundef i32 @llvm.fshl.i32(i32 %811, i32 %811, i32 1)
-  store i32 %812, ptr %0, align 4
+  store i32 %812, ptr %0, align 4, !tbaa !3
   %813 = tail call noundef i32 @llvm.fshl.i32(i32 %805, i32 %805, i32 5)
   %814 = add i32 %812, -899497514
   %815 = add i32 %814, %782
@@ -858,7 +858,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %822 = xor i32 %821, %724
   %823 = xor i32 %822, %788
   %824 = tail call noundef i32 @llvm.fshl.i32(i32 %823, i32 %823, i32 1)
-  store i32 %824, ptr %25, align 4
+  store i32 %824, ptr %25, align 4, !tbaa !3
   %825 = tail call noundef i32 @llvm.fshl.i32(i32 %817, i32 %817, i32 5)
   %826 = add i32 %824, -899497514
   %827 = add i32 %826, %794
@@ -871,7 +871,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %834 = xor i32 %833, %738
   %835 = xor i32 %834, %800
   %836 = tail call noundef i32 @llvm.fshl.i32(i32 %835, i32 %835, i32 1)
-  store i32 %836, ptr %36, align 4
+  store i32 %836, ptr %36, align 4, !tbaa !3
   %837 = tail call noundef i32 @llvm.fshl.i32(i32 %829, i32 %829, i32 5)
   %838 = add i32 %836, -899497514
   %839 = add i32 %838, %806
@@ -884,7 +884,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %846 = xor i32 %845, %752
   %847 = xor i32 %846, %812
   %848 = tail call noundef i32 @llvm.fshl.i32(i32 %847, i32 %847, i32 1)
-  store i32 %848, ptr %47, align 4
+  store i32 %848, ptr %47, align 4, !tbaa !3
   %849 = tail call noundef i32 @llvm.fshl.i32(i32 %841, i32 %841, i32 5)
   %850 = add i32 %848, -899497514
   %851 = add i32 %850, %818
@@ -897,7 +897,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %858 = xor i32 %857, %764
   %859 = xor i32 %858, %824
   %860 = tail call noundef i32 @llvm.fshl.i32(i32 %859, i32 %859, i32 1)
-  store i32 %860, ptr %58, align 4
+  store i32 %860, ptr %58, align 4, !tbaa !3
   %861 = tail call noundef i32 @llvm.fshl.i32(i32 %853, i32 %853, i32 5)
   %862 = add i32 %860, -899497514
   %863 = add i32 %862, %830
@@ -910,7 +910,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %870 = xor i32 %869, %776
   %871 = xor i32 %870, %836
   %872 = tail call noundef i32 @llvm.fshl.i32(i32 %871, i32 %871, i32 1)
-  store i32 %872, ptr %69, align 4
+  store i32 %872, ptr %69, align 4, !tbaa !3
   %873 = tail call noundef i32 @llvm.fshl.i32(i32 %865, i32 %865, i32 5)
   %874 = add i32 %872, -899497514
   %875 = add i32 %874, %842
@@ -923,7 +923,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %882 = xor i32 %881, %788
   %883 = xor i32 %882, %848
   %884 = tail call noundef i32 @llvm.fshl.i32(i32 %883, i32 %883, i32 1)
-  store i32 %884, ptr %80, align 4
+  store i32 %884, ptr %80, align 4, !tbaa !3
   %885 = tail call noundef i32 @llvm.fshl.i32(i32 %877, i32 %877, i32 5)
   %886 = add i32 %884, -899497514
   %887 = add i32 %886, %854
@@ -936,7 +936,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %894 = xor i32 %893, %800
   %895 = xor i32 %894, %860
   %896 = tail call noundef i32 @llvm.fshl.i32(i32 %895, i32 %895, i32 1)
-  store i32 %896, ptr %91, align 4
+  store i32 %896, ptr %91, align 4, !tbaa !3
   %897 = tail call noundef i32 @llvm.fshl.i32(i32 %889, i32 %889, i32 5)
   %898 = add i32 %896, -899497514
   %899 = add i32 %898, %866
@@ -949,7 +949,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %906 = xor i32 %905, %812
   %907 = xor i32 %906, %872
   %908 = tail call noundef i32 @llvm.fshl.i32(i32 %907, i32 %907, i32 1)
-  store i32 %908, ptr %102, align 4
+  store i32 %908, ptr %102, align 4, !tbaa !3
   %909 = tail call noundef i32 @llvm.fshl.i32(i32 %901, i32 %901, i32 5)
   %910 = add i32 %908, -899497514
   %911 = add i32 %910, %878
@@ -962,7 +962,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %918 = xor i32 %917, %824
   %919 = xor i32 %918, %884
   %920 = tail call noundef i32 @llvm.fshl.i32(i32 %919, i32 %919, i32 1)
-  store i32 %920, ptr %113, align 4
+  store i32 %920, ptr %113, align 4, !tbaa !3
   %921 = tail call noundef i32 @llvm.fshl.i32(i32 %913, i32 %913, i32 5)
   %922 = add i32 %920, -899497514
   %923 = add i32 %922, %890
@@ -975,7 +975,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %930 = xor i32 %929, %836
   %931 = xor i32 %930, %896
   %932 = tail call noundef i32 @llvm.fshl.i32(i32 %931, i32 %931, i32 1)
-  store i32 %932, ptr %124, align 4
+  store i32 %932, ptr %124, align 4, !tbaa !3
   %933 = tail call noundef i32 @llvm.fshl.i32(i32 %925, i32 %925, i32 5)
   %934 = add i32 %932, -899497514
   %935 = add i32 %934, %902
@@ -988,7 +988,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %942 = xor i32 %941, %848
   %943 = xor i32 %942, %908
   %944 = tail call noundef i32 @llvm.fshl.i32(i32 %943, i32 %943, i32 1)
-  store i32 %944, ptr %135, align 4
+  store i32 %944, ptr %135, align 4, !tbaa !3
   %945 = tail call noundef i32 @llvm.fshl.i32(i32 %937, i32 %937, i32 5)
   %946 = add i32 %944, -899497514
   %947 = add i32 %946, %914
@@ -1001,7 +1001,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %954 = xor i32 %953, %860
   %955 = xor i32 %954, %920
   %956 = tail call noundef i32 @llvm.fshl.i32(i32 %955, i32 %955, i32 1)
-  store i32 %956, ptr %146, align 4
+  store i32 %956, ptr %146, align 4, !tbaa !3
   %957 = tail call noundef i32 @llvm.fshl.i32(i32 %949, i32 %949, i32 5)
   %958 = add i32 %956, -899497514
   %959 = add i32 %958, %926
@@ -1014,7 +1014,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %966 = xor i32 %965, %872
   %967 = xor i32 %966, %932
   %968 = tail call noundef i32 @llvm.fshl.i32(i32 %967, i32 %967, i32 1)
-  store i32 %968, ptr %157, align 4
+  store i32 %968, ptr %157, align 4, !tbaa !3
   %969 = tail call noundef i32 @llvm.fshl.i32(i32 %961, i32 %961, i32 5)
   %970 = add i32 %968, -899497514
   %971 = add i32 %970, %938
@@ -1027,7 +1027,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %978 = xor i32 %977, %884
   %979 = xor i32 %978, %944
   %980 = tail call noundef i32 @llvm.fshl.i32(i32 %979, i32 %979, i32 1)
-  store i32 %980, ptr %168, align 4
+  store i32 %980, ptr %168, align 4, !tbaa !3
   %981 = tail call noundef i32 @llvm.fshl.i32(i32 %973, i32 %973, i32 5)
   %982 = add i32 %980, -899497514
   %983 = add i32 %982, %950
@@ -1040,7 +1040,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %990 = xor i32 %989, %896
   %991 = xor i32 %990, %956
   %992 = tail call noundef i32 @llvm.fshl.i32(i32 %991, i32 %991, i32 1)
-  store i32 %992, ptr %179, align 4
+  store i32 %992, ptr %179, align 4, !tbaa !3
   %993 = tail call noundef i32 @llvm.fshl.i32(i32 %985, i32 %985, i32 5)
   %994 = tail call noundef i32 @llvm.fshl.i32(i32 %973, i32 %973, i32 30)
   %995 = add i32 %3, -899497514
@@ -1048,35 +1048,41 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %997 = add i32 %996, %962
   %998 = add i32 %997, %988
   %999 = add i32 %998, %993
-  store i32 %999, ptr %2, align 4
+  store i32 %999, ptr %2, align 4, !tbaa !3
   %1000 = add i32 %985, %5
-  store i32 %1000, ptr %4, align 4
+  store i32 %1000, ptr %4, align 4, !tbaa !3
   %1001 = add i32 %994, %7
-  store i32 %1001, ptr %6, align 4
+  store i32 %1001, ptr %6, align 4, !tbaa !3
   %1002 = add i32 %986, %9
-  store i32 %1002, ptr %8, align 4
+  store i32 %1002, ptr %8, align 4, !tbaa !3
   %1003 = add i32 %974, %11
-  store i32 %1003, ptr %10, align 4
+  store i32 %1003, ptr %10, align 4, !tbaa !3
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm4SHA112addUncountedEh(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load i8, ptr %3, align 4
+  %4 = load i8, ptr %3, align 4, !tbaa !10
   %5 = xor i8 %4, 3
   %6 = zext i8 %5 to i64
   %7 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %6
-  store i8 %1, ptr %7, align 1
-  %8 = load i8, ptr %3, align 4
+  store i8 %1, ptr %7, align 1, !tbaa !11
+  %8 = load i8, ptr %3, align 4, !tbaa !10
   %9 = add i8 %8, 1
-  store i8 %9, ptr %3, align 4
+  store i8 %9, ptr %3, align 4, !tbaa !10
   %10 = icmp eq i8 %9, 64
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
   tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
-  store i8 0, ptr %3, align 4
+  store i8 0, ptr %3, align 4, !tbaa !10
   br label %12
 
 12:                                               ; preds = %11, %2
@@ -1086,24 +1092,24 @@ define dso_local void @_ZN4llvm4SHA112addUncountedEh(ptr noundef nonnull align 4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm4SHA19writebyteEh(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !7
   %5 = add i32 %4, 1
-  store i32 %5, ptr %3, align 4
+  store i32 %5, ptr %3, align 4, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = load i8, ptr %6, align 4
+  %7 = load i8, ptr %6, align 4, !tbaa !10
   %8 = xor i8 %7, 3
   %9 = zext i8 %8 to i64
   %10 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %9
-  store i8 %1, ptr %10, align 1
-  %11 = load i8, ptr %6, align 4
+  store i8 %1, ptr %10, align 1, !tbaa !11
+  %11 = load i8, ptr %6, align 4, !tbaa !10
   %12 = add i8 %11, 1
-  store i8 %12, ptr %6, align 4
+  store i8 %12, ptr %6, align 4, !tbaa !10
   %13 = icmp eq i8 %12, 64
   br i1 %13, label %14, label %_ZN4llvm4SHA112addUncountedEh.exit
 
 14:                                               ; preds = %2
   tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
-  store i8 0, ptr %6, align 4
+  store i8 0, ptr %6, align 4, !tbaa !10
   br label %_ZN4llvm4SHA112addUncountedEh.exit
 
 _ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %2, %14
@@ -1111,14 +1117,14 @@ _ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %2, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, ptr %1, i64 %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !7
   %6 = trunc i64 %2 to i32
   %7 = add i32 %5, %6
-  store i32 %7, ptr %4, align 4
+  store i32 %7, ptr %4, align 4, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load i8, ptr %8, align 4
+  %9 = load i8, ptr %8, align 4, !tbaa !10
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %27, label %10
 
@@ -1129,96 +1135,99 @@ define dso_local void @_ZN4llvm4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull
   %.not49 = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %10, %_ZN4llvm4SHA112addUncountedEh.exit
-  %13 = phi i8 [ %23, %_ZN4llvm4SHA112addUncountedEh.exit ], [ %9, %10 ]
-  %.038 = phi i64 [ %24, %_ZN4llvm4SHA112addUncountedEh.exit ], [ 0, %10 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 %.038
-  %15 = load i8, ptr %14, align 1
-  %16 = xor i8 %13, 3
-  %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %17
-  store i8 %15, ptr %18, align 1
-  %19 = load i8, ptr %8, align 4
-  %20 = add i8 %19, 1
-  store i8 %20, ptr %8, align 4
-  %21 = icmp eq i8 %20, 64
-  br i1 %21, label %22, label %_ZN4llvm4SHA112addUncountedEh.exit
-
-22:                                               ; preds = %.lr.ph
-  tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
-  store i8 0, ptr %8, align 4
-  br label %_ZN4llvm4SHA112addUncountedEh.exit
-
-_ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %.lr.ph, %22
-  %23 = phi i8 [ %20, %.lr.ph ], [ 0, %22 ]
-  %24 = add nuw i64 %.038, 1
-  %exitcond.not = icmp eq i64 %24, %.sroa.speculated
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
-
 ._crit_edge:                                      ; preds = %_ZN4llvm4SHA112addUncountedEh.exit, %10
-  %25 = sub i64 %2, %.sroa.speculated
-  %26 = getelementptr inbounds i8, ptr %1, i64 %.sroa.speculated
+  %13 = sub i64 %2, %.sroa.speculated
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.speculated
   br label %27
 
+.lr.ph:                                           ; preds = %10, %_ZN4llvm4SHA112addUncountedEh.exit
+  %15 = phi i8 [ %25, %_ZN4llvm4SHA112addUncountedEh.exit ], [ %9, %10 ]
+  %.038 = phi i64 [ %26, %_ZN4llvm4SHA112addUncountedEh.exit ], [ 0, %10 ]
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.038
+  %17 = load i8, ptr %16, align 1, !tbaa !11
+  %18 = xor i8 %15, 3
+  %19 = zext i8 %18 to i64
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %19
+  store i8 %17, ptr %20, align 1, !tbaa !11
+  %21 = load i8, ptr %8, align 4, !tbaa !10
+  %22 = add i8 %21, 1
+  store i8 %22, ptr %8, align 4, !tbaa !10
+  %23 = icmp eq i8 %22, 64
+  br i1 %23, label %24, label %_ZN4llvm4SHA112addUncountedEh.exit
+
+24:                                               ; preds = %.lr.ph
+  tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
+  store i8 0, ptr %8, align 4, !tbaa !10
+  br label %_ZN4llvm4SHA112addUncountedEh.exit
+
+_ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %.lr.ph, %24
+  %25 = phi i8 [ %22, %.lr.ph ], [ 0, %24 ]
+  %26 = add nuw i64 %.038, 1
+  %exitcond.not = icmp eq i64 %26, %.sroa.speculated
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+
 27:                                               ; preds = %._crit_edge, %3
-  %.sroa.0.0 = phi ptr [ %1, %3 ], [ %26, %._crit_edge ]
-  %.sroa.9.0 = phi i64 [ %2, %3 ], [ %25, %._crit_edge ]
+  %.sroa.0.0 = phi ptr [ %1, %3 ], [ %14, %._crit_edge ]
+  %.sroa.9.0 = phi i64 [ %2, %3 ], [ %13, %._crit_edge ]
   %28 = icmp ugt i64 %.sroa.9.0, 63
   br i1 %28, label %.preheader, label %._crit_edge42
 
-.preheader:                                       ; preds = %27, %35
-  %.sroa.9.141 = phi i64 [ %36, %35 ], [ %.sroa.9.0, %27 ]
-  %.sroa.0.140 = phi ptr [ %37, %35 ], [ %.sroa.0.0, %27 ]
-  br label %29
+.preheader:                                       ; preds = %27, %29
+  %.sroa.9.141 = phi i64 [ %30, %29 ], [ %.sroa.9.0, %27 ]
+  %.sroa.0.140 = phi ptr [ %31, %29 ], [ %.sroa.0.0, %27 ]
+  br label %33
 
-29:                                               ; preds = %.preheader, %29
-  %.01839 = phi i64 [ 0, %.preheader ], [ %34, %29 ]
-  %30 = shl nuw nsw i64 %.01839, 2
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.140, i64 %30
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %31, align 1
-  %32 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i)
-  %33 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %.01839
-  store i32 %32, ptr %33, align 4
-  %34 = add nuw nsw i64 %.01839, 1
-  %exitcond51.not = icmp eq i64 %34, 16
-  br i1 %exitcond51.not, label %35, label %29, !llvm.loop !6
-
-35:                                               ; preds = %29
+29:                                               ; preds = %33
   tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
-  %36 = add i64 %.sroa.9.141, -64
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.140, i64 64
-  %38 = icmp ugt i64 %36, 63
-  br i1 %38, label %.preheader, label %._crit_edge42, !llvm.loop !7
+  %30 = add i64 %.sroa.9.141, -64
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.140, i64 64
+  %32 = icmp ugt i64 %30, 63
+  br i1 %32, label %.preheader, label %._crit_edge42, !llvm.loop !14
 
-._crit_edge42:                                    ; preds = %35, %27
-  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %27 ], [ %37, %35 ]
-  %.sroa.9.1.lcssa = phi i64 [ %.sroa.9.0, %27 ], [ %36, %35 ]
+33:                                               ; preds = %.preheader, %33
+  %.01839 = phi i64 [ 0, %.preheader ], [ %38, %33 ]
+  %34 = shl nuw nsw i64 %.01839, 2
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.140, i64 %34
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 1) ]
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %35, align 1
+  %36 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i)
+  %37 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %.01839
+  store i32 %36, ptr %37, align 4, !tbaa !11
+  %38 = add nuw nsw i64 %.01839, 1
+  %exitcond51.not = icmp eq i64 %38, 16
+  br i1 %exitcond51.not, label %29, label %33, !llvm.loop !15
+
+._crit_edge42:                                    ; preds = %29, %27
+  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %27 ], [ %31, %29 ]
+  %.sroa.9.1.lcssa = phi i64 [ %.sroa.9.0, %27 ], [ %30, %29 ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.lcssa, i64 %.sroa.9.1.lcssa
   %.not2144 = icmp samesign eq i64 %.sroa.9.1.lcssa, 0
   br i1 %.not2144, label %._crit_edge48, label %.lr.ph47.preheader
 
 .lr.ph47.preheader:                               ; preds = %._crit_edge42
-  %.pre = load i8, ptr %8, align 4
+  %.pre = load i8, ptr %8, align 4, !tbaa !10
   br label %.lr.ph47
+
+._crit_edge48:                                    ; preds = %_ZN4llvm4SHA112addUncountedEh.exit24, %._crit_edge42
+  ret void
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %_ZN4llvm4SHA112addUncountedEh.exit24
   %40 = phi i8 [ %49, %_ZN4llvm4SHA112addUncountedEh.exit24 ], [ %.pre, %.lr.ph47.preheader ]
   %.01945 = phi ptr [ %50, %_ZN4llvm4SHA112addUncountedEh.exit24 ], [ %.sroa.0.1.lcssa, %.lr.ph47.preheader ]
-  %41 = load i8, ptr %.01945, align 1
+  %41 = load i8, ptr %.01945, align 1, !tbaa !11
   %42 = xor i8 %40, 3
   %43 = zext i8 %42 to i64
   %44 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %43
-  store i8 %41, ptr %44, align 1
-  %45 = load i8, ptr %8, align 4
+  store i8 %41, ptr %44, align 1, !tbaa !11
+  %45 = load i8, ptr %8, align 4, !tbaa !10
   %46 = add i8 %45, 1
-  store i8 %46, ptr %8, align 4
+  store i8 %46, ptr %8, align 4, !tbaa !10
   %47 = icmp eq i8 %46, 64
   br i1 %47, label %48, label %_ZN4llvm4SHA112addUncountedEh.exit24
 
 48:                                               ; preds = %.lr.ph47
   tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
-  store i8 0, ptr %8, align 4
+  store i8 0, ptr %8, align 4, !tbaa !10
   br label %_ZN4llvm4SHA112addUncountedEh.exit24
 
 _ZN4llvm4SHA112addUncountedEh.exit24:             ; preds = %.lr.ph47, %48
@@ -1226,31 +1235,28 @@ _ZN4llvm4SHA112addUncountedEh.exit24:             ; preds = %.lr.ph47, %48
   %50 = getelementptr inbounds nuw i8, ptr %.01945, i64 1
   %.not21 = icmp eq ptr %50, %39
   br i1 %.not21, label %._crit_edge48, label %.lr.ph47
-
-._crit_edge48:                                    ; preds = %_ZN4llvm4SHA112addUncountedEh.exit24, %._crit_edge42
-  ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm4SHA16updateENS_9StringRefE(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, ptr %1, i64 %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm4SHA16updateENS_9StringRefE(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
   tail call void @_ZN4llvm4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(92) %0, ptr %1, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load i8, ptr %2, align 4
+  %3 = load i8, ptr %2, align 4, !tbaa !10
   %4 = xor i8 %3, 3
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %5
-  store i8 -128, ptr %6, align 1
-  %7 = load i8, ptr %2, align 4
+  store i8 -128, ptr %6, align 1, !tbaa !11
+  %7 = load i8, ptr %2, align 4, !tbaa !10
   %8 = add i8 %7, 1
-  store i8 %8, ptr %2, align 4
+  store i8 %8, ptr %2, align 4, !tbaa !10
   switch i8 %7, label %.lr.ph.preheader [
     i8 63, label %_ZN4llvm4SHA112addUncountedEh.exit.thread
     i8 55, label %_ZN4llvm4SHA112addUncountedEh.exit2
@@ -1258,7 +1264,7 @@ define dso_local void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 captures(
 
 _ZN4llvm4SHA112addUncountedEh.exit.thread:        ; preds = %1
   tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
-  store i8 0, ptr %2, align 4
+  store i8 0, ptr %2, align 4, !tbaa !10
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1, %_ZN4llvm4SHA112addUncountedEh.exit.thread
@@ -1270,128 +1276,128 @@ _ZN4llvm4SHA112addUncountedEh.exit.thread:        ; preds = %1
   %10 = xor i8 %9, 3
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %11
-  store i8 0, ptr %12, align 1
-  %13 = load i8, ptr %2, align 4
+  store i8 0, ptr %12, align 1, !tbaa !11
+  %13 = load i8, ptr %2, align 4, !tbaa !10
   %14 = add i8 %13, 1
-  store i8 %14, ptr %2, align 4
+  store i8 %14, ptr %2, align 4, !tbaa !10
   %15 = icmp eq i8 %14, 64
   br i1 %15, label %16, label %_ZN4llvm4SHA112addUncountedEh.exit1
 
 16:                                               ; preds = %.lr.ph
   tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
-  store i8 0, ptr %2, align 4
+  store i8 0, ptr %2, align 4, !tbaa !10
   br label %_ZN4llvm4SHA112addUncountedEh.exit1
 
 _ZN4llvm4SHA112addUncountedEh.exit1:              ; preds = %.lr.ph, %16
   %17 = phi i8 [ %14, %.lr.ph ], [ 0, %16 ]
   %.not = icmp eq i8 %17, 56
-  br i1 %.not, label %_ZN4llvm4SHA112addUncountedEh.exit2, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %_ZN4llvm4SHA112addUncountedEh.exit2, label %.lr.ph, !llvm.loop !16
 
 _ZN4llvm4SHA112addUncountedEh.exit2:              ; preds = %_ZN4llvm4SHA112addUncountedEh.exit1, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 59
-  store i8 0, ptr %18, align 1
-  store i8 57, ptr %2, align 4
+  store i8 0, ptr %18, align 1, !tbaa !11
+  store i8 57, ptr %2, align 4, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 58
-  store i8 0, ptr %19, align 2
-  store i8 58, ptr %2, align 4
+  store i8 0, ptr %19, align 2, !tbaa !11
+  store i8 58, ptr %2, align 4, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %20, align 1
-  store i8 59, ptr %2, align 4
+  store i8 0, ptr %20, align 1, !tbaa !11
+  store i8 59, ptr %2, align 4, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 4, !tbaa !7
   %23 = lshr i32 %22, 29
   %24 = trunc nuw nsw i32 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %24, ptr %25, align 4
-  %26 = load i8, ptr %2, align 4
+  store i8 %24, ptr %25, align 4, !tbaa !11
+  %26 = load i8, ptr %2, align 4, !tbaa !10
   %27 = add i8 %26, 1
-  store i8 %27, ptr %2, align 4
+  store i8 %27, ptr %2, align 4, !tbaa !10
   %28 = icmp eq i8 %27, 64
   br i1 %28, label %29, label %_ZN4llvm4SHA112addUncountedEh.exit5
 
 29:                                               ; preds = %_ZN4llvm4SHA112addUncountedEh.exit2
   tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
-  store i8 0, ptr %2, align 4
+  store i8 0, ptr %2, align 4, !tbaa !10
   br label %_ZN4llvm4SHA112addUncountedEh.exit5
 
 _ZN4llvm4SHA112addUncountedEh.exit5:              ; preds = %_ZN4llvm4SHA112addUncountedEh.exit2, %29
   %30 = phi i8 [ %27, %_ZN4llvm4SHA112addUncountedEh.exit2 ], [ 0, %29 ]
-  %31 = load i32, ptr %21, align 4
+  %31 = load i32, ptr %21, align 4, !tbaa !7
   %32 = lshr i32 %31, 21
   %33 = trunc i32 %32 to i8
   %34 = xor i8 %30, 3
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %35
-  store i8 %33, ptr %36, align 1
-  %37 = load i8, ptr %2, align 4
+  store i8 %33, ptr %36, align 1, !tbaa !11
+  %37 = load i8, ptr %2, align 4, !tbaa !10
   %38 = add i8 %37, 1
-  store i8 %38, ptr %2, align 4
+  store i8 %38, ptr %2, align 4, !tbaa !10
   %39 = icmp eq i8 %38, 64
   br i1 %39, label %40, label %_ZN4llvm4SHA112addUncountedEh.exit6
 
 40:                                               ; preds = %_ZN4llvm4SHA112addUncountedEh.exit5
   tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
-  store i8 0, ptr %2, align 4
+  store i8 0, ptr %2, align 4, !tbaa !10
   br label %_ZN4llvm4SHA112addUncountedEh.exit6
 
 _ZN4llvm4SHA112addUncountedEh.exit6:              ; preds = %_ZN4llvm4SHA112addUncountedEh.exit5, %40
   %41 = phi i8 [ %38, %_ZN4llvm4SHA112addUncountedEh.exit5 ], [ 0, %40 ]
-  %42 = load i32, ptr %21, align 4
+  %42 = load i32, ptr %21, align 4, !tbaa !7
   %43 = lshr i32 %42, 13
   %44 = trunc i32 %43 to i8
   %45 = xor i8 %41, 3
   %46 = zext i8 %45 to i64
   %47 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %46
-  store i8 %44, ptr %47, align 1
-  %48 = load i8, ptr %2, align 4
+  store i8 %44, ptr %47, align 1, !tbaa !11
+  %48 = load i8, ptr %2, align 4, !tbaa !10
   %49 = add i8 %48, 1
-  store i8 %49, ptr %2, align 4
+  store i8 %49, ptr %2, align 4, !tbaa !10
   %50 = icmp eq i8 %49, 64
   br i1 %50, label %51, label %_ZN4llvm4SHA112addUncountedEh.exit7
 
 51:                                               ; preds = %_ZN4llvm4SHA112addUncountedEh.exit6
   tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
-  store i8 0, ptr %2, align 4
+  store i8 0, ptr %2, align 4, !tbaa !10
   br label %_ZN4llvm4SHA112addUncountedEh.exit7
 
 _ZN4llvm4SHA112addUncountedEh.exit7:              ; preds = %_ZN4llvm4SHA112addUncountedEh.exit6, %51
   %52 = phi i8 [ %49, %_ZN4llvm4SHA112addUncountedEh.exit6 ], [ 0, %51 ]
-  %53 = load i32, ptr %21, align 4
+  %53 = load i32, ptr %21, align 4, !tbaa !7
   %54 = lshr i32 %53, 5
   %55 = trunc i32 %54 to i8
   %56 = xor i8 %52, 3
   %57 = zext i8 %56 to i64
   %58 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %57
-  store i8 %55, ptr %58, align 1
-  %59 = load i8, ptr %2, align 4
+  store i8 %55, ptr %58, align 1, !tbaa !11
+  %59 = load i8, ptr %2, align 4, !tbaa !10
   %60 = add i8 %59, 1
-  store i8 %60, ptr %2, align 4
+  store i8 %60, ptr %2, align 4, !tbaa !10
   %61 = icmp eq i8 %60, 64
   br i1 %61, label %62, label %_ZN4llvm4SHA112addUncountedEh.exit8
 
 62:                                               ; preds = %_ZN4llvm4SHA112addUncountedEh.exit7
   tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
-  store i8 0, ptr %2, align 4
+  store i8 0, ptr %2, align 4, !tbaa !10
   br label %_ZN4llvm4SHA112addUncountedEh.exit8
 
 _ZN4llvm4SHA112addUncountedEh.exit8:              ; preds = %_ZN4llvm4SHA112addUncountedEh.exit7, %62
   %63 = phi i8 [ %60, %_ZN4llvm4SHA112addUncountedEh.exit7 ], [ 0, %62 ]
-  %64 = load i32, ptr %21, align 4
+  %64 = load i32, ptr %21, align 4, !tbaa !7
   %.tr = trunc i32 %64 to i8
   %65 = shl i8 %.tr, 3
   %66 = xor i8 %63, 3
   %67 = zext i8 %66 to i64
   %68 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %67
-  store i8 %65, ptr %68, align 1
-  %69 = load i8, ptr %2, align 4
+  store i8 %65, ptr %68, align 1, !tbaa !11
+  %69 = load i8, ptr %2, align 4, !tbaa !10
   %70 = add i8 %69, 1
-  store i8 %70, ptr %2, align 4
+  store i8 %70, ptr %2, align 4, !tbaa !10
   %71 = icmp eq i8 %70, 64
   br i1 %71, label %72, label %_ZN4llvm4SHA112addUncountedEh.exit9
 
 72:                                               ; preds = %_ZN4llvm4SHA112addUncountedEh.exit8
   tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
-  store i8 0, ptr %2, align 4
+  store i8 0, ptr %2, align 4, !tbaa !10
   br label %_ZN4llvm4SHA112addUncountedEh.exit9
 
 _ZN4llvm4SHA112addUncountedEh.exit9:              ; preds = %_ZN4llvm4SHA112addUncountedEh.exit8, %72
@@ -1399,29 +1405,30 @@ _ZN4llvm4SHA112addUncountedEh.exit9:              ; preds = %_ZN4llvm4SHA112addU
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm4SHA15finalERSt5arrayIjLm5EE(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm4SHA15finalERSt5arrayIjLm5EE(ptr noundef nonnull align 4 captures(none) dereferenceable(92) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #5 align 2 {
   tail call void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %4
+  br label %5
 
-4:                                                ; preds = %2, %4
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv
-  %6 = load i32, ptr %5, align 4
-  %7 = tail call noundef i32 @llvm.bswap.i32(i32 %6)
-  %8 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %indvars.iv
-  store i32 %7, ptr %8, align 4
+4:                                                ; preds = %5
+  ret void
+
+5:                                                ; preds = %2, %5
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
+  %6 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %7 = load i32, ptr %6, align 4, !tbaa !3
+  %8 = tail call noundef i32 @llvm.bswap.i32(i32 %7)
+  %9 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %indvars.iv
+  store i32 %8, ptr %9, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %9, label %4, !llvm.loop !9
-
-9:                                                ; preds = %4
-  ret void
+  br i1 %exitcond.not, label %4, label %5, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm4SHA15finalEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::array.0") align 1 captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(92) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm4SHA15finalEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::array.0") align 1 captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(92) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %union.anon.1, align 4
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #9
   tail call void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 dereferenceable(92) %1)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %5
@@ -1429,130 +1436,140 @@ define dso_local void @_ZN4llvm4SHA15finalEv(ptr dead_on_unwind noalias writable
 5:                                                ; preds = %5, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv.i
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !3
   %8 = tail call noundef i32 @llvm.bswap.i32(i32 %7)
   %9 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i
-  store i32 %8, ptr %9, align 4
+  store i32 %8, ptr %9, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %_ZN4llvm4SHA15finalERSt5arrayIjLm5EE.exit, label %5, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN4llvm4SHA15finalERSt5arrayIjLm5EE.exit, label %5, !llvm.loop !17
 
 _ZN4llvm4SHA15finalERSt5arrayIjLm5EE.exit:        ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !18
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm4SHA16resultEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::array.0") align 1 captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(92) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm4SHA16resultEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::array.0") align 1 captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(92) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %union.anon.1, align 4
   %4 = alloca %struct.anon, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %4, ptr noundef nonnull align 4 dereferenceable(92) %1, i64 92, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  tail call void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 dereferenceable(92) %1), !noalias !10
+  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %4, ptr noundef nonnull align 4 dereferenceable(92) %1, i64 92, i1 false), !tbaa.struct !19
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #9, !noalias !20
+  tail call void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 dereferenceable(92) %1), !noalias !20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %6
 
 6:                                                ; preds = %6, %2
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %6 ]
   %7 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
-  %8 = load i32, ptr %7, align 4, !noalias !10
+  %8 = load i32, ptr %7, align 4, !tbaa !3, !noalias !20
   %9 = tail call noundef i32 @llvm.bswap.i32(i32 %8)
   %10 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i.i
-  store i32 %9, ptr %10, align 4, !noalias !10
+  store i32 %9, ptr %10, align 4, !tbaa !3, !noalias !20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %_ZN4llvm4SHA15finalEv.exit, label %6, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %_ZN4llvm4SHA15finalEv.exit, label %6, !llvm.loop !17
 
 _ZN4llvm4SHA15finalEv.exit:                       ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, ptr noundef nonnull align 4 dereferenceable(92) %4, i64 92, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !18
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #9, !noalias !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, ptr noundef nonnull align 4 dereferenceable(92) %4, i64 92, i1 false), !tbaa.struct !19
+  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm4SHA14hashENS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::array.0") align 1 captures(none) %0, ptr %1, i64 %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm4SHA14hashENS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::array.0") align 1 captures(none) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %union.anon.1, align 4
   %5 = alloca %"class.llvm::SHA1", align 4
+  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i32 1732584193, ptr %6, align 4
+  store i32 1732584193, ptr %6, align 4, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  store i32 -271733879, ptr %7, align 4
+  store i32 -271733879, ptr %7, align 4, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i32 -1732584194, ptr %8, align 4
+  store i32 -1732584194, ptr %8, align 4, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  store i32 271733878, ptr %9, align 4
+  store i32 271733878, ptr %9, align 4, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i32 -1009589776, ptr %10, align 4
+  store i32 -1009589776, ptr %10, align 4, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  store i32 0, ptr %11, align 4
+  store i32 0, ptr %11, align 4, !tbaa !7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i8 0, ptr %12, align 4
+  store i8 0, ptr %12, align 4, !tbaa !10
   call void @_ZN4llvm4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(92) %5, ptr %1, i64 %2)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 dereferenceable(92) %5), !noalias !13
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #9, !noalias !23
+  call void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 dereferenceable(92) %5), !noalias !23
   br label %13
 
 13:                                               ; preds = %13, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %13 ]
   %14 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
-  %15 = load i32, ptr %14, align 4, !noalias !13
+  %15 = load i32, ptr %14, align 4, !tbaa !3, !noalias !23
   %16 = tail call noundef i32 @llvm.bswap.i32(i32 %15)
   %17 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
-  store i32 %16, ptr %17, align 4, !noalias !13
+  store i32 %16, ptr %17, align 4, !tbaa !3, !noalias !23
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %_ZN4llvm4SHA15finalEv.exit, label %13, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %_ZN4llvm4SHA15finalEv.exit, label %13, !llvm.loop !17
 
 _ZN4llvm4SHA15finalEv.exit:                       ; preds = %13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !tbaa.struct !18
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9, !noalias !23
+  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %5) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
+declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #7
+declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+declare i64 @llvm.umin.i64(i64, i64) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN4llvm4SHA15finalEv: argument 0"}
-!12 = distinct !{!12, !"_ZN4llvm4SHA15finalEv"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN4llvm4SHA15finalEv: argument 0"}
-!15 = distinct !{!15, !"_ZN4llvm4SHA15finalEv"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !4, i64 84}
+!8 = !{!"_ZTSN4llvm4SHA1E", !9, i64 0}
+!9 = !{!"_ZTSN4llvm4SHA1Ut1_E", !5, i64 0, !5, i64 64, !4, i64 84, !5, i64 88}
+!10 = !{!8, !5, i64 88}
+!11 = !{!5, !5, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = !{i64 0, i64 20, !11}
+!19 = !{i64 0, i64 64, !11, i64 64, i64 20, !11, i64 84, i64 4, !3, i64 88, i64 1, !11}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN4llvm4SHA15finalEv: argument 0"}
+!22 = distinct !{!22, !"_ZN4llvm4SHA15finalEv"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN4llvm4SHA15finalEv: argument 0"}
+!25 = distinct !{!25, !"_ZN4llvm4SHA15finalEv"}

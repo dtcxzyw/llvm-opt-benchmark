@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/SipHash.cpp.ll'
-source_filename = "bench/llvm/original/SipHash.cpp.ll"
+; ModuleID = 'bench/llvm/original/SipHash.ll'
+source_filename = "bench/llvm/original/SipHash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -14,7 +14,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %.0.copyload.i.i.i.i.i.i160.i = load i64, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %7 = and i64 %1, 7
   %8 = sub nsw i64 0, %7
   %9 = getelementptr inbounds i8, ptr %6, i64 %8
@@ -59,13 +59,13 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   %31 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 17)
   %32 = xor i64 %30, %31
   %33 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 32)
-  br i1 %19, label %18, label %34, !llvm.loop !4
+  br i1 %19, label %18, label %34, !llvm.loop !3
 
 34:                                               ; preds = %18
   %35 = xor i64 %27, %.0.copyload.i.i.i.i.i.i161.i
   %36 = getelementptr inbounds nuw i8, ptr %.0140172.i, i64 8
   %.not.i = icmp eq ptr %36, %9
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %34, %4
   %.0156.lcssa.i = phi i64 [ %13, %4 ], [ %29, %34 ]
@@ -86,7 +86,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 
 37:                                               ; preds = %._crit_edge.i
   %38 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 6
-  %39 = load i8, ptr %38, align 1
+  %39 = load i8, ptr %38, align 1, !tbaa !6
   %40 = zext i8 %39 to i64
   %41 = shl nuw nsw i64 %40, 48
   %42 = or disjoint i64 %41, %12
@@ -95,7 +95,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 43:                                               ; preds = %37, %._crit_edge.i
   %.1.i = phi i64 [ %12, %._crit_edge.i ], [ %42, %37 ]
   %44 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 5
-  %45 = load i8, ptr %44, align 1
+  %45 = load i8, ptr %44, align 1, !tbaa !6
   %46 = zext i8 %45 to i64
   %47 = shl nuw nsw i64 %46, 40
   %48 = or i64 %47, %.1.i
@@ -104,7 +104,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 49:                                               ; preds = %43, %._crit_edge.i
   %.2.i = phi i64 [ %12, %._crit_edge.i ], [ %48, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 4
-  %51 = load i8, ptr %50, align 1
+  %51 = load i8, ptr %50, align 1, !tbaa !6
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 32
   %54 = or i64 %53, %.2.i
@@ -113,7 +113,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 55:                                               ; preds = %49, %._crit_edge.i
   %.3.i = phi i64 [ %12, %._crit_edge.i ], [ %54, %49 ]
   %56 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 3
-  %57 = load i8, ptr %56, align 1
+  %57 = load i8, ptr %56, align 1, !tbaa !6
   %58 = zext i8 %57 to i64
   %59 = shl nuw nsw i64 %58, 24
   %60 = or i64 %59, %.3.i
@@ -122,7 +122,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 61:                                               ; preds = %55, %._crit_edge.i
   %.4.i = phi i64 [ %12, %._crit_edge.i ], [ %60, %55 ]
   %62 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 2
-  %63 = load i8, ptr %62, align 1
+  %63 = load i8, ptr %62, align 1, !tbaa !6
   %64 = zext i8 %63 to i64
   %65 = shl nuw nsw i64 %64, 16
   %66 = or i64 %65, %.4.i
@@ -131,7 +131,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 67:                                               ; preds = %61, %._crit_edge.i
   %.5.i = phi i64 [ %12, %._crit_edge.i ], [ %66, %61 ]
   %68 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 1
-  %69 = load i8, ptr %68, align 1
+  %69 = load i8, ptr %68, align 1, !tbaa !6
   %70 = zext i8 %69 to i64
   %71 = shl nuw nsw i64 %70, 8
   %72 = or i64 %71, %.5.i
@@ -139,7 +139,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 
 73:                                               ; preds = %67, %._crit_edge.i
   %.6.i = phi i64 [ %12, %._crit_edge.i ], [ %72, %67 ]
-  %74 = load i8, ptr %.0140.lcssa.i, align 1
+  %74 = load i8, ptr %.0140.lcssa.i, align 1, !tbaa !6
   %75 = zext i8 %74 to i64
   %76 = or i64 %.6.i, %75
   br label %77
@@ -172,7 +172,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   %92 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %83, i64 17)
   %93 = xor i64 %91, %92
   %94 = tail call i64 @llvm.fshl.i64(i64 %91, i64 %91, i64 32)
-  br i1 %80, label %79, label %95, !llvm.loop !7
+  br i1 %80, label %79, label %95, !llvm.loop !9
 
 95:                                               ; preds = %79
   %96 = xor i64 %88, %.0.i
@@ -201,7 +201,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   %112 = tail call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 32)
   %113 = add nuw nsw i32 %.2147185.i, 1
   %exitcond.not.i = icmp eq i32 %113, 4
-  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_17siphashILi2ELi4ELm8EEEvPKhmRA16_S1_RAT1__h.exit, label %98, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_17siphashILi2ELi4ELm8EEEvPKhmRA16_S1_RAT1__h.exit, label %98, !llvm.loop !10
 
 _ZN12_GLOBAL__N_17siphashILi2ELi4ELm8EEEvPKhmRA16_S1_RAT1__h.exit: ; preds = %98
   %114 = xor i64 %111, %112
@@ -218,7 +218,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %.0.copyload.i.i.i.i.i.i203.i = load i64, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %7 = and i64 %1, 7
   %8 = sub nsw i64 0, %7
   %9 = getelementptr inbounds i8, ptr %6, i64 %8
@@ -263,13 +263,13 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   %31 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 17)
   %32 = xor i64 %30, %31
   %33 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 32)
-  br i1 %19, label %18, label %34, !llvm.loop !9
+  br i1 %19, label %18, label %34, !llvm.loop !11
 
 34:                                               ; preds = %18
   %35 = xor i64 %27, %.0.copyload.i.i.i.i.i.i204.i
   %36 = getelementptr inbounds nuw i8, ptr %.0178215.i, i64 8
   %.not.i = icmp eq ptr %36, %9
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %34, %4
   %.0198.lcssa.i = phi i64 [ %13, %4 ], [ %29, %34 ]
@@ -290,7 +290,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 
 37:                                               ; preds = %._crit_edge.i
   %38 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 6
-  %39 = load i8, ptr %38, align 1
+  %39 = load i8, ptr %38, align 1, !tbaa !6
   %40 = zext i8 %39 to i64
   %41 = shl nuw nsw i64 %40, 48
   %42 = or disjoint i64 %41, %12
@@ -299,7 +299,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 43:                                               ; preds = %37, %._crit_edge.i
   %.1.i = phi i64 [ %12, %._crit_edge.i ], [ %42, %37 ]
   %44 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 5
-  %45 = load i8, ptr %44, align 1
+  %45 = load i8, ptr %44, align 1, !tbaa !6
   %46 = zext i8 %45 to i64
   %47 = shl nuw nsw i64 %46, 40
   %48 = or i64 %47, %.1.i
@@ -308,7 +308,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 49:                                               ; preds = %43, %._crit_edge.i
   %.2.i = phi i64 [ %12, %._crit_edge.i ], [ %48, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 4
-  %51 = load i8, ptr %50, align 1
+  %51 = load i8, ptr %50, align 1, !tbaa !6
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 32
   %54 = or i64 %53, %.2.i
@@ -317,7 +317,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 55:                                               ; preds = %49, %._crit_edge.i
   %.3.i = phi i64 [ %12, %._crit_edge.i ], [ %54, %49 ]
   %56 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 3
-  %57 = load i8, ptr %56, align 1
+  %57 = load i8, ptr %56, align 1, !tbaa !6
   %58 = zext i8 %57 to i64
   %59 = shl nuw nsw i64 %58, 24
   %60 = or i64 %59, %.3.i
@@ -326,7 +326,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 61:                                               ; preds = %55, %._crit_edge.i
   %.4.i = phi i64 [ %12, %._crit_edge.i ], [ %60, %55 ]
   %62 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 2
-  %63 = load i8, ptr %62, align 1
+  %63 = load i8, ptr %62, align 1, !tbaa !6
   %64 = zext i8 %63 to i64
   %65 = shl nuw nsw i64 %64, 16
   %66 = or i64 %65, %.4.i
@@ -335,7 +335,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 67:                                               ; preds = %61, %._crit_edge.i
   %.5.i = phi i64 [ %12, %._crit_edge.i ], [ %66, %61 ]
   %68 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 1
-  %69 = load i8, ptr %68, align 1
+  %69 = load i8, ptr %68, align 1, !tbaa !6
   %70 = zext i8 %69 to i64
   %71 = shl nuw nsw i64 %70, 8
   %72 = or i64 %71, %.5.i
@@ -343,7 +343,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 
 73:                                               ; preds = %67, %._crit_edge.i
   %.6.i = phi i64 [ %12, %._crit_edge.i ], [ %72, %67 ]
-  %74 = load i8, ptr %.0178.lcssa.i, align 1
+  %74 = load i8, ptr %.0178.lcssa.i, align 1, !tbaa !6
   %75 = zext i8 %74 to i64
   %76 = or i64 %.6.i, %75
   br label %77
@@ -376,7 +376,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   %92 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %83, i64 17)
   %93 = xor i64 %91, %92
   %94 = tail call i64 @llvm.fshl.i64(i64 %91, i64 %91, i64 32)
-  br i1 %80, label %79, label %95, !llvm.loop !11
+  br i1 %80, label %79, label %95, !llvm.loop !13
 
 95:                                               ; preds = %79
   %96 = xor i64 %88, %.0.i
@@ -405,7 +405,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   %112 = tail call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 32)
   %113 = add nuw nsw i32 %.2186228.i, 1
   %exitcond.not.i = icmp eq i32 %113, 4
-  br i1 %exitcond.not.i, label %114, label %98, !llvm.loop !12
+  br i1 %exitcond.not.i, label %114, label %98, !llvm.loop !14
 
 114:                                              ; preds = %98
   %115 = xor i64 %111, %112
@@ -437,7 +437,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   %132 = tail call i64 @llvm.fshl.i64(i64 %129, i64 %129, i64 32)
   %133 = add nuw nsw i32 %.3187233.i, 1
   %exitcond252.not.i = icmp eq i32 %133, 4
-  br i1 %exitcond252.not.i, label %_ZN12_GLOBAL__N_17siphashILi2ELi4ELm16EEEvPKhmRA16_S1_RAT1__h.exit, label %118, !llvm.loop !13
+  br i1 %exitcond252.not.i, label %_ZN12_GLOBAL__N_17siphashILi2ELi4ELm16EEEvPKhmRA16_S1_RAT1__h.exit, label %118, !llvm.loop !15
 
 _ZN12_GLOBAL__N_17siphashILi2ELi4ELm16EEEvPKhmRA16_S1_RAT1__h.exit: ; preds = %118
   %134 = xor i64 %131, %132
@@ -451,38 +451,50 @@ _ZN12_GLOBAL__N_17siphashILi2ELi4ELm16EEEvPKhmRA16_S1_RAT1__h.exit: ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define dso_local noundef zeroext range(i16 1, 0) i16 @_ZN4llvm27getPointerAuthStableSipHashENS_9StringRefE(ptr %0, i64 %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   call void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(ptr %0, i64 %1, ptr noundef nonnull align 1 dereferenceable(16) @_ZZN4llvm27getPointerAuthStableSipHashENS_9StringRefEE1K, ptr noundef nonnull align 1 dereferenceable(8) %3)
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %3, align 8
   %4 = urem i64 %.0.copyload.i.i.i.i.i.i, 65535
   %5 = trunc nuw i64 %4 to i16
   %6 = add nuw i16 %5, 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
   ret i16 %6
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #1
+declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #2
+declare i64 @llvm.fshl.i64(i64, i64, i64) #3
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}

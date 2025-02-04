@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/BranchProbability.cpp.ll'
-source_filename = "bench/llvm/original/BranchProbability.cpp.ll"
+; ModuleID = 'bench/llvm/original/BranchProbability.ll'
+source_filename = "bench/llvm/original/BranchProbability.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -32,15 +32,15 @@ $_ZTVN4llvm13format_objectIJjjdEEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm17BranchProbability5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::format_object", align 8
-  %4 = load i32, ptr %0, align 4
+  %4 = load i32, ptr %0, align 4, !tbaa !3
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = ptrtoint ptr %8 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -48,14 +48,14 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm17Bra
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %6
-  %16 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str, i64 noundef 2) #7
+  %16 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str, i64 noundef 2) #8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 17:                                               ; preds = %6
   store i16 9535, ptr %10, align 1
-  %18 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %9, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %19, ptr %9, align 8
+  store ptr %19, ptr %9, align 8, !tbaa !15
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 20:                                               ; preds = %2
@@ -65,16 +65,18 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm17Bra
   %24 = fmul double %23, 1.000000e+02
   %25 = tail call double @llvm.rint.f64(double %24)
   %26 = fdiv double %25, 1.000000e+02
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @.str.1, ptr %27, align 8, !alias.scope !4
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjdEEE, i64 16), ptr %3, align 8, !alias.scope !4
+  store ptr @.str.1, ptr %27, align 8, !tbaa !16, !alias.scope !18
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjdEEE, i64 16), ptr %3, align 8, !tbaa !21, !alias.scope !18
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double %26, ptr %28, align 8, !alias.scope !4
+  store double %26, ptr %28, align 8, !tbaa !23, !alias.scope !18
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 -2147483648, ptr %29, align 8, !alias.scope !4
+  store i32 -2147483648, ptr %29, align 8, !tbaa !26, !alias.scope !18
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  store i32 %4, ptr %30, align 4, !alias.scope !4
-  %31 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3) #7
+  store i32 %4, ptr %30, align 4, !tbaa !28, !alias.scope !18
+  %31 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3) #8
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %15, %20
@@ -82,13 +84,19 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %15, %20
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.rint.f64(double) #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.rint.f64(double) #2
+
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm17BranchProbabilityC2Ejj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm17BranchProbabilityC2Ejj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = icmp eq i32 %2, -2147483648
   br i1 %4, label %14, label %5
 
@@ -105,7 +113,7 @@ define dso_local void @_ZN4llvm17BranchProbabilityC2Ejj(ptr noundef nonnull writ
 
 14:                                               ; preds = %3, %5
   %storemerge = phi i32 [ %13, %5 ], [ %1, %3 ]
-  store i32 %storemerge, ptr %0, align 4
+  store i32 %storemerge, ptr %0, align 4, !tbaa !3
   ret void
 }
 
@@ -121,7 +129,7 @@ define dso_local i32 @_ZN4llvm17BranchProbability20getBranchProbabilityEmm(i64 n
   %5 = lshr i64 %.067, 1
   %6 = add nuw nsw i32 %.08, 1
   %7 = icmp ugt i64 %.067, 8589934591
-  br i1 %7, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
+  br i1 %7, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %8 = zext nneg i32 %6 to i64
@@ -133,14 +141,14 @@ define dso_local i32 @_ZN4llvm17BranchProbability20getBranchProbabilityEmm(i64 n
   %9 = lshr i64 %0, %.0.lcssa
   %10 = trunc i64 %9 to i32
   %11 = trunc nuw i64 %.06.lcssa to i32
-  call void @_ZN4llvm17BranchProbabilityC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef %10, i32 noundef %11) #7
+  call void @_ZN4llvm17BranchProbabilityC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef %10, i32 noundef %11) #8
   %12 = load i32, ptr %3, align 4
   ret i32 %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK4llvm17BranchProbability5scaleEm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = load i32, ptr %0, align 4
+define dso_local noundef i64 @_ZNK4llvm17BranchProbability5scaleEm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+  %3 = load i32, ptr %0, align 4, !tbaa !3
   %.not.i = icmp eq i64 %1, 0
   %4 = icmp eq i32 %3, -2147483648
   %or.cond.i = or i1 %.not.i, %4
@@ -176,13 +184,13 @@ define dso_local noundef i64 @_ZNK4llvm17BranchProbability5scaleEm(ptr noundef n
   br label %_ZL5scaleILj2147483648EEmmjj.exit
 
 _ZL5scaleILj2147483648EEmmjj.exit:                ; preds = %2, %5, %19
-  %.0.i = phi i64 [ %29, %19 ], [ %1, %2 ], [ -1, %5 ]
+  %.0.i = phi i64 [ %1, %2 ], [ %29, %19 ], [ -1, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK4llvm17BranchProbability14scaleByInverseEm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = load i32, ptr %0, align 4
+define dso_local noundef i64 @_ZNK4llvm17BranchProbability14scaleByInverseEm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+  %3 = load i32, ptr %0, align 4, !tbaa !3
   %.not.i = icmp eq i64 %1, 0
   %4 = icmp eq i32 %3, -2147483648
   %or.cond.i = or i1 %.not.i, %4
@@ -220,52 +228,78 @@ define dso_local noundef i64 @_ZNK4llvm17BranchProbability14scaleByInverseEm(ptr
   br label %_ZL5scaleILj0EEmmjj.exit
 
 _ZL5scaleILj0EEmmjj.exit:                         ; preds = %2, %5, %25
-  %.0.i = phi i64 [ %31, %25 ], [ %1, %2 ], [ -1, %5 ]
+  %.0.i = phi i64 [ %1, %2 ], [ %31, %25 ], [ -1, %5 ]
   ret i64 %.0.i
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @_ZN4llvm18format_object_base4homeEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
+declare void @_ZN4llvm18format_object_base4homeEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJjjdEE7snprintEPcj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
   %4 = zext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i32, ptr %10, align 8
-  %12 = load double, ptr %7, align 8
-  %13 = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef %6, i32 noundef %9, i32 noundef %11, double noundef %12) #7
+  %11 = load i32, ptr %10, align 8, !tbaa !32
+  %12 = load double, ptr %7, align 8, !tbaa !33
+  %13 = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef %6, i32 noundef %9, i32 noundef %11, double noundef %12) #8
   ret i32 %13
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.uadd.sat.i64(i64, i64) #6
+declare i64 @llvm.uadd.sat.i64(i64, i64) #7
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN4llvm6formatIJjjdEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: argument 0"}
-!6 = distinct !{!6, !"_ZN4llvm6formatIJjjdEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSN4llvm17BranchProbabilityE", !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !11, i64 24}
+!9 = !{!"_ZTSN4llvm11raw_ostreamE", !10, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !13, i64 40, !14, i64 44}
+!10 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !6, i64 0}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !6, i64 0}
+!13 = !{!"bool", !6, i64 0}
+!14 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !6, i64 0}
+!15 = !{!9, !11, i64 32}
+!16 = !{!17, !11, i64 8}
+!17 = !{!"_ZTSN4llvm18format_object_baseE", !11, i64 8}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZN4llvm6formatIJjjdEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: argument 0"}
+!20 = distinct !{!20, !"_ZN4llvm6formatIJjjdEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"vtable pointer", !7, i64 0}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"_ZTSSt10_Head_baseILm2EdLb0EE", !25, i64 0}
+!25 = !{!"double", !6, i64 0}
+!26 = !{!27, !5, i64 0}
+!27 = !{!"_ZTSSt10_Head_baseILm1EjLb0EE", !5, i64 0}
+!28 = !{!29, !5, i64 0}
+!29 = !{!"_ZTSSt10_Head_baseILm0EjLb0EE", !5, i64 0}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.mustprogress"}
+!32 = !{!5, !5, i64 0}
+!33 = !{!25, !25, i64 0}

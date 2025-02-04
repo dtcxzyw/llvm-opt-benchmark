@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/ManagedStatic.cpp.ll'
-source_filename = "bench/llvm/original/ManagedStatic.cpp.ll"
+; ModuleID = 'bench/llvm/original/ManagedStatic.ll'
+source_filename = "bench/llvm/original/ManagedStatic.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -32,11 +32,11 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %3
   %9 = ptrtoint ptr %8 to i64
   store atomic i64 %9, ptr %0 release, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %10, align 8
-  %11 = load ptr, ptr @_ZL10StaticList, align 8
+  store ptr %2, ptr %10, align 8, !tbaa !3
+  %11 = load ptr, ptr @_ZL10StaticList, align 8, !tbaa !11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %12, align 8
-  store ptr %0, ptr @_ZL10StaticList, align 8
+  store ptr %11, ptr %12, align 8, !tbaa !12
+  store ptr %0, ptr @_ZL10StaticList, align 8, !tbaa !11
   br label %13
 
 13:                                               ; preds = %7, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -47,41 +47,41 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %3
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm17ManagedStaticBase7destroyEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8
-  store ptr %3, ptr @_ZL10StaticList, align 8
-  store ptr null, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  store ptr %3, ptr @_ZL10StaticList, align 8, !tbaa !11
+  store ptr null, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = load atomic i64, ptr %0 seq_cst, align 8
-  %7 = inttoptr i64 %6 to ptr
-  tail call void %5(ptr noundef %7) #3
+  %.0.i.i.i = inttoptr i64 %6 to ptr
+  tail call void %5(ptr noundef %.0.i.i.i) #3
   store atomic i64 0, ptr %0 seq_cst, align 8
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm13llvm_shutdownEv() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @_ZL10StaticList, align 8
+  %1 = load ptr, ptr @_ZL10StaticList, align 8, !tbaa !11
   %.not1 = icmp eq ptr %1, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
-  %2 = phi ptr [ %9, %.lr.ph ], [ %1, %0 ]
+  %2 = phi ptr [ %8, %.lr.ph ], [ %1, %0 ]
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr @_ZL10StaticList, align 8
-  store ptr null, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !12
+  store ptr %4, ptr @_ZL10StaticList, align 8, !tbaa !11
+  store ptr null, ptr %3, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = load atomic i64, ptr %2 seq_cst, align 8
-  %8 = inttoptr i64 %7 to ptr
-  tail call void %6(ptr noundef %8) #3
+  %.0.i.i.i.i = inttoptr i64 %7 to ptr
+  tail call void %6(ptr noundef %.0.i.i.i.i) #3
   store atomic i64 0, ptr %2 seq_cst, align 8
-  store ptr null, ptr %5, align 8
-  %9 = load ptr, ptr @_ZL10StaticList, align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  store ptr null, ptr %5, align 8, !tbaa !3
+  %8 = load ptr, ptr @_ZL10StaticList, align 8, !tbaa !11
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -96,17 +96,26 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 attributes #4 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !7, i64 8}
+!4 = !{!"_ZTSN4llvm17ManagedStaticBaseE", !5, i64 0, !7, i64 8, !10, i64 16}
+!5 = !{!"_ZTSSt6atomicIPvE", !6, i64 0}
+!6 = !{!"_ZTSSt13__atomic_baseIPvE", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!"p1 _ZTSN4llvm17ManagedStaticBaseE", !7, i64 0}
+!11 = !{!10, !10, i64 0}
+!12 = !{!4, !10, i64 16}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}

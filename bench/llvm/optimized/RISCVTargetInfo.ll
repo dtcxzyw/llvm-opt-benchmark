@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/RISCVTargetInfo.cpp.ll'
-source_filename = "bench/llvm/original/RISCVTargetInfo.cpp.ll"
+; ModuleID = 'bench/llvm/original/RISCVTargetInfo.ll'
+source_filename = "bench/llvm/original/RISCVTargetInfo.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -25,7 +25,7 @@ $_ZN4llvm14RegisterTargetILNS_6Triple8ArchTypeE28ELb1EE12getArchMatchES2_ = comd
 define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm19getTheRISCV32TargetEv() local_unnamed_addr #0 {
   %1 = load atomic i8, ptr @_ZGVZN4llvm19getTheRISCV32TargetEvE16TheRISCV32Target acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %6, !prof !4
+  br i1 %2, label %3, label %6, !prof !3
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm19getTheRISCV32TargetEvE16TheRISCV32Target) #5
@@ -51,7 +51,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm19getTheRISCV64TargetEv() local_unnamed_addr #0 {
   %1 = load atomic i8, ptr @_ZGVZN4llvm19getTheRISCV64TargetEvE16TheRISCV64Target acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %6, !prof !4
+  br i1 %2, label %3, label %6, !prof !3
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm19getTheRISCV64TargetEvE16TheRISCV64Target) #5
@@ -71,7 +71,7 @@ define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm19get
 define dso_local void @LLVMInitializeRISCVTargetInfo() local_unnamed_addr #2 {
   %1 = load atomic i8, ptr @_ZGVZN4llvm19getTheRISCV32TargetEvE16TheRISCV32Target acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %_ZN4llvm19getTheRISCV32TargetEv.exit, !prof !4
+  br i1 %2, label %3, label %_ZN4llvm19getTheRISCV32TargetEv.exit, !prof !3
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm19getTheRISCV32TargetEvE16TheRISCV32Target) #5
@@ -87,7 +87,7 @@ _ZN4llvm19getTheRISCV32TargetEv.exit:             ; preds = %0, %3, %5
   tail call void @_ZN4llvm14TargetRegistry14RegisterTargetERNS_6TargetEPKcS4_S4_PFbNS_6Triple8ArchTypeEEb(ptr noundef nonnull align 8 dereferenceable(248) @_ZZN4llvm19getTheRISCV32TargetEvE16TheRISCV32Target, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN4llvm14RegisterTargetILNS_6Triple8ArchTypeE27ELb1EE12getArchMatchES2_, i1 noundef zeroext true) #5
   %6 = load atomic i8, ptr @_ZGVZN4llvm19getTheRISCV64TargetEvE16TheRISCV64Target acquire, align 8
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %_ZN4llvm19getTheRISCV64TargetEv.exit, !prof !4
+  br i1 %7, label %8, label %_ZN4llvm19getTheRISCV64TargetEv.exit, !prof !3
 
 8:                                                ; preds = %_ZN4llvm19getTheRISCV32TargetEv.exit
   %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm19getTheRISCV64TargetEvE16TheRISCV64Target) #5
@@ -121,17 +121,16 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14RegisterTargetILNS_6Tri
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!"branch_weights", i32 1, i32 1048575}
+!3 = !{!"branch_weights", i32 1, i32 1048575}

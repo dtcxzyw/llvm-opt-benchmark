@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/MD5.cpp.ll'
-source_filename = "bench/llvm/original/MD5.cpp.ll"
+; ModuleID = 'bench/llvm/original/MD5.ll'
+source_filename = "bench/llvm/original/MD5.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage" = type { [32 x i8] }
 %"class.llvm::MD5" = type { %struct.anon }
 
-$_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE = comdat any
-
 $_ZZN4llvm8hexdigitEjbE3LUT = comdat any
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
@@ -25,13 +23,13 @@ $_ZZN4llvm8hexdigitEjbE3LUT = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(152) initializes((88, 152)) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
-  %4 = load i32, ptr %0, align 4
+  %4 = load i32, ptr %0, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -63,16 +61,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %31 = load i16, ptr %.0627, align 1
   %32 = zext i16 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %.0627, i64 2
-  %34 = load i8, ptr %33, align 1
+  %34 = load i8, ptr %33, align 1, !tbaa !12
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 16
   %37 = or disjoint i32 %36, %32
   %38 = getelementptr inbounds nuw i8, ptr %.0627, i64 3
-  %39 = load i8, ptr %38, align 1
+  %39 = load i8, ptr %38, align 1, !tbaa !12
   %40 = zext i8 %39 to i32
   %41 = shl nuw i32 %40, 24
   %42 = or disjoint i32 %37, %41
-  store i32 %42, ptr %11, align 4
+  store i32 %42, ptr %11, align 4, !tbaa !13
   %43 = add i32 %.0628, -680876936
   %44 = add i32 %43, %30
   %45 = add i32 %44, %42
@@ -85,16 +83,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %52 = load i16, ptr %51, align 1
   %53 = zext i16 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %.0627, i64 6
-  %55 = load i8, ptr %54, align 1
+  %55 = load i8, ptr %54, align 1, !tbaa !12
   %56 = zext i8 %55 to i32
   %57 = shl nuw nsw i32 %56, 16
   %58 = or disjoint i32 %57, %53
   %59 = getelementptr inbounds nuw i8, ptr %.0627, i64 7
-  %60 = load i8, ptr %59, align 1
+  %60 = load i8, ptr %59, align 1, !tbaa !12
   %61 = zext i8 %60 to i32
   %62 = shl nuw i32 %61, 24
   %63 = or disjoint i32 %58, %62
-  store i32 %63, ptr %12, align 4
+  store i32 %63, ptr %12, align 4, !tbaa !13
   %64 = add i32 %.0631, -389564586
   %65 = add i32 %64, %63
   %66 = add i32 %65, %50
@@ -107,16 +105,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %73 = load i16, ptr %72, align 1
   %74 = zext i16 %73 to i32
   %75 = getelementptr inbounds nuw i8, ptr %.0627, i64 10
-  %76 = load i8, ptr %75, align 1
+  %76 = load i8, ptr %75, align 1, !tbaa !12
   %77 = zext i8 %76 to i32
   %78 = shl nuw nsw i32 %77, 16
   %79 = or disjoint i32 %78, %74
   %80 = getelementptr inbounds nuw i8, ptr %.0627, i64 11
-  %81 = load i8, ptr %80, align 1
+  %81 = load i8, ptr %80, align 1, !tbaa !12
   %82 = zext i8 %81 to i32
   %83 = shl nuw i32 %82, 24
   %84 = or disjoint i32 %79, %83
-  store i32 %84, ptr %13, align 4
+  store i32 %84, ptr %13, align 4, !tbaa !13
   %85 = add i32 %.0630, 606105819
   %86 = add i32 %85, %84
   %87 = add i32 %86, %71
@@ -129,16 +127,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %94 = load i16, ptr %93, align 1
   %95 = zext i16 %94 to i32
   %96 = getelementptr inbounds nuw i8, ptr %.0627, i64 14
-  %97 = load i8, ptr %96, align 1
+  %97 = load i8, ptr %96, align 1, !tbaa !12
   %98 = zext i8 %97 to i32
   %99 = shl nuw nsw i32 %98, 16
   %100 = or disjoint i32 %99, %95
   %101 = getelementptr inbounds nuw i8, ptr %.0627, i64 15
-  %102 = load i8, ptr %101, align 1
+  %102 = load i8, ptr %101, align 1, !tbaa !12
   %103 = zext i8 %102 to i32
   %104 = shl nuw i32 %103, 24
   %105 = or disjoint i32 %100, %104
-  store i32 %105, ptr %14, align 4
+  store i32 %105, ptr %14, align 4, !tbaa !13
   %106 = add i32 %.0629, -1044525330
   %107 = add i32 %106, %105
   %108 = add i32 %107, %92
@@ -151,16 +149,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %115 = load i16, ptr %114, align 1
   %116 = zext i16 %115 to i32
   %117 = getelementptr inbounds nuw i8, ptr %.0627, i64 18
-  %118 = load i8, ptr %117, align 1
+  %118 = load i8, ptr %117, align 1, !tbaa !12
   %119 = zext i8 %118 to i32
   %120 = shl nuw nsw i32 %119, 16
   %121 = or disjoint i32 %120, %116
   %122 = getelementptr inbounds nuw i8, ptr %.0627, i64 19
-  %123 = load i8, ptr %122, align 1
+  %123 = load i8, ptr %122, align 1, !tbaa !12
   %124 = zext i8 %123 to i32
   %125 = shl nuw i32 %124, 24
   %126 = or disjoint i32 %121, %125
-  store i32 %126, ptr %15, align 4
+  store i32 %126, ptr %15, align 4, !tbaa !13
   %127 = add i32 %47, -176418897
   %128 = add i32 %127, %126
   %129 = add i32 %128, %113
@@ -173,16 +171,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %136 = load i16, ptr %135, align 1
   %137 = zext i16 %136 to i32
   %138 = getelementptr inbounds nuw i8, ptr %.0627, i64 22
-  %139 = load i8, ptr %138, align 1
+  %139 = load i8, ptr %138, align 1, !tbaa !12
   %140 = zext i8 %139 to i32
   %141 = shl nuw nsw i32 %140, 16
   %142 = or disjoint i32 %141, %137
   %143 = getelementptr inbounds nuw i8, ptr %.0627, i64 23
-  %144 = load i8, ptr %143, align 1
+  %144 = load i8, ptr %143, align 1, !tbaa !12
   %145 = zext i8 %144 to i32
   %146 = shl nuw i32 %145, 24
   %147 = or disjoint i32 %142, %146
-  store i32 %147, ptr %16, align 4
+  store i32 %147, ptr %16, align 4, !tbaa !13
   %148 = add i32 %68, 1200080426
   %149 = add i32 %148, %147
   %150 = add i32 %149, %134
@@ -195,16 +193,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %157 = load i16, ptr %156, align 1
   %158 = zext i16 %157 to i32
   %159 = getelementptr inbounds nuw i8, ptr %.0627, i64 26
-  %160 = load i8, ptr %159, align 1
+  %160 = load i8, ptr %159, align 1, !tbaa !12
   %161 = zext i8 %160 to i32
   %162 = shl nuw nsw i32 %161, 16
   %163 = or disjoint i32 %162, %158
   %164 = getelementptr inbounds nuw i8, ptr %.0627, i64 27
-  %165 = load i8, ptr %164, align 1
+  %165 = load i8, ptr %164, align 1, !tbaa !12
   %166 = zext i8 %165 to i32
   %167 = shl nuw i32 %166, 24
   %168 = or disjoint i32 %163, %167
-  store i32 %168, ptr %17, align 4
+  store i32 %168, ptr %17, align 4, !tbaa !13
   %169 = add i32 %89, -1473231341
   %170 = add i32 %169, %168
   %171 = add i32 %170, %155
@@ -217,16 +215,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %178 = load i16, ptr %177, align 1
   %179 = zext i16 %178 to i32
   %180 = getelementptr inbounds nuw i8, ptr %.0627, i64 30
-  %181 = load i8, ptr %180, align 1
+  %181 = load i8, ptr %180, align 1, !tbaa !12
   %182 = zext i8 %181 to i32
   %183 = shl nuw nsw i32 %182, 16
   %184 = or disjoint i32 %183, %179
   %185 = getelementptr inbounds nuw i8, ptr %.0627, i64 31
-  %186 = load i8, ptr %185, align 1
+  %186 = load i8, ptr %185, align 1, !tbaa !12
   %187 = zext i8 %186 to i32
   %188 = shl nuw i32 %187, 24
   %189 = or disjoint i32 %184, %188
-  store i32 %189, ptr %18, align 4
+  store i32 %189, ptr %18, align 4, !tbaa !13
   %190 = add i32 %110, -45705983
   %191 = add i32 %190, %189
   %192 = add i32 %191, %176
@@ -239,16 +237,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %199 = load i16, ptr %198, align 1
   %200 = zext i16 %199 to i32
   %201 = getelementptr inbounds nuw i8, ptr %.0627, i64 34
-  %202 = load i8, ptr %201, align 1
+  %202 = load i8, ptr %201, align 1, !tbaa !12
   %203 = zext i8 %202 to i32
   %204 = shl nuw nsw i32 %203, 16
   %205 = or disjoint i32 %204, %200
   %206 = getelementptr inbounds nuw i8, ptr %.0627, i64 35
-  %207 = load i8, ptr %206, align 1
+  %207 = load i8, ptr %206, align 1, !tbaa !12
   %208 = zext i8 %207 to i32
   %209 = shl nuw i32 %208, 24
   %210 = or disjoint i32 %205, %209
-  store i32 %210, ptr %19, align 4
+  store i32 %210, ptr %19, align 4, !tbaa !13
   %211 = add i32 %210, 1770035416
   %212 = add i32 %211, %131
   %213 = add i32 %212, %197
@@ -261,16 +259,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %220 = load i16, ptr %219, align 1
   %221 = zext i16 %220 to i32
   %222 = getelementptr inbounds nuw i8, ptr %.0627, i64 38
-  %223 = load i8, ptr %222, align 1
+  %223 = load i8, ptr %222, align 1, !tbaa !12
   %224 = zext i8 %223 to i32
   %225 = shl nuw nsw i32 %224, 16
   %226 = or disjoint i32 %225, %221
   %227 = getelementptr inbounds nuw i8, ptr %.0627, i64 39
-  %228 = load i8, ptr %227, align 1
+  %228 = load i8, ptr %227, align 1, !tbaa !12
   %229 = zext i8 %228 to i32
   %230 = shl nuw i32 %229, 24
   %231 = or disjoint i32 %226, %230
-  store i32 %231, ptr %20, align 4
+  store i32 %231, ptr %20, align 4, !tbaa !13
   %232 = add i32 %231, -1958414417
   %233 = add i32 %232, %152
   %234 = add i32 %233, %218
@@ -283,16 +281,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %241 = load i16, ptr %240, align 1
   %242 = zext i16 %241 to i32
   %243 = getelementptr inbounds nuw i8, ptr %.0627, i64 42
-  %244 = load i8, ptr %243, align 1
+  %244 = load i8, ptr %243, align 1, !tbaa !12
   %245 = zext i8 %244 to i32
   %246 = shl nuw nsw i32 %245, 16
   %247 = or disjoint i32 %246, %242
   %248 = getelementptr inbounds nuw i8, ptr %.0627, i64 43
-  %249 = load i8, ptr %248, align 1
+  %249 = load i8, ptr %248, align 1, !tbaa !12
   %250 = zext i8 %249 to i32
   %251 = shl nuw i32 %250, 24
   %252 = or disjoint i32 %247, %251
-  store i32 %252, ptr %21, align 4
+  store i32 %252, ptr %21, align 4, !tbaa !13
   %253 = add i32 %252, -42063
   %254 = add i32 %253, %173
   %255 = add i32 %254, %239
@@ -305,16 +303,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %262 = load i16, ptr %261, align 1
   %263 = zext i16 %262 to i32
   %264 = getelementptr inbounds nuw i8, ptr %.0627, i64 46
-  %265 = load i8, ptr %264, align 1
+  %265 = load i8, ptr %264, align 1, !tbaa !12
   %266 = zext i8 %265 to i32
   %267 = shl nuw nsw i32 %266, 16
   %268 = or disjoint i32 %267, %263
   %269 = getelementptr inbounds nuw i8, ptr %.0627, i64 47
-  %270 = load i8, ptr %269, align 1
+  %270 = load i8, ptr %269, align 1, !tbaa !12
   %271 = zext i8 %270 to i32
   %272 = shl nuw i32 %271, 24
   %273 = or disjoint i32 %268, %272
-  store i32 %273, ptr %22, align 4
+  store i32 %273, ptr %22, align 4, !tbaa !13
   %274 = add i32 %273, -1990404162
   %275 = add i32 %274, %194
   %276 = add i32 %275, %260
@@ -327,16 +325,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %283 = load i16, ptr %282, align 1
   %284 = zext i16 %283 to i32
   %285 = getelementptr inbounds nuw i8, ptr %.0627, i64 50
-  %286 = load i8, ptr %285, align 1
+  %286 = load i8, ptr %285, align 1, !tbaa !12
   %287 = zext i8 %286 to i32
   %288 = shl nuw nsw i32 %287, 16
   %289 = or disjoint i32 %288, %284
   %290 = getelementptr inbounds nuw i8, ptr %.0627, i64 51
-  %291 = load i8, ptr %290, align 1
+  %291 = load i8, ptr %290, align 1, !tbaa !12
   %292 = zext i8 %291 to i32
   %293 = shl nuw i32 %292, 24
   %294 = or disjoint i32 %289, %293
-  store i32 %294, ptr %23, align 4
+  store i32 %294, ptr %23, align 4, !tbaa !13
   %295 = add i32 %294, 1804603682
   %296 = add i32 %295, %215
   %297 = add i32 %296, %281
@@ -349,16 +347,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %304 = load i16, ptr %303, align 1
   %305 = zext i16 %304 to i32
   %306 = getelementptr inbounds nuw i8, ptr %.0627, i64 54
-  %307 = load i8, ptr %306, align 1
+  %307 = load i8, ptr %306, align 1, !tbaa !12
   %308 = zext i8 %307 to i32
   %309 = shl nuw nsw i32 %308, 16
   %310 = or disjoint i32 %309, %305
   %311 = getelementptr inbounds nuw i8, ptr %.0627, i64 55
-  %312 = load i8, ptr %311, align 1
+  %312 = load i8, ptr %311, align 1, !tbaa !12
   %313 = zext i8 %312 to i32
   %314 = shl nuw i32 %313, 24
   %315 = or disjoint i32 %310, %314
-  store i32 %315, ptr %24, align 4
+  store i32 %315, ptr %24, align 4, !tbaa !13
   %316 = add i32 %315, -40341101
   %317 = add i32 %316, %236
   %318 = add i32 %317, %302
@@ -371,16 +369,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %325 = load i16, ptr %324, align 1
   %326 = zext i16 %325 to i32
   %327 = getelementptr inbounds nuw i8, ptr %.0627, i64 58
-  %328 = load i8, ptr %327, align 1
+  %328 = load i8, ptr %327, align 1, !tbaa !12
   %329 = zext i8 %328 to i32
   %330 = shl nuw nsw i32 %329, 16
   %331 = or disjoint i32 %330, %326
   %332 = getelementptr inbounds nuw i8, ptr %.0627, i64 59
-  %333 = load i8, ptr %332, align 1
+  %333 = load i8, ptr %332, align 1, !tbaa !12
   %334 = zext i8 %333 to i32
   %335 = shl nuw i32 %334, 24
   %336 = or disjoint i32 %331, %335
-  store i32 %336, ptr %25, align 4
+  store i32 %336, ptr %25, align 4, !tbaa !13
   %337 = add i32 %336, -1502002290
   %338 = add i32 %337, %257
   %339 = add i32 %338, %323
@@ -393,16 +391,16 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %346 = load i16, ptr %345, align 1
   %347 = zext i16 %346 to i32
   %348 = getelementptr inbounds nuw i8, ptr %.0627, i64 62
-  %349 = load i8, ptr %348, align 1
+  %349 = load i8, ptr %348, align 1, !tbaa !12
   %350 = zext i8 %349 to i32
   %351 = shl nuw nsw i32 %350, 16
   %352 = or disjoint i32 %351, %347
   %353 = getelementptr inbounds nuw i8, ptr %.0627, i64 63
-  %354 = load i8, ptr %353, align 1
+  %354 = load i8, ptr %353, align 1, !tbaa !12
   %355 = zext i8 %354 to i32
   %356 = shl nuw i32 %355, 24
   %357 = or disjoint i32 %352, %356
-  store i32 %357, ptr %26, align 4
+  store i32 %357, ptr %26, align 4, !tbaa !13
   %358 = add i32 %357, 1236535329
   %359 = add i32 %358, %278
   %360 = add i32 %359, %344
@@ -782,51 +780,57 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nou
   %734 = getelementptr inbounds nuw i8, ptr %.0627, i64 64
   %735 = add i64 %.0, -64
   %.not = icmp eq i64 %735, 0
-  br i1 %.not, label %736, label %27, !llvm.loop !4
+  br i1 %.not, label %736, label %27, !llvm.loop !14
 
 736:                                              ; preds = %27
-  store i32 %729, ptr %0, align 4
-  store i32 %731, ptr %5, align 4
-  store i32 %732, ptr %7, align 4
-  store i32 %733, ptr %9, align 4
+  store i32 %729, ptr %0, align 4, !tbaa !3
+  store i32 %731, ptr %5, align 4, !tbaa !9
+  store i32 %732, ptr %7, align 4, !tbaa !10
+  store i32 %733, ptr %9, align 4, !tbaa !11
   ret ptr %734
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3MD5C2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(152) initializes((0, 24)) %0) unnamed_addr #1 align 2 {
-  store i32 1732584193, ptr %0, align 4
+define dso_local void @_ZN4llvm3MD5C2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(152) initializes((0, 24)) %0) unnamed_addr #2 align 2 {
+  store i32 1732584193, ptr %0, align 4, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -271733879, ptr %2, align 4
+  store i32 -271733879, ptr %2, align 4, !tbaa !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1732584194, ptr %3, align 4
+  store i32 -1732584194, ptr %3, align 4, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 271733878, ptr %4, align 4
+  store i32 271733878, ptr %4, align 4, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %5, align 4
+  store i32 0, ptr %5, align 4, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %6, align 4, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %1, i64 %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !22
   %5 = trunc i64 %2 to i32
   %6 = add i32 %4, %5
   %7 = and i32 %6, 536870911
-  store i32 %7, ptr %3, align 4
+  store i32 %7, ptr %3, align 4, !tbaa !22
   %8 = icmp ult i32 %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !23
   %11 = zext i1 %8 to i32
   %12 = add i32 %10, %11
   %13 = lshr i64 %2, 29
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = trunc i64 %13 to i32
   %16 = add i32 %12, %15
-  store i32 %16, ptr %14, align 4
+  store i32 %16, ptr %14, align 4, !tbaa !23
   %17 = and i32 %4, 63
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %29, label %18
@@ -874,25 +878,25 @@ define dso_local void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %1, i64 %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !22
   %6 = trunc i64 %2 to i32
   %7 = add i32 %5, %6
   %8 = and i32 %7, 536870911
-  store i32 %8, ptr %4, align 4
+  store i32 %8, ptr %4, align 4, !tbaa !22
   %9 = icmp ult i32 %8, %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !23
   %12 = zext i1 %9 to i32
   %13 = lshr i64 %2, 29
   %14 = trunc i64 %13 to i32
   %15 = add i32 %11, %14
   %16 = add i32 %15, %12
-  store i32 %16, ptr %10, align 4
+  store i32 %16, ptr %10, align 4, !tbaa !23
   %17 = and i32 %5, 63
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %29, label %18
@@ -940,15 +944,15 @@ _ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %24, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr noundef nonnull align 1 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr noundef nonnull align 1 dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !22
   %5 = and i32 %4, 63
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = add nuw nsw i64 %6, 1
   %9 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %6
-  store i8 -128, ptr %9, align 1
+  store i8 -128, ptr %9, align 1, !tbaa !12
   %10 = xor i64 %6, 63
   %11 = icmp samesign ult i64 %10, 8
   br i1 %11, label %12, label %15
@@ -957,7 +961,7 @@ define dso_local void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull a
   %13 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 0, i64 %10, i1 false)
   %14 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 64)
-  %.pre = load i32, ptr %3, align 4
+  %.pre = load i32, ptr %3, align 4, !tbaa !22
   br label %15
 
 15:                                               ; preds = %12, %2
@@ -968,50 +972,50 @@ define dso_local void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull a
   %18 = add nsw i64 %.0, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %18, i1 false)
   %19 = shl i32 %16, 3
-  store i32 %19, ptr %3, align 4
+  store i32 %19, ptr %3, align 4, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 1) ]
   store i32 %19, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 4, !tbaa !23
   call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 1) ]
   store i32 %23, ptr %21, align 4
   %24 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 64)
-  %25 = load i32, ptr %0, align 4
+  %25 = load i32, ptr %0, align 4, !tbaa !3
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   store i32 %25, ptr %1, align 1
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %28 = load i32, ptr %27, align 4
+  %28 = load i32, ptr %27, align 4, !tbaa !9
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i32 %28, ptr %26, align 1
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load i32, ptr %30, align 4
+  %31 = load i32, ptr %30, align 4, !tbaa !10
   call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
   store i32 %31, ptr %29, align 1
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %34 = load i32, ptr %33, align 4
+  %34 = load i32, ptr %33, align 4, !tbaa !11
   call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 1) ]
   store i32 %34, ptr %32, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local { i64, i64 } @_ZN4llvm3MD55finalEv(ptr noundef nonnull align 4 dereferenceable(152) %0) local_unnamed_addr #4 align 2 {
+define dso_local { i64, i64 } @_ZN4llvm3MD55finalEv(ptr noundef nonnull align 4 dereferenceable(152) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4, !tbaa !22
   %4 = and i32 %3, 63
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = add nuw nsw i64 %5, 1
   %8 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %5
-  store i8 -128, ptr %8, align 1
+  store i8 -128, ptr %8, align 1, !tbaa !12
   %9 = xor i64 %5, 63
   %10 = icmp samesign ult i64 %9, 8
   br i1 %10, label %11, label %_ZN4llvm3MD55finalERNS0_9MD5ResultE.exit
@@ -1020,7 +1024,7 @@ define dso_local { i64, i64 } @_ZN4llvm3MD55finalEv(ptr noundef nonnull align 4 
   %12 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %7
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %12, i8 0, i64 %9, i1 false)
   %13 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %6, i64 64)
-  %.pre.i = load i32, ptr %2, align 4
+  %.pre.i = load i32, ptr %2, align 4, !tbaa !22
   br label %_ZN4llvm3MD55finalERNS0_9MD5ResultE.exit
 
 _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %1, %11
@@ -1031,13 +1035,13 @@ _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %1, %11
   %16 = add nsw i64 %.0.i, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %15, i8 0, i64 %16, i1 false)
   %17 = shl i32 %14, 3
-  store i32 %17, ptr %2, align 4
+  store i32 %17, ptr %2, align 4, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
   store i32 %17, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 4, !tbaa !23
   call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 1) ]
   store i32 %21, ptr %19, align 4
   %22 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %6, i64 64)
@@ -1050,17 +1054,18 @@ _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %1, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local { i64, i64 } @_ZN4llvm3MD56resultEv(ptr noundef nonnull align 4 dereferenceable(152) %0) local_unnamed_addr #4 align 2 {
+define dso_local { i64, i64 } @_ZN4llvm3MD56resultEv(ptr noundef nonnull align 4 dereferenceable(152) %0) local_unnamed_addr #5 align 2 {
   %2 = alloca %struct.anon, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %2, ptr noundef nonnull align 4 dereferenceable(152) %0, i64 152, i1 false)
+  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %2, ptr noundef nonnull align 4 dereferenceable(152) %0, i64 152, i1 false), !tbaa.struct !24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !22
   %5 = and i32 %4, 63
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = add nuw nsw i64 %6, 1
   %9 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %6
-  store i8 -128, ptr %9, align 1
+  store i8 -128, ptr %9, align 1, !tbaa !12
   %10 = xor i64 %6, 63
   %11 = icmp samesign ult i64 %10, 8
   br i1 %11, label %12, label %_ZN4llvm3MD55finalEv.exit
@@ -1069,7 +1074,7 @@ define dso_local { i64, i64 } @_ZN4llvm3MD56resultEv(ptr noundef nonnull align 4
   %13 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 0, i64 %10, i1 false)
   %14 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 64)
-  %.pre.i.i = load i32, ptr %3, align 4
+  %.pre.i.i = load i32, ptr %3, align 4, !tbaa !22
   br label %_ZN4llvm3MD55finalEv.exit
 
 _ZN4llvm3MD55finalEv.exit:                        ; preds = %1, %12
@@ -1080,13 +1085,13 @@ _ZN4llvm3MD55finalEv.exit:                        ; preds = %1, %12
   %17 = add nsw i64 %.0.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %16, i8 0, i64 %17, i1 false)
   %18 = shl i32 %15, 3
-  store i32 %18, ptr %3, align 4
+  store i32 %18, ptr %3, align 4, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 1) ]
   store i32 %18, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 4, !tbaa !23
   call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 1) ]
   store i32 %22, ptr %20, align 4
   %23 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 64)
@@ -1095,109 +1100,131 @@ _ZN4llvm3MD55finalEv.exit:                        ; preds = %1, %12
   %26 = load i64, ptr %25, align 4
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %24, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %26, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr noundef nonnull align 4 dereferenceable(152) %2, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr noundef nonnull align 4 dereferenceable(152) %2, i64 152, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2)
   ret { i64, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3MD59MD5Result6digestEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::SmallString") align 8 %0, ptr noundef nonnull align 1 dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %3, i64 noundef 32) #10
-  tail call void @_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE(ptr nonnull %1, i64 16, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %0)
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZNK4llvm3MD59MD5Result6digestEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallString") align 8 %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 align 2 {
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %2, ptr %0, align 8, !tbaa !25
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 32, ptr %4, align 8, !tbaa !29
+  store i64 32, ptr %3, align 8, !tbaa !30
+  br label %5
+
+5:                                                ; preds = %5, %.lr.ph.i
+  %.013.i = phi i64 [ 0, %.lr.ph.i ], [ %25, %5 ]
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.013.i
+  %7 = load i8, ptr %6, align 1, !tbaa !12
+  %8 = zext i8 %7 to i32
+  %9 = lshr i32 %8, 4
+  %10 = zext nneg i32 %9 to i64
+  %11 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %10
+  %12 = load i8, ptr %11, align 1, !tbaa !12
+  %13 = or i8 %12, 32
+  %14 = shl nuw i64 %.013.i, 1
+  %15 = load ptr, ptr %0, align 8, !tbaa !25
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %14
+  store i8 %13, ptr %16, align 1, !tbaa !12
+  %17 = and i32 %8, 15
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !12
+  %21 = or i8 %20, 32
+  %22 = or disjoint i64 %14, 1
+  %23 = load ptr, ptr %0, align 8, !tbaa !25
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %22
+  store i8 %21, ptr %24, align 1, !tbaa !12
+  %25 = add nuw nsw i64 %.013.i, 1
+  %exitcond.not.i = icmp eq i64 %25, 16
+  br i1 %exitcond.not.i, label %_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit, label %5, !llvm.loop !31
+
+_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit: ; preds = %5
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE(ptr %0, i64 %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #6 comdat {
-  %5 = shl i64 %1, 1
-  %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #10
-  %7 = icmp eq i64 %5, %6
-  br i1 %7, label %_ZN4llvm15SmallVectorImplIcE20resize_for_overwriteEm.exit, label %8
+define dso_local void @_ZN4llvm3MD515stringifyResultERNS0_9MD5ResultERNS_15SmallVectorImplIcEE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #8 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = load i64, ptr %3, align 8, !tbaa !30
+  %5 = icmp eq i64 %4, 32
+  br i1 %5, label %.lr.ph.i.preheader, label %6
 
-8:                                                ; preds = %4
-  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #10
-  %10 = icmp ult i64 %5, %9
-  br i1 %10, label %.sink.split.i.i, label %11
+6:                                                ; preds = %2
+  %7 = icmp ult i64 %4, 33
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp ult i64 %9, 32
+  %or.cond.i.i.i = select i1 %7, i1 %10, i1 false
+  br i1 %or.cond.i.i.i, label %11, label %.sink.split.i.i.i
 
-11:                                               ; preds = %8
-  %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #10
-  %13 = icmp ult i64 %12, %5
-  br i1 %13, label %14, label %.sink.split.i.i
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %12, i64 noundef 32, i64 noundef 1) #12
+  br label %.sink.split.i.i.i
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %15, i64 noundef %5, i64 noundef 1) #10
-  br label %.sink.split.i.i
+.sink.split.i.i.i:                                ; preds = %11, %6
+  store i64 32, ptr %3, align 8, !tbaa !30
+  br label %.lr.ph.i.preheader
 
-.sink.split.i.i:                                  ; preds = %14, %11, %8
-  %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #10
-  tail call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %5) #10
-  br label %_ZN4llvm15SmallVectorImplIcE20resize_for_overwriteEm.exit
+.lr.ph.i.preheader:                               ; preds = %2, %.sink.split.i.i.i
+  br label %.lr.ph.i
 
-_ZN4llvm15SmallVectorImplIcE20resize_for_overwriteEm.exit: ; preds = %4, %.sink.split.i.i
-  %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.013.i = phi i64 [ %32, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.013.i
+  %14 = load i8, ptr %13, align 1, !tbaa !12
+  %15 = zext i8 %14 to i32
+  %16 = lshr i32 %15, 4
+  %17 = zext nneg i32 %16 to i64
+  %18 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !12
+  %20 = or i8 %19, 32
+  %21 = shl nuw i64 %.013.i, 1
+  %22 = load ptr, ptr %1, align 8, !tbaa !25
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %21
+  store i8 %20, ptr %23, align 1, !tbaa !12
+  %24 = and i32 %15, 15
+  %25 = zext nneg i32 %24 to i64
+  %26 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !12
+  %28 = or i8 %27, 32
+  %29 = or disjoint i64 %21, 1
+  %30 = load ptr, ptr %1, align 8, !tbaa !25
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %29
+  store i8 %28, ptr %31, align 1, !tbaa !12
+  %32 = add nuw nsw i64 %.013.i, 1
+  %exitcond.not.i = icmp eq i64 %32, 16
+  br i1 %exitcond.not.i, label %_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit, label %.lr.ph.i, !llvm.loop !31
 
-.lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplIcE20resize_for_overwriteEm.exit
-  %17 = select i1 %2, i8 32, i8 0
-  br label %18
-
-18:                                               ; preds = %.lr.ph, %18
-  %.013 = phi i64 [ 0, %.lr.ph ], [ %38, %18 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 %.013
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  %22 = lshr i32 %21, 4
-  %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = or i8 %25, %17
-  %27 = shl i64 %.013, 1
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 %27
-  store i8 %26, ptr %29, align 1
-  %30 = and i32 %21, 15
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %31
-  %33 = load i8, ptr %32, align 1
-  %34 = or i8 %33, %17
-  %35 = or disjoint i64 %27, 1
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 %35
-  store i8 %34, ptr %37, align 1
-  %38 = add nuw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %38, %1
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !6
-
-._crit_edge:                                      ; preds = %18, %_ZN4llvm15SmallVectorImplIcE20resize_for_overwriteEm.exit
+_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit: ; preds = %.lr.ph.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3MD515stringifyResultERNS0_9MD5ResultERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 {
-  tail call void @_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE(ptr nonnull %0, i64 16, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i64 } @_ZN4llvm3MD54hashENS_8ArrayRefIhEE(ptr %0, i64 %1) local_unnamed_addr #6 align 2 {
+define dso_local { i64, i64 } @_ZN4llvm3MD54hashENS_8ArrayRefIhEE(ptr %0, i64 %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"class.llvm::MD5", align 8
-  call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %3) #10
+  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #12
+  call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !22
   %6 = trunc i64 %1 to i32
   %7 = add i32 %5, %6
   %8 = and i32 %7, 536870911
-  store i32 %8, ptr %4, align 4
+  store i32 %8, ptr %4, align 4, !tbaa !22
   %9 = icmp ult i32 %8, %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %11 = load i32, ptr %10, align 8
+  %11 = load i32, ptr %10, align 8, !tbaa !23
   %12 = zext i1 %9 to i32
   %13 = lshr i64 %1, 29
   %14 = trunc i64 %13 to i32
   %15 = add i32 %11, %14
   %16 = add i32 %15, %12
-  store i32 %16, ptr %10, align 8
+  store i32 %16, ptr %10, align 8, !tbaa !23
   %17 = and i32 %5, 63
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %29, label %18
@@ -1238,7 +1265,7 @@ define dso_local { i64, i64 } @_ZN4llvm3MD54hashENS_8ArrayRefIhEE(ptr %0, i64 %1
   %.1.i = phi i64 [ %34, %31 ], [ %.0.i, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr align 1 %.126.i, i64 %.1.i, i1 false)
-  %.pre = load i32, ptr %4, align 4
+  %.pre = load i32, ptr %4, align 4, !tbaa !22
   br label %_ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit
 
 _ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %24, %35
@@ -1248,7 +1275,7 @@ _ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %24, %35
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %41 = add nuw nsw i64 %39, 1
   %42 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 0, i64 %39
-  store i8 -128, ptr %42, align 1
+  store i8 -128, ptr %42, align 1, !tbaa !12
   %43 = xor i64 %39, 63
   %44 = icmp samesign ult i64 %43, 8
   br i1 %44, label %45, label %_ZN4llvm3MD55finalERNS0_9MD5ResultE.exit
@@ -1257,7 +1284,7 @@ _ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %24, %35
   %46 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 0, i64 %41
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %46, i8 0, i64 %43, i1 false)
   %47 = call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr nonnull %40, i64 64)
-  %.pre.i = load i32, ptr %4, align 4
+  %.pre.i = load i32, ptr %4, align 4, !tbaa !22
   br label %_ZN4llvm3MD55finalERNS0_9MD5ResultE.exit
 
 _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %_ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit, %45
@@ -1268,57 +1295,77 @@ _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %_ZN4llvm3MD56update
   %50 = add nsw i64 %.0.i3, -8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %49, i8 0, i64 %50, i1 false)
   %51 = shl i32 %48, 3
-  store i32 %51, ptr %4, align 4
+  store i32 %51, ptr %4, align 4, !tbaa !22
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   store i32 %51, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 84
-  %54 = load i32, ptr %10, align 8
+  %54 = load i32, ptr %10, align 8, !tbaa !23
   call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   store i32 %54, ptr %53, align 4
   %55 = call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr nonnull %40, i64 64)
   %56 = load i64, ptr %3, align 8
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %58 = load i64, ptr %57, align 8
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #12
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %56, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %58, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #9
 
-declare void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef) unnamed_addr #8
-
-declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #8
-
-declare void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #8
-
-declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #8
-
-declare void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #9
+declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !6, i64 0}
+!4 = !{!"_ZTSN4llvm3MD5E", !5, i64 0}
+!5 = !{!"_ZTSN4llvm3MD5Ut_E", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !7, i64 24, !7, i64 88}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!4, !6, i64 4}
+!10 = !{!4, !6, i64 8}
+!11 = !{!4, !6, i64 12}
+!12 = !{!7, !7, i64 0}
+!13 = !{!6, !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!5, !6, i64 0}
+!17 = !{!5, !6, i64 4}
+!18 = !{!5, !6, i64 8}
+!19 = !{!5, !6, i64 12}
+!20 = !{!5, !6, i64 16}
+!21 = !{!5, !6, i64 20}
+!22 = !{!4, !6, i64 20}
+!23 = !{!4, !6, i64 16}
+!24 = !{i64 0, i64 4, !13, i64 4, i64 4, !13, i64 8, i64 4, !13, i64 12, i64 4, !13, i64 16, i64 4, !13, i64 20, i64 4, !13, i64 24, i64 64, !12, i64 88, i64 64, !12}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !27, i64 0, !28, i64 8, !28, i64 16}
+!27 = !{!"any pointer", !7, i64 0}
+!28 = !{!"long", !7, i64 0}
+!29 = !{!26, !28, i64 16}
+!30 = !{!26, !28, i64 8}
+!31 = distinct !{!31, !15}

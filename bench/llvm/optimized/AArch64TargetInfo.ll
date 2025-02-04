@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/AArch64TargetInfo.cpp.ll'
-source_filename = "bench/llvm/original/AArch64TargetInfo.cpp.ll"
+; ModuleID = 'bench/llvm/original/AArch64TargetInfo.ll'
+source_filename = "bench/llvm/original/AArch64TargetInfo.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -39,7 +39,7 @@ $_ZN4llvm14RegisterTargetILNS_6Triple8ArchTypeE5ELb1EE12getArchMatchES2_ = comda
 define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm21getTheAArch64leTargetEv() local_unnamed_addr #0 {
   %1 = load atomic i8, ptr @_ZGVZN4llvm21getTheAArch64leTargetEvE18TheAArch64leTarget acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %6, !prof !4
+  br i1 %2, label %3, label %6, !prof !3
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm21getTheAArch64leTargetEvE18TheAArch64leTarget) #6
@@ -65,7 +65,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm21getTheAArch64beTargetEv() local_unnamed_addr #0 {
   %1 = load atomic i8, ptr @_ZGVZN4llvm21getTheAArch64beTargetEvE18TheAArch64beTarget acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %6, !prof !4
+  br i1 %2, label %3, label %6, !prof !3
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm21getTheAArch64beTargetEvE18TheAArch64beTarget) #6
@@ -85,7 +85,7 @@ define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm21get
 define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm22getTheAArch64_32TargetEv() local_unnamed_addr #0 {
   %1 = load atomic i8, ptr @_ZGVZN4llvm22getTheAArch64_32TargetEvE18TheAArch64leTarget acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %6, !prof !4
+  br i1 %2, label %3, label %6, !prof !3
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm22getTheAArch64_32TargetEvE18TheAArch64leTarget) #6
@@ -105,7 +105,7 @@ define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm22get
 define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm17getTheARM64TargetEv() local_unnamed_addr #0 {
   %1 = load atomic i8, ptr @_ZGVZN4llvm17getTheARM64TargetEvE14TheARM64Target acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %6, !prof !4
+  br i1 %2, label %3, label %6, !prof !3
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm17getTheARM64TargetEvE14TheARM64Target) #6
@@ -125,7 +125,7 @@ define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm17get
 define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm20getTheARM64_32TargetEv() local_unnamed_addr #0 {
   %1 = load atomic i8, ptr @_ZGVZN4llvm20getTheARM64_32TargetEvE17TheARM64_32Target acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %6, !prof !4
+  br i1 %2, label %3, label %6, !prof !3
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm20getTheARM64_32TargetEvE17TheARM64_32Target) #6
@@ -145,7 +145,7 @@ define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm20get
 define dso_local void @LLVMInitializeAArch64TargetInfo() local_unnamed_addr #2 {
   %1 = load atomic i8, ptr @_ZGVZN4llvm17getTheARM64TargetEvE14TheARM64Target acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %_ZN4llvm17getTheARM64TargetEv.exit, !prof !4
+  br i1 %2, label %3, label %_ZN4llvm17getTheARM64TargetEv.exit, !prof !3
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm17getTheARM64TargetEvE14TheARM64Target) #6
@@ -161,7 +161,7 @@ _ZN4llvm17getTheARM64TargetEv.exit:               ; preds = %0, %3, %5
   tail call void @_ZN4llvm14TargetRegistry14RegisterTargetERNS_6TargetEPKcS4_S4_PFbNS_6Triple8ArchTypeEEb(ptr noundef nonnull align 8 dereferenceable(248) @_ZZN4llvm17getTheARM64TargetEvE14TheARM64Target, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @"_ZZ31LLVMInitializeAArch64TargetInfoEN3$_08__invokeEN4llvm6Triple8ArchTypeE", i1 noundef zeroext true) #6
   %6 = load atomic i8, ptr @_ZGVZN4llvm20getTheARM64_32TargetEvE17TheARM64_32Target acquire, align 8
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %_ZN4llvm20getTheARM64_32TargetEv.exit, !prof !4
+  br i1 %7, label %8, label %_ZN4llvm20getTheARM64_32TargetEv.exit, !prof !3
 
 8:                                                ; preds = %_ZN4llvm17getTheARM64TargetEv.exit
   %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm20getTheARM64_32TargetEvE17TheARM64_32Target) #6
@@ -177,7 +177,7 @@ _ZN4llvm20getTheARM64_32TargetEv.exit:            ; preds = %_ZN4llvm17getTheARM
   tail call void @_ZN4llvm14TargetRegistry14RegisterTargetERNS_6TargetEPKcS4_S4_PFbNS_6Triple8ArchTypeEEb(ptr noundef nonnull align 8 dereferenceable(248) @_ZZN4llvm20getTheARM64_32TargetEvE17TheARM64_32Target, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull @"_ZZ31LLVMInitializeAArch64TargetInfoEN3$_18__invokeEN4llvm6Triple8ArchTypeE", i1 noundef zeroext true) #6
   %11 = load atomic i8, ptr @_ZGVZN4llvm21getTheAArch64leTargetEvE18TheAArch64leTarget acquire, align 8
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %_ZN4llvm21getTheAArch64leTargetEv.exit, !prof !4
+  br i1 %12, label %13, label %_ZN4llvm21getTheAArch64leTargetEv.exit, !prof !3
 
 13:                                               ; preds = %_ZN4llvm20getTheARM64_32TargetEv.exit
   %14 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm21getTheAArch64leTargetEvE18TheAArch64leTarget) #6
@@ -193,7 +193,7 @@ _ZN4llvm21getTheAArch64leTargetEv.exit:           ; preds = %_ZN4llvm20getTheARM
   tail call void @_ZN4llvm14TargetRegistry14RegisterTargetERNS_6TargetEPKcS4_S4_PFbNS_6Triple8ArchTypeEEb(ptr noundef nonnull align 8 dereferenceable(248) @_ZZN4llvm21getTheAArch64leTargetEvE18TheAArch64leTarget, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN4llvm14RegisterTargetILNS_6Triple8ArchTypeE3ELb1EE12getArchMatchES2_, i1 noundef zeroext true) #6
   %16 = load atomic i8, ptr @_ZGVZN4llvm21getTheAArch64beTargetEvE18TheAArch64beTarget acquire, align 8
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %18, label %_ZN4llvm21getTheAArch64beTargetEv.exit, !prof !4
+  br i1 %17, label %18, label %_ZN4llvm21getTheAArch64beTargetEv.exit, !prof !3
 
 18:                                               ; preds = %_ZN4llvm21getTheAArch64leTargetEv.exit
   %19 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm21getTheAArch64beTargetEvE18TheAArch64beTarget) #6
@@ -209,7 +209,7 @@ _ZN4llvm21getTheAArch64beTargetEv.exit:           ; preds = %_ZN4llvm21getTheAAr
   tail call void @_ZN4llvm14TargetRegistry14RegisterTargetERNS_6TargetEPKcS4_S4_PFbNS_6Triple8ArchTypeEEb(ptr noundef nonnull align 8 dereferenceable(248) @_ZZN4llvm21getTheAArch64beTargetEvE18TheAArch64beTarget, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN4llvm14RegisterTargetILNS_6Triple8ArchTypeE4ELb1EE12getArchMatchES2_, i1 noundef zeroext true) #6
   %21 = load atomic i8, ptr @_ZGVZN4llvm22getTheAArch64_32TargetEvE18TheAArch64leTarget acquire, align 8
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %_ZN4llvm22getTheAArch64_32TargetEv.exit, !prof !4
+  br i1 %22, label %23, label %_ZN4llvm22getTheAArch64_32TargetEv.exit, !prof !3
 
 23:                                               ; preds = %_ZN4llvm21getTheAArch64beTargetEv.exit
   %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm22getTheAArch64_32TargetEvE18TheAArch64leTarget) #6
@@ -228,12 +228,12 @@ _ZN4llvm22getTheAArch64_32TargetEv.exit:          ; preds = %_ZN4llvm21getTheAAr
 
 declare void @_ZN4llvm14TargetRegistry14RegisterTargetERNS_6TargetEPKcS4_S4_PFbNS_6Triple8ArchTypeEEb(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef zeroext i1 @"_ZZ31LLVMInitializeAArch64TargetInfoEN3$_08__invokeEN4llvm6Triple8ArchTypeE"(i32 %0) #4 align 2 {
   ret i1 false
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef zeroext i1 @"_ZZ31LLVMInitializeAArch64TargetInfoEN3$_18__invokeEN4llvm6Triple8ArchTypeE"(i32 %0) #4 align 2 {
   ret i1 false
 }
@@ -259,18 +259,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14RegisterTargetILNS_6Tri
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!"branch_weights", i32 1, i32 1048575}
+!3 = !{!"branch_weights", i32 1, i32 1048575}

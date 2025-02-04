@@ -158,7 +158,7 @@ Currently, this repository contains the following libraries/applications:
 |[lief](https://github.com/lief-project/LIEF)|C++|![stars](https://img.shields.io/github/stars/lief-project/LIEF?style=flat)|2024-03-02|
 |[lightgbm](https://github.com/microsoft/LightGBM)|C++|![stars](https://img.shields.io/github/stars/microsoft/LightGBM?style=flat)|2024-07-14|
 |[llama.cpp](https://github.com/ggerganov/llama.cpp)|C++|![stars](https://img.shields.io/github/stars/ggerganov/llama.cpp?style=flat)|2023-12-16|
-|[llvm-project](https://github.com/llvm/llvm-project)|C++|![stars](https://img.shields.io/github/stars/llvm/llvm-project?style=flat)|2024-09-03|
+|[llvm-project](https://github.com/llvm/llvm-project)|C++|![stars](https://img.shields.io/github/stars/llvm/llvm-project?style=flat)|2025-02-03|
 |[lodepng](https://github.com/lvandeve/lodepng)|C++|![stars](https://img.shields.io/github/stars/lvandeve/lodepng?style=flat)|2023-12-03|
 |[luau](https://github.com/luau-lang/luau)|C++|![stars](https://img.shields.io/github/stars/luau-lang/luau?style=flat)|2024-06-20|
 |[meshlab](https://github.com/cnr-isti-vclab/meshlab)|C++|![stars](https://img.shields.io/github/stars/cnr-isti-vclab/meshlab?style=flat)|2024-02-13|

@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/CountVisits.cpp.ll'
-source_filename = "bench/llvm/original/CountVisits.cpp.ll"
+; ModuleID = 'bench/llvm/original/CountVisits.ll'
+source_filename = "bench/llvm/original/CountVisits.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::PreservedAnalyses" = type { %"class.llvm::SmallPtrSet", %"class.llvm::SmallPtrSet.0" }
 %"class.llvm::SmallPtrSet" = type { %"class.llvm::SmallPtrSetImpl.base", [2 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base" = type { %"class.llvm::SmallPtrSetImplBase.base" }
-%"class.llvm::SmallPtrSetImplBase.base" = type <{ ptr, ptr, i32, i32, i32 }>
+%"class.llvm::SmallPtrSetImplBase.base" = type <{ ptr, i32, i32, i32, i8 }>
 %"class.llvm::SmallPtrSet.0" = type { %"class.llvm::SmallPtrSetImpl.base.2", [2 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base.2" = type { %"class.llvm::SmallPtrSetImplBase.base" }
 
@@ -26,9 +26,9 @@ define dso_local void @_ZN4llvm15CountVisitsPass3runERNS_8FunctionERNS_15Analysi
   %8 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %6, i64 %7) #3
   %9 = tail call { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %6, i64 %7, i32 noundef %8)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %9, 0
-  %10 = load ptr, ptr %.fca.0.extract.i, align 8
+  %10 = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !8
   %13 = add i32 %12, 1
   %14 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #3
   %15 = extractvalue { ptr, i64 } %14, 0
@@ -36,31 +36,31 @@ define dso_local void @_ZN4llvm15CountVisitsPass3runERNS_8FunctionERNS_15Analysi
   %17 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %15, i64 %16) #3
   %18 = tail call { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %15, i64 %16, i32 noundef %17)
   %.fca.0.extract.i7 = extractvalue { ptr, i8 } %18, 0
-  %19 = load ptr, ptr %.fca.0.extract.i7, align 8
+  %19 = load ptr, ptr %.fca.0.extract.i7, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i32 %13, ptr %20, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %21, ptr %0, align 8, !alias.scope !4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %21, ptr %22, align 8, !alias.scope !4
+  store i32 %13, ptr %20, align 4, !tbaa !8
+  %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.ptr1.i, ptr %0, align 8, !tbaa !10, !alias.scope !13
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %21, align 8, !tbaa !16, !alias.scope !13
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 2, ptr %23, align 8, !alias.scope !4
+  store i32 0, ptr %23, align 8, !tbaa !17, !alias.scope !13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %25, align 8, !alias.scope !4
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %27, ptr %26, align 8, !alias.scope !4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %27, ptr %28, align 8, !alias.scope !4
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 2, ptr %29, align 8, !alias.scope !4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 0, ptr %30, align 4, !alias.scope !4
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %31, align 8, !alias.scope !4
-  store i32 1, ptr %24, align 4, !alias.scope !4, !noalias !7
-  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %21, align 8, !alias.scope !4, !noalias !7
+  store i8 1, ptr %24, align 4, !tbaa !18, !alias.scope !13
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %26, ptr %25, align 8, !tbaa !10, !alias.scope !13
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %27, align 8, !tbaa !16, !alias.scope !13
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %28, align 4, !tbaa !19, !alias.scope !13
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %29, align 8, !tbaa !17, !alias.scope !13
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %30, align 4, !tbaa !18, !alias.scope !13
+  store i32 1, ptr %22, align 4, !tbaa !19, !alias.scope !13, !noalias !20
+  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !23, !alias.scope !13, !noalias !20
   ret void
 }
 
@@ -72,10 +72,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #3
-  %6 = load ptr, ptr %0, align 8
+  %6 = load ptr, ptr %0, align 8, !tbaa !24
   %7 = zext i32 %5 to i64
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !3
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
     i64 0, label %16
@@ -93,14 +93,14 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocator
 
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 8
-  %.pre = load ptr, ptr %11, align 8
-  br label %.preheader.i.i, !llvm.loop !10
+  %.pre = load ptr, ptr %11, align 8, !tbaa !3
+  br label %.preheader.i.i, !llvm.loop !27
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8
+  %14 = load i32, ptr %13, align 8, !tbaa !29
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8
+  store i32 %15, ptr %13, align 8, !tbaa !29
   br label %16
 
 16:                                               ; preds = %4, %12
@@ -115,25 +115,25 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocator
   br label %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit
 
 _ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit: ; preds = %16, %20
-  %21 = getelementptr inbounds i8, ptr %19, i64 %2
-  store i8 0, ptr %21, align 1
-  store i64 %2, ptr %18, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %2
+  store i8 0, ptr %21, align 1, !tbaa !30
+  store i64 %2, ptr %18, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 0, ptr %22, align 8
-  store ptr %18, ptr %8, align 8
+  store i32 0, ptr %22, align 8, !tbaa !34
+  store ptr %18, ptr %8, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !36
   %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 4
+  store i32 %25, ptr %23, align 4, !tbaa !36
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #3
-  %27 = load ptr, ptr %0, align 8
+  %27 = load ptr, ptr %0, align 8, !tbaa !24
   %28 = zext i32 %26 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit
   %.sroa.0.0 = phi ptr [ %29, %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit ], [ %31, %.critedge.i.i.i25 ]
-  %30 = load ptr, ptr %.sroa.0.0, align 8
+  %30 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !3
   %magicptr.i.i.i24 = ptrtoint ptr %30 to i64
   switch i64 %magicptr.i.i.i24, label %_ZN4llvm17StringMapIteratorIjEC2EPPNS_18StringMapEntryBaseEb.exit [
     i64 0, label %.critedge.i.i.i25
@@ -142,7 +142,7 @@ _ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
 
 .critedge.i.i.i25:                                ; preds = %.preheader.i.i23, %.preheader.i.i23
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  br label %.preheader.i.i23, !llvm.loop !10
+  br label %.preheader.i.i23, !llvm.loop !27
 
 _ZN4llvm17StringMapIteratorIjEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i23, %.preheader.i.i
   %.sroa.030.0.pn = phi ptr [ %.sroa.030.0, %.preheader.i.i ], [ %.sroa.0.0, %.preheader.i.i23 ]
@@ -160,22 +160,47 @@ declare noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull 
 
 declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
-!6 = distinct !{!6, !"_ZN4llvm17PreservedAnalyses3allEv"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
-!9 = distinct !{!9, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN4llvm18StringMapEntryBaseE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !5, i64 0}
+!11 = !{!"_ZTSN4llvm19SmallPtrSetImplBaseE", !5, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !12, i64 20}
+!12 = !{!"bool", !6, i64 0}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
+!15 = distinct !{!15, !"_ZN4llvm17PreservedAnalyses3allEv"}
+!16 = !{!11, !9, i64 8}
+!17 = !{!11, !9, i64 16}
+!18 = !{!11, !12, i64 20}
+!19 = !{!11, !9, i64 12}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
+!22 = distinct !{!22, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
+!23 = !{!5, !5, i64 0}
+!24 = !{!25, !26, i64 0}
+!25 = !{!"_ZTSN4llvm13StringMapImplE", !26, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20}
+!26 = !{!"p2 _ZTSN4llvm18StringMapEntryBaseE", !5, i64 0}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = !{!25, !9, i64 16}
+!30 = !{!6, !6, i64 0}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !33, i64 0}
+!33 = !{!"long", !6, i64 0}
+!34 = !{!35, !9, i64 8}
+!35 = !{!"_ZTSN4llvm21StringMapEntryStorageIjEE", !32, i64 0, !9, i64 8}
+!36 = !{!25, !9, i64 12}

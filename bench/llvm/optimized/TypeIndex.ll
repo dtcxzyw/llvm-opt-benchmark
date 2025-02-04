@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/TypeIndex.cpp.ll'
-source_filename = "bench/llvm/original/TypeIndex.cpp.ll"
+; ModuleID = 'bench/llvm/original/TypeIndex.ll'
+source_filename = "bench/llvm/original/TypeIndex.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -53,53 +53,53 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_(i32 %0) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %.preheader [
-    i32 0, label %.loopexit
+    i32 0, label %.thread
     i32 259, label %3
   ]
 
 .preheader:                                       ; preds = %1
   %2 = and i32 %0, 255
-  br label %5
+  br label %.critedge
 
 3:                                                ; preds = %1
-  br label %.loopexit
+  br label %.thread
 
-4:                                                ; preds = %5
-  %.0.add = add nuw nsw i64 %.0.idx14, 24
+4:                                                ; preds = %.critedge
+  %.0.add = add nuw nsw i64 %.0.idx22, 24
   %.not = icmp eq i64 %.0.add, 984
-  br i1 %.not, label %.loopexit, label %5
+  br i1 %.not, label %.thread, label %.critedge
 
-5:                                                ; preds = %.preheader, %4
-  %.0.idx14 = phi i64 [ 0, %.preheader ], [ %.0.add, %4 ]
-  %.0.ptr15 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_115SimpleTypeNamesE, i64 %.0.idx14
-  %6 = getelementptr inbounds nuw i8, ptr %.0.ptr15, i64 16
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, %2
-  br i1 %8, label %9, label %4
+.critedge:                                        ; preds = %.preheader, %4
+  %.0.idx22 = phi i64 [ 0, %.preheader ], [ %.0.add, %4 ]
+  %.0.ptr23 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_115SimpleTypeNamesE, i64 %.0.idx22
+  %5 = getelementptr inbounds nuw i8, ptr %.0.ptr23, i64 16
+  %6 = load i32, ptr %5, align 8, !tbaa !3
+  %.not9 = icmp eq i32 %6, %2
+  br i1 %.not9, label %7, label %4
 
-9:                                                ; preds = %5
-  %10 = and i32 %0, 1792
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %17
+7:                                                ; preds = %.critedge
+  %8 = and i32 %0, 1792
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %15
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %.0.ptr15, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = add i64 %14, -1
-  %16 = load ptr, ptr %.0.ptr15, align 8
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %15)
-  br label %.loopexit
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %.0.ptr23, i64 8
+  %12 = load i64, ptr %11, align 8, !tbaa !12
+  %13 = add i64 %12, -1
+  %14 = load ptr, ptr %.0.ptr23, align 8, !tbaa !13
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %12, i64 %13)
+  br label %.thread
 
-17:                                               ; preds = %9
-  %.sroa.012.0.copyload = load ptr, ptr %.0.ptr15, align 8
-  %.sroa.6.0..0.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.ptr15, i64 8
-  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..0.ptr.sroa_idx, align 8
-  br label %.loopexit
+15:                                               ; preds = %7
+  %.sroa.015.0.copyload = load ptr, ptr %.0.ptr23, align 8, !tbaa !14
+  %.sroa.6.0..0.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.ptr23, i64 8
+  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..0.ptr.sroa_idx, align 8, !tbaa !15
+  br label %.thread
 
-.loopexit:                                        ; preds = %4, %1, %17, %12, %3
-  %.sroa.012.0 = phi ptr [ @.str.1, %3 ], [ %16, %12 ], [ %.sroa.012.0.copyload, %17 ], [ @.str, %1 ], [ @.str.2, %4 ]
-  %.sroa.6.0 = phi i64 [ 14, %3 ], [ %.sroa.speculated.i.i, %12 ], [ %.sroa.6.0.copyload, %17 ], [ 9, %1 ], [ 21, %4 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.012.0, 0
+.thread:                                          ; preds = %4, %1, %10, %15, %3
+  %.sroa.015.0 = phi ptr [ @.str.1, %3 ], [ %.sroa.015.0.copyload, %15 ], [ %14, %10 ], [ @.str, %1 ], [ @.str.2, %4 ]
+  %.sroa.6.0 = phi i64 [ 14, %3 ], [ %.sroa.6.0.copyload, %15 ], [ %.sroa.speculated.i.i, %10 ], [ 9, %1 ], [ 21, %4 ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.015.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
 }
@@ -111,7 +111,7 @@ define dso_local void @_ZN4llvm8codeview14printTypeIndexERNS_13ScopedPrinterENS_
 
 7:                                                ; preds = %5
   %8 = icmp ult i32 %3, 4096
-  br i1 %8, label %9, label %25
+  br i1 %8, label %9, label %23
 
 9:                                                ; preds = %7
   %cond = icmp eq i32 %3, 259
@@ -119,88 +119,102 @@ define dso_local void @_ZN4llvm8codeview14printTypeIndexERNS_13ScopedPrinterENS_
 
 .preheader.i:                                     ; preds = %9
   %10 = and i32 %3, 255
-  br label %12
+  br label %.critedge.i
 
-11:                                               ; preds = %12
-  %.0.add.i = add nuw nsw i64 %.0.idx14.i, 24
+11:                                               ; preds = %.critedge.i
+  %.0.add.i = add nuw nsw i64 %.0.idx22.i, 24
   %.not.i = icmp eq i64 %.0.add.i, 984
-  br i1 %.not.i, label %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread, label %12
+  br i1 %.not.i, label %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread, label %.critedge.i
 
-12:                                               ; preds = %11, %.preheader.i
-  %.0.idx14.i = phi i64 [ 0, %.preheader.i ], [ %.0.add.i, %11 ]
-  %.0.ptr15.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_115SimpleTypeNamesE, i64 %.0.idx14.i
-  %13 = getelementptr inbounds nuw i8, ptr %.0.ptr15.i, i64 16
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp eq i32 %14, %10
-  br i1 %15, label %16, label %11
+.critedge.i:                                      ; preds = %11, %.preheader.i
+  %.0.idx22.i = phi i64 [ 0, %.preheader.i ], [ %.0.add.i, %11 ]
+  %.0.ptr23.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_115SimpleTypeNamesE, i64 %.0.idx22.i
+  %12 = getelementptr inbounds nuw i8, ptr %.0.ptr23.i, i64 16
+  %13 = load i32, ptr %12, align 8, !tbaa !3
+  %.not9.i = icmp eq i32 %13, %10
+  br i1 %.not9.i, label %14, label %11
 
-16:                                               ; preds = %12
-  %17 = and i32 %3, 1792
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %24
+14:                                               ; preds = %.critedge.i
+  %15 = and i32 %3, 1792
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %22
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %.0.ptr15.i, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, -1
-  %23 = load ptr, ptr %.0.ptr15.i, align 8
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %21, i64 %22)
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %.0.ptr23.i, i64 8
+  %19 = load i64, ptr %18, align 8, !tbaa !12
+  %20 = add i64 %19, -1
+  %21 = load ptr, ptr %.0.ptr23.i, align 8, !tbaa !13
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %20)
   br label %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit
 
-24:                                               ; preds = %16
-  %.sroa.012.0.copyload.i = load ptr, ptr %.0.ptr15.i, align 8
-  %.sroa.6.0..0.ptr.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.ptr15.i, i64 8
-  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..0.ptr.sroa_idx.i, align 8
+22:                                               ; preds = %14
+  %.sroa.015.0.copyload.i = load ptr, ptr %.0.ptr23.i, align 8, !tbaa !14
+  %.sroa.6.0..0.ptr.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.ptr23.i, i64 8
+  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..0.ptr.sroa_idx.i, align 8, !tbaa !15
   br label %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit
 
-25:                                               ; preds = %7
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call { ptr, i64 } %28(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 %3) #3
-  %30 = extractvalue { ptr, i64 } %29, 0
-  %31 = extractvalue { ptr, i64 } %29, 1
+23:                                               ; preds = %7
+  %24 = load ptr, ptr %4, align 8, !tbaa !16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call { ptr, i64 } %26(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 %3) #3
+  %28 = extractvalue { ptr, i64 } %27, 0
+  %29 = extractvalue { ptr, i64 } %27, 1
   br label %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit
 
-_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit: ; preds = %24, %19, %25
-  %.sroa.0.0 = phi ptr [ %30, %25 ], [ %23, %19 ], [ %.sroa.012.0.copyload.i, %24 ]
-  %.sroa.4.0 = phi i64 [ %31, %25 ], [ %.sroa.speculated.i.i.i, %19 ], [ %.sroa.6.0.copyload.i, %24 ]
-  %32 = icmp eq i64 %.sroa.4.0, 0
-  br i1 %32, label %.thread, label %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread
+_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit: ; preds = %22, %17, %23
+  %.sroa.0.0 = phi ptr [ %28, %23 ], [ %.sroa.015.0.copyload.i, %22 ], [ %21, %17 ]
+  %.sroa.6.0 = phi i64 [ %29, %23 ], [ %.sroa.6.0.copyload.i, %22 ], [ %.sroa.speculated.i.i.i, %17 ]
+  %30 = icmp eq i64 %.sroa.6.0, 0
+  br i1 %30, label %.thread, label %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread
 
 _ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread: ; preds = %11, %9, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit
-  %.sroa.4.031 = phi i64 [ %.sroa.4.0, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit ], [ 14, %9 ], [ 21, %11 ]
-  %.sroa.0.030 = phi ptr [ %.sroa.0.0, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit ], [ @.str.1, %9 ], [ @.str.2, %11 ]
-  %33 = zext i32 %3 to i64
-  %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 344
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, ptr %.sroa.0.030, i64 %.sroa.4.031, i64 %33) #3
-  br label %41
+  %.sroa.6.030 = phi i64 [ %.sroa.6.0, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit ], [ 14, %9 ], [ 21, %11 ]
+  %.sroa.0.029 = phi ptr [ %.sroa.0.0, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit ], [ @.str.1, %9 ], [ @.str.2, %11 ]
+  %31 = zext i32 %3 to i64
+  %32 = load ptr, ptr %0, align 8, !tbaa !16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 344
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, ptr %.sroa.0.029, i64 %.sroa.6.030, i64 %31) #3
+  br label %39
 
 .thread:                                          ; preds = %5, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit
-  %37 = zext i32 %3 to i64
-  %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 336
-  %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, i64 %37) #3
-  br label %41
+  %35 = zext i32 %3 to i64
+  %36 = load ptr, ptr %0, align 8, !tbaa !16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 336
+  %38 = load ptr, ptr %37, align 8
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, i64 %35) #3
+  br label %39
 
-41:                                               ; preds = %.thread, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread
+39:                                               ; preds = %.thread, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #2
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !11, i64 16}
+!4 = !{!"_ZTSN12_GLOBAL__N_115SimpleTypeEntryE", !5, i64 0, !11, i64 16}
+!5 = !{!"_ZTSN4llvm9StringRefE", !6, i64 0, !10, i64 8}
+!6 = !{!"p1 omnipotent char", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!"long", !8, i64 0}
+!11 = !{!"_ZTSN4llvm8codeview14SimpleTypeKindE", !8, i64 0}
+!12 = !{!5, !10, i64 8}
+!13 = !{!5, !6, i64 0}
+!14 = !{!6, !6, i64 0}
+!15 = !{!10, !10, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"vtable pointer", !9, i64 0}

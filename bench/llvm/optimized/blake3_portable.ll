@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/blake3_portable.c.ll'
-source_filename = "bench/llvm/original/blake3_portable.c.ll"
+; ModuleID = 'bench/llvm/original/blake3_portable.ll'
+source_filename = "bench/llvm/original/blake3_portable.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -8,12 +8,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %6 = load i16, ptr %1, align 1
   %7 = zext i16 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %9 = load i8, ptr %8, align 1
+  %9 = load i8, ptr %8, align 1, !tbaa !3
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 16
   %12 = or disjoint i32 %11, %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %14 = load i8, ptr %13, align 1
+  %14 = load i8, ptr %13, align 1, !tbaa !3
   %15 = zext i8 %14 to i32
   %16 = shl nuw i32 %15, 24
   %17 = or disjoint i32 %12, %16
@@ -21,12 +21,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %19 = load i16, ptr %18, align 1
   %20 = zext i16 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %22 = load i8, ptr %21, align 1
+  %22 = load i8, ptr %21, align 1, !tbaa !3
   %23 = zext i8 %22 to i32
   %24 = shl nuw nsw i32 %23, 16
   %25 = or disjoint i32 %24, %20
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %27 = load i8, ptr %26, align 1
+  %27 = load i8, ptr %26, align 1, !tbaa !3
   %28 = zext i8 %27 to i32
   %29 = shl nuw i32 %28, 24
   %30 = or disjoint i32 %25, %29
@@ -34,12 +34,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %32 = load i16, ptr %31, align 1
   %33 = zext i16 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %35 = load i8, ptr %34, align 1
+  %35 = load i8, ptr %34, align 1, !tbaa !3
   %36 = zext i8 %35 to i32
   %37 = shl nuw nsw i32 %36, 16
   %38 = or disjoint i32 %37, %33
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %40 = load i8, ptr %39, align 1
+  %40 = load i8, ptr %39, align 1, !tbaa !3
   %41 = zext i8 %40 to i32
   %42 = shl nuw i32 %41, 24
   %43 = or disjoint i32 %38, %42
@@ -47,12 +47,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %45 = load i16, ptr %44, align 1
   %46 = zext i16 %45 to i32
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %48 = load i8, ptr %47, align 1
+  %48 = load i8, ptr %47, align 1, !tbaa !3
   %49 = zext i8 %48 to i32
   %50 = shl nuw nsw i32 %49, 16
   %51 = or disjoint i32 %50, %46
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  %53 = load i8, ptr %52, align 1
+  %53 = load i8, ptr %52, align 1, !tbaa !3
   %54 = zext i8 %53 to i32
   %55 = shl nuw i32 %54, 24
   %56 = or disjoint i32 %51, %55
@@ -60,12 +60,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %58 = load i16, ptr %57, align 1
   %59 = zext i16 %58 to i32
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %61 = load i8, ptr %60, align 1
+  %61 = load i8, ptr %60, align 1, !tbaa !3
   %62 = zext i8 %61 to i32
   %63 = shl nuw nsw i32 %62, 16
   %64 = or disjoint i32 %63, %59
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 19
-  %66 = load i8, ptr %65, align 1
+  %66 = load i8, ptr %65, align 1, !tbaa !3
   %67 = zext i8 %66 to i32
   %68 = shl nuw i32 %67, 24
   %69 = or disjoint i32 %64, %68
@@ -73,12 +73,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %71 = load i16, ptr %70, align 1
   %72 = zext i16 %71 to i32
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  %74 = load i8, ptr %73, align 1
+  %74 = load i8, ptr %73, align 1, !tbaa !3
   %75 = zext i8 %74 to i32
   %76 = shl nuw nsw i32 %75, 16
   %77 = or disjoint i32 %76, %72
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 23
-  %79 = load i8, ptr %78, align 1
+  %79 = load i8, ptr %78, align 1, !tbaa !3
   %80 = zext i8 %79 to i32
   %81 = shl nuw i32 %80, 24
   %82 = or disjoint i32 %77, %81
@@ -86,12 +86,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %84 = load i16, ptr %83, align 1
   %85 = zext i16 %84 to i32
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %87 = load i8, ptr %86, align 1
+  %87 = load i8, ptr %86, align 1, !tbaa !3
   %88 = zext i8 %87 to i32
   %89 = shl nuw nsw i32 %88, 16
   %90 = or disjoint i32 %89, %85
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 27
-  %92 = load i8, ptr %91, align 1
+  %92 = load i8, ptr %91, align 1, !tbaa !3
   %93 = zext i8 %92 to i32
   %94 = shl nuw i32 %93, 24
   %95 = or disjoint i32 %90, %94
@@ -99,12 +99,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %97 = load i16, ptr %96, align 1
   %98 = zext i16 %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %100 = load i8, ptr %99, align 1
+  %100 = load i8, ptr %99, align 1, !tbaa !3
   %101 = zext i8 %100 to i32
   %102 = shl nuw nsw i32 %101, 16
   %103 = or disjoint i32 %102, %98
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 31
-  %105 = load i8, ptr %104, align 1
+  %105 = load i8, ptr %104, align 1, !tbaa !3
   %106 = zext i8 %105 to i32
   %107 = shl nuw i32 %106, 24
   %108 = or disjoint i32 %103, %107
@@ -112,12 +112,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %110 = load i16, ptr %109, align 1
   %111 = zext i16 %110 to i32
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %113 = load i8, ptr %112, align 1
+  %113 = load i8, ptr %112, align 1, !tbaa !3
   %114 = zext i8 %113 to i32
   %115 = shl nuw nsw i32 %114, 16
   %116 = or disjoint i32 %115, %111
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 35
-  %118 = load i8, ptr %117, align 1
+  %118 = load i8, ptr %117, align 1, !tbaa !3
   %119 = zext i8 %118 to i32
   %120 = shl nuw i32 %119, 24
   %121 = or disjoint i32 %116, %120
@@ -125,12 +125,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %123 = load i16, ptr %122, align 1
   %124 = zext i16 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 38
-  %126 = load i8, ptr %125, align 1
+  %126 = load i8, ptr %125, align 1, !tbaa !3
   %127 = zext i8 %126 to i32
   %128 = shl nuw nsw i32 %127, 16
   %129 = or disjoint i32 %128, %124
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  %131 = load i8, ptr %130, align 1
+  %131 = load i8, ptr %130, align 1, !tbaa !3
   %132 = zext i8 %131 to i32
   %133 = shl nuw i32 %132, 24
   %134 = or disjoint i32 %129, %133
@@ -138,12 +138,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %136 = load i16, ptr %135, align 1
   %137 = zext i16 %136 to i32
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  %139 = load i8, ptr %138, align 1
+  %139 = load i8, ptr %138, align 1, !tbaa !3
   %140 = zext i8 %139 to i32
   %141 = shl nuw nsw i32 %140, 16
   %142 = or disjoint i32 %141, %137
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 43
-  %144 = load i8, ptr %143, align 1
+  %144 = load i8, ptr %143, align 1, !tbaa !3
   %145 = zext i8 %144 to i32
   %146 = shl nuw i32 %145, 24
   %147 = or disjoint i32 %142, %146
@@ -151,12 +151,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %149 = load i16, ptr %148, align 1
   %150 = zext i16 %149 to i32
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 46
-  %152 = load i8, ptr %151, align 1
+  %152 = load i8, ptr %151, align 1, !tbaa !3
   %153 = zext i8 %152 to i32
   %154 = shl nuw nsw i32 %153, 16
   %155 = or disjoint i32 %154, %150
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 47
-  %157 = load i8, ptr %156, align 1
+  %157 = load i8, ptr %156, align 1, !tbaa !3
   %158 = zext i8 %157 to i32
   %159 = shl nuw i32 %158, 24
   %160 = or disjoint i32 %155, %159
@@ -164,12 +164,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %162 = load i16, ptr %161, align 1
   %163 = zext i16 %162 to i32
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 50
-  %165 = load i8, ptr %164, align 1
+  %165 = load i8, ptr %164, align 1, !tbaa !3
   %166 = zext i8 %165 to i32
   %167 = shl nuw nsw i32 %166, 16
   %168 = or disjoint i32 %167, %163
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 51
-  %170 = load i8, ptr %169, align 1
+  %170 = load i8, ptr %169, align 1, !tbaa !3
   %171 = zext i8 %170 to i32
   %172 = shl nuw i32 %171, 24
   %173 = or disjoint i32 %168, %172
@@ -177,12 +177,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %175 = load i16, ptr %174, align 1
   %176 = zext i16 %175 to i32
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 54
-  %178 = load i8, ptr %177, align 1
+  %178 = load i8, ptr %177, align 1, !tbaa !3
   %179 = zext i8 %178 to i32
   %180 = shl nuw nsw i32 %179, 16
   %181 = or disjoint i32 %180, %176
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 55
-  %183 = load i8, ptr %182, align 1
+  %183 = load i8, ptr %182, align 1, !tbaa !3
   %184 = zext i8 %183 to i32
   %185 = shl nuw i32 %184, 24
   %186 = or disjoint i32 %181, %185
@@ -190,12 +190,12 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %188 = load i16, ptr %187, align 1
   %189 = zext i16 %188 to i32
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 58
-  %191 = load i8, ptr %190, align 1
+  %191 = load i8, ptr %190, align 1, !tbaa !3
   %192 = zext i8 %191 to i32
   %193 = shl nuw nsw i32 %192, 16
   %194 = or disjoint i32 %193, %189
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 59
-  %196 = load i8, ptr %195, align 1
+  %196 = load i8, ptr %195, align 1, !tbaa !3
   %197 = zext i8 %196 to i32
   %198 = shl nuw i32 %197, 24
   %199 = or disjoint i32 %194, %198
@@ -203,30 +203,30 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %201 = load i16, ptr %200, align 1
   %202 = zext i16 %201 to i32
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 62
-  %204 = load i8, ptr %203, align 1
+  %204 = load i8, ptr %203, align 1, !tbaa !3
   %205 = zext i8 %204 to i32
   %206 = shl nuw nsw i32 %205, 16
   %207 = or disjoint i32 %206, %202
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 63
-  %209 = load i8, ptr %208, align 1
+  %209 = load i8, ptr %208, align 1, !tbaa !3
   %210 = zext i8 %209 to i32
   %211 = shl nuw i32 %210, 24
   %212 = or disjoint i32 %207, %211
-  %213 = load i32, ptr %0, align 4
+  %213 = load i32, ptr %0, align 4, !tbaa !6
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %215 = load i32, ptr %214, align 4
+  %215 = load i32, ptr %214, align 4, !tbaa !6
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %217 = load i32, ptr %216, align 4
+  %217 = load i32, ptr %216, align 4, !tbaa !6
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %219 = load i32, ptr %218, align 4
+  %219 = load i32, ptr %218, align 4, !tbaa !6
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %221 = load i32, ptr %220, align 4
+  %221 = load i32, ptr %220, align 4, !tbaa !6
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %223 = load i32, ptr %222, align 4
+  %223 = load i32, ptr %222, align 4, !tbaa !6
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %225 = load i32, ptr %224, align 4
+  %225 = load i32, ptr %224, align 4, !tbaa !6
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %227 = load i32, ptr %226, align 4
+  %227 = load i32, ptr %226, align 4, !tbaa !6
   %228 = trunc i64 %3 to i32
   %229 = lshr i64 %3, 32
   %230 = trunc nuw i64 %229 to i32
@@ -1017,35 +1017,41 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(
   %1015 = xor i32 %1014, %1009
   %1016 = tail call i32 @llvm.fshl.i32(i32 %1015, i32 %1015, i32 25)
   %1017 = xor i32 %1000, %969
-  store i32 %1017, ptr %0, align 4
+  store i32 %1017, ptr %0, align 4, !tbaa !6
   %1018 = xor i32 %1014, %983
-  store i32 %1018, ptr %214, align 4
+  store i32 %1018, ptr %214, align 4, !tbaa !6
   %1019 = xor i32 %972, %997
-  store i32 %1019, ptr %216, align 4
+  store i32 %1019, ptr %216, align 4, !tbaa !6
   %1020 = xor i32 %986, %1011
-  store i32 %1020, ptr %218, align 4
+  store i32 %1020, ptr %218, align 4, !tbaa !6
   %1021 = xor i32 %1016, %985
-  store i32 %1021, ptr %220, align 4
+  store i32 %1021, ptr %220, align 4, !tbaa !6
   %1022 = xor i32 %974, %999
-  store i32 %1022, ptr %222, align 4
+  store i32 %1022, ptr %222, align 4, !tbaa !6
   %1023 = xor i32 %988, %1013
-  store i32 %1023, ptr %224, align 4
+  store i32 %1023, ptr %224, align 4, !tbaa !6
   %1024 = xor i32 %1002, %971
-  store i32 %1024, ptr %226, align 4
+  store i32 %1024, ptr %226, align 4, !tbaa !6
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly initializes((0, 64)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %1, align 1
   %8 = zext i16 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %10 = load i8, ptr %9, align 1
+  %10 = load i8, ptr %9, align 1, !tbaa !3
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 16
   %13 = or disjoint i32 %12, %8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %15 = load i8, ptr %14, align 1
+  %15 = load i8, ptr %14, align 1, !tbaa !3
   %16 = zext i8 %15 to i32
   %17 = shl nuw i32 %16, 24
   %18 = or disjoint i32 %13, %17
@@ -1053,12 +1059,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %20 = load i16, ptr %19, align 1
   %21 = zext i16 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %23 = load i8, ptr %22, align 1
+  %23 = load i8, ptr %22, align 1, !tbaa !3
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 16
   %26 = or disjoint i32 %25, %21
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %28 = load i8, ptr %27, align 1
+  %28 = load i8, ptr %27, align 1, !tbaa !3
   %29 = zext i8 %28 to i32
   %30 = shl nuw i32 %29, 24
   %31 = or disjoint i32 %26, %30
@@ -1066,12 +1072,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %33 = load i16, ptr %32, align 1
   %34 = zext i16 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %36 = load i8, ptr %35, align 1
+  %36 = load i8, ptr %35, align 1, !tbaa !3
   %37 = zext i8 %36 to i32
   %38 = shl nuw nsw i32 %37, 16
   %39 = or disjoint i32 %38, %34
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %41 = load i8, ptr %40, align 1
+  %41 = load i8, ptr %40, align 1, !tbaa !3
   %42 = zext i8 %41 to i32
   %43 = shl nuw i32 %42, 24
   %44 = or disjoint i32 %39, %43
@@ -1079,12 +1085,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %46 = load i16, ptr %45, align 1
   %47 = zext i16 %46 to i32
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %49 = load i8, ptr %48, align 1
+  %49 = load i8, ptr %48, align 1, !tbaa !3
   %50 = zext i8 %49 to i32
   %51 = shl nuw nsw i32 %50, 16
   %52 = or disjoint i32 %51, %47
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  %54 = load i8, ptr %53, align 1
+  %54 = load i8, ptr %53, align 1, !tbaa !3
   %55 = zext i8 %54 to i32
   %56 = shl nuw i32 %55, 24
   %57 = or disjoint i32 %52, %56
@@ -1092,12 +1098,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %59 = load i16, ptr %58, align 1
   %60 = zext i16 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %62 = load i8, ptr %61, align 1
+  %62 = load i8, ptr %61, align 1, !tbaa !3
   %63 = zext i8 %62 to i32
   %64 = shl nuw nsw i32 %63, 16
   %65 = or disjoint i32 %64, %60
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 19
-  %67 = load i8, ptr %66, align 1
+  %67 = load i8, ptr %66, align 1, !tbaa !3
   %68 = zext i8 %67 to i32
   %69 = shl nuw i32 %68, 24
   %70 = or disjoint i32 %65, %69
@@ -1105,12 +1111,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %72 = load i16, ptr %71, align 1
   %73 = zext i16 %72 to i32
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  %75 = load i8, ptr %74, align 1
+  %75 = load i8, ptr %74, align 1, !tbaa !3
   %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 16
   %78 = or disjoint i32 %77, %73
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 23
-  %80 = load i8, ptr %79, align 1
+  %80 = load i8, ptr %79, align 1, !tbaa !3
   %81 = zext i8 %80 to i32
   %82 = shl nuw i32 %81, 24
   %83 = or disjoint i32 %78, %82
@@ -1118,12 +1124,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %85 = load i16, ptr %84, align 1
   %86 = zext i16 %85 to i32
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %88 = load i8, ptr %87, align 1
+  %88 = load i8, ptr %87, align 1, !tbaa !3
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 16
   %91 = or disjoint i32 %90, %86
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 27
-  %93 = load i8, ptr %92, align 1
+  %93 = load i8, ptr %92, align 1, !tbaa !3
   %94 = zext i8 %93 to i32
   %95 = shl nuw i32 %94, 24
   %96 = or disjoint i32 %91, %95
@@ -1131,12 +1137,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %98 = load i16, ptr %97, align 1
   %99 = zext i16 %98 to i32
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %101 = load i8, ptr %100, align 1
+  %101 = load i8, ptr %100, align 1, !tbaa !3
   %102 = zext i8 %101 to i32
   %103 = shl nuw nsw i32 %102, 16
   %104 = or disjoint i32 %103, %99
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 31
-  %106 = load i8, ptr %105, align 1
+  %106 = load i8, ptr %105, align 1, !tbaa !3
   %107 = zext i8 %106 to i32
   %108 = shl nuw i32 %107, 24
   %109 = or disjoint i32 %104, %108
@@ -1144,12 +1150,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %111 = load i16, ptr %110, align 1
   %112 = zext i16 %111 to i32
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %114 = load i8, ptr %113, align 1
+  %114 = load i8, ptr %113, align 1, !tbaa !3
   %115 = zext i8 %114 to i32
   %116 = shl nuw nsw i32 %115, 16
   %117 = or disjoint i32 %116, %112
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 35
-  %119 = load i8, ptr %118, align 1
+  %119 = load i8, ptr %118, align 1, !tbaa !3
   %120 = zext i8 %119 to i32
   %121 = shl nuw i32 %120, 24
   %122 = or disjoint i32 %117, %121
@@ -1157,12 +1163,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %124 = load i16, ptr %123, align 1
   %125 = zext i16 %124 to i32
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 38
-  %127 = load i8, ptr %126, align 1
+  %127 = load i8, ptr %126, align 1, !tbaa !3
   %128 = zext i8 %127 to i32
   %129 = shl nuw nsw i32 %128, 16
   %130 = or disjoint i32 %129, %125
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  %132 = load i8, ptr %131, align 1
+  %132 = load i8, ptr %131, align 1, !tbaa !3
   %133 = zext i8 %132 to i32
   %134 = shl nuw i32 %133, 24
   %135 = or disjoint i32 %130, %134
@@ -1170,12 +1176,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %137 = load i16, ptr %136, align 1
   %138 = zext i16 %137 to i32
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  %140 = load i8, ptr %139, align 1
+  %140 = load i8, ptr %139, align 1, !tbaa !3
   %141 = zext i8 %140 to i32
   %142 = shl nuw nsw i32 %141, 16
   %143 = or disjoint i32 %142, %138
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 43
-  %145 = load i8, ptr %144, align 1
+  %145 = load i8, ptr %144, align 1, !tbaa !3
   %146 = zext i8 %145 to i32
   %147 = shl nuw i32 %146, 24
   %148 = or disjoint i32 %143, %147
@@ -1183,12 +1189,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %150 = load i16, ptr %149, align 1
   %151 = zext i16 %150 to i32
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 46
-  %153 = load i8, ptr %152, align 1
+  %153 = load i8, ptr %152, align 1, !tbaa !3
   %154 = zext i8 %153 to i32
   %155 = shl nuw nsw i32 %154, 16
   %156 = or disjoint i32 %155, %151
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 47
-  %158 = load i8, ptr %157, align 1
+  %158 = load i8, ptr %157, align 1, !tbaa !3
   %159 = zext i8 %158 to i32
   %160 = shl nuw i32 %159, 24
   %161 = or disjoint i32 %156, %160
@@ -1196,12 +1202,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %163 = load i16, ptr %162, align 1
   %164 = zext i16 %163 to i32
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 50
-  %166 = load i8, ptr %165, align 1
+  %166 = load i8, ptr %165, align 1, !tbaa !3
   %167 = zext i8 %166 to i32
   %168 = shl nuw nsw i32 %167, 16
   %169 = or disjoint i32 %168, %164
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 51
-  %171 = load i8, ptr %170, align 1
+  %171 = load i8, ptr %170, align 1, !tbaa !3
   %172 = zext i8 %171 to i32
   %173 = shl nuw i32 %172, 24
   %174 = or disjoint i32 %169, %173
@@ -1209,12 +1215,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %176 = load i16, ptr %175, align 1
   %177 = zext i16 %176 to i32
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 54
-  %179 = load i8, ptr %178, align 1
+  %179 = load i8, ptr %178, align 1, !tbaa !3
   %180 = zext i8 %179 to i32
   %181 = shl nuw nsw i32 %180, 16
   %182 = or disjoint i32 %181, %177
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 55
-  %184 = load i8, ptr %183, align 1
+  %184 = load i8, ptr %183, align 1, !tbaa !3
   %185 = zext i8 %184 to i32
   %186 = shl nuw i32 %185, 24
   %187 = or disjoint i32 %182, %186
@@ -1222,12 +1228,12 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %189 = load i16, ptr %188, align 1
   %190 = zext i16 %189 to i32
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 58
-  %192 = load i8, ptr %191, align 1
+  %192 = load i8, ptr %191, align 1, !tbaa !3
   %193 = zext i8 %192 to i32
   %194 = shl nuw nsw i32 %193, 16
   %195 = or disjoint i32 %194, %190
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 59
-  %197 = load i8, ptr %196, align 1
+  %197 = load i8, ptr %196, align 1, !tbaa !3
   %198 = zext i8 %197 to i32
   %199 = shl nuw i32 %198, 24
   %200 = or disjoint i32 %195, %199
@@ -1235,30 +1241,30 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %202 = load i16, ptr %201, align 1
   %203 = zext i16 %202 to i32
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 62
-  %205 = load i8, ptr %204, align 1
+  %205 = load i8, ptr %204, align 1, !tbaa !3
   %206 = zext i8 %205 to i32
   %207 = shl nuw nsw i32 %206, 16
   %208 = or disjoint i32 %207, %203
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 63
-  %210 = load i8, ptr %209, align 1
+  %210 = load i8, ptr %209, align 1, !tbaa !3
   %211 = zext i8 %210 to i32
   %212 = shl nuw i32 %211, 24
   %213 = or disjoint i32 %208, %212
-  %214 = load i32, ptr %0, align 4
+  %214 = load i32, ptr %0, align 4, !tbaa !6
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %216 = load i32, ptr %215, align 4
+  %216 = load i32, ptr %215, align 4, !tbaa !6
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %218 = load i32, ptr %217, align 4
+  %218 = load i32, ptr %217, align 4, !tbaa !6
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %220 = load i32, ptr %219, align 4
+  %220 = load i32, ptr %219, align 4, !tbaa !6
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %222 = load i32, ptr %221, align 4
+  %222 = load i32, ptr %221, align 4, !tbaa !6
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %224 = load i32, ptr %223, align 4
+  %224 = load i32, ptr %223, align 4, !tbaa !6
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %226 = load i32, ptr %225, align 4
+  %226 = load i32, ptr %225, align 4, !tbaa !6
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %228 = load i32, ptr %227, align 4
+  %228 = load i32, ptr %227, align 4, !tbaa !6
   %229 = trunc i64 %3 to i32
   %230 = lshr i64 %3, 32
   %231 = trunc nuw i64 %230 to i32
@@ -2050,275 +2056,275 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captu
   %1017 = tail call i32 @llvm.fshl.i32(i32 %1016, i32 %1016, i32 25)
   %1018 = xor i32 %1001, %970
   %1019 = trunc i32 %1018 to i8
-  store i8 %1019, ptr %5, align 1
+  store i8 %1019, ptr %5, align 1, !tbaa !3
   %1020 = lshr i32 %1018, 8
   %1021 = trunc i32 %1020 to i8
   %1022 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %1021, ptr %1022, align 1
+  store i8 %1021, ptr %1022, align 1, !tbaa !3
   %1023 = lshr i32 %1018, 16
   %1024 = trunc i32 %1023 to i8
   %1025 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %1024, ptr %1025, align 1
+  store i8 %1024, ptr %1025, align 1, !tbaa !3
   %1026 = lshr i32 %1018, 24
   %1027 = trunc nuw i32 %1026 to i8
   %1028 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %1027, ptr %1028, align 1
+  store i8 %1027, ptr %1028, align 1, !tbaa !3
   %1029 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %1030 = xor i32 %1015, %984
   %1031 = trunc i32 %1030 to i8
-  store i8 %1031, ptr %1029, align 1
+  store i8 %1031, ptr %1029, align 1, !tbaa !3
   %1032 = lshr i32 %1030, 8
   %1033 = trunc i32 %1032 to i8
   %1034 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  store i8 %1033, ptr %1034, align 1
+  store i8 %1033, ptr %1034, align 1, !tbaa !3
   %1035 = lshr i32 %1030, 16
   %1036 = trunc i32 %1035 to i8
   %1037 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  store i8 %1036, ptr %1037, align 1
+  store i8 %1036, ptr %1037, align 1, !tbaa !3
   %1038 = lshr i32 %1030, 24
   %1039 = trunc nuw i32 %1038 to i8
   %1040 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  store i8 %1039, ptr %1040, align 1
+  store i8 %1039, ptr %1040, align 1, !tbaa !3
   %1041 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %1042 = xor i32 %973, %998
   %1043 = trunc i32 %1042 to i8
-  store i8 %1043, ptr %1041, align 1
+  store i8 %1043, ptr %1041, align 1, !tbaa !3
   %1044 = lshr i32 %1042, 8
   %1045 = trunc i32 %1044 to i8
   %1046 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  store i8 %1045, ptr %1046, align 1
+  store i8 %1045, ptr %1046, align 1, !tbaa !3
   %1047 = lshr i32 %1042, 16
   %1048 = trunc i32 %1047 to i8
   %1049 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i8 %1048, ptr %1049, align 1
+  store i8 %1048, ptr %1049, align 1, !tbaa !3
   %1050 = lshr i32 %1042, 24
   %1051 = trunc nuw i32 %1050 to i8
   %1052 = getelementptr inbounds nuw i8, ptr %5, i64 11
-  store i8 %1051, ptr %1052, align 1
+  store i8 %1051, ptr %1052, align 1, !tbaa !3
   %1053 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %1054 = xor i32 %987, %1012
   %1055 = trunc i32 %1054 to i8
-  store i8 %1055, ptr %1053, align 1
+  store i8 %1055, ptr %1053, align 1, !tbaa !3
   %1056 = lshr i32 %1054, 8
   %1057 = trunc i32 %1056 to i8
   %1058 = getelementptr inbounds nuw i8, ptr %5, i64 13
-  store i8 %1057, ptr %1058, align 1
+  store i8 %1057, ptr %1058, align 1, !tbaa !3
   %1059 = lshr i32 %1054, 16
   %1060 = trunc i32 %1059 to i8
   %1061 = getelementptr inbounds nuw i8, ptr %5, i64 14
-  store i8 %1060, ptr %1061, align 1
+  store i8 %1060, ptr %1061, align 1, !tbaa !3
   %1062 = lshr i32 %1054, 24
   %1063 = trunc nuw i32 %1062 to i8
   %1064 = getelementptr inbounds nuw i8, ptr %5, i64 15
-  store i8 %1063, ptr %1064, align 1
+  store i8 %1063, ptr %1064, align 1, !tbaa !3
   %1065 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %1066 = xor i32 %1017, %986
   %1067 = trunc i32 %1066 to i8
-  store i8 %1067, ptr %1065, align 1
+  store i8 %1067, ptr %1065, align 1, !tbaa !3
   %1068 = lshr i32 %1066, 8
   %1069 = trunc i32 %1068 to i8
   %1070 = getelementptr inbounds nuw i8, ptr %5, i64 17
-  store i8 %1069, ptr %1070, align 1
+  store i8 %1069, ptr %1070, align 1, !tbaa !3
   %1071 = lshr i32 %1066, 16
   %1072 = trunc i32 %1071 to i8
   %1073 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i8 %1072, ptr %1073, align 1
+  store i8 %1072, ptr %1073, align 1, !tbaa !3
   %1074 = lshr i32 %1066, 24
   %1075 = trunc nuw i32 %1074 to i8
   %1076 = getelementptr inbounds nuw i8, ptr %5, i64 19
-  store i8 %1075, ptr %1076, align 1
+  store i8 %1075, ptr %1076, align 1, !tbaa !3
   %1077 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %1078 = xor i32 %975, %1000
   %1079 = trunc i32 %1078 to i8
-  store i8 %1079, ptr %1077, align 1
+  store i8 %1079, ptr %1077, align 1, !tbaa !3
   %1080 = lshr i32 %1078, 8
   %1081 = trunc i32 %1080 to i8
   %1082 = getelementptr inbounds nuw i8, ptr %5, i64 21
-  store i8 %1081, ptr %1082, align 1
+  store i8 %1081, ptr %1082, align 1, !tbaa !3
   %1083 = lshr i32 %1078, 16
   %1084 = trunc i32 %1083 to i8
   %1085 = getelementptr inbounds nuw i8, ptr %5, i64 22
-  store i8 %1084, ptr %1085, align 1
+  store i8 %1084, ptr %1085, align 1, !tbaa !3
   %1086 = lshr i32 %1078, 24
   %1087 = trunc nuw i32 %1086 to i8
   %1088 = getelementptr inbounds nuw i8, ptr %5, i64 23
-  store i8 %1087, ptr %1088, align 1
+  store i8 %1087, ptr %1088, align 1, !tbaa !3
   %1089 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %1090 = xor i32 %989, %1014
   %1091 = trunc i32 %1090 to i8
-  store i8 %1091, ptr %1089, align 1
+  store i8 %1091, ptr %1089, align 1, !tbaa !3
   %1092 = lshr i32 %1090, 8
   %1093 = trunc i32 %1092 to i8
   %1094 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  store i8 %1093, ptr %1094, align 1
+  store i8 %1093, ptr %1094, align 1, !tbaa !3
   %1095 = lshr i32 %1090, 16
   %1096 = trunc i32 %1095 to i8
   %1097 = getelementptr inbounds nuw i8, ptr %5, i64 26
-  store i8 %1096, ptr %1097, align 1
+  store i8 %1096, ptr %1097, align 1, !tbaa !3
   %1098 = lshr i32 %1090, 24
   %1099 = trunc nuw i32 %1098 to i8
   %1100 = getelementptr inbounds nuw i8, ptr %5, i64 27
-  store i8 %1099, ptr %1100, align 1
+  store i8 %1099, ptr %1100, align 1, !tbaa !3
   %1101 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %1102 = xor i32 %1003, %972
   %1103 = trunc i32 %1102 to i8
-  store i8 %1103, ptr %1101, align 1
+  store i8 %1103, ptr %1101, align 1, !tbaa !3
   %1104 = lshr i32 %1102, 8
   %1105 = trunc i32 %1104 to i8
   %1106 = getelementptr inbounds nuw i8, ptr %5, i64 29
-  store i8 %1105, ptr %1106, align 1
+  store i8 %1105, ptr %1106, align 1, !tbaa !3
   %1107 = lshr i32 %1102, 16
   %1108 = trunc i32 %1107 to i8
   %1109 = getelementptr inbounds nuw i8, ptr %5, i64 30
-  store i8 %1108, ptr %1109, align 1
+  store i8 %1108, ptr %1109, align 1, !tbaa !3
   %1110 = lshr i32 %1102, 24
   %1111 = trunc nuw i32 %1110 to i8
   %1112 = getelementptr inbounds nuw i8, ptr %5, i64 31
-  store i8 %1111, ptr %1112, align 1
+  store i8 %1111, ptr %1112, align 1, !tbaa !3
   %1113 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %1114 = load i32, ptr %0, align 4
+  %1114 = load i32, ptr %0, align 4, !tbaa !6
   %1115 = xor i32 %1001, %1114
   %1116 = trunc i32 %1115 to i8
-  store i8 %1116, ptr %1113, align 1
+  store i8 %1116, ptr %1113, align 1, !tbaa !3
   %1117 = lshr i32 %1115, 8
   %1118 = trunc i32 %1117 to i8
   %1119 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 %1118, ptr %1119, align 1
+  store i8 %1118, ptr %1119, align 1, !tbaa !3
   %1120 = lshr i32 %1115, 16
   %1121 = trunc i32 %1120 to i8
   %1122 = getelementptr inbounds nuw i8, ptr %5, i64 34
-  store i8 %1121, ptr %1122, align 1
+  store i8 %1121, ptr %1122, align 1, !tbaa !3
   %1123 = lshr i32 %1115, 24
   %1124 = trunc nuw i32 %1123 to i8
   %1125 = getelementptr inbounds nuw i8, ptr %5, i64 35
-  store i8 %1124, ptr %1125, align 1
+  store i8 %1124, ptr %1125, align 1, !tbaa !3
   %1126 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %1127 = load i32, ptr %215, align 4
+  %1127 = load i32, ptr %215, align 4, !tbaa !6
   %1128 = xor i32 %1015, %1127
   %1129 = trunc i32 %1128 to i8
-  store i8 %1129, ptr %1126, align 1
+  store i8 %1129, ptr %1126, align 1, !tbaa !3
   %1130 = lshr i32 %1128, 8
   %1131 = trunc i32 %1130 to i8
   %1132 = getelementptr inbounds nuw i8, ptr %5, i64 37
-  store i8 %1131, ptr %1132, align 1
+  store i8 %1131, ptr %1132, align 1, !tbaa !3
   %1133 = lshr i32 %1128, 16
   %1134 = trunc i32 %1133 to i8
   %1135 = getelementptr inbounds nuw i8, ptr %5, i64 38
-  store i8 %1134, ptr %1135, align 1
+  store i8 %1134, ptr %1135, align 1, !tbaa !3
   %1136 = lshr i32 %1128, 24
   %1137 = trunc nuw i32 %1136 to i8
   %1138 = getelementptr inbounds nuw i8, ptr %5, i64 39
-  store i8 %1137, ptr %1138, align 1
+  store i8 %1137, ptr %1138, align 1, !tbaa !3
   %1139 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %1140 = load i32, ptr %217, align 4
+  %1140 = load i32, ptr %217, align 4, !tbaa !6
   %1141 = xor i32 %973, %1140
   %1142 = trunc i32 %1141 to i8
-  store i8 %1142, ptr %1139, align 1
+  store i8 %1142, ptr %1139, align 1, !tbaa !3
   %1143 = lshr i32 %1141, 8
   %1144 = trunc i32 %1143 to i8
   %1145 = getelementptr inbounds nuw i8, ptr %5, i64 41
-  store i8 %1144, ptr %1145, align 1
+  store i8 %1144, ptr %1145, align 1, !tbaa !3
   %1146 = lshr i32 %1141, 16
   %1147 = trunc i32 %1146 to i8
   %1148 = getelementptr inbounds nuw i8, ptr %5, i64 42
-  store i8 %1147, ptr %1148, align 1
+  store i8 %1147, ptr %1148, align 1, !tbaa !3
   %1149 = lshr i32 %1141, 24
   %1150 = trunc nuw i32 %1149 to i8
   %1151 = getelementptr inbounds nuw i8, ptr %5, i64 43
-  store i8 %1150, ptr %1151, align 1
+  store i8 %1150, ptr %1151, align 1, !tbaa !3
   %1152 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %1153 = load i32, ptr %219, align 4
+  %1153 = load i32, ptr %219, align 4, !tbaa !6
   %1154 = xor i32 %987, %1153
   %1155 = trunc i32 %1154 to i8
-  store i8 %1155, ptr %1152, align 1
+  store i8 %1155, ptr %1152, align 1, !tbaa !3
   %1156 = lshr i32 %1154, 8
   %1157 = trunc i32 %1156 to i8
   %1158 = getelementptr inbounds nuw i8, ptr %5, i64 45
-  store i8 %1157, ptr %1158, align 1
+  store i8 %1157, ptr %1158, align 1, !tbaa !3
   %1159 = lshr i32 %1154, 16
   %1160 = trunc i32 %1159 to i8
   %1161 = getelementptr inbounds nuw i8, ptr %5, i64 46
-  store i8 %1160, ptr %1161, align 1
+  store i8 %1160, ptr %1161, align 1, !tbaa !3
   %1162 = lshr i32 %1154, 24
   %1163 = trunc nuw i32 %1162 to i8
   %1164 = getelementptr inbounds nuw i8, ptr %5, i64 47
-  store i8 %1163, ptr %1164, align 1
+  store i8 %1163, ptr %1164, align 1, !tbaa !3
   %1165 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %1166 = load i32, ptr %221, align 4
+  %1166 = load i32, ptr %221, align 4, !tbaa !6
   %1167 = xor i32 %986, %1166
   %1168 = trunc i32 %1167 to i8
-  store i8 %1168, ptr %1165, align 1
+  store i8 %1168, ptr %1165, align 1, !tbaa !3
   %1169 = lshr i32 %1167, 8
   %1170 = trunc i32 %1169 to i8
   %1171 = getelementptr inbounds nuw i8, ptr %5, i64 49
-  store i8 %1170, ptr %1171, align 1
+  store i8 %1170, ptr %1171, align 1, !tbaa !3
   %1172 = lshr i32 %1167, 16
   %1173 = trunc i32 %1172 to i8
   %1174 = getelementptr inbounds nuw i8, ptr %5, i64 50
-  store i8 %1173, ptr %1174, align 1
+  store i8 %1173, ptr %1174, align 1, !tbaa !3
   %1175 = lshr i32 %1167, 24
   %1176 = trunc nuw i32 %1175 to i8
   %1177 = getelementptr inbounds nuw i8, ptr %5, i64 51
-  store i8 %1176, ptr %1177, align 1
+  store i8 %1176, ptr %1177, align 1, !tbaa !3
   %1178 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  %1179 = load i32, ptr %223, align 4
+  %1179 = load i32, ptr %223, align 4, !tbaa !6
   %1180 = xor i32 %1000, %1179
   %1181 = trunc i32 %1180 to i8
-  store i8 %1181, ptr %1178, align 1
+  store i8 %1181, ptr %1178, align 1, !tbaa !3
   %1182 = lshr i32 %1180, 8
   %1183 = trunc i32 %1182 to i8
   %1184 = getelementptr inbounds nuw i8, ptr %5, i64 53
-  store i8 %1183, ptr %1184, align 1
+  store i8 %1183, ptr %1184, align 1, !tbaa !3
   %1185 = lshr i32 %1180, 16
   %1186 = trunc i32 %1185 to i8
   %1187 = getelementptr inbounds nuw i8, ptr %5, i64 54
-  store i8 %1186, ptr %1187, align 1
+  store i8 %1186, ptr %1187, align 1, !tbaa !3
   %1188 = lshr i32 %1180, 24
   %1189 = trunc nuw i32 %1188 to i8
   %1190 = getelementptr inbounds nuw i8, ptr %5, i64 55
-  store i8 %1189, ptr %1190, align 1
+  store i8 %1189, ptr %1190, align 1, !tbaa !3
   %1191 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %1192 = load i32, ptr %225, align 4
+  %1192 = load i32, ptr %225, align 4, !tbaa !6
   %1193 = xor i32 %1014, %1192
   %1194 = trunc i32 %1193 to i8
-  store i8 %1194, ptr %1191, align 1
+  store i8 %1194, ptr %1191, align 1, !tbaa !3
   %1195 = lshr i32 %1193, 8
   %1196 = trunc i32 %1195 to i8
   %1197 = getelementptr inbounds nuw i8, ptr %5, i64 57
-  store i8 %1196, ptr %1197, align 1
+  store i8 %1196, ptr %1197, align 1, !tbaa !3
   %1198 = lshr i32 %1193, 16
   %1199 = trunc i32 %1198 to i8
   %1200 = getelementptr inbounds nuw i8, ptr %5, i64 58
-  store i8 %1199, ptr %1200, align 1
+  store i8 %1199, ptr %1200, align 1, !tbaa !3
   %1201 = lshr i32 %1193, 24
   %1202 = trunc nuw i32 %1201 to i8
   %1203 = getelementptr inbounds nuw i8, ptr %5, i64 59
-  store i8 %1202, ptr %1203, align 1
+  store i8 %1202, ptr %1203, align 1, !tbaa !3
   %1204 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  %1205 = load i32, ptr %227, align 4
+  %1205 = load i32, ptr %227, align 4, !tbaa !6
   %1206 = xor i32 %972, %1205
   %1207 = trunc i32 %1206 to i8
-  store i8 %1207, ptr %1204, align 1
+  store i8 %1207, ptr %1204, align 1, !tbaa !3
   %1208 = lshr i32 %1206, 8
   %1209 = trunc i32 %1208 to i8
   %1210 = getelementptr inbounds nuw i8, ptr %5, i64 61
-  store i8 %1209, ptr %1210, align 1
+  store i8 %1209, ptr %1210, align 1, !tbaa !3
   %1211 = lshr i32 %1206, 16
   %1212 = trunc i32 %1211 to i8
   %1213 = getelementptr inbounds nuw i8, ptr %5, i64 62
-  store i8 %1212, ptr %1213, align 1
+  store i8 %1212, ptr %1213, align 1, !tbaa !3
   %1214 = lshr i32 %1206, 24
   %1215 = trunc nuw i32 %1214 to i8
   %1216 = getelementptr inbounds nuw i8, ptr %5, i64 63
-  store i8 %1215, ptr %1216, align 1
+  store i8 %1215, ptr %1216, align 1, !tbaa !3
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @llvm_blake3_hash_many_portable(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i1 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, ptr noundef writeonly captures(none) %9) local_unnamed_addr #1 {
+define hidden void @llvm_blake3_hash_many_portable(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i1 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, ptr noundef writeonly captures(none) %9) local_unnamed_addr #2 {
   %11 = alloca [8 x i32], align 16
-  %.not123 = icmp eq i64 %1, 0
-  br i1 %.not123, label %._crit_edge, label %.lr.ph
+  %.not16 = icmp eq i64 %1, 0
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %12 = or i8 %7, %6
@@ -2332,191 +2338,202 @@ define hidden void @llvm_blake3_hash_many_portable(ptr noundef readonly captures
   %20 = zext i1 %5 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph, %29
-  %.0127 = phi ptr [ %9, %.lr.ph ], [ %127, %29 ]
-  %.0118126 = phi ptr [ %0, %.lr.ph ], [ %125, %29 ]
-  %.0119125 = phi i64 [ %4, %.lr.ph ], [ %spec.select, %29 ]
-  %.0121124 = phi i64 [ %1, %.lr.ph ], [ %126, %29 ]
-  %22 = load ptr, ptr %.0118126, align 8
+21:                                               ; preds = %.lr.ph, %hash_one_portable.exit
+  %.020 = phi ptr [ %9, %.lr.ph ], [ %126, %hash_one_portable.exit ]
+  %.01319 = phi ptr [ %0, %.lr.ph ], [ %124, %hash_one_portable.exit ]
+  %.01418 = phi i64 [ %1, %.lr.ph ], [ %125, %hash_one_portable.exit ]
+  %.01517 = phi i64 [ %4, %.lr.ph ], [ %spec.select, %hash_one_portable.exit ]
+  %22 = load ptr, ptr %.01319, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false)
   br label %23
 
 23:                                               ; preds = %26, %21
-  %.0117 = phi i8 [ %12, %21 ], [ %6, %26 ]
-  %.0116 = phi i64 [ %2, %21 ], [ %28, %26 ]
-  %.0115 = phi ptr [ %22, %21 ], [ %27, %26 ]
-  switch i64 %.0116, label %26 [
-    i64 0, label %29
+  %.014.i = phi i64 [ %2, %21 ], [ %28, %26 ]
+  %.013.i = phi ptr [ %22, %21 ], [ %27, %26 ]
+  %.0.i = phi i8 [ %12, %21 ], [ %6, %26 ]
+  switch i64 %.014.i, label %26 [
+    i64 0, label %hash_one_portable.exit
     i64 1, label %24
   ]
 
 24:                                               ; preds = %23
-  %25 = or i8 %.0117, %8
+  %25 = or i8 %.0.i, %8
   br label %26
 
-26:                                               ; preds = %23, %24
-  %.1 = phi i8 [ %25, %24 ], [ %.0117, %23 ]
-  call void @llvm_blake3_compress_in_place_portable(ptr noundef nonnull %11, ptr noundef %.0115, i8 noundef zeroext 64, i64 noundef %.0119125, i8 noundef zeroext %.1)
-  %27 = getelementptr inbounds nuw i8, ptr %.0115, i64 64
-  %28 = add i64 %.0116, -1
-  br label %23, !llvm.loop !4
+26:                                               ; preds = %24, %23
+  %.1.i = phi i8 [ %25, %24 ], [ %.0.i, %23 ]
+  call void @llvm_blake3_compress_in_place_portable(ptr noundef nonnull %11, ptr noundef %.013.i, i8 noundef zeroext 64, i64 noundef %.01517, i8 noundef zeroext %.1.i)
+  %27 = getelementptr inbounds nuw i8, ptr %.013.i, i64 64
+  %28 = add i64 %.014.i, -1
+  br label %23, !llvm.loop !11
 
-29:                                               ; preds = %23
-  %30 = load i32, ptr %11, align 16
-  %31 = trunc i32 %30 to i8
-  store i8 %31, ptr %.0127, align 1
-  %32 = lshr i32 %30, 8
-  %33 = trunc i32 %32 to i8
-  %34 = getelementptr inbounds nuw i8, ptr %.0127, i64 1
-  store i8 %33, ptr %34, align 1
-  %35 = lshr i32 %30, 16
-  %36 = trunc i32 %35 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %.0127, i64 2
-  store i8 %36, ptr %37, align 1
-  %38 = lshr i32 %30, 24
-  %39 = trunc nuw i32 %38 to i8
-  %40 = getelementptr inbounds nuw i8, ptr %.0127, i64 3
-  store i8 %39, ptr %40, align 1
-  %41 = getelementptr inbounds nuw i8, ptr %.0127, i64 4
-  %42 = load i32, ptr %13, align 4
-  %43 = trunc i32 %42 to i8
-  store i8 %43, ptr %41, align 1
-  %44 = lshr i32 %42, 8
-  %45 = trunc i32 %44 to i8
-  %46 = getelementptr inbounds nuw i8, ptr %.0127, i64 5
-  store i8 %45, ptr %46, align 1
-  %47 = lshr i32 %42, 16
-  %48 = trunc i32 %47 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %.0127, i64 6
-  store i8 %48, ptr %49, align 1
-  %50 = lshr i32 %42, 24
-  %51 = trunc nuw i32 %50 to i8
-  %52 = getelementptr inbounds nuw i8, ptr %.0127, i64 7
-  store i8 %51, ptr %52, align 1
-  %53 = getelementptr inbounds nuw i8, ptr %.0127, i64 8
-  %54 = load i32, ptr %14, align 8
-  %55 = trunc i32 %54 to i8
-  store i8 %55, ptr %53, align 1
-  %56 = lshr i32 %54, 8
-  %57 = trunc i32 %56 to i8
-  %58 = getelementptr inbounds nuw i8, ptr %.0127, i64 9
-  store i8 %57, ptr %58, align 1
-  %59 = lshr i32 %54, 16
-  %60 = trunc i32 %59 to i8
-  %61 = getelementptr inbounds nuw i8, ptr %.0127, i64 10
-  store i8 %60, ptr %61, align 1
-  %62 = lshr i32 %54, 24
-  %63 = trunc nuw i32 %62 to i8
-  %64 = getelementptr inbounds nuw i8, ptr %.0127, i64 11
-  store i8 %63, ptr %64, align 1
-  %65 = getelementptr inbounds nuw i8, ptr %.0127, i64 12
-  %66 = load i32, ptr %15, align 4
-  %67 = trunc i32 %66 to i8
-  store i8 %67, ptr %65, align 1
-  %68 = lshr i32 %66, 8
-  %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds nuw i8, ptr %.0127, i64 13
-  store i8 %69, ptr %70, align 1
-  %71 = lshr i32 %66, 16
-  %72 = trunc i32 %71 to i8
-  %73 = getelementptr inbounds nuw i8, ptr %.0127, i64 14
-  store i8 %72, ptr %73, align 1
-  %74 = lshr i32 %66, 24
-  %75 = trunc nuw i32 %74 to i8
-  %76 = getelementptr inbounds nuw i8, ptr %.0127, i64 15
-  store i8 %75, ptr %76, align 1
-  %77 = getelementptr inbounds nuw i8, ptr %.0127, i64 16
-  %78 = load i32, ptr %16, align 16
-  %79 = trunc i32 %78 to i8
-  store i8 %79, ptr %77, align 1
-  %80 = lshr i32 %78, 8
-  %81 = trunc i32 %80 to i8
-  %82 = getelementptr inbounds nuw i8, ptr %.0127, i64 17
-  store i8 %81, ptr %82, align 1
-  %83 = lshr i32 %78, 16
-  %84 = trunc i32 %83 to i8
-  %85 = getelementptr inbounds nuw i8, ptr %.0127, i64 18
-  store i8 %84, ptr %85, align 1
-  %86 = lshr i32 %78, 24
-  %87 = trunc nuw i32 %86 to i8
-  %88 = getelementptr inbounds nuw i8, ptr %.0127, i64 19
-  store i8 %87, ptr %88, align 1
-  %89 = getelementptr inbounds nuw i8, ptr %.0127, i64 20
-  %90 = load i32, ptr %17, align 4
-  %91 = trunc i32 %90 to i8
-  store i8 %91, ptr %89, align 1
-  %92 = lshr i32 %90, 8
-  %93 = trunc i32 %92 to i8
-  %94 = getelementptr inbounds nuw i8, ptr %.0127, i64 21
-  store i8 %93, ptr %94, align 1
-  %95 = lshr i32 %90, 16
-  %96 = trunc i32 %95 to i8
-  %97 = getelementptr inbounds nuw i8, ptr %.0127, i64 22
-  store i8 %96, ptr %97, align 1
-  %98 = lshr i32 %90, 24
-  %99 = trunc nuw i32 %98 to i8
-  %100 = getelementptr inbounds nuw i8, ptr %.0127, i64 23
-  store i8 %99, ptr %100, align 1
-  %101 = getelementptr inbounds nuw i8, ptr %.0127, i64 24
-  %102 = load i32, ptr %18, align 8
-  %103 = trunc i32 %102 to i8
-  store i8 %103, ptr %101, align 1
-  %104 = lshr i32 %102, 8
-  %105 = trunc i32 %104 to i8
-  %106 = getelementptr inbounds nuw i8, ptr %.0127, i64 25
-  store i8 %105, ptr %106, align 1
-  %107 = lshr i32 %102, 16
-  %108 = trunc i32 %107 to i8
-  %109 = getelementptr inbounds nuw i8, ptr %.0127, i64 26
-  store i8 %108, ptr %109, align 1
-  %110 = lshr i32 %102, 24
-  %111 = trunc nuw i32 %110 to i8
-  %112 = getelementptr inbounds nuw i8, ptr %.0127, i64 27
-  store i8 %111, ptr %112, align 1
-  %113 = getelementptr inbounds nuw i8, ptr %.0127, i64 28
-  %114 = load i32, ptr %19, align 4
-  %115 = trunc i32 %114 to i8
-  store i8 %115, ptr %113, align 1
-  %116 = lshr i32 %114, 8
-  %117 = trunc i32 %116 to i8
-  %118 = getelementptr inbounds nuw i8, ptr %.0127, i64 29
-  store i8 %117, ptr %118, align 1
-  %119 = lshr i32 %114, 16
-  %120 = trunc i32 %119 to i8
-  %121 = getelementptr inbounds nuw i8, ptr %.0127, i64 30
-  store i8 %120, ptr %121, align 1
-  %122 = lshr i32 %114, 24
-  %123 = trunc nuw i32 %122 to i8
-  %124 = getelementptr inbounds nuw i8, ptr %.0127, i64 31
-  store i8 %123, ptr %124, align 1
-  %spec.select = add i64 %.0119125, %20
-  %125 = getelementptr inbounds nuw i8, ptr %.0118126, i64 8
-  %126 = add i64 %.0121124, -1
-  %127 = getelementptr inbounds nuw i8, ptr %.0127, i64 32
-  %.not = icmp eq i64 %126, 0
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !6
+hash_one_portable.exit:                           ; preds = %23
+  %29 = load i32, ptr %11, align 16, !tbaa !6
+  %30 = trunc i32 %29 to i8
+  store i8 %30, ptr %.020, align 1, !tbaa !3
+  %31 = lshr i32 %29, 8
+  %32 = trunc i32 %31 to i8
+  %33 = getelementptr inbounds nuw i8, ptr %.020, i64 1
+  store i8 %32, ptr %33, align 1, !tbaa !3
+  %34 = lshr i32 %29, 16
+  %35 = trunc i32 %34 to i8
+  %36 = getelementptr inbounds nuw i8, ptr %.020, i64 2
+  store i8 %35, ptr %36, align 1, !tbaa !3
+  %37 = lshr i32 %29, 24
+  %38 = trunc nuw i32 %37 to i8
+  %39 = getelementptr inbounds nuw i8, ptr %.020, i64 3
+  store i8 %38, ptr %39, align 1, !tbaa !3
+  %40 = getelementptr inbounds nuw i8, ptr %.020, i64 4
+  %41 = load i32, ptr %13, align 4, !tbaa !6
+  %42 = trunc i32 %41 to i8
+  store i8 %42, ptr %40, align 1, !tbaa !3
+  %43 = lshr i32 %41, 8
+  %44 = trunc i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %.020, i64 5
+  store i8 %44, ptr %45, align 1, !tbaa !3
+  %46 = lshr i32 %41, 16
+  %47 = trunc i32 %46 to i8
+  %48 = getelementptr inbounds nuw i8, ptr %.020, i64 6
+  store i8 %47, ptr %48, align 1, !tbaa !3
+  %49 = lshr i32 %41, 24
+  %50 = trunc nuw i32 %49 to i8
+  %51 = getelementptr inbounds nuw i8, ptr %.020, i64 7
+  store i8 %50, ptr %51, align 1, !tbaa !3
+  %52 = getelementptr inbounds nuw i8, ptr %.020, i64 8
+  %53 = load i32, ptr %14, align 8, !tbaa !6
+  %54 = trunc i32 %53 to i8
+  store i8 %54, ptr %52, align 1, !tbaa !3
+  %55 = lshr i32 %53, 8
+  %56 = trunc i32 %55 to i8
+  %57 = getelementptr inbounds nuw i8, ptr %.020, i64 9
+  store i8 %56, ptr %57, align 1, !tbaa !3
+  %58 = lshr i32 %53, 16
+  %59 = trunc i32 %58 to i8
+  %60 = getelementptr inbounds nuw i8, ptr %.020, i64 10
+  store i8 %59, ptr %60, align 1, !tbaa !3
+  %61 = lshr i32 %53, 24
+  %62 = trunc nuw i32 %61 to i8
+  %63 = getelementptr inbounds nuw i8, ptr %.020, i64 11
+  store i8 %62, ptr %63, align 1, !tbaa !3
+  %64 = getelementptr inbounds nuw i8, ptr %.020, i64 12
+  %65 = load i32, ptr %15, align 4, !tbaa !6
+  %66 = trunc i32 %65 to i8
+  store i8 %66, ptr %64, align 1, !tbaa !3
+  %67 = lshr i32 %65, 8
+  %68 = trunc i32 %67 to i8
+  %69 = getelementptr inbounds nuw i8, ptr %.020, i64 13
+  store i8 %68, ptr %69, align 1, !tbaa !3
+  %70 = lshr i32 %65, 16
+  %71 = trunc i32 %70 to i8
+  %72 = getelementptr inbounds nuw i8, ptr %.020, i64 14
+  store i8 %71, ptr %72, align 1, !tbaa !3
+  %73 = lshr i32 %65, 24
+  %74 = trunc nuw i32 %73 to i8
+  %75 = getelementptr inbounds nuw i8, ptr %.020, i64 15
+  store i8 %74, ptr %75, align 1, !tbaa !3
+  %76 = getelementptr inbounds nuw i8, ptr %.020, i64 16
+  %77 = load i32, ptr %16, align 16, !tbaa !6
+  %78 = trunc i32 %77 to i8
+  store i8 %78, ptr %76, align 1, !tbaa !3
+  %79 = lshr i32 %77, 8
+  %80 = trunc i32 %79 to i8
+  %81 = getelementptr inbounds nuw i8, ptr %.020, i64 17
+  store i8 %80, ptr %81, align 1, !tbaa !3
+  %82 = lshr i32 %77, 16
+  %83 = trunc i32 %82 to i8
+  %84 = getelementptr inbounds nuw i8, ptr %.020, i64 18
+  store i8 %83, ptr %84, align 1, !tbaa !3
+  %85 = lshr i32 %77, 24
+  %86 = trunc nuw i32 %85 to i8
+  %87 = getelementptr inbounds nuw i8, ptr %.020, i64 19
+  store i8 %86, ptr %87, align 1, !tbaa !3
+  %88 = getelementptr inbounds nuw i8, ptr %.020, i64 20
+  %89 = load i32, ptr %17, align 4, !tbaa !6
+  %90 = trunc i32 %89 to i8
+  store i8 %90, ptr %88, align 1, !tbaa !3
+  %91 = lshr i32 %89, 8
+  %92 = trunc i32 %91 to i8
+  %93 = getelementptr inbounds nuw i8, ptr %.020, i64 21
+  store i8 %92, ptr %93, align 1, !tbaa !3
+  %94 = lshr i32 %89, 16
+  %95 = trunc i32 %94 to i8
+  %96 = getelementptr inbounds nuw i8, ptr %.020, i64 22
+  store i8 %95, ptr %96, align 1, !tbaa !3
+  %97 = lshr i32 %89, 24
+  %98 = trunc nuw i32 %97 to i8
+  %99 = getelementptr inbounds nuw i8, ptr %.020, i64 23
+  store i8 %98, ptr %99, align 1, !tbaa !3
+  %100 = getelementptr inbounds nuw i8, ptr %.020, i64 24
+  %101 = load i32, ptr %18, align 8, !tbaa !6
+  %102 = trunc i32 %101 to i8
+  store i8 %102, ptr %100, align 1, !tbaa !3
+  %103 = lshr i32 %101, 8
+  %104 = trunc i32 %103 to i8
+  %105 = getelementptr inbounds nuw i8, ptr %.020, i64 25
+  store i8 %104, ptr %105, align 1, !tbaa !3
+  %106 = lshr i32 %101, 16
+  %107 = trunc i32 %106 to i8
+  %108 = getelementptr inbounds nuw i8, ptr %.020, i64 26
+  store i8 %107, ptr %108, align 1, !tbaa !3
+  %109 = lshr i32 %101, 24
+  %110 = trunc nuw i32 %109 to i8
+  %111 = getelementptr inbounds nuw i8, ptr %.020, i64 27
+  store i8 %110, ptr %111, align 1, !tbaa !3
+  %112 = getelementptr inbounds nuw i8, ptr %.020, i64 28
+  %113 = load i32, ptr %19, align 4, !tbaa !6
+  %114 = trunc i32 %113 to i8
+  store i8 %114, ptr %112, align 1, !tbaa !3
+  %115 = lshr i32 %113, 8
+  %116 = trunc i32 %115 to i8
+  %117 = getelementptr inbounds nuw i8, ptr %.020, i64 29
+  store i8 %116, ptr %117, align 1, !tbaa !3
+  %118 = lshr i32 %113, 16
+  %119 = trunc i32 %118 to i8
+  %120 = getelementptr inbounds nuw i8, ptr %.020, i64 30
+  store i8 %119, ptr %120, align 1, !tbaa !3
+  %121 = lshr i32 %113, 24
+  %122 = trunc nuw i32 %121 to i8
+  %123 = getelementptr inbounds nuw i8, ptr %.020, i64 31
+  store i8 %122, ptr %123, align 1, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #5
+  %spec.select = add i64 %.01517, %20
+  %124 = getelementptr inbounds nuw i8, ptr %.01319, i64 8
+  %125 = add i64 %.01418, -1
+  %126 = getelementptr inbounds nuw i8, ptr %.020, i64 32
+  %.not = icmp eq i64 %125, 0
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %29, %10
+._crit_edge:                                      ; preds = %hash_one_portable.exit, %10
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #3
+declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !4, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !4, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12}

@@ -1,5 +1,5 @@
-; ModuleID = 'bench/llvm/original/MCSymbolELF.cpp.ll'
-source_filename = "bench/llvm/original/MCSymbolELF.cpp.ll"
+; ModuleID = 'bench/llvm/original/MCSymbolELF.ll'
+source_filename = "bench/llvm/original/MCSymbolELF.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -66,7 +66,7 @@ switch.lookup:                                    ; preds = %1
   br label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %0, align 8
+  %7 = load ptr, ptr %0, align 8, !tbaa !3
   %.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i, label %8, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread
 
@@ -79,9 +79,9 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit:              ; preds = %8
   %10 = or i64 %3, 8
   store i64 %10, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #4
-  store ptr %13, ptr %0, align 8
+  store ptr %13, ptr %0, align 8, !tbaa !3
   %.not5 = icmp eq ptr %13, null
   br i1 %.not5, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit._ZNK4llvm8MCSymbol9isDefinedEv.exit.thread3_crit_edge, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread
 
@@ -107,8 +107,8 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread3:      ; preds = %_ZNK4llvm8MCSymbol9
   br label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread
 
 _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread:       ; preds = %switch.lookup, %6, %18, %16, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread3, %_ZNK4llvm8MCSymbol9isDefinedEv.exit
-  %.0 = phi i32 [ 0, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ], [ 1, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread3 ], [ 2, %16 ], [ %., %18 ], [ 0, %6 ], [ %switch.load, %switch.lookup ]
-  ret i32 %.0
+  %.1 = phi i32 [ 0, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ], [ 1, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread3 ], [ 2, %16 ], [ %., %18 ], [ 0, %6 ], [ %switch.load, %switch.lookup ]
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -260,15 +260,22 @@ define dso_local void @_ZN4llvm11MCSymbolELF9setMemtagEb(ptr noundef nonnull ali
 
 declare noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSN4llvm8MCSymbolE", !5, i64 0, !9, i64 8, !9, i64 8, !9, i64 8, !9, i64 8, !9, i64 8, !9, i64 8, !9, i64 8, !9, i64 8, !9, i64 9, !9, i64 9, !9, i64 9, !9, i64 9, !9, i64 12, !9, i64 16, !7, i64 24}
+!5 = !{!"p1 _ZTSN4llvm10MCFragmentE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!7, !7, i64 0}
